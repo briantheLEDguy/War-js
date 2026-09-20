@@ -10,6 +10,8 @@ each export before publication to the game and GM builder. Keep enclosure, stair
 fit and railing corrections have passed bounded gameplay checks. Fitted ram crews
 and the repair bench/ammunition cradle are integrated; every keep has both items.
 Sunmeadow's supply post and Cinderfen's workshop also have fitted worksite pairs.
+All eight Sunmeadow supply shelters now support characters at their modeled
+board height; the same floor support is included in GM placement.
 Barrek Reedhauler, the Greenskin peat worker, and Edric Hayward, the Empire
 farmer, are published in Cinderfen and Sunmeadow and in the GM catalog. Both
 retain editable masters, complete fitted clothing, nine clips and three LODs;

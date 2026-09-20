@@ -38,6 +38,12 @@ and is published as Edric Hayward in Sunmeadow and GM; actual gameplay verified
 its three LODs at 6.2/45.2/100.2m. Both characters retain editable masters and
 nine clips. The remaining initial cast is Empire herbalist, High Elf field scout
 and Dark Elf supply officer.
+All eight Sunmeadow supply shelters now expose their measured 86mm raised
+floor to local/shared navigation and GM placement. A local player walked off
+the boards to terrain and back onto them successfully. Twenty-three focused
+floor, furnishing and village-access tests pass; the latest full suite above
+precedes this small collision-data addition.
+
 The next parallel batch is active: `sunmeadow-herbalist/`,
 `cinderfen-supply-officer/` and `field-apothecary/`. Their package work states
 record technical progress. Serra Brightfield and Nyra Vex keep their existing

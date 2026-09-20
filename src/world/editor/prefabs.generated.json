@@ -10756,6 +10756,16 @@
         "z": -2.5
       }
     ],
+    "walkableSurfaces": [
+      {
+        "x": 0,
+        "z": 0,
+        "width": 7.2,
+        "depth": 4.2,
+        "fromY": 0.086,
+        "toY": 0.086
+      }
+    ],
     "cameraSolid": true,
     "assetCategory": "staticProps"
   },

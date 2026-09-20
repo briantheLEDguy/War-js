@@ -3860,6 +3860,17 @@
           "x": 0,
           "z": -2.5
         }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_salvage_station_visual_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
+        }
       ]
     },
     {
@@ -3899,6 +3910,17 @@
           "x": 0,
           "z": -2.5
         }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_apothecary_station_visual_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
+        }
       ]
     },
     {
@@ -3937,6 +3959,17 @@
           "minY": 0,
           "x": 0,
           "z": -2.5
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_west_camp_tent_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
         }
       ]
     },
@@ -3987,6 +4020,17 @@
           "x": 0,
           "z": -2.5
         }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_east_camp_tent_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
+        }
       ]
     },
     {
@@ -4035,6 +4079,17 @@
           "minY": 0,
           "x": 0,
           "z": -2.5
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_keep_supply_cart_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
         }
       ]
     },
@@ -4304,7 +4359,18 @@
         }
       ],
       "assetKey": "frontier_sunmeadow_supply_post",
-      "colliderSpace": "model"
+      "colliderSpace": "model",
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_life_outfitter_1_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
+        }
+      ]
     },
     {
       "id": "sunmeadow_march_life_outfitter_2",
@@ -22489,6 +22555,17 @@
           "x": 0,
           "z": -2.5
         }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_aegis_keep_quartermaster_shelter_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
+        }
       ]
     },
     {
@@ -23456,6 +23533,17 @@
           "minY": 0,
           "x": 0,
           "z": -2.5
+        }
+      ],
+      "walkableSurfaces": [
+        {
+          "id": "sunmeadow_march_riftbound_keep_quartermaster_shelter_floorboards",
+          "x": 0,
+          "z": 0,
+          "width": 7.2,
+          "depth": 4.2,
+          "fromY": 0.086,
+          "toY": 0.086
         }
       ]
     },
@@ -33751,5 +33839,5 @@
       }
     ]
   },
-  "staticMapHash": "07e2de04ca0cdc93"
+  "staticMapHash": "a4897716fdf3bfbe"
 }

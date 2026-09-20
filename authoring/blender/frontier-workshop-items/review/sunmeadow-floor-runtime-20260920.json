@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-20",
+  "zone": "sunmeadow_march",
+  "runtime": "Production local Game/Player through runtime-keep-review.html",
+  "mapSha256": "98ae3897d4baaaab51c230fcc44394b40499eb0e1a6629fea16ab4ec00a2ad1f",
+  "modelSha256": "241fc3646674f1279f4cc8dcc85dcd36ffbcc14894f0aecad33425b9dce45357",
+  "harnessSha256": "bc25de77dab653f0bb4670258c94d0c32b68f0c98b0485efc1d15ab059ff1e40",
+  "floor": {
+    "height": 0.086,
+    "width": 7.2,
+    "depth": 4.2,
+    "actualMeshRangeY": [
+      0.07703068107366562,
+      0.09362249076366425
+    ],
+    "sites": 8
+  },
+  "checks": [
+    {
+      "action": "visit_worksite_repair_bench",
+      "position": [
+        -402.028,
+        0.086,
+        -251.88
+      ]
+    },
+    {
+      "action": "south_2_seconds",
+      "start": [
+        -402.028,
+        0.086,
+        -251.88
+      ],
+      "end": [
+        -402.028,
+        0,
+        -239.832
+      ]
+    },
+    {
+      "action": "north_2_seconds",
+      "start": [
+        -402.028,
+        0,
+        -239.832
+      ],
+      "end": [
+        -402.028,
+        0.086,
+        -251.818
+      ]
+    }
+  ],
+  "result": "Player stands on the raised boards, leaves to terrain and steps back onto the platform; inspector alive.",
+  "limits": [
+    "Bounded local gameplay route; other rotated sites checked by shared navigation tests.",
+    "Flat support datum approximates sculpted plank variation within 9mm.",
+    "Existing legacy sky fallback remains."
+  ]
+}

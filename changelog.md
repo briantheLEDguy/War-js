@@ -1,3 +1,7 @@
+## 2026-09-20 — Sunmeadow shelter floor support
+
+- Added measured floor support to all eight supply shelters and their GM definitions. Characters now stand on the raised boards and step down to terrain, verified against the actual GLB and in local gameplay.
+
 ## 2026-09-20 — Next service and equipment batch
 
 - Added strict female body/rig identity support for regional publication and approved-only art replacement that preserves existing NPC/service identities.

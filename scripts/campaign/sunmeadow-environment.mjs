@@ -185,6 +185,9 @@ function dressArchitecture(zone) {
       { id: `${entry.id}_right_wall`, ...solid(.5, 5, 1.5, 4) },
       { id: `${entry.id}_rear_wall`, ...solid(8, .5, 1.5, 0, -2.5) },
     ];
+    // The authored floorboards sit above terrain; share their top with both movement runtimes.
+    entry.walkableSurfaces = [{ id: `${entry.id}_floorboards`, x: 0, z: 0,
+      width: 7.2, depth: 4.2, fromY: .086, toY: .086 }];
   }
   zone.orvrLayout.assetPolicy.requiredAssetKeys = [...new Set([
     ...zone.orvrLayout.assetPolicy.requiredAssetKeys.filter(key => key !== 'frontier_keep_gate'), ...ARCHITECTURE,

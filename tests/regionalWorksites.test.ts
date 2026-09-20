@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
-import { Box3, Matrix4, Quaternion, Ray, Triangle, Vector3 } from 'three';
+import { Box3, Ray, Vector3 } from 'three';
 import { expect, test } from 'vitest';
+import { modelTriangles } from './helpers/staticGlbGeometry';
 // @ts-expect-error Campaign generation is executable JavaScript.
 import { integrateRegionalWorksites, REGIONAL_WORKSITES, regionalWorksiteReservations } from '../scripts/campaign/regional-worksites.mjs';
 // @ts-expect-error Campaign generation is executable JavaScript.
@@ -24,47 +25,6 @@ const ids = ['sunmeadow_march', 'cinderfen_outskirts'];
 const source = (id: string) => read(`public/assets/maps/${id}.json`);
 const owned = (zone: ReturnType<typeof source>) => zone.props.filter((p: { id: string }) => p.id?.startsWith(`${zone.id}_worksite_`));
 
-/** Decode delivered triangles, not just accessor bounds or authored collision. */
-function modelTriangles(model: string): Triangle[] {
-  const bytes = fs.readFileSync(`public/assets/models/${model}`);
-  const doc = JSON.parse(bytes.subarray(20, 20 + bytes.readUInt32LE(12)).toString());
-  let bin = Buffer.alloc(0);
-  for (let at = 12; at < bytes.length;) {
-    const length = bytes.readUInt32LE(at);
-    if (bytes.readUInt32LE(at + 4) === 0x004e4942) bin = bytes.subarray(at + 8, at + 8 + length);
-    at += 8 + length;
-  }
-  const component = (index: number, vertex: number, channel = 0): number => {
-    const a = doc.accessors[index], view = doc.bufferViews[a.bufferView];
-    const size = a.componentType === 5123 ? 2 : a.componentType === 5121 ? 1 : 4;
-    const offset = (view.byteOffset ?? 0) + (a.byteOffset ?? 0)
-      + vertex * (view.byteStride ?? (a.type === 'VEC3' ? 3 : 1) * size) + channel * size;
-    return a.componentType === 5126 ? bin.readFloatLE(offset)
-      : size === 4 ? bin.readUInt32LE(offset) : size === 2 ? bin.readUInt16LE(offset) : bin.readUInt8(offset);
-  };
-  const result: Triangle[] = [];
-  const visit = (index: number, parent: Matrix4) => {
-    const node = doc.nodes[index];
-    const local = node.matrix ? new Matrix4().fromArray(node.matrix) : new Matrix4().compose(
-      new Vector3().fromArray(node.translation ?? [0, 0, 0]),
-      new Quaternion().fromArray(node.rotation ?? [0, 0, 0, 1]), new Vector3().fromArray(node.scale ?? [1, 1, 1]));
-    const world = parent.clone().multiply(local);
-    for (const primitive of doc.meshes?.[node.mesh]?.primitives ?? []) {
-      expect(primitive.mode ?? 4).toBe(4);
-      const count = doc.accessors[primitive.indices ?? primitive.attributes.POSITION].count;
-      for (let i = 0; i < count; i += 3) {
-        const points = [0, 1, 2].map(k => {
-          const vertex = primitive.indices === undefined ? i + k : component(primitive.indices, i + k);
-          return new Vector3(...[0, 1, 2].map(axis => component(primitive.attributes.POSITION, vertex, axis)) as [number, number, number]).applyMatrix4(world);
-        });
-        result.push(new Triangle(points[0], points[1], points[2]));
-      }
-    }
-    for (const child of node.children ?? []) visit(child, world);
-  };
-  for (const index of doc.scenes[doc.scene ?? 0].nodes) visit(index, new Matrix4());
-  return result;
-}
 
 for (const id of ids) {
   test(`${id}: composes two measured service props without moving the village`, () => {
@@ -185,7 +145,7 @@ for (const id of ids) {
       expect(campaignColliderBlocksHeight(body, item.y)).toBe(true);
       expect(campaignColliderContains(body, { ...body.footprint!, y: item.y }, .45)).toBe(true);
       const point = { x: item.x, y: item.y, z: item.z };
-      expect(Math.abs(campaignGroundHeight(config, point) - item.y)).toBeLessThan(id === 'sunmeadow_march' ? .09 : .005);
+      expect(Math.abs(campaignGroundHeight(config, point) - item.y)).toBeLessThan(.005);
     }
   }, 15000);
 }
