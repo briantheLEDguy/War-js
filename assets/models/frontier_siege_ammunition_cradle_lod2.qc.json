@@ -1,0 +1,161 @@
+{
+  "assetId": "prop.frontier.siege_ammunition_cradle",
+  "qcPassed": true,
+  "modelSha256": "47449bce34210851d23c690db1d8b0d11cfb354014303fc453f148adc9691578",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_siege_ammunition_cradle_lod0.glb",
+      "sha256": "8ee7dcc06064fc20ff957be826bc036e2611a54cd5a25f6f9446c27210a0c30d",
+      "triangles": 31746,
+      "bytes": 2590484,
+      "externalTextures": [
+        {
+          "uri": "../textures/frontier_workshop_items/063daa748e49ea7b20841e9356d496af12204d0b785bd210fc5a02f59819cc1f.png",
+          "sha256": "063daa748e49ea7b20841e9356d496af12204d0b785bd210fc5a02f59819cc1f"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/3f72a8616190126f23c7e7995b5d13d67b06fbb456708a1f800ee14ef7e7d238.png",
+          "sha256": "3f72a8616190126f23c7e7995b5d13d67b06fbb456708a1f800ee14ef7e7d238"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/0029ab3009a680b1838b89cfd3f71c4e775a4ac743d4d9b80c815b66b625becb.png",
+          "sha256": "0029ab3009a680b1838b89cfd3f71c4e775a4ac743d4d9b80c815b66b625becb"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/cdec8ba6853bb0c4f580b182e1d4ffc3b9ee0b0647cbe87a7f5ca73454115662.png",
+          "sha256": "cdec8ba6853bb0c4f580b182e1d4ffc3b9ee0b0647cbe87a7f5ca73454115662"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/e4f39ad1403203aedfbe634e9e7094c55c65b92aba30d804031615fdac6e3472.png",
+          "sha256": "e4f39ad1403203aedfbe634e9e7094c55c65b92aba30d804031615fdac6e3472"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/951f1bcb7e1586c6a3574b4296d988d14f84e2f7097b09a12ded87697e81e427.png",
+          "sha256": "951f1bcb7e1586c6a3574b4296d988d14f84e2f7097b09a12ded87697e81e427"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/1eb9daa0f663c9ff1202442f2f6b5314988f12162ab7ebe46618548fddacd9af.png",
+          "sha256": "1eb9daa0f663c9ff1202442f2f6b5314988f12162ab7ebe46618548fddacd9af"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/232a32c8775449a81ca5af98cf351fa242e1f7e4a01a4d56d11dbf26aa14fca8.png",
+          "sha256": "232a32c8775449a81ca5af98cf351fa242e1f7e4a01a4d56d11dbf26aa14fca8"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/12a81d36041389c15290a7ffe87e5049cfa875da62e4cec01a8afb90ee9deacd.png",
+          "sha256": "12a81d36041389c15290a7ffe87e5049cfa875da62e4cec01a8afb90ee9deacd"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_siege_ammunition_cradle_lod1.glb",
+      "sha256": "49631ebc93de0d57a531405acaa880b952e60cbae20ad6249d480afd2ca0fb01",
+      "triangles": 12954,
+      "bytes": 1206008,
+      "externalTextures": [
+        {
+          "uri": "../textures/frontier_workshop_items/f6b577ee60d0e61affa1f52961051d11249b7052cecf7f398313f53aab4c1ac3.png",
+          "sha256": "f6b577ee60d0e61affa1f52961051d11249b7052cecf7f398313f53aab4c1ac3"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/f0edc55eac06920990193f72e4379ccedd6b55963b0fb7b3c60ba6380bc1a117.png",
+          "sha256": "f0edc55eac06920990193f72e4379ccedd6b55963b0fb7b3c60ba6380bc1a117"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/d79714f21b5ef766ac7550999869b5f9d8a187c8671f94c2c7d6cbdaadac9e66.png",
+          "sha256": "d79714f21b5ef766ac7550999869b5f9d8a187c8671f94c2c7d6cbdaadac9e66"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/29b4488ea21223d0d2af0348e528e2b85cdfddd3b04523737c127eb730f04583.png",
+          "sha256": "29b4488ea21223d0d2af0348e528e2b85cdfddd3b04523737c127eb730f04583"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/5ccb3f1045d089c791ebce2c3c11fd75771cace0c26d9f91517dae9713b31bf5.png",
+          "sha256": "5ccb3f1045d089c791ebce2c3c11fd75771cace0c26d9f91517dae9713b31bf5"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/7c2774c55df0a34b2a8810dd81b62e4d144ad082e1990b365899d52d71798132.png",
+          "sha256": "7c2774c55df0a34b2a8810dd81b62e4d144ad082e1990b365899d52d71798132"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/89c2b8b9e38a6a09fa1a5979ffa62943c0d6f97b54e1dae50327c425e52ef089.png",
+          "sha256": "89c2b8b9e38a6a09fa1a5979ffa62943c0d6f97b54e1dae50327c425e52ef089"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/a01c872d124351f17ca7b8b89d5cfe3f2e900b99fd3fd113d0d89cd9491ee5ec.png",
+          "sha256": "a01c872d124351f17ca7b8b89d5cfe3f2e900b99fd3fd113d0d89cd9491ee5ec"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/2dc23043a5e72eeaaadfc70f0c9fa7b1d2b3b9ea21edca4796256abee29455fc.png",
+          "sha256": "2dc23043a5e72eeaaadfc70f0c9fa7b1d2b3b9ea21edca4796256abee29455fc"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_siege_ammunition_cradle_lod2.glb",
+      "sha256": "47449bce34210851d23c690db1d8b0d11cfb354014303fc453f148adc9691578",
+      "triangles": 3070,
+      "bytes": 352908,
+      "externalTextures": [
+        {
+          "uri": "../textures/frontier_workshop_items/81f324d323671166e22582e06f96e00a453d2e71e375f6386f54b0e797ad2eb3.png",
+          "sha256": "81f324d323671166e22582e06f96e00a453d2e71e375f6386f54b0e797ad2eb3"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/33580c341fd6b5503b0313d517135dd50c694a1bb399a1de199dbf66f99de020.png",
+          "sha256": "33580c341fd6b5503b0313d517135dd50c694a1bb399a1de199dbf66f99de020"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/fe9059ac90f4d2d356aff64ba817244ac3984906dc73815a145388b3abc71ecb.png",
+          "sha256": "fe9059ac90f4d2d356aff64ba817244ac3984906dc73815a145388b3abc71ecb"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/464909aed32ad91a8adc334af94362f4d63a60387934d16ae754b129b8be143e.png",
+          "sha256": "464909aed32ad91a8adc334af94362f4d63a60387934d16ae754b129b8be143e"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/ab95fbeedc93c369869e4479d7df96b6c29860f104505ae68fd4dd23d7f965cd.png",
+          "sha256": "ab95fbeedc93c369869e4479d7df96b6c29860f104505ae68fd4dd23d7f965cd"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/a34985f3448143ad676c87cf9bab49730110120bddead86a63f5447faedcda42.png",
+          "sha256": "a34985f3448143ad676c87cf9bab49730110120bddead86a63f5447faedcda42"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/32e1383d056affbe2868602126c7fa782abcb7f507fe7cf275d6de578aaa91e7.png",
+          "sha256": "32e1383d056affbe2868602126c7fa782abcb7f507fe7cf275d6de578aaa91e7"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/baa414c02d0bd8dbd375b2a43b04a85abc0f3d13f4c20f1379d0e929ee50f414.png",
+          "sha256": "baa414c02d0bd8dbd375b2a43b04a85abc0f3d13f4c20f1379d0e929ee50f414"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/3223a0e303fa15dacdb8d436dc5d931ba42dc02f213833b166d15a8058fdae0c.png",
+          "sha256": "3223a0e303fa15dacdb8d436dc5d931ba42dc02f213833b166d15a8058fdae0c"
+        }
+      ]
+    }
+  ],
+  "totalTris": 3070,
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "40370d5a9c7f7c067708b14a25caebc519da39d00136d8a41adc66449ff4f492",
+  "collisionContractSha256": "2d406cf3a134478819f6c984a9ea627cb2a2e56e35c2519a5fc54fd4efd1b3af",
+  "previewImages": [
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_neutral.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_gameplay.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod0_detail.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod1_neutral.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod1_gameplay.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod2_neutral.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_ammunition_cradle_lod2_gameplay.png"
+  ],
+  "limitations": [
+    "Static scenery; repair and ammunition interactions are not implemented."
+  ]
+}

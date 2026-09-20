@@ -1,0 +1,213 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.cinderfen_marsh_alder",
+  "modelSha256": "83de61cb6fcf214d936cbcece20997e5ab50a34c5db6f827a2cd0f31649af6ee",
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "reviewHash": "46cd4d0b307008c1c546b7751af5c23c87770f562d8dfddc89a1489abc541cf4",
+  "totalTris": 39816,
+  "meshCount": 3,
+  "nonManifoldEdges": 0,
+  "missingRequiredClips": [],
+  "pbrChannels": [
+    "baseColor",
+    "roughness",
+    "metallic",
+    "normal",
+    "occlusion"
+  ],
+  "maxTextureResolution": 4096,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_cinderfen_marsh_alder_lod0.glb",
+      "sha256": "97c26ebdaa651d12adf6ecabbb46391ad829b40de0ace8da0099de557794bc15",
+      "triangles": 104764,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_nature/b9dc1bb8e89341f92625070f72a06cb9ca1d04b89aaa4018df50ca75bbf4bd1c.png",
+          "sha256": "b9dc1bb8e89341f92625070f72a06cb9ca1d04b89aaa4018df50ca75bbf4bd1c"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/60decc94c8997e95a9ab334d24f000069ba6cb6221133aa703e4bc1db2f49638.png",
+          "sha256": "60decc94c8997e95a9ab334d24f000069ba6cb6221133aa703e4bc1db2f49638"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/c7be38514a39967d24dc4db471b00e377650ea6ff772147513bf8c4662368f69.png",
+          "sha256": "c7be38514a39967d24dc4db471b00e377650ea6ff772147513bf8c4662368f69"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28.png",
+          "sha256": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4.png",
+          "sha256": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2.png",
+          "sha256": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f.png",
+          "sha256": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630.png",
+          "sha256": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0.png",
+          "sha256": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_cinderfen_marsh_alder_lod1.glb",
+      "sha256": "83de61cb6fcf214d936cbcece20997e5ab50a34c5db6f827a2cd0f31649af6ee",
+      "triangles": 39816,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_nature/b10f4544b01b13247c6b8d77ef1be3ded666655cb701aaae44f08ecf39738720.png",
+          "sha256": "b10f4544b01b13247c6b8d77ef1be3ded666655cb701aaae44f08ecf39738720"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/e53e46dbf9707565206218ebb2c386ee1dcbfa806dd391714bc9edbeffb8f231.png",
+          "sha256": "e53e46dbf9707565206218ebb2c386ee1dcbfa806dd391714bc9edbeffb8f231"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/1ca7cd5d26e2c975bd538ce73fe7f79eae67dc9061053f55c330d1ea41578133.png",
+          "sha256": "1ca7cd5d26e2c975bd538ce73fe7f79eae67dc9061053f55c330d1ea41578133"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28.png",
+          "sha256": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4.png",
+          "sha256": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2.png",
+          "sha256": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f.png",
+          "sha256": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630.png",
+          "sha256": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0.png",
+          "sha256": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_cinderfen_marsh_alder_lod2.glb",
+      "sha256": "574ddaf7d691fbf9eff6baa3cbe2ae839a83e1c52aaffb902f79de465338ff4e",
+      "triangles": 5672,
+      "externalTextures": [
+        {
+          "uri": "../textures/cinderfen_nature/41cb8b7976ef73ef88aa6b9e6f7f30aa7acf9aa69ad9a2fa7216e39b2c3146f9.png",
+          "sha256": "41cb8b7976ef73ef88aa6b9e6f7f30aa7acf9aa69ad9a2fa7216e39b2c3146f9"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/b41548cb7aeb60b739b7efb77828f7276f77ba7c39d5c797af339ef298f712c5.png",
+          "sha256": "b41548cb7aeb60b739b7efb77828f7276f77ba7c39d5c797af339ef298f712c5"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/8ea82e8b9c53f83e707f92a7861263fa75ede973c0ce5fe5fd6f869ed2aaaa02.png",
+          "sha256": "8ea82e8b9c53f83e707f92a7861263fa75ede973c0ce5fe5fd6f869ed2aaaa02"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28.png",
+          "sha256": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4.png",
+          "sha256": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4"
+        },
+        {
+          "uri": "../textures/cinderfen_nature/d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2.png",
+          "sha256": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2"
+        }
+      ]
+    }
+  ],
+  "externalTextures": [
+    {
+      "uri": "../textures/cinderfen_nature/b10f4544b01b13247c6b8d77ef1be3ded666655cb701aaae44f08ecf39738720.png",
+      "sha256": "b10f4544b01b13247c6b8d77ef1be3ded666655cb701aaae44f08ecf39738720"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/e53e46dbf9707565206218ebb2c386ee1dcbfa806dd391714bc9edbeffb8f231.png",
+      "sha256": "e53e46dbf9707565206218ebb2c386ee1dcbfa806dd391714bc9edbeffb8f231"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/1ca7cd5d26e2c975bd538ce73fe7f79eae67dc9061053f55c330d1ea41578133.png",
+      "sha256": "1ca7cd5d26e2c975bd538ce73fe7f79eae67dc9061053f55c330d1ea41578133"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28.png",
+      "sha256": "c11791d9e5043ac3c8161905864f93e4ae370d3dbc18e51cac2b2a0598ad5b28"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4.png",
+      "sha256": "21505d691da18e2034506a4a5a5e1b89ff82c8304f3b2211333d659b361516b4"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2.png",
+      "sha256": "d0fb79b9b676049cacbb23f97cb959c3bb57e7476775ee200f1370779974dec2"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f.png",
+      "sha256": "afe01f3f89caa10d02a03fcddcab3bf3475668b21eef1e73149a378f8d8a5a9f"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630.png",
+      "sha256": "4b4f5c865dd5a842b671b04face6cd27541f70d6a937a2155553a20785118630"
+    },
+    {
+      "uri": "../textures/cinderfen_nature/03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0.png",
+      "sha256": "03b51ecf338c81a192323c7ce649ab094730e65399fcb69bd83c5d8d8875dea0"
+    }
+  ],
+  "previewImages": [
+    "public/assets/models/previews/frontier_cinderfen_marsh_alder.png"
+  ],
+  "bounds": {
+    "minimum": [
+      -2.9134013652801514,
+      -2.332132577896118,
+      -0.5384602546691895
+    ],
+    "maximum": [
+      3.204603910446167,
+      3.117926597595215,
+      10.352274894714355
+    ]
+  },
+  "placementContract": {
+    "kind": "tree",
+    "plantedDatum": 0,
+    "crownClearanceM": 7,
+    "colliders": [
+      {
+        "x": 0.1,
+        "z": -0.1,
+        "width": 1.06,
+        "depth": 1.06,
+        "minY": 0,
+        "maxY": 4.1
+      }
+    ],
+    "walkableSurfaces": [],
+    "cameraSolid": true
+  },
+  "topologyPolicy": "Original botanical paths, asymmetrical section records, thick blade outlines and basalt fracture surveys remain editable in the Blender masters. The main alder bark is one joined shell; small closed organs overlap at seated shoot attachments; no canopy cards or primitive constructors are used. Positional topology welds only glTF material/UV/normal seam splits at one micrometre and requires zero boundary/multi-face/loose edges. Shared painted fields intentionally overlap UVs across repeated botanical organs and stone faces. Three original LODs reduce organs and surface detail while retaining primary planted forms. Static models have no wind or skeletal animation. Internal actual-export visual acceptance is required before publication."
+}

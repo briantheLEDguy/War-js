@@ -1,0 +1,535 @@
+{
+  "qcPassed": true,
+  "assetId": "prop.frontier.field_command_table",
+  "modelSha256": "b353175111bf942b8777280fb15c7e3f28ffe0d312e15aa7413952e12e36040d",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_field_command_table_lod0.glb",
+      "sha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa",
+      "triangles": 27534,
+      "bytes": 8343904,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_command_table_lod1.glb",
+      "sha256": "8e75aa87a5c2d1d8f6ef20d0697ba1c8ec4ebcf008d514ab35fb2c8c93b751be",
+      "triangles": 13366,
+      "bytes": 3117428,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_command_table_lod2.glb",
+      "sha256": "b353175111bf942b8777280fb15c7e3f28ffe0d312e15aa7413952e12e36040d",
+      "triangles": 5274,
+      "bytes": 968028,
+      "externalTextures": []
+    }
+  ],
+  "builtLods": [
+    {
+      "level": 0,
+      "model": "frontier_field_command_table_lod0.glb",
+      "sha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa",
+      "triangles": 27534,
+      "bytes": 8343904,
+      "externalTextures": []
+    },
+    {
+      "level": 1,
+      "model": "frontier_field_command_table_lod1.glb",
+      "sha256": "8e75aa87a5c2d1d8f6ef20d0697ba1c8ec4ebcf008d514ab35fb2c8c93b751be",
+      "triangles": 13366,
+      "bytes": 3117428,
+      "externalTextures": []
+    },
+    {
+      "level": 2,
+      "model": "frontier_field_command_table_lod2.glb",
+      "sha256": "b353175111bf942b8777280fb15c7e3f28ffe0d312e15aa7413952e12e36040d",
+      "triangles": 5274,
+      "bytes": 968028,
+      "externalTextures": []
+    }
+  ],
+  "totalTris": 5274,
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "externalTextures": [],
+  "bounds": {
+    "min": [
+      -0.8999999761581421,
+      0,
+      -0.5
+    ],
+    "max": [
+      0.8999999761581421,
+      0.9760000109672546,
+      0.5
+    ]
+  },
+  "collisionContractSha256": "2e356e84f4b560c9b4f1d2d981cec3ad2be459fb4d4c8372c41aca626eac27b3",
+  "reviewHash": "8f77f8a5152929d95d5c4e70374a968a49b652f92a4407aa1a238e84030773bf",
+  "reviewEvidence": {
+    "assetId": "prop.frontier.field_command_table",
+    "models": [
+      {
+        "level": 0,
+        "model": "frontier_field_command_table_lod0.glb",
+        "sha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa",
+        "triangles": 27534,
+        "bytes": 8343904,
+        "externalTextures": []
+      },
+      {
+        "level": 1,
+        "model": "frontier_field_command_table_lod1.glb",
+        "sha256": "8e75aa87a5c2d1d8f6ef20d0697ba1c8ec4ebcf008d514ab35fb2c8c93b751be",
+        "triangles": 13366,
+        "bytes": 3117428,
+        "externalTextures": []
+      },
+      {
+        "level": 2,
+        "model": "frontier_field_command_table_lod2.glb",
+        "sha256": "b353175111bf942b8777280fb15c7e3f28ffe0d312e15aa7413952e12e36040d",
+        "triangles": 5274,
+        "bytes": 968028,
+        "externalTextures": []
+      }
+    ],
+    "files": {
+      "authoring/blender/field-command-table/builder-contract.json": {
+        "sha256": "2e356e84f4b560c9b4f1d2d981cec3ad2be459fb4d4c8372c41aca626eac27b3",
+        "bytes": 5086
+      },
+      "authoring/blender/field-command-table/masters/frontier_field_command_table_lod0.blend": {
+        "sha256": "915d2074869ebcdeaa857c03a8ce40a3098f8797f555d139d64e67d4033e190f",
+        "bytes": 6755014
+      },
+      "authoring/blender/field-command-table/masters/frontier_field_command_table_lod0.source.blend": {
+        "sha256": "43fd77b6ad4c21c2436483aa45db6c5652d230e728bdd084aeb694f45ffeb218",
+        "bytes": 5999429
+      },
+      "authoring/blender/field-command-table/masters/frontier_field_command_table_lod1.blend": {
+        "sha256": "877531de7b3831466ab247e44d0e377d87affaf99e292d2b29104d6c5f5634f7",
+        "bytes": 2497177
+      },
+      "authoring/blender/field-command-table/masters/frontier_field_command_table_lod1.source.blend": {
+        "sha256": "2df6b6cc1bb1d74acaf6126c9eab070d8dfbfd0518aca8416759391d41fffbd8",
+        "bytes": 2148852
+      },
+      "authoring/blender/field-command-table/masters/frontier_field_command_table_lod2.blend": {
+        "sha256": "337f651b3ba3e1191c29ba995a65ea0a0b830b05dd49a15dcfe6e311810761da",
+        "bytes": 887170
+      },
+      "authoring/blender/field-command-table/masters/frontier_field_command_table_lod2.source.blend": {
+        "sha256": "13069bfa4bbc7ce5a49ead6f3e8626ea452a4256be27e9652cb9eb9db24c6022",
+        "bytes": 790455
+      },
+      "authoring/blender/field-command-table/provenance.json": {
+        "sha256": "8298e8a2200aefa4203d3c78076f60972cdb9dc31bb8c59d50fc0d203706d0fd",
+        "bytes": 2253
+      },
+      "authoring/blender/field-command-table/review/construction-contacts.json": {
+        "sha256": "1b4abf3ddebefb07199284c877d711f69592b492443891ec1c72aa4edd6c1257",
+        "bytes": 91448
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_build.json": {
+        "sha256": "7fb859366e824d0b6b58c84defb7b257d43f249f4317df311e27d1317082c8dd",
+        "bytes": 123628
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_build.json": {
+        "sha256": "dd96978ffc5eeae69d6a4a3ffb5eaa6f31e61e1f4010c39766a25a25ae783321",
+        "bytes": 22899
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_detail.png": {
+        "sha256": "e10306a8c6acfc6b5cc9f7e7d860377dda42cae79cf82859a261a5645e62cfca",
+        "bytes": 1998300
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_finished-parts.json": {
+        "sha256": "8c0be830ffb053d83f35a797ac62430c2b255b22dae818bb43e0efa88ddc1b3b",
+        "bytes": 1202895
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_gameplay.png": {
+        "sha256": "3958d33debb4be6933ece0638aa8f0cd2b838555f46671c3ae57a39c51fc5f63",
+        "bytes": 987475
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_joinery.png": {
+        "sha256": "c17c5707c0d66eeb8f4bafb36b4b5da85e79755c4b65ffc882d2278c250dc4d3",
+        "bytes": 1660185
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_neutral.png": {
+        "sha256": "1f50c85594122e1774282e92367dc3766d6880297555344cf50f3cb7ec0263ac",
+        "bytes": 1787397
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_rear.png": {
+        "sha256": "623d62b42eec98f041d1c5ad74dad2f07ccf3e4ada7f1518a0fd9133f486bcc5",
+        "bytes": 1776879
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_reimport.json": {
+        "sha256": "d9aac7e025538b59ba19fb8ba09539b2005e4414927a298647dad4388e42ff54",
+        "bytes": 2989
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod0_source-audit.json": {
+        "sha256": "b09d60fd672a77eee1e1880cd827aa298faede0cab18cf5a185fa854c035c675",
+        "bytes": 7835
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod1_build.json": {
+        "sha256": "33f21c3721faee2429b5d156d76bf7f8641db652d21187ba6f6f263ca18f00cb",
+        "bytes": 19742
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod1_finished-parts.json": {
+        "sha256": "2a3e918f5bb28d57727e0e24cfc61317091b97a06025c1a585af8ba8a2f71ec1",
+        "bytes": 577571
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod1_gameplay.png": {
+        "sha256": "2c0b861da5420ab550ac47bff0f8a590732484013cc7713777deb290244b3539",
+        "bytes": 925849
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod1_neutral.png": {
+        "sha256": "353b9c9f79271d6922778786cfed960f7907b2597f0d1c279a84a04d6ddd9cd3",
+        "bytes": 1778918
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod1_reimport.json": {
+        "sha256": "4ba4b75769347cb77e4cd55e8d9376b2fb42d6a348381fee98629d7aad6c2153",
+        "bytes": 1750
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod1_source-audit.json": {
+        "sha256": "95dd3e425443d875421cb9169b58befa845b9742e9ae34c7e4870030e33cdb56",
+        "bytes": 6737
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod2_build.json": {
+        "sha256": "e6652067601b29fce90c7e57c41c7766ed1a97713258a24b3c84950a3184105e",
+        "bytes": 17316
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod2_finished-parts.json": {
+        "sha256": "2a1a21927ad03868d4508490ba8876c4bc665a3fcdf26d29c6dad6ff40fb60e9",
+        "bytes": 226709
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod2_gameplay.png": {
+        "sha256": "51c313c594d7e679f50996b052b6c5a90c08b7767fec98ac48deab0d69bf57ee",
+        "bytes": 915677
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod2_neutral.png": {
+        "sha256": "9f0c5522e3578c53b4e217127e26643344f812093117ba5de0cec6d6ebd0e5e8",
+        "bytes": 1753353
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod2_reimport.json": {
+        "sha256": "8e933fc959fede6fceeb4b34796632ee026078b760dd5382bcf923d3bcc164f3",
+        "bytes": 1745
+      },
+      "authoring/blender/field-command-table/review/frontier_field_command_table_lod2_source-audit.json": {
+        "sha256": "638def17518e5577764f5b0faf2312b00bb891caecb3d82b6e403b5634c74511",
+        "bytes": 5679
+      },
+      "authoring/blender/field-command-table/review/master-audit.json": {
+        "sha256": "efeded68935dc03b856a2b42ff4c3f9c02ee1eabf14f782415a5753a0c7d1ef8",
+        "bytes": 25151
+      },
+      "authoring/blender/field-command-table/runtime/frontier_field_command_table_lod0.glb": {
+        "sha256": "45690f7f8752e3dcf7265e60f3977e3a513915595e7d640a476f9cd43a49d6aa",
+        "bytes": 8343904
+      },
+      "authoring/blender/field-command-table/runtime/frontier_field_command_table_lod1.glb": {
+        "sha256": "8e75aa87a5c2d1d8f6ef20d0697ba1c8ec4ebcf008d514ab35fb2c8c93b751be",
+        "bytes": 3117428
+      },
+      "authoring/blender/field-command-table/runtime/frontier_field_command_table_lod2.glb": {
+        "sha256": "b353175111bf942b8777280fb15c7e3f28ffe0d312e15aa7413952e12e36040d",
+        "bytes": 968028
+      },
+      "authoring/blender/field-command-table/textures/brass_lod0_basecolor.png": {
+        "sha256": "3261eb41ce05cad612243c0250142651afd685e7678a1192f7036c0c222b586d",
+        "bytes": 287603
+      },
+      "authoring/blender/field-command-table/textures/brass_lod0_normal.png": {
+        "sha256": "f32c288e243d4d918d658df140bd0874ebd163e9e6a41b415815f26db9608d26",
+        "bytes": 195259
+      },
+      "authoring/blender/field-command-table/textures/brass_lod0_orm.png": {
+        "sha256": "0af67f0a437cdd2d1cf5fdccdf46a51007366346754270109f5eed876d5921a5",
+        "bytes": 121841
+      },
+      "authoring/blender/field-command-table/textures/brass_lod1_basecolor.png": {
+        "sha256": "2be4e6241fed7cc6915fa51424db8281de1aa2a8ab82ed3775c811596c74d8e7",
+        "bytes": 110669
+      },
+      "authoring/blender/field-command-table/textures/brass_lod1_normal.png": {
+        "sha256": "bba4f4d88d6563ddaebc778c9ead3ced3ded58b4bd216ec22fdf67f5b20b17ab",
+        "bytes": 31013
+      },
+      "authoring/blender/field-command-table/textures/brass_lod1_orm.png": {
+        "sha256": "ff52e6b779225ca9c2e38b26296d41eeebe1ae83f61083b4d0f204f8e2ec8413",
+        "bytes": 43454
+      },
+      "authoring/blender/field-command-table/textures/brass_lod2_basecolor.png": {
+        "sha256": "521cc6174b2ead5fb51ea483b3b572cdbf5079c454261436182736f03ea67335",
+        "bytes": 37410
+      },
+      "authoring/blender/field-command-table/textures/brass_lod2_normal.png": {
+        "sha256": "550998ec62c33b3c7cf3e2cdf27420d06dc8c446549e6af3b5ec3ce4d42936d8",
+        "bytes": 4543
+      },
+      "authoring/blender/field-command-table/textures/brass_lod2_orm.png": {
+        "sha256": "49efe3af38a3dcd04b1292de71b385dcc63f81acd3c12f948433b820d806fecb",
+        "bytes": 15265
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod0_basecolor.png": {
+        "sha256": "09be57821d2cdfe942f04d0e03d3b0f0bb805ab93736c50b28bcb75d49866020",
+        "bytes": 222961
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod0_normal.png": {
+        "sha256": "4cce6f76e14a989dfdc846e4d24ffb00646fa0a5cac9f21ea00222841ca0e8d0",
+        "bytes": 151913
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod0_orm.png": {
+        "sha256": "0d2841b1128665c8a1384afcfebf13bc6b1dbf66d997ed84f4a5b3f4d03eb65e",
+        "bytes": 117350
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod1_basecolor.png": {
+        "sha256": "32c6db7d1b11a498d489e84ea5a2f101114f971093cb078cdfb0498a54111100",
+        "bytes": 93118
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod1_normal.png": {
+        "sha256": "015fd19d94c20be1afb62c26975e422f3456b3cb91976dc2084669973cf18c3c",
+        "bytes": 10335
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod1_orm.png": {
+        "sha256": "e5b2ce30fd8e64a574502c2fdb5eceef61486fe7232fe3cd2b2110d6930c73d7",
+        "bytes": 41686
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod2_basecolor.png": {
+        "sha256": "714dc14091e8a9d132719a345cb8019e91e1c90f27b4200caa327629f88be9ff",
+        "bytes": 32496
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod2_normal.png": {
+        "sha256": "adc5f3dc0d956b8f0732db79f8658fe79cf72a885035cb3ba813485d15e92229",
+        "bytes": 521
+      },
+      "authoring/blender/field-command-table/textures/ceramic_lod2_orm.png": {
+        "sha256": "ae7281a754ac44bf6410819f2c19197304f45dd90cdb37053bd3db74e1597434",
+        "bytes": 14746
+      },
+      "authoring/blender/field-command-table/textures/iron_lod0_basecolor.png": {
+        "sha256": "bf21b7991076bc19ae567433a3fa056320dff7ec0de3b581d8970650fdf90c2f",
+        "bytes": 374094
+      },
+      "authoring/blender/field-command-table/textures/iron_lod0_normal.png": {
+        "sha256": "0a494492cdfbb565bf025326aa29d604a5f7b2dbea9992c86b8e2f602c8678b1",
+        "bytes": 295741
+      },
+      "authoring/blender/field-command-table/textures/iron_lod0_orm.png": {
+        "sha256": "32baf6e98b7da471252e85e1c542c9f7ccada1c5ccd52d97679f24ab616f2373",
+        "bytes": 126598
+      },
+      "authoring/blender/field-command-table/textures/iron_lod1_basecolor.png": {
+        "sha256": "d499d52dfbb3fc826ef5b653c8444858e165039521e0bfff5aaec3af6e566c32",
+        "bytes": 141243
+      },
+      "authoring/blender/field-command-table/textures/iron_lod1_normal.png": {
+        "sha256": "c3e4dd9e93e0b0c05cd8a819b4f714e5821c293e75afc3042a15ed40a02a20f3",
+        "bytes": 52916
+      },
+      "authoring/blender/field-command-table/textures/iron_lod1_orm.png": {
+        "sha256": "18da8f96f8d0d17554e9685a4ef3faf47df6a16d9de13341c23828ebcf4281bf",
+        "bytes": 45234
+      },
+      "authoring/blender/field-command-table/textures/iron_lod2_basecolor.png": {
+        "sha256": "7b6d112c634af4b2c4b277d69f65b44b5f3911192c13f12f2e63f9ca911c0802",
+        "bytes": 48911
+      },
+      "authoring/blender/field-command-table/textures/iron_lod2_normal.png": {
+        "sha256": "ec364e4368839f2945fbaeec617ef943e53438817d7d4057d096e0c2e6178a97",
+        "bytes": 12075
+      },
+      "authoring/blender/field-command-table/textures/iron_lod2_orm.png": {
+        "sha256": "e469a842a124b19c6d87920d0a4ce220a15582a77c08897b4214a97c6c9268a3",
+        "bytes": 15714
+      },
+      "authoring/blender/field-command-table/textures/leather_lod0_basecolor.png": {
+        "sha256": "5257180cc41f3d76e0c5d3a5305647afb25f55d198720e62ece10f8f2ed9fd40",
+        "bytes": 202072
+      },
+      "authoring/blender/field-command-table/textures/leather_lod0_normal.png": {
+        "sha256": "90bce17b3af03addfed69ff07e2843512abb9a6aae0385011401b0e5f7224229",
+        "bytes": 385510
+      },
+      "authoring/blender/field-command-table/textures/leather_lod0_orm.png": {
+        "sha256": "ecb4131b71453a733f7a1bbb30b49af0b94a9aba70454977771236e15a5c29c2",
+        "bytes": 114204
+      },
+      "authoring/blender/field-command-table/textures/leather_lod1_basecolor.png": {
+        "sha256": "72f13826fd203124d5ba386439cf66e2e83d61d13fb1c516f0e490ee4cb5ac2e",
+        "bytes": 83585
+      },
+      "authoring/blender/field-command-table/textures/leather_lod1_normal.png": {
+        "sha256": "b65eeac6bf75afcf4b98cca1969e34829b308b1f12629a145c182fa31b5241d2",
+        "bytes": 73213
+      },
+      "authoring/blender/field-command-table/textures/leather_lod1_orm.png": {
+        "sha256": "7df2a77bf7522328462527253cecf385326fd1aaad763741c71b476d90231404",
+        "bytes": 40565
+      },
+      "authoring/blender/field-command-table/textures/leather_lod2_basecolor.png": {
+        "sha256": "4863cbd88cec67d48976a815003316533e3233eb3bf08104df612bd983cf79bf",
+        "bytes": 30522
+      },
+      "authoring/blender/field-command-table/textures/leather_lod2_normal.png": {
+        "sha256": "a814b469544e4935a0d1ce4fe761c757898e157d61ee263d673b0c516ca6b046",
+        "bytes": 15408
+      },
+      "authoring/blender/field-command-table/textures/leather_lod2_orm.png": {
+        "sha256": "f7f734f272c6b86e6d40a359bafb37260dd24dff6eb5ac77e366ee670b0eef57",
+        "bytes": 14362
+      },
+      "authoring/blender/field-command-table/textures/oak_lod0_basecolor.png": {
+        "sha256": "7a35c498c5512850845d03441231bbf2f8eeeafc7506174fe23c13871672fc10",
+        "bytes": 573531
+      },
+      "authoring/blender/field-command-table/textures/oak_lod0_normal.png": {
+        "sha256": "2da933e75fe488e0b183b87b4dc2475849ef12ffeb723052ee1a96d3590fdd24",
+        "bytes": 1007230
+      },
+      "authoring/blender/field-command-table/textures/oak_lod0_orm.png": {
+        "sha256": "cb6ca8920b467d0b1ca615bfbfa14d9b663431e44f5032d21ab51ed56df313bb",
+        "bytes": 407685
+      },
+      "authoring/blender/field-command-table/textures/oak_lod1_basecolor.png": {
+        "sha256": "46ec6b0878d2188131973914f0088ff881a4267c2b5ffd6301ce720840b2ccba",
+        "bytes": 191828
+      },
+      "authoring/blender/field-command-table/textures/oak_lod1_normal.png": {
+        "sha256": "4731924393b969bfe6ac2672fa832a858894197beb16c8da6033d69e1bf9ed1a",
+        "bytes": 282271
+      },
+      "authoring/blender/field-command-table/textures/oak_lod1_orm.png": {
+        "sha256": "a124631f08460ebb3822e1b008ea16ebb94937b7c4db7b7c2f08077ede965ea6",
+        "bytes": 124129
+      },
+      "authoring/blender/field-command-table/textures/oak_lod2_basecolor.png": {
+        "sha256": "2e17fa0918b6a672bd942ac663d41b28d5b99a98369dbd5345087a99aa9194ba",
+        "bytes": 61877
+      },
+      "authoring/blender/field-command-table/textures/oak_lod2_normal.png": {
+        "sha256": "2e5f090e3fb842e44f9055f8a6b2343b2793669791fe847859d3715d2f770c4e",
+        "bytes": 50710
+      },
+      "authoring/blender/field-command-table/textures/oak_lod2_orm.png": {
+        "sha256": "9d605b54238697a2096b23a24da64ca3376b114f1403b2fbe817e633299dbbf2",
+        "bytes": 44220
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod0_basecolor.png": {
+        "sha256": "0901f7e51e4e0a90fb6597d8bc6f42b9202beb4b4fdae1480329dc4d78bf9784",
+        "bytes": 684621
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod0_normal.png": {
+        "sha256": "1cd847f9383797bda4fbebede89f1610ee943ba1e57e728344fb7c113367ffd3",
+        "bytes": 235726
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod0_orm.png": {
+        "sha256": "2f14c23071d926433b13a0f37961f43c10fd96010412baed77213a41b17da557",
+        "bytes": 106369
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod1_basecolor.png": {
+        "sha256": "35aeb04281a96816d54fa7c7669358c9a91183062e950096835c760c50996cd4",
+        "bytes": 424781
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod1_normal.png": {
+        "sha256": "68807e0beb781a40a46796201260d30e70c0f7f98b37c52ffe9e97279d560d25",
+        "bytes": 41048
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod1_orm.png": {
+        "sha256": "f902e3720016e9da24b78beba66c38a40392565ed76b1a69ed853ffc6062f9d3",
+        "bytes": 37224
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod2_basecolor.png": {
+        "sha256": "fbd941ba2e6f6d33903209c8cd67f9a6e73e7d19e09ea769742e61006783bb7b",
+        "bytes": 144999
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod2_normal.png": {
+        "sha256": "185663bcba733d43d742fd6eaf8c28449faa80eeda6ad1fa963463e255995b5c",
+        "bytes": 8493
+      },
+      "authoring/blender/field-command-table/textures/parchment_lod2_orm.png": {
+        "sha256": "f43373c8160ffdadc625f7743c5ea3e7a7689eaa8a030601b73fb8c91a88df0a",
+        "bytes": 13346
+      },
+      "authoring/blender/field-command-table/textures/sources.json": {
+        "sha256": "5b0fd48aa3abf09b4b73e2d26d5f875ae6d2eb6949e8677bdbe1dcc13a7f9fd5",
+        "bytes": 7515
+      },
+      "authoring/blender/field-command-table/tools/audit_masters.py": {
+        "sha256": "1819b7833b8663bef389142f4eb88e215ae6a9dff6aabfce766148d72c20bdc5",
+        "bytes": 2546
+      },
+      "authoring/blender/field-command-table/tools/build_table.py": {
+        "sha256": "39d301ba34660b44fc591edf4d5fbbfdb846de4cd34a76b33e4654a47089cbbe",
+        "bytes": 22849
+      },
+      "authoring/blender/field-command-table/tools/consolidate_build.py": {
+        "sha256": "0a2aecd6aa5a92c489c88d5135508fa15989a242696eef47b9da966d7d3a112c",
+        "bytes": 1425
+      },
+      "authoring/blender/field-command-table/tools/export_tangents.py": {
+        "sha256": "f707f1fcd597182422d5b75476f10535af49c93444774a7e1f2b044dd5fd2211",
+        "bytes": 3281
+      },
+      "authoring/blender/field-command-table/tools/inspect_construction.py": {
+        "sha256": "311cd9c094a22ffee685958353e671c957d209db0aa0a1101520221710775f60",
+        "bytes": 4397
+      },
+      "authoring/blender/field-command-table/tools/make_textures.py": {
+        "sha256": "2e7c5e634f654701db76444ad42c99bc5553776ff221b1c53aeecd0e0b2aa28f",
+        "bytes": 9016
+      },
+      "authoring/blender/field-command-table/tools/mesh_authoring.py": {
+        "sha256": "7a427e39acbb267754e5e5c1eb5c4faab05e42b4bb635f8d9188ea11061d8b7c",
+        "bytes": 7502
+      },
+      "authoring/blender/field-command-table/tools/review_table.py": {
+        "sha256": "8ec04c396a3f9d053100e19a2036e7dfcccfefd51869969da56c7dadc53f1bdc",
+        "bytes": 4106
+      },
+      "authoring/blender/field-command-table/tools/run_delivery.py": {
+        "sha256": "921ba6911e3b2daad36ca47e34058e9960d95874824b7d6c66e4e41239e3e0c8",
+        "bytes": 1278
+      },
+      "authoring/blender/field-command-table/tools/validate_table.mjs": {
+        "sha256": "3d089d2c4ff2a8e64e34ff3dadf5184555ee0eb8b5b2c71a11a71d6b6c32f058",
+        "bytes": 10979
+      },
+      "authoring/blender/field-command-table/validation.json": {
+        "sha256": "e203804e660a376d700f2608b815e86f07e4847e974581679bcc518e9693113b",
+        "bytes": 1389
+      },
+      "scripts/blender-character-pipeline/data/world-asset-approval.json": {
+        "sha256": "fa124ba709c8613d0589de95162400d73aa1bf3e8fd911518cf007521b4de5f2",
+        "bytes": 1070
+      },
+      "scripts/blender-character-pipeline/tools/world-asset-approval.mjs": {
+        "sha256": "7335d52a94a977d785bd93b387bc50ba29cec19e494c9323b6d0b979688c0a38",
+        "bytes": 633
+      },
+      "scripts/campaign/publish-field-command-table.mjs": {
+        "sha256": "851887dbfc874eca63c2b55b04c7471abf068e186f07ac4d9fe241b61c91021b",
+        "bytes": 11530
+      },
+      "scripts/campaign/regional-publication-evidence.mjs": {
+        "sha256": "a728aef40a03be32f7a40c373463b9ae374068d6e4dd05609bcd37ea320924a4",
+        "bytes": 3249
+      }
+    }
+  },
+  "frozenSource": "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c",
+  "previewImages": [
+    "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/review/frontier_field_command_table_lod2_neutral.png",
+    "authoring/blender/field-command-table/releases/frontier_field_command_table/8f77f8a5152929d95d5c/files/authoring/blender/field-command-table/review/frontier_field_command_table_lod2_gameplay.png"
+  ],
+  "limitations": [
+    "Static tableed weapons; no pickup or equipment interaction claimed."
+  ]
+}

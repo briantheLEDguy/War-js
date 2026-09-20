@@ -1,0 +1,161 @@
+{
+  "assetId": "prop.frontier.siege_repair_bench",
+  "qcPassed": true,
+  "modelSha256": "2124f1fc99d2dd4835d2d6dc49ceb50724b3e357e8dc28fc6c4ec06edf05f395",
+  "lod": 2,
+  "lods": [
+    {
+      "level": 0,
+      "model": "frontier_siege_repair_bench_lod0.glb",
+      "sha256": "2401f5c34f9178a4c622433cf7ddf0f3f4702ad052d571aff6406c0a230d0564",
+      "triangles": 22720,
+      "bytes": 2578132,
+      "externalTextures": [
+        {
+          "uri": "../textures/frontier_workshop_items/66ace579b59263a0ae695a89611955b3adb7f6253c599646e2a6b360fb194f6e.png",
+          "sha256": "66ace579b59263a0ae695a89611955b3adb7f6253c599646e2a6b360fb194f6e"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/b4067afcd9ae32d7e5abbe41d160c0f79dc97316c321e42136e939713fa9beff.png",
+          "sha256": "b4067afcd9ae32d7e5abbe41d160c0f79dc97316c321e42136e939713fa9beff"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/5b6c2501c5f7f0295e8ae02424ed6baef17045bb44baf9626f228bccdf469daf.png",
+          "sha256": "5b6c2501c5f7f0295e8ae02424ed6baef17045bb44baf9626f228bccdf469daf"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/ea1e7154d03b672bd41380760191ec144450cb95ec40038deba6f67bb19e735d.png",
+          "sha256": "ea1e7154d03b672bd41380760191ec144450cb95ec40038deba6f67bb19e735d"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/f8fb7db1e2b7cc62a2413a9328a6c56be518f33f9275990ece0b6b966c8d0e9a.png",
+          "sha256": "f8fb7db1e2b7cc62a2413a9328a6c56be518f33f9275990ece0b6b966c8d0e9a"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/d244a67779f54c4cbd3862fb83ca2ddea93ca8f22c84b86c9647fc9ee93a61a8.png",
+          "sha256": "d244a67779f54c4cbd3862fb83ca2ddea93ca8f22c84b86c9647fc9ee93a61a8"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/9d70665a503595437b50f068e1c47fe81ebfe36376bc327ce154e7a2616b1a94.png",
+          "sha256": "9d70665a503595437b50f068e1c47fe81ebfe36376bc327ce154e7a2616b1a94"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/169a7b6f0d4532ab524d0b55adde36000264aae13cf171aafcd2ef9c4bb766e9.png",
+          "sha256": "169a7b6f0d4532ab524d0b55adde36000264aae13cf171aafcd2ef9c4bb766e9"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/190480d4fbd6ef815df82965fbd0892c869b62c6d3ba7015625f1abf69c85db0.png",
+          "sha256": "190480d4fbd6ef815df82965fbd0892c869b62c6d3ba7015625f1abf69c85db0"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "model": "frontier_siege_repair_bench_lod1.glb",
+      "sha256": "6c89dd33c9cdeae6089f941927f383173b54ad44d08715f83e83cd3c120d3093",
+      "triangles": 12126,
+      "bytes": 1298568,
+      "externalTextures": [
+        {
+          "uri": "../textures/frontier_workshop_items/61e4a6081fa0360f836513b98b185e3eddfedd74722c1651fc3fe5799e6977d9.png",
+          "sha256": "61e4a6081fa0360f836513b98b185e3eddfedd74722c1651fc3fe5799e6977d9"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/0cb762223efec066dc1c753b9800efac310874c4aabea88306c64b105571fcb1.png",
+          "sha256": "0cb762223efec066dc1c753b9800efac310874c4aabea88306c64b105571fcb1"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/126b05fe215dfd0b2e6e9d6f92bb7baa98b75c2ec416285d422c4912e71c45fb.png",
+          "sha256": "126b05fe215dfd0b2e6e9d6f92bb7baa98b75c2ec416285d422c4912e71c45fb"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/5d1dcf2fc4aef496588c5cdcdca0e2c6dbacca1c038ccce254237a0bc80269a3.png",
+          "sha256": "5d1dcf2fc4aef496588c5cdcdca0e2c6dbacca1c038ccce254237a0bc80269a3"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/bef4cbe3f2afa55b9d47e4195b911da264efff65b92c33ad7b687453465d4b58.png",
+          "sha256": "bef4cbe3f2afa55b9d47e4195b911da264efff65b92c33ad7b687453465d4b58"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/636d75c6bb830bc49222779584ad78b29cec38459831f616a527a272466f5d7e.png",
+          "sha256": "636d75c6bb830bc49222779584ad78b29cec38459831f616a527a272466f5d7e"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/037d83e687ee569412e08f44c088af3626843a27f51d6960682f2be9a730116d.png",
+          "sha256": "037d83e687ee569412e08f44c088af3626843a27f51d6960682f2be9a730116d"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/4d64fb6c5c8eb167f8e08ef5fbf6fa22b1f0054ff60bf3f89f8ca6caf3d83e71.png",
+          "sha256": "4d64fb6c5c8eb167f8e08ef5fbf6fa22b1f0054ff60bf3f89f8ca6caf3d83e71"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/6ecbd29535dc5f4648768094b7866bb43bffd02eaeeecbc22519ded04c7fa006.png",
+          "sha256": "6ecbd29535dc5f4648768094b7866bb43bffd02eaeeecbc22519ded04c7fa006"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "model": "frontier_siege_repair_bench_lod2.glb",
+      "sha256": "2124f1fc99d2dd4835d2d6dc49ceb50724b3e357e8dc28fc6c4ec06edf05f395",
+      "triangles": 3904,
+      "bytes": 393320,
+      "externalTextures": [
+        {
+          "uri": "../textures/frontier_workshop_items/9a927e9a6266c3257dc4b5c08b7a4253c8027b8a989494d81582892428d7fe8c.png",
+          "sha256": "9a927e9a6266c3257dc4b5c08b7a4253c8027b8a989494d81582892428d7fe8c"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/383ebc304a53c29480d7ca926ffbc497782428719d4c6a9e0ed886920c09093e.png",
+          "sha256": "383ebc304a53c29480d7ca926ffbc497782428719d4c6a9e0ed886920c09093e"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/7fa5a6e11635d8c1f4125862b890b062d7930f4f46442099a479edc08983e4b2.png",
+          "sha256": "7fa5a6e11635d8c1f4125862b890b062d7930f4f46442099a479edc08983e4b2"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/77fa79baf7db10a2e97bff9ccd796f1eb38419deafa4f4b5fa260a0112b4c8ed.png",
+          "sha256": "77fa79baf7db10a2e97bff9ccd796f1eb38419deafa4f4b5fa260a0112b4c8ed"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/6daabf991596a98f7e6d6d92e16d9db3f413bf7229b7d6528adfb429a422d0c6.png",
+          "sha256": "6daabf991596a98f7e6d6d92e16d9db3f413bf7229b7d6528adfb429a422d0c6"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/a35dee7216cdca504a3385526f64190fdc8fe7ae3ffe34f09dea14d2f02c7da9.png",
+          "sha256": "a35dee7216cdca504a3385526f64190fdc8fe7ae3ffe34f09dea14d2f02c7da9"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/b089bbae1cddcd23728bda31c7827cff8dccc9240ee90a5eca5c5f2c3ebb7925.png",
+          "sha256": "b089bbae1cddcd23728bda31c7827cff8dccc9240ee90a5eca5c5f2c3ebb7925"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/9df331717efd5af1d59f538d8c45512061fc98c789da39a231a811d49eb5e3eb.png",
+          "sha256": "9df331717efd5af1d59f538d8c45512061fc98c789da39a231a811d49eb5e3eb"
+        },
+        {
+          "uri": "../textures/frontier_workshop_items/72ae274e7da4ba4450b58d02dd96c98620b2dbb9cf948989219aa5430c0b5104.png",
+          "sha256": "72ae274e7da4ba4450b58d02dd96c98620b2dbb9cf948989219aa5430c0b5104"
+        }
+      ]
+    }
+  ],
+  "totalTris": 3904,
+  "validationErrors": 0,
+  "validationWarnings": 0,
+  "warningCodes": [],
+  "reviewHash": "e1d7deb41c143a068af057c83d732e224b075e4df90f6486431cf5af9e0699fb",
+  "collisionContractSha256": "2d406cf3a134478819f6c984a9ea627cb2a2e56e35c2519a5fc54fd4efd1b3af",
+  "previewImages": [
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_neutral.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_gameplay.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod0_detail.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod1_neutral.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod1_gameplay.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod2_neutral.png",
+    "authoring/blender/frontier-workshop-items/review/frontier_siege_repair_bench_lod2_gameplay.png"
+  ],
+  "limitations": [
+    "Static scenery; repair and ammunition interactions are not implemented."
+  ]
+}
