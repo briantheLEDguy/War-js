@@ -23,9 +23,12 @@ rest joints together. No primitive models or visible proxy fallbacks are allowed
 Every derivative retains three real LODs, grounded deformation, texture/source
 hashes and a publication receipt that records the applicable approval authority.
 
-The dwarf's forearm and cuff correction has passed its bounded visual review.
-The complete character is being validated across all nine clips, clothing and
-ground contact for publication. Its canonical core skeleton has one additional internal
+The dwarf revision l is published in the runtime and GM catalog after all nine
+clips, fitted clothing and ground-contact checks. The craft mentor uses three
+distance-selected LODs with a continuous idle timeline. The separate
+`sunmeadow-farmer/` and `cinderfen-peat-worker/` packages contain the next draft
+characters; their source and technical status are recorded in each work state.
+The dwarf's canonical core skeleton has one additional internal
 `apron_lower` joint for the leather panel's waist fold; its clip names stay
 `idle`, `walk`, `run`, `combat_idle`, `attack_melee`, `attack_ranged`, `cast`,
 `death`, and `jump`.

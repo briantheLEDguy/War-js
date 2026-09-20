@@ -1,5 +1,12 @@
 import * as THREE from 'three';
 
+function updateCharacterMatrices(object: THREE.Object3D): void {
+  object.parent?.updateWorldMatrix(true, false);
+  // SkinnedMesh refreshes attached bindMatrixInverse in updateMatrixWorld.
+  // updateWorldMatrix bypasses that override and double-translates skin bounds.
+  object.updateMatrixWorld(true);
+}
+
 /** Static service NPCs keep animation-safe meshes; cull their entire rig using a
  * generous whole-character envelope instead of unsafe per-skinned-mesh bounds. */
 export class CharacterVisibility {
@@ -15,7 +22,11 @@ export class CharacterVisibility {
   constructor(scene: THREE.Scene, objects: readonly THREE.Object3D[]) {
     scene.traverse(node => { if (node instanceof THREE.Light) this.lights.push(node); });
     this.entries = objects.map(object => {
-      object.updateWorldMatrix(true, true);
+      updateCharacterMatrices(object);
+      object.traverse(node => {
+        // Bounds may have been cached before placement or the first idle pose.
+        if (node instanceof THREE.SkinnedMesh) node.computeBoundingBox();
+      });
       const sphere = new THREE.Box3().setFromObject(object).getBoundingSphere(new THREE.Sphere());
       // Service NPCs idle in place. Leave a full body diameter around the bind
       // envelope for articulated arms, weapons, and the authored idle sway.
@@ -52,7 +63,7 @@ export class CharacterVisibility {
       entry.object.visible = uncullable || this.frustum.intersectsSphere(entry.sphere)
         || shadows.some(frustum => frustum.intersectsSphere(entry.sphere));
       if (!entry.object.visible) continue;
-      entry.object.updateWorldMatrix(true, true);
+      updateCharacterMatrices(entry.object);
       // Each pass now applies the same animation-safe envelope independently:
       // retaining a rig for its shadow no longer submits it to the main camera.
       for (const { mesh } of entry.meshes) mesh.boundingSphere!.copy(entry.sphere)

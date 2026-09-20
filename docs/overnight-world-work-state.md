@@ -17,15 +17,26 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,322 tests in 160 files**. Production build
+The latest full regression pass is **1,349 tests in 164 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
-LODs, with 72 placements across all 36 keeps; actual local player checks confirm
-their front collision. The registry contains 254 static props, 69 character
+LODs, with 72 placements across all 36 keeps plus four village placements; actual
+local player checks confirm front collision on Cinderfen's raised workshop floor.
+Sunmeadow's exact salvage standing point and both work fronts remain reachable.
+The registry contains 254 static props, 69 character
 profiles and 57 equipment records, and the GM builder has 442 definitions.
 All 33 maps and 879 model records validate. Remaining regional character, equipment and town/zone work
 continues; animals stay last. No zone is art-complete, and full campaign visual,
 multiplayer and performance acceptance remains open. See the
 [September 20 checkpoint](world-build-checkpoint-2026-09-20.md) for evidence and limits.
+
+Local regional NPCs now switch their own fitted LOD/idle rigs at distance. An
+actual-game check caught and fixed doubled world translation in skinned bounds;
+the published dwarf now remains visible at all three LODs. The new Empire farmer
+and Greenskin peat worker have saved original outfits, editable masters, three
+LOD exports and nine clips, but remain draft while exact fall/tool-contact checks
+finish. Their agents own only `sunmeadow-farmer/` and `cinderfen-peat-worker/`.
+Root owns publication through `scripts/campaign/publish-regional-inhabitant.mjs`,
+registry/GM generation and map integration. No aesthetic approval is outstanding.
 
 Entries below preserve their historical state; the active summary above
 supersedes older pause, approval and delivery statements.

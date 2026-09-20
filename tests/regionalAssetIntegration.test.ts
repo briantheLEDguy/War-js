@@ -47,12 +47,12 @@ test('siege contents share keys across pairings while existing thematic exterior
     .map(file => read(`public/assets/maps/${file}`)).filter(map => map.orvrLayout?.keeps?.length);
   expect(maps).toHaveLength(18);
   for(const map of maps) {
-    const before = map.props.filter((p: {id: string}) => !p.id.includes('_delivered_'));
+    const before = map.props.filter((p: {id: string}) => !p.id.includes('_delivered_') && !p.id.includes('_worksite_'));
     const result = integrateRegionalAssets(map, ready, contracts);
     const config = configs.find(config => config.id === map.id)!;
-    const items = result.props.filter((p: {assetKey: string}) => SHARED_KEEP_ITEMS.includes(p.assetKey));
+    const items = result.props.filter((p: {id: string; assetKey: string}) => p.id.includes('_delivered_') && SHARED_KEEP_ITEMS.includes(p.assetKey));
     expect(items, map.id).toHaveLength(4);
-    expect(result.props.filter((p: {id: string}) => !p.id.includes('_delivered_'))).toEqual(before);
+    expect(result.props.filter((p: {id: string}) => !p.id.includes('_delivered_') && !p.id.includes('_worksite_'))).toEqual(before);
     expect(integrateRegionalAssets(structuredClone(result), ready, contracts)).toEqual(result);
     const solids = mapPropNavigation(before, () => 0).collision;
     for (const item of items) {
@@ -110,7 +110,7 @@ test('delivered Cinderfen workshop contents retain order and placement through r
     composeCinderfenLandscape(zone, true), { architecture: true }));
   const prepared = refresh(read('public/assets/maps/cinderfen_outskirts.json'));
   const delivered = integrateRegionalAssets(prepared, ready, contracts);
-  const items = delivered.props.filter((prop: { assetKey: string }) => SHARED_KEEP_ITEMS.includes(prop.assetKey));
+  const items = delivered.props.filter((prop: { id: string; assetKey: string }) => prop.id.includes('_delivered_') && SHARED_KEEP_ITEMS.includes(prop.assetKey));
   expect(items).toHaveLength(4);
   const refreshed = refresh(structuredClone(delivered));
   expect(refreshed.props).toEqual(delivered.props);

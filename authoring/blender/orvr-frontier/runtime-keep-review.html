@@ -48,7 +48,10 @@
       name: `${keep.realm} ${gate.stage} gate approach`, x: gate.x, z: gate.z - 3, yaw: Math.PI,
     })));
     for (const prop of map.props.filter(prop => /^frontier_siege_(repair_bench|ammunition_cradle)$/.test(prop.assetKey ?? ''))) {
-      places.push({ name: `${prop.id} working approach`, x: prop.x, z: prop.z + 2.5, yaw: 0 });
+      const yaw = prop.rotY ?? 0;
+      const approach = prop.id.includes('_worksite_') ? 1.65 : 2.5;
+      places.push({ name: `${prop.id} working approach`, x: prop.x + approach * Math.sin(yaw),
+        z: prop.z + approach * Math.cos(yaw), y: prop.y, yaw });
     }
     for (const prop of map.props.filter(prop => /wall_stair/.test(prop.assetKey ?? ''))) {
       const surfaces = mapPropNavigation([prop], (x,z) => game.terrain.heightAt(x,z)).walkableSurfaces;

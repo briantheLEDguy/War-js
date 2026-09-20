@@ -1,3 +1,9 @@
+## 2026-09-20 — Regional inhabitants and village workshops
+
+- Added paired repair/supply furnishings to Sunmeadow and Cinderfen service buildings, with measured floor contact, working-front clearance and navigation checks.
+- Added regional NPC distance LODs with synchronized embedded idle motion, and fixed attached skin bounds applying world translation twice. Missing regional art retains service identity.
+- Added isolated gameplay review pages and exact-evidence publication helpers for the next farmer and peat-worker characters; draft exports are not advertised as delivered.
+
 ## 2026-09-20 — Universal keep workshop delivery
 
 - Published the original siege repair bench and ammunition cradle at three LODs each, with complete PBR textures and exact-export technical/visual receipts.

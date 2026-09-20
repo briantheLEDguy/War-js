@@ -23,6 +23,7 @@ import { services } from '../services';
 import type { CharacterState, WorldEditDocument, WorldPropObject } from '../services/types';
 import { contextPromptKey, useGameStore, type AbilityFeedbackKind, type ContextPromptState, type EnemyState, type PlayerStatusEffect } from '../state/gameStore';
 import { spawnNpcs, type NpcState } from '../world/NpcSpawner';
+import type { RegionalNpcPresentation } from '../world/RegionalNpcPresentation';
 import { spawnProps, type InteractiveGate, type InteractiveHousePortal, type WorldCollider, type WorldWalkableSurface } from '../world/Props';
 import { applySceneViewDistance, setupSky } from '../world/Skybox';
 import { Terrain } from '../world/Terrain';
@@ -106,6 +107,7 @@ export class Game {
   private player!: Player;
   private enemies: Enemy[] = [];
   private npcMixers: THREE.AnimationMixer[] = [];
+  private regionalNpcs: RegionalNpcPresentation[] = [];
   private npcVisibility: CharacterVisibility | null = null;
   private worldLife: WorldLife | null = null;
   private combat = new Combat();
@@ -445,9 +447,11 @@ export class Game {
       this.terrain,
       zone.npcs ?? [],
       this.groundHeightAt,
+      () => !this.disposed,
     );
-    if (this.disposed) return;
+    if (this.disposed) { spawnedNpcs.presentations.forEach(presentation => presentation.dispose()); return; }
     this.npcMixers = spawnedNpcs.mixers;
+    this.regionalNpcs = spawnedNpcs.presentations;
     this.npcVisibility = new CharacterVisibility(this.scene, spawnedNpcs.objects);
     this.zoneNpcStates = spawnedNpcs.states;
     useGameStore.getState().setNpcs(this.zoneNpcStates);
@@ -638,6 +642,7 @@ export class Game {
     const submissionStart = performance.now();
     try {
       this.npcVisibility?.update(this.camera.camera);
+      for (const presentation of this.regionalNpcs) presentation.update(dt, this.camera.camera);
       this.cityInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode,
         id => this.worldEditor?.isStaticObjectHidden(id) ?? false, this.worldEditor?.mapRevision);
       this.frontierInstances?.update(this.camera.camera, !useGameStore.getState().gmBuildMode, id => this.isStaticSourceSuppressed(id), dt);
@@ -2009,6 +2014,7 @@ export class Game {
     this.camera?.dispose();
     this.cameraIndex.dispose();
     for (const mixer of this.npcMixers) mixer.stopAllAction();
+    for (const presentation of this.regionalNpcs) presentation.dispose();
     this.player?.disposeAnimations();
     this.worldLife?.dispose();
     this.npcVisibility?.dispose();

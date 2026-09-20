@@ -6,6 +6,7 @@ import {
 import { AssetLoader } from '../game/AssetLoader';
 import type { Terrain } from './Terrain';
 import type { NpcSpawn } from './ZoneLoader';
+import { loadRegionalNpc, type RegionalNpcPresentation } from './RegionalNpcPresentation';
 
 type GroundResolver = (x: number, z: number, currentY?: number) => number;
 
@@ -21,6 +22,7 @@ export interface SpawnedNpcs {
   states: NpcState[];
   mixers: THREE.AnimationMixer[];
   objects: THREE.Object3D[];
+  presentations: RegionalNpcPresentation[];
 }
 
 /**
@@ -34,12 +36,29 @@ export async function spawnNpcs(
   terrain: Terrain,
   spawns: NpcSpawn[],
   groundHeightAt: GroundResolver = (x, z) => terrain.heightAt(x, z),
+  active: () => boolean = () => true,
 ): Promise<SpawnedNpcs> {
   const states: NpcState[] = [];
   const mixers: THREE.AnimationMixer[] = [];
   const objects: THREE.Object3D[] = [];
+  const presentations: RegionalNpcPresentation[] = [];
 
   for (const s of spawns) {
+    if (!active()) break;
+    const heightHint = (s.heightMode === 'absolute' ? 0 : terrain.heightAt(s.x, s.z)) + (s.y ?? 0);
+    const y = groundHeightAt(s.x, s.z, heightHint);
+    if (s.characterProfileKey?.startsWith('npc_frontier_')) {
+      const phase = Math.abs(Math.sin(s.x * 12.9898 + s.z * 78.233));
+      const presentation = await loadRegionalNpc(s.characterProfileKey, loader, phase, active);
+      if (!active()) break;
+      // Service identity survives unavailable art, without adding proxy geometry.
+      states.push({ id: s.id, name: s.name, title: s.title, role: s.role, position: { x: s.x, y, z: s.z } });
+      if (!presentation) continue;
+      const obj = presentation.object;
+      obj.position.set(s.x, y, s.z); obj.rotation.y = s.rotY ?? 0;
+      scene.add(obj); objects.push(obj); presentations.push(presentation);
+      continue;
+    }
     const fallback = s.approvedOnly ? () => { const g = new THREE.Group(); g.userData.assetMissing = true; return g; } : pickNpcFallback(s.role);
     const modelOverride = aegisNpcGuardVariantFor(s.role, s.characterProfileKey, s.id)
       ?? aegisNpcCivilianVariantFor(s.role, s.characterProfileKey, s.id);
@@ -61,8 +80,6 @@ export async function spawnNpcs(
     if (obj.userData.assetMissing) continue;
     if (s.role === 'guard') prepareGuardNpcRuntimeObject(obj);
 
-    const heightHint = (s.heightMode === 'absolute' ? 0 : terrain.heightAt(s.x, s.z)) + (s.y ?? 0);
-    const y = groundHeightAt(s.x, s.z, heightHint);
     obj.position.set(s.x, y, s.z);
     obj.rotation.y = s.rotY ?? 0;
     scene.add(obj);
@@ -80,7 +97,7 @@ export async function spawnNpcs(
     });
   }
 
-  return { states, mixers, objects };
+  return { states, mixers, objects, presentations };
 }
 
 function pickNpcFallback(role: NpcSpawn['role']) {

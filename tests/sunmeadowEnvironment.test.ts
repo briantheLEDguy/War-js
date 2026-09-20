@@ -6,6 +6,7 @@ import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { defaultZoneConfigs } from '../src/shared/orvr/config';
 import type { GateKind, ZoneConfig } from '../src/shared/orvr/protocol';
 import type { ZoneDefinition } from '../src/world/ZoneLoader';
+import { campaignColliderContains } from '../src/shared/orvr/navigation';
 // @ts-expect-error Executable authoring source deliberately remains an mjs module.
 import { composeSunmeadowEnvironment, sunmeadowPlacementClear } from '../scripts/campaign/sunmeadow-environment.mjs';
 
@@ -32,7 +33,7 @@ function reachable(bounds: { minX: number; maxX: number; minZ: number; maxZ: num
   const boxes = config.collision!.filter(box => box.minX < bounds.maxX + 1 && box.maxX > bounds.minX - 1 && box.minZ < bounds.maxZ + 1 && box.maxZ > bounds.minZ - 1);
   const index = (point: Point) => (Math.round(point.z) - bounds.minZ) * width + Math.round(point.x) - bounds.minX;
   for (let z = bounds.minZ; z <= bounds.maxZ; z++) for (let x = bounds.minX; x <= bounds.maxX; x++) {
-    if (boxes.some(box => x >= box.minX - .5 && x <= box.maxX + .5 && z >= box.minZ - .5 && z <= box.maxZ + .5)
+    if (boxes.some(box => campaignColliderContains(box, { x, z }, .5))
       || blockedGates.some(gate => Math.abs(x - gate.point.x) < gate.width / 2 + .5 && Math.abs(z - gate.point.z) < gate.depth / 2 + .5)) mask[index({ x, z })] = 1;
   }
   const queue = [index(start)]; if (!mask[queue[0]]) seen[queue[0]] = 1;

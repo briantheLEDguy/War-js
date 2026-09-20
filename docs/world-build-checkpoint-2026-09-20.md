@@ -99,6 +99,37 @@ The two unrelated legacy fallbacks remained. See the
 
 ## Verification and remaining work
 
+### Regional continuation checkpoint
+
+The next integrated pass adds four village furnishings: one repair bench and one
+supply cradle inside each existing Sunmeadow/Cinderfen salvage building. Source
+GLB triangles verify foot contact, host clearance and clear working fronts. The
+Sunmeadow bench moved 0.55m rearward after a regression exposed overlap with the
+salvage standing point; the exact station center now clears a 0.5m actor. Route
+tests use measured oriented collision, including the regional refresh passes.
+
+Actual Cinderfen local gameplay stopped the player at x = 484.639m against the
+bench and x = 481.506m against the cradle, both at y = 0.600m and z = -252.5m.
+Sunmeadow's supply post was also visually checked in the actual game. Existing
+legacy sky/guard fallbacks remain; no new worksite fallback was observed.
+
+Local regional NPCs now keep their fitted embedded idle across distance-selected
+LODs. The browser caught an initial double-translation bug in attached skin bounds;
+the corrected dwarf remained visible at 6.2/45.2/100.2m, selecting 150,766/87,444/
+40,705 triangles. Missing regional art preserves service identity without adding
+proxy geometry. The review page uses an isolated character and does not save its
+inspection position. See [the runtime review](regional-runtime-review-2026-09-20.md)
+for shared renderer findings and the deferred missing-LOD0 fallback limitation.
+
+After these changes, **1,349 tests in 164 files passed**, with zero failures in
+`artifacts/orvr/regional-inhabitant-integration-tests.json`. The production build,
+server typecheck, 33-map validator and 442-definition GM check passed. This replaces
+the intermediate 1,341-pass/one-failure worksite run. Empire farmer and Greenskin
+peat-worker packages remain technically unfinished drafts at this checkpoint;
+their editable masters and exact current status are saved in their own folders.
+
+### Earlier integrated checkpoint
+
 The final integrated suite passed **1,322 tests in 160 files**, with zero failures,
 recorded in [the local regression report](../artifacts/orvr/world-quality-final-tests.json).
 Production build and both client/server typechecks passed. Focused verification

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Regional inhabitants · local gameplay review</title>
+<style>
+body { margin: 0; background: #172024; color: #f1eddc; font: 14px system-ui; }
+#view { position: absolute; inset: 0; }
+nav { position: absolute; z-index: 40; top: 12px; left: 12px; width: 340px; padding: 14px; background: #172024ee; border: 1px solid #78816d; border-radius: 6px; }
+select { max-width: 330px; } button, select { margin: 3px; padding: 7px; }
+output { display: block; white-space: pre-wrap; font: 12px monospace; margin-top: 8px; }
+</style>
+<div id="view"></div>
+<nav>
+  <strong>Regional inhabitants · production NPC rendering</strong>
+  <p>Drag to orbit. The inspection character and camera position are never saved.</p>
+  <select id="resident" aria-label="Regional inhabitant"></select><button id="visit">Visit</button>
+  <button data-distance="6">Close</button><button data-distance="45">Middle</button><button data-distance="100">Distant</button>
+  <output id="status">Loading game…</output>
+</nav>
+<script type="module">
+import { Game } from '/src/game/Game.ts';
+import { services } from '/src/services/index.ts';
+import { useGameStore } from '/src/state/gameStore.ts';
+import { Box3, Vector3 } from 'three';
+let game, timer;
+const status = document.querySelector('#status'), select = document.querySelector('#resident');
+try {
+  const zoneId = new URLSearchParams(location.search).get('zone') ?? 'sunmeadow_march';
+  const map = await fetch(`/assets/maps/${encodeURIComponent(zoneId)}.json`).then(response => {
+    if (!response.ok) throw Error(`Missing zone ${zoneId}`); return response.json();
+  });
+  const residents = (map.npcs ?? []).filter(npc => npc.characterProfileKey?.startsWith('npc_frontier_'));
+  if (!residents.length) throw Error('No published regional inhabitants in this zone yet.');
+  const source = await services.characters.load('char-sigmund');
+  services.characters.save = async () => {}; services.world.updatePosition = async () => {};
+  const first = residents[0];
+  const character = { ...source, id: 'regional-inhabitant-review-only', zoneId,
+    position: { x: first.x, y: first.y ?? 0, z: first.z } };
+  useGameStore.getState().setCharacter(character);
+  useGameStore.setState({ gmFlyingMode: false, settings: { ...useGameStore.getState().settings, frameRateLimit: 60, viewDistance: 250 } });
+  game = new Game(document.querySelector('#view'), character); await game.start();
+  game.player.object.removeFromParent();
+  residents.forEach((npc, index) => select.add(new Option(`${npc.name} · ${npc.title}`, String(index))));
+  const visit = () => {
+    const npc = residents[Number(select.value)];
+    game.player.teleportTo({ x: npc.x, y: npc.y ?? game.terrain.heightAt(npc.x,npc.z), z: npc.z });
+    game.camera.yaw = npc.rotY ?? 0; game.camera.pitch = .18; game.camera.distance = 6;
+  };
+  document.querySelector('#visit').onclick = visit;
+  for (const button of document.querySelectorAll('[data-distance]')) button.onclick = () => { game.camera.distance = Number(button.dataset.distance); };
+  visit();
+  timer = setInterval(() => {
+    const npc = residents[Number(select.value)], presentation = game.regionalNpcs.find(entry =>
+      Math.hypot(entry.object.position.x - npc.x, entry.object.position.z - npc.z) < .01);
+    if (!presentation) { status.textContent = 'Regional asset unavailable; no replacement displayed.'; return; }
+    const index = presentation.object.levels.findIndex(level => level.object.visible);
+    const level = presentation.object.levels[index];
+    let triangles = 0;
+    level?.object.traverse(node => { if (node.isMesh) triangles += (node.geometry.index?.count ?? node.geometry.attributes.position.count) / 3; });
+    const bounds = new Box3().setFromObject(presentation.object), center = bounds.getCenter(new Vector3());
+    status.textContent = `${npc.characterProfileKey}\n${presentation.object.levels.length} approved detail levels\nVisible level ${index} · ${Math.round(triangles).toLocaleString()} triangles\nIn scene: ${presentation.object.parent === game.scene} · visible: ${presentation.object.visible}\nCamera distance: ${game.camera.camera.position.distanceTo(presentation.object.position).toFixed(1)} m\nBounds center: ${center.toArray().map(v=>v.toFixed(2)).join(', ')}\n${useGameStore.getState().assetFallbacks} unavailable legacy assets`;
+  }, 300);
+} catch(error) { status.textContent = `Review failed: ${error.message}`; console.error(error); }
+addEventListener('beforeunload', () => { clearInterval(timer); game?.dispose({ persistCharacter: false }); });
+</script>
+</html>

@@ -6,9 +6,12 @@ Character models, equipment, and town/siege items take priority; animals come
 last. The revised dwarf artisan is published and assigned to Sunmeadow's craft
 mentor. Saved fauna assets are integrated with their remaining motion limitations
 recorded. The user grants standing asset approval; technical checks still verify
-each export before publication to the game and GM builder. Current work fixes
-keep enclosure, stair fit and railing collision. Fitted ram crews and the repair
-bench/ammunition cradle are integrated; every keep has both workshop items.
+each export before publication to the game and GM builder. Keep enclosure, stair
+fit and railing corrections have passed bounded gameplay checks. Fitted ram crews
+and the repair bench/ammunition cradle are integrated; every keep has both items.
+Sunmeadow's supply post and Cinderfen's workshop also have fitted worksite pairs.
+The next civilian packages are the Empire farmer and Greenskin peat worker;
+their editable masters and exports remain draft until motion/contact checks pass.
 Siege equipment and keep interiors are universal;
 exteriors and nature remain regional. See the [production board](docs/orvr-production-board.md).
 
@@ -44,8 +47,12 @@ applies world-space weathering to both batching paths.
 `three-mesh-bvh` for larger rigid geometry. Editor revisions and zone changes
 rebuild membership; gates, lifts and active interiors remain live. The camera
 keeps the same terrain clearance, padding, high-detail geometry and two-way probes.
-Static NPC rigs use conservative visibility envelopes including shadow cameras;
-their animation rate and mesh detail are unchanged. `RenderWarmup.ts` uploads
+Static NPC rigs use conservative visibility envelopes including shadow cameras.
+`CharacterVisibility.ts` refreshes attached skin matrices before measuring bounds,
+so world placement is applied once. `RegionalNpcPresentation.ts` uses each regional
+character's own fitted idle and skeleton at 0/30/85 m detail ranges, evaluating only
+the visible LOD while retaining a continuous animation timeline. Regional services
+remain available when character art is unavailable. `RenderWarmup.ts` uploads
 textures and warms actor, batch, interior-light and shadow rendering during loading.
 
 Append `?performance` to enable bounded rendered-frame samples and debug overlay
@@ -53,6 +60,16 @@ timing/draw counters. `window.__warPerformance.reset()` starts a sample window;
 `window.__warPerformance.snapshot()` returns it. Simulation includes camera time;
 CPU render submission includes culling and drawing. Neither measures GPU time.
 Skipped scheduling callbacks are excluded from rendered-frame intervals.
+
+Regional civilian publication uses `scripts/campaign/publish-regional-inhabitant.mjs`
+with a configured package, `--review-suffix=<suffix>` and `--check` or `--publish`.
+It requires current source, three-LOD motion/contact gates and matching actual-GLB
+previews, then records standing approval and freezes the literal exports. After
+publication run `npm run models:registry`, `npm run campaign:generate` and
+`npm run builder:generate`. `regional-inhabitants.mjs` adds only completed profiles;
+`regional-worksites.mjs` fits shared furnishings to measured regional host geometry.
+Use `authoring/blender/frontier-population/runtime-npc-review.html` to inspect NPC
+detail transitions in the production game without saving the inspection position.
 
 Install Playwright in a disposable tooling directory, then run
 `node scripts/benchmark-capitals.mjs --url=http://localhost:5173/ --driver=/absolute/path/to/tooling/package.json`.

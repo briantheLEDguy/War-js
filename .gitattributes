@@ -123,3 +123,9 @@ authoring/blender/siege-crew/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/siege-crew/**/*.glb filter=lfs diff=lfs merge=lfs -text
 public/assets/textures/frontier_workshop_items/*.png filter=lfs diff=lfs merge=lfs -text
 public/assets/models/previews/*cinderfen_corner_access.png filter=lfs diff=lfs merge=lfs -text
+# Regional civilian editable masters and exact source receipts.
+authoring/blender/cinderfen-peat-worker/** -text
+authoring/blender/cinderfen-peat-worker/**/*.blend filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-peat-worker/**/*.glb filter=lfs diff=lfs merge=lfs -text
+scripts/campaign/publish-regional-inhabitant.mjs -text
+scripts/campaign/regional-publication-evidence.mjs -text
