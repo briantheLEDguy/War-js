@@ -6,7 +6,7 @@ import { afterEach, expect, test } from 'vitest';
 // @ts-expect-error Campaign publication helpers are executable JavaScript.
 import { createPublicationEvidence, regionalPublicationAuditPaths } from '../scripts/campaign/regional-publication-evidence.mjs';
 // @ts-expect-error These are the production publisher's package-specific gate contracts.
-import { REGIONAL_CHARACTER_PACKAGES, regionalPublicationIdentity } from '../scripts/campaign/publish-regional-inhabitant.mjs';
+import { REGIONAL_CHARACTER_PACKAGES, regionalPublicationIdentity, regionalPublicationReviewImages } from '../scripts/campaign/publish-regional-inhabitant.mjs';
 
 const temporary: string[] = [];
 const hash = (value: string) => createHash('sha256').update(value).digest('hex');
@@ -34,9 +34,9 @@ afterEach(async () => {
 test.each([
   ['sunmeadow-farmer', ['boot_clearance', 'welt']],
   ['cinderfen-peat-worker', ['garment_clearance', 'welt', 'tool_clearance']],
-  ['sunmeadow-herbalist', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance']],
-  ['cinderfen-supply-officer', ['garment_clearance', 'welt', 'tool_clearance']],
-  ['sunmeadow-scout', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance']],
+  ['sunmeadow-herbalist', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment']],
+  ['cinderfen-supply-officer', ['garment_clearance', 'welt', 'tool_clearance', 'equipment_attachment']],
+  ['sunmeadow-scout', ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment']],
 ] as const)('%s retains all current package gate inputs for three LODs', (name, requiredReports) => {
   const spec = REGIONAL_CHARACTER_PACKAGES[name];
   const lods = [0, 1, 2].map(level => ({ level, model: `${spec.key}_lod${level}.glb` }));
@@ -65,6 +65,17 @@ test.each(['sunmeadow-herbalist', 'cinderfen-supply-officer', 'sunmeadow-scout']
     expect(() => regionalPublicationIdentity(spec, { ...contract, [field]: 'different' })).toThrow();
   }
   expect(() => regionalPublicationIdentity(spec, { ...contract, bodyVariant: undefined })).toThrow('bodyVariant');
+});
+
+test('publication requires current rear and side views as well as the face and animated poses', () => {
+  const review = { modelSha256: 'current', images: ['front', 'head', 'side', 'rear', 'run_side', 'death:2']
+    .map(view => ({ view, image: `${view}.png` })) };
+  expect(regionalPublicationReviewImages(review, 'current')).toEqual(review.images);
+  for (const missing of ['side', 'rear', 'run_side', 'death:2']) {
+    expect(() => regionalPublicationReviewImages({ ...review, images: review.images.filter(image => image.view !== missing) }, 'current'))
+      .toThrow(`Missing ${missing} preview`);
+  }
+  expect(() => regionalPublicationReviewImages(review, 'new export')).toThrow('final export');
 });
 
 test.each(['sunmeadow-farmer', 'cinderfen-peat-worker'])('%s keeps its already-published male contract', async name => {

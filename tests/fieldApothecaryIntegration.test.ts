@@ -7,6 +7,7 @@ import { mapPropNavigation } from '../server/mapNavigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from '../src/shared/orvr/navigation';
 import { WORLD_EDITOR_PREFABS } from '../src/world/editor/PrefabCatalog';
+import type { PropSpawn } from '../src/world/ZoneLoader';
 // @ts-expect-error Executable campaign authoring source.
 import { integrateRegionalApothecaries, REGIONAL_APOTHECARIES, regionalWorksiteReservations } from '../scripts/campaign/regional-worksites.mjs';
 
@@ -15,7 +16,7 @@ const read = (file: string) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const registry = read('public/assets/models/asset-index.json');
 const metadata = read(`${packagePath}/builder-metadata.json`).assets;
-const owned = (zone: { id: string; props: Array<{ id: string }> }) => zone.props.filter(prop => prop.id.startsWith(`${zone.id}_delivered_apothecary_`));
+const owned = (zone: { id: string; props: PropSpawn[] }) => zone.props.filter(prop => prop.id?.startsWith(`${zone.id}_delivered_apothecary_`));
 
 test('the delivered preparation table has matching source, three LODs, packed materials and GM collision', () => {
   const approved = read(`scripts/blender-character-pipeline/data/approved-assets/${key}.approved.json`);

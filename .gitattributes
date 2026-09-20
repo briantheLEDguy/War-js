@@ -132,6 +132,7 @@ scripts/campaign/regional-publication-evidence.mjs -text
 authoring/blender/cinderfen-supply-officer/** -text
 authoring/blender/cinderfen-supply-officer/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/cinderfen-supply-officer/**/*.glb filter=lfs diff=lfs merge=lfs -text
+authoring/blender/cinderfen-supply-officer/**/*.png filter=lfs diff=lfs merge=lfs -text
 authoring/blender/field-apothecary/** -text
 authoring/blender/field-apothecary/**/*.blend filter=lfs diff=lfs merge=lfs -text
 authoring/blender/field-apothecary/**/*.glb filter=lfs diff=lfs merge=lfs -text

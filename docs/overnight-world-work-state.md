@@ -17,7 +17,7 @@ The ram uses two stable authority-owned operator seats and signed fitted poses;
 browser checks covered driving, turning, strike, three LODs, dismount and restored
 weapons on actual equipped Battle Prelate avatars.
 
-The latest full regression pass is **1,409 tests in 168 files**. Production build
+The latest full regression pass is **1,412 tests in 168 files**. Production build
 and client/server typechecks passed. Both workshop items are published at three
 LODs, with 72 placements across all 36 keeps plus four village placements; actual
 local player checks confirm front collision on Cinderfen's raised workshop floor.
@@ -54,6 +54,13 @@ mesh, support and half-metre navigation checks preserve station access.
 
 Root owns publication through `scripts/campaign/publish-regional-inhabitant.mjs`,
 registry/GM generation and map integration. No aesthetic approval is outstanding.
+
+Current technical holds: supply-officer E passed its original numeric gates but
+its rear view exposed detached ledger straps. Do not publish E; the agent is
+correcting attachment in F. Herbalist sleeve/smock contact and scout
+garment/gear fit are still being corrected. The publisher now requires side
+and rear views plus per-LOD equipment_attachment reports for all three new
+characters. Frozen previous civilian/table releases remain valid.
 
 Entries below preserve their historical state; the active summary above
 supersedes older pause, approval and delivery statements.

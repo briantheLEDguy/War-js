@@ -1,3 +1,8 @@
+## 2026-09-20 — Character attachment verification
+
+- Require current side/rear inspection views and equipment-attachment evidence for the three regional characters in production. The unfinished supply officer remains out of runtime while its detached ledger suspension is corrected.
+- Full regression: 1,412 tests pass across 168 files, including all keep furnishings and preserved service identities.
+
 ## 2026-09-20 — Universal keep preparation tables
 
 - Furnished all 36 keeps with the published apothecary table, using measured bays and protected commander, gate and garrison access.

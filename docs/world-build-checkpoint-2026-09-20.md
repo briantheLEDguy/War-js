@@ -11,7 +11,14 @@ tables also clear actual nearby wall/stair/furnishing triangles. The new
 Cinderfen keep table holds a local player press at (-358, 0, 13.960).
 The separate keep integration receipt retains all 36 placement/map hashes and
 the bounded gameplay result. Eighty-seven keep/furnishing/integration checks
-pass across three files; this addition follows the full suite recorded below.
+pass across three files. The final combined suite passes **1,412 tests in 168
+files**, recorded in artifacts/orvr/keep-furnishings-final-tests.json.
+
+Character publication now requires actual side and rear views and retained
+equipment-attachment evidence for the three active female character packages.
+Supply-officer E is held for visibly detached case straps despite passing its
+original numeric gates; the agent is correcting this construction defect.
+Herbalist and scout fit/motion checks remain in progress.
 
 ## Shared apothecary and shelter-floor delivery
 

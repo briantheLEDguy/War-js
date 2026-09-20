@@ -10,12 +10,12 @@ const publications = [{
   packageName: 'cinderfen-peat-worker', key: 'frontier_cinderfen_greenskin_peat_worker',
   assetId: 'chr.frontier.cinderfen.greenskin_peat_worker', zone: 'cinderfen_outskirts',
   npcId: 'cinderfen_outskirts_inhabitant_peat_worker', name: 'Barrek Reedhauler',
-  race: 'greenskin', realm: 'riftbound',
+  race: 'greenskin', realm: 'riftbound', role: 'ambient',
 }, {
   packageName: 'sunmeadow-farmer', key: 'frontier_sunmeadow_empire_farmer',
   assetId: 'chr.frontier.sunmeadow.empire_farmer', zone: 'sunmeadow_march',
   npcId: 'sunmeadow_march_inhabitant_homefield_farmer', name: 'Edric Hayward',
-  race: 'empire', realm: 'aegis',
+  race: 'empire', realm: 'aegis', role: 'ambient',
 }] as const;
 const clips = ['attack_melee', 'attack_ranged', 'cast', 'combat_idle', 'death', 'idle', 'jump', 'run', 'walk'];
 const modelsRoot = path.resolve('public/assets/models');
@@ -157,9 +157,9 @@ describe.each(publications)('$key delivered regional character', publication => 
     const zone = read(`public/assets/maps/${publication.zone}.json`);
     const matches = zone.npcs.filter((npc: { characterProfileKey?: string }) => npc.characterProfileKey === profileKey);
     expect(matches).toHaveLength(1);
-    expect(matches[0]).toMatchObject({ id: publication.npcId, name: publication.name, role: 'ambient', approvedOnly: true });
+    expect(matches[0]).toMatchObject({ id: publication.npcId, name: publication.name, role: publication.role, approvedOnly: true });
     expect(zone.orvrLayout.populationAssignments.filter((npc: { entityId: string }) => npc.entityId === publication.npcId))
-      .toEqual([{ entityId: publication.npcId, race: publication.race, role: 'ambient', desiredProfileKey: profileKey, status: 'approved' }]);
-    expect(campaignNpcProfile({ id: publication.npcId, role: 'ambient', profileKey, race: publication.race, realm: publication.realm })).toBe(profileKey);
+      .toEqual([{ entityId: publication.npcId, race: publication.race, role: publication.role, desiredProfileKey: profileKey, status: 'approved' }]);
+    expect(campaignNpcProfile({ id: publication.npcId, role: publication.role, profileKey, race: publication.race, realm: publication.realm })).toBe(profileKey);
   });
 });

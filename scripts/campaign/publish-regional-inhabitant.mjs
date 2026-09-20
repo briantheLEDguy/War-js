@@ -30,21 +30,21 @@ export const REGIONAL_CHARACTER_PACKAGES = {
     key: 'frontier_sunmeadow_empire_herbalist', assetId: 'chr.frontier.sunmeadow.empire_herbalist',
     name: 'Sunmeadow Empire Herbalist', bodyFamily: 'frontier_sunmeadow_empire_herbalist_v1_f', bodyVariant: 'f',
     skeletonId: 'sunmeadow_herbalist_humanoid_v1', bindPoseId: 'sunmeadow_herbalist_a_pose_v1',
-    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance'],
+    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment'],
     masterReport: 'master-continuity.json',
   },
   'cinderfen-supply-officer': {
     key: 'frontier_cinderfen_dark_elf_supply_officer', assetId: 'chr.frontier.cinderfen.dark_elf_supply_officer',
     name: 'Cinderfen Dark Elf Supply Officer', bodyFamily: 'frontier_cinderfen_supply_officer_v1_f', bodyVariant: 'f',
     skeletonId: 'cinderfen_supply_officer_humanoid_v1', bindPoseId: 'cinderfen_supply_officer_a_v1',
-    contract: 'character-contract.json', reports: ['garment_clearance', 'welt', 'tool_clearance'],
+    contract: 'character-contract.json', reports: ['garment_clearance', 'welt', 'tool_clearance', 'equipment_attachment'],
     masterReport: 'master-continuity.json',
   },
   'sunmeadow-scout': {
     key: 'frontier_sunmeadow_high_elf_scout', assetId: 'chr.frontier.sunmeadow.high_elf_scout',
     name: 'Sunmeadow High Elf Scout', bodyFamily: 'frontier_sunmeadow_high_elf_scout_v1_f', bodyVariant: 'f',
     skeletonId: 'sunmeadow_scout_humanoid_v1', bindPoseId: 'sunmeadow_scout_a_pose_v1',
-    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance'],
+    contract: 'publication-contract.json', reports: ['boot_clearance', 'welt', 'garment_clearance', 'tool_clearance', 'equipment_attachment'],
     masterReport: 'master-continuity.json',
   },
 };
@@ -64,6 +64,15 @@ export function regionalPublicationIdentity(spec, contract) {
       `Publication ${field} differs from the authored contract`);
   }
   return identity;
+}
+
+/** Front-only views can hide detached equipment and rear garment construction. */
+export function regionalPublicationReviewImages(review, modelSha256) {
+  assert.equal(review.modelSha256, modelSha256, 'Saved previews must show the final export');
+  for (const view of ['front', 'head', 'side', 'rear', 'run_side', 'death:2']) {
+    assert(review.images?.some(image => image.view === view), `Missing ${view} preview`);
+  }
+  return review.images;
 }
 
 export async function publishRegionalInhabitant(packageName, suffix, publish = false) {
@@ -118,9 +127,9 @@ export async function publishRegionalInhabitant(packageName, suffix, publish = f
     assert.equal(recorded?.sha256, lod.sha256); assert.equal(recorded.errors, 0); assert.equal(recorded.warnings, 0);
     if (lod.level === 0) {
       const close = JSON.parse(await local(`review/${key}_lod0_review${suffix}.json`));
-      assert.equal(close.modelSha256, lod.sha256, 'Saved previews must show the final export');
-      for (const view of ['front', 'head', 'run_side', 'death:2']) assert(close.images.some(image => image.view === view), `Missing ${view} preview`);
-      for (const image of close.images) { await local(image.image, image.sha256); previews.push({ lod: 0, ...image }); }
+      for (const image of regionalPublicationReviewImages(close, lod.sha256)) {
+        await local(image.image, image.sha256); previews.push({ lod: 0, ...image });
+      }
       bounds = { min: [close.bounds.min[0], close.bounds.min[2], -close.bounds.max[1]],
         max: [close.bounds.max[0], close.bounds.max[2], -close.bounds.min[1]] };
     }
