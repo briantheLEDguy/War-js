@@ -1,3 +1,10 @@
+## 2026-09-21 — Development capital flight and purchased kit integration path
+
+- Added local development GM flight, 0.25x–6x movement speed and collision-checked arrival return. Flight bypasses world collision; leaving flight inside a building is rejected. Walking restores collision, and traversal settings reset with a new pawn. Remote and Shipping sessions cannot enable these development controls.
+- Verified 20 native groups, 83 tooling tests, tools typechecking, rendered editor and Windows-package capital movement/construction/draft tests, and two-client rejection of flight/return RPCs. Inspected the packaged panel and corrected a clipped Arrival label. Physical E/Q key operation and full production GM acceptance remain pending.
+- Recorded the owner's already purchased modular kits as an additional city/GM asset source, pending installation, individual license and compatibility review, and real rendered/cooked tests. Added a designated Git-ignored licensed-content mount and documented catalog adaptation, snapping, collision and draft requirements. No purchased kit was installed or accepted, and no purchase was made.
+- Release admission remains closed; remaining city content, shared GM authorization, full gameplay and platform gates are unfinished.
+
 ## 2026-09-21 — Restore capital rowhouses and expand the GM catalog
 
 - Imported both authored Aegis rowhouse models through repository hash/QC, Blender round-trip and native material/mesh checks. Restored all 36 source placements, bringing the capital workbench to 145 residential objects across eight models; 1,735 other prop identities remain explicitly pending.

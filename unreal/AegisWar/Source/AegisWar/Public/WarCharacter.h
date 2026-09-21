@@ -46,6 +46,10 @@ public:
     double GetCameraDistance() const;
     UFUNCTION(BlueprintCallable, Category="Movement") void ToggleAutoRun();
     bool IsAutoRunning() const { return MovementInput.bAutoRun; }
+    bool SetDevelopmentTraversal(bool bFlying, float SpeedMultiplier, FString& Error);
+    bool ReturnToDevelopmentSpawn(FString& Error);
+    bool IsDevelopmentFlying() const { return bDevelopmentFlying && !bDead; }
+    float GetDevelopmentSpeed() const { return DevelopmentSpeed; }
 
 protected:
     UPROPERTY(VisibleAnywhere, Category="Camera") TObjectPtr<USpringArmComponent> CameraBoom;
@@ -89,4 +93,8 @@ private:
     bool bVisualReady = false;
     FName PlayingAnimation;
     double ActionAnimationUntil = 0.0;
+    bool bDevelopmentFlying = false, bDevelopmentSpeedsCaptured = false;
+    float DevelopmentSpeed = 1.f, DevelopmentBaseWalkSpeed = 600.f, DevelopmentBaseFlySpeed = 600.f;
+    float DevelopmentBaseBraking = 0.f;
+    ECollisionEnabled::Type DevelopmentCollision = ECollisionEnabled::QueryAndPhysics;
 };

@@ -3,6 +3,7 @@
 #include "WarWorldEditSubsystem.h"
 #include "WarInventoryWidget.h"
 #include "WarQuestLogWidget.h"
+#include "WarCharacter.h"
 #include "Engine/World.h"
 
 void AWarPlayerController::ToggleWorldEditor()
@@ -53,6 +54,22 @@ void AWarPlayerController::ServerWorldEditDraft_Implementation(bool bLoad, int32
 }
 
 void AWarPlayerController::ClientWorldEditResult_Implementation(const FString& Message) { WorldEditMessage = Message; }
+
+void AWarPlayerController::ServerSetDevelopmentTraversal_Implementation(bool bFlying, float SpeedMultiplier)
+{
+    auto* WarPawn = Cast<AWarCharacter>(GetPawn()); FString Error;
+    const bool bSuccess = WarPawn && WarPawn->SetDevelopmentTraversal(bFlying, SpeedMultiplier, Error);
+    ClientWorldEditResult(bSuccess ? (bFlying ? TEXT("Flight enabled. Close the panel; E moves up and Q moves down.") : TEXT("Walking enabled."))
+        : TEXT("Traversal rejected: ") + (Error.IsEmpty() ? FString(TEXT("Character unavailable.")) : Error));
+}
+
+void AWarPlayerController::ServerReturnToDevelopmentSpawn_Implementation()
+{
+    auto* WarPawn = Cast<AWarCharacter>(GetPawn()); FString Error;
+    const bool bSuccess = WarPawn && WarPawn->ReturnToDevelopmentSpawn(Error);
+    ClientWorldEditResult(bSuccess ? FString(TEXT("Returned to the capital arrival."))
+        : TEXT("Return rejected: ") + (Error.IsEmpty() ? FString(TEXT("Character unavailable.")) : Error));
+}
 
 void AWarPlayerController::ServerCreateWorldObject_Implementation(FName TemplateId, FTransform Transform, int32 ExpectedRevision)
 {

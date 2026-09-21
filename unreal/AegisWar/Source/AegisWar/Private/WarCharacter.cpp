@@ -247,6 +247,8 @@ void AWarCharacter::UpdateMovementInput()
     const FRotationMatrix Basis(FRotator(0.f, PC->GetControlRotation().Yaw, 0.f));
     AddMovementInput(Basis.GetUnitAxis(EAxis::X), Intent.X);
     AddMovementInput(Basis.GetUnitAxis(EAxis::Y), Intent.Y);
+    if (IsDevelopmentFlying())
+        AddMovementInput(FVector::UpVector, (PC->IsInputKeyDown(EKeys::E) ? 1.f : 0.f) - (PC->IsInputKeyDown(EKeys::Q) ? 1.f : 0.f));
 }
 void AWarCharacter::LookYaw(const FInputActionValue& Value)
 {

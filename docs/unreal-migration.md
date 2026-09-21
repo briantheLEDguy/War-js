@@ -9,7 +9,11 @@ gameplay/GM capability remains required. Merchant/banker/trainer transactions,
 persistent summons, warbands and other unimplemented systems remain separately
 identified; descriptions and NPC role labels are not evidence of implementation.
 
-Only repository models and adaptations of their sources may be used. Every
+Repository models and adaptations remain the default source. The owner additionally
+authorized evaluation and integration of already purchased Unreal modular kits
+for city environments and the GM catalog. No kits are installed or accepted yet;
+see [kit integration requirements](unreal-modular-kits.md). This does not authorize
+new purchases or public redistribution of purchased source assets. Every
 playable body/class variant, NPC, enemy, resident, ambient creature, preview,
 equipment set and siege crew needs a suitable complex model. Visible primitive
 models, dummy substitutions for real enemies and invisible combatants are not

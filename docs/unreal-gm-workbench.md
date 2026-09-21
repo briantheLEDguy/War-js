@@ -16,6 +16,18 @@ stop blocking movement. Attached collision follows transform edits. Inventory,
 quest and builder panels share modal input handling and restore movement/camera
 input when closed.
 
+The development panel also exposes **Fly / walk**, **Arrival**, and speed controls
+from 0.25x to 6x. Close the panel to fly with normal horizontal movement and
+`E` up / `Q` down. Flight bypasses collision for city inspection. Returning to
+walking inside blocking geometry is rejected; move into clear space first.
+Arrival returns to an unobstructed capital spawn. Traversal settings belong to
+the current pawn and reset when it is replaced. These controls remain restricted
+to the local development capital; they are not production multiplayer GM access.
+
+Already purchased modular kits may expand the catalog after installation and
+review. See [the integration path](unreal-modular-kits.md). No purchased kit is
+currently admitted, and grid/pivot snapping is still pending.
+
 The house buttons place an authored model about 20 meters in front of the
 character, on the first blocking surface below that point. Use the transform
 controls to adjust the result; overlapping placements are currently allowed.
@@ -114,9 +126,23 @@ after loading. This passed in the editor
 reload process. Tooling tests (82) and typechecking also passed. A complete
 production world-version migration system is still pending.
 
+Development traversal verification (2026-09-21): all 20 native test groups passed
+in `artifacts/unreal/editor/test-1789992290676-35192/`; 83 tooling tests and tools
+typechecking passed. Rendered flight, bounded speed, blocked flight exit,
+arrival return, grounded recovery and construction/draft checks passed in the
+editor (`artifacts/unreal/capital-proof/1789992105708-30424/`) and rebuilt Windows
+package (`artifacts/unreal/capital-proof/1789992447438-30408/`). The packaged panel
+was visually inspected after shortening its clipped return label to Arrival.
+The two editor clients rejected flight and return RPCs in
+`artifacts/unreal/network/1789992164276-35120/report.json`; the equivalent packaged
+Windows clients also passed in `artifacts/unreal/network/1789992482863-33204/report.json`.
+Automated vertical
+flight uses movement input directly; physical E/Q keyboard operation has not yet
+been separately inspected. Full GM and capital acceptance remain false.
+
 Still pending: the remaining building/prefab catalog, arbitrary/drag transforms,
-terrain sculpt/paint, runtime walkable-surface authoring, GM flight/teleport and
-character tools, shared permissions and replication, durable shared drafts,
+terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,
+arbitrary zone/coordinate/character teleport and character tools, shared permissions and replication, durable shared drafts,
 publication/version restore, remaining capital content, and Riftspire. Existing
 browser GM behavior remains the parity reference. This development panel does
 not satisfy the full GM migration gate.

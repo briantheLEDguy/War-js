@@ -135,6 +135,7 @@ void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reaso
 
 void AWarPlayerController::InteractWithWorld()
 {
+    if (const auto* WarPawn = Cast<AWarCharacter>(GetPawn()); WarPawn && WarPawn->IsDevelopmentFlying()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport()) return;
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) return;
     if (InventoryWidget && InventoryWidget->IsInViewport()) return;

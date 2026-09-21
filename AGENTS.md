@@ -12,7 +12,11 @@ save import are retired. See `docs/unreal-migration.md` and
 `migration/unreal-policy.json` for the stage gates.
 
 New native code lives under `unreal/AegisWar/`; migration tooling lives under
-`scripts/unreal/`. Use repository model sources/adaptations only. Visible
+`scripts/unreal/`. Use repository model sources/adaptations by default. The owner
+also authorized already purchased Unreal modular kits for city environments and
+the GM catalog, subject to per-kit license, compatibility and runtime review;
+see `docs/unreal-modular-kits.md`. No new purchases are authorized, and raw
+purchased assets must stay out of the public repository. Visible
 primitive character, creature, equipment, prop, scenery and fallback models are
 forbidden in the target. Retain collision/navigation/terrain/editor/effect
 geometry. Replace dependencies before deleting legacy browser primitive paths,

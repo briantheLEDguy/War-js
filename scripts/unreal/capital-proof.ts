@@ -42,6 +42,7 @@ const reportPath = path.join(native, 'report.json');
 if (code !== 0 || !existsSync(reportPath)) throw new Error(`Capital proof failed; see ${output}.`);
 const report = JSON.parse(readFileSync(reportPath, 'utf8').replace(/^\uFEFF/, ''));
 if (report.schemaVersion !== 1 || report.passed !== true || report.editableObjects !== expectedObjects || report.retainedBaselineAdditions !== 1
+  || report.developmentTraversalVerified !== true
   || report.fullCapitalAcceptance !== false || report.sharedGmAuthorization !== false) throw new Error('Capital runtime acceptance failed.');
 copyFileSync(reportPath, path.join(output, 'native-report.json'));
 if (args.has('--rendered')) {

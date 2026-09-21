@@ -3,6 +3,7 @@
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
 #include "Components/BoxComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
@@ -43,6 +44,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetNumberField(TEXT("schemaVersion"), 1); Report->SetBoolField(TEXT("passed"), bPassed);
     Report->SetStringField(TEXT("detail"), Detail); Report->SetBoolField(TEXT("fullCapitalAcceptance"), false);
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
+    Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
     Report->SetBoolField(TEXT("constructionReload"), FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")));
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
@@ -70,10 +72,33 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     auto* Player = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController());
     auto* Character = Player ? Cast<AWarCharacter>(Player->GetPawn()) : nullptr;
     auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
-    if (!Character || !Editor || !Character->GetCharacterMovement()->IsMovingOnGround())
+    if (!Character || !Editor || (Stage < 3 && !Character->GetCharacterMovement()->IsMovingOnGround()))
     {
         if (Now - StartedAt > 30) Finish(false, TEXT("Capital character failed to reach authored ground."));
         return;
+    }
+    if (Stage == 3)
+    {
+        if (Character->GetActorLocation().Z - FlightPosition.Z < 100)
+        {
+            if (Now - FlightStartedAt > 5) { Finish(false, TEXT("GM vertical flight did not move the character.")); return; }
+            Character->AddMovementInput(FVector::UpVector, 1.f); return;
+        }
+        Player->ServerReturnToDevelopmentSpawn();
+        if (FVector::Dist2D(Character->GetActorLocation(), StartPosition) > 200)
+        { Finish(false, TEXT("GM return did not reach capital arrival.")); return; }
+        Player->ServerSetDevelopmentTraversal(false, 1.f);
+        if (Character->IsDevelopmentFlying() || Character->GetCapsuleComponent()->GetCollisionEnabled() == ECollisionEnabled::NoCollision
+            || Character->GetCharacterMovement()->MaxWalkSpeed != 600.f)
+        { Finish(false, TEXT("GM walking did not restore collision and speed.")); return; }
+        Stage = 4; FlightStartedAt = Now; return;
+    }
+    if (Stage == 4)
+    {
+        if (!Character->GetCharacterMovement()->IsMovingOnGround())
+        { if (Now - FlightStartedAt > 5) Finish(false, TEXT("GM return did not recover grounded walking.")); return; }
+        bTraversalVerified = true; Player->ToggleWorldEditor();
+        Finish(true, TEXT("Capital construction/drafts, collision, modal controls and GM flight/speed/return passed.")); return;
     }
     if (Stage == 0)
     {
@@ -209,6 +234,18 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     Player->ToggleInventory(); Player->ToggleWorldEditor(); Player->ToggleQuestLog(); Player->ToggleWorldEditor(); Player->ToggleWorldEditor();
     if (!Check(!Player->IsMoveInputIgnored() && !Player->IsLookInputIgnored() && !Player->bShowMouseCursor,
         TEXT("GM panel transitions left movement/camera blocked."))) return;
-    Player->ToggleWorldEditor();
-    Finish(true, TEXT("Capital movement, GM transforms/collision, construction, revisions, undo/redo, draft save/load and modal controls passed."));
+    FlightPosition = Character->GetActorLocation();
+    Player->ServerSetDevelopmentTraversal(true, 2.f);
+    if (!Check(Character->IsDevelopmentFlying() && Character->GetCharacterMovement()->MovementMode == MOVE_Flying
+        && Character->GetCharacterMovement()->MaxFlySpeed == 1200.f
+        && Character->GetCapsuleComponent()->GetCollisionEnabled() == ECollisionEnabled::NoCollision,
+        TEXT("GM flight was not enabled with authorized speed/collision."))) return;
+    Player->ServerSetDevelopmentTraversal(true, 7.f);
+    if (!Check(Character->GetDevelopmentSpeed() == 2.f, TEXT("Invalid GM speed changed movement."))) return;
+    Character->SetActorLocation(Boxes[0]->GetComponentLocation());
+    Player->ServerSetDevelopmentTraversal(false, 1.f);
+    if (!Check(Character->IsDevelopmentFlying() && Character->GetDevelopmentSpeed() == 2.f,
+        TEXT("GM flight exited inside blocking geometry."))) return;
+    Character->SetActorLocation(FlightPosition);
+    FlightStartedAt = Now; Stage = 3;
 }

@@ -17,6 +17,9 @@ private:
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     FVector StartPosition = FVector::ZeroVector;
+    FVector FlightPosition = FVector::ZeroVector;
+    double FlightStartedAt = -1;
+    bool bTraversalVerified = false;
     int32 Stage = 0;
     bool bFinished = false;
 };

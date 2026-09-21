@@ -73,6 +73,8 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("passed"), bPassed);
     Report->SetBoolField(TEXT("remoteGmRejected"), bGmDenied);
     Report->SetBoolField(TEXT("remoteGmCreationRejected"), bGmCreationDenied);
+    Report->SetBoolField(TEXT("remoteGmTraversalRejected"), bGmTraversalDenied);
+    Report->SetBoolField(TEXT("remoteGmReturnRejected"), bGmReturnDenied);
     Report->SetStringField(TEXT("role"), ResultRole);
     Report->SetStringField(TEXT("detail"), Detail);
     Report->SetBoolField(TEXT("observedReplicatedMovement"), bMoved);
@@ -189,6 +191,12 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
                 bGmCreationRequested = true;
             }
             bGmCreationDenied |= Controller->GetWorldEditMessage() == TEXT("Creation rejected: Open the authorized GM workbench before editing.");
+            if (bGmCreationDenied && !bGmTraversalRequested)
+            { Controller->ServerSetDevelopmentTraversal(true, 6.f); bGmTraversalRequested = true; }
+            bGmTraversalDenied |= Controller->GetWorldEditMessage() == TEXT("Traversal rejected: Development GM traversal is unavailable for this session.");
+            if (bGmTraversalDenied && !bGmReturnRequested)
+            { Controller->ServerReturnToDevelopmentSpawn(); bGmReturnRequested = true; }
+            bGmReturnDenied |= Controller->GetWorldEditMessage() == TEXT("Return rejected: Development GM traversal is unavailable for this session.");
         }
     ResultRole = bServer ? TEXT("server") : TEXT("client-pending");
     // Death unpossesses the pawn immediately, so its PlayerState link is cleared before the next tick.

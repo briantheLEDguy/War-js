@@ -1,6 +1,7 @@
 #include "WarWorldEditWidget.h"
 #include "WarWorldEditSubsystem.h"
 #include "WarPlayerController.h"
+#include "WarCharacter.h"
 #include "Engine/World.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/StaticMeshComponent.h"
@@ -34,6 +35,25 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
                 if (auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>()) P->ServerWorldEditHistory(bRedo, E->GetHistory().GetRevision());
             return FReply::Handled(); })];
     Body->AddSlot().AutoHeight().Padding(0, 8)[Commands];
+    auto Travel = SNew(SHorizontalBox);
+    Travel->AddSlot().FillWidth(1)[Button(TEXT("Fly / walk"), [Weak] {
+        if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
+            if (auto* C = Cast<AWarCharacter>(P->GetPawn())) P->ServerSetDevelopmentTraversal(!C->IsDevelopmentFlying(), C->GetDevelopmentSpeed());
+        return FReply::Handled(); })];
+    Travel->AddSlot().FillWidth(1)[Button(TEXT("Arrival"), [Weak] {
+        if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer())) P->ServerReturnToDevelopmentSpawn();
+        return FReply::Handled(); })];
+    for (const float Step : { -0.25f, 0.25f })
+        Travel->AddSlot().FillWidth(1)[Button(Step < 0 ? TEXT("Speed -") : TEXT("Speed +"), [Weak, Step] {
+            if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
+                if (auto* C = Cast<AWarCharacter>(P->GetPawn())) P->ServerSetDevelopmentTraversal(C->IsDevelopmentFlying(),
+                    FMath::Clamp(C->GetDevelopmentSpeed() + Step, 0.25f, 6.f));
+            return FReply::Handled(); })];
+    Body->AddSlot().AutoHeight()[Travel];
+    Body->AddSlot().AutoHeight().Padding(0, 4)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text_Lambda([Weak] {
+        const auto* C = Weak.IsValid() ? Cast<AWarCharacter>(Weak->GetOwningPlayerPawn()) : nullptr;
+        return C ? FText::FromString(FString::Printf(TEXT("%s  %.2fx — flight: E up / Q down"),
+            C->IsDevelopmentFlying() ? TEXT("Flying") : TEXT("Walking"), C->GetDevelopmentSpeed())) : FText::GetEmpty(); })];
     auto Catalog = SNew(SVerticalBox);
     TSharedPtr<SHorizontalBox> CatalogRow;
     TSet<FString> Models;

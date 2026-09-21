@@ -9,6 +9,15 @@
   "importBrowserSaves": false,
   "playersPerRealmPerContestedZone": 18,
   "modelSources": "repository-and-adaptations-only",
+  "modelSourceExceptions": {
+    "ownerPurchasedModularKits": {
+      "authorized": true,
+      "scope": "GM building catalog and city environment",
+      "status": "awaiting-installation-and-per-kit-review",
+      "rawAssetsInPublicRepository": false,
+      "requiresLicenseCompatibilityAndRuntimeVerification": true
+    }
+  },
   "visiblePrimitiveModelsAllowed": false,
   "allowedTechnicalGeometry": ["collision", "navigation", "terrain", "editor-guides", "intentional-effects"],
   "productionAdmissionRequiresVerifiedSteamOwnership": true,
