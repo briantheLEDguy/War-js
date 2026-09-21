@@ -29,6 +29,12 @@ void AWarPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
 
 bool AWarPlayerState::GrantRewards(const FGuid& Transaction, const TArray<FWarInventoryItem>& Rewards, FString& Error)
 {
+    return GrantCharacterRewards(Transaction, 0, 0, Rewards, Error);
+}
+
+bool AWarPlayerState::GrantCharacterRewards(const FGuid& Transaction, const int32 Xp, const int32 Gold,
+    const TArray<FWarInventoryItem>& Rewards, FString& Error)
+{
     Error.Reset();
     if (!HasAuthority() || !Transaction.IsValid() || RewardReceipts.Contains(Transaction)
         || RewardReceipts.Num() >= 65536 || Inventory.Revision == MAX_int32)
@@ -36,12 +42,17 @@ bool AWarPlayerState::GrantRewards(const FGuid& Transaction, const TArray<FWarIn
         Error = TEXT("Reward transaction is unauthorized, duplicated or exceeds session limits.");
         return false;
     }
+    FWarCharacterProgression Progression;
+    if (!WarProgression::Award(Inventory.CharacterProgression, Xp, Gold, Progression, Error)) return false;
+    const bool bLeveled = Progression.Level > Inventory.CharacterProgression.Level;
     TArray<FWarInventoryItem> Next, Pending;
     if (!WarInventory::PlaceRewards(Inventory.Items, Rewards, Next, Pending, Error)) return false;
     Inventory.Items = MoveTemp(Next);
     Inventory.PendingRewards.Append(Pending);
+    Inventory.CharacterProgression = Progression;
     ++Inventory.Revision;
     RewardReceipts.Add(Transaction);
+    if (bLeveled) ApplyProgressionVitals(true);
     ForceNetUpdate();
     return true;
 }
@@ -120,6 +131,7 @@ bool AWarPlayerState::ExchangeItems(const FGuid& Transaction, const int32 Expect
 
 void AWarPlayerState::ServerChangeEquipment_Implementation(const int32 ExpectedRevision, const int32 BagSlot, const bool bEquip)
 {
+    if (!CanPerformInventoryAction()) { ClientInventoryResult(false, TEXT("Equipment changes are unavailable while defeated or loading.")); return; }
     FString Error;
     const bool bAccepted = ChangeEquipment(ExpectedRevision, BagSlot, bEquip, Error);
     ClientInventoryResult(bAccepted, Error);
@@ -133,7 +145,7 @@ void AWarPlayerState::ClientInventoryResult_Implementation(const bool bAccepted,
 bool AWarPlayerState::UseConsumable(const int32 ExpectedRevision, const int32 BagSlot, FString& Error)
 {
     Error.Reset();
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Item use is unavailable or inventory changed."); return false; }
     const auto* Item = Inventory.Items.FindByPredicate([BagSlot](const auto& Row) { return Row.Slot == BagSlot; });
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
@@ -159,7 +171,7 @@ void AWarPlayerState::ServerUseConsumable_Implementation(const int32 ExpectedRev
 bool AWarPlayerState::SalvageItem(const int32 ExpectedRevision, const int32 BagSlot, FString& Error)
 {
     Error.Reset();
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Salvaging is unavailable or inventory changed."); return false; }
     const auto* Item = Inventory.Items.FindByPredicate([BagSlot](const auto& Row) { return Row.Slot == BagSlot; });
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
@@ -204,7 +216,7 @@ bool AWarPlayerState::CraftRecipe(const FName RecipeId, const int32 ExpectedRevi
     const AWarCraftingStation* Station, FString& Error)
 {
     Error.Reset();
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Crafting is unavailable or inventory changed."); return false; }
     if (Station && !Station->CanInteract(GetPawn()))
     { Error = TEXT("Crafting station is unavailable or too far away."); return false; }
@@ -256,9 +268,38 @@ void AWarPlayerState::InitializeForPawn(AWarCharacter* Avatar)
     AbilitySystem->InitAbilityActorInfo(this, Avatar);
     if (!HasAuthority() || !Avatar || !Avatar->IsVisualReady()) return;
     AbilitySystem->ApplyGameplayEffectToSelf(GetDefault<UWarInitialAttributesEffect>(), 1.f, AbilitySystem->MakeEffectContext());
+    ApplyProgressionVitals(true);
     if (!bGrantedDevelopmentAbility)
     {
         AbilitySystem->GiveAbility(FGameplayAbilitySpec(UWarStrikeAbility::StaticClass(), 1));
         bGrantedDevelopmentAbility = true;
     }
+}
+
+bool AWarPlayerState::CanPerformInventoryAction() const
+{
+    const auto* Avatar = Cast<AWarCharacter>(GetPawn());
+    return Avatar && Avatar->IsVisualReady() && !Avatar->IsDead() && Attributes->GetHealth() > 0.f;
+}
+
+void AWarPlayerState::ApplyProgressionVitals(const bool bRestorePools)
+{
+    if (!HasAuthority() || !AbilitySystem->GetAvatarActor()) return;
+    const auto& Progression = Inventory.CharacterProgression;
+    AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetMaxHealthAttribute(), Progression.MaxHealth);
+    AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetMaxManaAttribute(), Progression.MaxMana);
+    if (bRestorePools)
+    {
+        AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetHealthAttribute(), Progression.MaxHealth);
+        AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetManaAttribute(), Progression.MaxMana);
+    }
+}
+
+int64 AWarPlayerState::GetEffectiveStrength() const
+{
+    TMap<FName, int32> Equipment;
+    for (const auto& Entry : Inventory.Equipment) Equipment.Add(Entry.Slot, Entry.BagSlot);
+    int32 Bonus = 0; FString Error;
+    if (!WarInventory::StrengthBonus(Inventory.Items, Equipment, Bonus, Error)) return Inventory.CharacterProgression.BaseStrength;
+    return int64(Inventory.CharacterProgression.BaseStrength) + Bonus;
 }

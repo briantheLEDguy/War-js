@@ -68,12 +68,14 @@ try {
     for (const [index, filename] of screenshots.entries()) writeFileSync(path.join(output, `${roles[index + 1]}.png`), readFileSync(filename));
   }
   if (receipts.some((receipt, index) => receipt.schemaVersion !== 1 || receipt.role !== roles[index] || receipt.passed !== true
-      || receipt.inventoryAuthorityAndPrivacy !== true || receipt.observedReplicatedMovement !== true || receipt.defenderHealth !== 100
+      || receipt.inventoryAuthorityAndPrivacy !== true || receipt.observedReplicatedMovement !== true || receipt.defenderHealth !== 140
       || receipt.combatBeforeHealing !== true || receipt.consumableAuthority !== true
       || receipt.craftingAuthority !== true
       || receipt.salvageAuthority !== true
       || receipt.cultivationAuthority !== true
-      || (index < 2 && receipt.attackerMana !== 100)
+      || receipt.progressionAuthority !== true
+      || receipt.respawnPreservesProgression !== true
+      || (index < 2 && receipt.attackerMana !== 120)
       || (index > 0 && (receipt.autonomousProxy !== true || receipt.movementAnimation !== true || receipt.strikeAnimation !== true)))
       || receipts[1].strikeRequests !== 2) throw new Error(`Network proof failed: ${JSON.stringify(receipts)}`);
   const report = { schemaVersion: 1, run, passed: true, platform: process.platform, transport: 'loopback UDP',

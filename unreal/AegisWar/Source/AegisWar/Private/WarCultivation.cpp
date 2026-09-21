@@ -11,7 +11,7 @@ namespace
 
 bool AWarPlayerState::PlantSeed(const FName SeedKey, const bool bUseSoil, const int32 ExpectedRevision, FString& Error)
 {
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Planting is unavailable or inventory changed."); return false; }
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
     FWarCultivationSeed Seed;
@@ -23,7 +23,7 @@ bool AWarPlayerState::PlantSeed(const FName SeedKey, const bool bUseSoil, const 
 
 bool AWarPlayerState::HarvestCrop(const FGuid PlotId, const int32 ExpectedRevision, FString& Error)
 {
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Harvesting is unavailable or inventory changed."); return false; }
     const auto* Plot = Inventory.CultivationPlots.FindByPredicate([PlotId](const auto& Row) { return Row.Id == PlotId; });
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;

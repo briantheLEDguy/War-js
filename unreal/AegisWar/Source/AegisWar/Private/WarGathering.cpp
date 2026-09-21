@@ -5,7 +5,7 @@
 
 bool AWarPlayerState::GatherResource(const AWarResourceNode* Node, const int32 ExpectedRevision, FString& Error)
 {
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f || !IsValid(Node))
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction() || !IsValid(Node))
     { Error = TEXT("Gathering is unavailable or inventory changed."); return false; }
     FWarResourceDefinition Definition;
     if (!Node->ResolveInteraction(GetPawn(), Definition, Error)) return false;

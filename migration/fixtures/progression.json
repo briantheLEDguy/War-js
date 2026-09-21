@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "source": "src/game/QuestLogic.ts",
+  "sourceSha256": "cdedb9286554e06583f44864908b93e6cae70ae5e7629cdd10f5da457a9aa795",
+  "cases": [
+    {
+      "name": "reward_0",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 0,
+      "goldReward": 25,
+      "expected": {
+        "level": 1,
+        "xp": 0,
+        "gold": 32,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      }
+    },
+    {
+      "name": "reward_249",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 249,
+      "goldReward": 25,
+      "expected": {
+        "level": 1,
+        "xp": 249,
+        "gold": 32,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      }
+    },
+    {
+      "name": "reward_250",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 250,
+      "goldReward": 25,
+      "expected": {
+        "level": 2,
+        "xp": 0,
+        "gold": 32,
+        "health": 120,
+        "maxHealth": 120,
+        "mana": 110,
+        "maxMana": 110,
+        "strength": 12
+      }
+    },
+    {
+      "name": "reward_649",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 649,
+      "goldReward": 25,
+      "expected": {
+        "level": 2,
+        "xp": 399,
+        "gold": 32,
+        "health": 120,
+        "maxHealth": 120,
+        "mana": 110,
+        "maxMana": 110,
+        "strength": 12
+      }
+    },
+    {
+      "name": "reward_650",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 650,
+      "goldReward": 25,
+      "expected": {
+        "level": 3,
+        "xp": 0,
+        "gold": 32,
+        "health": 140,
+        "maxHealth": 140,
+        "mana": 120,
+        "maxMana": 120,
+        "strength": 14
+      }
+    },
+    {
+      "name": "reward_1199",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 1199,
+      "goldReward": 25,
+      "expected": {
+        "level": 3,
+        "xp": 549,
+        "gold": 32,
+        "health": 140,
+        "maxHealth": 140,
+        "mana": 120,
+        "maxMana": 120,
+        "strength": 14
+      }
+    },
+    {
+      "name": "reward_1200",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 1200,
+      "goldReward": 25,
+      "expected": {
+        "level": 4,
+        "xp": 0,
+        "gold": 32,
+        "health": 160,
+        "maxHealth": 160,
+        "mana": 130,
+        "maxMana": 130,
+        "strength": 16
+      }
+    },
+    {
+      "name": "reward_4900",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 4900,
+      "goldReward": 25,
+      "expected": {
+        "level": 8,
+        "xp": 0,
+        "gold": 32,
+        "health": 240,
+        "maxHealth": 240,
+        "mana": 170,
+        "maxMana": 170,
+        "strength": 24
+      }
+    },
+    {
+      "name": "reward_5000",
+      "input": {
+        "level": 1,
+        "xp": 0,
+        "gold": 7,
+        "health": 32,
+        "maxHealth": 100,
+        "mana": 15,
+        "maxMana": 100,
+        "strength": 10
+      },
+      "xpReward": 5000,
+      "goldReward": 25,
+      "expected": {
+        "level": 8,
+        "xp": 100,
+        "gold": 32,
+        "health": 240,
+        "maxHealth": 240,
+        "mana": 170,
+        "maxMana": 170,
+        "strength": 24
+      }
+    }
+  ]
+}

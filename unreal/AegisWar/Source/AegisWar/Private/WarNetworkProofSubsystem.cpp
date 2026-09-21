@@ -5,6 +5,8 @@
 #include "WarCraftingStation.h"
 #include "WarPlayerController.h"
 #include "WarAttributeSet.h"
+#include "WarGameplayEffects.h"
+#include "AbilitySystemComponent.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
@@ -68,6 +70,9 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("craftingAuthority"), bCraftVerified);
     Report->SetBoolField(TEXT("salvageAuthority"), bSalvageVerified);
     Report->SetBoolField(TEXT("cultivationAuthority"), bCultivationVerified);
+    Report->SetBoolField(TEXT("progressionAuthority"), bProgressionVerified);
+    Report->SetBoolField(TEXT("respawnPreservesProgression"), bRespawnVerified);
+    Report->SetBoolField(TEXT("deathObserved"), bDeathObserved);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -97,6 +102,9 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     if (StartedAt < 0) StartedAt = Now;
     const bool bServer = GetWorld()->GetNetMode() == NM_DedicatedServer;
     ResultRole = bServer ? TEXT("server") : TEXT("client-pending");
+    // Death unpossesses the pawn immediately, so its PlayerState link is cleared before the next tick.
+    if (bProgressionVerified && TrackedDefender.IsValid() && TrackedDefenderState.IsValid())
+        bDeathObserved |= TrackedDefender->IsDead() && TrackedDefenderState->GetAttributes()->GetHealth() <= 0.f;
     AWarCharacter* Attacker = nullptr;
     AWarCharacter* Defender = nullptr;
     for (TActorIterator<AWarCharacter> It(GetWorld()); It; ++It)
@@ -113,6 +121,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     }
     AWarPlayerState* Aegis = Attacker->GetPlayerState<AWarPlayerState>();
     AWarPlayerState* Riftbound = Defender->GetPlayerState<AWarPlayerState>();
+    TrackedDefender = Defender; TrackedDefenderState = Riftbound;
     ObservedHealth = Riftbound->GetAttributes()->GetHealth();
     ObservedMana = Aegis->GetAttributes()->GetMana();
     const bool bAttackerClient = !bServer && Attacker->IsLocallyControlled();
@@ -340,10 +349,56 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
                 && (bAttackerClient ? Riftbound : Aegis)->GetInventory().CultivationPlots.IsEmpty()
                 && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Professions.IsEmpty();
     }
-    if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && bCultivationVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
-        && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 100.f)))
+    if (bCultivationVerified && Elapsed > 60.0)
     {
-        Finish(true, TEXT("Movement, combat, private inventory, consumables, crafting, salvage and cultivation verified."));
+        if (bServer)
+        {
+            for (auto* State : {Aegis, Riftbound})
+            {
+                if (State->GetInventory().Revision != 10) continue;
+                FString Error; const FGuid Reward(13, 14, 15, 16);
+                if (!State->GrantCharacterRewards(Reward, 650, 25, {}, Error)
+                    || State->GrantCharacterRewards(Reward, 650, 25, {}, Error))
+                { Finish(false, TEXT("Progression reward or duplicate rejection failed.")); return; }
+            }
+        }
+        const auto Advanced = [](const AWarPlayerState* State) {
+            const auto& Snapshot = State->GetInventory(); const auto& Progression = Snapshot.CharacterProgression;
+            return Snapshot.Revision == 11 && Snapshot.Items.Num() == 5 && Snapshot.Professions.Num() == 3
+                && Progression.Level == 3 && Progression.Xp == 0 && Progression.Gold == 25 && Progression.BaseStrength == 14
+                && Progression.MaxHealth == 140 && Progression.MaxMana == 120 && State->GetEffectiveStrength() == 14
+                && FMath::IsNearlyEqual(State->GetAttributes()->GetHealth(), 140.f)
+                && FMath::IsNearlyEqual(State->GetAttributes()->GetMana(), 120.f)
+                && FMath::IsNearlyEqual(State->GetAttributes()->GetMaxHealth(), 140.f)
+                && FMath::IsNearlyEqual(State->GetAttributes()->GetMaxMana(), 120.f);
+        };
+        const auto& RemoteProgression = (bAttackerClient ? Riftbound : Aegis)->GetInventory().CharacterProgression;
+        bProgressionVerified |= bServer ? Advanced(Aegis) && Advanced(Riftbound)
+            : Advanced(bAttackerClient ? Aegis : Riftbound) && RemoteProgression.Level == 1
+                && RemoteProgression.Xp == 0 && RemoteProgression.Gold == 0;
+    }
+    if (bServer && bProgressionVerified && !bDeathRequested && Elapsed > 62.0)
+    {
+        DefeatedDefender = Defender;
+        auto* System = Defender->GetAbilitySystemComponent();
+        for (int32 Hit = 0; Hit < 7; ++Hit)
+            System->ApplyGameplayEffectToSelf(GetDefault<UWarStrikeDamageEffect>(), 1.f, System->MakeEffectContext());
+        if (!Defender->IsDead() || Riftbound->GetAttributes()->GetHealth() > 0.f)
+        { Finish(false, TEXT("Server damage did not enter death state.")); return; }
+        bDeathRequested = true;
+    }
+    bDeathObserved |= bProgressionVerified && Defender->IsDead() && Riftbound->GetAttributes()->GetHealth() <= 0.f;
+    const auto& RespawnSnapshot = Riftbound->GetInventory();
+    const bool bPrivateRespawnState = (!bServer && !bDefenderClient)
+        || (RespawnSnapshot.Revision == 11 && RespawnSnapshot.Items.Num() == 5 && RespawnSnapshot.Professions.Num() == 3
+            && RespawnSnapshot.CharacterProgression.Level == 3 && RespawnSnapshot.CharacterProgression.Gold == 25);
+    bRespawnVerified |= bDeathObserved && bPrivateRespawnState && !Defender->IsDead() && (!bServer || Defender != DefeatedDefender.Get())
+        && FMath::IsNearlyEqual(ObservedHealth, 140.f) && Riftbound->GetAttributes()->GetMaxHealth() == 140.f;
+    if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && bCultivationVerified
+        && bProgressionVerified && bRespawnVerified && FMath::IsNearlyEqual(ObservedHealth, 140.f)
+        && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 120.f)))
+    {
+        Finish(true, TEXT("Movement, combat, private inventory, consumables, crafting, salvage, cultivation, progression and respawn verified."));
     }
     else if (Elapsed > 80)
     {

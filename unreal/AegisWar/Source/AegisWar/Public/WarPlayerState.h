@@ -29,6 +29,9 @@ public:
     const FWarInventorySnapshot& GetInventory() const { return Inventory; }
     // Trusted server API only. Receipts live for this PlayerState session, not across reconnects.
     bool GrantRewards(const FGuid& Transaction, const TArray<FWarInventoryItem>& Rewards, FString& Error);
+    bool GrantCharacterRewards(const FGuid& Transaction, int32 Xp, int32 Gold,
+        const TArray<FWarInventoryItem>& Rewards, FString& Error);
+    int64 GetEffectiveStrength() const;
     bool ChangeEquipment(int32 ExpectedRevision, int32 BagSlot, bool bEquip, FString& Error);
     // Trusted recipe/consumable/salvage callers validate gameplay eligibility before this atomic exchange.
     bool ExchangeItems(const FGuid& Transaction, int32 ExpectedRevision, const TMap<int32, int32>& ConsumedSlots,
@@ -49,6 +52,8 @@ public:
     UFUNCTION(Server, Reliable) void ServerGatherResource(AWarResourceNode* Node, int32 ExpectedRevision);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:
+    bool CanPerformInventoryAction() const;
+    void ApplyProgressionVitals(bool bRestorePools);
     UPROPERTY(Transient) FText InventoryMessage;
     UPROPERTY(Replicated) FWarInventorySnapshot Inventory;
     TSet<FGuid> RewardReceipts;

@@ -44,7 +44,9 @@ salvaging now preserves affix-dependent materials, protects equipped gear, rolls
 back when outputs cannot fit, and awards server-owned profession XP.
 Native resource gathering now has catalog-backed server transactions and
 per-character cooldowns; [world placement and remaining work](docs/unreal-gathering.md)
-are still pending.
+are still pending. Native [character progression](docs/unreal-progression.md) now
+adds server-owned XP/gold, multilevel stat growth and an inventory progression
+readout; durable settlement and full ability integration remain open.
 
 ## Regional production priorities
 

@@ -4,6 +4,9 @@
 #include "Subsystems/WorldSubsystem.h"
 #include "WarNetworkProofSubsystem.generated.h"
 
+class AWarCharacter;
+class AWarPlayerState;
+
 /** Opt-in development acceptance driver; never created in Shipping or ordinary sessions. */
 UCLASS()
 class AEGISWAR_API UWarNetworkProofSubsystem : public UTickableWorldSubsystem
@@ -39,6 +42,13 @@ private:
     bool bHarvestRequested = false;
     bool bPlotPrivacyVerified = false;
     bool bCultivationVerified = false;
+    bool bProgressionVerified = false;
+    bool bDeathRequested = false;
+    bool bDeathObserved = false;
+    bool bRespawnVerified = false;
+    TWeakObjectPtr<AWarCharacter> DefeatedDefender;
+    TWeakObjectPtr<AWarCharacter> TrackedDefender;
+    TWeakObjectPtr<AWarPlayerState> TrackedDefenderState;
     bool bMovementDriveComplete = false;
     float ObservedHealth = -1;
     float ObservedMana = -1;

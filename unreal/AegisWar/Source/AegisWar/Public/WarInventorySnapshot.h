@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "WarInventoryRules.h"
+#include "WarProgressionRules.h"
 #include "WarInventorySnapshot.generated.h"
 
 USTRUCT(BlueprintType)
@@ -46,6 +47,7 @@ struct AEGISWAR_API FWarInventorySnapshot
 {
     GENERATED_BODY()
     UPROPERTY(BlueprintReadOnly) int32 Revision = 0;
+    UPROPERTY(BlueprintReadOnly) FWarCharacterProgression CharacterProgression;
     UPROPERTY(BlueprintReadOnly) TArray<FWarInventoryItem> Items;
     UPROPERTY(BlueprintReadOnly) TArray<FWarInventoryItem> PendingRewards;
     UPROPERTY(BlueprintReadOnly) TArray<FWarEquipmentReference> Equipment;

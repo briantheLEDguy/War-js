@@ -1,3 +1,12 @@
+## 2026-09-21 - Native character progression
+
+- Added server-owned XP/gold/item reward settlement with session deduplication,
+  source-matching level thresholds/stat growth, pool restoration and UI readout.
+- Added browser-derived progression fixtures, native transaction tests and
+  multiplayer level-up/death/respawn acceptance.
+- Defeated/loading pawns cannot invoke client inventory actions. Durable rewards,
+  full ability unlock/notification integration and world reward triggers remain open.
+
 ## 2026-09-21 - Native resource gathering transactions
 
 - Added catalog-backed resource gathering, server loot/XP, private per-character

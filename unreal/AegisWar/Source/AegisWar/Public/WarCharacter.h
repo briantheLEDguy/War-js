@@ -28,6 +28,7 @@ public:
     virtual void Tick(float DeltaSeconds) override;
 
     bool SetVisualDefinition(UWarCharacterVisualDefinition* Definition, FString& OutError);
+    bool IsDead() const { return bDead; }
     bool IsVisualReady() const { return bVisualReady; }
     FName GetPlayingAnimation() const { return PlayingAnimation; }
     bool CanStrikeTarget(const AWarCharacter* Target) const;

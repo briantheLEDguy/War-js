@@ -68,6 +68,11 @@ void UWarInventoryWidget::Refresh(AWarPlayerState* State)
     Rows->ClearChildren();
     Rows->AddSlot().AutoHeight().Padding(0, 0, 0, 12)
         [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 26)).Text(FText::FromString(FString::Printf(TEXT("Inventory â€” %d / 24 slots"), Inventory.Items.Num())))];
+    const auto& Progression = Inventory.CharacterProgression;
+    Rows->AddSlot().AutoHeight().Padding(0, 0, 0, 8)
+        [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).Text(FText::FromString(FString::Printf(
+            TEXT("Level %d · XP %lld / %lld · Gold %lld · Strength %lld"), Progression.Level, Progression.Xp,
+            WarProgression::XpForLevel(Progression.Level), Progression.Gold, State->GetEffectiveStrength())))];
     Rows->AddSlot().AutoHeight().Padding(0, 0, 0, 12)
         [SNew(SButton)
             .OnClicked_Lambda([WeakThis = TWeakObjectPtr<UWarInventoryWidget>(this)] {
