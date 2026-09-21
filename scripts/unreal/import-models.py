@@ -320,6 +320,8 @@ def create_materials(unreal, context, textures):
         mark_owned(unreal, material, context)
         unreal.EditorAssetLibrary.set_metadata_tag(material, "WarOriginalMaterialName", source_name)
         unreal.EditorAssetLibrary.set_metadata_tag(material, "WarOriginalGltfMaterial", json.dumps(source, sort_keys=True))
+        # Game/cooked loading cannot rely on the editor discovering this usage after import.
+        material.set_editor_property("used_with_skeletal_mesh", context["conversion"]["kind"] == "characterProfiles")
         material.set_editor_property("two_sided", source.get("doubleSided", False))
         alpha_mode = source.get("alphaMode", "OPAQUE")
         material.set_editor_property("blend_mode", {"OPAQUE": unreal.BlendMode.BLEND_OPAQUE,
@@ -403,7 +405,8 @@ def create_materials(unreal, context, textures):
         errors = library.recompile_material(material)
         require(not errors, f"Material compilation errors for {source_name}: {errors}")
         result[source_name] = material
-        records.append({**asset_record(material), "sourceMaterialName": source_name, "sourceDefinition": source})
+        records.append({**asset_record(material), "sourceMaterialName": source_name, "sourceDefinition": source,
+                        "skeletalMeshUsage": bool(material.get_editor_property("used_with_skeletal_mesh"))})
     return result, records
 
 
@@ -441,6 +444,8 @@ def inspect_assets(unreal, context, assets, materials):
             if original is None:
                 original = by_imported_name.get(imported_name) or by_imported_name.get(current_name)
             require(original is not None, f"Material slot has no exact source mapping: {mesh.get_name()}/{imported_name}")
+            require(not skeletal or materials[original].get_editor_property("used_with_skeletal_mesh"),
+                    f"Character material lacks skeletal-mesh shader usage: {original}")
             slot.set_editor_property("material_interface", materials[original])
             slot.set_editor_property("material_slot_name", original)
             used_materials.add(original)

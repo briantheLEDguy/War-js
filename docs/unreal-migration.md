@@ -249,3 +249,20 @@ Current platform references:
 [FBX pipeline](https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-content-pipeline),
 [Steam authentication](https://partner.steamgames.com/doc/features/auth),
 [Steam onboarding](https://partner.steamgames.com/doc/gettingstarted/onboarding).
+
+## Skeletal material rendering correction
+
+The importer explicitly enables skeletal-mesh usage before compiling each
+character material and checks every assigned material. Import receipts record
+this property; receipt validation rejects missing/false usage evidence. This
+fixes the checkerboard substitutions observed in game/cooked rendering. All
+three admitted character sources were reimported with passing raw/compressed
+pose and skin checks. Proof-map lights now use movable lighting.
+
+Windows packaging and the rendered two-client gameplay sequence passed at
+`artifacts/unreal/network/1789973284701-2572/report.json`. Screenshots were
+inspected: source colors render and the unbuilt-lighting overlay is absent.
+Neither client log reports missing material usage flags or material compile
+failures. Tooling tests (72), TypeScript checks and Python import preflight
+checks (8) pass. These rendering checks do not approve clothing, equipment,
+LOD/performance, species suitability or complete model coverage.

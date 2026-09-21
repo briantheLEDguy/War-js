@@ -1,3 +1,11 @@
+## 2026-09-21 - Native character material rendering
+
+- Compile imported character materials for skeletal meshes and reject receipts
+  that lack shader-usage evidence; revalidated all three admitted sources.
+- Use dynamic proof-map lighting, removing the unbuilt-lightmap overlay.
+- Verified packaged rendering and the existing multiplayer gameplay sequence;
+  full character art and equipment approval remain unfinished.
+
 ## 2026-09-21 - Native crafting station interaction
 
 - Added nearby-station interaction on E, station-aware recipe requests and

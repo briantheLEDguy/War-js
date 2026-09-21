@@ -44,6 +44,10 @@ export function validateImportReceipt(report: unknown, profile: string, conversi
       || !Array.isArray(data.animations) || poses.clips.length !== data.animations.length * 2 || !poses.clips.length) {
       throw new Error('Missing or invalid Unreal skinning parity evidence.');
     }
+    const materials = data.materials as Array<{ skeletalMeshUsage?: boolean }> | undefined;
+    if (!Array.isArray(materials) || !materials.length || materials.some(material => material?.skeletalMeshUsage !== true)) {
+      throw new Error('Missing or invalid skeletal material shader usage evidence.');
+    }
   }
 }
 
