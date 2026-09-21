@@ -24,6 +24,13 @@ Retired preview maps/materials and the old Crownward workbench were removed afte
 dependency checks. Shared terrain and source kit assets remain required.
 Do not regenerate the old workbench or apply another automatic lighting pass.
 
+FinalAppearance now includes an attached **Population** sublevel with 17 new
+idle NPCs plus the existing Mara: 18 people across the five districts. Approach
+Elira or Neris and press **E** for basic buying/selling; Alden and Serra provide
+catalog guidance. Mira has no banking transactions. Trades are authoritative
+within the running session; durable online economy acceptance remains open.
+See [population, services and editor follow-along](docs/unreal-capital-population.md).
+
 The approved Unreal 5.8.2 / Steam migration is in progress on
 `codex/unreal-migration`. The target preserves implemented gameplay and GM tools
 in an online-only game for Windows, Linux and macOS. The native foundation is

@@ -3,6 +3,8 @@
 #include "WarInventoryWidget.h"
 #include "WarQuestLogWidget.h"
 #include "WarWorldEditWidget.h"
+#include "WarCityServiceWidget.h"
+#include "WarCityNpc.h"
 #include "WarWorldEditSubsystem.h"
 #include "WarQuestNpc.h"
 #include "WarCraftingStation.h"
@@ -45,6 +47,7 @@ void AWarPlayerController::SetupInputComponent()
 
 void AWarPlayerController::ToggleInventory()
 {
+    CloseCityService();
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport()) ToggleWorldEditor();
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();
@@ -87,6 +90,7 @@ void AWarPlayerController::InteractWithStation()
 
 void AWarPlayerController::ToggleQuestLog()
 {
+    CloseCityService();
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport()) ToggleWorldEditor();
     if (QuestLogWidget && QuestLogWidget->IsInViewport())
@@ -136,6 +140,7 @@ void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reaso
 
 void AWarPlayerController::InteractWithWorld()
 {
+    if (CityServiceWidget && CityServiceWidget->IsInViewport()) { CloseCityService(); return; }
     if (const auto* WarPawn = Cast<AWarCharacter>(GetPawn()); WarPawn && WarPawn->IsDevelopmentFlying()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport()) return;
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) return;
@@ -152,6 +157,14 @@ void AWarPlayerController::InteractWithWorld()
         const double Candidate = FVector::DistSquared(GetPawn()->GetActorLocation(), It->GetActorLocation());
         if (Candidate < NpcDistance) { NpcDistance = Candidate; Npc = *It; }
     }
+    AWarCityNpc* ServiceNpc = nullptr;
+    for (TActorIterator<AWarCityNpc> It(GetWorld()); It; ++It)
+    {
+        if (!It->CanInteract(GetPawn())) continue;
+        const double Candidate = FVector::DistSquared(GetPawn()->GetActorLocation(), It->GetActorLocation());
+        if (Candidate < NpcDistance) { NpcDistance = Candidate; ServiceNpc = *It; }
+    }
+    if (ServiceNpc) { OpenCityService(ServiceNpc); return; }
     if (Npc)
     {
         ToggleQuestLog();

@@ -20,6 +20,7 @@ void AWarPlayerController::PickWorldEditorObject()
 
 void AWarPlayerController::ToggleWorldEditor()
 {
+    CloseCityService();
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport())
     {

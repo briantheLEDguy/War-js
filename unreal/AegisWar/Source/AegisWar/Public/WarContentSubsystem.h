@@ -51,6 +51,7 @@ public:
         const TMap<FName, FWarVisualImportBinding>& Bindings, FString& OutError);
     bool ValidatePlayableVisual(const UWarCharacterVisualDefinition* Visual, FString& OutError) const;
     FText GetItemDisplayName(FName Key) const;
+    FString GetCityTeachingText(FName Service) const;
     bool GetConsumableEffect(FName Key, float& Health, float& Mana) const;
     bool GetResourceNode(FName ZoneId, FName NodeId, FWarResourceDefinition& Node, FString& Error) const;
     static bool ParseResourceNode(const TSharedPtr<FJsonObject>& Catalog, FName ZoneId, FName NodeId, FWarResourceDefinition& Node, FString& Error);

@@ -4,7 +4,7 @@ import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
 export const requiredNativeTests = [
-  'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries',
+  'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CityServices',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
   'InventoryRewardParity', 'InventoryAuthority', 'CraftingCatalogAndRules', 'SalvageParity', 'CultivationTransactions', 'CraftingStationInteraction', 'ResourceGatheringTransactions', 'CharacterProgressionParity', 'ExpeditionQuestParity',

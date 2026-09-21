@@ -9,6 +9,8 @@ class UWarEntryStatusWidget;
 class UWarInventoryWidget;
 class UWarQuestLogWidget;
 class UWarWorldEditWidget;
+class UWarCityServiceWidget;
+class AWarCityNpc;
 
 UCLASS()
 class AEGISWAR_API AWarPlayerController : public APlayerController
@@ -38,6 +40,8 @@ public:
     const FString& GetWorldEditMessage() const { return WorldEditMessage; }
     void InteractWithStation();
     void InteractWithWorld();
+    void OpenCityService(AWarCityNpc* Npc);
+    void CloseCityService();
     /** No-op unless the explicitly opted-in development proof subsystem exists. */
     UFUNCTION(Server, Reliable) void ServerDevelopmentProofReady();
     UFUNCTION(Client, Reliable) void ClientDevelopmentProofStart();
@@ -50,6 +54,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<UWarInventoryWidget> InventoryWidget;
     UPROPERTY(Transient) TObjectPtr<UWarQuestLogWidget> QuestLogWidget;
     UPROPERTY(Transient) TObjectPtr<UWarWorldEditWidget> WorldEditWidget;
+    UPROPERTY(Transient) TObjectPtr<UWarCityServiceWidget> CityServiceWidget;
     FString WorldEditMessage;
     UPROPERTY(Transient) TObjectPtr<UWarEntryStatusWidget> EntryStatus;
     UPROPERTY(Transient) FText LastEntryFailure;

@@ -12,6 +12,7 @@ class UWarAttributeSet;
 class AWarCharacter;
 class AWarCraftingStation;
 class AWarResourceNode;
+class AWarCityNpc;
 class AWarQuestNpc;
 struct FWarQuestDefinition;
 
@@ -31,6 +32,10 @@ public:
     const FWarInventorySnapshot& GetInventory() const { return Inventory; }
     // Trusted server API only. Receipts live for this PlayerState session, not across reconnects.
     bool GrantRewards(const FGuid& Transaction, const TArray<FWarInventoryItem>& Rewards, FString& Error);
+    bool TradeWithCityNpc(const AWarCityNpc* Npc, const FGuid& Transaction, FName ItemKey,
+        bool bSell, int32 Quantity, int32 BagSlot, int32 ExpectedRevision, FString& Error);
+    UFUNCTION(Server, Reliable) void ServerTradeWithCityNpc(AWarCityNpc* Npc, FGuid Transaction, FName ItemKey,
+        bool bSell, int32 Quantity, int32 BagSlot, int32 ExpectedRevision);
     bool GrantCharacterRewards(const FGuid& Transaction, int32 Xp, int32 Gold,
         const TArray<FWarInventoryItem>& Rewards, FString& Error);
     int64 GetEffectiveStrength() const;

@@ -1,3 +1,9 @@
+## 2026-09-21 — Capital population and basic city services
+
+- Added a dedicated population sublevel to the official FinalAppearance city: 17 explicitly mapped complex human NPCs plus existing Mara, with stable IDs, five district groups, looping idles and eight purchased-kit accents. Existing city appearance and layout are preserved.
+- Added native E-interaction merchants with atomic gold/inventory changes, distance/catalog/revision/idempotency checks and limited buyback. Added catalog-based class/profession guidance; banking remains unavailable.
+- Added population tooling, editor attachment safeguards, native transaction tests and a live gameplay proof. Session receipts do not establish durable economy or full migration acceptance.
+
 ## 2026-09-21 - Official FinalAppearance capital
 
 - Selected the owner's FinalAppearance city for editor/game startup, packaging and city proof reloads; preserved its map/material bytes.
