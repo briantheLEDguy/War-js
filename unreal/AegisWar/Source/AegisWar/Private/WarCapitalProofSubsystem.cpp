@@ -50,6 +50,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("placementSnappingVerified"), bPlacementSnappingVerified);
     Report->SetBoolField(TEXT("catalogSearchVerified"), bCatalogSearchVerified);
     Report->SetBoolField(TEXT("exactTransformVerified"), bExactTransformVerified);
+    Report->SetBoolField(TEXT("worldPickingVerified"), bWorldPickingVerified);
     Report->SetBoolField(TEXT("constructionReload"), FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")));
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
@@ -240,6 +241,29 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     if (!Check(Created != nullptr && Editor->GetHistory().GetObjects().Num() == ExpectedObjects + 1, TEXT("GM construction failed."))) return;
     const FName CreatedId = Created->Id;
     if (!CheckCreated(CreatedId)) return;
+    TArray<UBoxComponent*> PickBoxes; Editor->GetObjectActor(CreatedId)->GetComponents(PickBoxes);
+    const FVector PickCenter = PickBoxes[0]->GetComponentLocation();
+    const FVector PickOrigin = PickCenter + FVector(0, 0, PickBoxes[0]->GetScaledBoxExtent().Z + 100);
+    if (!Check(Editor->PickObject(Player, PickOrigin, -FVector::UpVector) == CreatedId
+        && Editor->PickObject(nullptr, PickOrigin, -FVector::UpVector).IsNone()
+        && Editor->PickObject(Player, PickOrigin, FVector::ZeroVector).IsNone(),
+        TEXT("World picking failed to resolve registered geometry or rejected access."))) return;
+    // Use the clear arrival location: authored house foundations extend below terrain.
+    FTransform Buried = Placed;
+    Buried.SetLocation(Character->GetActorLocation() - FVector(0, 0, 6000));
+    Player->ServerEditWorldObject(CreatedId, Buried, false, Editor->GetHistory().GetRevision());
+    const FName OccludedPick = Editor->PickObject(Player, Character->GetActorLocation() + FVector(0, 0, 1000), -FVector::UpVector);
+    if (!Check(OccludedPick.IsNone(),
+        FString::Printf(TEXT("World picking selected %s through blocking terrain."), *OccludedPick.ToString()))) return;
+    Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
+    const int32 PickRevision = Editor->GetHistory().GetRevision();
+    Player->ServerEditWorldObject(CreatedId, Placed, true, PickRevision);
+    if (!Check(Editor->PickObject(Player, PickOrigin, -FVector::UpVector) != CreatedId,
+        TEXT("World picking selected a hidden building."))) return;
+    Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
+    if (!Check(Editor->PickObject(Player, PickOrigin, -FVector::UpVector) == CreatedId,
+        TEXT("Restored building could not be selected."))) return;
+    bWorldPickingVerified = true;
     Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
     if (!Check(!Editor->GetObjectActor(CreatedId) && !Editor->GetHistory().Find(CreatedId), TEXT("Undo retained a created actor."))) return;
     Player->ServerWorldEditHistory(true, Editor->GetHistory().GetRevision());

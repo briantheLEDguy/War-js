@@ -47,6 +47,7 @@ if (report.schemaVersion !== 1 || report.passed !== true || report.editableObjec
   || report.placementSnappingVerified !== true
   || report.catalogSearchVerified !== true
   || report.exactTransformVerified !== true
+  || report.worldPickingVerified !== true
   || report.fullCapitalAcceptance !== false || report.sharedGmAuthorization !== false) throw new Error('Capital runtime acceptance failed.');
 copyFileSync(reportPath, path.join(output, 'native-report.json'));
 if (args.has('--rendered')) {

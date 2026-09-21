@@ -23,6 +23,7 @@ private:
     bool bPlacementSnappingVerified = false;
     bool bCatalogSearchVerified = false;
     bool bExactTransformVerified = false;
+    bool bWorldPickingVerified = false;
     int32 Stage = 0;
     bool bFinished = false;
 };

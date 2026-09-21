@@ -6,6 +6,18 @@
 #include "WarCharacter.h"
 #include "Engine/World.h"
 
+void AWarPlayerController::PickWorldEditorObject()
+{
+    if (!WorldEditWidget || !WorldEditWidget->IsInViewport()) return;
+    const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+    FVector Origin, Direction;
+    if (!Editor || !Editor->CanUse(this) || !DeprojectMousePositionToWorld(Origin, Direction)) return;
+    const FName Id = Editor->PickObject(this, Origin, Direction);
+    if (Id.IsNone()) { WorldEditMessage = TEXT("No editable building under the pointer. Existing selection retained."); return; }
+    WorldEditWidget->SelectObject(Id);
+    WorldEditMessage = TEXT("Building selected. Use the controls to edit it.");
+}
+
 void AWarPlayerController::ToggleWorldEditor()
 {
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;

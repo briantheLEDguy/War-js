@@ -26,7 +26,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
     const TWeakObjectPtr<UWarWorldEditWidget> Weak(this);
     auto Body = SNew(SVerticalBox);
     Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 24)).Text(FText::FromString(TEXT("City Builder")))];
-    Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Development draft — place and edit buildings")))];
+    Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Development draft — click a building to select")))];
     auto Commands = SNew(SHorizontalBox);
     const auto Button = [](const FString& Label, TFunction<FReply()> Action) -> TSharedRef<SWidget> {
         return SNew(SButton).OnClicked_Lambda(MoveTemp(Action))[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Label))];

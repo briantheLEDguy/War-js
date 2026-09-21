@@ -11,6 +11,13 @@ is still required for the production implementation.
 The current panel can place six house and two rowhouse models, search/select houses, select the nearest one,
 move along each world axis in adjustable increments, rotate in adjustable steps,
 scale uniformly or enter exact transforms, hide/restore, undo/redo, and save/load a local development draft.
+With the panel open, click a building outside the panel to select it directly.
+Selection traces the first blocking authored collision volume, ignores your own
+pawn, and resolves only registered editable identities. Terrain and other
+blocking objects occlude selection; hidden buildings remain selectable through
+the list. A miss retains the existing selection. This currently selects by
+authored collision rather than exact visible mesh triangles.
+
 Selected geometry has an intentional cyan editor guide. Hidden buildings also
 stop blocking movement. Attached collision follows transform edits. Inventory,
 quest and builder panels share modal input handling and restore movement/camera
@@ -203,6 +210,19 @@ passed. Visual review also prompted larger numeric-field and section labels.
 The corrected package (`artifacts/unreal/package-gm-exact-labels.log`) was
 inspected with all nine fields expanded. Entering zero scale restored the
 original displayed value and showed the range error without changing the world.
+
+World selection verification (2026-09-21): 21 native groups passed in
+`artifacts/unreal/editor/test-1789996582242-24316/`; 83 tooling tests and tools
+typechecking passed. Rendered selection checks passed in the editor
+(`artifacts/unreal/capital-proof/1789996633233-36152/`) and Windows package
+(`artifacts/unreal/capital-proof/1789996479121-28456/`), including terrain
+occlusion, invalid/access-denied rays, hidden/restored objects and draft reload.
+The terrain fixture uses a buried building at the clear arrival location,
+separate from authored foundations that extend below the ground. The final
+package also passed two-client regression in
+`artifacts/unreal/network/1789996756616-32744/report.json`. Manual mouse checks
+selected a visible building, retained it on a ground click, raised it through
+the panel and undid that edit. No user draft was saved or loaded.
 
 Still pending: the remaining building/prefab catalog, drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,

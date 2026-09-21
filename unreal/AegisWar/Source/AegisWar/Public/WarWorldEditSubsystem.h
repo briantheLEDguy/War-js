@@ -21,6 +21,7 @@ public:
     bool LoadDraft(APlayerController* Controller, int32 Revision, FString& Error);
     const FWarWorldEditHistory& GetHistory() const { return History; }
     AActor* GetObjectActor(FName Id) const;
+    FName PickObject(const APlayerController* Controller, FVector Origin, FVector Direction) const;
     FString GetDraftLocation() const;
 private:
     bool Ready(APlayerController* Controller, FString& Error);

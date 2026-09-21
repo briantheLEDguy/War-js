@@ -1,3 +1,9 @@
+## 2026-09-21 - Direct native city selection
+
+- Added pointer selection for registered capital buildings while the GM panel is open. First-hit authored collision preserves occlusion; hidden buildings remain available through the list, and misses retain the existing selection.
+- Verified 21 native groups, 83 tooling tests, tools typechecking, rendered editor/packaged selection and draft checks, two packaged network clients and manual mouse selection/edit/undo.
+- Corrected the capital overview count to 145 residential placements. Full world/GM and release acceptance remain open.
+
 ## 2026-09-21 - Exact native city transforms
 
 - Added expandable exact position, pitch/yaw/roll and per-axis scale fields. Enter commits one undoable edit; scale preserves imported mirrored axes and invalid values are rejected.

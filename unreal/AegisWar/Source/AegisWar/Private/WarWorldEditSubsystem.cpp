@@ -1,5 +1,6 @@
 #include "WarWorldEditSubsystem.h"
 #include "WarPlayerController.h"
+#include "GameFramework/Pawn.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/StaticMesh.h"
 #include "Components/StaticMeshComponent.h"
@@ -99,6 +100,23 @@ AActor* UWarWorldEditSubsystem::GetObjectActor(const FName Id) const
 }
 
 FString UWarWorldEditSubsystem::GetDraftLocation() const { return DraftPath(); }
+
+FName UWarWorldEditSubsystem::PickObject(const APlayerController* Controller, const FVector Origin, const FVector Direction) const
+{
+    if (!CanUse(Controller) || Origin.ContainsNaN() || Direction.ContainsNaN() || !Direction.IsNormalized()) return NAME_None;
+    FHitResult Hit;
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(WarEditorSelection), true);
+    Query.AddIgnoredActor(Controller->GetPawn());
+    // First blocking surface wins: never select a building through terrain or another object.
+    if (!GetWorld()->LineTraceSingleByChannel(Hit, Origin, Origin + Direction * 100000, ECC_Visibility, Query)) return NAME_None;
+    for (const auto& Pair : Actors)
+    {
+        if (!Pair.Value.IsValid() || Pair.Value.Get() != Hit.GetActor()) continue;
+        const auto* Row = History.Find(Pair.Key);
+        return Row && !Row->bHidden ? Pair.Key : NAME_None;
+    }
+    return NAME_None;
+}
 
 bool UWarWorldEditSubsystem::Ready(APlayerController* Controller, FString& Error)
 {

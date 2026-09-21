@@ -1,9 +1,11 @@
 # Capital restoration workbench
 
-Bastion's authored ground and 109 house placements are available locally at
+Bastion's authored ground and 145 residential placements are available locally at
 `/Game/Capitals/aegis_capital/AegisCapital_Workbench`. This is a terrain workbench,
 not a restored capital or a complete runtime GM toolkit. Buildings, residents,
-encounters, travel and GM construction remain unfinished. Riftspire must retain
+encounters and travel remain unfinished. The local development GM panel supports
+construction and editing of eight residential models; full shared GM parity
+remains unfinished. Riftspire must retain
 its authored crater, suspended floors and lifts; this exporter rejects that zone
 instead of inventing flat ground.
 

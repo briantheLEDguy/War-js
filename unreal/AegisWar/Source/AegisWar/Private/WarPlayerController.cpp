@@ -39,6 +39,7 @@ void AWarPlayerController::SetupInputComponent()
     InputComponent->BindKey(EKeys::I, IE_Pressed, this, &AWarPlayerController::ToggleInventory);
     InputComponent->BindKey(EKeys::L, IE_Pressed, this, &AWarPlayerController::ToggleQuestLog);
     InputComponent->BindKey(EKeys::G, IE_Pressed, this, &AWarPlayerController::ToggleWorldEditor);
+    InputComponent->BindKey(EKeys::LeftMouseButton, IE_Pressed, this, &AWarPlayerController::PickWorldEditorObject).bConsumeInput = false;
     InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AWarPlayerController::InteractWithWorld);
 }
 

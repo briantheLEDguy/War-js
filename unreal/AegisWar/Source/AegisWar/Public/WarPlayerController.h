@@ -23,6 +23,7 @@ public:
     void ToggleInventory();
     void ToggleQuestLog();
     void ToggleWorldEditor();
+    void PickWorldEditorObject();
     UFUNCTION(Server, Reliable) void ServerSetDevelopmentTraversal(bool bFlying, float SpeedMultiplier);
     UFUNCTION(Server, Reliable) void ServerReturnToDevelopmentSpawn();
     UFUNCTION(Server, Reliable) void ServerEditWorldObject(FName Id, FTransform Transform, bool bObjectHidden, int32 ExpectedRevision);
