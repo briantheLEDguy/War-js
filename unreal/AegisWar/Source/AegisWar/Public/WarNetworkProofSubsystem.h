@@ -23,6 +23,7 @@ public:
 private:
     TSet<TWeakObjectPtr<AWarPlayerController>> ReadyControllers;
     bool bReadySent = false, bStartGranted = false;
+    bool bGmDenialRequested = false, bGmDenied = false;
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     double PairReadyAt = -1;

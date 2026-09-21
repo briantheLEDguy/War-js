@@ -1,3 +1,11 @@
+## 2026-09-21 — In-game capital GM development workbench
+
+- Added the G-key City Builder for 109 existing Aegis houses: selection/search, movement, rotation, uniform scale, hide/restore, undo/redo and local draft save/load, with attached collision updates.
+- Added revision validation, explicit authored IDs and model provenance, baseline compatibility checks, atomic draft replacement, external-change detection and a writer lock. Shared/Shipping GM access remains closed.
+- Fixed playable capital daylight exposure and increased control readability. Windows packaging now optionally includes the capital.
+- Passed 20 native tests, 82 tooling tests, typechecking, rendered editor/packaged capital workflows and editor/packaged two-client regressions including remote GM rejection. Packaged window-emission differences remain under investigation.
+- Full catalog construction, shared GM services, terrain editing, publication/restore, remaining city content and Riftspire remain unfinished. Release gates remain closed.
+
 ## 2026-09-21 — Six native capital house variants
 
 - Converted/imported the remaining five authored Aegis house variants and restored all 109 corresponding placements, with 1,771 other prop identities still pending.

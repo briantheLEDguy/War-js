@@ -2,7 +2,7 @@
 
 Bastion's authored ground and 109 house placements are available locally at
 `/Game/Capitals/aegis_capital/AegisCapital_Workbench`. This is a terrain workbench,
-not a restored capital or a functioning runtime GM editor. Buildings, residents,
+not a restored capital or a complete runtime GM toolkit. Buildings, residents,
 encounters, travel and GM construction remain unfinished. Riftspire must retain
 its authored crater, suspended floors and lifts; this exporter rejects that zone
 instead of inventing flat ground.
@@ -58,6 +58,10 @@ then the `prepare-capital-buildings.py` and `verify-capital-buildings.py` Unreal
 Python commandlets. The renderer includes building-import fingerprints when
 buildings are present. Runtime GM selection, transforms, construction, undo,
 drafts, publication, rollback and terrain editing are still pending.
+
+Subsequent work adds the [native development GM panel](unreal-gm-workbench.md)
+for existing-house transforms, hide/restore, undo/redo and local drafts. The
+shared GM editor and full construction/publication workflows remain unfinished.
 
 The building increment compiled in Unreal 5.8.2, passed all 19 native foundation
 tests, 81 migration tooling tests and tools typechecking. Repeating placement

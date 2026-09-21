@@ -29,6 +29,11 @@ for placement in document["housePlacements"]:
     actor = actors.get("Capital prop " + placement["id"])
     if not isinstance(actor, unreal.StaticMeshActor) or actor.static_mesh_component.static_mesh is None:
         raise RuntimeError("Missing complex building: " + placement["id"])
+    model = json.loads((ROOT / "artifacts/unreal/converted" / placement["profileKey"] / "editor-import.json").read_text())
+    if "WarWorldObject_" + placement["id"] not in [str(tag) for tag in actor.tags]:
+        raise RuntimeError("Missing explicit world identity: " + placement["id"])
+    if "WarModelSha256_" + model["sourceSha256"] not in [str(tag) for tag in actor.tags]:
+        raise RuntimeError("Missing saved model fingerprint: " + str(actor.tags))
     position = placement["position"]
     actual = actor.get_actor_location()
     if max(abs(actual.x - position["X"]), abs(actual.y - position["Y"]), abs(actual.z - position["Z"])) > 0.02:

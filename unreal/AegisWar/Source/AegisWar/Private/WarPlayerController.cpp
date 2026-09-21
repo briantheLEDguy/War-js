@@ -2,6 +2,8 @@
 #include "WarEntryStatusWidget.h"
 #include "WarInventoryWidget.h"
 #include "WarQuestLogWidget.h"
+#include "WarWorldEditWidget.h"
+#include "WarWorldEditSubsystem.h"
 #include "WarQuestNpc.h"
 #include "WarCraftingStation.h"
 #include "WarResourceNode.h"
@@ -36,12 +38,14 @@ void AWarPlayerController::SetupInputComponent()
     Super::SetupInputComponent();
     InputComponent->BindKey(EKeys::I, IE_Pressed, this, &AWarPlayerController::ToggleInventory);
     InputComponent->BindKey(EKeys::L, IE_Pressed, this, &AWarPlayerController::ToggleQuestLog);
+    InputComponent->BindKey(EKeys::G, IE_Pressed, this, &AWarPlayerController::ToggleWorldEditor);
     InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AWarPlayerController::InteractWithWorld);
 }
 
 void AWarPlayerController::ToggleInventory()
 {
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
+    if (WorldEditWidget && WorldEditWidget->IsInViewport()) ToggleWorldEditor();
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();
     if (InventoryWidget && InventoryWidget->IsInViewport())
     {
@@ -83,6 +87,7 @@ void AWarPlayerController::InteractWithStation()
 void AWarPlayerController::ToggleQuestLog()
 {
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
+    if (WorldEditWidget && WorldEditWidget->IsInViewport()) ToggleWorldEditor();
     if (QuestLogWidget && QuestLogWidget->IsInViewport())
     {
         QuestLogWidget->RemoveFromParent();
@@ -130,6 +135,7 @@ void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reaso
 
 void AWarPlayerController::InteractWithWorld()
 {
+    if (WorldEditWidget && WorldEditWidget->IsInViewport()) return;
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) return;
     if (InventoryWidget && InventoryWidget->IsInViewport()) return;
     if (!IsLocalController() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;

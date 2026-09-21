@@ -11,11 +11,19 @@ export interface ParityFeature {
   referenceTests: string[];
   acceptance: string[];
   unrealStatus: 'pending';
+  developmentNotes?: string[];
 }
+
+const developmentNotes: Record<string, string[]> = {
+  grounding: ['Aegis authored terrain and 109 house placements have sampled native collision evidence; full terrain, travel and Riftspire remain pending. See docs/unreal-capital-workbench.md.'],
+  'gm-object-editor': ['A development-only in-game panel edits existing Aegis houses with collision, hide/restore and revision checks. Catalog construction, full tools and shared authorization remain pending. See docs/unreal-gm-workbench.md.'],
+  'gm-publication': ['Local development drafts and undo/redo are implemented and runtime-tested. Shared persistence, publication, version restore and baseline reconciliation remain pending. See docs/unreal-gm-workbench.md.'],
+};
 
 function feature(id: string, title: string, sourceMode: ParityFeature['sourceMode'], stage: ParityFeature['stage'],
   sourceFiles: string[], tests: string[], acceptance: string[]): ParityFeature {
-  return { id, title, sourceMode, stage, sourceFiles, referenceTests: tests.map(test => `tests/${test}.test.ts`), acceptance, unrealStatus: 'pending' };
+  return { id, title, sourceMode, stage, sourceFiles, referenceTests: tests.map(test => `tests/${test}.test.ts`), acceptance,
+    unrealStatus: 'pending', ...(developmentNotes[id] ? { developmentNotes: developmentNotes[id] } : {}) };
 }
 
 // These are behavior contracts, not a declaration that generated data is a native implementation.

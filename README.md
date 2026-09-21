@@ -78,7 +78,11 @@ world collision and platform acceptance remain open.
 The [capital restoration workbench](docs/unreal-capital-workbench.md) now contains
 Bastion's authored elevations, canals and 109 house placements across six variants, with sampled
 native collision and rendered checks. The remaining city buildings, residents,
-travel and runtime GM editing remain unfinished; this map is not yet a restored capital.
+travel and full runtime GM editing remain unfinished; this map is not yet a restored capital.
+Its [native development GM panel](docs/unreal-gm-workbench.md) now opens with `G`
+in Play in Editor and supports selecting existing houses, transforms, hide/restore,
+undo/redo and local draft save/load. Shared GM permissions, catalog placement,
+terrain editing and publication remain pending.
 
 ## Regional production priorities
 

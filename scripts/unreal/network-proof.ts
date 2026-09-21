@@ -61,6 +61,7 @@ try {
     await delay(250);
   }
   const receipts = roles.map(role => JSON.parse(readFileSync(receiptPath(role), 'utf8').replace(/^\uFEFF/, '')));
+  if (receipts.slice(1).some(receipt => receipt.remoteGmRejected !== true)) throw new Error(`Remote development GM access was not rejected; see ${output}`);
   if (receipts[0].questNpcAuthority !== true) throw new Error(`Server quest NPC interaction checks failed; see ${output}`);
   if (receipts.slice(0, 2).some(receipt => receipt.questNpcClientRpc !== true)) throw new Error(`Quest NPC owning-client RPC checks failed; see ${output}`);
   if (receipts[2].cameraSurvivedRespawn !== true) throw new Error(`Camera zoom/orbit did not survive respawn; see ${output}`);

@@ -71,6 +71,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     const TSharedRef<FJsonObject> Report = MakeShared<FJsonObject>();
     Report->SetNumberField(TEXT("schemaVersion"), 1);
     Report->SetBoolField(TEXT("passed"), bPassed);
+    Report->SetBoolField(TEXT("remoteGmRejected"), bGmDenied);
     Report->SetStringField(TEXT("role"), ResultRole);
     Report->SetStringField(TEXT("detail"), Detail);
     Report->SetBoolField(TEXT("observedReplicatedMovement"), bMoved);
@@ -175,6 +176,13 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     const double Now = GetWorld()->GetTimeSeconds();
     if (StartedAt < 0) StartedAt = Now;
     const bool bServer = GetWorld()->GetNetMode() == NM_DedicatedServer;
+    if (!bServer)
+        if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController()))
+        {
+            if (!bGmDenialRequested && Controller->GetPawn())
+            { Controller->ServerWorldEditHistory(false, 0); bGmDenialRequested = true; }
+            bGmDenied |= Controller->GetWorldEditMessage() == TEXT("Open the authorized GM workbench before editing.");
+        }
     ResultRole = bServer ? TEXT("server") : TEXT("client-pending");
     // Death unpossesses the pawn immediately, so its PlayerState link is cleared before the next tick.
     if (bProgressionVerified && TrackedDefender.IsValid() && TrackedDefenderState.IsValid())

@@ -59,7 +59,9 @@ for placement in document["housePlacements"]:
         actor = actors.spawn_actor_from_class(unreal.StaticMeshActor, point, rotation)
     require(actor is not None, "Could not create capital building")
     actor.set_actor_label(label)
-    actor.set_editor_property("tags", ["WarCapitalBuilding", placement["id"], profile])
+    actor.set_editor_property("tags", ["WarCapitalBuilding", placement["id"], profile,
+        "WarWorldObject_" + placement["id"],
+        "WarModelSha256_" + context["conversion"]["sourceSha256"]])
     actor.set_actor_location_and_rotation(point, rotation, False, True)
     actor.set_actor_scale3d(unreal.Vector(*placement["scale"]))
     actor.static_mesh_component.set_static_mesh(mesh)

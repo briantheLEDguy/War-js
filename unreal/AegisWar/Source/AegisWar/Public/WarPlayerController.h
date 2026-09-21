@@ -8,6 +8,7 @@
 class UWarEntryStatusWidget;
 class UWarInventoryWidget;
 class UWarQuestLogWidget;
+class UWarWorldEditWidget;
 
 UCLASS()
 class AEGISWAR_API AWarPlayerController : public APlayerController
@@ -21,6 +22,12 @@ public:
     virtual void UpdateRotation(float DeltaTime) override;
     void ToggleInventory();
     void ToggleQuestLog();
+    void ToggleWorldEditor();
+    UFUNCTION(Server, Reliable) void ServerEditWorldObject(FName Id, FTransform Transform, bool bObjectHidden, int32 ExpectedRevision);
+    UFUNCTION(Server, Reliable) void ServerWorldEditHistory(bool bRedo, int32 ExpectedRevision);
+    UFUNCTION(Server, Reliable) void ServerWorldEditDraft(bool bLoad, int32 ExpectedRevision);
+    UFUNCTION(Client, Reliable) void ClientWorldEditResult(const FString& Message);
+    const FString& GetWorldEditMessage() const { return WorldEditMessage; }
     void InteractWithStation();
     void InteractWithWorld();
     /** No-op unless the explicitly opted-in development proof subsystem exists. */
@@ -34,6 +41,8 @@ public:
 private:
     UPROPERTY(Transient) TObjectPtr<UWarInventoryWidget> InventoryWidget;
     UPROPERTY(Transient) TObjectPtr<UWarQuestLogWidget> QuestLogWidget;
+    UPROPERTY(Transient) TObjectPtr<UWarWorldEditWidget> WorldEditWidget;
+    FString WorldEditMessage;
     UPROPERTY(Transient) TObjectPtr<UWarEntryStatusWidget> EntryStatus;
     UPROPERTY(Transient) FText LastEntryFailure;
     // The controller survives pawn death; zoom, orbit and preferences must survive it too.

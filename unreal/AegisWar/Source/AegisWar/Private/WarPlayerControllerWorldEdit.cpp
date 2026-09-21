@@ -1,0 +1,52 @@
+#include "WarPlayerController.h"
+#include "WarWorldEditWidget.h"
+#include "WarWorldEditSubsystem.h"
+#include "WarInventoryWidget.h"
+#include "WarQuestLogWidget.h"
+#include "Engine/World.h"
+
+void AWarPlayerController::ToggleWorldEditor()
+{
+    if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
+    if (WorldEditWidget && WorldEditWidget->IsInViewport())
+    {
+        WorldEditWidget->RemoveFromParent(); SetInputMode(FInputModeGameOnly());
+        SetIgnoreLookInput(false); SetIgnoreMoveInput(false); bShowMouseCursor = false; return;
+    }
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+    FString Error;
+    if (!Editor || !Editor->Open(this, Error)) { WorldEditMessage = Error; return; }
+    if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
+    if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();
+    if (!WorldEditWidget) WorldEditWidget = CreateWidget<UWarWorldEditWidget>(this, UWarWorldEditWidget::StaticClass());
+    if (!WorldEditWidget) return;
+    WorldEditWidget->AddToViewport(10);
+    WorldEditWidget->SetPositionInViewport(FVector2D(24, 24));
+    WorldEditWidget->SetDesiredSizeInViewport(FVector2D(560, 660));
+    SetInputMode(FInputModeGameAndUI()); SetIgnoreLookInput(true); SetIgnoreMoveInput(true); bShowMouseCursor = true;
+    WorldEditMessage = TEXT("Editing a development draft. Save before leaving the map.");
+}
+
+void AWarPlayerController::ServerEditWorldObject_Implementation(FName Id, FTransform Transform, bool bObjectHidden, int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error;
+    const bool bSuccess = Editor && Editor->Edit(this, Id, Transform, bObjectHidden, ExpectedRevision, Error);
+    ClientWorldEditResult(bSuccess ? TEXT("World edit applied.") : (Error.IsEmpty() ? TEXT("GM access unavailable.") : Error));
+}
+
+void AWarPlayerController::ServerWorldEditHistory_Implementation(bool bRedo, int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error;
+    const bool bSuccess = Editor && Editor->Undo(this, bRedo, ExpectedRevision, Error);
+    ClientWorldEditResult(bSuccess ? (bRedo ? TEXT("Edit redone.") : TEXT("Edit undone.")) : (Error.IsEmpty() ? TEXT("GM access unavailable.") : Error));
+}
+
+void AWarPlayerController::ServerWorldEditDraft_Implementation(bool bLoad, int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error;
+    const bool bSuccess = Editor && (bLoad ? Editor->LoadDraft(this, ExpectedRevision, Error) : Editor->SaveDraft(this, ExpectedRevision, Error));
+    ClientWorldEditResult(bSuccess ? (bLoad ? TEXT("Saved draft loaded. Undo restores your previous edits.") : TEXT("Draft saved locally."))
+        : (Error.IsEmpty() ? TEXT("GM access unavailable.") : Error));
+}
+
+void AWarPlayerController::ClientWorldEditResult_Implementation(const FString& Message) { WorldEditMessage = Message; }
