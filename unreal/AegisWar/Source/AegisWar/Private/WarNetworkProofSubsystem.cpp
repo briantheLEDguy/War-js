@@ -6,6 +6,7 @@
 #include "WarPlayerController.h"
 #include "WarAttributeSet.h"
 #include "WarGameplayEffects.h"
+#include "WarQuestRules.h"
 #include "AbilitySystemComponent.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
@@ -73,6 +74,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("progressionAuthority"), bProgressionVerified);
     Report->SetBoolField(TEXT("respawnPreservesProgression"), bRespawnVerified);
     Report->SetBoolField(TEXT("deathObserved"), bDeathObserved);
+    Report->SetBoolField(TEXT("questSnapshotPrivacy"), bQuestPrivacyVerified);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -394,8 +396,34 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             && RespawnSnapshot.CharacterProgression.Level == 3 && RespawnSnapshot.CharacterProgression.Gold == 25);
     bRespawnVerified |= bDeathObserved && bPrivateRespawnState && !Defender->IsDead() && (!bServer || Defender != DefeatedDefender.Get())
         && FMath::IsNearlyEqual(ObservedHealth, 140.f) && Riftbound->GetAttributes()->GetMaxHealth() == 140.f;
+    // Keep the respawn observation phase separate from the next inventory revision.
+    if (bRespawnVerified && Elapsed > 70.0)
+    {
+        // An explicit synthetic server fixture tests transport privacy; it does not claim NPC quest interaction.
+        if (bServer)
+        {
+            for (auto* State : {Aegis, Riftbound})
+            {
+                if (!State->GetInventory().Quests.IsEmpty()) continue;
+                FWarQuestDefinition Quest; Quest.Id = TEXT("development-private-quest");
+                Quest.GiverZoneId = TEXT("development-proof");
+                FWarQuestObjective Objective; Objective.Id = TEXT("private-objective"); Objective.KillTarget = TEXT("Proof Enemy");
+                Quest.Objectives.Add(Objective); FString Error;
+                if (!State->AcceptQuestTrusted(Quest, Quest.GiverZoneId, 11, Error))
+                { Finish(false, TEXT("Private quest snapshot fixture could not be accepted.")); return; }
+            }
+        }
+        const auto HasQuest = [](const AWarPlayerState* State) {
+            const auto& Snapshot = State->GetInventory();
+            return Snapshot.Revision == 12 && Snapshot.Quests.Num() == 1
+                && Snapshot.Quests[0].Id == TEXT("development-private-quest") && Snapshot.Quests[0].Status == TEXT("active")
+                && Snapshot.Quests[0].Counters.Num() == 1 && Snapshot.Quests[0].GetCount(TEXT("private-objective")) == 0;
+        };
+        bQuestPrivacyVerified |= bServer ? HasQuest(Aegis) && HasQuest(Riftbound)
+            : HasQuest(bAttackerClient ? Aegis : Riftbound) && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Quests.IsEmpty();
+    }
     if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && bCultivationVerified
-        && bProgressionVerified && bRespawnVerified && FMath::IsNearlyEqual(ObservedHealth, 140.f)
+        && bProgressionVerified && bRespawnVerified && bQuestPrivacyVerified && FMath::IsNearlyEqual(ObservedHealth, 140.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 120.f)))
     {
         Finish(true, TEXT("Movement, combat, private inventory, consumables, crafting, salvage, cultivation, progression and respawn verified."));

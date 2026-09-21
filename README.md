@@ -47,6 +47,9 @@ per-character cooldowns; [world placement and remaining work](docs/unreal-gather
 are still pending. Native [character progression](docs/unreal-progression.md) now
 adds server-owned XP/gold, multilevel stat growth and an inventory progression
 readout; durable settlement and full ability integration remain open.
+Native [quest rules and character-state integration](docs/unreal-quests.md)
+preserve both expedition chains; NPC interaction, quest UI and durable settlement
+remain pending.
 
 ## Regional production priorities
 

@@ -75,6 +75,7 @@ try {
       || receipt.cultivationAuthority !== true
       || receipt.progressionAuthority !== true
       || receipt.respawnPreservesProgression !== true
+      || receipt.questSnapshotPrivacy !== true
       || (index < 2 && receipt.attackerMana !== 120)
       || (index > 0 && (receipt.autonomousProxy !== true || receipt.movementAnimation !== true || receipt.strikeAnimation !== true)))
       || receipts[1].strikeRequests !== 2) throw new Error(`Network proof failed: ${JSON.stringify(receipts)}`);

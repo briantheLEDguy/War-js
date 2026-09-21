@@ -12,6 +12,7 @@ class UWarAttributeSet;
 class AWarCharacter;
 class AWarCraftingStation;
 class AWarResourceNode;
+struct FWarQuestDefinition;
 
 /** PlayerState owns GAS so replacing the pawn does not clear ability cooldowns. */
 UCLASS()
@@ -32,6 +33,11 @@ public:
     bool GrantCharacterRewards(const FGuid& Transaction, int32 Xp, int32 Gold,
         const TArray<FWarInventoryItem>& Rewards, FString& Error);
     int64 GetEffectiveStrength() const;
+    // Trusted zone/NPC/kill services only; these methods are deliberately not RPCs.
+    bool AcceptQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision, FString& Error);
+    bool RecordQuestKillTrusted(const TArray<FWarQuestDefinition>& Quests, FName Zone, const FString& EnemyName, const FGuid& KillEvent, FString& Error);
+    bool CompleteQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision,
+        const TArray<FWarInventoryItem>& ResolvedRewards, FString& Error);
     bool ChangeEquipment(int32 ExpectedRevision, int32 BagSlot, bool bEquip, FString& Error);
     // Trusted recipe/consumable/salvage callers validate gameplay eligibility before this atomic exchange.
     bool ExchangeItems(const FGuid& Transaction, int32 ExpectedRevision, const TMap<int32, int32>& ConsumedSlots,
@@ -57,6 +63,7 @@ private:
     UPROPERTY(Transient) FText InventoryMessage;
     UPROPERTY(Replicated) FWarInventorySnapshot Inventory;
     TSet<FGuid> RewardReceipts;
+    TSet<FGuid> QuestKillReceipts;
     UPROPERTY(VisibleAnywhere) TObjectPtr<UAbilitySystemComponent> AbilitySystem;
     UPROPERTY() TObjectPtr<UWarAttributeSet> Attributes;
     UPROPERTY(Replicated) EWarRealm Realm = EWarRealm::None;

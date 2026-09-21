@@ -1,0 +1,186 @@
+#if WITH_DEV_AUTOMATION_TESTS
+#include "Misc/AutomationTest.h"
+#include "Misc/FileHelper.h"
+#include "Misc/Paths.h"
+#include "Dom/JsonObject.h"
+#include "Serialization/JsonSerializer.h"
+#include "WarQuestRules.h"
+#include "WarPlayerState.h"
+#include "Engine/World.h"
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarQuestTest, "AegisWar.Foundation.ExpeditionQuestParity",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FWarQuestTest::RunTest(const FString& Parameters)
+{
+    FString Json, Error;
+    TSharedPtr<FJsonObject> Catalog, Fixtures;
+    if (!FFileHelper::LoadFileToString(Json, *FPaths::Combine(FPaths::ProjectContentDir(), TEXT("Migration/content.json")))
+        || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Catalog)) return false;
+    if (!FFileHelper::LoadFileToString(Json, *FPaths::Combine(FPaths::ProjectDir(), TEXT("../../migration/fixtures/quests.json")))
+        || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Fixtures)) return false;
+    TMap<FName, FWarQuestDefinition> Definitions;
+    TMap<FName, TArray<FWarInventoryItem>> Rewards;
+    auto Name = [](const TSharedPtr<FJsonObject>& Object, const TCHAR* Key) {
+        FString Value; Object->TryGetStringField(Key, Value); return FName(*Value); };
+    for (const auto& Value : Catalog->GetArrayField(TEXT("quests")))
+    {
+        const auto Row = Value->AsObject(); FWarQuestDefinition Quest;
+        Quest.Id = Name(Row, TEXT("id")); Quest.Realm = Name(Row, TEXT("realm"));
+        Quest.GiverZoneId = Name(Row, TEXT("giverZoneId")); Quest.TurninZoneId = Name(Row, TEXT("turninZoneId"));
+        Quest.Prerequisite = Name(Row, TEXT("prereqQuestId")); Quest.MinLevel = Row->GetIntegerField(TEXT("minLevel"));
+        for (const auto& Entry : Row->GetArrayField(TEXT("objectives")))
+        {
+            const auto Objective = Entry->AsObject(); FWarQuestObjective Parsed;
+            Parsed.Id = Name(Objective, TEXT("id")); Parsed.ZoneId = Name(Objective, TEXT("zoneId"));
+            Parsed.KillTarget = Objective->GetStringField(TEXT("killTarget")); Parsed.Required = Objective->GetIntegerField(TEXT("required"));
+            Quest.Objectives.Add(Parsed);
+        }
+        const auto Reward = Row->GetObjectField(TEXT("reward"));
+        Quest.Xp = Reward->GetIntegerField(TEXT("xp")); Quest.Gold = Reward->GetIntegerField(TEXT("gold"));
+        for (const auto& Entry : Reward->GetArrayField(TEXT("items")))
+        {
+            const auto Item = Entry->AsObject(); FWarInventoryItem Parsed;
+            Parsed.Key = Name(Item, TEXT("key")); Parsed.Quantity = Item->GetIntegerField(TEXT("qty"));
+            for (const auto& Definition : Catalog->GetObjectField(TEXT("items"))->GetArrayField(TEXT("definitions")))
+            {
+                if (Name(Definition->AsObject(), TEXT("key")) != Parsed.Key) continue;
+                Parsed.Kind = Name(Definition->AsObject(), TEXT("kind")); Parsed.EquipSlot = Name(Definition->AsObject(), TEXT("equipSlot"));
+            }
+            if (Item->HasField(TEXT("kind"))) Parsed.Kind = Name(Item, TEXT("kind"));
+            if (Item->HasField(TEXT("equipSlot"))) Parsed.EquipSlot = Name(Item, TEXT("equipSlot"));
+            const TSharedPtr<FJsonObject>* Roll = nullptr;
+            if (Item->TryGetObjectField(TEXT("strengthRoll"), Roll))
+            {
+                const int32 Min = (*Roll)->GetIntegerField(TEXT("min")), Max = (*Roll)->GetIntegerField(TEXT("max"));
+                Parsed.bHasAffix = true; Parsed.StrengthBonus = Min + FMath::FloorToInt(Fixtures->GetNumberField(TEXT("randomUnit")) * (Max - Min + 1));
+            }
+            Rewards.FindOrAdd(Quest.Id).Add(Parsed);
+        }
+        Definitions.Add(Quest.Id, Quest);
+    }
+    TestEqual(TEXT("All eight source quests"), Definitions.Num(), 8);
+    for (const auto& Case : Fixtures->GetArrayField(TEXT("cases")))
+    {
+        const auto Scenario = Case->AsObject(); const FName Realm = Name(Scenario, TEXT("realm"));
+        FWarInventorySnapshot Inventory; TArray<FWarQuestProgress> Progress;
+        TArray<FWarInventoryItem> SavedItems;
+        for (const auto& Entry : Scenario->GetArrayField(TEXT("steps")))
+        {
+            const auto Step = Entry->AsObject(); FString Id, Action;
+            const FString Label = Step->GetStringField(TEXT("action"));
+            if (!Label.Split(TEXT(":"), &Id, &Action)) Action = Label;
+            const FWarQuestDefinition* Quest = Definitions.Find(FName(*Id));
+            if (Action == TEXT("reject_other_realm") || Action == TEXT("reject_missing_prerequisite"))
+            {
+                for (const auto& Pair : Definitions)
+                    if ((Action == TEXT("reject_other_realm") && Pair.Value.Realm != Realm && Pair.Value.Prerequisite.IsNone())
+                        || (Action == TEXT("reject_missing_prerequisite") && Pair.Value.Realm == Realm && Pair.Key.ToString().Contains(TEXT("02-guards"))))
+                        TestFalse(Label, WarQuests::Accept(Pair.Value, Realm, Pair.Value.GiverZoneId, 1, Progress, Error));
+            }
+            else if (!TestNotNull(Label, Quest)) return false;
+            else if (Action == TEXT("accept") || Action == TEXT("duplicate_accept") || Action == TEXT("reject_wrong_giver_zone"))
+                TestEqual(Label, WarQuests::Accept(*Quest, Realm, Action == TEXT("reject_wrong_giver_zone") ? FName(TEXT("zone1")) : Quest->GiverZoneId,
+                    Inventory.CharacterProgression.Level, Progress, Error), Action == TEXT("accept"));
+            else if (Action == TEXT("reject_wrong_kill_zone"))
+                TestFalse(Label, WarQuests::Kill(*Quest, Realm, TEXT("zone1"), Quest->Objectives[0].KillTarget, Progress));
+            else if (Action == TEXT("kills_complete_and_clamped"))
+            {
+                for (const auto& Objective : Quest->Objectives)
+                    for (int32 Kill = 0; Kill <= Objective.Required; ++Kill)
+                        WarQuests::Kill(*Quest, Realm, Objective.ZoneId, Objective.KillTarget, Progress);
+            }
+            else
+            {
+                if (Action == TEXT("reject_full_bag"))
+                {
+                    SavedItems = Inventory.Items; Inventory.Items.Empty();
+                    for (int32 Slot = 0; Slot < 24; ++Slot)
+                    {
+                        FWarInventoryItem Item; Item.Key = TEXT("jewel_amulet_bloodglass"); Item.Kind = TEXT("armor");
+                        Item.EquipSlot = TEXT("neck"); Item.Slot = Slot; Inventory.Items.Add(Item);
+                    }
+                }
+                if (Action == TEXT("complete")) Inventory.Items = SavedItems;
+                FWarInventorySnapshot Next;
+                const bool Accepted = WarQuests::TurnIn(*Quest, Realm, Action == TEXT("reject_wrong_turnin_zone") ? FName(TEXT("zone1")) : Quest->TurninZoneId,
+                    Rewards.FindChecked(Quest->Id), Inventory, Progress, Next, Error);
+                TestEqual(Label, Accepted, Action == TEXT("complete"));
+                if (Accepted) Inventory = Next;
+            }
+            const auto Expected = Step->GetObjectField(TEXT("character"));
+            TestEqual(Label + TEXT(" level"), Inventory.CharacterProgression.Level, Expected->GetIntegerField(TEXT("level")));
+            TestEqual(Label + TEXT(" xp"), Inventory.CharacterProgression.Xp, int64(Expected->GetIntegerField(TEXT("xp"))));
+            TestEqual(Label + TEXT(" gold"), Inventory.CharacterProgression.Gold, int64(Expected->GetIntegerField(TEXT("gold"))));
+            TestEqual(Label + TEXT(" strength"), Inventory.CharacterProgression.BaseStrength, Expected->GetIntegerField(TEXT("strength")));
+            TestEqual(Label + TEXT(" health cap"), Inventory.CharacterProgression.MaxHealth, Expected->GetIntegerField(TEXT("maxHealth")));
+            TestEqual(Label + TEXT(" mana cap"), Inventory.CharacterProgression.MaxMana, Expected->GetIntegerField(TEXT("maxMana")));
+            TestEqual(Label + TEXT(" quest count"), Progress.Num(), Step->GetArrayField(TEXT("quests")).Num());
+            for (const auto& ExpectedQuest : Step->GetArrayField(TEXT("quests")))
+            {
+                const auto Row = ExpectedQuest->AsObject();
+                const auto* Actual = Progress.FindByPredicate([&](const auto& Q) { return Q.Id == Name(Row, TEXT("questId")); });
+                if (!TestNotNull(Label, Actual)) continue;
+                TestEqual(Label + TEXT(" status"), Actual->Status, Name(Row, TEXT("status")));
+                for (const auto& Counter : Row->GetObjectField(TEXT("counters"))->Values)
+                    TestEqual(Label + Counter.Key, Actual->GetCount(FName(*Counter.Key)), int32(Counter.Value->AsNumber()));
+            }
+            TestEqual(Label + TEXT(" item count"), Inventory.Items.Num(), Step->GetArrayField(TEXT("inventory")).Num());
+            for (const auto& ExpectedItem : Step->GetArrayField(TEXT("inventory")))
+            {
+                const auto Row = ExpectedItem->AsObject(); const int32 Slot = Row->GetIntegerField(TEXT("slot"));
+                const auto* Actual = Inventory.Items.FindByPredicate([&](const auto& Item) { return Item.Slot == Slot; });
+                if (!TestNotNull(Label, Actual)) continue;
+                TestEqual(Label + TEXT(" item key"), Actual->Key, Name(Row, TEXT("key")));
+                TestEqual(Label + TEXT(" quantity"), Actual->Quantity, Row->GetIntegerField(TEXT("qty")));
+                const TSharedPtr<FJsonObject>* Affix = nullptr;
+                const bool HasAffix = Row->TryGetObjectField(TEXT("affix"), Affix);
+                TestEqual(Label + TEXT(" affix present"), Actual->bHasAffix, HasAffix);
+                if (HasAffix) TestEqual(Label + TEXT(" strength roll"), Actual->StrengthBonus, (*Affix)->GetIntegerField(TEXT("strengthBonus")));
+            }
+        }
+    }
+    {
+        auto Quest = Definitions.FindChecked(TEXT("dawnline-01-scouting"));
+        TArray<FWarQuestProgress> Progress;
+        Quest.MinLevel = 2;
+        TestFalse(TEXT("Minimum level is enforced"), WarQuests::Accept(Quest, TEXT("aegis"), Quest.GiverZoneId, 1, Progress, Error));
+        Quest.MinLevel = 1;
+        TestTrue(TEXT("Boundary level accepted"), WarQuests::Accept(Quest, TEXT("aegis"), Quest.GiverZoneId, 1, Progress, Error));
+        Progress[0].Status = TEXT("ready_to_turn_in");
+        FWarInventorySnapshot Before, After;
+        TestFalse(TEXT("Forged ready status without counters cannot pay"), WarQuests::TurnIn(Quest, TEXT("aegis"), Quest.TurninZoneId, Rewards.FindChecked(Quest.Id), Before, Progress, After, Error));
+        Progress[0].SetCount(Quest.Objectives[0].Id, Quest.Objectives[0].Required);
+        Before.CharacterProgression.Gold = MAX_int64;
+        TestFalse(TEXT("Progression overflow rolls back quest completion"), WarQuests::TurnIn(Quest, TEXT("aegis"), Quest.TurninZoneId, Rewards.FindChecked(Quest.Id), Before, Progress, After, Error));
+        TestEqual(TEXT("Overflow keeps ready quest"), Progress[0].Status, FName(TEXT("ready_to_turn_in")));
+        TestTrue(TEXT("Overflow keeps output empty"), After.Items.IsEmpty());
+    }
+    UWorld* World = UWorld::CreateWorld(EWorldType::Game, false);
+    if (!TestNotNull(TEXT("Quest authority world"), World)) return false;
+    auto* State = World->SpawnActor<AWarPlayerState>();
+    if (!TestNotNull(TEXT("Quest authority owner"), State)) { World->DestroyWorld(false); return false; }
+    State->SetDevelopmentRealm(EWarRealm::Aegis);
+    const auto& Quest = Definitions.FindChecked(TEXT("dawnline-01-scouting"));
+    const FGuid OldKill = FGuid::NewGuid();
+    TestTrue(TEXT("Unmatched kill receipt recorded"), State->RecordQuestKillTrusted({Quest}, Quest.Objectives[0].ZoneId, Quest.Objectives[0].KillTarget, OldKill, Error));
+    TestTrue(TEXT("Trusted quest acceptance"), State->AcceptQuestTrusted(Quest, Quest.GiverZoneId, 0, Error));
+    TestFalse(TEXT("Old kill cannot replay after acceptance"), State->RecordQuestKillTrusted({Quest}, Quest.Objectives[0].ZoneId, Quest.Objectives[0].KillTarget, OldKill, Error));
+    TestFalse(TEXT("Stale quest command rejected"), State->AcceptQuestTrusted(Quest, Quest.GiverZoneId, 0, Error));
+    TestEqual(TEXT("Acceptance revision"), State->GetInventory().Revision, 1);
+    const FGuid Kill = FGuid::NewGuid();
+    TestFalse(TEXT("Duplicate definitions do not double-count or partially commit"), State->RecordQuestKillTrusted({Quest, Quest}, Quest.Objectives[0].ZoneId, Quest.Objectives[0].KillTarget, Kill, Error));
+    TestEqual(TEXT("Bad catalog leaves counter zero"), State->GetInventory().Quests[0].GetCount(Quest.Objectives[0].Id), 0);
+    for (int32 Count = 0; Count < 4; ++Count)
+        TestTrue(TEXT("Unique kill advances quest"), State->RecordQuestKillTrusted({Quest}, Quest.Objectives[0].ZoneId, Quest.Objectives[0].KillTarget, FGuid::NewGuid(), Error));
+    TestEqual(TEXT("Ready revision"), State->GetInventory().Revision, 5);
+    TestTrue(TEXT("Quest completion commits snapshot"), State->CompleteQuestTrusted(Quest, Quest.TurninZoneId, 5, Rewards.FindChecked(Quest.Id), Error));
+    TestEqual(TEXT("Completion revision"), State->GetInventory().Revision, 6);
+    TestEqual(TEXT("Quest status in owner snapshot"), State->GetInventory().Quests[0].Status, FName(TEXT("completed")));
+    TestEqual(TEXT("Gold settled"), State->GetInventory().CharacterProgression.Gold, int64(8));
+    TestFalse(TEXT("Fresh-revision retry cannot replay completed reward"), State->CompleteQuestTrusted(Quest, Quest.TurninZoneId, 6, Rewards.FindChecked(Quest.Id), Error));
+    TestEqual(TEXT("Retry retains gold"), State->GetInventory().CharacterProgression.Gold, int64(8));
+    World->DestroyWorld(false);
+    return true;
+}
+#endif

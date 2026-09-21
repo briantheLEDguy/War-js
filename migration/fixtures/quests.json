@@ -1,0 +1,4528 @@
+{
+  "schemaVersion": 1,
+  "randomUnit": 0.5,
+  "sources": [
+    {
+      "source": "src/game/QuestLogic.ts",
+      "sha256": "cdedb9286554e06583f44864908b93e6cae70ae5e7629cdd10f5da457a9aa795"
+    },
+    {
+      "source": "src/data/quests.ts",
+      "sha256": "32e6c853350e854c3a07cb05bfd2751a04d3e1ee242e23acba744c9cb04b4acf"
+    }
+  ],
+  "cases": [
+    {
+      "realm": "aegis",
+      "steps": [
+        {
+          "action": "reject_other_realm",
+          "quests": [],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "reject_missing_prerequisite",
+          "quests": [],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:reject_wrong_giver_zone",
+          "quests": [],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "active",
+              "counters": {
+                "kill-raiders": 0
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:duplicate_accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "active",
+              "counters": {
+                "kill-raiders": 0
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "active",
+              "counters": {
+                "kill-raiders": 0
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:reject_full_bag",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:complete",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-01-scouting:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:reject_wrong_giver_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "active",
+              "counters": {
+                "kill-guards": 0,
+                "kill-raiders-2": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:duplicate_accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "active",
+              "counters": {
+                "kill-guards": 0,
+                "kill-raiders-2": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "active",
+              "counters": {
+                "kill-guards": 0,
+                "kill-raiders-2": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:reject_full_bag",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "dawnline-02-guards:complete",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-02-guards:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:reject_wrong_giver_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "active",
+              "counters": {
+                "kill-captain": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:duplicate_accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "active",
+              "counters": {
+                "kill-captain": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "active",
+              "counters": {
+                "kill-captain": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:reject_full_bag",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "dawnline-03-captain:complete",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-03-captain:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:reject_wrong_giver_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "active",
+              "counters": {
+                "kill-keep-guards": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:duplicate_accept",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "active",
+              "counters": {
+                "kill-keep-guards": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "active",
+              "counters": {
+                "kill-keep-guards": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:reject_full_bag",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "dawnline-04-keep:complete",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "completed",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck",
+              "affix": {
+                "strengthBonus": 5
+              }
+            }
+          ],
+          "character": {
+            "level": 4,
+            "xp": 260,
+            "gold": 108,
+            "strength": 16,
+            "maxHealth": 160,
+            "maxMana": 130
+          }
+        },
+        {
+          "action": "dawnline-04-keep:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "dawnline-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "dawnline-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "dawnline-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "dawnline-04-keep",
+              "status": "completed",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck",
+              "affix": {
+                "strengthBonus": 5
+              }
+            }
+          ],
+          "character": {
+            "level": 4,
+            "xp": 260,
+            "gold": 108,
+            "strength": 16,
+            "maxHealth": 160,
+            "maxMana": 130
+          }
+        }
+      ]
+    },
+    {
+      "realm": "riftbound",
+      "steps": [
+        {
+          "action": "reject_other_realm",
+          "quests": [],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "reject_missing_prerequisite",
+          "quests": [],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:reject_wrong_giver_zone",
+          "quests": [],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "active",
+              "counters": {
+                "kill-raiders": 0
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:duplicate_accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "active",
+              "counters": {
+                "kill-raiders": 0
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "active",
+              "counters": {
+                "kill-raiders": 0
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:reject_full_bag",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 0,
+            "gold": 0,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:complete",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-01-scouting:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:reject_wrong_giver_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "active",
+              "counters": {
+                "kill-guards": 0,
+                "kill-raiders-2": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:duplicate_accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "active",
+              "counters": {
+                "kill-guards": 0,
+                "kill-raiders-2": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "active",
+              "counters": {
+                "kill-guards": 0,
+                "kill-raiders-2": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:reject_full_bag",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 1,
+            "xp": 150,
+            "gold": 8,
+            "strength": 10,
+            "maxHealth": 100,
+            "maxMana": 100
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:complete",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-02-guards:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:reject_wrong_giver_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "active",
+              "counters": {
+                "kill-captain": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:duplicate_accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "active",
+              "counters": {
+                "kill-captain": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "active",
+              "counters": {
+                "kill-captain": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 3,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 3,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:reject_full_bag",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 2,
+            "xp": 160,
+            "gold": 23,
+            "strength": 12,
+            "maxHealth": 120,
+            "maxMana": 110
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:complete",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-03-captain:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:reject_wrong_giver_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "active",
+              "counters": {
+                "kill-keep-guards": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:duplicate_accept",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "active",
+              "counters": {
+                "kill-keep-guards": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:reject_wrong_kill_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "active",
+              "counters": {
+                "kill-keep-guards": 0
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:kills_complete_and_clamped",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:reject_wrong_turnin_zone",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:reject_full_bag",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "ready_to_turn_in",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 0,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 1,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 2,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 4,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 5,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 6,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 7,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 8,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 9,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 10,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 11,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 12,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 13,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 14,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 15,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 16,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 17,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 18,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 19,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 20,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 21,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 22,
+              "kind": "armor",
+              "equipSlot": "neck"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 23,
+              "kind": "armor",
+              "equipSlot": "neck"
+            }
+          ],
+          "character": {
+            "level": 3,
+            "xp": 160,
+            "gold": 48,
+            "strength": 14,
+            "maxHealth": 140,
+            "maxMana": 120
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:complete",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "completed",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck",
+              "affix": {
+                "strengthBonus": 5
+              }
+            }
+          ],
+          "character": {
+            "level": 4,
+            "xp": 260,
+            "gold": 108,
+            "strength": 16,
+            "maxHealth": 160,
+            "maxMana": 130
+          }
+        },
+        {
+          "action": "cinderfen-04-keep:duplicate_turnin",
+          "quests": [
+            {
+              "questId": "cinderfen-01-scouting",
+              "status": "completed",
+              "counters": {
+                "kill-raiders": 4
+              }
+            },
+            {
+              "questId": "cinderfen-02-guards",
+              "status": "completed",
+              "counters": {
+                "kill-guards": 2,
+                "kill-raiders-2": 3
+              }
+            },
+            {
+              "questId": "cinderfen-03-captain",
+              "status": "completed",
+              "counters": {
+                "kill-captain": 1
+              }
+            },
+            {
+              "questId": "cinderfen-04-keep",
+              "status": "completed",
+              "counters": {
+                "kill-keep-guards": 1
+              }
+            }
+          ],
+          "inventory": [
+            {
+              "key": "potion_health",
+              "qty": 6,
+              "slot": 0,
+              "kind": "consumable"
+            },
+            {
+              "key": "potion_mana",
+              "qty": 6,
+              "slot": 1,
+              "kind": "consumable"
+            },
+            {
+              "key": "bread",
+              "qty": 2,
+              "slot": 2,
+              "kind": "consumable"
+            },
+            {
+              "key": "jewel_amulet_bloodglass",
+              "qty": 1,
+              "slot": 3,
+              "kind": "armor",
+              "equipSlot": "neck",
+              "affix": {
+                "strengthBonus": 5
+              }
+            }
+          ],
+          "character": {
+            "level": 4,
+            "xp": 260,
+            "gold": 108,
+            "strength": 16,
+            "maxHealth": 160,
+            "maxMana": 130
+          }
+        }
+      ]
+    }
+  ]
+}

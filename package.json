@@ -50,6 +50,7 @@
     "unreal:import": "tsx scripts/unreal/editor.ts --mode import",
     "unreal:network-proof": "tsx scripts/unreal/network-proof.ts",
     "unreal:inventory-fixtures": "tsx scripts/unreal/inventory-fixtures.ts",
+    "unreal:quest-fixtures": "tsx scripts/unreal/quest-fixtures.ts",
     "unreal:progression-fixtures": "tsx scripts/unreal/progression-fixtures.ts",
     "unreal:salvage-fixtures": "tsx scripts/unreal/salvage-fixtures.ts",
     "unreal:package-proof": "tsx scripts/unreal/package-proof.ts",

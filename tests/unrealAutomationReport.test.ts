@@ -28,7 +28,7 @@ describe('native automation receipt verification', () => {
     }
   });
   it('requires actual completed native tests instead of accepting process exit alone', () => {
-    expect(validateAutomationReport(report())).toBe(15);
+    expect(validateAutomationReport(report())).toBe(16);
     expect(() => validateAutomationReport({})).toThrow();
     expect(() => validateAutomationReport({ ...report(), tests: [] })).toThrow('did not run');
   });

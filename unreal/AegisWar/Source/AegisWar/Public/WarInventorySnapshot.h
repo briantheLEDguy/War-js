@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "WarInventoryRules.h"
 #include "WarProgressionRules.h"
+#include "WarQuestProgress.h"
 #include "WarInventorySnapshot.generated.h"
 
 USTRUCT(BlueprintType)
@@ -54,4 +55,5 @@ struct AEGISWAR_API FWarInventorySnapshot
     UPROPERTY(BlueprintReadOnly) TArray<FWarProfessionProgress> Professions;
     UPROPERTY(BlueprintReadOnly) TArray<FWarCultivationPlot> CultivationPlots;
     UPROPERTY(BlueprintReadOnly) TArray<FWarResourceCooldown> ResourceCooldowns;
+    UPROPERTY(BlueprintReadOnly) TArray<FWarQuestProgress> Quests;
 };

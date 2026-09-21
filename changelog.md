@@ -1,3 +1,9 @@
+## 2026-09-21 - Native expedition quest transactions
+
+- Port both realm quest chains' acceptance, zone-specific kill counters and strict-capacity turn-in rules, with browser-executed fixtures.
+- Add owner-only quest progress and trusted server acceptance/completion methods; deduplicate kill events and commit quest rewards with character state.
+- Keep quest NPC interaction, catalog adapters, UI, real enemy attribution and persistence explicitly unfinished.
+
 ## 2026-09-21 - Native character progression
 
 - Added server-owned XP/gold/item reward settlement with session deduplication,
