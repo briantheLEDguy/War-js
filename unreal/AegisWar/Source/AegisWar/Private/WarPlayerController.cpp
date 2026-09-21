@@ -6,10 +6,19 @@
 #include "WarCraftingStation.h"
 #include "WarResourceNode.h"
 #include "WarPlayerState.h"
+#include "WarCharacter.h"
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
 #include "Components/InputComponent.h"
 #include "InputCoreTypes.h"
+
+void AWarPlayerController::UpdateRotation(float DeltaTime)
+{
+    Super::UpdateRotation(DeltaTime);
+    // Pawn restart resets control rotation. The local orbit state owns the follow-camera view across that reset.
+    if (IsLocalController() && bCameraInitialized && Cast<AWarCharacter>(GetPawn()))
+        SetControlRotation(FRotator(LocalCameraState.Pitch, LocalCameraState.Yaw, 0));
+}
 
 void AWarPlayerController::SetupInputComponent()
 {

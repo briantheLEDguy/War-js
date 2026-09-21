@@ -51,6 +51,9 @@ private:
     bool bQuestAcceptRequested = false;
     bool bQuestTurnInRequested = false;
     bool bQuestNpcRpcVerified = false;
+    bool bCameraPreparedForRespawn = false;
+    bool bCameraSurvivedRespawn = false;
+    FRotator DefenderCameraRotation;
     TWeakObjectPtr<AWarCharacter> DefeatedDefender;
     TWeakObjectPtr<AWarCharacter> TrackedDefender;
     TWeakObjectPtr<AWarPlayerState> TrackedDefenderState;

@@ -1,3 +1,10 @@
+## 2026-09-21 — Native camera orbit, zoom and respawn continuity
+
+- Added mouse-button orbit, wheel zoom, source sensitivity/inversion rules and indoor/outdoor view restoration to the native character camera.
+- Kept client camera state on its controller across pawn respawn and blocked camera input while inventory/quest panels are modal.
+- Passed 18 native Foundation groups, 74 migration tooling tests, tools typecheck and a packaged Windows rendered two-client proof including actual camera continuity after respawn. Both client screenshots were inspected.
+- Physical input, touch, saved settings, campaign interiors and complete obstruction/platform acceptance remain open; release admission remains closed.
+
 ## 2026-09-21 - Native quest NPC dialogue and markers
 
 - Added authored-model quest NPC actors, explicit Mara/Ari development mappings, and entry rejection for missing or mismatched visuals; no primitive fallback was added.

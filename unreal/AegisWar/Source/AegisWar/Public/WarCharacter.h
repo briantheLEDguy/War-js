@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
+#include "WarCameraRules.h"
 #include "WarCharacter.generated.h"
 
 class UWarCharacterVisualDefinition;
@@ -37,6 +38,11 @@ public:
     /** The server revalidates target, range, realm, cost and cooldown for every request. */
     UFUNCTION(BlueprintCallable, Category="Combat") void RequestTargetStrike(AWarCharacter* Target);
     UFUNCTION(NetMulticast, Unreliable) void MulticastPlayStrike();
+    void ApplyCameraOrbit(double X, double Y);
+    void ApplyCameraWheel(double DeltaPixels);
+    UFUNCTION(BlueprintCallable, Category="Camera") void SetCameraIndoorMode(bool bEnabled);
+    UFUNCTION(BlueprintCallable, Category="Camera") void SetCameraPreferences(float LookSensitivity, float ZoomSensitivity, bool bInvertX, bool bInvertY);
+    double GetCameraDistance() const;
 
 protected:
     UPROPERTY(VisibleAnywhere, Category="Camera") TObjectPtr<USpringArmComponent> CameraBoom;
@@ -55,6 +61,10 @@ private:
     void MoveRight(const FInputActionValue& Value);
     void LookYaw(const FInputActionValue& Value);
     void LookPitch(const FInputActionValue& Value);
+    void Zoom(const FInputActionValue& Value);
+    void UpdateCamera();
+    bool CanControlCamera() const;
+    FWarCameraState* GetCameraState() const;
     void StartJump();
     void RequestStrike();
 
@@ -63,6 +73,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<UInputAction> MoveRightAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> LookYawAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> LookPitchAction;
+    UPROPERTY(Transient) TObjectPtr<UInputAction> ZoomAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> JumpAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> StrikeAction;
     TWeakObjectPtr<AWarCharacter> RequestedStrikeTarget;

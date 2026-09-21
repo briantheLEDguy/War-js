@@ -16,6 +16,7 @@
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
@@ -82,21 +83,51 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("catalogQuestTransactions"), bQuestPrivacyVerified);
     Report->SetBoolField(TEXT("questNpcAuthority"), bQuestNpcVerified);
     Report->SetBoolField(TEXT("questNpcClientRpc"), bQuestNpcRpcVerified);
+    Report->SetBoolField(TEXT("cameraSurvivedRespawn"), bCameraSurvivedRespawn);
     if (GetWorld()->GetNetMode() == NM_Client && FParse::Param(FCommandLine::Get(), TEXT("WarQuestProofUI")))
     {
         bool bInputRestored = false;
+        bool bCameraControls = false;
         if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController()))
         {
             Controller->ToggleInventory();
             Controller->ToggleQuestLog();
             const bool bBlocked = Controller->IsMoveInputIgnored() && Controller->IsLookInputIgnored() && Controller->bShowMouseCursor;
+            if (auto* Character = Cast<AWarCharacter>(Controller->GetPawn()))
+            {
+                const double Distance = Character->GetCameraDistance();
+                const auto Rotation = Controller->GetControlRotation();
+                Character->ApplyCameraWheel(100); Character->ApplyCameraOrbit(100, 100);
+                bCameraControls = Character->GetCameraDistance() == Distance && Controller->GetControlRotation().Equals(Rotation);
+            }
             Controller->ToggleInventory();
             Controller->ToggleQuestLog();
             Controller->ToggleQuestLog();
             bInputRestored = bBlocked && !Controller->IsMoveInputIgnored() && !Controller->IsLookInputIgnored() && !Controller->bShowMouseCursor;
+            if (auto* Character = Cast<AWarCharacter>(Controller->GetPawn()))
+            {
+                const double Distance = Character->GetCameraDistance();
+                const auto Rotation = Controller->GetControlRotation();
+                Character->ApplyCameraWheel(100);
+                bCameraControls &= Character->GetCameraDistance() == Distance + 100;
+                Character->ApplyCameraOrbit(10, 10);
+                bCameraControls &= !Controller->GetControlRotation().Equals(Rotation);
+                Character->ApplyCameraOrbit(-10, -10);
+                Character->SetCameraIndoorMode(true);
+                bCameraControls &= Character->GetCameraDistance() == 220;
+                Character->ApplyCameraWheel(10000);
+                bCameraControls &= Character->GetCameraDistance() == 380;
+                Character->SetCameraIndoorMode(false);
+                bCameraControls &= Character->GetCameraDistance() == Distance + 100 && Controller->GetControlRotation().Equals(Rotation);
+                Character->ApplyCameraWheel(-100);
+                const auto* Boom = Character->FindComponentByClass<USpringArmComponent>();
+                bCameraControls &= Boom && FMath::IsNearlyEqual(double(Boom->TargetArmLength), Distance)
+                    && Boom->bDoCollisionTest && Boom->ProbeSize == 35.f;
+            }
         }
         Report->SetBoolField(TEXT("questPanelInputRestored"), bInputRestored);
-        Report->SetBoolField(TEXT("passed"), bPassed && bInputRestored);
+        Report->SetBoolField(TEXT("cameraControls"), bCameraControls);
+        Report->SetBoolField(TEXT("passed"), bPassed && bInputRestored && bCameraControls);
     }
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
@@ -405,6 +436,14 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             : Advanced(bAttackerClient ? Aegis : Riftbound) && RemoteProgression.Level == 1
                 && RemoteProgression.Xp == 0 && RemoteProgression.Gold == 0;
     }
+    if (bDefenderClient && bProgressionVerified && !bCameraPreparedForRespawn && Elapsed > 60.0)
+    {
+        Defender->ApplyCameraWheel(200);
+        Defender->ApplyCameraOrbit(12, -8);
+        DefenderCameraRotation = Defender->GetController()->GetControlRotation();
+        bCameraPreparedForRespawn = Defender->GetCameraDistance() == 900;
+        if (!bCameraPreparedForRespawn) { Finish(false, TEXT("Camera could not prepare the respawn continuity check.")); return; }
+    }
     if (bServer && bProgressionVerified && !bDeathRequested && Elapsed > 62.0)
     {
         DefeatedDefender = Defender;
@@ -422,6 +461,12 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             && RespawnSnapshot.CharacterProgression.Level == 3 && RespawnSnapshot.CharacterProgression.Gold == 25);
     bRespawnVerified |= bDeathObserved && bPrivateRespawnState && !Defender->IsDead() && (!bServer || Defender != DefeatedDefender.Get())
         && FMath::IsNearlyEqual(ObservedHealth, 140.f) && Riftbound->GetAttributes()->GetMaxHealth() == 140.f;
+    if (bDefenderClient && bRespawnVerified && bCameraPreparedForRespawn)
+    {
+        const auto* Boom = Defender->FindComponentByClass<USpringArmComponent>();
+        bCameraSurvivedRespawn |= Defender->GetCameraDistance() == 900 && Boom && Boom->TargetArmLength == 900.f
+            && Defender->GetController()->GetControlRotation().Equals(DefenderCameraRotation);
+    }
     // Keep the respawn observation phase separate from the next inventory revision.
     if (bRespawnVerified && Elapsed > 70.0)
     {
@@ -533,6 +578,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     }
     if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && bCultivationVerified
         && bProgressionVerified && bRespawnVerified && bQuestPrivacyVerified && Elapsed > 74.0
+        && (!bDefenderClient || bCameraSurvivedRespawn)
         && ((!bServer && !bAttackerClient) || bQuestNpcRpcVerified) && FMath::IsNearlyEqual(ObservedHealth, 140.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 120.f)))
     {

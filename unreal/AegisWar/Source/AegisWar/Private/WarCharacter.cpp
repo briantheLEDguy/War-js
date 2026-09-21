@@ -4,6 +4,7 @@
 #include "WarCharacterVisualDefinition.h"
 #include "WarGameMode.h"
 #include "WarPlayerState.h"
+#include "WarPlayerController.h"
 #include "WarStrikeAbility.h"
 #include "WarTypes.h"
 #include "AbilitySystemComponent.h"
@@ -41,7 +42,9 @@ AWarCharacter::AWarCharacter()
     GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
     CameraBoom->SetupAttachment(RootComponent);
-    CameraBoom->TargetArmLength = 420.f;
+    CameraBoom->TargetArmLength = 700.f;
+    CameraBoom->ProbeSize = 35.f;
+    CameraBoom->SetRelativeLocation(FVector(0, 0, -6)); // 0.9 m focus above feet, accounting for the 0.96 m capsule half-height.
     CameraBoom->bUsePawnControlRotation = true;
     FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
     FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
@@ -179,6 +182,7 @@ void AWarCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     MoveRightAction = MakeAction(EInputActionValueType::Axis1D);
     LookYawAction = MakeAction(EInputActionValueType::Axis1D);
     LookPitchAction = MakeAction(EInputActionValueType::Axis1D);
+    ZoomAction = MakeAction(EInputActionValueType::Axis1D);
     JumpAction = MakeAction(EInputActionValueType::Boolean);
     StrikeAction = MakeAction(EInputActionValueType::Boolean);
     MappingContext->MapKey(MoveForwardAction, EKeys::W);
@@ -187,6 +191,7 @@ void AWarCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     MappingContext->MapKey(MoveRightAction, EKeys::A).Modifiers.Add(NewObject<UInputModifierNegate>(MappingContext));
     MappingContext->MapKey(LookYawAction, EKeys::MouseX);
     MappingContext->MapKey(LookPitchAction, EKeys::MouseY);
+    MappingContext->MapKey(ZoomAction, EKeys::MouseWheelAxis);
     MappingContext->MapKey(JumpAction, EKeys::SpaceBar);
     MappingContext->MapKey(StrikeAction, EKeys::LeftMouseButton);
     Subsystem->AddMappingContext(MappingContext, 0);
@@ -194,9 +199,12 @@ void AWarCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     Input->BindAction(MoveRightAction, ETriggerEvent::Triggered, this, &AWarCharacter::MoveRight);
     Input->BindAction(LookYawAction, ETriggerEvent::Triggered, this, &AWarCharacter::LookYaw);
     Input->BindAction(LookPitchAction, ETriggerEvent::Triggered, this, &AWarCharacter::LookPitch);
+    Input->BindAction(ZoomAction, ETriggerEvent::Triggered, this, &AWarCharacter::Zoom);
     Input->BindAction(JumpAction, ETriggerEvent::Started, this, &AWarCharacter::StartJump);
     Input->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
     Input->BindAction(StrikeAction, ETriggerEvent::Started, this, &AWarCharacter::RequestStrike);
+    if (auto* Player = Cast<AWarPlayerController>(Controller)) Player->InitializeCameraYaw(Controller->GetControlRotation().Yaw);
+    UpdateCamera();
 }
 
 void AWarCharacter::MoveForward(const FInputActionValue& Value)
@@ -207,8 +215,63 @@ void AWarCharacter::MoveRight(const FInputActionValue& Value)
 {
     if (Controller && !bDead && bVisualReady) AddMovementInput(FRotationMatrix(FRotator(0.f, Controller->GetControlRotation().Yaw, 0.f)).GetUnitAxis(EAxis::Y), Value.Get<float>());
 }
-void AWarCharacter::LookYaw(const FInputActionValue& Value) { AddControllerYawInput(Value.Get<float>()); }
-void AWarCharacter::LookPitch(const FInputActionValue& Value) { AddControllerPitchInput(-Value.Get<float>()); }
+void AWarCharacter::LookYaw(const FInputActionValue& Value)
+{
+    const auto* PC = Cast<APlayerController>(Controller);
+    if (PC && (PC->IsInputKeyDown(EKeys::LeftMouseButton) || PC->IsInputKeyDown(EKeys::RightMouseButton)))
+        ApplyCameraOrbit(Value.Get<float>(), 0.0);
+}
+void AWarCharacter::LookPitch(const FInputActionValue& Value)
+{
+    const auto* PC = Cast<APlayerController>(Controller);
+    if (PC && (PC->IsInputKeyDown(EKeys::LeftMouseButton) || PC->IsInputKeyDown(EKeys::RightMouseButton)))
+        ApplyCameraOrbit(0.0, -Value.Get<float>());
+}
+void AWarCharacter::Zoom(const FInputActionValue& Value)
+{
+    // Unreal reports wheel notches; use the browser's conventional 100-pixel wheel step.
+    ApplyCameraWheel(-Value.Get<float>() * 100.0);
+}
+bool AWarCharacter::CanControlCamera() const
+{
+    return IsLocallyControlled() && GetCameraState() && !Controller->IsLookInputIgnored() && bVisualReady && !bDead;
+}
+FWarCameraState* AWarCharacter::GetCameraState() const
+{
+    auto* Player = Cast<AWarPlayerController>(Controller);
+    return Player ? &Player->GetLocalCameraState() : nullptr;
+}
+double AWarCharacter::GetCameraDistance() const
+{
+    const auto* State = GetCameraState();
+    return State ? State->Distance : CameraBoom->TargetArmLength;
+}
+void AWarCharacter::UpdateCamera()
+{
+    const auto* State = GetCameraState();
+    if (!State || !IsLocallyControlled()) return;
+    CameraBoom->TargetArmLength = State->Distance;
+    Controller->SetControlRotation(FRotator(State->Pitch, State->Yaw, 0));
+}
+void AWarCharacter::ApplyCameraOrbit(double X, double Y)
+{
+    if (!CanControlCamera()) return;
+    GetCameraState()->OrbitPixels(X, Y); UpdateCamera();
+}
+void AWarCharacter::ApplyCameraWheel(double DeltaPixels)
+{
+    if (!CanControlCamera()) return;
+    GetCameraState()->WheelPixels(DeltaPixels); UpdateCamera();
+}
+void AWarCharacter::SetCameraIndoorMode(bool bEnabled)
+{
+    if (!IsLocallyControlled() || !GetCameraState()) return;
+    GetCameraState()->SetIndoor(bEnabled); UpdateCamera();
+}
+void AWarCharacter::SetCameraPreferences(float LookSensitivity, float ZoomSensitivity, bool bInvertX, bool bInvertY)
+{
+    if (IsLocallyControlled() && GetCameraState()) GetCameraState()->SetPreferences(LookSensitivity, ZoomSensitivity, bInvertX, bInvertY);
+}
 void AWarCharacter::StartJump() { if (Controller && !Controller->IsMoveInputIgnored() && !bDead && bVisualReady) Jump(); }
 
 void AWarCharacter::RequestStrike()

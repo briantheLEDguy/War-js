@@ -61,6 +61,11 @@ these development assignments still need final visual approval. Native quest
 markers show offers and ready turn-ins from the owning character's private state.
 Riftbound NPC models, navigation, real enemy kill attribution, complete quest
 presentation and durable settlement remain pending.
+Native [camera controls](docs/unreal-camera.md) now include mouse-wheel zoom,
+either-button drag orbit, pitch limits, modal input isolation and local
+indoor/outdoor view restoration. Camera preferences and view state survive pawn
+replacement; touch, settings persistence/UI and campaign-interior integration
+remain unfinished.
 
 ## Regional production priorities
 
