@@ -1,3 +1,9 @@
+## 2026-09-21 - Walkable capital castle stairs
+
+- Corrected the imported keep and battlement stair orientation and opened the keep roof stairwell, preserving unrelated placement IDs.
+- Added a native four-leg ascent/descent proof using the colliding walking character, plus rendered roof capture and focused layout checks.
+- Verified editor and packaged Windows traversal and the packaged city/gameplay/GM reload regression. Full capital and three-platform acceptance remain pending.
+
 ## 2026-09-21 - Atomic GM rows of modular kit pieces
 
 - Add repeated construction for 2-32 copies of the selected model with local-axis width/gap spacing, individual support traces and preserved orientation/scale. A failed piece rejects the whole row; one undo/redo step handles every piece, and all identities survive draft reload.

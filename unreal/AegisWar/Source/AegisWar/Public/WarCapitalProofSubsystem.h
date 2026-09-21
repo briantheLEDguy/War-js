@@ -16,6 +16,8 @@ public:
 private:
     void RunSurfacePlacementProof();
     void RunConstructionRowProof();
+    void StartCastleTraversal();
+    void TickCastleTraversal();
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     FVector StartPosition = FVector::ZeroVector;
@@ -24,6 +26,10 @@ private:
     int32 SurfaceModelsVerified = 0;
     bool bSurfacePlacementVerified = false;
     bool bConstructionRowVerified = false;
+    bool bCastleTraversalVerified = false;
+    TArray<TArray<FVector>> CastleRoutes;
+    int32 CastleRouteIndex = 0;
+    double CastleAirborneAt = -1;
     bool bTraversalVerified = false;
     bool bGameplayIntegrationVerified = false;
     bool bPlacementSnappingVerified = false;

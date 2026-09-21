@@ -52,6 +52,8 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
     Report->SetBoolField(TEXT("surfacePlacementVerified"), bSurfacePlacementVerified);
     Report->SetBoolField(TEXT("constructionRowVerified"), bConstructionRowVerified);
+    Report->SetBoolField(TEXT("castleTraversalVerified"), bCastleTraversalVerified);
+    Report->SetNumberField(TEXT("castleRoutesWalked"), CastleRouteIndex);
     Report->SetNumberField(TEXT("surfaceModelsVerified"), SurfaceModelsVerified);
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
     Report->SetBoolField(TEXT("capitalGameplayIntegrationVerified"), bGameplayIntegrationVerified);
@@ -94,6 +96,7 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
         if (Now - StartedAt > 30) Finish(false, TEXT("Capital character failed to reach authored ground."));
         return;
     }
+    if (Stage == 11) { TickCastleTraversal(); return; }
     if (Stage == 10)
     {
         if (Now - CityWalkStartedAt > 240)
@@ -149,6 +152,8 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
             if (!CheckCity(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedModels="), ExpectedModels)
                 && ExpectedModels > 0 && Catalog.Num() == ExpectedModels, TEXT("City authored model catalog count differs."))) return;
             bCatalogSearchVerified = true;
+            if (FParse::Param(FCommandLine::Get(), TEXT("WarCastleTraversalProof")))
+            { StartCastleTraversal(); return; }
             if (FParse::Param(FCommandLine::Get(), TEXT("WarConstructionRowProof")))
             { RunConstructionRowProof(); return; }
             if (FParse::Param(FCommandLine::Get(), TEXT("WarSurfacePlacementProof")))

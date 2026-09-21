@@ -79,7 +79,7 @@ def castle_layout():
         for x in [-150, 150]:
             floor(x, y)
     for step in range(9):
-        add("stairs", 2850, 7600 + step * 150, 10 + step * 100, 0, (2, 1, 1))
+        add("stairs", 2850, 7600 + step * 150, 10 + step * 100, 180, (2, 1, 1))
     for x in [-2200, 2200]:
         for y in [7700, 8500, 11000]:
             add("bench", x, y, 10, 90, district="castle")
@@ -87,9 +87,22 @@ def castle_layout():
         floor(x, 9000, 910)
     # Keep stairs climb in a continuous long run; upper landings join each floor.
     for step in range(15):
-        add("stairs", -700, 9475 + step * 150, 10 + step * 100, 0, (1.6, 1, 1), "keep")
+        add("stairs", -700, 9475 + step * 150, 10 + step * 100, 180, (1.6, 1, 1), "keep")
 
-    return rows
+    # Keep unrelated placement identities stable while opening the roof stairwell.
+    return [row for row in rows if not (row["district"] == "keep" and row["kind"] == "floor"
+        and row["centerBottom"][0] == -750 and row["centerBottom"][2] == 1510)]
+
+
+def castle_routes():
+    """Design feet heights for real-character acceptance, not collision evidence."""
+    keep = [[17360, 700, 4210]]
+    keep += [[17475 + step * 150, 700, 4270 + step * 100] for step in range(15)]
+    keep += [[19640, 700, 5710], [19640, 500, 5720], [19500, 0, 5720]]
+    battlement = [[15485, -2850, 4210]]
+    battlement += [[15600 + step * 150, -2850, 4270 + step * 100] for step in range(9)]
+    battlement += [[17000, -2850, 5120], [17000, -3450, 5120], [17400, -3475, 5120]]
+    return {"keep": keep, "battlement": battlement}
 
 
 def build_layout():
@@ -156,6 +169,6 @@ def build_layout():
     route += sampled_path({"points": [{"x":0,"z":119},{"x":0,"z":176}]}, 2)[1:]
     return {"schemaVersion": 2, "zoneId": "aegis_capital", "name": "Bastion of Aegis - Crownward",
         "map": "/Game/Capitals/crownward/AegisCapital_Workbench", "arrival": point(source["spawnPoint"], 130),
-        "placements": rows, "routes": [point(p,130) for p in route],
+        "placements": rows, "routes": [point(p,130) for p in route], "castleRoutes": castle_routes(),
         "districts": source["cityDistricts"], "sourceHouseCount": len(houses),
         "sourcePathIds": [p["id"] for p in source["paths"]], "fullCapitalAcceptance": False}

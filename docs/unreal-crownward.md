@@ -24,11 +24,19 @@ multistorey keep and battlements. The original eroded granite massif rises
 behind it; its authored GLB geometry and repository textures are reused. Two
 zero-area edge triangles are discarded during native import.
 
-There are 8,712 editable placements using 14 kit mesh types. Ground, roads and
+There are 8,704 editable placements using 14 kit mesh types. Ground, roads and
 mountains are terrain construction, not primitive scenery substitutes. The
 source city and its old workbench remain available for reference. This restores
 the source geography and house sites; it does not establish complete parity for
 public buildings, every interior, mountain passages, encounters or travel.
+
+The keep and courtyard stair modules now face uphill in their assembled runs.
+Eight roof tiles above the keep stairwell were removed, leaving a clear exit
+onto the roof; all unrelated placement identities remain unchanged. The native
+character has walked up and down both the keep-to-roof and courtyard-to-battlement
+routes. These sampled routes do not establish access to every tower, interior
+or rampart. Existing earlier proof drafts have a different roof baseline; owner
+drafts still block regeneration and require explicit reconciliation.
 
 ## Gameplay integration
 
@@ -97,7 +105,16 @@ their spacing and support, rejects invalid/unsupported rows without partial
 placement, undoes/redoes the whole row, and reloads all three in a fresh process.
 The same `--packaged-root` option runs this check on the Windows package.
 
-Verified locally on 2026-09-21: the final 8,712-placement editor-game default
+Use `npm run unreal:crownward-proof -- --castle-traversal --rendered` to walk the
+two castle stair routes in both directions. The character uses ordinary collision
+and walking at 3 m/s, with no jumping or flight. Each focused route begins at a
+checked teleport location; movement must reach the specified landing height.
+The rendered capture returns to the already walked keep roof after all four
+legs pass. This mode does not edit or load any draft and does not claim a fresh
+draft reload. Add `--packaged-root artifacts/unreal/packages/Win64` to test the
+packaged client. The default proof still covers the original city approach.
+
+Verified locally on 2026-09-21: the earlier 8,712-placement editor-game default
 launch, grounded walk, quest/station checks and fresh-process GM reload passed
 at `artifacts/unreal/capital-proof/crownward-1790007084260/report.json`.
 The saved draft measured 5,676,420 bytes. All 21 native foundation groups passed,
@@ -126,3 +143,14 @@ disconnect. No shader inputs or shading model were replaced. Five material
 protection tests (`python tests/unrealCapitalMaterials.test.py`) and all nine
 layout tests passed; a native commandlet verified the saved adaptation receipt.
 Complete material and three-platform visual acceptance remain open.
+
+Castle traversal correction (2026-09-21): reversed 24 imported stair modules
+and opened the keep roof stairwell. The current map has 8,704 editable kit
+placements. A colliding character walked both routes up and down in the editor
+(`artifacts/unreal/capital-proof/crownward-1790011814371`) and rendered Windows
+package (`artifacts/unreal/capital-proof/crownward-1790012050589`). No flight or
+jump was used. The packaged default city approach, quest/station interactions,
+GM edits and fresh-process draft reload also passed at
+`artifacts/unreal/capital-proof/crownward-1790012096191`. Ten layout tests,
+85 tooling tests and tooling typechecking passed. Other towers, interiors,
+platforms and full visual acceptance remain unverified; release remains closed.

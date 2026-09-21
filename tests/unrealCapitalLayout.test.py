@@ -42,6 +42,21 @@ class CapitalLayoutTests(unittest.TestCase):
         self.assertGreater(max(p[1] for p in route),1000)
         self.assertEqual({p["id"] for p in source["paths"]},set(layout["sourcePathIds"]))
 
+    def test_castle_stairs_ascend_toward_upper_landings_with_open_roof(self):
+        layout=build_layout()
+        stairs=[r for r in layout["placements"] if r["kind"]=="stairs"]
+        self.assertEqual(len(stairs),24)
+        # Imported stone steps rise along negative local Y, which yaw 90 maps to world +X.
+        self.assertTrue(all(r["yaw"]==90 for r in stairs))
+        roof=[r for r in layout["placements"] if r["district"]=="keep" and r["kind"]=="floor"
+              and r["centerBottom"][2]==5710]
+        self.assertTrue(roof)
+        self.assertFalse(any(r["centerBottom"][1]==750 for r in roof))
+        for name,rise in [("keep",1510),("battlement",910)]:
+            route=layout["castleRoutes"][name]
+            self.assertEqual(route[-1][2]-route[0][2],rise)
+            self.assertTrue(all(route[i][2]<=route[i+1][2] for i in range(len(route)-1)))
+
     def test_original_terrain_and_authored_mountain_geometry(self):
         self.assertEqual(height(0,-118),0)
         self.assertEqual(height(0,180),42)

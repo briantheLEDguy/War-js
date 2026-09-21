@@ -7,7 +7,7 @@ The [integrated capital](docs/unreal-crownward.md) is both the editor and develo
 game startup map: `/Game/Capitals/crownward/AegisCapital_Workbench`. CityKitStaging
 is a private asset-import workspace, not another game project. The city uses the
 original mountain terrain, five districts, 145 house sites and winding ascent to
-the hilltop castle, with 8,712 editable purchased-kit placements. Mara Vell and
+the hilltop castle, with 8,704 editable purchased-kit placements. Mara Vell and
 all five source crafting stations use the existing native gameplay systems.
 Press Play, **G** for City Builder, **I** for inventory, **L** for quests and **E**
 to interact. Full gameplay migration and city/interior parity remain unfinished.

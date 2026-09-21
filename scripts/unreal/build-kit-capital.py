@@ -103,5 +103,6 @@ if not level.save_current_level():
 receipt_path.write_text(json.dumps({**layout, "geography": geography, "gameplay": gameplay, "placements": placed, "dependencyFingerprint": fingerprint,
     "mapSha256": hashlib.sha256(package_file.read_bytes()).hexdigest(), "gmRuntimeVerified": False,
     "traversalVerified": False, "visualApproved": False}, indent=2) + "\n")
-(ROOT / "unreal/AegisWar/Content/Migration/capital-development.json").write_text(json.dumps({"map": target, "routes": layout["routes"], "gameplay": gameplay}) + "\n")
+(ROOT / "unreal/AegisWar/Content/Migration/capital-development.json").write_text(json.dumps({"map": target,
+    "routes": layout["routes"], "castleRoutes": layout["castleRoutes"], "gameplay": gameplay}) + "\n")
 unreal.log("WAR_CROWNWARD_BUILT=" + str(len(placed)))

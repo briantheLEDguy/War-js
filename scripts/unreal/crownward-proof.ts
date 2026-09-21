@@ -3,8 +3,9 @@ import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
-const args = parseArguments(process.argv.slice(2), ['--surface-placement', '--construction-row', '--rendered'], ['--packaged-root']);
-if (args.has('--surface-placement') && args.has('--construction-row')) throw new Error('Choose one focused capital proof.');
+const args = parseArguments(process.argv.slice(2), ['--surface-placement', '--construction-row', '--castle-traversal', '--rendered'], ['--packaged-root']);
+if (['--surface-placement', '--construction-row', '--castle-traversal'].filter(mode => args.has(mode)).length > 1)
+  throw new Error('Choose one focused capital proof.');
 const packagedRoot = args.get('--packaged-root') ? path.resolve(repoRoot, args.get('--packaged-root')!) : undefined;
 const packagedClient = packagedRoot ? path.join(packagedRoot, 'AegisWar/Binaries/Win64/AegisWar.exe') : undefined;
 if (packagedClient && !existsSync(packagedClient)) throw new Error('Packaged Windows client is missing.');
@@ -19,7 +20,7 @@ const draft = randomUUID().replaceAll('-', '');
 const output = path.join(repoRoot, 'artifacts/unreal/capital-proof', run);
 mkdirSync(output, { recursive: true });
 const reports = [];
-for (const reload of [false, true]) {
+for (const reload of args.has('--castle-traversal') ? [false] : [false, true]) {
   const id = run + (reload ? '-reload' : '');
   const code = runEngineCommand(packagedClient ?? engine.editorCommand!, [...(packagedClient ? [] : [projectPath]), ...(reload ? [receipt.map] : []), '-game', '-unattended',
     ...(args.has('--rendered') ? ['-RenderOffscreen', '-WarProofScreenshot', '-windowed', '-ForceRes', '-ResX=1280', '-ResY=960'] : ['-nullrhi']),
@@ -27,14 +28,16 @@ for (const reload of [false, true]) {
     '-WarCrownwardProof', `-WarProofRun=${id}`, `-WarProofDraftId=${draft}`,
     ...(args.has('--surface-placement') ? ['-WarSurfacePlacementProof'] : []),
     ...(args.has('--construction-row') ? ['-WarConstructionRowProof'] : []),
+    ...(args.has('--castle-traversal') ? ['-WarCastleTraversalProof'] : []),
     `-WarCapitalExpectedModels=${new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size}`,
     `-WarCapitalExpectedObjects=${receipt.placements.length}`, `-abslog=${path.join(output, id + '.log')}`,
     ...(reload ? ['-WarCapitalReloadProof'] : [])]);
   const result = path.join(nativeSaved, 'CapitalProof', id, 'report.json');
   if (code !== 0 || !existsSync(result)) throw new Error(`Crownward proof failed: ${output}`);
   const report = JSON.parse(readFileSync(result, 'utf8').replace(/^\uFEFF/, ''));
-  if (!report.passed || report.editableObjects !== receipt.placements.length + (args.has('--construction-row') ? 3 : 1) || report.fullCapitalAcceptance !== false
-    || !report.catalogSearchVerified || (args.has('--construction-row') ? !report.constructionRowVerified : args.has('--surface-placement')
+  if (!report.passed || report.editableObjects !== receipt.placements.length + (args.has('--castle-traversal') ? 0 : args.has('--construction-row') ? 3 : 1) || report.fullCapitalAcceptance !== false
+    || !report.catalogSearchVerified || (args.has('--castle-traversal') ? !report.castleTraversalVerified || report.castleRoutesWalked !== 4
+      : args.has('--construction-row') ? !report.constructionRowVerified : args.has('--surface-placement')
       ? !report.surfacePlacementVerified || (!reload && report.surfaceModelsVerified !== new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size)
       : !reload && (!report.developmentTraversalVerified || !report.capitalGameplayIntegrationVerified)))
     throw new Error(`Crownward runtime checks failed: ${output}`);
@@ -45,6 +48,7 @@ for (const reload of [false, true]) {
   }
   reports.push(report);
 }
-writeFileSync(path.join(output, 'report.json'), JSON.stringify({ passed: true, freshProcessReload: true,
-  map: receipt.map, surfacePlacement: args.has('--surface-placement'), constructionRow: args.has('--construction-row'), defaultGameMapVerified: true, packagedClient: Boolean(packagedClient), platform: 'Win64', reports, fullCapitalAcceptance: false }, null, 2));
+writeFileSync(path.join(output, 'report.json'), JSON.stringify({ passed: true, freshProcessReload: !args.has('--castle-traversal'),
+  map: receipt.map, surfacePlacement: args.has('--surface-placement'), constructionRow: args.has('--construction-row'),
+  castleTraversal: args.has('--castle-traversal'), defaultGameMapVerified: true, packagedClient: Boolean(packagedClient), platform: 'Win64', reports, fullCapitalAcceptance: false }, null, 2));
 console.log(JSON.stringify({ crownwardProofPassed: true, output }));
