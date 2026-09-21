@@ -22,6 +22,11 @@ proof also runs with packaged Windows clients. Complete graphical/equipment
 review, gameplay, Linux/macOS builds and release acceptance remain open.
 See [checkpoint 2](docs/unreal-checkpoint-2.md) for verified evidence, the rejected
 legacy model sources, and the unfinished work.
+The next inventory increment adds owner-only replicated bags/equipment on
+PlayerState, server-only reward grants with session receipt deduplication, and
+revision-checked equip/unequip commands. Native and two-client tests cover
+fabricated selections, stale requests, private inventory and deferred gear.
+This does not yet provide inventory UI, durable persistence or equipment meshes.
 
 ## Regional production priorities
 

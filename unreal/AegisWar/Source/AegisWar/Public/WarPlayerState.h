@@ -4,6 +4,7 @@
 #include "GameFramework/PlayerState.h"
 #include "AbilitySystemInterface.h"
 #include "WarTypes.h"
+#include "WarInventorySnapshot.h"
 #include "WarPlayerState.generated.h"
 
 class UAbilitySystemComponent;
@@ -23,7 +24,14 @@ public:
     EWarRealm GetRealm() const { return Realm; }
     void SetDevelopmentRealm(EWarRealm InRealm);
     void InitializeForPawn(AWarCharacter* Avatar);
+    const FWarInventorySnapshot& GetInventory() const { return Inventory; }
+    // Trusted server API only. Receipts live for this PlayerState session, not across reconnects.
+    bool GrantRewards(const FGuid& Transaction, const TArray<FWarInventoryItem>& Rewards, FString& Error);
+    bool ChangeEquipment(int32 ExpectedRevision, int32 BagSlot, bool bEquip, FString& Error);
+    UFUNCTION(Server, Reliable) void ServerChangeEquipment(int32 ExpectedRevision, int32 BagSlot, bool bEquip);
 private:
+    UPROPERTY(Replicated) FWarInventorySnapshot Inventory;
+    TSet<FGuid> RewardReceipts;
     UPROPERTY(VisibleAnywhere) TObjectPtr<UAbilitySystemComponent> AbilitySystem;
     UPROPERTY() TObjectPtr<UWarAttributeSet> Attributes;
     UPROPERTY(Replicated) EWarRealm Realm = EWarRealm::None;

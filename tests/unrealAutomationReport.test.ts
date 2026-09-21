@@ -25,7 +25,7 @@ describe('native automation receipt verification', () => {
     expect(() => validateImportReceipt({ ...verified, animations: [{}, {}] }, 'character', 'current')).toThrow('skinning');
   });
   it('requires actual completed native tests instead of accepting process exit alone', () => {
-    expect(validateAutomationReport(report())).toBe(8);
+    expect(validateAutomationReport(report())).toBe(9);
     expect(() => validateAutomationReport({})).toThrow();
     expect(() => validateAutomationReport({ ...report(), tests: [] })).toThrow('did not run');
   });

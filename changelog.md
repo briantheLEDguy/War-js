@@ -1,3 +1,8 @@
+## 2026-09-21 — Native inventory authority
+
+- Added owner-only replicated inventory/equipment on Unreal PlayerState, trusted session reward receipts and revision-checked equipment commands.
+- Added native full-bag/retry tests and two-client inventory privacy, fabricated-slot and stale-request checks. Inventory UI, durable persistence and full gameplay parity remain unfinished.
+
 ## 2026-09-20 - Unreal Windows development proof
 
 - Imported three admitted authored character sources and the command table with source PBR materials and verified raw/compressed animation skinning. Fixed inconsistent FBX bind poses and stale reimport settings; added regression checks.

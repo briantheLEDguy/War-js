@@ -25,6 +25,8 @@ private:
     bool bMovementAnimation = false;
     bool bStrikeAnimation = false;
     bool bFinished = false;
+    bool bInventoryRequestsSent = false;
+    bool bInventoryVerified = false;
     float ObservedHealth = -1;
     float ObservedMana = -1;
     FString ResultRole;

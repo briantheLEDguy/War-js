@@ -59,6 +59,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetNumberField(TEXT("attackerMana"), ObservedMana);
     Report->SetNumberField(TEXT("strikeRequests"), StrikeRequests);
     Report->SetBoolField(TEXT("graphicalAcceptance"), false);
+    Report->SetBoolField(TEXT("inventoryAuthorityAndPrivacy"), bInventoryVerified);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -93,14 +94,47 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
         if (Now - StartedAt > 75) Finish(false, TEXT("Two replicated authored characters did not become ready."));
         return;
     }
-    const AWarPlayerState* Aegis = Attacker->GetPlayerState<AWarPlayerState>();
-    const AWarPlayerState* Riftbound = Defender->GetPlayerState<AWarPlayerState>();
+    AWarPlayerState* Aegis = Attacker->GetPlayerState<AWarPlayerState>();
+    AWarPlayerState* Riftbound = Defender->GetPlayerState<AWarPlayerState>();
     ObservedHealth = Riftbound->GetAttributes()->GetHealth();
     ObservedMana = Aegis->GetAttributes()->GetMana();
     const bool bAttackerClient = !bServer && Attacker->IsLocallyControlled();
     const bool bDefenderClient = !bServer && Defender->IsLocallyControlled();
     if (!bServer && !bAttackerClient && !bDefenderClient) return;
     ResultRole = bServer ? TEXT("server") : bAttackerClient ? TEXT("client-aegis") : TEXT("client-riftbound");
+    if (bServer)
+    {
+        for (AWarPlayerState* State : {Aegis, Riftbound})
+        {
+            if (State->GetInventory().Revision != 0) continue;
+            FWarInventoryItem Reward;
+            Reward.Key = TEXT("network_proof_blade"); Reward.Kind = TEXT("weapon");
+            Reward.EquipSlot = TEXT("mainHand"); Reward.bHasAffix = true; Reward.StrengthBonus = 7;
+            FString Error;
+            const FGuid Transaction(1, 2, 3, 4);
+            if (!State->GrantRewards(Transaction, {Reward}, Error) || State->GrantRewards(Transaction, {Reward}, Error))
+            { Finish(false, TEXT("Trusted reward receipt deduplication failed.")); return; }
+        }
+        bInventoryVerified = Aegis->GetInventory().Revision == 2 && Riftbound->GetInventory().Revision == 2
+            && Aegis->GetInventory().Equipment.Num() == 1 && Riftbound->GetInventory().Equipment.Num() == 1;
+    }
+    else
+    {
+        AWarPlayerState* Local = bAttackerClient ? Aegis : Riftbound;
+        const AWarPlayerState* Remote = bAttackerClient ? Riftbound : Aegis;
+        const auto& Snapshot = Local->GetInventory();
+        if (!bInventoryRequestsSent && Snapshot.Revision == 1)
+        {
+            Local->ServerChangeEquipment(1, 23, true); // Fabricated bag selection must not advance revision.
+            Local->ServerChangeEquipment(1, 0, true);
+            Local->ServerChangeEquipment(1, 0, false); // Stale revision must not undo the accepted equip.
+            bInventoryRequestsSent = true;
+        }
+        bInventoryVerified = Snapshot.Revision == 2 && Snapshot.Items.Num() == 1
+            && Snapshot.Items[0].StrengthBonus == 7 && Snapshot.Equipment.Num() == 1
+            && Snapshot.Equipment[0].BagSlot == 0 && Remote->GetInventory().Revision == 0
+            && Remote->GetInventory().Items.IsEmpty() && Remote->GetInventory().Equipment.IsEmpty();
+    }
     bAutonomous = !bServer && (bAttackerClient ? Attacker : Defender)->GetLocalRole() == ROLE_AutonomousProxy;
     if (PairReadyAt < 0)
     {
@@ -121,7 +155,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             ++StrikeRequests;
         }
     }
-    if (Elapsed > 2.0 && bMoved && FMath::IsNearlyEqual(ObservedHealth, 80.f)
+    if (Elapsed > 2.0 && bMoved && bInventoryVerified && FMath::IsNearlyEqual(ObservedHealth, 80.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 90.f))
         && (bServer || (bAutonomous && bMovementAnimation && bStrikeAnimation)))
     {

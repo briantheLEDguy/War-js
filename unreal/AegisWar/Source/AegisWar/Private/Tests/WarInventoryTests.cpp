@@ -5,6 +5,8 @@
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonSerializer.h"
 #include "WarInventoryRules.h"
+#include "WarPlayerState.h"
+#include "Engine/World.h"
 
 namespace
 {
@@ -92,6 +94,41 @@ bool FWarInventoryParityTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Rejected transaction leaves output unchanged"), Result.Num(), 1);
     Blade.Quantity = 0;
     TestFalse(TEXT("Zero-quantity reward rejects transaction"), WarInventory::PlaceRewards({}, {Blade}, Result, Pending, Error));
+    return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarInventoryAuthorityTest, "AegisWar.Foundation.InventoryAuthority",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FWarInventoryAuthorityTest::RunTest(const FString& Parameters)
+{
+    UWorld* World = UWorld::CreateWorld(EWorldType::Game, false);
+    if (!TestNotNull(TEXT("Inventory test world"), World)) return false;
+    AWarPlayerState* State = World->SpawnActor<AWarPlayerState>();
+    if (!TestNotNull(TEXT("Authoritative player state"), State)) { World->DestroyWorld(false); return false; }
+    FWarInventoryItem Blade;
+    Blade.Key = TEXT("test_blade"); Blade.Kind = TEXT("weapon"); Blade.EquipSlot = TEXT("mainHand");
+    Blade.bHasAffix = true; Blade.StrengthBonus = 7; Blade.Quantity = 25;
+    FString Error;
+    const FGuid Transaction = FGuid::NewGuid();
+    TestTrue(TEXT("Trusted grant accepts full bag and deferred gear"), State->GrantRewards(Transaction, {Blade}, Error));
+    TestEqual(TEXT("Exactly 24 bag slots"), State->GetInventory().Items.Num(), 24);
+    TestEqual(TEXT("Rolled overflow retained"), State->GetInventory().PendingRewards.Num(), 1);
+    TestEqual(TEXT("Deferred affix retained"), State->GetInventory().PendingRewards[0].StrengthBonus, 7);
+    TestFalse(TEXT("Retry cannot duplicate items or pending rewards"), State->GrantRewards(Transaction, {Blade}, Error));
+    TestEqual(TEXT("Duplicate does not advance revision"), State->GetInventory().Revision, 1);
+    TestFalse(TEXT("Fabricated slot rejected"), State->ChangeEquipment(1, 99, true, Error));
+    TestTrue(TEXT("Owned item equips"), State->ChangeEquipment(1, 0, true, Error));
+    TestFalse(TEXT("Stale unequip rejected"), State->ChangeEquipment(1, 0, false, Error));
+    TestEqual(TEXT("Rejected request preserves equipment"), State->GetInventory().Equipment.Num(), 1);
+    TestTrue(TEXT("Current revision unequips"), State->ChangeEquipment(2, 0, false, Error));
+    TestEqual(TEXT("Unequip keeps bag occupancy"), State->GetInventory().Items.Num(), 24);
+    TestEqual(TEXT("Equipment reference removed"), State->GetInventory().Equipment.Num(), 0);
+    Blade.Quantity = 0;
+    const FGuid InvalidTransaction = FGuid::NewGuid();
+    TestFalse(TEXT("Invalid reward is atomic"), State->GrantRewards(InvalidTransaction, {Blade}, Error));
+    Blade.Quantity = 1;
+    TestTrue(TEXT("Rejected reward did not consume receipt"), State->GrantRewards(InvalidTransaction, {Blade}, Error));
+    World->DestroyWorld(false);
     return true;
 }
 #endif

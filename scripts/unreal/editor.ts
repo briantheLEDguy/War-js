@@ -7,7 +7,7 @@ export const requiredNativeTests = [
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
-  'InventoryRewardParity',
+  'InventoryRewardParity', 'InventoryAuthority',
 ].map(name => `AegisWar.Foundation.${name}`);
 
 export function validateAutomationReport(report: unknown): number {
