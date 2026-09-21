@@ -17,12 +17,16 @@ protected:
     virtual void ReleaseSlateResources(bool bReleaseChildren) override;
 private:
     void RefreshRows();
+    void RefreshCatalog();
     void SelectNearest();
     void PlaceTemplate(FName TemplateId);
     void SnapSelected();
     void EditSelected(FVector Offset, double Yaw = 0, double Scale = 1, bool bToggleHidden = false);
     FName Selected;
     FString Search;
+    FString CatalogSearch;
+    TSharedPtr<SVerticalBox> CatalogRows;
+    int32 CatalogMatches = 0, CatalogTotal = 0;
     TSharedPtr<SVerticalBox> Rows;
     int32 DisplayedRevision = INDEX_NONE;
     int32 GridIndex = 0, AngleIndex = 0;

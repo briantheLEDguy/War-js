@@ -3,6 +3,7 @@
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
 #include "WarWorldEditPlacement.h"
+#include "WarWorldEditCatalog.h"
 #include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Engine/StaticMeshActor.h"
@@ -47,6 +48,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
     Report->SetBoolField(TEXT("placementSnappingVerified"), bPlacementSnappingVerified);
+    Report->SetBoolField(TEXT("catalogSearchVerified"), bCatalogSearchVerified);
     Report->SetBoolField(TEXT("constructionReload"), FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")));
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
@@ -122,6 +124,15 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     if (!Check(Editor->GetHistory().GetObjects().Num() == ExpectedObjects && Player->IsMoveInputIgnored() && Player->IsLookInputIgnored(),
         FString::Printf(TEXT("GM panel did not open: %s; map=%s net=%d"), *Player->GetWorldEditMessage(),
             *GetWorld()->GetMapName(), static_cast<int32>(GetWorld()->GetNetMode())))) return;
+    int32 ExpectedModels = 0;
+    const auto Catalog = WarWorldEditCatalog::Build(Editor->GetHistory().GetBaselineObjects());
+    const auto Rowhouses = WarWorldEditCatalog::Filter(Catalog, TEXT("ROWHOUSE 2"));
+    if (!Check(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedModels="), ExpectedModels)
+        && ExpectedModels > 0 && Catalog.Num() == ExpectedModels && Rowhouses.Num() == 1
+        && Editor->GetObjectActor(Rowhouses[0].TemplateId)
+        && WarWorldEditCatalog::Filter(Catalog, TEXT("nonexistent kit")).IsEmpty(),
+        TEXT("The native model catalog/search did not resolve trusted templates."))) return;
+    bCatalogSearchVerified = true;
     const auto CheckCreated = [&](const FName CreatedId) {
         const auto* Row = Editor->GetHistory().Find(CreatedId);
         auto* CreatedActor = Cast<AStaticMeshActor>(Editor->GetObjectActor(CreatedId));

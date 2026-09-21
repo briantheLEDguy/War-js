@@ -16,6 +16,14 @@ stop blocking movement. Attached collision follows transform edits. Inventory,
 quest and builder panels share modal input handling and restore movement/camera
 input when closed.
 
+The model catalog and placed-object list have separate search fields. Model
+search ignores case, matches every entered word, and reports matching/total
+models. A bounded scroll area keeps a growing catalog from consuming the rest
+of the panel, and model labels wrap. Repeated map placements share one model
+entry with a stable authored template identity; created objects do not add
+duplicate catalog entries. Only the eight admitted house/rowhouse models are
+currently available. Searching does not admit unreviewed or missing kit assets.
+
 The development panel also exposes **Fly / walk**, **Arrival**, and speed controls
 from 0.25x to 6x. Close the panel to fly with normal horizontal movement and
 `E` up / `Q` down. Flight bypasses collision for city inspection. Returning to
@@ -160,6 +168,19 @@ and fresh-process draft reload. Visual inspection caught a collapsed selection
 list; the panel now sizes to viewport height, and the rebuilt panel shows both
 the scrollable list and all controls. Tooling tests (83) and typechecking passed.
 This is world-grid alignment, not verification of any purchased modular kit.
+
+Catalog regression verification (2026-09-21): the expanded native suite passed
+21 groups in `artifacts/unreal/editor/test-1789994550555-35736/`, including
+stable model deduplication, multi-word/case-insensitive search and rejection of
+created objects as new templates. The tooling receipt checker now requires this
+new group; 83 tooling tests and typechecking passed. Real-map catalog checks and
+the rendered editor panel passed in
+`artifacts/unreal/capital-proof/1789994608917-34060/`. The rebuilt Windows
+package passed construction and fresh-process reload in
+`artifacts/unreal/capital-proof/1789994769215-23916/`. A manual packaged UI check
+searched for `ROWHOUSE 2`, observed one of eight models, placed the rendered
+rowhouse and undid it. The filter persisted through both edits; no user draft
+was saved or loaded.
 
 Still pending: the remaining building/prefab catalog, arbitrary/drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,

@@ -35,6 +35,7 @@ const options = [...(packagedClient ? [] : [projectPath]), '/Game/Capitals/aegis
   '-unattended', '-nop4', '-nosplash', '-nosound', '-stdout', '-FullStdOutLogOutput',
   '-WarDevelopmentGM', '-WarCapitalProof', `-WarProofRun=${run}`, `-WarProofDraftId=${draftId}`, '-ExecCmds=t.MaxFPS 60',
   `-WarCapitalExpectedObjects=${expectedObjects}`,
+  `-WarCapitalExpectedModels=${Object.keys(placements.modelImports).length}`,
   `-abslog=${path.join(output, 'game.log')}`,
   ...(args.has('--rendered') ? ['-RenderOffscreen', '-WarProofScreenshot', '-windowed', '-ForceRes', '-ResX=1280', '-ResY=800'] : ['-nullrhi'])];
 const code = runEngineCommand(packagedClient ?? engine.editorCommand!, options);
@@ -44,6 +45,7 @@ const report = JSON.parse(readFileSync(reportPath, 'utf8').replace(/^\uFEFF/, ''
 if (report.schemaVersion !== 1 || report.passed !== true || report.editableObjects !== expectedObjects || report.retainedBaselineAdditions !== 1
   || report.developmentTraversalVerified !== true
   || report.placementSnappingVerified !== true
+  || report.catalogSearchVerified !== true
   || report.fullCapitalAcceptance !== false || report.sharedGmAuthorization !== false) throw new Error('Capital runtime acceptance failed.');
 copyFileSync(reportPath, path.join(output, 'native-report.json'));
 if (args.has('--rendered')) {

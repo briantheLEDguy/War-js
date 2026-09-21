@@ -21,6 +21,7 @@ private:
     double FlightStartedAt = -1;
     bool bTraversalVerified = false;
     bool bPlacementSnappingVerified = false;
+    bool bCatalogSearchVerified = false;
     int32 Stage = 0;
     bool bFinished = false;
 };

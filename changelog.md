@@ -1,3 +1,9 @@
+## 2026-09-21 - Searchable native city model catalog
+
+- Added separate model search, matching counts and a scrollable catalog with stable deduplicated templates. Placement and panel refresh preserve the filter.
+- Verified 21 native test groups, 83 tooling tests, tools typechecking, rendered editor and packaged capital proofs, fresh-process draft reload, and manual packaged search/place/undo.
+- Eight residential models are available; purchased kits and full shared GM/world parity remain pending.
+
 ## 2026-09-21 — Native city grid alignment and owned-kit compatibility inventory
 
 - Added adjustable 10 cm, 50 cm, 1 m and 2 m construction grids, 15/45/90-degree rotation steps, and undoable XY/yaw alignment. Placement traces terrain after horizontal snapping; height, pitch/roll and mirrored scale are preserved. Kit-specific pivots/sockets and assembly compatibility remain pending.

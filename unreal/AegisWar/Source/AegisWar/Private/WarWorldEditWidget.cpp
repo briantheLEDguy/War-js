@@ -1,6 +1,7 @@
 #include "WarWorldEditWidget.h"
 #include "WarWorldEditSubsystem.h"
 #include "WarWorldEditPlacement.h"
+#include "WarWorldEditCatalog.h"
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
 #include "Engine/World.h"
@@ -17,7 +18,6 @@
 #include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Text/STextBlock.h"
 #include "Styling/CoreStyle.h"
-#include "Misc/Paths.h"
 
 TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
 {
@@ -56,28 +56,14 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
         const auto* C = Weak.IsValid() ? Cast<AWarCharacter>(Weak->GetOwningPlayerPawn()) : nullptr;
         return C ? FText::FromString(FString::Printf(TEXT("%s  %.2fx — flight: E up / Q down"),
             C->IsDevelopmentFlying() ? TEXT("Flying") : TEXT("Walking"), C->GetDevelopmentSpeed())) : FText::GetEmpty(); })];
-    auto Catalog = SNew(SVerticalBox);
-    TSharedPtr<SHorizontalBox> CatalogRow;
-    TSet<FString> Models;
-    if (const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
-        for (const auto& Row : E->GetHistory().GetBaselineObjects())
-        {
-            if (Models.Contains(Row.SourceIdentity)) continue;
-            Models.Add(Row.SourceIdentity);
-            if (Models.Num() % 3 == 1)
-            {
-                CatalogRow = SNew(SHorizontalBox);
-                Catalog->AddSlot().AutoHeight()[CatalogRow.ToSharedRef()];
-            }
-            FString MeshPath; Row.SourceIdentity.Split(TEXT(":"), &MeshPath, nullptr);
-            const FString Label = FPaths::GetBaseFilename(MeshPath).Replace(TEXT("aegis_house_"), TEXT("House "))
-                .Replace(TEXT("aegis_rowhouse_"), TEXT("Rowhouse "));
-            CatalogRow->AddSlot().FillWidth(1)[Button(Label, [Weak, Id = Row.Id] {
-                if (Weak.IsValid()) Weak->PlaceTemplate(Id); return FReply::Handled(); })];
-        }
-    Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Place a house in front of your character:")))];
-    Body->AddSlot().AutoHeight().Padding(0, 6)[Catalog];
-    Body->AddSlot().AutoHeight()[SNew(SSearchBox).HintText(FText::FromString(TEXT("Find a placed building")))
+    Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text_Lambda([Weak] {
+        return Weak.IsValid() ? FText::FromString(FString::Printf(TEXT("Place a model (%d / %d):"), Weak->CatalogMatches, Weak->CatalogTotal)) : FText::GetEmpty(); })];
+    Body->AddSlot().AutoHeight()[SNew(SSearchBox).InitialText(FText::FromString(CatalogSearch))
+        .HintText(FText::FromString(TEXT("Find a model to place")))
+        .OnTextChanged_Lambda([Weak](const FText& Text) { if (Weak.IsValid()) { Weak->CatalogSearch = Text.ToString(); Weak->RefreshCatalog(); } })];
+    Body->AddSlot().AutoHeight().Padding(0, 6)[SNew(SBox).HeightOverride(130)[SNew(SScrollBox)
+        + SScrollBox::Slot()[SAssignNew(CatalogRows, SVerticalBox)]]];
+    Body->AddSlot().AutoHeight()[SNew(SSearchBox).InitialText(FText::FromString(Search)).HintText(FText::FromString(TEXT("Find a placed building")))
         .OnTextChanged_Lambda([Weak](const FText& Text) { if (Weak.IsValid()) { Weak->Search = Text.ToString(); Weak->RefreshRows(); } })];
     Body->AddSlot().FillHeight(1).Padding(0, 8)[SNew(SScrollBox) + SScrollBox::Slot()[SAssignNew(Rows, SVerticalBox)]];
     Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).AutoWrapText(true).Text_Lambda([Weak] {
@@ -132,7 +118,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
     Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).AutoWrapText(true).Text_Lambda([Weak] {
         const auto* P = Weak.IsValid() ? Cast<AWarPlayerController>(Weak->GetOwningPlayer()) : nullptr;
         return P ? FText::FromString(P->GetWorldEditMessage()) : FText::GetEmpty(); })];
-    RefreshRows();
+    RefreshCatalog(); RefreshRows();
     if (Selected.IsNone()) SelectNearest();
     return SNew(SBox).WidthOverride(560)[SNew(SBorder).Padding(12)
         .BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush")).BorderBackgroundColor(FLinearColor(0.025f, 0.03f, 0.045f, 1.f))[Body]];
@@ -151,6 +137,23 @@ void UWarWorldEditWidget::RefreshRows()
             .OnClicked_Lambda([Weak = TWeakObjectPtr<UWarWorldEditWidget>(this), Id = Row.Id] { if (Weak.IsValid()) Weak->Selected = Id; return FReply::Handled(); })
             [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Row.Id.ToString() + (Row.bHidden ? TEXT(" (hidden)") : TEXT(""))))]];
     }
+}
+
+void UWarWorldEditWidget::RefreshCatalog()
+{
+    if (!CatalogRows || !GetWorld()) return;
+    CatalogRows->ClearChildren(); CatalogMatches = 0; CatalogTotal = 0;
+    const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); if (!E) return;
+    const auto Entries = WarWorldEditCatalog::Build(E->GetHistory().GetBaselineObjects());
+    const auto Filtered = WarWorldEditCatalog::Filter(Entries, CatalogSearch);
+    CatalogTotal = Entries.Num(); CatalogMatches = Filtered.Num();
+    const TWeakObjectPtr<UWarWorldEditWidget> Weak(this);
+    for (const auto& Entry : Filtered)
+        CatalogRows->AddSlot().AutoHeight().Padding(0, 2)[SNew(SButton)
+            .OnClicked_Lambda([Weak, Id = Entry.TemplateId] { if (Weak.IsValid()) Weak->PlaceTemplate(Id); return FReply::Handled(); })
+            [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).AutoWrapText(true).Text(FText::FromString(Entry.Label))]];
+    if (Filtered.IsEmpty()) CatalogRows->AddSlot().AutoHeight()[SNew(STextBlock)
+        .Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("No matching models.")))];
 }
 
 void UWarWorldEditWidget::SelectNearest()
@@ -231,4 +234,4 @@ void UWarWorldEditWidget::NativeTick(const FGeometry& Geometry, const float Delt
 }
 
 void UWarWorldEditWidget::ReleaseSlateResources(const bool bReleaseChildren)
-{ Super::ReleaseSlateResources(bReleaseChildren); Rows.Reset(); DisplayedRevision = INDEX_NONE; LastPanelHeight = 0; }
+{ Super::ReleaseSlateResources(bReleaseChildren); Rows.Reset(); CatalogRows.Reset(); DisplayedRevision = INDEX_NONE; LastPanelHeight = 0; }
