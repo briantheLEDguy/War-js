@@ -50,6 +50,8 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetNumberField(TEXT("schemaVersion"), 1); Report->SetBoolField(TEXT("passed"), bPassed);
     Report->SetStringField(TEXT("detail"), Detail); Report->SetBoolField(TEXT("fullCapitalAcceptance"), false);
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
+    Report->SetBoolField(TEXT("surfacePlacementVerified"), bSurfacePlacementVerified);
+    Report->SetNumberField(TEXT("surfaceModelsVerified"), SurfaceModelsVerified);
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
     Report->SetBoolField(TEXT("capitalGameplayIntegrationVerified"), bGameplayIntegrationVerified);
     Report->SetBoolField(TEXT("placementSnappingVerified"), bPlacementSnappingVerified);
@@ -144,6 +146,8 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
             if (!CheckCity(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedModels="), ExpectedModels)
                 && ExpectedModels > 0 && Catalog.Num() == ExpectedModels, TEXT("City authored model catalog count differs."))) return;
             bCatalogSearchVerified = true;
+            if (FParse::Param(FCommandLine::Get(), TEXT("WarSurfacePlacementProof")))
+            { RunSurfacePlacementProof(); return; }
             if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")))
             {
                 if (!CheckCity(Editor->LoadDraft(Player, 0, Error)

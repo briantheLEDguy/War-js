@@ -14,11 +14,14 @@ public:
     virtual void Tick(float DeltaTime) override;
     virtual TStatId GetStatId() const override;
 private:
+    void RunSurfacePlacementProof();
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     FVector StartPosition = FVector::ZeroVector;
     FVector FlightPosition = FVector::ZeroVector;
     double FlightStartedAt = -1;
+    int32 SurfaceModelsVerified = 0;
+    bool bSurfacePlacementVerified = false;
     bool bTraversalVerified = false;
     bool bGameplayIntegrationVerified = false;
     bool bPlacementSnappingVerified = false;

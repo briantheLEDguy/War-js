@@ -36,8 +36,9 @@ search ignores case, matches every entered word, and reports matching/total
 models. A bounded scroll area keeps a growing catalog from consuming the rest
 of the panel, and model labels wrap. Repeated map placements share one model
 entry with a stable authored template identity; created objects do not add
-duplicate catalog entries. Only the eight admitted house/rowhouse models are
-currently available. Searching does not admit unreviewed or missing kit assets.
+duplicate catalog entries. The reference map has nine house/rowhouse/wall models;
+the integrated Crownward map has 14 kit models. Searching does not admit missing
+or unreviewed additional kit assets.
 
 The development panel also exposes **Fly / walk**, **Arrival**, and speed controls
 from 0.25x to 6x. Close the panel to fly with normal horizontal movement and
@@ -49,18 +50,28 @@ to the local development capital; they are not production multiplayer GM access.
 
 Already purchased modular kits may expand the catalog after installation and
 review. See [the integration path](unreal-modular-kits.md). Purchased kit meshes
-are available in the separate pilot and Crownward maps; kit-specific pivot/socket
-alignment is still pending.
+are available in the separate pilot and Crownward maps. Bounds-aware surface
+placement handles offset import origins; kit socket/assembly alignment remains pending.
 
 **Grid step** cycles off, 10 cm, 50 cm, 1 m and 2 m. **Turn step** cycles 15°, 45°
 and 90°. Axis nudges use the chosen grid distance (1 m when off). **Snap XY / yaw**
 aligns the selected object's pivot to the world grid and chosen turn increment;
 it preserves height, pitch/roll and scale, including mirrored models. This is an
-undoable edit. New placements snap horizontal position before tracing ground
-height and snap yaw when the grid is enabled. Grid-off placement preserves the
-template orientation. Settings last for the widget session; drafts store final
-transforms. Surface/socket snapping, drag gizmos and kit-specific assembly
-alignment remain unfinished.
+undoable edit. New placements target 20 metres ahead of the character. The server
+snaps that target horizontally, traces authored collision and aligns the rotated
+mesh bounds centre in XY and lowest bound in Z to the hit. An offset imported
+pivot therefore no longer buries or displaces the model. Yaw snaps when the grid
+is enabled; grid-off placement preserves template orientation. Settings last for
+the widget session; drafts store final transforms.
+
+**Drop to surface** lowers the selected visible model onto collision beneath its
+bounds centre, ignoring itself and the character. It preserves rotation and
+scale, including mirrored axes, and supports undo/redo and draft reload. Its trace
+starts at the model bottom so overhead floors cannot pull it upstairs. Raise a
+buried object before dropping it. No support, missing models, hidden objects or
+stale revisions produce an error without changing the draft. This aligns a
+bounding box to one support point; whole-footprint slope fitting, sockets, drag
+gizmos and kit-specific assembly snapping remain unfinished.
 
 **Exact transform** expands nine numeric fields: X/Y/Z in metres, pitch/yaw/roll
 in degrees, and per-axis scale magnitudes. Press Enter to commit one field as an
@@ -232,6 +243,27 @@ package also passed two-client regression in
 `artifacts/unreal/network/1789996756616-32744/report.json`. Manual mouse checks
 selected a visible building, retained it on a ground click, raised it through
 the panel and undid that edit. No user draft was saved or loaded.
+
+Surface placement verification (2026-09-21): all 21 native groups passed in
+`artifacts/unreal/editor/test-1790008362211-11092/`, including offset origins,
+rotated/nonuniform mirrored bounds and invalid geometry/hits. The rendered
+integrated-city run `artifacts/unreal/capital-proof/crownward-1790008410332/`
+placed all 14 kit models with matching native bounds/collision and reloaded its
+isolated draft in a fresh process; the panel screenshot was inspected. Additional
+hidden/no-support rejection checks passed in
+`artifacts/unreal/capital-proof/crownward-1790008568769/`. Two editor clients
+rejected both new surface RPCs in
+`artifacts/unreal/network/1790008598461-6024/report.json`. No owner draft changed.
+Tooling tests (85), tools typechecking and the audit passed; release admission
+remains closed with four blocker categories. Physical button interaction and
+whole-footprint slope fitting are not established by these checks.
+
+The rebuilt private Windows package passed all 14 surface placements, rejection
+cases and fresh-process reload in
+`artifacts/unreal/capital-proof/crownward-1790008838579/`; packaged clients rejected
+the new commands in `artifacts/unreal/network/1790008861148-18884/report.json`.
+The offscreen packaged panel was inspected. Market-stall fabric appears black
+there but pale in the editor capture, so material parity remains unresolved.
 
 Still pending: the remaining building/prefab catalog, drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,

@@ -77,6 +77,14 @@ castle elevation, complete house types, paired market frames and owner-draft
 protection. Full interior/seam traversal, performance, shared GM authentication,
 Linux/macOS and Steam release checks remain required.
 
+For builder surface placement, run `npm run unreal:crownward-proof --
+--surface-placement --rendered`. This separately exercises all 14 kit meshes
+through the placement RPC, checks their actual bounds/collision, verifies drop,
+rejected operations, undo/redo and fresh-process reload, and captures the panel
+offscreen. Add `--packaged-root artifacts/unreal/packages/Win64` after rebuilding
+the package to run the same checks outside the editor. It does not replace the
+grounded ascent/gameplay proof above or establish full visual acceptance.
+
 Verified locally on 2026-09-21: the final 8,712-placement editor-game default
 launch, grounded walk, quest/station checks and fresh-process GM reload passed
 at `artifacts/unreal/capital-proof/crownward-1790007084260/report.json`.

@@ -1,3 +1,10 @@
+## 2026-09-21 - Native kit surface placement
+
+- Centre new GM construction by transformed mesh bounds instead of imported pivots, and add Drop to surface with preserved rotation/mirrored scale, revision checks and undo/draft persistence.
+- Verify all 14 capital kit models through native placement RPCs, hidden/no-support rejection and fresh-process reload in editor and packaged Windows clients. Both network clients reject the new development-only RPCs.
+- Passed 21 native test groups, 85 tooling tests, tools typechecking, audit and Windows packaging. Release admission remains closed. Offscreen panel review found black market fabric in the packaged game versus pale fabric in the editor; material parity remains open.
+- Evidence and usage: docs/unreal-gm-workbench.md and docs/unreal-crownward.md. Owner drafts, original purchased assets and unrelated project settings are preserved.
+
 ## 2026-09-21 - Integrated mountain capital in the main Unreal game
 
 - Made AegisWar the single playable project, with Crownward as both editor and development game startup. CityKitStaging remains a private asset-import workspace; the generator rejects execution there. Added a city-inclusive Windows Development packaging option and packaged runtime verification.

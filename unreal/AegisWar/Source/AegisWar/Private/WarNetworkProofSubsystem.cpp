@@ -75,6 +75,8 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("remoteGmCreationRejected"), bGmCreationDenied);
     Report->SetBoolField(TEXT("remoteGmTraversalRejected"), bGmTraversalDenied);
     Report->SetBoolField(TEXT("remoteGmReturnRejected"), bGmReturnDenied);
+    Report->SetBoolField(TEXT("remoteGmPlacementRejected"), bGmPlacementDenied);
+    Report->SetBoolField(TEXT("remoteGmDropRejected"), bGmDropDenied);
     Report->SetStringField(TEXT("role"), ResultRole);
     Report->SetStringField(TEXT("detail"), Detail);
     Report->SetBoolField(TEXT("observedReplicatedMovement"), bMoved);
@@ -197,6 +199,12 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             if (bGmTraversalDenied && !bGmReturnRequested)
             { Controller->ServerReturnToDevelopmentSpawn(); bGmReturnRequested = true; }
             bGmReturnDenied |= Controller->GetWorldEditMessage() == TEXT("Return rejected: Development GM traversal is unavailable for this session.");
+            if (bGmReturnDenied && !bGmPlacementRequested)
+            { Controller->ServerPlaceWorldObject(TEXT("aegis_city_house_0"),100,90,0); bGmPlacementRequested = true; }
+            bGmPlacementDenied |= Controller->GetWorldEditMessage() == TEXT("Placement rejected: Open the authorized GM workbench before editing.");
+            if (bGmPlacementDenied && !bGmDropRequested)
+            { Controller->ServerDropWorldObject(TEXT("aegis_city_house_0"),0); bGmDropRequested = true; }
+            bGmDropDenied |= Controller->GetWorldEditMessage() == TEXT("Drop rejected: Open the authorized GM workbench before editing.");
         }
     ResultRole = bServer ? TEXT("server") : TEXT("client-pending");
     // Death unpossesses the pawn immediately, so its PlayerState link is cleared before the next tick.

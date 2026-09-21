@@ -109,7 +109,10 @@ in Play in Editor and supports placing six house, two rowhouse and one wall mode
 houses, transforms, hide/restore, undo/redo and local draft save/load. Development
 flight, adjustable movement speed and safe return to arrival support city inspection.
 Adjustable grid/yaw alignment preserves terrain height and mirrored model scale;
-kit-specific pivots, sockets and assembly snapping remain pending.
+new construction centres the mesh bounds on the chosen surface despite offset
+import pivots. **Drop to surface** lowers selected models onto collision with
+undo and draft persistence. Whole-footprint slope fitting, sockets and assembly
+snapping remain pending.
 The model catalog has a separate search field and scroll area, with stable
 template identities and one entry per admitted model. Exact transform fields
 provide position, full rotation and nonuniform scale with undo support. Clicking

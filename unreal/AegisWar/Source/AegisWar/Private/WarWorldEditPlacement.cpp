@@ -67,3 +67,17 @@ FTransform WarWorldEditPlacement::SnapTransform(const FTransform& Transform, con
     }
     return Result;
 }
+
+TOptional<FTransform> WarWorldEditPlacement::AtSurface(const FTransform& Basis, const FBox& LocalBounds, const FVector Surface)
+{
+    if (Basis.ContainsNaN() || !Basis.GetRotation().IsNormalized() || !LocalBounds.IsValid
+        || LocalBounds.Min.ContainsNaN() || LocalBounds.Max.ContainsNaN() || Surface.ContainsNaN()
+        || LocalBounds.GetExtent().GetMin() < 0 || LocalBounds.GetExtent().GetMax() <= 0
+        || Basis.GetScale3D().GetAbs().GetMin() < 0.05 || Basis.GetScale3D().GetAbs().GetMax() > 20) return {};
+    FTransform Result = Basis; Result.SetLocation(FVector::ZeroVector);
+    const FBox Oriented = LocalBounds.TransformBy(Result);
+    const FVector Centre = Oriented.GetCenter();
+    Result.SetLocation(Surface - FVector(Centre.X, Centre.Y, Oriented.Min.Z));
+    if (Result.ContainsNaN() || Result.GetLocation().GetAbsMax() > 100000) return {};
+    return Result;
+}

@@ -21,6 +21,25 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Invalid grid and angle settings are inert"), WarWorldEditPlacement::SnapTransform(GridInput, -50, 361).Equals(GridInput));
     const auto Placed = WarWorldEditPlacement::SnapHorizontal(FVector(-151, 249, 27.4), 100);
     TestTrue(TEXT("Ground height is never quantized"), Placed.Equals(FVector(-200, 200, 27.4)));
+    const FBox OffsetBounds(FVector(100,-230,-15), FVector(400,70,285));
+    const FVector Contact(1200,-2300,417);
+    for (const FTransform Basis : { FTransform::Identity,
+        FTransform(FRotator(25,90,-15), FVector(800,900,700), FVector(.75,-2,1.5)),
+        FTransform(FRotator(0,180,0), FVector::ZeroVector, FVector(2,3,.25)) })
+    {
+        const auto SurfaceTransform = WarWorldEditPlacement::AtSurface(Basis, OffsetBounds, Contact);
+        TestTrue(TEXT("Offset authored pivot supports placement"), SurfaceTransform.IsSet());
+        if (!SurfaceTransform.IsSet()) continue;
+        const FBox Actual = OffsetBounds.TransformBy(SurfaceTransform.GetValue());
+        TestTrue(TEXT("Bounds centre lands on selected horizontal point"), FVector::Dist2D(Actual.GetCenter(),Contact) < .001);
+        TestTrue(TEXT("Lowest oriented point rests on the surface"), FMath::IsNearlyEqual(Actual.Min.Z, Contact.Z, .001));
+        TestTrue(TEXT("Surface placement preserves orientation and mirrored scale"),
+            SurfaceTransform->GetRotation().Equals(Basis.GetRotation()) && SurfaceTransform->GetScale3D().Equals(Basis.GetScale3D()));
+    }
+    TestFalse(TEXT("Missing mesh bounds cannot place a fallback"), WarWorldEditPlacement::AtSurface(FTransform::Identity,FBox(ForceInit),Contact).IsSet());
+    TestFalse(TEXT("Invalid hit cannot alter placement"), WarWorldEditPlacement::AtSurface(FTransform::Identity,OffsetBounds,
+        FVector(std::numeric_limits<double>::quiet_NaN(),0,0)).IsSet());
+    TestFalse(TEXT("Out-of-world placement fails"), WarWorldEditPlacement::AtSurface(FTransform::Identity,OffsetBounds,FVector(200000,0,0)).IsSet());
     FWarWorldEditHistory History; FString Error;
     FTransform Exact = GridInput;
     TestTrue(TEXT("Exact position accepts metres"), WarWorldEditPlacement::SetComponent(Exact, 0, -12.345));

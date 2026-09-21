@@ -1,9 +1,9 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'node:fs';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
-const args = parseArguments(process.argv.slice(2), [], ['--packaged-root']);
+const args = parseArguments(process.argv.slice(2), ['--surface-placement', '--rendered'], ['--packaged-root']);
 const packagedRoot = args.get('--packaged-root') ? path.resolve(repoRoot, args.get('--packaged-root')!) : undefined;
 const packagedClient = packagedRoot ? path.join(packagedRoot, 'AegisWar/Binaries/Win64/AegisWar.exe') : undefined;
 if (packagedClient && !existsSync(packagedClient)) throw new Error('Packaged Windows client is missing.');
@@ -20,9 +20,11 @@ mkdirSync(output, { recursive: true });
 const reports = [];
 for (const reload of [false, true]) {
   const id = run + (reload ? '-reload' : '');
-  const code = runEngineCommand(packagedClient ?? engine.editorCommand!, [...(packagedClient ? [] : [projectPath]), ...(reload ? [receipt.map] : []), '-game', '-unattended', '-nullrhi',
+  const code = runEngineCommand(packagedClient ?? engine.editorCommand!, [...(packagedClient ? [] : [projectPath]), ...(reload ? [receipt.map] : []), '-game', '-unattended',
+    ...(args.has('--rendered') ? ['-RenderOffscreen', '-WarProofScreenshot', '-windowed', '-ForceRes', '-ResX=1280', '-ResY=960'] : ['-nullrhi']),
     '-nosplash', '-nosound', '-nop4', '-stdout', '-FullStdOutLogOutput', '-WarDevelopmentGM', '-WarCapitalProof',
     '-WarCrownwardProof', `-WarProofRun=${id}`, `-WarProofDraftId=${draft}`,
+    ...(args.has('--surface-placement') ? ['-WarSurfacePlacementProof'] : []),
     `-WarCapitalExpectedModels=${new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size}`,
     `-WarCapitalExpectedObjects=${receipt.placements.length}`, `-abslog=${path.join(output, id + '.log')}`,
     ...(reload ? ['-WarCapitalReloadProof'] : [])]);
@@ -30,10 +32,17 @@ for (const reload of [false, true]) {
   if (code !== 0 || !existsSync(result)) throw new Error(`Crownward proof failed: ${output}`);
   const report = JSON.parse(readFileSync(result, 'utf8').replace(/^\uFEFF/, ''));
   if (!report.passed || report.editableObjects !== receipt.placements.length + 1 || report.fullCapitalAcceptance !== false
-    || !report.catalogSearchVerified || (!reload && (!report.developmentTraversalVerified || !report.capitalGameplayIntegrationVerified)))
+    || !report.catalogSearchVerified || (args.has('--surface-placement')
+      ? !report.surfacePlacementVerified || (!reload && report.surfaceModelsVerified !== new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size)
+      : !reload && (!report.developmentTraversalVerified || !report.capitalGameplayIntegrationVerified)))
     throw new Error(`Crownward runtime checks failed: ${output}`);
+  if (args.has('--rendered')) {
+    const screenshot = path.join(nativeSaved, 'CapitalProof', id, 'builder.png');
+    if (!existsSync(screenshot)) throw new Error('Native builder screenshot was not produced.');
+    copyFileSync(screenshot, path.join(output, reload ? 'builder-reload.png' : 'builder.png'));
+  }
   reports.push(report);
 }
 writeFileSync(path.join(output, 'report.json'), JSON.stringify({ passed: true, freshProcessReload: true,
-  map: receipt.map, defaultGameMapVerified: true, packagedClient: Boolean(packagedClient), platform: 'Win64', reports, fullCapitalAcceptance: false }, null, 2));
+  map: receipt.map, surfacePlacement: args.has('--surface-placement'), defaultGameMapVerified: true, packagedClient: Boolean(packagedClient), platform: 'Win64', reports, fullCapitalAcceptance: false }, null, 2));
 console.log(JSON.stringify({ crownwardProofPassed: true, output }));

@@ -27,6 +27,8 @@ private:
     bool bGmCreationRequested = false, bGmCreationDenied = false;
     bool bGmTraversalRequested = false, bGmTraversalDenied = false;
     bool bGmReturnRequested = false, bGmReturnDenied = false;
+    bool bGmPlacementRequested = false, bGmPlacementDenied = false;
+    bool bGmDropRequested = false, bGmDropDenied = false;
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     double PairReadyAt = -1;

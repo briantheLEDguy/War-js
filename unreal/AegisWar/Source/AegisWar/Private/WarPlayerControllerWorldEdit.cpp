@@ -99,3 +99,20 @@ void AWarPlayerController::ClientWorldObjectCreated_Implementation(FName Id)
 {
     if (WorldEditWidget) WorldEditWidget->SelectObject(Id);
 }
+
+void AWarPlayerController::ServerPlaceWorldObject_Implementation(FName TemplateId, double Grid, double Angle, int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error; FName Id;
+    const bool bSuccess = Editor && Editor->CreateInFront(this, TemplateId, Grid, Angle, ExpectedRevision, Id, Error);
+    if (bSuccess) ClientWorldObjectCreated(Id);
+    ClientWorldEditResult(bSuccess ? TEXT("Model placed on the surface. Adjust it, then save the draft.")
+        : TEXT("Placement rejected: ") + (Error.IsEmpty() ? FString(TEXT("GM access unavailable.")) : Error));
+}
+
+void AWarPlayerController::ServerDropWorldObject_Implementation(FName Id, int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error;
+    const bool bSuccess = Editor && Editor->DropToSurface(this, Id, ExpectedRevision, Error);
+    ClientWorldEditResult(bSuccess ? TEXT("Model dropped to the surface. Undo restores its previous height.")
+        : TEXT("Drop rejected: ") + (Error.IsEmpty() ? FString(TEXT("GM access unavailable.")) : Error));
+}

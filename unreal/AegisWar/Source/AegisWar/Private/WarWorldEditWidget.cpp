@@ -134,6 +134,11 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
             if (Weak.IsValid()) Weak->EditSelected(FVector::ZeroVector, 0, Sign < 0 ? 1 / 1.1 : 1.1); return FReply::Handled(); })];
     }
     Body->AddSlot().AutoHeight()[Transform];
+    Body->AddSlot().AutoHeight().Padding(0, 4)[Button(TEXT("Drop to surface"), [Weak] {
+        if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
+            if (const auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
+                P->ServerDropWorldObject(Weak->Selected, E->GetHistory().GetRevision());
+        return FReply::Handled(); })];
     auto Storage = SNew(SHorizontalBox);
     Storage->AddSlot().FillWidth(1)[Button(TEXT("Hide / restore"), [Weak] {
         if (Weak.IsValid()) Weak->EditSelected(FVector::ZeroVector, 0, 1, true); return FReply::Handled(); })];
@@ -202,15 +207,8 @@ void UWarWorldEditWidget::PlaceTemplate(const FName TemplateId)
     const auto* Pawn = GetOwningPlayerPawn();
     const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
     if (!P || !Pawn || !E) return;
-    const auto* Template = E->GetHistory().GetBaselineObjects().FindByPredicate([TemplateId](const auto& Row) { return Row.Id == TemplateId; });
-    if (!Template) return;
-    FVector Position = WarWorldEditPlacement::SnapHorizontal(Pawn->GetActorLocation() + Pawn->GetActorForwardVector() * 2000, GridCentimeters());
-    FHitResult Hit; FCollisionQueryParams Query; Query.AddIgnoredActor(Pawn);
-    if (!GetWorld()->LineTraceSingleByChannel(Hit, Position + FVector(0, 0, 10000), Position - FVector(0, 0, 20000), ECC_Visibility, Query)) return;
-    Position.Z = Hit.ImpactPoint.Z;
-    FTransform Transform = WarWorldEditPlacement::SnapTransform(Template->Transform, 0, GridCentimeters() > 0 ? AngleDegrees() : 0);
-    Transform.SetLocation(Position);
-    P->ServerCreateWorldObject(TemplateId, Transform, E->GetHistory().GetRevision());
+    P->ServerPlaceWorldObject(TemplateId, GridCentimeters(), GridCentimeters() > 0 ? AngleDegrees() : 0,
+        E->GetHistory().GetRevision());
 }
 
 double UWarWorldEditWidget::GridCentimeters() const
