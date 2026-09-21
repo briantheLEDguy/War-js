@@ -45,7 +45,14 @@ bool WarCrafting::SelectIngredients(const FWarCraftRecipe& Recipe, const FName S
     { Error = TEXT("This recipe requires a different crafting station."); return false; }
     if (RankForXp(ProfessionXp) < Recipe.MinimumRank)
     { Error = TEXT("Profession rank is too low for this recipe."); return false; }
-    auto Remaining = Recipe.Inputs;
+    return SelectInputs(Recipe.Inputs, Inventory, ConsumedSlots, Error);
+}
+
+bool WarCrafting::SelectInputs(const TMap<FName, int32>& Inputs, const TArray<FWarInventoryItem>& Inventory,
+    TMap<int32, int32>& ConsumedSlots, FString& Error)
+{
+    if (Inputs.IsEmpty() || !WarInventory::Validate(Inventory, Error)) return false;
+    auto Remaining = Inputs;
     for (const auto& Entry : Remaining)
         if (Entry.Key.IsNone() || Entry.Value <= 0) { Error = TEXT("Invalid recipe ingredient."); return false; }
     TMap<int32, int32> Selected;

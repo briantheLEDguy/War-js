@@ -2,6 +2,7 @@
 #include "AegisWar.h"
 #include "WarCharacter.h"
 #include "WarPlayerState.h"
+#include "WarCraftingStation.h"
 #include "WarPlayerController.h"
 #include "WarAttributeSet.h"
 #include "Engine/World.h"
@@ -66,6 +67,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("consumableAuthority"), bConsumableVerified);
     Report->SetBoolField(TEXT("craftingAuthority"), bCraftVerified);
     Report->SetBoolField(TEXT("salvageAuthority"), bSalvageVerified);
+    Report->SetBoolField(TEXT("cultivationAuthority"), bCultivationVerified);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -78,7 +80,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     if (GetWorld()->GetNetMode() == NM_Client && FParse::Param(FCommandLine::Get(), TEXT("WarProofScreenshot")))
     {
         if (FParse::Param(FCommandLine::Get(), TEXT("WarInventoryProofUI")))
-            if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController())) Controller->ToggleInventory();
+            if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController())) Controller->InteractWithStation();
         const FString Screenshot = FPaths::Combine(Directory, ResultRole + TEXT(".png"));
         const bool bShowUI = FParse::Param(FCommandLine::Get(), TEXT("WarInventoryProofUI"));
         FTimerHandle CaptureTimer;
@@ -218,9 +220,13 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             if (!bCraftRequested && Local->GetInventory().Revision == 4)
             {
                 const FName Recipe = bAttackerClient ? TEXT("apothecary_minor_mana") : TEXT("apothecary_minor_health");
-                Local->ServerCraftRecipe(TEXT("fabricated_recipe"), 4, nullptr);
-                Local->ServerCraftRecipe(Recipe, 4, nullptr);
-                Local->ServerCraftRecipe(Recipe, 4, nullptr);
+                AWarCraftingStation* Station = nullptr;
+                for (TActorIterator<AWarCraftingStation> It(GetWorld()); It; ++It)
+                    if (It->CanInteract(Local->GetPawn())) { Station = *It; break; }
+                if (!Station) { Finish(false, TEXT("Authored crafting station is not available in interaction range.")); return; }
+                Local->ServerCraftRecipe(TEXT("fabricated_recipe"), 4, Station);
+                Local->ServerCraftRecipe(Recipe, 4, Station);
+                Local->ServerCraftRecipe(Recipe, 4, Station);
                 bCraftRequested = true;
             }
         }
@@ -264,17 +270,82 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
                 && Quantity(TEXT("potion_health")) + Quantity(TEXT("potion_mana")) == 3
                 && Snapshot.Professions.Num() == 2 && Progress && Progress->Xp == 8 && Apothecary && Apothecary->Xp == 10;
         };
-        bSalvageVerified = bServer ? Salvaged(Aegis) && Salvaged(Riftbound)
+        bSalvageVerified |= bServer ? Salvaged(Aegis) && Salvaged(Riftbound)
             : Salvaged(bAttackerClient ? Aegis : Riftbound)
                 && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Items.IsEmpty()
                 && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Professions.IsEmpty();
     }
-    if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
+    if (bSalvageVerified && Elapsed > 9.0)
+    {
+        if (bServer)
+        {
+            for (auto* State : {Aegis, Riftbound})
+            {
+                if (State->GetInventory().Revision != 7) continue;
+                TArray<FWarInventoryItem> Seeds;
+                FWarInventoryItem Seed; Seed.Key = State == Aegis ? TEXT("seed_mandrake") : TEXT("seed_goldweed");
+                Seed.Kind = TEXT("misc"); Seeds.Add(Seed);
+                Seed.Key = TEXT("craft_fertile_soil"); Seeds.Add(Seed);
+                FString Error;
+                if (!State->GrantRewards(FGuid(9, 10, 11, 12), Seeds, Error))
+                { Finish(false, TEXT("Cultivation proof seed delivery failed.")); return; }
+            }
+        }
+        else
+        {
+            auto* Local = bAttackerClient ? Aegis : Riftbound;
+            const auto& Snapshot = Local->GetInventory();
+            const auto& Remote = (bAttackerClient ? Riftbound : Aegis)->GetInventory();
+            bPlotPrivacyVerified |= Snapshot.Revision == 9 && Snapshot.CultivationPlots.Num() == 1
+                && Snapshot.CultivationPlots[0].Additive == TEXT("craft_fertile_soil")
+                && Snapshot.CultivationPlots[0].ReadyAtMs - Snapshot.CultivationPlots[0].PlantedAtMs == (bAttackerClient ? 30000 : 45000)
+                && Snapshot.Professions.Num() == 2 && Remote.Revision == 0 && Remote.CultivationPlots.IsEmpty();
+            if (!bPlantRequested && Snapshot.Revision == 8)
+            {
+                const FName Seed = bAttackerClient ? TEXT("seed_mandrake") : TEXT("seed_goldweed");
+                Local->ServerPlantSeed(TEXT("fabricated_seed"), true, 8);
+                Local->ServerPlantSeed(Seed, true, 8);
+                Local->ServerPlantSeed(Seed, true, 8);
+                bPlantRequested = true;
+            }
+            if (Snapshot.Revision == 9 && Snapshot.CultivationPlots.Num() == 1)
+            {
+                const auto& Plot = Snapshot.CultivationPlots[0];
+                const int64 UtcMs = (FDateTime::UtcNow() - FDateTime(1970, 1, 1)).GetTicks() / ETimespan::TicksPerMillisecond;
+                if (!bEarlyHarvestRequested)
+                {
+                    Local->ServerHarvestCrop(Plot.Id, 9);
+                    bEarlyHarvestRequested = true;
+                }
+                // Client time only schedules this acceptance request; the production server checks readiness independently.
+                if (!bHarvestRequested && UtcMs >= Plot.ReadyAtMs + 500)
+                {
+                    Local->ServerHarvestCrop(Plot.Id, 9);
+                    Local->ServerHarvestCrop(Plot.Id, 9);
+                    bHarvestRequested = true;
+                }
+            }
+        }
+        const auto Cultivated = [](const AWarPlayerState* State, bool Mandrake) {
+            const auto& Snapshot = State->GetInventory();
+            const auto* Progress = Snapshot.Professions.FindByPredicate([](const auto& Row) { return Row.Profession == TEXT("cultivation"); });
+            int32 Harvested = 0;
+            for (const auto& Item : Snapshot.Items)
+                if (Item.Key == (Mandrake ? TEXT("craft_mandrake_root") : TEXT("craft_goldweed"))) Harvested += Item.Quantity;
+            return Snapshot.Revision == 10 && Snapshot.CultivationPlots.IsEmpty() && Snapshot.Items.Num() == 5
+                && Snapshot.Professions.Num() == 3 && Progress && Progress->Xp == (Mandrake ? 8 : 10) && Harvested == 3;
+        };
+        bCultivationVerified |= bServer ? Cultivated(Aegis, true) && Cultivated(Riftbound, false)
+            : bPlotPrivacyVerified && Cultivated(bAttackerClient ? Aegis : Riftbound, bAttackerClient)
+                && (bAttackerClient ? Riftbound : Aegis)->GetInventory().CultivationPlots.IsEmpty()
+                && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Professions.IsEmpty();
+    }
+    if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && bCultivationVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 100.f)))
     {
-        Finish(true, TEXT("Movement, combat, private inventory, consumables, crafting and salvage verified."));
+        Finish(true, TEXT("Movement, combat, private inventory, consumables, crafting, salvage and cultivation verified."));
     }
-    else if (Elapsed > 20)
+    else if (Elapsed > 80)
     {
         Finish(false, FString::Printf(TEXT("Acceptance timed out; distance=%.1f health=%.1f mana=%.1f moved=%d autonomous=%d attacker=%s defender=%s falling=%d"),
             FVector::Dist(Attacker->GetActorLocation(), Defender->GetActorLocation()), ObservedHealth, ObservedMana, bMoved, bAutonomous,

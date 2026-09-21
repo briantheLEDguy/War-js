@@ -40,6 +40,10 @@ public:
     bool CraftRecipe(FName RecipeId, int32 ExpectedRevision, const AWarCraftingStation* Station, FString& Error);
     UFUNCTION(Server, Reliable) void ServerCraftRecipe(FName RecipeId, int32 ExpectedRevision, AWarCraftingStation* Station);
     UFUNCTION(Client, Reliable) void ClientInventoryResult(bool bAccepted, const FString& Error);
+    bool PlantSeed(FName SeedKey, bool bUseSoil, int32 ExpectedRevision, FString& Error);
+    bool HarvestCrop(FGuid PlotId, int32 ExpectedRevision, FString& Error);
+    UFUNCTION(Server, Reliable) void ServerPlantSeed(FName SeedKey, bool bUseSoil, int32 ExpectedRevision);
+    UFUNCTION(Server, Reliable) void ServerHarvestCrop(FGuid PlotId, int32 ExpectedRevision);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:
     UPROPERTY(Transient) FText InventoryMessage;

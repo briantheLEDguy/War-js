@@ -20,6 +20,17 @@ struct AEGISWAR_API FWarProfessionProgress
     UPROPERTY(BlueprintReadOnly) int32 Xp = 0;
 };
 
+USTRUCT(BlueprintType)
+struct AEGISWAR_API FWarCultivationPlot
+{
+    GENERATED_BODY()
+    UPROPERTY(BlueprintReadOnly) FGuid Id;
+    UPROPERTY(BlueprintReadOnly) FName SeedKey;
+    UPROPERTY(BlueprintReadOnly) int64 PlantedAtMs = 0;
+    UPROPERTY(BlueprintReadOnly) int64 ReadyAtMs = 0;
+    UPROPERTY(BlueprintReadOnly) FName Additive;
+};
+
 /** One owner-only replication unit; equipment never removes items from the bag. */
 USTRUCT(BlueprintType)
 struct AEGISWAR_API FWarInventorySnapshot
@@ -30,4 +41,5 @@ struct AEGISWAR_API FWarInventorySnapshot
     UPROPERTY(BlueprintReadOnly) TArray<FWarInventoryItem> PendingRewards;
     UPROPERTY(BlueprintReadOnly) TArray<FWarEquipmentReference> Equipment;
     UPROPERTY(BlueprintReadOnly) TArray<FWarProfessionProgress> Professions;
+    UPROPERTY(BlueprintReadOnly) TArray<FWarCultivationPlot> CultivationPlots;
 };

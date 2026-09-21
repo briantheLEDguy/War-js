@@ -95,6 +95,11 @@ def main():
     rejected_visual = existing_asset(DESTINATION + "/Visual_civic_battle_prelate_m")
     if rejected_visual:
         require(unreal.EditorAssetLibrary.delete_asset(rejected_visual.get_path_name()), "Could not remove rejected proof visual")
+        # Some editor deletion paths remove the registry entry but leave this loose file.
+        # Ownership was checked above; remove only this exact obsolete generated package.
+        rejected_file = imports.PROJECT / "Content/MigrationProof/Visual_civic_battle_prelate_m.uasset"
+        rejected_file.unlink(missing_ok=True)
+        require(not rejected_file.exists(), "Rejected proof visual remains on disk")
     imports.update_visual_registry(["civic_battle_prelate_m"])
     rejected_context = {"destination": "/Game/Imported/civic_battle_prelate_m", "profile": "civic_battle_prelate_m"}
     rejected_assets = imports.collect_assets(unreal, rejected_context)
@@ -108,8 +113,9 @@ def main():
     own(terrain)
     subsystem = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
     map_path = DESTINATION + "/EngineProof"
-    previous = existing_asset(map_path)
-    world = subsystem.load_level(map_path) if previous else subsystem.new_level(map_path)
+    # Do not retain a Python reference to a World across load_level: Unreal must collect the old world.
+    has_previous = existing_asset(map_path) is not None
+    world = subsystem.load_level(map_path) if has_previous else subsystem.new_level(map_path)
     require(world, "Could not create the proof map")
     actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
     existing_actors = {actor.get_actor_label(): actor for actor in actors.get_all_level_actors()}
@@ -129,7 +135,16 @@ def main():
     ground.static_mesh_component.set_static_mesh(terrain)
     ground.static_mesh_component.set_collision_profile_name("BlockAll")
     for index, mesh in enumerate(table["meshes"]):
-        actor = spawn(unreal.StaticMeshActor, f"Authored command table part {index}", (350, 250, 0))
+        name = f"Authored command table part {index}"
+        kind = unreal.WarCraftingStation if index == 0 else unreal.StaticMeshActor
+        old = existing_actors.get(name)
+        if index == 0 and old is not None and not isinstance(old, unreal.WarCraftingStation):
+            require(isinstance(old, unreal.StaticMeshActor)
+                    and old.static_mesh_component.static_mesh.get_path_name() == mesh["path"],
+                    "Refusing to replace an unrelated proof actor")
+            require(actors.destroy_actor(old), "Could not upgrade the owned proof table to a station")
+            del existing_actors[name]
+        actor = spawn(kind, name, (250, 250, 0))
         actor.static_mesh_component.set_static_mesh(unreal.load_asset(mesh["path"]))
     spawn(unreal.PlayerStart, "Aegis safe start", (-100, 0, 100))
     spawn(unreal.PlayerStart, "Riftbound safe start", (100, 0, 100), unreal.Rotator(yaw=180))

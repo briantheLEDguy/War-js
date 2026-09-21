@@ -1,6 +1,9 @@
 #include "WarPlayerController.h"
 #include "WarEntryStatusWidget.h"
 #include "WarInventoryWidget.h"
+#include "WarCraftingStation.h"
+#include "EngineUtils.h"
+#include "GameFramework/Pawn.h"
 #include "Components/InputComponent.h"
 #include "InputCoreTypes.h"
 
@@ -8,6 +11,7 @@ void AWarPlayerController::SetupInputComponent()
 {
     Super::SetupInputComponent();
     InputComponent->BindKey(EKeys::I, IE_Pressed, this, &AWarPlayerController::ToggleInventory);
+    InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AWarPlayerController::InteractWithStation);
 }
 
 void AWarPlayerController::ToggleInventory()
@@ -24,6 +28,7 @@ void AWarPlayerController::ToggleInventory()
     }
     if (!InventoryWidget) InventoryWidget = CreateWidget<UWarInventoryWidget>(this, UWarInventoryWidget::StaticClass());
     if (!InventoryWidget) return;
+    InventoryWidget->SetCraftingStation(nullptr);
     InventoryWidget->AddToViewport(10);
     InventoryWidget->SetPositionInViewport(FVector2D(32, 32));
     InventoryWidget->SetDesiredSizeInViewport(FVector2D(540, 650));
@@ -31,6 +36,22 @@ void AWarPlayerController::ToggleInventory()
     SetIgnoreLookInput(true);
     SetIgnoreMoveInput(true);
     bShowMouseCursor = true;
+}
+
+void AWarPlayerController::InteractWithStation()
+{
+    if (!IsLocalController() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
+    AWarCraftingStation* Nearest = nullptr;
+    double Distance = TNumericLimits<double>::Max();
+    for (TActorIterator<AWarCraftingStation> It(GetWorld()); It; ++It)
+    {
+        if (!It->CanInteract(GetPawn())) continue;
+        const double Candidate = FVector::DistSquared(GetPawn()->GetActorLocation(), It->GetActorLocation());
+        if (Candidate < Distance) { Distance = Candidate; Nearest = *It; }
+    }
+    if (!Nearest) return;
+    if (!InventoryWidget || !InventoryWidget->IsInViewport()) ToggleInventory();
+    if (InventoryWidget) InventoryWidget->SetCraftingStation(Nearest);
 }
 
 void AWarPlayerController::RecordEntryFailure(const FText& Reason)

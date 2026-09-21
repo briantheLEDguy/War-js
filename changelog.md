@@ -1,3 +1,17 @@
+## 2026-09-21 - Native crafting station interaction
+
+- Added nearby-station interaction on E, station-aware recipe requests and
+  replicated station settings; the authored proof table is a crafting station.
+- Added range/visibility/model validation tests and station-based network crafting.
+- Fixed proof-map reload crashes and removal of an obsolete rejected visual asset.
+
+## 2026-09-21 - Native cultivation transactions
+
+- Added server-owned timed cultivation for both seeds, optional soil, three plots,
+  private crop replication, planting/harvest UI and atomic full-bag rollback.
+- Added native cultivation transaction tests and real-timer multiplayer acceptance.
+  Durable progression, world gathering and full migration release remain open.
+
 ## 2026-09-21 — Native salvaging
 
 - Added authoritative gear salvaging, affix-dependent materials, equipped-item protection, full-bag rollback and exactly-once session XP behavior.

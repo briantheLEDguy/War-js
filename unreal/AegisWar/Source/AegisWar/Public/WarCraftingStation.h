@@ -10,7 +10,8 @@ class AEGISWAR_API AWarCraftingStation : public AStaticMeshActor
     GENERATED_BODY()
 public:
     AWarCraftingStation();
-    UPROPERTY(EditAnywhere, Category="Crafting") FName StationKind = TEXT("general");
-    UPROPERTY(EditAnywhere, Category="Crafting", meta=(ClampMin="1")) float InteractionRadius = 500.f;
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(Replicated, EditAnywhere, Category="Crafting") FName StationKind = TEXT("general");
+    UPROPERTY(Replicated, EditAnywhere, Category="Crafting", meta=(ClampMin="1")) float InteractionRadius = 500.f;
     bool CanInteract(const APawn* Pawn) const;
 };

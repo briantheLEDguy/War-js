@@ -128,3 +128,54 @@ bool UWarContentSubsystem::ParseCraftRecipe(const TSharedPtr<FJsonObject>& Catal
     Error.Reset();
     return true;
 }
+
+
+bool UWarContentSubsystem::GetCultivationSeed(const FName Key, FWarCultivationSeed& Seed, FString& Error) const
+{
+    if (!bReady) { Error = TEXT("Cultivation catalog is unavailable."); return false; }
+    return ParseCultivationSeed(Manifest, Key, Seed, Error);
+}
+
+bool UWarContentSubsystem::ParseCultivationSeed(const TSharedPtr<FJsonObject>& Catalog, const FName Key,
+    FWarCultivationSeed& Seed, FString& Error)
+{
+    Error = TEXT("Unknown or invalid cultivation seed.");
+    const auto Definition = FindDefinition(Catalog, TEXT("crafting"), TEXT("seeds"), TEXT("seedKey"), Key);
+    const TSharedPtr<FJsonObject>* Group = nullptr;
+    if (!Definition.IsValid() || !Catalog->TryGetObjectField(TEXT("crafting"), Group)
+        || !FindDefinition(Catalog, TEXT("items"), TEXT("definitions"), TEXT("key"), Key).IsValid()) return false;
+    FWarCultivationSeed Parsed; Parsed.Key = Key;
+    if (!Definition->TryGetStringField(TEXT("name"), Parsed.Name)
+        || !Integer(Definition, TEXT("durationMs"), Parsed.DurationMs, 1)
+        || !Integer(Definition, TEXT("xp"), Parsed.Xp)
+        || !Integer(*Group, TEXT("cultivationSlotCount"), Parsed.SlotLimit, 1)) return false;
+    FString Additive;
+    if (Definition->HasField(TEXT("bonusAdditiveKey")))
+    {
+        if (!Definition->TryGetStringField(TEXT("bonusAdditiveKey"), Additive) || Additive.IsEmpty()
+            || !FindDefinition(Catalog, TEXT("items"), TEXT("definitions"), TEXT("key"), FName(*Additive)).IsValid()) return false;
+        Parsed.Additive = FName(*Additive);
+    }
+    const auto ReadOutputs = [&](const TCHAR* Field, TArray<FWarInventoryItem>& Out) {
+        const TArray<TSharedPtr<FJsonValue>>* Values = nullptr;
+        if (!Definition->TryGetArrayField(Field, Values) || Values->IsEmpty()) return false;
+        for (const auto& Value : *Values)
+        {
+            if (!Value.IsValid() || Value->Type != EJson::Object) return false;
+            const auto Object = Value->AsObject();
+            FString ItemKey, Kind, Slot; FWarInventoryItem Item;
+            if (!Object->TryGetStringField(TEXT("key"), ItemKey) || ItemKey.IsEmpty()
+                || !Integer(Object, TEXT("qty"), Item.Quantity, 1)) return false;
+            const auto Entry = FindDefinition(Catalog, TEXT("items"), TEXT("definitions"), TEXT("key"), FName(*ItemKey));
+            if (!Entry.IsValid() || !Entry->TryGetStringField(TEXT("kind"), Kind)) return false;
+            Entry->TryGetStringField(TEXT("equipSlot"), Slot);
+            Item.Key = FName(*ItemKey); Item.Kind = FName(*Kind); Item.EquipSlot = FName(*Slot);
+            Out.Add(Item);
+        }
+        return true;
+    };
+    if (!ReadOutputs(TEXT("outputs"), Parsed.Outputs)) return false;
+    if (Definition->HasField(TEXT("bonusOutputs"))
+        && (Parsed.Additive.IsNone() || !ReadOutputs(TEXT("bonusOutputs"), Parsed.BonusOutputs))) return false;
+    Seed = MoveTemp(Parsed); Error.Reset(); return true;
+}

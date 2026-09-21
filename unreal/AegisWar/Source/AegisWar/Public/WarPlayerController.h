@@ -17,6 +17,7 @@ public:
     const FText& GetEntryFailure() const { return LastEntryFailure; }
     virtual void SetupInputComponent() override;
     void ToggleInventory();
+    void InteractWithStation();
 private:
     UPROPERTY(Transient) TObjectPtr<UWarInventoryWidget> InventoryWidget;
     UPROPERTY(Transient) TObjectPtr<UWarEntryStatusWidget> EntryStatus;

@@ -34,7 +34,11 @@ unfinished. See [inventory implementation and limits](docs/unreal-inventory-auth
 Catalog-driven native recipe execution and portable crafting buttons now support
 the five current recipes, with server validation, capacity-safe exchanges and
 private profession XP. See [crafting implementation and limits](docs/unreal-crafting.md);
-world gathering, cultivation and complete station workflows remain open. Native
+world gathering and complete station workflows remain open. Native cultivation
+supports both timed seeds, optional soil, three plots and capacity-safe harvest;
+progression still needs durable persistence. `E` opens a nearby authored native
+crafting station; `I` retains portable crafting. Campaign station placement and
+full interaction prompts remain unfinished. Native
 salvaging now preserves affix-dependent materials, protects equipped gear, rolls
 back when outputs cannot fit, and awards server-owned profession XP.
 

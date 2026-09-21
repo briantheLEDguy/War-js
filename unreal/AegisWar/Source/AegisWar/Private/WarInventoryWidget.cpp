@@ -1,5 +1,6 @@
 #include "WarInventoryWidget.h"
 #include "WarPlayerState.h"
+#include "WarCraftingStation.h"
 #include "WarPlayerController.h"
 #include "WarContentSubsystem.h"
 #include "Engine/GameInstance.h"
@@ -11,6 +12,13 @@
 #include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Text/STextBlock.h"
 #include "Styling/CoreStyle.h"
+
+void UWarInventoryWidget::SetCraftingStation(AWarCraftingStation* Station)
+{
+    CraftingStation = Station;
+    bStationSelected = Station != nullptr;
+    if (auto* State = GetOwningPlayerState<AWarPlayerState>()) Refresh(State);
+}
 
 TSharedRef<SWidget> UWarInventoryWidget::RebuildWidget()
 {
@@ -106,6 +114,20 @@ void UWarInventoryWidget::Refresh(AWarPlayerState* State)
                     }
                     return FReply::Handled();
                 })[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20)).AutoWrapText(true).Text(FText::FromString(Label))]];
+        FWarCultivationSeed Seed; FString SeedError;
+        if (Content && Content->GetCultivationSeed(Item->Key, Seed, SeedError))
+        {
+            for (const bool UseSoil : {false, true})
+            {
+                if (UseSoil && Seed.Additive.IsNone()) continue;
+                Rows->AddSlot().AutoHeight().Padding(12, 0, 0, 4)
+                    [SNew(SButton).Text(FText::FromString(UseSoil ? TEXT("Plant with fertile soil") : TEXT("Plant seed")))
+                        .OnClicked_Lambda([WeakState = TWeakObjectPtr<AWarPlayerState>(State), Key = Item->Key, UseSoil, Revision = DisplayedRevision] {
+                            if (WeakState.IsValid()) WeakState->ServerPlantSeed(Key, UseSoil, Revision);
+                            return FReply::Handled();
+                        })];
+            }
+        }
         TArray<FWarInventoryItem> SalvageRewards; FString SalvageError;
         if (WarCrafting::SalvageOutputs(*Item, SalvageRewards, SalvageError))
         {
@@ -125,9 +147,29 @@ void UWarInventoryWidget::Refresh(AWarPlayerState* State)
     Rows->AddSlot().AutoHeight().Padding(0, 12)
         [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).AutoWrapText(true).Text(FText::FromString(FString::Printf(
             TEXT("Click equipment to equip or unequip.\n%d reward entries await bag space."), Inventory.PendingRewards.Num())))];
+    Rows->AddSlot().AutoHeight().Padding(0, 12)
+        [SNew(STextBlock).Text(FText::FromString(FString::Printf(TEXT("Cultivation: %d plots occupied"), Inventory.CultivationPlots.Num())))];
+    for (const auto& Plot : Inventory.CultivationPlots)
+    {
+        const FString Name = Content ? Content->GetItemDisplayName(Plot.SeedKey).ToString() : Plot.SeedKey.ToString();
+        Rows->AddSlot().AutoHeight().Padding(0, 3)
+            [SNew(SButton).Text_Lambda([Name, ReadyAtMs = Plot.ReadyAtMs] {
+                    const int64 NowMs = (FDateTime::UtcNow() - FDateTime(1970, 1, 1)).GetTicks() / ETimespan::TicksPerMillisecond;
+                    const int64 Seconds = FMath::Max<int64>(0, (ReadyAtMs - NowMs + 999) / 1000);
+                    return FText::FromString(Seconds > 0
+                        ? FString::Printf(TEXT("%s - growing (%lld s)"), *Name, Seconds)
+                        : FString::Printf(TEXT("Harvest %s"), *Name));
+                })
+                .OnClicked_Lambda([WeakState = TWeakObjectPtr<AWarPlayerState>(State), Id = Plot.Id, Revision = DisplayedRevision] {
+                    if (WeakState.IsValid()) WeakState->ServerHarvestCrop(Id, Revision);
+                    return FReply::Handled();
+                })];
+    }
     if (!Content) return;
     Rows->AddSlot().AutoHeight().Padding(0, 12)
-        [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 22)).Text(NSLOCTEXT("AegisWar", "PortableCrafting", "Portable crafting"))];
+        [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 22)).Text(bStationSelected
+            ? NSLOCTEXT("AegisWar", "StationCrafting", "Crafting station")
+            : NSLOCTEXT("AegisWar", "PortableCrafting", "Portable crafting"))];
     for (const auto RecipeId : Content->GetCraftRecipeIds())
     {
         FWarCraftRecipe Recipe; FString Error;
@@ -137,8 +179,9 @@ void UWarInventoryWidget::Refresh(AWarPlayerState* State)
         const FString Label = FString::Printf(TEXT("Craft %s\nRank %d required · current rank %d · %d XP"),
             *Recipe.Name, Recipe.MinimumRank, WarCrafting::RankForXp(Xp), Xp);
         Rows->AddSlot().AutoHeight().Padding(0, 3)
-            [SNew(SButton).OnClicked_Lambda([WeakState = TWeakObjectPtr<AWarPlayerState>(State), RecipeId, Revision = DisplayedRevision] {
-                if (WeakState.IsValid()) WeakState->ServerCraftRecipe(RecipeId, Revision, nullptr);
+            [SNew(SButton).OnClicked_Lambda([WeakState = TWeakObjectPtr<AWarPlayerState>(State), RecipeId, Revision = DisplayedRevision, Station = CraftingStation, Selected = bStationSelected] {
+                // A destroyed selected station must not silently become a portable request.
+                if (WeakState.IsValid() && (!Selected || Station.IsValid())) WeakState->ServerCraftRecipe(RecipeId, Revision, Station.Get());
                 return FReply::Handled();
             })[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).AutoWrapText(true).Text(FText::FromString(Label))]];
     }

@@ -25,6 +25,8 @@ struct AEGISWAR_API FWarCraftRecipe
 
 namespace WarCrafting
 {
+    AEGISWAR_API bool SelectInputs(const TMap<FName, int32>& Inputs, const TArray<FWarInventoryItem>& Inventory,
+        TMap<int32, int32>& ConsumedSlots, FString& Error);
     AEGISWAR_API int32 RankForXp(int32 Xp);
     AEGISWAR_API bool SalvageOutputs(const FWarInventoryItem& Item, TArray<FWarInventoryItem>& Outputs, FString& Error);
     AEGISWAR_API bool SelectIngredients(const FWarCraftRecipe& Recipe, FName Station, int32 ProfessionXp,

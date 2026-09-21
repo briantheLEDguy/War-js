@@ -34,6 +34,11 @@ private:
     bool bCraftVerified = false;
     bool bSalvageRequested = false;
     bool bSalvageVerified = false;
+    bool bPlantRequested = false;
+    bool bEarlyHarvestRequested = false;
+    bool bHarvestRequested = false;
+    bool bPlotPrivacyVerified = false;
+    bool bCultivationVerified = false;
     bool bMovementDriveComplete = false;
     float ObservedHealth = -1;
     float ObservedMana = -1;

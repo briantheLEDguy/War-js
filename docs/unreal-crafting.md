@@ -88,3 +88,57 @@ two packaged clients passed the rendered sequence at
 inventory was inspected. The release gate still rejects release. Cultivation is
 the next profession dependency: preserve three plots, both seed timers, optional
 soil, server-controlled readiness, capacity-safe harvest and duplicate protection.
+
+## Cultivation increment
+
+`WarCultivationRules` applies planting/harvest transactions to a copy of the
+owner-only inventory snapshot. `WarCultivation.cpp` exposes revision-checked
+PlayerState RPCs; seed definitions, outputs, XP, timestamps and plot IDs come
+from the server. Three plots, the 30-second Mandrake and 45-second Goldweed
+timers, optional fertile soil, two base output items plus one soil bonus, and
+8/10 cultivation XP preserve the browser behavior. Planting grants no XP.
+
+Missing seeds/soil, full plots, premature harvest, full bags and stale requests
+leave the inventory and crops unchanged. Harvest commits rewards, crop removal
+and XP together. Previously deferred rewards can fill remaining space only
+after harvest output fits. Client clock time is used only for the displayed
+countdown; server UTC milliseconds determine eligibility. The inventory panel
+provides planting, soil and harvest actions. Plots persist for the current
+PlayerState session only; reconnect/crash recovery remains unfinished.
+
+Native `CultivationTransactions` tests both seeds with/without soil, exact
+readiness boundaries, duplicate harvest, missing soil, three-plot capacity,
+full-bag rollback/retry and timestamp overflow. The multiplayer proof now also
+plants one seed per client with soil and waits through the real growth periods,
+checking owner-only plots, output quantities, XP and stale request rejection.
+
+Cultivation verification: 12 native foundation groups and 72 tooling tests
+passed; tools TypeScript checking passed. Windows Development BuildCookRun and
+rendered packaged clients passed at
+`artifacts/unreal/network/1789972345822-5436/report.json`. This includes private
+plots while growing and real 30/45-second timers. The proof-map regenerator also
+now releases its Python World reference before reloading, and verifies removal
+of the obsolete rejected male Prelate visual's loose generated asset.
+
+## Station interaction increment
+
+Press `E` near a visible authored crafting station to open station crafting.
+`I` opens portable crafting. Recipe requests from the station view carry the
+selected actor to the server, which rechecks range, world, model and visibility
+when crafting. A destroyed selection cannot silently become portable crafting.
+Station kind and radius replicate for server-spawned actors. The development
+command table now has one station actor; its other five authored mesh parts
+remain scenery. This does not populate the 76 campaign station placements.
+
+Native tests cover missing models, exact range boundaries, actor/component
+visibility, invalid radius and cross-world pawns. The multiplayer recipe proof
+requires the authored station to be present and interactable on both clients.
+Campaign station import, interaction prompts, touch/remapping, full crafting
+filters and durable progression remain open.
+
+Station verification passed 13 native foundation groups, 72 tooling tests and
+tools TypeScript checking. The first network run correctly rejected a spawn
+outside table range; the proof table was repositioned within range of both
+starts without changing production range checks. Windows BuildCookRun and the
+rendered packaged sequence then passed at
+`artifacts/unreal/network/1789972842849-24036/report.json`.
