@@ -1,3 +1,9 @@
+## 2026-09-21 - Exact native city transforms
+
+- Added expandable exact position, pitch/yaw/roll and per-axis scale fields. Enter commits one undoable edit; scale preserves imported mirrored axes and invalid values are rejected.
+- Verified 21 native groups, 83 tooling tests, tools typechecking, rendered editor and Windows packaged actor/collision checks, draft reload and manual height-entry/undo. Improved label readability after visual review.
+- Full shared GM authorization, terrain tools, remaining capital content and release acceptance remain unfinished.
+
 ## 2026-09-21 - Searchable native city model catalog
 
 - Added separate model search, matching counts and a scrollable catalog with stable deduplicated templates. Placement and panel refresh preserve the filter.

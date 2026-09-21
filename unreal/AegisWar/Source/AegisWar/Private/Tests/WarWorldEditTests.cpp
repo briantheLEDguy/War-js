@@ -2,6 +2,7 @@
 #include "Misc/AutomationTest.h"
 #include "WarWorldEditHistory.h"
 #include "WarWorldEditPlacement.h"
+#include <limits>
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarWorldEditHistoryTest, "AegisWar.Foundation.WorldEditHistory",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
@@ -18,6 +19,28 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     const auto Placed = WarWorldEditPlacement::SnapHorizontal(FVector(-151, 249, 27.4), 100);
     TestTrue(TEXT("Ground height is never quantized"), Placed.Equals(FVector(-200, 200, 27.4)));
     FWarWorldEditHistory History; FString Error;
+    FTransform Exact = GridInput;
+    TestTrue(TEXT("Exact position accepts metres"), WarWorldEditPlacement::SetComponent(Exact, 0, -12.345));
+    TestTrue(TEXT("Metres convert to Unreal centimetres"), FMath::IsNearlyEqual(Exact.GetLocation().X, -1234.5));
+    TestTrue(TEXT("Other position axes retained"), Exact.GetLocation().Y == GridInput.GetLocation().Y && Exact.GetLocation().Z == GridInput.GetLocation().Z);
+    TestTrue(TEXT("Exact rotation accepts pitch"), WarWorldEditPlacement::SetComponent(Exact, 3, 25));
+    TestTrue(TEXT("Yaw and roll retained"), Exact.GetRotation().Equals(FRotator(25, 44, -8).Quaternion(), 0.00001));
+    TestTrue(TEXT("Nonuniform scale accepts magnitude"), WarWorldEditPlacement::SetComponent(Exact, 7, 1.25));
+    TestTrue(TEXT("Mirrored imported scale remains mirrored"), Exact.GetScale3D().Equals(FVector(2, -1.25, 4)));
+    TestEqual(TEXT("Displayed scale is positive magnitude"), WarWorldEditPlacement::ComponentValue(Exact, 7).GetValue(), 1.25);
+    const FTransform BeforeInvalid = Exact;
+    TestFalse(TEXT("Invisible exact scale rejected"), WarWorldEditPlacement::SetComponent(Exact, 6, 0));
+    TestFalse(TEXT("Exact scale cannot invert handedness"), WarWorldEditPlacement::SetComponent(Exact, 7, -1));
+    TestFalse(TEXT("Out-of-bounds position rejected"), WarWorldEditPlacement::SetComponent(Exact, 2, 1000.01));
+    TestFalse(TEXT("Excessive rotation rejected"), WarWorldEditPlacement::SetComponent(Exact, 4, 361));
+    TestFalse(TEXT("Unknown transform component rejected"), WarWorldEditPlacement::SetComponent(Exact, 9, 1));
+    TestFalse(TEXT("Nonfinite transform component rejected"), WarWorldEditPlacement::SetComponent(Exact, 1, std::numeric_limits<double>::infinity()));
+    TestTrue(TEXT("Rejected numeric changes leave transform intact"), Exact.Equals(BeforeInvalid));
+    FWarWorldEditHistory ExactHistory;
+    ExactHistory.Initialize({ { TEXT("precise"), GridInput, false } }, Error);
+    TestTrue(TEXT("Exact transform enters revisioned history"), ExactHistory.Edit(TEXT("precise"), Exact, false, 0, Error));
+    TestTrue(TEXT("Exact edit can be undone"), ExactHistory.Undo(false, 1, Error));
+    TestTrue(TEXT("Undo restores every axis"), ExactHistory.Find(TEXT("precise"))->Transform.Equals(GridInput));
     const FTransform Original(FQuat::Identity, FVector(100, 200, 0), FVector(1, -1, 1));
     const TArray<FWarWorldEditObject> Objects = { { TEXT("house"), Original, false } };
     TestTrue(TEXT("Authored basis accepted"), History.Initialize(Objects, Error));

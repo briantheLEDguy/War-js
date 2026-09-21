@@ -90,7 +90,8 @@ flight, adjustable movement speed and safe return to arrival support city inspec
 Adjustable grid/yaw alignment preserves terrain height and mirrored model scale;
 kit-specific pivots, sockets and assembly snapping remain pending.
 The model catalog has a separate search field and scroll area, with stable
-template identities and one entry per admitted model.
+template identities and one entry per admitted model. Exact transform fields
+provide position, full rotation and nonuniform scale with undo support.
 Construction
 survives a fresh game process with its authored mesh and collision. Older drafts
 retain new authored objects after additive city imports; conflicting changes are rejected. Shared GM

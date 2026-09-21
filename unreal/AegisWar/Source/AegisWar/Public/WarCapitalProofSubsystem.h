@@ -22,6 +22,7 @@ private:
     bool bTraversalVerified = false;
     bool bPlacementSnappingVerified = false;
     bool bCatalogSearchVerified = false;
+    bool bExactTransformVerified = false;
     int32 Stage = 0;
     bool bFinished = false;
 };

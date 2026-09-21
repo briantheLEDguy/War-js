@@ -10,7 +10,7 @@ is still required for the production implementation.
 
 The current panel can place six house and two rowhouse models, search/select houses, select the nearest one,
 move along each world axis in adjustable increments, rotate in adjustable steps,
-scale uniformly, hide/restore, undo/redo, and save/load a local development draft.
+scale uniformly or enter exact transforms, hide/restore, undo/redo, and save/load a local development draft.
 Selected geometry has an intentional cyan editor guide. Hidden buildings also
 stop blocking movement. Attached collision follows transform edits. Inventory,
 quest and builder panels share modal input handling and restore movement/camera
@@ -45,6 +45,14 @@ height and snap yaw when the grid is enabled. Grid-off placement preserves the
 template orientation. Settings last for the widget session; drafts store final
 transforms. Surface/socket snapping, drag gizmos and kit-specific assembly
 alignment remain unfinished.
+
+**Exact transform** expands nine numeric fields: X/Y/Z in metres, pitch/yaw/roll
+in degrees, and per-axis scale magnitudes. Press Enter to commit one field as an
+undoable revision; changing focus does not submit unfinished text. Position is
+bounded to +/-1000 m, rotation to +/-360 degrees, and scale to 0.05-20. Scale
+magnitudes preserve imported mirrored axes. Invalid values leave the world
+unchanged and show a range message. These fields bypass grid snapping so exact
+values remain exact; attached collision follows every accepted edit.
 
 The house buttons place an authored model about 20 meters in front of the
 character, on the first blocking surface below that point. Use the transform
@@ -182,7 +190,21 @@ searched for `ROWHOUSE 2`, observed one of eight models, placed the rendered
 rowhouse and undid it. The filter persisted through both edits; no user draft
 was saved or loaded.
 
-Still pending: the remaining building/prefab catalog, arbitrary/drag transforms,
+Exact transform verification (2026-09-21): all 21 native groups passed in
+`artifacts/unreal/editor/test-1789995260984-27264/`, including unit conversion,
+rotation axes, nonuniform mirrored scale, invalid-value rejection and undo.
+Rendered editor checks in `artifacts/unreal/capital-proof/1789995312656-37688/`
+verified actual actor/collision transforms and draft reload. The Windows package
+passed the same checks in `artifacts/unreal/capital-proof/1789995472004-36740/`.
+A manual packaged UI check entered a height of 1.234 m, observed the rendered
+building rise, then used Undo to restore ground height and the displayed value.
+No user draft was saved or loaded. Tooling tests (83) and tools typechecking
+passed. Visual review also prompted larger numeric-field and section labels.
+The corrected package (`artifacts/unreal/package-gm-exact-labels.log`) was
+inspected with all nine fields expanded. Entering zero scale restored the
+original displayed value and showed the range error without changing the world.
+
+Still pending: the remaining building/prefab catalog, drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,
 arbitrary zone/coordinate/character teleport and character tools, shared permissions and replication, durable shared drafts,
 publication/version restore, remaining capital content, and Riftspire. Existing

@@ -49,6 +49,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
     Report->SetBoolField(TEXT("placementSnappingVerified"), bPlacementSnappingVerified);
     Report->SetBoolField(TEXT("catalogSearchVerified"), bCatalogSearchVerified);
+    Report->SetBoolField(TEXT("exactTransformVerified"), bExactTransformVerified);
     Report->SetBoolField(TEXT("constructionReload"), FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")));
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
@@ -215,6 +216,19 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
     if (!Check(Actor->GetActorTransform().Equals(Original, 0.01), TEXT("Grid alignment could not be undone."))) return;
     bPlacementSnappingVerified = true;
+    FTransform Exact = Original;
+    if (!Check(WarWorldEditPlacement::SetComponent(Exact, 0, Original.GetLocation().X / 100 + 1.234)
+        && WarWorldEditPlacement::SetComponent(Exact, 3, 12)
+        && WarWorldEditPlacement::SetComponent(Exact, 5, -7)
+        && WarWorldEditPlacement::SetComponent(Exact, 7, FMath::Abs(Original.GetScale3D().Y) * 1.25),
+        TEXT("Exact transform values were rejected."))) return;
+    Player->ServerEditWorldObject(Id, Exact, false, Editor->GetHistory().GetRevision());
+    if (!Check(Actor->GetActorTransform().Equals(Exact, 0.01)
+        && Boxes[0]->GetComponentTransform().Equals(Boxes[0]->GetRelativeTransform() * Exact, 0.01),
+        TEXT("Exact transform detached model and collision."))) return;
+    Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
+    if (!Check(Actor->GetActorTransform().Equals(Original, 0.01), TEXT("Exact transform could not be undone."))) return;
+    bExactTransformVerified = true;
     FTransform Placed = Original; Placed.AddToTranslation(FVector(0, 0, 5000));
     const int32 BeforeCreate = Editor->GetHistory().GetRevision();
     Player->ServerCreateWorldObject(TEXT("unregistered"), Placed, BeforeCreate);

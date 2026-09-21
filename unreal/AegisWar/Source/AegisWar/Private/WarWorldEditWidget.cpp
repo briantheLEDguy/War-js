@@ -16,6 +16,8 @@
 #include "Widgets/SBoxPanel.h"
 #include "Widgets/Input/SButton.h"
 #include "Widgets/Input/SSearchBox.h"
+#include "Widgets/Input/SNumericEntryBox.h"
+#include "Widgets/Layout/SExpandableArea.h"
 #include "Widgets/Text/STextBlock.h"
 #include "Styling/CoreStyle.h"
 
@@ -74,6 +76,32 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
         const FVector P = Row->Transform.GetLocation();
         return FText::FromString(FString::Printf(TEXT("%s%s\nX %.1f m   Y %.1f m   Z %.1f m"), *Row->Id.ToString(),
             Row->bHidden ? TEXT(" (hidden)") : TEXT(""), P.X / 100, P.Y / 100, P.Z / 100)); })];
+    auto ExactFields = SNew(SVerticalBox);
+    const TCHAR* Labels[] = { TEXT("X m"), TEXT("Y m"), TEXT("Z m"), TEXT("Pitch"), TEXT("Yaw"), TEXT("Roll"), TEXT("Scale X"), TEXT("Scale Y"), TEXT("Scale Z") };
+    for (int32 Group = 0; Group < 3; ++Group)
+    {
+        auto Fields = SNew(SHorizontalBox);
+        for (int32 Axis = 0; Axis < 3; ++Axis)
+        {
+            const int32 Field = Group * 3 + Axis;
+            Fields->AddSlot().FillWidth(1).Padding(2)[SNew(SNumericEntryBox<double>).AllowSpin(false)
+                .Font(FCoreStyle::GetDefaultFontStyle("Regular", 15)).MinDesiredValueWidth(55)
+                .ToolTipText(FText::FromString(TEXT("Press Enter to apply. Position: metres; rotation: degrees; scale: positive magnitude.")))
+                .Label()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 14)).Text(FText::FromString(Labels[Field]))]
+                .Value_Lambda([Weak, Field]() -> TOptional<double> {
+                    const auto* E = Weak.IsValid() ? Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>() : nullptr;
+                    const auto* Row = E ? E->GetHistory().Find(Weak->Selected) : nullptr;
+                    return Row ? WarWorldEditPlacement::ComponentValue(Row->Transform, Field) : TOptional<double>(); })
+                .OnValueCommitted_Lambda([Weak, Field](double Value, ETextCommit::Type Commit) {
+                    // Losing focus never applies a partial entry to a newly selected building.
+                    if (Weak.IsValid() && Commit == ETextCommit::OnEnter) Weak->SetSelectedComponent(Field, Value); })];
+        }
+        ExactFields->AddSlot().AutoHeight()[Fields];
+    }
+    Body->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).AllowAnimatedTransition(false)
+        .AreaTitleFont(FCoreStyle::GetDefaultFontStyle("Regular", 16))
+        .AreaTitle(FText::FromString(TEXT("Exact transform - Enter to apply")))
+        .BodyContent()[ExactFields]];
     auto Snapping = SNew(SHorizontalBox);
     Snapping->AddSlot().FillWidth(1)[Button(TEXT("Grid step"), [Weak] {
         if (Weak.IsValid()) Weak->GridIndex = (Weak->GridIndex + 1) % 5;
@@ -199,6 +227,18 @@ void UWarWorldEditWidget::SnapSelected()
     if (!P || !Row) return;
     P->ServerEditWorldObject(Selected, WarWorldEditPlacement::SnapTransform(Row->Transform, GridCentimeters(), AngleDegrees()),
         Row->bHidden, E->GetHistory().GetRevision());
+}
+
+void UWarWorldEditWidget::SetSelectedComponent(const int32 Field, const double Value)
+{
+    const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+    auto* P = Cast<AWarPlayerController>(GetOwningPlayer());
+    const auto* Row = E ? E->GetHistory().Find(Selected) : nullptr;
+    if (!P || !Row) return;
+    FTransform Transform = Row->Transform;
+    if (WarWorldEditPlacement::SetComponent(Transform, Field, Value))
+        P->ServerEditWorldObject(Selected, Transform, Row->bHidden, E->GetHistory().GetRevision());
+    else P->ClientWorldEditResult(TEXT("Use position within +/-1000 m, rotation within +/-360 degrees, and scale from 0.05 to 20."));
 }
 
 void UWarWorldEditWidget::EditSelected(const FVector Offset, const double Yaw, const double Scale, const bool bToggleHidden)
