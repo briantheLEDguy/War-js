@@ -20,11 +20,15 @@ private:
     FVector FlightPosition = FVector::ZeroVector;
     double FlightStartedAt = -1;
     bool bTraversalVerified = false;
+    bool bGameplayIntegrationVerified = false;
     bool bPlacementSnappingVerified = false;
     bool bCatalogSearchVerified = false;
     bool bExactTransformVerified = false;
     bool bWorldPickingVerified = false;
     int32 WalkableWallCount = 0;
+    TArray<FVector> CityRoute;
+    int32 CityRouteIndex = 0;
+    double CityWalkStartedAt = 0;
     int32 Stage = 0;
     bool bFinished = false;
 };

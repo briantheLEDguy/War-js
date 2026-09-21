@@ -5,7 +5,7 @@ Only authored purchased meshes are used; gaps define real doors and streets.
 """
 
 
-def build_layout():
+def castle_layout():
     rows = []
 
     def add(kind, x, y, z=10, yaw=0, scale=(1, 1, 1), district="castle"):
@@ -41,34 +41,6 @@ def build_layout():
                       y + ((125 if y < cy else -125) if yaw == 0 else 0), 10 + levels * 300)
             add("wall", x, y, 20 + levels * 300, yaw, (1, 1, 0.25), district)
             add("merlon", x, y, 95 + levels * 300, yaw, (0.67, 1, 0.25), district)
-
-    # Broad processional avenue connects the southern arrival to the gatehouse.
-    for y in range(-13200, 6300, 1800):
-        floor(0, y, 0, (4, 6, 1), "avenue")
-    for y in [-10500, -7500, -4500, -1500, 1500, 4500]:
-        for x in [-9000, -7200, -5400, -3600, -1800, 1800, 3600, 5400, 7200, 9000]:
-            floor(x, y, 0, (6, 2, 1), "streets")
-    for x in [-1800, 0, 1800]:
-        for y in [-1800, 0, 1800]:
-            floor(x, y, 0, (6, 6, 1), "market")
-    for x in [-1800, 1800]:
-        for y in [-1800, -600, 600, 1800]:
-            add("stall", x, y, 10, 90 if x < 0 else -90, district="market")
-            add("stallframe", x, y, 10, 90 if x < 0 else -90, district="market")
-            add("barrel", x + 330, y + 170, 10, district="market")
-            add("crate", x + 330, y - 170, 10, district="market")
-    for x in [-1100, 1100]:
-        for y in [-2450, 2450]:
-            add("bench", x, y, 10, district="market")
-
-    # Complete house assemblies only; 04a/b/c are unfinished construction stages.
-    for ix, x in enumerate([-8700, -6000, -3300, 3300, 6000, 8700]):
-        for iy, y in enumerate([-11700, -8700, -5700, -2700, 300, 3300]):
-            if abs(x) < 4000 and y in [-2700, 300]:
-                continue
-            kind = "house" + str((ix + iy * 2) % 3 + 1)
-            district = "artisan" if x < 0 else "residential"
-            add(kind, x, y, 10, 180 if x < 0 else 0, district=district)
 
     # Northern fortress: 72 x 60 m curtain, four projecting towers and gatehouse.
     enclosure(0, 9300, 24, 20, 3, gate=True, walkway=True)
@@ -117,17 +89,73 @@ def build_layout():
     for step in range(15):
         add("stairs", -700, 9475 + step * 150, 10 + step * 100, 0, (1.6, 1, 1), "keep")
 
-    enclosure(0, -4000, 72, 64, 2, gate=True, district="rampart", rear_gate=True)
-    for x in [-10800, 10800]:
-        for y in [-13600, 5600]:
-            enclosure(x, y, 3, 3, 3, district="rampart_tower")
-            for dx in [-300, 0, 300]:
-                for dy in [-300, 0, 300]:
-                    floor(x + dx, y + dy, 910, district="rampart_tower")
+    return rows
 
-    return {"schemaVersion": 1, "name": "Bastion of Aegis - Crownward",
-            "map": "/Game/Capitals/crownward/AegisCapital_Workbench",
-            "arrival": [0, -12500, 130], "placements": rows,
-            "routes": [[0, -12500, 120], [0, -6000, 120], [0, 0, 120],
-                       [0, 6000, 120], [0, 8000, 120], [0, 9600, 120]],
-            "fullCapitalAcceptance": False}
+
+def build_layout():
+    from capital_geography import source_map, height, point, sampled_path
+    import math
+    source = source_map()
+    rows = []
+    # Rotate the modular castle onto the original upper citadel plateau.
+    # Original coordinates: x=east, z=north; Unreal X=north, Y=east.
+    for row in castle_layout():
+        x, y, z = row["centerBottom"]
+        rows.append({**row, "centerBottom": [y + 8000, -x, z + 4200], "yaw": row["yaw"] - 90})
+    houses = [p for p in source["props"] if p["kind"].startswith(("aegis_house_", "aegis_rowhouse_"))]
+    for i, house in enumerate(houses):
+        district = min(source["cityDistricts"], key=lambda d: (d["x"]-house["x"])**2 + (d["z"]-house["z"])**2)
+        kind = "house" + str(i % 3 + 1)
+        # Fit complete assemblies inside the existing ten-metre house pads.
+        scale = {"house1": .45, "house2": .85, "house3": .53}[kind]
+        rows.append({"id": house["id"], "kind": kind, "centerBottom": point(house, 5),
+                     "yaw": 90-math.degrees(house.get("rotY", 0)), "scale": [scale,scale,1],
+                     "district": district["id"], "sourceId": house["id"]})
+    for side in [-1, 1]:
+        for index in range(4):
+            x, z = side*22, -112 + index*8
+            for kind in ["stall", "stallframe"]:
+                rows.append({"id": f"gateward_{kind}_{side}_{index}", "kind": kind,
+                             "centerBottom": [z*100, x*100, height(x,z)*100+5],
+                             "yaw": 0 if side == 1 else 180, "scale": [1,1,1], "district": "gateward"})
+            for kind, dz in [("barrel",2),("crate",-2)]:
+                prop = {"x":x+side*4,"z":z+dz}
+                rows.append({"id":f"gateward_{kind}_{side}_{index}","kind":kind,
+                    "centerBottom":point(prop,5),"yaw":0,"scale":[1,1,1],"district":"gateward"})
+    # Match original perimeter openings and elevations with authored kit wall pieces.
+    for p in source["props"]:
+        if p["kind"] != "aegis_wall":
+            continue
+        # Source wall spans include per-axis scaling. Fill the complete span;
+        # assuming six metres leaves gaps between the original twelve-metre bays.
+        angle = p.get("rotY", 0)
+        span = p["colliders"][0]["width"] * p.get("scaleX",1) * p.get("scale",1)
+        count = math.ceil(span/3)
+        width = span/count
+        for bay in range(count):
+            along = (bay+.5)*width-span/2
+            x, z = p["x"] + along*math.cos(angle), p["z"] - along*math.sin(angle)
+            bottom = height(x,z)*100
+            yaw = 90-math.degrees(angle)
+            for side in [-1,1]:
+                # Paired skins leave a two-metre walkable deck at the original height.
+                bx,bz = x+side*math.sin(angle),z+side*math.cos(angle)
+                for level in range(4):
+                    rows.append({"id":f'{p["id"]}_{bay}_{side}_{level}',"kind":"wall",
+                        "centerBottom":[bz*100,bx*100,bottom+level*300],"yaw":yaw,
+                        "scale":[width/3,1,1],"district":"rampart","sourceId":p["id"]})
+            rows.append({"id":f'{p["id"]}_{bay}_deck',"kind":"floor",
+                "centerBottom":[z*100,x*100,bottom+1200],"yaw":yaw,
+                "scale":[width/3,2/3,1],"district":"rampart","sourceId":p["id"]})
+            rows.append({"id":f'{p["id"]}_{bay}_merlon',"kind":"merlon",
+                "centerBottom":[(z+math.cos(angle))*100,(x+math.sin(angle))*100,bottom+1210],"yaw":yaw,
+                "scale":[min(1,width/1.5),1,.25],"district":"rampart","sourceId":p["id"]})
+    gateward = next(p for p in source["paths"] if p["id"] == "aegis_city_gateward")
+    # End inside the new great hall; its entrance sits at source z=173 metres.
+    route = sampled_path(gateward, 2)
+    route += sampled_path({"points": [{"x":0,"z":119},{"x":0,"z":176}]}, 2)[1:]
+    return {"schemaVersion": 2, "zoneId": "aegis_capital", "name": "Bastion of Aegis - Crownward",
+        "map": "/Game/Capitals/crownward/AegisCapital_Workbench", "arrival": point(source["spawnPoint"], 130),
+        "placements": rows, "routes": [point(p,130) for p in route],
+        "districts": source["cityDistricts"], "sourceHouseCount": len(houses),
+        "sourcePathIds": [p["id"] for p in source["paths"]], "fullCapitalAcceptance": False}

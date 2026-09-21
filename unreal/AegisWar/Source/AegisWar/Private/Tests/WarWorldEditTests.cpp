@@ -3,6 +3,9 @@
 #include "WarWorldEditHistory.h"
 #include "WarWorldEditPlacement.h"
 #include <limits>
+#include "Dom/JsonObject.h"
+#include "Serialization/JsonReader.h"
+#include "Serialization/JsonSerializer.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarWorldEditHistoryTest, "AegisWar.Foundation.WorldEditHistory",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
@@ -88,22 +91,29 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     if (const auto* Restored = Fresh.Find(Created)) TestEqual(TEXT("Reload retains template identity"), Restored->TemplateId, FName(TEXT("house")));
     else AddError(TEXT("Missing restored construction object."));
     TestFalse(TEXT("Draft cannot select an unregistered template"), Fresh.ImportDraft(
-        ConstructionDraft.Replace(TEXT("\"templateId\": \"house\""), TEXT("\"templateId\": \"unregistered\"")), 1, Error));
+        ConstructionDraft.Replace(TEXT("\"templateId\":\"house\""), TEXT("\"templateId\":\"unregistered\"")), 1, Error));
     TestTrue(TEXT("Undo removes created object from current state"), Construction.Undo(false, 1, Error));
     TestNull(TEXT("Creation removed by undo"), Construction.Find(Created));
     TestTrue(TEXT("Redo restores created object"), Construction.Undo(true, 2, Error));
     TestNotNull(TEXT("Created object restored by redo"), Construction.Find(Created));
     FWarWorldEditHistory Legacy;
     Legacy.Initialize(Objects, Error);
-    const FString LegacyDraft = Legacy.ExportDraft().Replace(TEXT("\"schemaVersion\": 2"), TEXT("\"schemaVersion\": 1"));
-    TestTrue(TEXT("Legacy fixture has version one"), LegacyDraft.Contains(TEXT("\"schemaVersion\": 1")));
+    TSharedPtr<FJsonObject> LegacyRoot, LegacyBase;
+    TestTrue(TEXT("Legacy draft fixture parses"), FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Legacy.ExportDraft()), LegacyRoot));
+    TestTrue(TEXT("Legacy baseline fixture parses"), FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(LegacyRoot->GetStringField(TEXT("baseline"))), LegacyBase));
+    FString PrettyBase, LegacyDraft;
+    FJsonSerializer::Serialize(LegacyBase, TJsonWriterFactory<>::Create(&PrettyBase));
+    LegacyRoot->SetStringField(TEXT("baseline"), PrettyBase);
+    LegacyRoot->SetNumberField(TEXT("schemaVersion"), 1);
+    FJsonSerializer::Serialize(LegacyRoot, TJsonWriterFactory<>::Create(&LegacyDraft));
+    TestTrue(TEXT("Legacy fixture has pretty baseline whitespace"), PrettyBase.Contains(TEXT("\n")));
     TestTrue(TEXT("Version-one edit-only drafts remain readable"), Legacy.ImportDraft(LegacyDraft, 0, Error));
     FWarWorldEditHistory StableModels;
     StableModels.Initialize({ { TEXT("first"), Original, false, TEXT("mesh:hash") },
         { TEXT("second"), Original, false, TEXT("mesh:hash") } }, Error);
     StableModels.Create(Created, TEXT("first"), Moved, 0, Error);
     TestFalse(TEXT("A draft cannot change a live object's trusted template"), StableModels.ImportDraft(
-        StableModels.ExportDraft().Replace(TEXT("\"templateId\": \"first\""), TEXT("\"templateId\": \"second\"")), 1, Error));
+        StableModels.ExportDraft().Replace(TEXT("\"templateId\":\"first\""), TEXT("\"templateId\":\"second\"")), 1, Error));
     FWarWorldEditHistory Expanded;
     const TArray<FWarWorldEditObject> ExpandedObjects = { Objects[0], { TEXT("new_import"), Original, false } };
     Expanded.Initialize(ExpandedObjects, Error);
@@ -127,7 +137,7 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Expanded draft exports its new baseline"), RoundTrip.ImportDraft(Expanded.ExportDraft(), 0, Error));
     TestEqual(TEXT("Reconciled baseline does not repeatedly report additions"), RoundTrip.GetLoadedBaselineAdditions(), 0);
     TArray<FWarWorldEditObject> CityObjects;
-    for (int32 Index = 0; Index < 4000; ++Index)
+    for (int32 Index = 0; Index < 10000; ++Index)
         CityObjects.Add({ FName(*FString::Printf(TEXT("crownward_module_%04d"), Index)), Original, false,
             TEXT("/Game/LicensedKits/Crownward/SM_StoneWall:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef") });
     FWarWorldEditHistory LargeCity, ReloadedCity;
@@ -135,8 +145,9 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Fresh city baseline initializes"), ReloadedCity.Initialize(CityObjects, Error));
     const FString CityDraft = LargeCity.ExportDraft();
     TestTrue(TEXT("City exceeds the former draft cap"), CityDraft.Len() > 2000000);
+    TestTrue(TEXT("Full city draft remains below byte cap"), FTCHARToUTF8(*CityDraft).Length() < 8000000);
     TestTrue(TEXT("Large city draft round trips"), ReloadedCity.ImportDraft(CityDraft, 0, Error));
-    TestEqual(TEXT("All city modules survive draft reload"), ReloadedCity.GetObjects().Num(), 4000);
+    TestEqual(TEXT("All city modules survive draft reload"), ReloadedCity.GetObjects().Num(), 10000);
     TestFalse(TEXT("Oversized input remains bounded"), ReloadedCity.ImportDraft(FString::ChrN(8000001, TEXT(' ')), 1, Error));
     return true;
 }

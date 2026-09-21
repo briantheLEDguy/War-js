@@ -2,12 +2,15 @@
 
 ## Unreal migration
 
-The new [Crownward capital and castle](docs/unreal-crownward.md) is the editor
-startup map: `/Game/Capitals/crownward/AegisCapital_Workbench`. It provides 3,779
-editable kit placements, 32 houses, streets, a market, ramparts and a castle with
-keep, courtyard, towers and battlements. Press Play, then **G** for City Builder.
-Its local draft is separate from the original capital; full campaign and
-interior/traversal acceptance remain unfinished.
+Open **`unreal/AegisWar/AegisWar.uproject`** for the game and city together.
+The [integrated capital](docs/unreal-crownward.md) is both the editor and development
+game startup map: `/Game/Capitals/crownward/AegisCapital_Workbench`. CityKitStaging
+is a private asset-import workspace, not another game project. The city uses the
+original mountain terrain, five districts, 145 house sites and winding ascent to
+the hilltop castle, with 8,712 editable purchased-kit placements. Mara Vell and
+all five source crafting stations use the existing native gameplay systems.
+Press Play, **G** for City Builder, **I** for inventory, **L** for quests and **E**
+to interact. Full gameplay migration and city/interior parity remain unfinished.
 
 The approved Unreal 5.8.2 / Steam migration is in progress on
 `codex/unreal-migration`. The target preserves implemented gameplay and GM tools

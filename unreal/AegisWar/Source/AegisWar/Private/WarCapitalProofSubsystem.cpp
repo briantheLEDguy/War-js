@@ -2,6 +2,10 @@
 #include "WarWorldEditSubsystem.h"
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
+#include "WarPlayerState.h"
+#include "WarQuestNpc.h"
+#include "WarCraftingStation.h"
+#include "EngineUtils.h"
 #include "WarWorldEditPlacement.h"
 #include "WarWorldEditCatalog.h"
 #include "Components/BoxComponent.h"
@@ -47,6 +51,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetStringField(TEXT("detail"), Detail); Report->SetBoolField(TEXT("fullCapitalAcceptance"), false);
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
+    Report->SetBoolField(TEXT("capitalGameplayIntegrationVerified"), bGameplayIntegrationVerified);
     Report->SetBoolField(TEXT("placementSnappingVerified"), bPlacementSnappingVerified);
     Report->SetBoolField(TEXT("catalogSearchVerified"), bCatalogSearchVerified);
     Report->SetBoolField(TEXT("exactTransformVerified"), bExactTransformVerified);
@@ -82,6 +87,23 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     if (!Character || !Editor || (Stage < 3 && !Character->GetCharacterMovement()->IsMovingOnGround()))
     {
         if (Now - StartedAt > 30) Finish(false, TEXT("Capital character failed to reach authored ground."));
+        return;
+    }
+    if (Stage == 10)
+    {
+        if (Now - CityWalkStartedAt > 240)
+        { Finish(false, FString::Printf(TEXT("Grounded capital walk stalled at waypoint %d: %s"), CityRouteIndex, *Character->GetActorLocation().ToString())); return; }
+        while (CityRoute.IsValidIndex(CityRouteIndex)
+            && FVector::Dist2D(Character->GetActorLocation(), CityRoute[CityRouteIndex]) < 75)
+            ++CityRouteIndex;
+        if (!CityRoute.IsValidIndex(CityRouteIndex))
+        {
+            Character->GetCharacterMovement()->StopMovementImmediately();
+            bTraversalVerified = Character->GetCharacterMovement()->IsMovingOnGround();
+            Finish(bTraversalVerified, TEXT("Default game city: grounded ascent, quest/station interactions, GM construction and draft save verified.")); return;
+        }
+        FVector Direction = CityRoute[CityRouteIndex] - Character->GetActorLocation(); Direction.Z = 0;
+        Character->AddMovementInput(Direction.GetSafeNormal(), 1.f);
         return;
     }
     if (Stage == 3)
@@ -130,23 +152,77 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
             }
             FCollisionQueryParams Query(SCENE_QUERY_STAT(WarCrownwardRoute), false);
             Query.AddIgnoredActor(Character);
-            const FVector Route[] = { {0,-12500,120}, {0,-6000,120}, {0,0,120}, {0,6000,120}, {0,8000,120}, {0,9600,120} };
-            for (int32 Index = 1; Index < UE_ARRAY_COUNT(Route); ++Index)
+            FString FixtureJson;
+            TSharedPtr<FJsonObject> Fixture;
+            const TArray<TSharedPtr<FJsonValue>>* RouteValues = nullptr;
+            if (!CheckCity(FFileHelper::LoadFileToString(FixtureJson, *FPaths::Combine(FPaths::ProjectContentDir(),
+                TEXT("Migration/capital-development.json")))
+                && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(FixtureJson), Fixture)
+                && Fixture.IsValid() && Fixture->TryGetArrayField(TEXT("routes"), RouteValues)
+                && RouteValues->Num() > 2 && RouteValues->Num() < 2000, TEXT("Missing capital route fixture."))) return;
+            TArray<FVector> Route;
+            for (const auto& Value : *RouteValues)
+            {
+                const TArray<TSharedPtr<FJsonValue>>* XYZ = nullptr;
+                if (!CheckCity(Value->TryGetArray(XYZ) && XYZ->Num() == 3, TEXT("Invalid capital route point."))) return;
+                FVector Point((*XYZ)[0]->AsNumber(), (*XYZ)[1]->AsNumber(), (*XYZ)[2]->AsNumber());
+                if (!CheckCity(!Point.ContainsNaN() && Point.GetAbsMax() < 100000, TEXT("Invalid capital route bounds."))) return;
+                Route.Add(Point);
+            }
+            for (int32 Index = 1; Index < Route.Num(); ++Index)
             {
                 FHitResult Hit;
-                if (!CheckCity(!GetWorld()->SweepSingleByChannel(Hit, Route[Index - 1], Route[Index], FQuat::Identity, ECC_Pawn,
+                // Sweep within the character's step envelope. The subsequent actual
+                // grounded walk proves these small terrain variations are traversable.
+                const FVector StepAllowance(0,0,Character->GetCharacterMovement()->MaxStepHeight);
+                const bool bBlocked = GetWorld()->SweepSingleByChannel(Hit, Route[Index - 1] + StepAllowance, Route[Index] + StepAllowance, FQuat::Identity, ECC_Pawn,
                     FCollisionShape::MakeCapsule(Character->GetCapsuleComponent()->GetScaledCapsuleRadius(),
-                        Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()), Query),
-                    FString::Printf(TEXT("City route blocked at segment %d: %s"), Index, *Hit.ImpactPoint.ToString()))) return;
+                        Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()), Query);
+                if (!CheckCity(!bBlocked,
+                    FString::Printf(TEXT("City route blocked at segment %d by %s: %s"), Index,
+                        Hit.GetActor() ? *Hit.GetActor()->GetActorNameOrLabel() : TEXT("none"), *Hit.ImpactPoint.ToString()))) return;
+                FFindFloorResult Floor;
+                Character->GetCharacterMovement()->FindFloor(Route[Index], Floor, false);
+                if (!CheckCity(Floor.IsWalkableFloor(), FString::Printf(TEXT("City route has no walkable floor at %d."), Index))) return;
             }
-            bTraversalVerified = true;
+            const FVector Arrival = Character->GetActorLocation();
+            AWarQuestNpc* Dispatch = nullptr;
+            for (TActorIterator<AWarQuestNpc> It(GetWorld()); It; ++It)
+                if (It->NpcId == TEXT("quest-1") && It->ZoneId == TEXT("aegis_capital")) Dispatch = *It;
+            auto* State = Character->GetPlayerState<AWarPlayerState>();
+            if (!CheckCity(Dispatch && State, TEXT("Main-game dispatch NPC or player state missing."))) return;
+            const int32 Revision = State->GetInventory().Revision;
+            if (!CheckCity(!State->InteractQuest(Dispatch, TEXT("dawnline-01-scouting"), false, Revision, Error),
+                TEXT("Capital quest accepted from outside interaction range."))) return;
+            Character->SetActorLocation(Dispatch->GetActorLocation() + FVector(100,0,100), false, nullptr, ETeleportType::TeleportPhysics);
+            if (!CheckCity(State->InteractQuest(Dispatch, TEXT("dawnline-01-scouting"), false, Revision, Error)
+                && State->GetInventory().Quests.Num() == 1
+                && !State->InteractQuest(Dispatch, TEXT("dawnline-01-scouting"), false, Revision, Error),
+                TEXT("Capital quest acceptance/retry check failed: ") + Error)) return;
+            TSet<FName> StationKinds;
+            for (TActorIterator<AWarCraftingStation> It(GetWorld()); It; ++It)
+            {
+                Character->SetActorLocation(It->GetActorLocation() + FVector(100,0,100), false, nullptr, ETeleportType::TeleportPhysics);
+                if (!CheckCity(It->CanInteract(Character), TEXT("Capital station does not accept nearby interaction."))) return;
+                Character->SetActorLocation(It->GetActorLocation() + FVector(5000,0,100), false, nullptr, ETeleportType::TeleportPhysics);
+                if (!CheckCity(!It->CanInteract(Character), TEXT("Capital station accepts out-of-range interaction."))) return;
+                StationKinds.Add(It->StationKind);
+            }
+            if (!CheckCity(StationKinds.Num() == 5 && StationKinds.Contains(TEXT("general"))
+                && StationKinds.Contains(TEXT("apothecary")) && StationKinds.Contains(TEXT("cultivation"))
+                && StationKinds.Contains(TEXT("talisman_making")) && StationKinds.Contains(TEXT("salvage")),
+                TEXT("Capital lost source crafting station kinds."))) return;
+            Character->SetActorLocation(Arrival, false, nullptr, ETeleportType::TeleportPhysics);
+            bGameplayIntegrationVerified = true;
             const auto& Template = Editor->GetHistory().GetBaselineObjects()[0];
             FTransform Transform = Template.Transform; Transform.AddToTranslation(FVector(0,0,5000));
             FName Created;
             if (!CheckCity(Editor->Create(Player, Template.Id, Transform, 0, Created, Error), TEXT("City construction failed: ") + Error)) return;
             if (!CheckCity(Editor->Undo(Player, false, 1, Error) && Editor->Undo(Player, true, 2, Error), TEXT("City undo/redo failed: ") + Error)) return;
-            if (!CheckCity(Editor->SaveDraft(Player, 3, Error), TEXT("City save failed: ") + Error)) return;
-            Finish(true, TEXT("Crownward GM catalog, route sweeps, construction, undo/redo and draft save passed.")); return;
+            const bool bSaved = Editor->SaveDraft(Player, 3, Error);
+            if (!CheckCity(bSaved, TEXT("City save failed: ") + Error)) return;
+            CityRoute = MoveTemp(Route); CityRouteIndex = 0; CityWalkStartedAt = Now;
+            Character->GetCharacterMovement()->StopMovementImmediately(); Stage = 10; return;
         }
         StartPosition = Character->GetActorLocation(); Character->ToggleAutoRun(); Stage = 1; return;
     }
@@ -230,7 +306,7 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
                     FQuat::Identity, ECC_Pawn, FCollisionShape::MakeCapsule(Capsule->GetScaledCapsuleRadius(),
                         Capsule->GetScaledCapsuleHalfHeight()), Query);
                 if (!Check(!bBlocked, FString::Printf(TEXT("Kit doorway blocks capsule: actor=%s point=%s normal=%s penetrating=%d"),
-                    Hit.GetActor() ? *Hit.GetActor()->GetName() : TEXT("none"), *Hit.ImpactPoint.ToString(),
+                    Hit.GetActor() ? *Hit.GetActor()->GetActorNameOrLabel() : TEXT("none"), *Hit.ImpactPoint.ToString(),
                     *Hit.ImpactNormal.ToString(), Hit.bStartPenetrating))) return;
             }
             ++KitMeshes;

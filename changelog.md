@@ -1,3 +1,11 @@
+## 2026-09-21 - Integrated mountain capital in the main Unreal game
+
+- Made AegisWar the single playable project, with Crownward as both editor and development game startup. CityKitStaging remains a private asset-import workspace; the generator rejects execution there. Added a city-inclusive Windows Development packaging option and packaged runtime verification.
+- Replaced the flat city grid with the original terrain, canals, 145 house sites, five districts, 30 road paths and winding ascent to the 42-metre citadel terrace. Reused the authored mountain massif and repository textures behind the modular castle. The layout contains 8,712 editable purchased-kit pieces and 14 model types; wall spans preserve source scaling and houses retain their authored height.
+- Added the capital's native Mara Vell quest actor and all five source crafting stations to the game map. Preserved source identities, station kinds, positions and ranges; final character art, specialized station dressing and remaining capital actors are still pending.
+- Added native default-map, approximately 459-metre grounded ascent, quest/station interaction, construction and fresh-process draft checks. Fixed switchback road lips found during traversal and perimeter gaps found in offscreen renders. Compact GM draft serialization now fits the city within the unchanged 8 MB cap and reads previous pretty-printed drafts.
+- Passed the editor build, 21 native foundation groups (including 10,000-object draft and legacy-format tests), 85 tooling tests, nine layout/project-protection tests, tooling typecheck, native city walk/save/reload, Windows packaging and the same default-launch/gameplay/draft checks in the packaged game. Full gameplay migration, all interiors, other zones, shared authorization, Linux/macOS and Steam acceptance remain open; release admission remains closed.
+
 ## 2026-09-21 - Crownward kit capital and castle
 
 - Built a separate Aegis capital workbench with 3,779 authored placements from two owned kits: 32 complete houses, central avenue, furnished market, cross streets, ramparts and towers, plus a northern castle with keep, courtyard, gatehouse, windows, buttresses, stairs and battlements. No visible primitive fallback models are used.

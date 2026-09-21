@@ -9,6 +9,7 @@ import unreal
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from capital_kit_layout import build_layout
+from capital_game_world import build_terrain, build_gameplay
 
 directory = ROOT / "artifacts/unreal/licensed-kits"
 layout = build_layout()
@@ -16,6 +17,8 @@ target = layout["map"]
 receipt_path = directory / "capital-kit-build.json"
 if (ROOT / "unreal/AegisWar/Saved/WorldEdit/crownward-draft.json").exists():
     raise RuntimeError("Preserve the owner's Crownward draft; reconcile its baseline before regeneration")
+if Path(unreal.Paths.project_dir()).resolve() != (ROOT / "unreal/AegisWar").resolve():
+    raise RuntimeError("Build the playable city in AegisWar; CityKitStaging is only an import workspace")
 package_file = ROOT / "unreal/AegisWar/Content" / (target.removeprefix("/Game/") + ".umap")
 if unreal.EditorAssetLibrary.does_asset_exist(target):
     previous = json.loads(receipt_path.read_text()) if receipt_path.exists() else None
@@ -63,21 +66,11 @@ if not level.load_level(target):
 for actor in actors.get_all_level_actors():
     if ("WarCapitalBuilding" in [str(tag) for tag in actor.tags]
             or actor.get_actor_label().startswith("Authored Aegis ")
-            or actor.get_actor_label() == "Crownward level terrain"):
+            or actor.get_actor_label() == "Crownward level terrain"
+            or any(str(tag) in ["WarCrownwardTerrain", "WarCapitalGameplay"] for tag in actor.tags)):
         actors.destroy_actor(actor)
-ground_material = unreal.load_asset("/Game/Capitals/aegis_capital/TerrainMaterial_ground")
-corners = [(-18000, -19000), (18000, -19000), (18000, 17000), (-18000, 17000)]
-ground = unreal.WarImportLibrary.create_capital_surface("crownward", "ground",
-    # Unreal's front-face winding is clockwise; collision is double-sided but
-    # rendering is not, so the explicit order keeps the ground visible above.
-    [unreal.Vector(x, y, 0) for x, y in corners], [0, 2, 1, 0, 3, 2],
-    [unreal.Vector(0, 0, 1)] * 4, [unreal.Vector2D(x / 1000, y / 1000) for x, y in corners], ground_material, True)
-if not ground or not unreal.EditorAssetLibrary.save_loaded_asset(ground, only_if_is_dirty=False):
-    raise RuntimeError("Could not construct independent level city terrain")
-ground_actor = actors.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector())
-ground_actor.set_actor_label("Crownward level terrain")
-ground_actor.static_mesh_component.set_static_mesh(ground)
-ground_actor.static_mesh_component.set_collision_profile_name("BlockAll")
+geography = build_terrain(actors)
+gameplay = build_gameplay(actors)
 placed = []
 for row in layout["placements"]:
     kind, (sx, sy, sz) = row["kind"], row["scale"]
@@ -101,10 +94,11 @@ for row in layout["placements"]:
     placed.append({**row, "mesh": meshes[kind].get_path_name()})
 for actor in actors.get_all_level_actors():
     if isinstance(actor, unreal.PlayerStart):
-        actor.set_actor_location_and_rotation(unreal.Vector(*layout["arrival"]), unreal.Rotator(yaw=90), False, True)
+        actor.set_actor_location_and_rotation(unreal.Vector(*layout["arrival"]), unreal.Rotator(yaw=0), False, True)
 if not level.save_current_level():
     raise RuntimeError("Could not save Crownward")
-receipt_path.write_text(json.dumps({**layout, "placements": placed, "dependencyFingerprint": fingerprint,
+receipt_path.write_text(json.dumps({**layout, "geography": geography, "gameplay": gameplay, "placements": placed, "dependencyFingerprint": fingerprint,
     "mapSha256": hashlib.sha256(package_file.read_bytes()).hexdigest(), "gmRuntimeVerified": False,
     "traversalVerified": False, "visualApproved": False}, indent=2) + "\n")
+(ROOT / "unreal/AegisWar/Content/Migration/capital-development.json").write_text(json.dumps({"map": target, "routes": layout["routes"], "gameplay": gameplay}) + "\n")
 unreal.log("WAR_CROWNWARD_BUILT=" + str(len(placed)))

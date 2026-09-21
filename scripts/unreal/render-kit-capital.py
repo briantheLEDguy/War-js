@@ -33,11 +33,11 @@ settings.auto_exposure_apply_physical_camera_exposure = True
 component.post_process_settings = settings
 views = []
 for view, eye_values, center_values in [
-    ("city", (20000, -27000, 21000), (0, -500, 0)),
-    ("castle", (8000, 2500, 6500), (0, 9300, 800)),
-    ("avenue", (0, -11500, 230), (0, 6300, 700)),
-    ("market", (3500, -3200, 600), (1000, 0, 140)),
-    ("courtyard", (2400, 6800, 250), (0, 10500, 700))]:
+    ("city", (-37000, -31000, 23500), (12000, 0, 5200)),
+    ("castle", (11000, -8000, 10600), (17800, 0, 5100)),
+    ("avenue", (-11000, 0, 230), (20000, 0, 6800)),
+    ("market", (-13300, -3700, 620), (-9200, 1500, 200)),
+    ("courtyard", (14800, -2400, 4450), (18500, 0, 5000))]:
     eye, center = unreal.Vector(*eye_values), unreal.Vector(*center_values)
     rotation = unreal.MathLibrary.find_look_at_rotation(eye, center)
     capture.set_actor_location_and_rotation(eye, rotation, False, True)

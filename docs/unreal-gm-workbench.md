@@ -1,10 +1,11 @@
 # Native capital GM workbench
 
-The editor now starts in [Crownward](unreal-crownward.md), a separate kit-built
-capital and castle with 3,779 editable placements and 14 catalog models. Its
-draft is `Saved/WorldEdit/crownward-draft.json`. The reference workbench described
-below remains available with its original content and draft. Both use the same
-development GM controls; Crownward's native route/construction/reload checks do
+The editor and development game now start in the [integrated kit capital](unreal-crownward.md)
+inside AegisWar, with 8,712 editable placements and 14 kit catalog models. It
+preserves the original mountain geography, districts and house sites, and adds
+native dispatch/crafting actors. Its draft is `Saved/WorldEdit/crownward-draft.json`.
+The reference workbench below retains its original content and separate draft.
+CityKitStaging is only an asset-import workspace. These development checks do
 not establish complete campaign, interior or shared multiplayer acceptance.
 
 The Aegis development workbench now has an in-game **City Builder**, opened with

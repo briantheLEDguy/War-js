@@ -2,6 +2,7 @@
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
+#include "Policies/CondensedJsonPrintPolicy.h"
 
 namespace
 {
@@ -31,10 +32,13 @@ namespace
         }
         return Result;
     }
-    FString BaselineText(const TArray<FWarWorldEditObject>& Objects)
+    FString BaselineText(const TArray<FWarWorldEditObject>& Objects, const bool bCompact = true)
     {
         const auto Root = MakeShared<FJsonObject>(); Root->SetArrayField(TEXT("objects"), Rows(Objects));
-        FString Json; FJsonSerializer::Serialize(Root, TJsonWriterFactory<>::Create(&Json)); return Json;
+        FString Json;
+        if (bCompact) FJsonSerializer::Serialize(Root, TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Json));
+        else FJsonSerializer::Serialize(Root, TJsonWriterFactory<>::Create(&Json));
+        return Json;
     }
 }
 
@@ -143,7 +147,7 @@ FString FWarWorldEditHistory::ExportDraft() const
     const auto Root = MakeShared<FJsonObject>();
     Root->SetNumberField(TEXT("schemaVersion"), 2); Root->SetStringField(TEXT("zoneId"), TEXT("aegis_capital"));
     Root->SetStringField(TEXT("baseline"), BaselineText(Baseline)); Root->SetArrayField(TEXT("objects"), Rows(Current));
-    FString Json; FJsonSerializer::Serialize(Root, TJsonWriterFactory<>::Create(&Json)); return Json;
+    FString Json; FJsonSerializer::Serialize(Root, TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Json)); return Json;
 }
 
 bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 ExpectedRevision, FString& Error)
@@ -179,7 +183,8 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
         ExpectedBase.Add(*Original); SavedIds.Add(Original->Id);
     }
     ExpectedBase.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
-    if (Base != BaselineText(ExpectedBase))
+    // Older drafts embedded a pretty-printed baseline; accept both exact formats.
+    if (Base != BaselineText(ExpectedBase) && Base != BaselineText(ExpectedBase, false))
     { Error = TEXT("An existing authored object or model changed. Resolve the draft conflict before loading."); return false; }
     TArray<FWarWorldEditObject> Next;
     for (const auto& Value : *Objects)

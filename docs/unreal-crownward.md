@@ -1,66 +1,97 @@
-# Crownward capital and castle
+# Integrated Aegis capital and castle
 
-Open `unreal/AegisWar/AegisWar.uproject`. The editor startup map is now
-`/Game/Capitals/crownward/AegisCapital_Workbench`. If the editor is already open,
-open that level through the Content Browser. Press Play, then **G** for City
-Builder. **Fly / walk**, **Arrival**, and speed controls remain available.
+Open `unreal/AegisWar/AegisWar.uproject`. **AegisWar is the game project**;
+`artifacts/unreal/licensed-kits/CityKitStaging` is only a private import workspace.
+Both the editor startup and development game default map are
+`/Game/Capitals/crownward/AegisCapital_Workbench`. CityKitStaging does not contain
+the game module and should not be used to play or build the game.
 
-This is a new editable Aegis capital layout using the installed Medieval Houses
-Modular Vol2 and Medieval Modular Town kits. It contains 32 complete house assemblies, a central avenue,
-market square with eight stalls, benches, barrels and crates, cross streets, outer ramparts and towers, and a northern castle.
-The castle has a 72 × 60 metre curtain enclosure, four projecting corner towers,
-a twin-tower gatehouse, courtyard, an 18 × 24 metre keep with upper floors,
-windows and buttresses, roof battlements and stone stairs. The terrain is
-independent of the original capital's slopes and canals.
+Press Play in AegisWar. **G** opens City Builder, **I** inventory/crafting,
+**L** the quest log and **E** interacts with a nearby NPC or station. Standalone
+development GM sessions additionally require `-WarDevelopmentGM`. Production
+admission remains closed pending Steam ownership and all migration gates.
 
-There are 3,779 editable placements and 14 unique authored mesh types. Every
-visible building piece comes from the purchased kit. Independent ground is
-allowed terrain construction, not a scenery fallback. The kit's incomplete
-04a/b/c construction stages were excluded from housing after visual inspection.
-The other town kit's merged building remains outside this map pending its
-entrance/door adaptation.
+## Original geography, purchased architecture
 
-The original workbench, campaign source identities and drafts remain intact.
-Crownward saves local GM edits to `Saved/WorldEdit/crownward-draft.json`; the
-reference capital retains `aegis_capital-draft.json`. Drafts remain revision
-checked, bounded to 8 MB, and protected against unnoticed external changes.
-The generator refuses to overwrite a map whose saved bytes have changed since
-its last generation receipt, and refuses regeneration once an owner Crownward
-draft exists until that baseline is explicitly reconciled. Save in-game drafts
-before leaving Play.
+The earlier flat city grid has been replaced. The level shares the original
+Aegis terrain and canals and retains all 145 house-site identities, the five
+source districts (Gateward Market, Cinderbank, Lantern Quays, Bellfound Court,
+Crownwatch), and the 30 source road paths. Complete purchased house assemblies
+are fitted within the existing plots while retaining their authored height. The main road winds uphill from the lower
+city to the 42-metre citadel terrace. The modular castle occupies that terrace:
+curtain enclosure, four projecting towers, twin-tower gatehouse, courtyard,
+multistorey keep and battlements. The original eroded granite massif rises
+behind it; its authored GLB geometry and repository textures are reused. Two
+zero-area edge triangles are discarded during native import.
 
-## Reproduction and verification
+There are 8,712 editable placements using 14 kit mesh types. Ground, roads and
+mountains are terrain construction, not primitive scenery substitutes. The
+source city and its old workbench remain available for reference. This restores
+the source geography and house sites; it does not establish complete parity for
+public buildings, every interior, mountain passages, encounters or travel.
 
-Purchased source packages are private and Git-ignored. A fresh checkout requires
-the licensed pack in CityKitStaging and the existing terrain/character bootstrap.
-Run these Unreal Python scripts in order with `UnrealEditor-Cmd`, unattended:
+## Gameplay integration
 
-1. In CityKitStaging, `stage-capital-kit.py` stages an explicit mesh selection
-   and its checked dependency closure. Run `inspect-capital-kit-props.py` and
-   `stage-capital-kit-props.py` there as well for town-kit market furnishings.
-2. In AegisWar, `build-kit-capital.py` builds the new map from the deterministic
-   `capital_kit_layout.py` specification. `-NullRHI` is sufficient.
-3. `npm run unreal:crownward-proof` runs native GM construction, undo/redo,
-   save and fresh-process reload checks, plus capsule sweeps along the arrival,
-   avenue, castle gate and main-hall route. It uses isolated test drafts.
-4. `render-kit-capital.py` runs with `-RenderOffscreen -AllowCommandletRendering
-   -NoTextureStreaming` and exports city/castle/avenue/courtyard images under
-   `artifacts/unreal/licensed-kits/` without using desktop input.
+The city runs the main project's `WarGameMode`, `WarCharacter`, player state,
+ability system, inventory, quest HUD and GM subsystem. Mara Vell is placed at her
+original capital position and uses the existing native quest NPC class and
+catalog identity. All five source crafting stations retain their kinds, positions
+and interaction radii, using an imported authored command-table model. Their
+specialized visual dressing and the dispatch character's final art approval
+remain pending. The existing development characters remain a limited roster.
+Fresh development sessions do not establish durable online progression.
 
-`python tests/unrealCapitalLayout.test.py` checks deterministic identities,
-castle sections, main-route wall gaps and builder bounds. Native foundation
-tests include a 4,000-object draft round trip and rejection above the size cap.
+CityKitStaging provides only selected purchased static assets and their verified
+dependency closure. Native code, gameplay content, map assembly and packaging
+remain in AegisWar. Raw purchased packages stay private and Git-ignored.
 
-This is a development city for exploration and GM authoring, not complete
-campaign/world parity. NPCs, services, encounters and travel from the original
-capital have not been transferred into this new layout. Every house interior,
-stair route, wall walk, collision seam, lighting condition and district-scale
-performance still needs full playtesting. Windows editor checks do not establish
-Linux/macOS, packaged-build or release acceptance. Shared GM authentication and
-licensed-asset distribution review remain open; release admission stays closed.
+## Editing and reproduction
 
-Verified locally on 2026-09-21: the final 3,779-placement native GM/route/reload
-receipt is `artifacts/unreal/capital-proof/crownward-1790004111151/report.json`.
-All 21 native foundation groups, 85 migration-tooling tests and six layout/owner
-draft protection tests passed; tooling typecheck and Python syntax checks passed.
-City, castle, courtyard, avenue and market offscreen renders were inspected.
+Crownward drafts use `Saved/WorldEdit/crownward-draft.json`; the reference capital
+uses its own draft. Drafts are revision checked and bounded to 8 MB. Compact JSON keeps city-scale
+saves within that limit; older pretty-printed drafts remain readable. The generator
+refuses regeneration if an owner draft exists or the map changed after its last
+generation receipt. Save in-game drafts before leaving Play. Existing drafts
+require explicit baseline reconciliation before changing generated geography.
+
+1. Stage the licensed selections in CityKitStaging using `stage-capital-kit.py`,
+   `inspect-capital-kit-props.py` and `stage-capital-kit-props.py`.
+2. In AegisWar, run `build-kit-capital.py` via an unattended Unreal Python commandlet.
+   It requires the original terrain import, admitted development characters and
+   imported command table. `capital_geography.py` reads the original source;
+   `capital_kit_layout.py` builds the modular plan; `capital_game_world.py` assembles
+   terrain and existing native gameplay actors.
+3. Run `npm run unreal:crownward-proof`. Its first process uses the configured
+   default game map, with no explicit map override. Tests cover the sampled
+   459-metre grounded ascent, native quest range/acceptance/retry, station ranges and kinds, GM
+   construction/undo/redo and isolated fresh-process draft reload.
+4. Run `render-kit-capital.py` with `-RenderOffscreen -AllowCommandletRendering
+   -NoTextureStreaming` for screenshots without desktop input.
+5. Use `npm run unreal:package-proof -- --include-crownward` for a private
+   Development package containing the city and existing test map. This is not
+   release or licensed-distribution approval. Verify the packaged client with
+   `npm run unreal:crownward-proof -- --packaged-root artifacts/unreal/packages/Win64`.
+
+`python tests/unrealCapitalLayout.test.py` checks geography, source identities,
+castle elevation, complete house types, paired market frames and owner-draft
+protection. Full interior/seam traversal, performance, shared GM authentication,
+Linux/macOS and Steam release checks remain required.
+
+Verified locally on 2026-09-21: the final 8,712-placement editor-game default
+launch, grounded walk, quest/station checks and fresh-process GM reload passed
+at `artifacts/unreal/capital-proof/crownward-1790007084260/report.json`.
+The saved draft measured 5,676,420 bytes. All 21 native foundation groups passed,
+including a 10,000-object draft and legacy-format loading, at
+`artifacts/unreal/editor/test-1790007041396-30036`. Offscreen city, avenue, castle,
+courtyard and market views were produced; the city and avenue were inspected
+after fixing wall spans, road lips and house height. Further visual acceptance
+and complete interiors remain pending.
+
+The private Windows Development package built successfully and passed the same
+native default-launch/walk/gameplay/draft sequence outside the editor at
+`artifacts/unreal/capital-proof/crownward-1790007424996/report.json`.
+The package is under `artifacts/unreal/packages/Win64`. This packaged run used
+NullRHI; the screenshots above are editor commandlet captures, not a packaged
+rendering/performance claim. Tooling verification: 85 tests, nine Python tests
+and TypeScript checks passed. The release check still reports four blocking
+categories and all 39 full-parity contracts remain pending.
