@@ -1,3 +1,10 @@
+## 2026-09-21 — Restore capital rowhouses and expand the GM catalog
+
+- Imported both authored Aegis rowhouse models through repository hash/QC, Blender round-trip and native material/mesh checks. Restored all 36 source placements, bringing the capital workbench to 145 residential objects across eight models; 1,735 other prop identities remain explicitly pending.
+- Verified saved transforms and 725 native collision traces, rendered both rowhouses and the expanded builder UI, and passed editor/Windows-package capital construction and fresh-process draft reload. A draft saved before the actual map expansion restored its GM-created model alongside all new authored objects.
+- Added a real-catalog regression test (83 tooling tests pass), kept typechecking and ten Python importer tests passing, and derived runtime proof counts from validated placement identities. Isolated model renders now use an explicitly recorded, unsaved inspection fill light; playable lighting is unchanged.
+- Full geometry, LOD/performance, capital traversal, remaining GM/world functionality and Riftspire remain unapproved. No primitive substitute was introduced and release admission remains closed.
+
 ## 2026-09-21 — Keep GM drafts usable as capital content grows
 
 - Older development drafts now retain newly imported authored objects alongside saved edits and GM construction. Loading reports the added baseline count; resaving advances the draft baseline and undo restores the previous document.

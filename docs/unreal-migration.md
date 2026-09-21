@@ -24,7 +24,7 @@ are outstanding migration debt, not a completed cleanup.
 The owner resumed work after changing models at the first implementation
 checkpoint. `docs/unreal-checkpoint-1.md` records that historical checkpoint.
 
-All six city house variants now have native imports and limited material inspection;
+Six city house variants and two rowhouses now have native imports and limited material inspection;
 see `docs/unreal-building-import.md` for evidence and outstanding geometry,
 collision, LOD and placement checks. This does not close the world/model gates.
 
@@ -33,11 +33,11 @@ collision, LOD and placement checks. This does not close the world/model gates.
 | Stage | Required outcome | Current evidence |
 |---|---|---|
 | 0: inventory | Complete behavior/content/model ledgers and reproducible source fingerprints | Exporter, 39 detailed behavior contracts, asset resolver/GLB audit and readiness report implemented; art/rights review remains open |
-| 1: engine proof | Native builds on three OSes, Linux server, representative imports and two-client movement/combat | Windows Editor and Development package build; four admitted character sources, a command table and a city house imported; raw/compressed pose checks and two-client combat/movement pass, including packaged Windows clients. Linux/server, macOS, equipment, moving mechanisms and full visual acceptance remain open |
+| 1: engine proof | Native builds on three OSes, Linux server, representative imports and two-client movement/combat | Windows Editor and Development package build; four admitted character sources, a command table and eight residential building models imported; raw/compressed pose checks and two-client combat/movement pass, including packaged Windows clients. Linux/server, macOS, equipment, moving mechanisms and full visual acceptance remain open |
 | 2: assets | All character/species/environment replacements, rig/animation/equipment/LOD validation, primitive deletion | Incomplete; audit reports blocked/candidate rows, never fabricated approval |
 | 3: RPG | All current combat, progression, inventory, gathering/crafting, quests and HUD behavior under server authority | Inventory rules pass seven browser-derived scenarios; private inventory, atomic exchanges, deferred delivery, consumables, recipes, salvage and timed cultivation have native/two-client evidence. Initial inventory, portable/station crafting and cultivation controls implemented. Browser-derived XP/level/stat growth, atomic progression rewards and respawn retention pass native, editor-client and packaged Windows two-client tests. Resource gathering rules/actor integration added; rendered node placements and corpse harvesting remain pending. Both expedition chains have browser-fixture/native rule tests and trusted character-state integration. Quest logs, revision-checked NPC dialogue RPCs and private offer/turn-in markers have Windows runtime evidence. Camera orbit/zoom, modal blocking and respawn continuity also pass native and packaged tests. Complete UI/profession/world parity, navigation, durable economy and remaining RPG systems are pending |
 | 4: online | Steam ownership, full characters/economy/chat, handoffs, supplies/siege/campaign, durable recovery | Pending; native production admission remains closed |
-| 5: world/GM | All 32 campaign zones, 70 directed routes, interiors/lifts, atlas/wiki/settings and runtime GM editor | Partial development evidence: Aegis authored terrain, 109 house placements and local runtime GM transforms, construction from six house models, undo/redo and fresh-process draft reload. Remaining capital content, Riftspire, shared GM authorization, terrain tools and publication are pending; the full gate stays closed |
+| 5: world/GM | All 32 campaign zones, 70 directed routes, interiors/lifts, atlas/wiki/settings and runtime GM editor | Partial development evidence: Aegis authored terrain, 145 residential placements and local runtime GM transforms, construction from eight house/rowhouse models, undo/redo and fresh-process draft reload. Remaining capital content, Riftspire, shared GM authorization, terrain tools and publication are pending; the full gate stays closed |
 | 6: hardening | WAN, simultaneous 18v18 fronts, crashes/retries/backup restore, platform and performance acceptance | Pending |
 | 7: Steam | Playtest, native depots, clean install/update, disclosures/review and release | Pending; no store or deployment action performed |
 
@@ -151,7 +151,7 @@ Any animation conversion failure is a failed experiment, not a reason to strip
 the animations or replace the character with a primitive.
 
 `scripts/unreal/import-models.py` consumes verified conversion receipts and
-imports the command table, city house, three NPC samples and the Warbrute source into `/Game/Imported/`. Run
+imports the command table, eight residential models, three NPC samples and the Warbrute source into `/Game/Imported/`. Run
 `npm run unreal:import -- --profile frontier_field_command_table` after building
 the Editor; the other supported sample keys are
 `npc_frontier_sunmeadow_empire_herbalist` and

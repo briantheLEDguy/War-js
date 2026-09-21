@@ -15,7 +15,7 @@ document = json.loads((directory / "props.json").read_text())
 if digest(ROOT / "public/assets/maps/aegis_capital.json") != receipt["sourceSha256"] or digest(directory / "props.json") != receipt["propsInputSha256"]:
     raise RuntimeError("Stale capital buildings")
 for profile, expected in receipt["modelImports"].items():
-    if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)):
+    if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2"):
         raise RuntimeError("Unknown house profile")
     if digest(ROOT / "artifacts/unreal/converted" / profile / "editor-import.json") != expected:
         raise RuntimeError("House import changed after placement")

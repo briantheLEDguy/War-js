@@ -21,7 +21,7 @@ if building_receipt.is_file():
     if buildings["sourceSha256"] != receipt["sourceSha256"] or digest(directory / "props.json") != buildings["propsInputSha256"]:
         raise RuntimeError("Stale building placements")
     for profile, expected in buildings["modelImports"].items():
-        if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)):
+        if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2"):
             raise RuntimeError("Unknown building profile")
         if digest(ROOT / "artifacts/unreal/converted" / profile / "editor-import.json") != expected:
             raise RuntimeError("Building import changed")
@@ -30,6 +30,10 @@ if not unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level(recei
     raise RuntimeError("Capital workbench missing")
 world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
 actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+review_fill = actors.spawn_actor_from_class(unreal.DirectionalLight, unreal.Vector(0, 0, 20000), unreal.Rotator(pitch=-35, yaw=145))
+review_fill.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
+review_fill.light_component.set_editor_property("intensity", 12500.0)
+review_fill.light_component.set_visibility(False)
 capture = actors.spawn_actor_from_class(unreal.SceneCapture2D, unreal.Vector())
 component = capture.capture_component2d
 target = unreal.RenderingLibrary.create_render_target2d(world, 1280, 960, unreal.TextureRenderTargetFormat.RTF_RGBA8)
@@ -58,8 +62,15 @@ view_specs = [("overview", (-30000, -26000, 28000), (5000, 0, 0)),
                          ("house-front", (-10992, -11420, 950), (-12492, -12920, 600))]
 if building_hash:
     placements = json.loads((directory / "props.json").read_text())["housePlacements"]
+    arrival = json.loads((ROOT / "public/assets/maps/aegis_capital.json").read_text())["spawnPoint"]
     for profile in sorted(buildings["modelImports"]):
         placement = next(row for row in placements if row["profileKey"] == profile)
+        if profile.startswith("aegis_rowhouse_"):
+            # Elevated first instances can be occluded by adjacent authored
+            # terrain. Inspect an arrival-side instance without altering it.
+            placement = min((row for row in placements if row["profileKey"] == profile),
+                key=lambda row: (row["position"]["X"] - arrival["z"] * 100) ** 2
+                    + (row["position"]["Y"] - arrival["x"] * 100) ** 2)
         isolated_ids[profile] = placement["id"]
         p = placement["position"]
         bounds = json.loads((ROOT / "artifacts/unreal/converted" / profile / "conversion.json").read_text())["before"]["boundsMeters"]
@@ -67,8 +78,15 @@ if building_hash:
         distance = max(bounds["max"][i] - bounds["min"][i] for i in range(3)) * 130
         view_specs.append((profile, (p["X"] + distance, p["Y"] + distance, p["Z"] + height * 0.8),
                            (p["X"], p["Y"], p["Z"] + height * 0.45)))
+        if profile.startswith("aegis_rowhouse_"):
+            isolated_ids[profile + "-reverse"] = placement["id"]
+            view_specs.append((profile + "-reverse", (p["X"] - distance, p["Y"] - distance, p["Z"] + height * 0.8),
+                               (p["X"], p["Y"], p["Z"] + height * 0.45)))
 for name, eye, focus in view_specs:
     selected_id = isolated_ids.get(name)
+    # An inspection-only fill exposes the unlit side of isolated models. It is
+    # disabled in world views and never saved into the playable map.
+    review_fill.light_component.set_visibility(selected_id is not None)
     for actor in house_actors:
         actor.static_mesh_component.set_visibility(selected_id is None or selected_id in [str(tag) for tag in actor.tags])
     position = unreal.Vector(*eye)
@@ -84,7 +102,7 @@ for name, eye, focus in view_specs:
     if not path.is_file():
         raise RuntimeError("Missing capital rendered image")
     views.append({"view": name, "path": path.relative_to(ROOT).as_posix(), "sha256": digest(path),
-                  "isolatedObjectId": selected_id})
+                  "isolatedObjectId": selected_id, "inspectionFillLight": selected_id is not None})
 receipt_path.write_text(json.dumps({"schemaVersion": 1, "sourceSha256": receipt["sourceSha256"],
     "terrainInputSha256": receipt["terrainInputSha256"], "views": views,
     "buildingImportSha256": building_hash,

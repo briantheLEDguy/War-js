@@ -48,7 +48,8 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
                 Catalog->AddSlot().AutoHeight()[CatalogRow.ToSharedRef()];
             }
             FString MeshPath; Row.SourceIdentity.Split(TEXT(":"), &MeshPath, nullptr);
-            const FString Label = FPaths::GetBaseFilename(MeshPath).Replace(TEXT("aegis_house_"), TEXT("House "));
+            const FString Label = FPaths::GetBaseFilename(MeshPath).Replace(TEXT("aegis_house_"), TEXT("House "))
+                .Replace(TEXT("aegis_rowhouse_"), TEXT("Rowhouse "));
             CatalogRow->AddSlot().FillWidth(1)[Button(Label, [Weak, Id = Row.Id] {
                 if (Weak.IsValid()) Weak->PlaceTemplate(Id); return FReply::Handled(); })];
         }

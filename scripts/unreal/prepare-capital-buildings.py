@@ -21,7 +21,7 @@ require(document["schemaVersion"] == 1 and document["sourceSha256"] == terrain["
 input_hash = imports.sha256(directory / "props.json")
 contexts, meshes, model_imports = {}, {}, {}
 for profile in sorted({row["profileKey"] for row in document["housePlacements"]}):
-    require(profile in tuple("aegis_house_" + str(index) for index in range(1, 7)), "Unadmitted house profile")
+    require(profile in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2"), "Unadmitted house profile")
     context = imports.validate_inputs(profile)
     receipt_path = context["directory"] / "editor-import.json"
     receipt = imports.load_json(receipt_path)

@@ -82,3 +82,36 @@ Import evidence is fingerprinted separately for each profile. The expanded
 placement ledger has a regression test retaining all unsupported/invisible
 definitions. All 82 tooling tests, tools typechecking and ten Python import
 preflight tests pass. No native runtime code changed in this expansion.
+
+## Rowhouse restoration
+
+Two authored repository rowhouse sources now add 36 original placements, bringing
+the residential set to 145 objects across eight models. The other 1,735 prop
+identities remain pending. Blender round trips, source/QC fingerprints, native
+imports, saved transforms and 725 sampled wall/top collision traces passed.
+Both rowhouses are included in the development City Builder catalog.
+
+Runtime acceptance now derives the expected object count from the validated
+placement ledger. A draft actually saved before the 36-object expansion was
+loaded into the expanded capital: its GM-created complex house and collision
+were restored alongside all 145 authored buildings. That proof retained 37
+baseline additions because its older test fixture deliberately omitted one
+original house as well. The receipt is
+`unreal/AegisWar/Saved/CapitalProof/rowhouse-existing-draft-20260921/report.json`.
+This verifies this additive map transition; conflicting world revisions remain
+rejected and full capital/GM acceptance remains false.
+
+The expanded native capital proof passed in editor
+`artifacts/unreal/capital-proof/1789991162489-6400/` and Windows package
+`artifacts/unreal/capital-proof/1789991357497-7432/`. Both include separate-process
+draft reconstruction. The packaged eight-model catalog is readable and its
+rendered character/buildings were inspected. Tooling tests now pass 83 cases;
+tools typechecking and ten Python import preflight tests also pass.
+
+Initial isolated rowhouse views exposed terrain occlusion and deep shadows, so
+the renderer now selects arrival-side rowhouse instances and takes reverse
+views. Isolated models receive a temporary inspection fill light recorded in
+the render receipt. World views keep the playable lighting, and the renderer
+does not save its visibility or lighting changes. The reviewed rowhouse images
+show authored facades, roofs, windows and materials; full geometry, native LODs,
+performance and all-instance traversal remain pending.

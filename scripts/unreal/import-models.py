@@ -31,6 +31,8 @@ PROFILES = (
     "aegis_house_4",
     "aegis_house_5",
     "aegis_house_6",
+    "aegis_rowhouse_1",
+    "aegis_rowhouse_2",
     "npc_frontier_sunmeadow_empire_farmer",
 )
 PROFILE_TAG = "WarMigrationProfile"

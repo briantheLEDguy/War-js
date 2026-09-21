@@ -7,7 +7,7 @@ import { isMain, repoRoot } from './toolchain';
 
 interface CapitalProps { id: string; size: number; cityElevation: CityElevation; props: PropSpawn[] }
 export const CAPITAL_HOUSE_PROFILES = ['aegis_house_1', 'aegis_house_2', 'aegis_house_3',
-  'aegis_house_4', 'aegis_house_5', 'aegis_house_6'];
+  'aegis_house_4', 'aegis_house_5', 'aegis_house_6', 'aegis_rowhouse_1', 'aegis_rowhouse_2'];
 
 /** FBX imports use (source X, source Z, source Y); world uses (Z, X, Y).
  * A quarter turn with negative local Y scale performs that reflection. */

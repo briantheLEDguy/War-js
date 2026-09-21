@@ -87,9 +87,12 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     }
     FString Error;
     const auto Check = [this](const bool Passed, const FString& Detail) { if (!Passed) Finish(false, Detail); return Passed; };
+    int32 ExpectedObjects = 0;
+    if (!Check(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedObjects="), ExpectedObjects)
+        && ExpectedObjects > 0 && ExpectedObjects <= 10000, TEXT("Missing expected authored object count."))) return;
     if (!Check(!Editor->CanUse(nullptr), TEXT("Unauthenticated workbench access allowed."))) return;
     Player->ToggleWorldEditor();
-    if (!Check(Editor->GetHistory().GetObjects().Num() == 109 && Player->IsMoveInputIgnored() && Player->IsLookInputIgnored(),
+    if (!Check(Editor->GetHistory().GetObjects().Num() == ExpectedObjects && Player->IsMoveInputIgnored() && Player->IsLookInputIgnored(),
         FString::Printf(TEXT("GM panel did not open: %s; map=%s net=%d"), *Player->GetWorldEditMessage(),
             *GetWorld()->GetMapName(), static_cast<int32>(GetWorld()->GetNetMode())))) return;
     const auto CheckCreated = [&](const FName CreatedId) {
@@ -109,9 +112,11 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     };
     if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")))
     {
+        int32 ExpectedAdditions = 1;
+        FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedAdditions="), ExpectedAdditions);
         Player->ServerWorldEditDraft(true, 0);
-        if (!Check(Editor->GetHistory().GetObjects().Num() == 110, TEXT("Fresh process did not restore construction draft."))) return;
-        if (!Check(Editor->GetHistory().GetLoadedBaselineAdditions() == 1, TEXT("Fresh process did not retain the newly authored object."))) return;
+        if (!Check(Editor->GetHistory().GetObjects().Num() == ExpectedObjects + 1, TEXT("Fresh process did not restore construction draft."))) return;
+        if (!Check(Editor->GetHistory().GetLoadedBaselineAdditions() == ExpectedAdditions, TEXT("Fresh process did not retain newly authored objects."))) return;
         const auto* Created = Editor->GetHistory().GetObjects().FindByPredicate([](const auto& Row) { return !Row.TemplateId.IsNone(); });
         if (!Check(Created != nullptr, TEXT("Fresh draft lost created identity.")) || !CheckCreated(Created->Id)) return;
         Finish(true, TEXT("Fresh process restored the constructed complex building, transform and blocking collision.")); return;
@@ -170,7 +175,7 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     if (!Check(Editor->GetHistory().GetRevision() == BeforeCreate, TEXT("Stale building creation accepted."))) return;
     Player->ServerCreateWorldObject(Id, Placed, BeforeCreate);
     const auto* Created = Editor->GetHistory().GetObjects().FindByPredicate([](const auto& Row) { return !Row.TemplateId.IsNone(); });
-    if (!Check(Created != nullptr && Editor->GetHistory().GetObjects().Num() == 110, TEXT("GM construction failed."))) return;
+    if (!Check(Created != nullptr && Editor->GetHistory().GetObjects().Num() == ExpectedObjects + 1, TEXT("GM construction failed."))) return;
     const FName CreatedId = Created->Id;
     if (!CheckCreated(CreatedId)) return;
     Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());

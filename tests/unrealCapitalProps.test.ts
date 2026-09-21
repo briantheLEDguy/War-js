@@ -1,8 +1,20 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { buildCapitalProps, CAPITAL_HOUSE_PROFILES, capitalPropPlacement } from '../scripts/unreal/capital-props';
 
 describe('authored capital prop placement', () => {
-  it('retains every identity while admitting only the six explicit house variants', () => {
+  it('restores all 36 authored rowhouses without losing the other capital identities', () => {
+    const map = JSON.parse(readFileSync(new URL('../public/assets/maps/aegis_capital.json', import.meta.url), 'utf8'));
+    const result = buildCapitalProps(map);
+    expect(result.objects).toHaveLength(1880);
+    expect(result.housePlacements).toHaveLength(145);
+    for (const profile of ['aegis_rowhouse_1', 'aegis_rowhouse_2']) {
+      const actual = result.housePlacements.filter(row => row.profileKey === profile);
+      expect(actual).toHaveLength(18);
+      expect(actual.every(row => row.colliders.length > 0 && row.source.model === `prop_${profile}.glb`)).toBe(true);
+    }
+  });
+  it('retains every identity while admitting only explicit house and rowhouse variants', () => {
     const props = [...CAPITAL_HOUSE_PROFILES.map((profile, index) => ({ id: `house-${index}`, kind: profile,
       assetKey: profile, x: 0, z: 0, rotY: 0 })),
       { id: 'pending-building', kind: 'other', x: 0, z: 0, rotY: 0 },
