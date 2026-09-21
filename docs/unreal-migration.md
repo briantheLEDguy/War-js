@@ -24,7 +24,7 @@ are outstanding migration debt, not a completed cleanup.
 The owner resumed work after changing models at the first implementation
 checkpoint. `docs/unreal-checkpoint-1.md` records that historical checkpoint.
 
-The first city house also has a native import and limited material inspection;
+All six city house variants now have native imports and limited material inspection;
 see `docs/unreal-building-import.md` for evidence and outstanding geometry,
 collision, LOD and placement checks. This does not close the world/model gates.
 
@@ -37,7 +37,7 @@ collision, LOD and placement checks. This does not close the world/model gates.
 | 2: assets | All character/species/environment replacements, rig/animation/equipment/LOD validation, primitive deletion | Incomplete; audit reports blocked/candidate rows, never fabricated approval |
 | 3: RPG | All current combat, progression, inventory, gathering/crafting, quests and HUD behavior under server authority | Inventory rules pass seven browser-derived scenarios; private inventory, atomic exchanges, deferred delivery, consumables, recipes, salvage and timed cultivation have native/two-client evidence. Initial inventory, portable/station crafting and cultivation controls implemented. Browser-derived XP/level/stat growth, atomic progression rewards and respawn retention pass native, editor-client and packaged Windows two-client tests. Resource gathering rules/actor integration added; rendered node placements and corpse harvesting remain pending. Both expedition chains have browser-fixture/native rule tests and trusted character-state integration. Quest logs, revision-checked NPC dialogue RPCs and private offer/turn-in markers have Windows runtime evidence. Camera orbit/zoom, modal blocking and respawn continuity also pass native and packaged tests. Complete UI/profession/world parity, navigation, durable economy and remaining RPG systems are pending |
 | 4: online | Steam ownership, full characters/economy/chat, handoffs, supplies/siege/campaign, durable recovery | Pending; native production admission remains closed |
-| 5: world/GM | All 32 campaign zones, 70 directed routes, interiors/lifts, atlas/wiki/settings and runtime GM editor | Pending; preserving raw map data is not importing a playable world |
+| 5: world/GM | All 32 campaign zones, 70 directed routes, interiors/lifts, atlas/wiki/settings and runtime GM editor | Partial development evidence: Aegis authored terrain, 109 house placements and local runtime GM transforms, construction from six house models, undo/redo and fresh-process draft reload. Remaining capital content, Riftspire, shared GM authorization, terrain tools and publication are pending; the full gate stays closed |
 | 6: hardening | WAN, simultaneous 18v18 fronts, crashes/retries/backup restore, platform and performance acceptance | Pending |
 | 7: Steam | Playtest, native depots, clean install/update, disclosures/review and release | Pending; no store or deployment action performed |
 

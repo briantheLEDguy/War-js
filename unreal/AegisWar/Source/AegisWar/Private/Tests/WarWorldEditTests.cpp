@@ -40,6 +40,37 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Other authored revision"), DifferentWorld.Initialize({ { TEXT("house"), Moved, false } }, Error));
     TestFalse(TEXT("Old draft cannot overwrite different base"), DifferentWorld.ImportDraft(Draft, 0, Error));
     TestFalse(TEXT("Duplicate baseline rejected"), DifferentWorld.Initialize({ Objects[0], Objects[0] }, Error));
+    FWarWorldEditHistory Construction;
+    TestTrue(TEXT("Construction baseline"), Construction.Initialize(Objects, Error));
+    const FName Created(TEXT("gm_0123456789abcdef0123456789abcdef"));
+    TestFalse(TEXT("Unregistered template rejected"), Construction.Create(Created, TEXT("unknown"), Moved, 0, Error));
+    TestFalse(TEXT("Arbitrary created identity rejected"), Construction.Create(TEXT("arbitrary"), TEXT("house"), Moved, 0, Error));
+    TestTrue(TEXT("New authored-model object created"), Construction.Create(Created, TEXT("house"), Moved, 0, Error));
+    TestEqual(TEXT("Construction retains authored baseline"), Construction.GetObjects().Num(), 2);
+    TestFalse(TEXT("Created identity cannot be reused"), Construction.Create(Created, TEXT("house"), Moved, 1, Error));
+    const FString ConstructionDraft = Construction.ExportDraft();
+    FWarWorldEditHistory Fresh;
+    Fresh.Initialize(Objects, Error);
+    TestTrue(TEXT("New object survives fresh draft load"), Fresh.ImportDraft(ConstructionDraft, 0, Error));
+    if (const auto* Restored = Fresh.Find(Created)) TestEqual(TEXT("Reload retains template identity"), Restored->TemplateId, FName(TEXT("house")));
+    else AddError(TEXT("Missing restored construction object."));
+    TestFalse(TEXT("Draft cannot select an unregistered template"), Fresh.ImportDraft(
+        ConstructionDraft.Replace(TEXT("\"templateId\": \"house\""), TEXT("\"templateId\": \"unregistered\"")), 1, Error));
+    TestTrue(TEXT("Undo removes created object from current state"), Construction.Undo(false, 1, Error));
+    TestNull(TEXT("Creation removed by undo"), Construction.Find(Created));
+    TestTrue(TEXT("Redo restores created object"), Construction.Undo(true, 2, Error));
+    TestNotNull(TEXT("Created object restored by redo"), Construction.Find(Created));
+    FWarWorldEditHistory Legacy;
+    Legacy.Initialize(Objects, Error);
+    const FString LegacyDraft = Legacy.ExportDraft().Replace(TEXT("\"schemaVersion\": 2"), TEXT("\"schemaVersion\": 1"));
+    TestTrue(TEXT("Legacy fixture has version one"), LegacyDraft.Contains(TEXT("\"schemaVersion\": 1")));
+    TestTrue(TEXT("Version-one edit-only drafts remain readable"), Legacy.ImportDraft(LegacyDraft, 0, Error));
+    FWarWorldEditHistory StableModels;
+    StableModels.Initialize({ { TEXT("first"), Original, false, TEXT("mesh:hash") },
+        { TEXT("second"), Original, false, TEXT("mesh:hash") } }, Error);
+    StableModels.Create(Created, TEXT("first"), Moved, 0, Error);
+    TestFalse(TEXT("A draft cannot change a live object's trusted template"), StableModels.ImportDraft(
+        StableModels.ExportDraft().Replace(TEXT("\"templateId\": \"first\""), TEXT("\"templateId\": \"second\"")), 1, Error));
     return true;
 }
 #endif

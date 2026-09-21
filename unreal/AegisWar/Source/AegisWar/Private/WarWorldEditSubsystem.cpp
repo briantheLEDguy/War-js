@@ -4,6 +4,7 @@
 #include "Engine/StaticMesh.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/PrimitiveComponent.h"
+#include "Components/BoxComponent.h"
 #include "EngineUtils.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
@@ -18,7 +19,12 @@ namespace
     {
         if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")))
         {
-            static const FString ProofId = FGuid::NewGuid().ToString(EGuidFormats::Digits);
+            static const FString ProofId = [] {
+                FString Requested; FGuid Guid;
+                return FParse::Value(FCommandLine::Get(), TEXT("WarProofDraftId="), Requested)
+                    && FGuid::ParseExact(Requested, EGuidFormats::Digits, Guid)
+                    ? Guid.ToString(EGuidFormats::Digits) : FGuid::NewGuid().ToString(EGuidFormats::Digits);
+            }();
             return FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("WorldEditProof"), ProofId, TEXT("draft.json"));
         }
         return FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("WorldEdit/aegis_capital-draft.json"));
@@ -55,6 +61,7 @@ bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
     if (!Actors.IsEmpty()) return Ready(Controller, Error);
     TArray<FWarWorldEditObject> Objects;
     TMap<FName, TWeakObjectPtr<AActor>> Candidates;
+    TMap<FName, FModelTemplate> CandidateTemplates;
     for (TActorIterator<AStaticMeshActor> It(GetWorld()); It; ++It)
     {
         if (!It->ActorHasTag(TEXT("WarCapitalBuilding"))) continue;
@@ -75,9 +82,15 @@ bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
             *It->GetName(), *Id.ToString(), SourceHash.Len(), It->GetStaticMeshComponent()->GetStaticMesh() != nullptr, Candidates.Contains(Id)); return false; }
         Candidates.Add(Id, *It); Objects.Add({ Id, It->GetActorTransform(), It->IsHidden(),
             It->GetStaticMeshComponent()->GetStaticMesh()->GetPathName() + TEXT(":") + SourceHash });
+        FModelTemplate Template; Template.Mesh = It->GetStaticMeshComponent()->GetStaticMesh();
+        TArray<UBoxComponent*> Boxes; It->GetComponents(Boxes);
+        for (const auto* Box : Boxes)
+            Template.Collision.Add({ Box->GetRelativeTransform(), Box->GetUnscaledBoxExtent(), Box->GetCollisionProfileName() });
+        if (Template.Collision.IsEmpty()) { Error = TEXT("The building template has no authored collision."); return false; }
+        CandidateTemplates.Add(Id, MoveTemp(Template));
     }
     if (!History.Initialize(Objects, Error)) return false;
-    Actors = MoveTemp(Candidates); return true;
+    Actors = MoveTemp(Candidates); Templates = MoveTemp(CandidateTemplates); return true;
 }
 
 AActor* UWarWorldEditSubsystem::GetObjectActor(const FName Id) const
@@ -99,9 +112,12 @@ bool UWarWorldEditSubsystem::Ready(APlayerController* Controller, FString& Error
 
 void UWarWorldEditSubsystem::ApplyActors()
 {
-    for (const auto& Row : History.GetObjects())
+    for (const auto& Pair : Actors)
     {
-        AActor* Actor = GetObjectActor(Row.Id);
+        AActor* Actor = Pair.Value.Get();
+        const auto* Found = History.Find(Pair.Key);
+        if (!Found) { Actor->SetActorHiddenInGame(true); Actor->SetActorEnableCollision(false); continue; }
+        const auto& Row = *Found;
         if (Actor->GetActorTransform().Equals(Row.Transform, 0.0001) && Actor->IsHidden() == Row.bHidden) continue;
         TArray<UPrimitiveComponent*> Components; Actor->GetComponents(Components);
         for (auto* Component : Components) Component->SetMobility(EComponentMobility::Movable);
@@ -109,6 +125,53 @@ void UWarWorldEditSubsystem::ApplyActors()
         Actor->SetActorHiddenInGame(Row.bHidden);
         Actor->SetActorEnableCollision(!Row.bHidden);
     }
+}
+
+bool UWarWorldEditSubsystem::ApplyHistory(FWarWorldEditHistory Next, FString& Error)
+{
+    // Stage all new actors before committing history. Drafts select trusted model
+    // templates; they cannot supply asset paths or collision geometry.
+    TMap<FName, TWeakObjectPtr<AActor>> Staged;
+    bool bCommitted = false;
+    ON_SCOPE_EXIT { if (!bCommitted) for (const auto& Pair : Staged) if (Pair.Value.IsValid()) Pair.Value->Destroy(); };
+    for (const auto& Row : Next.GetObjects())
+    {
+        if (Actors.Contains(Row.Id)) continue;
+        const auto* Template = Templates.Find(Row.TemplateId);
+        if (!Template || !Template->Mesh.IsValid()) { Error = TEXT("Required authored model is unavailable; the draft was not applied."); return false; }
+        auto* Actor = GetWorld()->SpawnActor<AStaticMeshActor>();
+        if (!Actor) { Error = TEXT("Could not create the building; the draft was not applied."); return false; }
+        Staged.Add(Row.Id, Actor);
+        Actor->SetActorHiddenInGame(true); Actor->SetActorEnableCollision(false);
+        auto* Mesh = Actor->GetStaticMeshComponent(); Mesh->SetMobility(EComponentMobility::Movable);
+        Mesh->SetStaticMesh(Template->Mesh.Get()); Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Actor->Tags.Add(TEXT("WarCreatedBuilding")); Actor->Tags.Add(FName(*(TEXT("WarWorldObject_") + Row.Id.ToString())));
+        for (const auto& Collision : Template->Collision)
+        {
+            auto* Box = NewObject<UBoxComponent>(Actor);
+            if (!Box) { Error = TEXT("Could not create authored collision; the draft was not applied."); return false; }
+            Actor->AddInstanceComponent(Box); Box->SetupAttachment(Mesh); Box->SetMobility(EComponentMobility::Movable);
+            Box->SetBoxExtent(Collision.Extent); Box->SetRelativeTransform(Collision.Transform);
+            Box->SetCollisionProfileName(Collision.Profile); Box->SetHiddenInGame(true); Box->RegisterComponent();
+        }
+    }
+    Actors.Append(Staged); History = MoveTemp(Next); ApplyActors(); bCommitted = true;
+    // Undo may remove a created object. Destroy it now and recreate it from its
+    // immutable template on redo, keeping actor memory bounded by the document.
+    for (auto It = Actors.CreateIterator(); It; ++It)
+        if (!History.Find(It.Key())) { It.Value()->Destroy(); It.RemoveCurrent(); }
+    return true;
+}
+
+bool UWarWorldEditSubsystem::Create(APlayerController* Controller, const FName TemplateId, const FTransform& Transform,
+    const int32 Revision, FName& CreatedId, FString& Error)
+{
+    CreatedId = NAME_None;
+    if (!Ready(Controller, Error)) return false;
+    auto Next = History;
+    const FName Id(*(TEXT("gm_") + FGuid::NewGuid().ToString(EGuidFormats::Digits)));
+    if (!Next.Create(Id, TemplateId, Transform, Revision, Error) || !ApplyHistory(MoveTemp(Next), Error)) return false;
+    CreatedId = Id; return true;
 }
 
 bool UWarWorldEditSubsystem::Edit(APlayerController* Controller, const FName Id, const FTransform& Transform,
@@ -120,8 +183,9 @@ bool UWarWorldEditSubsystem::Edit(APlayerController* Controller, const FName Id,
 
 bool UWarWorldEditSubsystem::Undo(APlayerController* Controller, const bool bRedo, const int32 Revision, FString& Error)
 {
-    if (!Ready(Controller, Error) || !History.Undo(bRedo, Revision, Error)) return false;
-    ApplyActors(); return true;
+    if (!Ready(Controller, Error)) return false;
+    auto Next = History;
+    return Next.Undo(bRedo, Revision, Error) && ApplyHistory(MoveTemp(Next), Error);
 }
 
 bool UWarWorldEditSubsystem::SaveDraft(APlayerController* Controller, const int32 Revision, FString& Error)
@@ -159,6 +223,7 @@ bool UWarWorldEditSubsystem::LoadDraft(APlayerController* Controller, const int3
 {
     if (!Ready(Controller, Error)) return false;
     FString Json;
-    if (!ReadDraftFile(Json, Error) || !History.ImportDraft(Json, Revision, Error)) return false;
-    LastDiskContents = Json; bObservedDisk = true; ApplyActors(); return true;
+    auto Next = History;
+    if (!ReadDraftFile(Json, Error) || !Next.ImportDraft(Json, Revision, Error) || !ApplyHistory(MoveTemp(Next), Error)) return false;
+    LastDiskContents = Json; bObservedDisk = true; return true;
 }

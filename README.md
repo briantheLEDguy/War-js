@@ -80,9 +80,10 @@ Bastion's authored elevations, canals and 109 house placements across six varian
 native collision and rendered checks. The remaining city buildings, residents,
 travel and full runtime GM editing remain unfinished; this map is not yet a restored capital.
 Its [native development GM panel](docs/unreal-gm-workbench.md) now opens with `G`
-in Play in Editor and supports selecting existing houses, transforms, hide/restore,
-undo/redo and local draft save/load. Shared GM permissions, catalog placement,
-terrain editing and publication remain pending.
+in Play in Editor and supports placing the six imported house models, selecting
+houses, transforms, hide/restore, undo/redo and local draft save/load. Construction
+survives a fresh game process with its authored mesh and collision. Shared GM
+permissions, the remaining prefab catalog, terrain editing and publication remain pending.
 
 ## Regional production priorities
 

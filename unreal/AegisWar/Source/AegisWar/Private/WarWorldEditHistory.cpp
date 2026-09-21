@@ -21,6 +21,7 @@ namespace
             Object->SetStringField(TEXT("id"), Row.Id.ToString());
             Object->SetBoolField(TEXT("hidden"), Row.bHidden);
             Object->SetStringField(TEXT("sourceIdentity"), Row.SourceIdentity);
+            if (!Row.TemplateId.IsNone()) Object->SetStringField(TEXT("templateId"), Row.TemplateId.ToString());
             const FVector P = Row.Transform.GetLocation(), S = Row.Transform.GetScale3D();
             const FQuat Q = Row.Transform.GetRotation();
             TArray<TSharedPtr<FJsonValue>> Values;
@@ -43,7 +44,8 @@ bool FWarWorldEditHistory::Initialize(const TArray<FWarWorldEditObject>& Objects
     TSet<FName> Ids;
     for (const auto& Row : Objects)
     {
-        if (Row.Id.IsNone() || Row.Id.ToString().Len() > 128 || Ids.Contains(Row.Id) || !ValidTransform(Row.Transform))
+        if (Row.Id.IsNone() || Row.Id.ToString().Len() > 128 || Ids.Contains(Row.Id) || !ValidTransform(Row.Transform)
+            || !Row.TemplateId.IsNone() || Row.SourceIdentity.Len() > 512)
         { Error = TEXT("Invalid or duplicate authored world object."); return false; }
         Ids.Add(Row.Id);
     }
@@ -64,18 +66,48 @@ bool FWarWorldEditHistory::CheckRevision(const int32 Expected, FString& Error) c
 
 bool FWarWorldEditHistory::Validate(const TArray<FWarWorldEditObject>& Objects, FString& Error) const
 {
-    if (Objects.Num() != Baseline.Num()) { Error = TEXT("Draft object coverage differs from this world."); return false; }
+    if (Objects.Num() < Baseline.Num() || Objects.Num() > Baseline.Num() + 1000)
+    { Error = TEXT("Draft object count exceeds the supported world limits."); return false; }
     TSet<FName> Ids;
+    int32 BaselineCount = 0;
     for (const auto& Row : Objects)
     {
         const auto* Original = Baseline.FindByPredicate([&](const auto& Value) { return Value.Id == Row.Id; });
+        if (Original)
+        {
+            if (!Row.TemplateId.IsNone()) { Error = TEXT("An authored object's model cannot be replaced by a draft."); return false; }
+            ++BaselineCount;
+        }
+        else
+        {
+            FGuid CreatedId;
+            const FString Id = Row.Id.ToString();
+            if (!Id.StartsWith(TEXT("gm_")) || !FGuid::ParseExact(Id.RightChop(3), EGuidFormats::Digits, CreatedId))
+            { Error = TEXT("Invalid created-object identity."); return false; }
+            Original = Baseline.FindByPredicate([&](const auto& Value) { return Value.Id == Row.TemplateId; });
+        }
         if (!Original || Ids.Contains(Row.Id) || !ValidTransform(Row.Transform) || Row.SourceIdentity != Original->SourceIdentity)
         { Error = TEXT("Invalid world object or transform."); return false; }
+        if (const auto* Existing = Find(Row.Id); Existing && Existing->TemplateId != Row.TemplateId)
+        { Error = TEXT("A live object's model template cannot be replaced by a draft."); return false; }
         const FVector Product = Original->Transform.GetScale3D() * Row.Transform.GetScale3D();
         if (Product.GetMin() <= 0) { Error = TEXT("Model coordinate handedness must be preserved."); return false; }
         Ids.Add(Row.Id);
     }
+    if (BaselineCount != Baseline.Num()) { Error = TEXT("Draft omits authored world objects."); return false; }
     return true;
+}
+
+bool FWarWorldEditHistory::Create(const FName Id, const FName TemplateId, const FTransform& Transform,
+    const int32 ExpectedRevision, FString& Error)
+{
+    if (!CheckRevision(ExpectedRevision, Error)) return false;
+    const auto* Template = Baseline.FindByPredicate([TemplateId](const auto& Row) { return Row.Id == TemplateId; });
+    if (!Template || Find(Id)) { Error = TEXT("Unknown model template or duplicate object identity."); return false; }
+    auto Next = Current;
+    Next.Add({ Id, Transform, false, Template->SourceIdentity, TemplateId });
+    if (!Validate(Next, Error)) return false;
+    Commit(MoveTemp(Next)); return true;
 }
 
 void FWarWorldEditHistory::Commit(TArray<FWarWorldEditObject> Objects)
@@ -109,7 +141,7 @@ bool FWarWorldEditHistory::Undo(const bool bRedo, const int32 ExpectedRevision, 
 FString FWarWorldEditHistory::ExportDraft() const
 {
     const auto Root = MakeShared<FJsonObject>();
-    Root->SetNumberField(TEXT("schemaVersion"), 1); Root->SetStringField(TEXT("zoneId"), TEXT("aegis_capital"));
+    Root->SetNumberField(TEXT("schemaVersion"), 2); Root->SetStringField(TEXT("zoneId"), TEXT("aegis_capital"));
     Root->SetStringField(TEXT("baseline"), BaselineText(Baseline)); Root->SetArrayField(TEXT("objects"), Rows(Current));
     FString Json; FJsonSerializer::Serialize(Root, TJsonWriterFactory<>::Create(&Json)); return Json;
 }
@@ -117,31 +149,35 @@ FString FWarWorldEditHistory::ExportDraft() const
 bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 ExpectedRevision, FString& Error)
 {
     if (!CheckRevision(ExpectedRevision, Error)) return false;
-    TSharedPtr<FJsonObject> Root; double Version; FString Zone, Base;
+    TSharedPtr<FJsonObject> Root; double Version = 0; FString Zone, Base;
     const TArray<TSharedPtr<FJsonValue>>* Objects = nullptr;
     if (Json.Len() > 2000000 || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Root) || !Root.IsValid()
-        || !Root->TryGetNumberField(TEXT("schemaVersion"), Version) || Version != 1
+        || !Root->TryGetNumberField(TEXT("schemaVersion"), Version) || (Version != 1 && Version != 2)
         || !Root->TryGetStringField(TEXT("zoneId"), Zone) || Zone != TEXT("aegis_capital")
         || !Root->TryGetStringField(TEXT("baseline"), Base) || Base != BaselineText(Baseline)
-        || !Root->TryGetArrayField(TEXT("objects"), Objects) || Objects->Num() != Baseline.Num())
+        || !Root->TryGetArrayField(TEXT("objects"), Objects) || Objects->Num() < Baseline.Num() || Objects->Num() > Baseline.Num() + 1000
+        || (Version == 1 && Objects->Num() != Baseline.Num()))
     { Error = TEXT("Draft is invalid or belongs to a different authored world revision."); return false; }
     TArray<FWarWorldEditObject> Next;
     for (const auto& Value : *Objects)
     {
         const TSharedPtr<FJsonObject>* Object = nullptr;
         const TArray<TSharedPtr<FJsonValue>>* Values = nullptr;
-        FString Id, SourceIdentity; bool bHidden;
+        FString Id, SourceIdentity, TemplateId; bool bHidden;
         if (!Value->TryGetObject(Object) || !Object->IsValid() || !(*Object)->TryGetStringField(TEXT("id"), Id)
             || Id.IsEmpty() || Id.Len() > 128 || !(*Object)->TryGetBoolField(TEXT("hidden"), bHidden)
             || !(*Object)->TryGetStringField(TEXT("sourceIdentity"), SourceIdentity) || SourceIdentity.Len() > 512
             || !(*Object)->TryGetArrayField(TEXT("transform"), Values) || Values->Num() != 10)
         { Error = TEXT("Invalid draft object."); return false; }
+        if ((*Object)->HasField(TEXT("templateId")) && (Version != 2
+            || !(*Object)->TryGetStringField(TEXT("templateId"), TemplateId) || TemplateId.IsEmpty() || TemplateId.Len() > 128))
+        { Error = TEXT("Invalid model template in draft."); return false; }
         double Numbers[10];
         for (int32 I = 0; I < 10; ++I)
             if (!(*Values)[I]->TryGetNumber(Numbers[I]) || !FMath::IsFinite(Numbers[I]))
             { Error = TEXT("Invalid draft transform."); return false; }
         Next.Add({ FName(*Id), FTransform(FQuat(Numbers[3], Numbers[4], Numbers[5], Numbers[6]),
-            FVector(Numbers[0], Numbers[1], Numbers[2]), FVector(Numbers[7], Numbers[8], Numbers[9])), bHidden, SourceIdentity });
+            FVector(Numbers[0], Numbers[1], Numbers[2]), FVector(Numbers[7], Numbers[8], Numbers[9])), bHidden, SourceIdentity, FName(*TemplateId) });
     }
     if (!Validate(Next, Error)) return false;
     Next.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });

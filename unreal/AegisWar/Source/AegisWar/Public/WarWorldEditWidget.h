@@ -9,6 +9,8 @@ UCLASS()
 class AEGISWAR_API UWarWorldEditWidget : public UUserWidget
 {
     GENERATED_BODY()
+public:
+    void SelectObject(FName Id) { Selected = Id; }
 protected:
     virtual TSharedRef<SWidget> RebuildWidget() override;
     virtual void NativeTick(const FGeometry& Geometry, float DeltaTime) override;
@@ -16,6 +18,7 @@ protected:
 private:
     void RefreshRows();
     void SelectNearest();
+    void PlaceTemplate(FName TemplateId);
     void EditSelected(FVector Offset, double Yaw = 0, double Scale = 1, bool bToggleHidden = false);
     FName Selected;
     FString Search;

@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, existsSync, copyFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { randomUUID } from 'node:crypto';
 import { sha256 } from './content-contract';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
@@ -19,12 +20,13 @@ for (const [profile, expected] of Object.entries(placements.modelImports)) {
     throw new Error('Capital model import evidence changed.');
 }
 const run = `${Date.now()}-${process.pid}`;
+const draftId = randomUUID().replaceAll('-', '');
 const output = path.join(repoRoot, 'artifacts/unreal/capital-proof', run);
 const native = path.join(packagedRoot ? path.join(packagedRoot, 'AegisWar/Saved') : path.join(repoRoot, 'unreal/AegisWar/Saved'), 'CapitalProof', run);
 mkdirSync(output, { recursive: true });
 const options = [...(packagedClient ? [] : [projectPath]), '/Game/Capitals/aegis_capital/AegisCapital_Workbench', '-game',
   '-unattended', '-nop4', '-nosplash', '-nosound', '-stdout', '-FullStdOutLogOutput',
-  '-WarDevelopmentGM', '-WarCapitalProof', `-WarProofRun=${run}`, '-ExecCmds=t.MaxFPS 60',
+  '-WarDevelopmentGM', '-WarCapitalProof', `-WarProofRun=${run}`, `-WarProofDraftId=${draftId}`, '-ExecCmds=t.MaxFPS 60',
   `-abslog=${path.join(output, 'game.log')}`,
   ...(args.has('--rendered') ? ['-RenderOffscreen', '-WarProofScreenshot', '-windowed', '-ForceRes', '-ResX=1280', '-ResY=800'] : ['-nullrhi'])];
 const code = runEngineCommand(packagedClient ?? engine.editorCommand!, options);
@@ -39,7 +41,20 @@ if (args.has('--rendered')) {
   if (!existsSync(image)) throw new Error('Capital builder screenshot was not produced.');
   copyFileSync(image, path.join(output, 'builder.png'));
 }
+const reloadRun = `${run}-reload`;
+const reloadOptions = options.map(value => value === `-WarProofRun=${run}` ? `-WarProofRun=${reloadRun}`
+  : value.startsWith('-abslog=') ? `-abslog=${path.join(output, 'reload.log')}` : value);
+reloadOptions.push('-WarCapitalReloadProof');
+const reloadCode = runEngineCommand(packagedClient ?? engine.editorCommand!, reloadOptions);
+const reloadReportPath = path.join(path.dirname(native), reloadRun, 'report.json');
+if (reloadCode !== 0 || !existsSync(reloadReportPath)) throw new Error(`Fresh-process construction reload failed; see ${output}.`);
+const reloadReport = JSON.parse(readFileSync(reloadReportPath, 'utf8').replace(/^\uFEFF/, ''));
+if (reloadReport.passed !== true || reloadReport.constructionReload !== true || reloadReport.editableObjects !== 110
+  || reloadReport.fullCapitalAcceptance !== false || reloadReport.sharedGmAuthorization !== false)
+  throw new Error('Fresh-process construction runtime acceptance failed.');
+copyFileSync(reloadReportPath, path.join(output, 'reload-report.json'));
 writeFileSync(path.join(output, 'report.json'), JSON.stringify({ ...report,
+  freshProcessConstructionReload: true,
   buildingImportSha256: sha256(readFileSync(path.join(directory, 'buildings-import.json'))),
   rendered: args.has('--rendered'), packagedClient: Boolean(packagedClient), platform: 'Win64', fullCapitalAcceptance: false }, null, 2));
 console.log(JSON.stringify({ capitalWorkbenchProofPassed: true, report: output, fullCapitalAcceptance: false }));

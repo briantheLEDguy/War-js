@@ -3,6 +3,8 @@
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
 #include "Components/BoxComponent.h"
+#include "Engine/StaticMeshActor.h"
+#include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
@@ -40,6 +42,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetNumberField(TEXT("schemaVersion"), 1); Report->SetBoolField(TEXT("passed"), bPassed);
     Report->SetStringField(TEXT("detail"), Detail); Report->SetBoolField(TEXT("fullCapitalAcceptance"), false);
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
+    Report->SetBoolField(TEXT("constructionReload"), FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")));
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
         Report->SetNumberField(TEXT("editableObjects"), Editor->GetHistory().GetObjects().Num());
@@ -87,6 +90,29 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     if (!Check(Editor->GetHistory().GetObjects().Num() == 109 && Player->IsMoveInputIgnored() && Player->IsLookInputIgnored(),
         FString::Printf(TEXT("GM panel did not open: %s; map=%s net=%d"), *Player->GetWorldEditMessage(),
             *GetWorld()->GetMapName(), static_cast<int32>(GetWorld()->GetNetMode())))) return;
+    const auto CheckCreated = [&](const FName CreatedId) {
+        const auto* Row = Editor->GetHistory().Find(CreatedId);
+        auto* CreatedActor = Cast<AStaticMeshActor>(Editor->GetObjectActor(CreatedId));
+        auto* TemplateActor = Row ? Cast<AStaticMeshActor>(Editor->GetObjectActor(Row->TemplateId)) : nullptr;
+        if (!Check(Row && CreatedActor && TemplateActor && !CreatedActor->IsHidden()
+            && CreatedActor->GetStaticMeshComponent()->GetStaticMesh() == TemplateActor->GetStaticMeshComponent()->GetStaticMesh()
+            && CreatedActor->GetActorTransform().Equals(Row->Transform, 0.01), TEXT("Created building lost its authored model or transform."))) return false;
+        TArray<UBoxComponent*> CreatedBoxes; CreatedActor->GetComponents(CreatedBoxes);
+        if (!Check(CreatedBoxes.Num() == 1, TEXT("Created building lost authored collision."))) return false;
+        const auto* Box = CreatedBoxes[0]; const FVector Center = Box->GetComponentLocation(), Extent = Box->GetScaledBoxExtent();
+        FHitResult Hit;
+        return Check(GetWorld()->LineTraceSingleByChannel(Hit, Center + FVector(0, 0, Extent.Z + 25), Center, ECC_Visibility)
+            && Hit.GetActor() == CreatedActor && FMath::Abs(Hit.ImpactPoint.Z - Center.Z - Extent.Z) < 0.2,
+            TEXT("Created building has no blocking collision."));
+    };
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")))
+    {
+        Player->ServerWorldEditDraft(true, 0);
+        if (!Check(Editor->GetHistory().GetObjects().Num() == 110, TEXT("Fresh process did not restore construction draft."))) return;
+        const auto* Created = Editor->GetHistory().GetObjects().FindByPredicate([](const auto& Row) { return !Row.TemplateId.IsNone(); });
+        if (!Check(Created != nullptr, TEXT("Fresh draft lost created identity.")) || !CheckCreated(Created->Id)) return;
+        Finish(true, TEXT("Fresh process restored the constructed complex building, transform and blocking collision.")); return;
+    }
     const FName Id(TEXT("aegis_city_house_0"));
     const auto* Initial = Editor->GetHistory().Find(Id);
     if (!Check(Initial != nullptr, TEXT("Missing edited house."))) return;
@@ -133,9 +159,30 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     FFileHelper::SaveStringToFile(Saved, *Editor->GetDraftLocation());
     Player->ServerWorldEditHistory(false, 7);
     if (!Check(Actor->GetActorTransform().Equals(Original, 0.01), TEXT("Loaded draft cannot be undone."))) return;
+    FTransform Placed = Original; Placed.AddToTranslation(FVector(0, 0, 5000));
+    const int32 BeforeCreate = Editor->GetHistory().GetRevision();
+    Player->ServerCreateWorldObject(TEXT("unregistered"), Placed, BeforeCreate);
+    if (!Check(Editor->GetHistory().GetRevision() == BeforeCreate, TEXT("Unknown building template accepted."))) return;
+    Player->ServerCreateWorldObject(Id, Placed, BeforeCreate - 1);
+    if (!Check(Editor->GetHistory().GetRevision() == BeforeCreate, TEXT("Stale building creation accepted."))) return;
+    Player->ServerCreateWorldObject(Id, Placed, BeforeCreate);
+    const auto* Created = Editor->GetHistory().GetObjects().FindByPredicate([](const auto& Row) { return !Row.TemplateId.IsNone(); });
+    if (!Check(Created != nullptr && Editor->GetHistory().GetObjects().Num() == 110, TEXT("GM construction failed."))) return;
+    const FName CreatedId = Created->Id;
+    if (!CheckCreated(CreatedId)) return;
+    Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
+    if (!Check(!Editor->GetObjectActor(CreatedId) && !Editor->GetHistory().Find(CreatedId), TEXT("Undo retained a created actor."))) return;
+    Player->ServerWorldEditHistory(true, Editor->GetHistory().GetRevision());
+    if (!CheckCreated(CreatedId)) return;
+    Player->ServerWorldEditDraft(false, Editor->GetHistory().GetRevision());
+    if (!Check(FFileHelper::LoadFileToString(Saved, *Editor->GetDraftLocation()) && Saved.Contains(CreatedId.ToString()), TEXT("Construction was not saved."))) return;
+    Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
+    Player->ServerWorldEditDraft(true, Editor->GetHistory().GetRevision());
+    if (!CheckCreated(CreatedId)) return;
+    Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
     Player->ToggleInventory(); Player->ToggleWorldEditor(); Player->ToggleQuestLog(); Player->ToggleWorldEditor(); Player->ToggleWorldEditor();
     if (!Check(!Player->IsMoveInputIgnored() && !Player->IsLookInputIgnored() && !Player->bShowMouseCursor,
         TEXT("GM panel transitions left movement/camera blocked."))) return;
     Player->ToggleWorldEditor();
-    Finish(true, TEXT("Capital grounded movement, GM transforms/collision, hide/restore, revisions, undo/redo, isolated draft save/load and modal controls passed."));
+    Finish(true, TEXT("Capital movement, GM transforms/collision, construction, revisions, undo/redo, draft save/load and modal controls passed."));
 }

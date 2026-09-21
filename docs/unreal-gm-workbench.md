@@ -8,13 +8,23 @@ the complete capital. Ordinary shared servers and Shipping builds deny these
 development GM operations. Trusted account-based multiplayer GM authorization
 is still required for the production implementation.
 
-The current panel can search/select existing houses, select the nearest one,
+The current panel can place the six imported house models, search/select houses, select the nearest one,
 move along each world axis in one-meter increments, rotate in 15-degree steps,
 scale uniformly, hide/restore, undo/redo, and save/load a local development draft.
 Selected geometry has an intentional cyan editor guide. Hidden buildings also
 stop blocking movement. Attached collision follows transform edits. Inventory,
 quest and builder panels share modal input handling and restore movement/camera
 input when closed.
+
+The house buttons place an authored model about 20 meters in front of the
+character, on the first blocking surface below that point. Use the transform
+controls to adjust the result; overlapping placements are currently allowed.
+Creation copies the trusted model and its authored collision, never a primitive
+fallback. Undo removes the created actor, and redo reconstructs it. Up to 1,000
+new objects may be retained in a draft. Version-two drafts store template IDs;
+version-one edit-only drafts remain readable. A fresh game process reconstructs
+created objects when loading the draft. Failed model resolution leaves the
+current document unchanged.
 
 Drafts are written to `unreal/AegisWar/Saved/WorldEdit/aegis_capital-draft.json`.
 Use **Save draft** before leaving Play, then **Load draft** in the next session.
@@ -42,10 +52,12 @@ the eleven infill houses whose IDs differ from the main city house prefix.
 
 `npm run unreal:capital-proof -- --rendered` launches a real development game in
 the capital and checks grounded movement, GM commands, collision attachment,
-hide/restore, stale requests, undo/redo, draft reload, rejection of corrupted or
+hide/restore, construction, stale requests, undo/redo, draft reload, rejection of corrupted or
 externally changed drafts, and panel input restoration. Its draft lives in a
 unique `Saved/WorldEditProof/` directory, separate from user work. Inspect the
-generated screenshot; a success receipt alone is not visual acceptance.
+generated screenshot; a success receipt alone is not visual acceptance. A second
+game process restores the construction draft and verifies the actual mesh,
+transform and blocking collision.
 
 The live workflow passed on Windows, and its readable UI, authored character,
 terrain and buildings were inspected after correcting playable daylight exposure.
@@ -70,7 +82,24 @@ received rejection for a GM history command. The packaged screenshot was inspect
 window emission differs from the editor and remains a rendering investigation.
 The release check still fails with four blocker categories.
 
-Still pending: adding new buildings from the catalog, arbitrary/drag transforms,
+Construction verification: native foundation run
+`artifacts/unreal/editor/test-1789989737916-6992/` passed all 20 groups;
+82 tooling tests and tools typechecking passed. Rendered editor construction and
+fresh-process reload passed in `artifacts/unreal/capital-proof/1789989759300-35220/`.
+Windows packaging succeeded, and the packaged equivalent passed in
+`artifacts/unreal/capital-proof/1789990022385-17756/`. The packaged catalog was
+visually inspected after correcting clipped labels into two rows. The earlier
+window-emission difference was not reproduced in this rebuilt package; the
+current sampled view matches the editor. This does not close full material or
+capital visual acceptance.
+
+The packaged two-client run
+`artifacts/unreal/network/1789990034513-21024/report.json` also rejected remote
+building creation for both clients. A visible packaged-game UI check opened `G`,
+clicked each of the six house buttons, observed the corresponding rendered
+building and used Undo after each placement. No user draft was saved or changed.
+
+Still pending: the remaining building/prefab catalog, arbitrary/drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, GM flight/teleport and
 character tools, shared permissions and replication, durable shared drafts,
 publication/version restore, remaining capital content, and Riftspire. Existing

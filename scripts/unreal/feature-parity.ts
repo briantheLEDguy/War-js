@@ -16,7 +16,7 @@ export interface ParityFeature {
 
 const developmentNotes: Record<string, string[]> = {
   grounding: ['Aegis authored terrain and 109 house placements have sampled native collision evidence; full terrain, travel and Riftspire remain pending. See docs/unreal-capital-workbench.md.'],
-  'gm-object-editor': ['A development-only in-game panel edits existing Aegis houses with collision, hide/restore and revision checks. Catalog construction, full tools and shared authorization remain pending. See docs/unreal-gm-workbench.md.'],
+  'gm-object-editor': ['A development-only in-game panel places six imported house models and edits Aegis houses with authored collision, hide/restore and revision checks. Construction survives fresh-process draft reload. The remaining catalog, full tools and shared authorization remain pending. See docs/unreal-gm-workbench.md.'],
   'gm-publication': ['Local development drafts and undo/redo are implemented and runtime-tested. Shared persistence, publication, version restore and baseline reconciliation remain pending. See docs/unreal-gm-workbench.md.'],
 };
 

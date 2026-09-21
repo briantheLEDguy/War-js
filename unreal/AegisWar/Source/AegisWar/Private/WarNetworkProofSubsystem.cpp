@@ -72,6 +72,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetNumberField(TEXT("schemaVersion"), 1);
     Report->SetBoolField(TEXT("passed"), bPassed);
     Report->SetBoolField(TEXT("remoteGmRejected"), bGmDenied);
+    Report->SetBoolField(TEXT("remoteGmCreationRejected"), bGmCreationDenied);
     Report->SetStringField(TEXT("role"), ResultRole);
     Report->SetStringField(TEXT("detail"), Detail);
     Report->SetBoolField(TEXT("observedReplicatedMovement"), bMoved);
@@ -182,6 +183,12 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             if (!bGmDenialRequested && Controller->GetPawn())
             { Controller->ServerWorldEditHistory(false, 0); bGmDenialRequested = true; }
             bGmDenied |= Controller->GetWorldEditMessage() == TEXT("Open the authorized GM workbench before editing.");
+            if (bGmDenied && !bGmCreationRequested)
+            {
+                Controller->ServerCreateWorldObject(TEXT("aegis_city_house_0"), FTransform::Identity, 0);
+                bGmCreationRequested = true;
+            }
+            bGmCreationDenied |= Controller->GetWorldEditMessage() == TEXT("Creation rejected: Open the authorized GM workbench before editing.");
         }
     ResultRole = bServer ? TEXT("server") : TEXT("client-pending");
     // Death unpossesses the pawn immediately, so its PlayerState link is cleared before the next tick.

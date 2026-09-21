@@ -50,3 +50,17 @@ void AWarPlayerController::ServerWorldEditDraft_Implementation(bool bLoad, int32
 }
 
 void AWarPlayerController::ClientWorldEditResult_Implementation(const FString& Message) { WorldEditMessage = Message; }
+
+void AWarPlayerController::ServerCreateWorldObject_Implementation(FName TemplateId, FTransform Transform, int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error; FName Id;
+    const bool bSuccess = Editor && Editor->Create(this, TemplateId, Transform, ExpectedRevision, Id, Error);
+    if (bSuccess) ClientWorldObjectCreated(Id);
+    ClientWorldEditResult(bSuccess ? TEXT("Building placed. Adjust its position, then save the draft.")
+        : TEXT("Creation rejected: ") + (Error.IsEmpty() ? FString(TEXT("GM access unavailable.")) : Error));
+}
+
+void AWarPlayerController::ClientWorldObjectCreated_Implementation(FName Id)
+{
+    if (WorldEditWidget) WorldEditWidget->SelectObject(Id);
+}

@@ -14,13 +14,14 @@
 #include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Text/STextBlock.h"
 #include "Styling/CoreStyle.h"
+#include "Misc/Paths.h"
 
 TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
 {
     const TWeakObjectPtr<UWarWorldEditWidget> Weak(this);
     auto Body = SNew(SVerticalBox);
     Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 24)).Text(FText::FromString(TEXT("City Builder")))];
-    Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Development draft — existing buildings")))];
+    Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Development draft — place and edit buildings")))];
     auto Commands = SNew(SHorizontalBox);
     const auto Button = [](const FString& Label, TFunction<FReply()> Action) -> TSharedRef<SWidget> {
         return SNew(SButton).OnClicked_Lambda(MoveTemp(Action))[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Label))];
@@ -33,6 +34,26 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
                 if (auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>()) P->ServerWorldEditHistory(bRedo, E->GetHistory().GetRevision());
             return FReply::Handled(); })];
     Body->AddSlot().AutoHeight().Padding(0, 8)[Commands];
+    auto Catalog = SNew(SVerticalBox);
+    TSharedPtr<SHorizontalBox> CatalogRow;
+    TSet<FString> Models;
+    if (const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
+        for (const auto& Row : E->GetHistory().GetBaselineObjects())
+        {
+            if (Models.Contains(Row.SourceIdentity)) continue;
+            Models.Add(Row.SourceIdentity);
+            if (Models.Num() % 3 == 1)
+            {
+                CatalogRow = SNew(SHorizontalBox);
+                Catalog->AddSlot().AutoHeight()[CatalogRow.ToSharedRef()];
+            }
+            FString MeshPath; Row.SourceIdentity.Split(TEXT(":"), &MeshPath, nullptr);
+            const FString Label = FPaths::GetBaseFilename(MeshPath).Replace(TEXT("aegis_house_"), TEXT("House "));
+            CatalogRow->AddSlot().FillWidth(1)[Button(Label, [Weak, Id = Row.Id] {
+                if (Weak.IsValid()) Weak->PlaceTemplate(Id); return FReply::Handled(); })];
+        }
+    Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Place a house in front of your character:")))];
+    Body->AddSlot().AutoHeight().Padding(0, 6)[Catalog];
     Body->AddSlot().AutoHeight()[SNew(SSearchBox).HintText(FText::FromString(TEXT("Find a placed building")))
         .OnTextChanged_Lambda([Weak](const FText& Text) { if (Weak.IsValid()) { Weak->Search = Text.ToString(); Weak->RefreshRows(); } })];
     Body->AddSlot().FillHeight(1).Padding(0, 8)[SNew(SScrollBox) + SScrollBox::Slot()[SAssignNew(Rows, SVerticalBox)]];
@@ -102,6 +123,22 @@ void UWarWorldEditWidget::SelectNearest()
         const double Distance = FVector::DistSquared(Row.Transform.GetLocation(), Pawn->GetActorLocation());
         if (Distance < Best) { Best = Distance; Selected = Row.Id; }
     }
+}
+
+void UWarWorldEditWidget::PlaceTemplate(const FName TemplateId)
+{
+    auto* P = Cast<AWarPlayerController>(GetOwningPlayer());
+    const auto* Pawn = GetOwningPlayerPawn();
+    const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+    if (!P || !Pawn || !E) return;
+    const auto* Template = E->GetHistory().GetBaselineObjects().FindByPredicate([TemplateId](const auto& Row) { return Row.Id == TemplateId; });
+    if (!Template) return;
+    FVector Position = Pawn->GetActorLocation() + Pawn->GetActorForwardVector() * 2000;
+    FHitResult Hit; FCollisionQueryParams Query; Query.AddIgnoredActor(Pawn);
+    if (!GetWorld()->LineTraceSingleByChannel(Hit, Position + FVector(0, 0, 10000), Position - FVector(0, 0, 20000), ECC_Visibility, Query)) return;
+    Position.Z = Hit.ImpactPoint.Z;
+    FTransform Transform = Template->Transform; Transform.SetLocation(Position);
+    P->ServerCreateWorldObject(TemplateId, Transform, E->GetHistory().GetRevision());
 }
 
 void UWarWorldEditWidget::EditSelected(const FVector Offset, const double Yaw, const double Scale, const bool bToggleHidden)

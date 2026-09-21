@@ -1,3 +1,10 @@
+## 2026-09-21 — Native capital construction and persistent created buildings
+
+- Added placement from all six imported Aegis house models to the development City Builder. New identities reference trusted authored mesh/collision templates; no primitive fallback is generated.
+- Added transactional construction, bounded object counts, stale-request rejection, undo removal/redo reconstruction and version-two drafts. Version-one edit-only drafts remain readable; created objects restore with their model, transform and blocking collision in a fresh game process.
+- Verified all 20 native foundation groups, 82 tooling tests and tools typechecking, Windows packaging, rendered editor/package capital construction and fresh-process reload, and editor/package two-client rejection of remote GM construction. Clicked all six catalog buttons and undid each placement in the packaged game; fixed clipped catalog labels.
+- Full GM/world/model/platform acceptance remains open. Shared authorization, remaining prefabs, terrain editing, publication, full capitals and Riftspire are pending. Release admission remains closed with four blocker categories.
+
 ## 2026-09-21 — In-game capital GM development workbench
 
 - Added the G-key City Builder for 109 existing Aegis houses: selection/search, movement, rotation, uniform scale, hide/restore, undo/redo and local draft save/load, with attached collision updates.
