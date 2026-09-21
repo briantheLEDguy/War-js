@@ -1,0 +1,632 @@
+{
+  "schemaVersion": 1,
+  "source": "src/data/crafting.ts",
+  "sourceSha256": "ce0ce390ee5524f3e078d93a87ca83cf5708a9f5441739872ddc5929ce70ce94",
+  "cases": [
+    {
+      "name": "weapon_strength_0",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "weapon",
+        "equipSlot": "mainHand"
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "weapon_strength_1",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "weapon",
+        "equipSlot": "mainHand",
+        "affix": {
+          "strengthBonus": 1
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 3
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "weapon_strength_2",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "weapon",
+        "equipSlot": "mainHand",
+        "affix": {
+          "strengthBonus": 2
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 4
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "weapon_strength_3",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "weapon",
+        "equipSlot": "mainHand",
+        "affix": {
+          "strengthBonus": 3
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 4
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "weapon_strength_7",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "weapon",
+        "equipSlot": "mainHand",
+        "affix": {
+          "strengthBonus": 7
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 4
+        },
+        {
+          "key": "craft_talisman_fragment",
+          "qty": 1
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "chest_strength_0",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "chest"
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "chest_strength_1",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "chest",
+        "affix": {
+          "strengthBonus": 1
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 2
+        }
+      ]
+    },
+    {
+      "name": "chest_strength_2",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "chest",
+        "affix": {
+          "strengthBonus": 2
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "name": "chest_strength_3",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "chest",
+        "affix": {
+          "strengthBonus": 3
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "chest_strength_7",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "chest",
+        "affix": {
+          "strengthBonus": 7
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "shoulders_strength_0",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "shoulders"
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "shoulders_strength_1",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "shoulders",
+        "affix": {
+          "strengthBonus": 1
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 2
+        }
+      ]
+    },
+    {
+      "name": "shoulders_strength_2",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "shoulders",
+        "affix": {
+          "strengthBonus": 2
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "name": "shoulders_strength_3",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "shoulders",
+        "affix": {
+          "strengthBonus": 3
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "shoulders_strength_7",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "shoulders",
+        "affix": {
+          "strengthBonus": 7
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "legs_strength_0",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "legs"
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "legs_strength_1",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "legs",
+        "affix": {
+          "strengthBonus": 1
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 2
+        }
+      ]
+    },
+    {
+      "name": "legs_strength_2",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "legs",
+        "affix": {
+          "strengthBonus": 2
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        }
+      ]
+    },
+    {
+      "name": "legs_strength_3",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "legs",
+        "affix": {
+          "strengthBonus": 3
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "legs_strength_7",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "legs",
+        "affix": {
+          "strengthBonus": 7
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_scrap_iron",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 3
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "neck_strength_0",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "neck"
+      },
+      "expected": [
+        {
+          "key": "craft_ragged_leather",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "neck_strength_1",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "neck",
+        "affix": {
+          "strengthBonus": 1
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_ragged_leather",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 2
+        }
+      ]
+    },
+    {
+      "name": "neck_strength_2",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "neck",
+        "affix": {
+          "strengthBonus": 2
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_ragged_leather",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 2
+        }
+      ]
+    },
+    {
+      "name": "neck_strength_3",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "neck",
+        "affix": {
+          "strengthBonus": 3
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_ragged_leather",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 2
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "name": "neck_strength_7",
+      "item": {
+        "key": "fixture_gear",
+        "name": "Fixture gear",
+        "slot": 0,
+        "qty": 1,
+        "kind": "armor",
+        "equipSlot": "neck",
+        "affix": {
+          "strengthBonus": 7
+        }
+      },
+      "expected": [
+        {
+          "key": "craft_ragged_leather",
+          "qty": 2
+        },
+        {
+          "key": "craft_torn_cloth",
+          "qty": 2
+        },
+        {
+          "key": "craft_essence_minor",
+          "qty": 1
+        }
+      ]
+    }
+  ]
+}

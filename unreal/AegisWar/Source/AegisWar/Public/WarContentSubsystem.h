@@ -50,6 +50,7 @@ public:
     FText GetItemDisplayName(FName Key) const;
     bool GetConsumableEffect(FName Key, float& Health, float& Mana) const;
     bool GetCraftRecipe(FName Id, FWarCraftRecipe& Recipe, FString& Error) const;
+    bool ResolveInventoryItem(FName Key, int32 Quantity, FWarInventoryItem& Item) const;
     TArray<FName> GetCraftRecipeIds() const;
     static bool ParseCraftRecipe(const TSharedPtr<FJsonObject>& Catalog, FName Id, FWarCraftRecipe& Recipe, FString& Error);
 private:

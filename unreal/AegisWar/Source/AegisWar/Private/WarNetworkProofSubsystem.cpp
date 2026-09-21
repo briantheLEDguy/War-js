@@ -65,6 +65,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("combatBeforeHealing"), bCombatVerified);
     Report->SetBoolField(TEXT("consumableAuthority"), bConsumableVerified);
     Report->SetBoolField(TEXT("craftingAuthority"), bCraftVerified);
+    Report->SetBoolField(TEXT("salvageAuthority"), bSalvageVerified);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -122,7 +123,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
         {
             if (State->GetInventory().Revision != 0) continue;
             FWarInventoryItem Reward;
-            Reward.Key = TEXT("network_proof_blade"); Reward.Kind = TEXT("weapon");
+            Reward.Key = TEXT("sword_iron"); Reward.Kind = TEXT("weapon");
             Reward.EquipSlot = TEXT("mainHand"); Reward.bHasAffix = true; Reward.StrengthBonus = 7;
             FString Error;
             const FGuid Transaction(1, 2, 3, 4);
@@ -132,7 +133,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             if (!State->GrantRewards(Transaction, {Reward, Potion}, Error) || State->GrantRewards(Transaction, {Reward, Potion}, Error))
             { Finish(false, TEXT("Trusted reward receipt deduplication failed.")); return; }
         }
-        bInventoryVerified = Aegis->GetInventory().Revision >= 2 && Riftbound->GetInventory().Revision >= 2
+        bInventoryVerified |= Aegis->GetInventory().Revision >= 2 && Riftbound->GetInventory().Revision >= 2
             && Aegis->GetInventory().Equipment.Num() == 1 && Riftbound->GetInventory().Equipment.Num() == 1;
         bConsumableVerified |= Aegis->GetInventory().Revision == 3 && Riftbound->GetInventory().Revision == 3
             && Aegis->GetInventory().Items.Num() == 2 && Riftbound->GetInventory().Items.Num() == 2
@@ -150,7 +151,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             Local->ServerChangeEquipment(1, 0, false); // Stale revision must not undo the accepted equip.
             bInventoryRequestsSent = true;
         }
-        bInventoryVerified = Snapshot.Revision >= 2 && Snapshot.Items.Num() == 2
+        bInventoryVerified |= Snapshot.Revision >= 2 && Snapshot.Items.Num() == 2
             && Snapshot.Items[0].StrengthBonus == 7 && Snapshot.Equipment.Num() == 1
             && Snapshot.Equipment[0].BagSlot == 0 && Remote->GetInventory().Revision == 0
             && Remote->GetInventory().Items.IsEmpty() && Remote->GetInventory().Equipment.IsEmpty();
@@ -229,14 +230,49 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
                 && Snapshot.Professions.Num() == 1 && Snapshot.Professions[0].Profession == TEXT("apothecary")
                 && Snapshot.Professions[0].Xp == 10;
         };
-        bCraftVerified = bServer ? Crafted(Aegis) && Crafted(Riftbound)
+        bCraftVerified |= bServer ? Crafted(Aegis) && Crafted(Riftbound)
             : Crafted(bAttackerClient ? Aegis : Riftbound)
                 && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Professions.IsEmpty();
     }
-    if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
+    if (bCraftVerified && Elapsed > 7.0)
+    {
+        if (!bServer && !bSalvageRequested)
+        {
+            auto* Local = bAttackerClient ? Aegis : Riftbound;
+            if (Local->GetInventory().Revision == 5)
+            {
+                Local->ServerSalvageItem(5, 0); // Equipped item must survive.
+                Local->ServerChangeEquipment(5, 0, false);
+                Local->ServerSalvageItem(6, 1); // Consumables cannot be salvaged.
+                Local->ServerSalvageItem(6, 0);
+                Local->ServerSalvageItem(6, 0); // Repeated request must not duplicate materials or XP.
+                bSalvageRequested = true;
+            }
+        }
+        const auto Salvaged = [](const AWarPlayerState* State) {
+            const auto& Snapshot = State->GetInventory();
+            const auto Quantity = [&Snapshot](const FName Key) {
+                int32 Total = 0;
+                for (const auto& Item : Snapshot.Items) if (Item.Key == Key) Total += Item.Quantity;
+                return Total;
+            };
+            const auto* Progress = Snapshot.Professions.FindByPredicate([](const auto& Row) { return Row.Profession == TEXT("salvaging"); });
+            const auto* Apothecary = Snapshot.Professions.FindByPredicate([](const auto& Row) { return Row.Profession == TEXT("apothecary"); });
+            return Snapshot.Revision == 7 && Snapshot.Equipment.IsEmpty() && Snapshot.Items.Num() == 4
+                && Quantity(TEXT("sword_iron")) == 0 && Quantity(TEXT("craft_scrap_iron")) == 4
+                && Quantity(TEXT("craft_talisman_fragment")) == 1 && Quantity(TEXT("craft_essence_minor")) == 1
+                && Quantity(TEXT("potion_health")) + Quantity(TEXT("potion_mana")) == 3
+                && Snapshot.Professions.Num() == 2 && Progress && Progress->Xp == 8 && Apothecary && Apothecary->Xp == 10;
+        };
+        bSalvageVerified = bServer ? Salvaged(Aegis) && Salvaged(Riftbound)
+            : Salvaged(bAttackerClient ? Aegis : Riftbound)
+                && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Items.IsEmpty()
+                && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Professions.IsEmpty();
+    }
+    if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 100.f)))
     {
-        Finish(true, TEXT("Movement, combat, private inventory, consumables and authoritative crafting verified."));
+        Finish(true, TEXT("Movement, combat, private inventory, consumables, crafting and salvage verified."));
     }
     else if (Elapsed > 20)
     {

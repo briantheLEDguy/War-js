@@ -156,6 +156,50 @@ void AWarPlayerState::ServerUseConsumable_Implementation(const int32 ExpectedRev
     ClientInventoryResult(bAccepted, Error);
 }
 
+bool AWarPlayerState::SalvageItem(const int32 ExpectedRevision, const int32 BagSlot, FString& Error)
+{
+    Error.Reset();
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
+    { Error = TEXT("Salvaging is unavailable or inventory changed."); return false; }
+    const auto* Item = Inventory.Items.FindByPredicate([BagSlot](const auto& Row) { return Row.Slot == BagSlot; });
+    const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
+    FWarInventoryItem CatalogItem;
+    if (!Item || !Content || !Content->ResolveInventoryItem(Item->Key, 1, CatalogItem)
+        || Item->Kind != CatalogItem.Kind || Item->EquipSlot != CatalogItem.EquipSlot)
+    { Error = TEXT("The selected item has no valid salvage definition."); return false; }
+    if (Inventory.Equipment.ContainsByPredicate([BagSlot](const auto& Row) { return Row.BagSlot == BagSlot; }))
+    { Error = TEXT("Unequip that item before salvaging."); return false; }
+    const FName Profession(TEXT("salvaging"));
+    const auto* Progress = Inventory.Professions.FindByPredicate([Profession](const auto& Row) { return Row.Profession == Profession; });
+    const int32 PreviousXp = Progress ? Progress->Xp : 0;
+    if (PreviousXp > MAX_int32 - 8) { Error = TEXT("Profession XP exceeds the supported range."); return false; }
+    TArray<FWarInventoryItem> Outputs;
+    if (!WarCrafting::SalvageOutputs(*Item, Outputs, Error)) return false;
+    for (auto& Output : Outputs)
+    {
+        FWarInventoryItem Resolved;
+        if (!Content->ResolveInventoryItem(Output.Key, Output.Quantity, Resolved))
+        { Error = TEXT("Salvage output catalog is unavailable."); return false; }
+        Output = Resolved;
+    }
+    if (!ExchangeItems(FGuid::NewGuid(), ExpectedRevision, {{BagSlot, 1}}, Outputs, Error)) return false;
+    auto* Updated = Inventory.Professions.FindByPredicate([Profession](const auto& Row) { return Row.Profession == Profession; });
+    if (!Updated)
+    {
+        FWarProfessionProgress Added; Added.Profession = Profession;
+        Inventory.Professions.Add(Added); Updated = &Inventory.Professions.Last();
+    }
+    Updated->Xp = PreviousXp + 8;
+    return true;
+}
+
+void AWarPlayerState::ServerSalvageItem_Implementation(const int32 ExpectedRevision, const int32 BagSlot)
+{
+    FString Error;
+    const bool bAccepted = SalvageItem(ExpectedRevision, BagSlot, Error);
+    ClientInventoryResult(bAccepted, Error);
+}
+
 bool AWarPlayerState::CraftRecipe(const FName RecipeId, const int32 ExpectedRevision,
     const AWarCraftingStation* Station, FString& Error)
 {

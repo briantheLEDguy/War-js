@@ -1,3 +1,9 @@
+## 2026-09-21 — Native salvaging
+
+- Added authoritative gear salvaging, affix-dependent materials, equipped-item protection, full-bag rollback and exactly-once session XP behavior.
+- Added an inventory salvage action with output preview, 25 browser-derived parity cases and multiplayer retry/privacy checks.
+- Durable persistence, equipment visuals and full profession/world parity remain unfinished.
+
 ## 2026-09-21 — Native crafting recipes
 
 - Added catalog-driven execution of the five existing recipes, server ingredient/rank validation, output rolls and owner-only profession XP.

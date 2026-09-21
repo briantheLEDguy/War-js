@@ -2,6 +2,38 @@
 
 int32 WarCrafting::RankForXp(const int32 Xp) { return FMath::Max(0, Xp) / 100 + 1; }
 
+bool WarCrafting::SalvageOutputs(const FWarInventoryItem& Item, TArray<FWarInventoryItem>& Outputs, FString& Error)
+{
+    Error.Reset();
+    if ((Item.Kind != TEXT("weapon") && Item.Kind != TEXT("armor")) || Item.Quantity != 1
+        || (Item.bHasAffix && Item.StrengthBonus < 0))
+    { Error = TEXT("That item cannot be salvaged."); return false; }
+    const int32 Strength = Item.bHasAffix ? Item.StrengthBonus : 0;
+    TArray<FWarInventoryItem> Result;
+    const auto Add = [&Result](const TCHAR* Key, const int32 Quantity) {
+        FWarInventoryItem Output; Output.Key = Key; Output.Kind = TEXT("misc"); Output.Quantity = Quantity;
+        Result.Add(Output);
+    };
+    if (Item.Kind == TEXT("weapon"))
+    {
+        Add(TEXT("craft_scrap_iron"), 2 + FMath::Min(2, Strength));
+        Add(TEXT("craft_talisman_fragment"), 1);
+    }
+    else if (Item.EquipSlot == TEXT("chest") || Item.EquipSlot == TEXT("shoulders") || Item.EquipSlot == TEXT("legs"))
+    {
+        Add(TEXT("craft_scrap_iron"), 2);
+        Add(TEXT("craft_torn_cloth"), 1 + FMath::Min(2, Strength));
+    }
+    else
+    {
+        Add(TEXT("craft_ragged_leather"), 2);
+        Add(TEXT("craft_torn_cloth"), 1 + FMath::Min(1, Strength));
+    }
+    if (Strength >= 3) Add(TEXT("craft_essence_minor"), 1);
+    Outputs = MoveTemp(Result);
+    return true;
+}
+
 bool WarCrafting::SelectIngredients(const FWarCraftRecipe& Recipe, const FName Station, const int32 ProfessionXp,
     const TArray<FWarInventoryItem>& Inventory, TMap<int32, int32>& ConsumedSlots, FString& Error)
 {

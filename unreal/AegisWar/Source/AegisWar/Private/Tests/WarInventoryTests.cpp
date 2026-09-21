@@ -6,6 +6,7 @@
 #include "Serialization/JsonSerializer.h"
 #include "WarInventoryRules.h"
 #include "WarPlayerState.h"
+#include "WarCraftingRules.h"
 #include "Engine/World.h"
 
 namespace
@@ -147,6 +148,17 @@ bool FWarInventoryAuthorityTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Duplicate exchange cannot consume again"), Exchange->ExchangeItems(ExchangeId, 2, {{0, 1}}, {}, Error));
     TestTrue(TEXT("Equip item before protected consumption"), Exchange->ChangeEquipment(2, 0, true, Error));
     TestFalse(TEXT("Equipped gear cannot be consumed"), Exchange->ExchangeItems(FGuid::NewGuid(), 3, {{0, 1}}, {}, Error));
+    AWarPlayerState* Salvage = World->SpawnActor<AWarPlayerState>();
+    Blade.Quantity = 24;
+    TestTrue(TEXT("Fill bag with gear for salvage rollback"), Salvage->GrantRewards(FGuid::NewGuid(), {Blade}, Error));
+    Blade.Quantity = 1;
+    TArray<FWarInventoryItem> SalvageOutputs;
+    TestTrue(TEXT("Affixed blade produces three salvage outputs"), WarCrafting::SalvageOutputs(Blade, SalvageOutputs, Error));
+    TestEqual(TEXT("Scrap, fragments and essence"), SalvageOutputs.Num(), 3);
+    TestFalse(TEXT("One freed slot cannot discard two salvage outputs"), Salvage->ExchangeItems(FGuid::NewGuid(), 1, {{0, 1}}, SalvageOutputs, Error));
+    TestEqual(TEXT("Failed salvage retains all gear"), Salvage->GetInventory().Items.Num(), 24);
+    TestEqual(TEXT("Failed salvage retains original revision"), Salvage->GetInventory().Revision, 1);
+    TestTrue(TEXT("Failed salvage does not turn outputs into deferred rewards"), Salvage->GetInventory().PendingRewards.IsEmpty());
     World->DestroyWorld(false);
     return true;
 }

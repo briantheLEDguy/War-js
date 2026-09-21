@@ -39,6 +39,19 @@ bool UWarContentSubsystem::GetCraftRecipe(const FName Id, FWarCraftRecipe& Recip
     return ParseCraftRecipe(Manifest, Id, Recipe, Error);
 }
 
+bool UWarContentSubsystem::ResolveInventoryItem(const FName Key, const int32 Quantity, FWarInventoryItem& Item) const
+{
+    if (!bReady || Quantity <= 0) return false;
+    const auto Definition = FindDefinition(Manifest, TEXT("items"), TEXT("definitions"), TEXT("key"), Key);
+    FString Kind, Slot;
+    if (!Definition.IsValid() || !Definition->TryGetStringField(TEXT("kind"), Kind)) return false;
+    Definition->TryGetStringField(TEXT("equipSlot"), Slot);
+    FWarInventoryItem Resolved;
+    Resolved.Key = Key; Resolved.Quantity = Quantity; Resolved.Kind = FName(*Kind); Resolved.EquipSlot = FName(*Slot);
+    Item = Resolved;
+    return true;
+}
+
 TArray<FName> UWarContentSubsystem::GetCraftRecipeIds() const
 {
     TArray<FName> Result;

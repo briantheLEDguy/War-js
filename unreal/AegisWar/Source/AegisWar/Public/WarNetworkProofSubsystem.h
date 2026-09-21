@@ -32,6 +32,8 @@ private:
     bool bConsumableVerified = false;
     bool bCraftRequested = false;
     bool bCraftVerified = false;
+    bool bSalvageRequested = false;
+    bool bSalvageVerified = false;
     bool bMovementDriveComplete = false;
     float ObservedHealth = -1;
     float ObservedMana = -1;

@@ -54,6 +54,37 @@ A second packaged run using NullRHI also passed:
 
 Not yet accepted: in-world station placement/interaction UI across all 76
 stations, end-to-end execution of higher-rank recipes/talisman affixes, all six
-profession workflows, gathering, cultivation, salvaging, durable progression,
+profession workflows, gathering, cultivation, durable progression,
 complete crafting UI/help/onboarding, equipment stat effects and equipment art.
 These remain migration work; recipe execution is not full crafting parity.
+
+## Salvaging increment
+
+Native inventory now offers a salvage action with an output preview. Equipped
+gear must first be unequipped. The server validates the catalog item, computes
+materials from the stored strength affix, and commits destruction/output delivery
+through the atomic exchange. If outputs do not fit, the original item remains;
+no partial materials, deferred salvage output or XP are awarded. Successful
+salvaging awards exactly 8 salvaging XP. Stale requests and non-gear are rejected.
+This state remains session-local; durable recovery is still required.
+
+`npm run unreal:salvage-fixtures` captures 25 cases directly from the browser
+implementation: weapons, chest/shoulder/leg armor and other armor at strength
+0, 1, 2, 3 and 7. Tooling checks the source hash and fixtures; native tests compare
+each material identity and quantity. A native regression covers full bags that
+can fit only one of three salvage outputs.
+
+The development multiplayer proof uses a catalog Iron Sword with a controlled
+strength affix. It rejects salvaging while equipped, unequips it, rejects a
+consumable, salvages once and retries the stale request. Acceptance requires
+four scrap iron, one fragment, one essence, no sword, no equipped reference,
+exactly 8 salvage XP, unchanged potions/apothecary XP and private owner state.
+This is inventory metadata; equipment meshes/art are still unfinished.
+
+Salvage verification passed 11 native foundation groups, 72 migration tooling
+tests and tools TypeScript checking. Windows Development BuildCookRun succeeded;
+two packaged clients passed the rendered sequence at
+`artifacts/unreal/network/1789970303565-30772/report.json`. The resulting material
+inventory was inspected. The release gate still rejects release. Cultivation is
+the next profession dependency: preserve three plots, both seed timers, optional
+soil, server-controlled readiness, capacity-safe harvest and duplicate protection.

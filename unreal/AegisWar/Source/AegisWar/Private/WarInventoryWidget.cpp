@@ -106,6 +106,21 @@ void UWarInventoryWidget::Refresh(AWarPlayerState* State)
                     }
                     return FReply::Handled();
                 })[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 20)).AutoWrapText(true).Text(FText::FromString(Label))]];
+        TArray<FWarInventoryItem> SalvageRewards; FString SalvageError;
+        if (WarCrafting::SalvageOutputs(*Item, SalvageRewards, SalvageError))
+        {
+            FString Preview = TEXT("Destroys this item and produces:");
+            for (const auto& Reward : SalvageRewards)
+                Preview += FString::Printf(TEXT("\n%d × %s"), Reward.Quantity,
+                    *(Content ? Content->GetItemDisplayName(Reward.Key).ToString() : Reward.Key.ToString()));
+            Rows->AddSlot().AutoHeight().Padding(12, 0, 0, 8)
+                [SNew(SButton).IsEnabled(!bEquipped).ToolTipText(FText::FromString(Preview))
+                    .OnClicked_Lambda([WeakState = TWeakObjectPtr<AWarPlayerState>(State), Revision = DisplayedRevision, BagSlot] {
+                        if (WeakState.IsValid()) WeakState->ServerSalvageItem(Revision, BagSlot);
+                        return FReply::Handled();
+                    })[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18))
+                        .Text(NSLOCTEXT("AegisWar", "SalvageItem", "Salvage into materials"))]];
+        }
     }
     Rows->AddSlot().AutoHeight().Padding(0, 12)
         [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).AutoWrapText(true).Text(FText::FromString(FString::Printf(

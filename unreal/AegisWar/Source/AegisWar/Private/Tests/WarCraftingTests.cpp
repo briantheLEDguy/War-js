@@ -51,4 +51,44 @@ bool FWarCraftingTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Unknown recipe cannot be fabricated"), UWarContentSubsystem::ParseCraftRecipe(Root, TEXT("client_invented"), Missing, Error));
     return true;
 }
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarSalvageTest, "AegisWar.Foundation.SalvageParity",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FWarSalvageTest::RunTest(const FString& Parameters)
+{
+    FString Json;
+    if (!TestTrue(TEXT("Browser salvage fixture exists"), FFileHelper::LoadFileToString(Json,
+        *FPaths::Combine(FPaths::ProjectDir(), TEXT("../../migration/fixtures/salvage.json"))))) return false;
+    TSharedPtr<FJsonObject> Root;
+    if (!TestTrue(TEXT("Fixture parses"), FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Root))) return false;
+    const auto& Cases = Root->GetArrayField(TEXT("cases"));
+    TestEqual(TEXT("All browser salvage variants execute"), Cases.Num(), 25);
+    for (const auto& Value : Cases)
+    {
+        const auto Row = Value->AsObject();
+        const auto Source = Row->GetObjectField(TEXT("item"));
+        FWarInventoryItem Item;
+        Item.Key = FName(*Source->GetStringField(TEXT("key")));
+        Item.Kind = FName(*Source->GetStringField(TEXT("kind")));
+        Item.EquipSlot = FName(*Source->GetStringField(TEXT("equipSlot")));
+        const TSharedPtr<FJsonObject>* Affix = nullptr;
+        if (Source->TryGetObjectField(TEXT("affix"), Affix))
+        { Item.bHasAffix = true; Item.StrengthBonus = (*Affix)->GetIntegerField(TEXT("strengthBonus")); }
+        TArray<FWarInventoryItem> Outputs; FString Error;
+        TestTrue(Row->GetStringField(TEXT("name")), WarCrafting::SalvageOutputs(Item, Outputs, Error));
+        const auto& Expected = Row->GetArrayField(TEXT("expected"));
+        if (!TestEqual(TEXT("All output entries match"), Outputs.Num(), Expected.Num())) continue;
+        for (int32 Index = 0; Index < Outputs.Num(); ++Index)
+        {
+            TestEqual(TEXT("Output identity"), Outputs[Index].Key.ToString(), Expected[Index]->AsObject()->GetStringField(TEXT("key")));
+            TestEqual(TEXT("Output quantity"), Outputs[Index].Quantity, Expected[Index]->AsObject()->GetIntegerField(TEXT("qty")));
+        }
+    }
+    FWarInventoryItem Invalid; Invalid.Kind = TEXT("consumable");
+    TArray<FWarInventoryItem> Outputs; FString Error;
+    TestFalse(TEXT("Consumables cannot become salvage materials"), WarCrafting::SalvageOutputs(Invalid, Outputs, Error));
+    Invalid.Kind = TEXT("weapon"); Invalid.Quantity = 2;
+    TestFalse(TEXT("Malformed gear stack cannot be salvaged"), WarCrafting::SalvageOutputs(Invalid, Outputs, Error));
+    return true;
+}
 #endif
