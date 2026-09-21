@@ -1,12 +1,22 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "Misc/AutomationTest.h"
 #include "WarWorldEditHistory.h"
+#include "WarWorldEditPlacement.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarWorldEditHistoryTest, "AegisWar.Foundation.WorldEditHistory",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
 
 bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
 {
+    const FTransform GridInput(FRotator(12, 44, -8), FVector(125, -175, 73.2), FVector(2, -3, 4));
+    const auto Snapped = WarWorldEditPlacement::SnapTransform(GridInput, 50, 90);
+    TestTrue(TEXT("Browser half-grid rounding handles negative coordinates"), Snapped.GetLocation().Equals(FVector(150, -150, 73.2)));
+    TestTrue(TEXT("Snapping preserves model handedness and authored scale"), Snapped.GetScale3D().Equals(GridInput.GetScale3D()));
+    TestTrue(TEXT("Yaw snaps without flattening pitch/roll"), Snapped.GetRotation().Equals(FRotator(12, 0, -8).Quaternion(), 0.00001));
+    TestTrue(TEXT("Disabled snapping retains the exact transform"), WarWorldEditPlacement::SnapTransform(GridInput, 0, 0).Equals(GridInput));
+    TestTrue(TEXT("Invalid grid and angle settings are inert"), WarWorldEditPlacement::SnapTransform(GridInput, -50, 361).Equals(GridInput));
+    const auto Placed = WarWorldEditPlacement::SnapHorizontal(FVector(-151, 249, 27.4), 100);
+    TestTrue(TEXT("Ground height is never quantized"), Placed.Equals(FVector(-200, 200, 27.4)));
     FWarWorldEditHistory History; FString Error;
     const FTransform Original(FQuat::Identity, FVector(100, 200, 0), FVector(1, -1, 1));
     const TArray<FWarWorldEditObject> Objects = { { TEXT("house"), Original, false } };

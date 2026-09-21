@@ -87,6 +87,8 @@ Its [native development GM panel](docs/unreal-gm-workbench.md) now opens with `G
 in Play in Editor and supports placing six house and two rowhouse models, selecting
 houses, transforms, hide/restore, undo/redo and local draft save/load. Development
 flight, adjustable movement speed and safe return to arrival support city inspection.
+Adjustable grid/yaw alignment preserves terrain height and mirrored model scale;
+kit-specific pivots, sockets and assembly snapping remain pending.
 Construction
 survives a fresh game process with its authored mesh and collision. Older drafts
 retain new authored objects after additive city imports; conflicting changes are rejected. Shared GM

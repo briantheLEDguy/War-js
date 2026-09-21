@@ -1,3 +1,10 @@
+## 2026-09-21 — Native city grid alignment and owned-kit compatibility inventory
+
+- Added adjustable 10 cm, 50 cm, 1 m and 2 m construction grids, 15/45/90-degree rotation steps, and undoable XY/yaw alignment. Placement traces terrain after horizontal snapping; height, pitch/roll and mirrored scale are preserved. Kit-specific pivots/sockets and assembly compatibility remain pending.
+- Expanded the development panel to use available viewport height after visual testing caught the new controls collapsing its object list. The corrected editor and Windows-package views show the list and all controls together.
+- Passed 20 native test groups with snapping regressions, 83 tooling tests and typechecking. Rendered editor and packaged capital checks verified snapped actor/collision transforms and undo, alongside flight, construction and fresh-process draft reload. Release checks still reject four blocker categories.
+- Inspected three owned kits in the approved Epic launcher: Medieval Modular Town (With Interiors) and Medieval Houses Modular Vol 2 list Unreal 5.8; Castle Modular Pack lists support through 5.4. Recorded publisher metadata and outstanding platform/license checks. No purchased content was downloaded, imported or accepted.
+
 ## 2026-09-21 — Development capital flight and purchased kit integration path
 
 - Added local development GM flight, 0.25x–6x movement speed and collision-checked arrival return. Flight bypasses world collision; leaving flight inside a building is rejected. Walking restores collision, and traversal settings reset with a new pawn. Remote and Shipping sessions cannot enable these development controls.

@@ -1,10 +1,12 @@
 #include "WarWorldEditWidget.h"
 #include "WarWorldEditSubsystem.h"
+#include "WarWorldEditPlacement.h"
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
 #include "Engine/World.h"
 #include "Engine/StaticMeshActor.h"
 #include "Components/StaticMeshComponent.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
 #include "GameFramework/Pawn.h"
 #include "DrawDebugHelpers.h"
 #include "Widgets/Layout/SBorder.h"
@@ -86,17 +88,34 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
         const FVector P = Row->Transform.GetLocation();
         return FText::FromString(FString::Printf(TEXT("%s%s\nX %.1f m   Y %.1f m   Z %.1f m"), *Row->Id.ToString(),
             Row->bHidden ? TEXT(" (hidden)") : TEXT(""), P.X / 100, P.Y / 100, P.Z / 100)); })];
+    auto Snapping = SNew(SHorizontalBox);
+    Snapping->AddSlot().FillWidth(1)[Button(TEXT("Grid step"), [Weak] {
+        if (Weak.IsValid()) Weak->GridIndex = (Weak->GridIndex + 1) % 5;
+        return FReply::Handled(); })];
+    Snapping->AddSlot().FillWidth(1)[Button(TEXT("Turn step"), [Weak] {
+        if (Weak.IsValid()) Weak->AngleIndex = (Weak->AngleIndex + 1) % 3;
+        return FReply::Handled(); })];
+    Snapping->AddSlot().FillWidth(1)[Button(TEXT("Snap XY / yaw"), [Weak] {
+        if (Weak.IsValid()) Weak->SnapSelected(); return FReply::Handled(); })];
+    Body->AddSlot().AutoHeight().Padding(0, 4)[Snapping];
+    Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text_Lambda([Weak] {
+        if (!Weak.IsValid()) return FText::GetEmpty();
+        const double Grid = Weak->GridCentimeters();
+        return FText::FromString(FString::Printf(TEXT("Grid %s — move %.2fm / turn %.0f°"),
+            Grid > 0 ? *FString::Printf(TEXT("%.2fm"), Grid / 100) : TEXT("off"),
+            (Grid > 0 ? Grid : 100) / 100, Weak->AngleDegrees())); })];
     auto Move = SNew(SHorizontalBox);
     for (int32 Axis = 0; Axis < 3; ++Axis) for (const int32 Sign : { -1, 1 })
-        Move->AddSlot().FillWidth(1)[Button(FString::Printf(TEXT("%c %s1m"), TEXT('X') + Axis, Sign < 0 ? TEXT("-") : TEXT("+")), [Weak, Axis, Sign] {
-            if (Weak.IsValid()) { FVector Offset = FVector::ZeroVector; Offset[Axis] = Sign * 100; Weak->EditSelected(Offset); }
+        Move->AddSlot().FillWidth(1)[Button(FString::Printf(TEXT("%c %s"), TEXT('X') + Axis, Sign < 0 ? TEXT("-") : TEXT("+")), [Weak, Axis, Sign] {
+            if (Weak.IsValid()) { FVector Offset = FVector::ZeroVector;
+                Offset[Axis] = Sign * (Weak->GridCentimeters() > 0 ? Weak->GridCentimeters() : 100); Weak->EditSelected(Offset); }
             return FReply::Handled(); })];
     Body->AddSlot().AutoHeight().Padding(0, 8)[Move];
     auto Transform = SNew(SHorizontalBox);
     for (const int32 Sign : { -1, 1 })
     {
-        Transform->AddSlot().FillWidth(1)[Button(Sign < 0 ? TEXT("Turn -15°") : TEXT("Turn +15°"), [Weak, Sign] {
-            if (Weak.IsValid()) Weak->EditSelected(FVector::ZeroVector, Sign * 15); return FReply::Handled(); })];
+        Transform->AddSlot().FillWidth(1)[Button(Sign < 0 ? TEXT("Turn -") : TEXT("Turn +"), [Weak, Sign] {
+            if (Weak.IsValid()) Weak->EditSelected(FVector::ZeroVector, Sign * Weak->AngleDegrees()); return FReply::Handled(); })];
         Transform->AddSlot().FillWidth(1)[Button(Sign < 0 ? TEXT("Smaller") : TEXT("Larger"), [Weak, Sign] {
             if (Weak.IsValid()) Weak->EditSelected(FVector::ZeroVector, 0, Sign < 0 ? 1 / 1.1 : 1.1); return FReply::Handled(); })];
     }
@@ -115,7 +134,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
         return P ? FText::FromString(P->GetWorldEditMessage()) : FText::GetEmpty(); })];
     RefreshRows();
     if (Selected.IsNone()) SelectNearest();
-    return SNew(SBox).WidthOverride(560).HeightOverride(660)[SNew(SBorder).Padding(12)
+    return SNew(SBox).WidthOverride(560)[SNew(SBorder).Padding(12)
         .BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush")).BorderBackgroundColor(FLinearColor(0.025f, 0.03f, 0.045f, 1.f))[Body]];
 }
 
@@ -154,12 +173,29 @@ void UWarWorldEditWidget::PlaceTemplate(const FName TemplateId)
     if (!P || !Pawn || !E) return;
     const auto* Template = E->GetHistory().GetBaselineObjects().FindByPredicate([TemplateId](const auto& Row) { return Row.Id == TemplateId; });
     if (!Template) return;
-    FVector Position = Pawn->GetActorLocation() + Pawn->GetActorForwardVector() * 2000;
+    FVector Position = WarWorldEditPlacement::SnapHorizontal(Pawn->GetActorLocation() + Pawn->GetActorForwardVector() * 2000, GridCentimeters());
     FHitResult Hit; FCollisionQueryParams Query; Query.AddIgnoredActor(Pawn);
     if (!GetWorld()->LineTraceSingleByChannel(Hit, Position + FVector(0, 0, 10000), Position - FVector(0, 0, 20000), ECC_Visibility, Query)) return;
     Position.Z = Hit.ImpactPoint.Z;
-    FTransform Transform = Template->Transform; Transform.SetLocation(Position);
+    FTransform Transform = WarWorldEditPlacement::SnapTransform(Template->Transform, 0, GridCentimeters() > 0 ? AngleDegrees() : 0);
+    Transform.SetLocation(Position);
     P->ServerCreateWorldObject(TemplateId, Transform, E->GetHistory().GetRevision());
+}
+
+double UWarWorldEditWidget::GridCentimeters() const
+{ constexpr double Steps[] = { 0, 10, 50, 100, 200 }; return Steps[GridIndex]; }
+
+double UWarWorldEditWidget::AngleDegrees() const
+{ constexpr double Steps[] = { 15, 45, 90 }; return Steps[AngleIndex]; }
+
+void UWarWorldEditWidget::SnapSelected()
+{
+    const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+    auto* P = Cast<AWarPlayerController>(GetOwningPlayer());
+    const auto* Row = E ? E->GetHistory().Find(Selected) : nullptr;
+    if (!P || !Row) return;
+    P->ServerEditWorldObject(Selected, WarWorldEditPlacement::SnapTransform(Row->Transform, GridCentimeters(), AngleDegrees()),
+        Row->bHidden, E->GetHistory().GetRevision());
 }
 
 void UWarWorldEditWidget::EditSelected(const FVector Offset, const double Yaw, const double Scale, const bool bToggleHidden)
@@ -177,6 +213,14 @@ void UWarWorldEditWidget::EditSelected(const FVector Offset, const double Yaw, c
 void UWarWorldEditWidget::NativeTick(const FGeometry& Geometry, const float DeltaTime)
 {
     Super::NativeTick(Geometry, DeltaTime);
+    if (const auto* P = GetOwningPlayer())
+    {
+        int32 ViewportWidth = 0, ViewportHeight = 0; P->GetViewportSize(ViewportWidth, ViewportHeight);
+        const float DpiScale = FMath::Max(0.1f, UWidgetLayoutLibrary::GetViewportScale(this));
+        const float PanelHeight = FMath::Clamp((ViewportHeight - 48.f) / DpiScale, 300.f, 960.f);
+        if (!FMath::IsNearlyEqual(PanelHeight, LastPanelHeight))
+        { SetDesiredSizeInViewport(FVector2D(560, PanelHeight)); LastPanelHeight = PanelHeight; }
+    }
     const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); if (!E) return;
     if (DisplayedRevision != E->GetHistory().GetRevision()) RefreshRows();
     if (const auto* Actor = Cast<AStaticMeshActor>(E->GetObjectActor(Selected)))
@@ -187,4 +231,4 @@ void UWarWorldEditWidget::NativeTick(const FGeometry& Geometry, const float Delt
 }
 
 void UWarWorldEditWidget::ReleaseSlateResources(const bool bReleaseChildren)
-{ Super::ReleaseSlateResources(bReleaseChildren); Rows.Reset(); DisplayedRevision = INDEX_NONE; }
+{ Super::ReleaseSlateResources(bReleaseChildren); Rows.Reset(); DisplayedRevision = INDEX_NONE; LastPanelHeight = 0; }

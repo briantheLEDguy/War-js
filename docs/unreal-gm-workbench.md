@@ -9,7 +9,7 @@ development GM operations. Trusted account-based multiplayer GM authorization
 is still required for the production implementation.
 
 The current panel can place six house and two rowhouse models, search/select houses, select the nearest one,
-move along each world axis in one-meter increments, rotate in 15-degree steps,
+move along each world axis in adjustable increments, rotate in adjustable steps,
 scale uniformly, hide/restore, undo/redo, and save/load a local development draft.
 Selected geometry has an intentional cyan editor guide. Hidden buildings also
 stop blocking movement. Attached collision follows transform edits. Inventory,
@@ -26,7 +26,17 @@ to the local development capital; they are not production multiplayer GM access.
 
 Already purchased modular kits may expand the catalog after installation and
 review. See [the integration path](unreal-modular-kits.md). No purchased kit is
-currently admitted, and grid/pivot snapping is still pending.
+currently admitted; kit-specific pivot/socket alignment is still pending.
+
+**Grid step** cycles off, 10 cm, 50 cm, 1 m and 2 m. **Turn step** cycles 15°, 45°
+and 90°. Axis nudges use the chosen grid distance (1 m when off). **Snap XY / yaw**
+aligns the selected object's pivot to the world grid and chosen turn increment;
+it preserves height, pitch/roll and scale, including mirrored models. This is an
+undoable edit. New placements snap horizontal position before tracing ground
+height and snap yaw when the grid is enabled. Grid-off placement preserves the
+template orientation. Settings last for the widget session; drafts store final
+transforms. Surface/socket snapping, drag gizmos and kit-specific assembly
+alignment remain unfinished.
 
 The house buttons place an authored model about 20 meters in front of the
 character, on the first blocking surface below that point. Use the transform
@@ -139,6 +149,17 @@ Windows clients also passed in `artifacts/unreal/network/1789992482863-33204/rep
 Automated vertical
 flight uses movement input directly; physical E/Q keyboard operation has not yet
 been separately inspected. Full GM and capital acceptance remain false.
+
+Grid/yaw alignment verification (2026-09-21): all 20 native groups passed in
+`artifacts/unreal/editor/test-1789992764729-13288/`, including negative half-grid
+rounding, disabled settings, preserved height, pitch/roll and mirrored scale.
+Rendered capital alignment, attached collision and undo passed in the editor
+(`artifacts/unreal/capital-proof/1789993021093-37620/`) and corrected Windows
+package (`artifacts/unreal/capital-proof/1789993891299-24888/`), alongside traversal
+and fresh-process draft reload. Visual inspection caught a collapsed selection
+list; the panel now sizes to viewport height, and the rebuilt panel shows both
+the scrollable list and all controls. Tooling tests (83) and typechecking passed.
+This is world-grid alignment, not verification of any purchased modular kit.
 
 Still pending: the remaining building/prefab catalog, arbitrary/drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,

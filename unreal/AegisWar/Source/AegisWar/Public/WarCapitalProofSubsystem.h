@@ -20,6 +20,7 @@ private:
     FVector FlightPosition = FVector::ZeroVector;
     double FlightStartedAt = -1;
     bool bTraversalVerified = false;
+    bool bPlacementSnappingVerified = false;
     int32 Stage = 0;
     bool bFinished = false;
 };

@@ -19,9 +19,14 @@ private:
     void RefreshRows();
     void SelectNearest();
     void PlaceTemplate(FName TemplateId);
+    void SnapSelected();
     void EditSelected(FVector Offset, double Yaw = 0, double Scale = 1, bool bToggleHidden = false);
     FName Selected;
     FString Search;
     TSharedPtr<SVerticalBox> Rows;
     int32 DisplayedRevision = INDEX_NONE;
+    int32 GridIndex = 0, AngleIndex = 0;
+    float LastPanelHeight = 0;
+    double GridCentimeters() const;
+    double AngleDegrees() const;
 };

@@ -3,8 +3,34 @@
 The owner has authorized using already purchased Unreal store modular kits for
 city environments and the native GM building catalog. This is a narrow addition
 to the repository-source policy, not authorization to purchase more assets.
-Kit names, original engine versions, dependencies and licenses are not yet known.
-No kit has been installed, converted, imported or accepted.
+The owner approved launcher inspection. Three relevant owned entries were
+identified on 2026-09-21; their listing metadata is summarized below. Actual
+purchase-license evidence and dependency inspection remain outstanding. No kit
+has been installed, converted, imported or accepted by this migration work.
+
+## Owned candidates inspected in Epic Launcher
+
+These are publisher claims read from the signed-in Fab library and product
+Formats tabs, not runtime measurements or acceptance evidence.
+
+| Kit | Publisher | Listed Unreal versions | Relevant listing information |
+|---|---|---|---|
+| Medieval Modular Town (With Interiors) | Jemini Studio | 4.21–4.27, 5.0–5.8 | 393 static meshes plus two cloth flags; collision and LODs advertised; explorable interiors; Win32/Windows listed |
+| Medieval Houses Modular Vol 2 | GameAssetFactory | 4.22–4.27, 5.0–5.8 | 209 modular assets, 16 assembled buildings and 73 nature assets; Windows/Mac plus console platforms listed |
+| Castle Modular Pack | ArzaonGames 3D | 4.23–4.27, 5.0–5.4 | 164 meshes; custom collision and LODs advertised; Windows listed; launcher flags incompatibility with installed 5.8.2 |
+
+Start compatibility evaluation with the two 5.8-listed kits. The castle kit
+requires a forward-conversion trial. Linux is not listed for any of these three;
+its absence is an unverified platform requirement, not proof of incompatibility.
+Mac listing support likewise does not replace this project's packaging and
+runtime tests. The castle product page displays a current Standard License and
+an AI-usage restriction indicator; inspect the actual license terms applicable
+to the purchase before adaptation or distribution. A library entry is not a
+completed provenance review.
+
+The inspection changed no library downloads, installed plugins or project assets.
+Other library entries were not exhaustively audited. Their names or presence do
+not imply admission to the GM catalog.
 
 ## Integration path
 
@@ -22,7 +48,9 @@ No kit has been installed, converted, imported or accepted.
    categories, bounds, grid dimensions, pivot offsets, rotation increments and
    approved collision. Rooms or assemblies need explicit component definitions.
    The current house-template catalog does not yet provide this generic adapter.
-5. Extend builder placement with grid/pivot snapping, orientation and previews.
+5. Adapt builder placement to kit-specific pivots, sockets, orientation and previews.
+   Basic world XY grid and yaw snapping are implemented for existing authored
+   buildings; that alone does not establish modular seam/pivot compatibility.
    Preserve selection, transforms, collision, undo/redo, draft save/load and
    additive-import compatibility. Test a room assembled from walls, floors,
    stairs, roof and door openings, then reload it in a fresh game process.

@@ -2,6 +2,7 @@
 #include "WarWorldEditSubsystem.h"
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
+#include "WarWorldEditPlacement.h"
 #include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Engine/StaticMeshActor.h"
@@ -45,6 +46,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetStringField(TEXT("detail"), Detail); Report->SetBoolField(TEXT("fullCapitalAcceptance"), false);
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
+    Report->SetBoolField(TEXT("placementSnappingVerified"), bPlacementSnappingVerified);
     Report->SetBoolField(TEXT("constructionReload"), FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")));
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
@@ -192,6 +194,16 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     FFileHelper::SaveStringToFile(Saved, *Editor->GetDraftLocation());
     Player->ServerWorldEditHistory(false, 7);
     if (!Check(Actor->GetActorTransform().Equals(Original, 0.01), TEXT("Loaded draft cannot be undone."))) return;
+    FTransform GridInput = Original; GridInput.AddToTranslation(FVector(17, 23, 0));
+    const auto GridAligned = WarWorldEditPlacement::SnapTransform(GridInput, 100, 90);
+    Player->ServerEditWorldObject(Id, GridAligned, false, Editor->GetHistory().GetRevision());
+    if (!Check(Actor->GetActorTransform().Equals(GridAligned, 0.01)
+        && Boxes[0]->GetComponentTransform().Equals(Boxes[0]->GetRelativeTransform() * GridAligned, 0.01)
+        && GridAligned.GetLocation().Z == Original.GetLocation().Z
+        && GridAligned.GetScale3D().Equals(Original.GetScale3D()), TEXT("Grid alignment lost geometry, collision or height."))) return;
+    Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
+    if (!Check(Actor->GetActorTransform().Equals(Original, 0.01), TEXT("Grid alignment could not be undone."))) return;
+    bPlacementSnappingVerified = true;
     FTransform Placed = Original; Placed.AddToTranslation(FVector(0, 0, 5000));
     const int32 BeforeCreate = Editor->GetHistory().GetRevision();
     Player->ServerCreateWorldObject(TEXT("unregistered"), Placed, BeforeCreate);

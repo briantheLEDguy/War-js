@@ -19,11 +19,14 @@ void AWarPlayerController::ToggleWorldEditor()
     if (!Editor || !Editor->Open(this, Error)) { WorldEditMessage = Error; return; }
     if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();
-    if (!WorldEditWidget) WorldEditWidget = CreateWidget<UWarWorldEditWidget>(this, UWarWorldEditWidget::StaticClass());
+    if (!WorldEditWidget)
+    {
+        WorldEditWidget = CreateWidget<UWarWorldEditWidget>(this, UWarWorldEditWidget::StaticClass());
+        if (WorldEditWidget) WorldEditWidget->SetDesiredSizeInViewport(FVector2D(560, 960));
+    }
     if (!WorldEditWidget) return;
     WorldEditWidget->AddToViewport(10);
     WorldEditWidget->SetPositionInViewport(FVector2D(24, 24));
-    WorldEditWidget->SetDesiredSizeInViewport(FVector2D(560, 660));
     SetInputMode(FInputModeGameAndUI()); SetIgnoreLookInput(true); SetIgnoreMoveInput(true); bShowMouseCursor = true;
     WorldEditMessage = TEXT("Editing a development draft. Save before leaving the map.");
 }
