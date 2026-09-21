@@ -4,7 +4,7 @@
 
 Open **`unreal/AegisWar/AegisWar.uproject`** for the game and city together.
 The [integrated capital](docs/unreal-crownward.md) is both the editor and development
-game startup map: `/Game/Capitals/crownward/AegisCapital_Workbench`. CityKitStaging
+game startup map: `/Game/Capitals/crownward/FinalAppearance_20260921_181402_268830/AegisCapital_AppearancePreview`. CityKitStaging
 is a private asset-import workspace, not another game project. The city uses the
 original mountain terrain, five districts, 145 house sites and winding ascent to
 the hilltop castle, with 8,704 editable purchased-kit placements. Mara Vell and
@@ -17,6 +17,12 @@ four upper floors and a battlement; full city/interior parity remains unfinished
 The city pipeline recompiles the legacy market cloth material into a private
 native copy, preserving its authored graph and source. This fixes the sampled
 black fabric in Windows packages; full kit material/platform review remains open.
+
+The owner's **FinalAppearance** city is the official editable version. Packaging
+and fresh-process city checks follow `GameDefaultMap` in `DefaultEngine.ini`.
+Retired preview maps/materials and the old Crownward workbench were removed after
+dependency checks. Shared terrain and source kit assets remain required.
+Do not regenerate the old workbench or apply another automatic lighting pass.
 
 The approved Unreal 5.8.2 / Steam migration is in progress on
 `codex/unreal-migration`. The target preserves implemented gameplay and GM tools

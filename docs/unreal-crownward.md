@@ -3,13 +3,32 @@
 Open `unreal/AegisWar/AegisWar.uproject`. **AegisWar is the game project**;
 `artifacts/unreal/licensed-kits/CityKitStaging` is only a private import workspace.
 Both the editor startup and development game default map are
-`/Game/Capitals/crownward/AegisCapital_Workbench`. CityKitStaging does not contain
+`/Game/Capitals/crownward/FinalAppearance_20260921_181402_268830/AegisCapital_AppearancePreview`. CityKitStaging does not contain
 the game module and should not be used to play or build the game.
 
 Press Play in AegisWar. **G** opens City Builder, **I** inventory/crafting,
 **L** the quest log and **E** interacts with a nearby NPC or station. Standalone
 development GM sessions additionally require `-WarDevelopmentGM`. Production
 admission remains closed pending Steam ownership and all migration gates.
+
+The owner selected FinalAppearance as the official city on 2026-09-21. Its map
+and material files are preserved exactly; the old appearance directories and
+Crownward workbench were removed after reference checks. Shared terrain/textures
+remain dependencies. The GM development workbench recognizes the configured
+official city; standalone/PIE, local authority and non-shipping restrictions remain.
+Packaging and city proof reloads read the selected map from `DefaultEngine.ini`;
+historical generation receipts below describe the earlier baseline, not visual
+acceptance of the owner's final edits. Automatic workbench generation is blocked
+while FinalAppearance is selected.
+
+Final-map verification: Windows Game and Editor targets compiled; 87 tooling
+tests, tooling typechecking and all 21 native foundation groups passed. The
+official default city passed the gameplay/GM construction and fresh-process
+draft reload proof at `artifacts/unreal/capital-proof/crownward-1790015803158`.
+Dependency inspection loaded 8,753 actors with no missing static meshes. Cleanup
+preserved all 25 final map/material files byte-for-byte; its local receipt is
+`artifacts/unreal/licensed-kits/capital-cleanup-result.json`. These checks used
+NullRHI and do not claim a new visual or packaged-build acceptance.
 
 ## Original geography, purchased architecture
 

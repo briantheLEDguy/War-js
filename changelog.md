@@ -1,3 +1,9 @@
+## 2026-09-21 - Official FinalAppearance capital
+
+- Selected the owner's FinalAppearance city for editor/game startup, packaging and city proof reloads; preserved its map/material bytes.
+- Removed obsolete workbench and preview maps after dependency inspection. After the editor closed, all unused appearance materials were also removed; shared terrain and textures were retained.
+- Updated the native GM map gate for the selected official city, added map-selection tests and blocked regenerating the retired workbench. Windows Game/Editor builds, 87 tooling tests, tooling typecheck, 21 native test groups and official-city gameplay/GM fresh-process reload passed. No new packaged or graphical acceptance is claimed.
+
 ## 2026-09-21 - Connected castle and keep-floor access checks
 
 - Expanded native walking acceptance to twelve legs through castle entrances, the roof, battlement and all four intermediate keep floors, including return paths.

@@ -2,6 +2,7 @@
 #include "Misc/AutomationTest.h"
 #include "WarWorldEditHistory.h"
 #include "WarWorldEditPlacement.h"
+#include "WarWorldEditMap.h"
 #include <limits>
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonReader.h"
@@ -12,6 +13,11 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarWorldEditHistoryTest, "AegisWar.Foundation.
 
 bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
 {
+    const FString FinalMap = TEXT("/Game/Capitals/crownward/FinalAppearance/City");
+    TestTrue(TEXT("Selected owner city supports the GM workbench"), WarWorldEditMap::IsSupported(FinalMap, FinalMap));
+    TestFalse(TEXT("Unselected preview is not a workbench"), WarWorldEditMap::IsSupported(TEXT("/Game/Capitals/crownward/Other/City"), FinalMap));
+    TestFalse(TEXT("Arbitrary configured maps cannot become workbenches"), WarWorldEditMap::IsSupported(TEXT("/Game/Other"), TEXT("/Game/Other")));
+    TestTrue(TEXT("Legacy authored proof remains available"), WarWorldEditMap::IsSupported(TEXT("/Game/Capitals/aegis_capital/AegisCapital_Workbench"), FinalMap));
     const FTransform GridInput(FRotator(12, 44, -8), FVector(125, -175, 73.2), FVector(2, -3, 4));
     const auto Snapped = WarWorldEditPlacement::SnapTransform(GridInput, 50, 90);
     TestTrue(TEXT("Browser half-grid rounding handles negative coordinates"), Snapped.GetLocation().Equals(FVector(150, -150, 73.2)));

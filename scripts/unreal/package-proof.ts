@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { officialCapitalMap } from './capital-map';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
 // This packages a Development feasibility map; release acceptance remains a separate closed gate.
@@ -24,7 +25,7 @@ if (args.has('--include-kit-pilot')) {
 if (args.has('--include-crownward')) {
   if (!existsSync(path.join(repoRoot, 'artifacts/unreal/licensed-kits/capital-kit-build.json')))
     throw new Error('Build the integrated kit capital before packaging it.');
-  maps.push('/Game/Capitals/crownward/AegisCapital_Workbench');
+  maps.push(officialCapitalMap());
 }
 const options = ['BuildCookRun', `-project=${projectPath}`, '-target=AegisWar', '-noP4', `-platform=${platform}`,
   '-clientconfig=Development', '-build', '-cook', `-map=${maps.join('+')}`, '-stage', '-pak',

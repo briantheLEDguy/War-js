@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'node:fs';
 import path from 'node:path';
+import { officialCapitalMap } from './capital-map';
 import { randomUUID } from 'node:crypto';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
@@ -11,6 +12,7 @@ const packagedClient = packagedRoot ? path.join(packagedRoot, 'AegisWar/Binaries
 if (packagedClient && !existsSync(packagedClient)) throw new Error('Packaged Windows client is missing.');
 const nativeSaved = packagedRoot ? path.join(packagedRoot, 'AegisWar/Saved') : path.join(repoRoot, 'unreal/AegisWar/Saved');
 const receipt = JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/licensed-kits/capital-kit-build.json'), 'utf8'));
+const officialMap = officialCapitalMap();
 if (receipt.map !== '/Game/Capitals/crownward/AegisCapital_Workbench' || receipt.placements.length < 1)
   throw new Error('Build Crownward before testing it.');
 const engine = inspectToolchain(defaultEngineRoot());
@@ -22,7 +24,7 @@ mkdirSync(output, { recursive: true });
 const reports = [];
 for (const reload of args.has('--castle-traversal') ? [false] : [false, true]) {
   const id = run + (reload ? '-reload' : '');
-  const code = runEngineCommand(packagedClient ?? engine.editorCommand!, [...(packagedClient ? [] : [projectPath]), ...(reload ? [receipt.map] : []), '-game', '-unattended',
+  const code = runEngineCommand(packagedClient ?? engine.editorCommand!, [...(packagedClient ? [] : [projectPath]), ...(reload ? [officialMap] : []), '-game', '-unattended',
     ...(args.has('--rendered') ? ['-RenderOffscreen', '-WarProofScreenshot', '-windowed', '-ForceRes', '-ResX=1280', '-ResY=960'] : ['-nullrhi']),
     '-nosplash', '-nosound', '-nop4', '-stdout', '-FullStdOutLogOutput', '-WarDevelopmentGM', '-WarCapitalProof',
     '-WarCrownwardProof', `-WarProofRun=${id}`, `-WarProofDraftId=${draft}`,
@@ -49,6 +51,6 @@ for (const reload of args.has('--castle-traversal') ? [false] : [false, true]) {
   reports.push(report);
 }
 writeFileSync(path.join(output, 'report.json'), JSON.stringify({ passed: true, freshProcessReload: !args.has('--castle-traversal'),
-  map: receipt.map, surfacePlacement: args.has('--surface-placement'), constructionRow: args.has('--construction-row'),
+  map: officialMap, surfacePlacement: args.has('--surface-placement'), constructionRow: args.has('--construction-row'),
   castleTraversal: args.has('--castle-traversal'), defaultGameMapVerified: true, packagedClient: Boolean(packagedClient), platform: 'Win64', reports, fullCapitalAcceptance: false }, null, 2));
 console.log(JSON.stringify({ crownwardProofPassed: true, output }));

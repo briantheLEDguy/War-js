@@ -1,4 +1,6 @@
 #include "WarWorldEditSubsystem.h"
+#include "WarWorldEditMap.h"
+#include "Misc/ConfigCacheIni.h"
 #include "WarPlayerController.h"
 #include "GameFramework/Pawn.h"
 #include "Engine/StaticMeshActor.h"
@@ -49,10 +51,12 @@ bool UWarWorldEditSubsystem::CanUse(const APlayerController* Controller) const
 #else
     const UWorld* World = GetWorld();
     const auto* Player = Cast<AWarPlayerController>(Controller);
+    FString SelectedMap;
+    GConfig->GetString(TEXT("/Script/EngineSettings.GameMapsSettings"), TEXT("GameDefaultMap"), SelectedMap, GEngineIni);
     // A client option must never grant GM access on a shared server. This local
     // workbench is deliberately separate from the still-unavailable trusted role.
     return World && World->GetNetMode() == NM_Standalone && World->IsGameWorld()
-        && World->GetMapName().EndsWith(TEXT("AegisCapital_Workbench"))
+        && WarWorldEditMap::IsSupported(UWorld::RemovePIEPrefix(World->GetOutermost()->GetName()), SelectedMap)
         && (World->WorldType == EWorldType::PIE || FParse::Param(FCommandLine::Get(), TEXT("WarDevelopmentGM")))
         && Player && Player->HasAuthority() && Player->IsLocalController() && Player->GetPawn()
         && Player->GetEntryFailure().IsEmpty();

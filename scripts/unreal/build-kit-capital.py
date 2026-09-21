@@ -15,6 +15,9 @@ from capital_materials import cloth_material
 directory = ROOT / "artifacts/unreal/licensed-kits"
 layout = build_layout()
 target = layout["map"]
+config = (ROOT / "unreal/AegisWar/Config/DefaultEngine.ini").read_text()
+if "GameDefaultMap=/Game/Capitals/crownward/FinalAppearance_" in config:
+    raise RuntimeError("The owner's FinalAppearance city is official; do not regenerate the retired workbench")
 receipt_path = directory / "capital-kit-build.json"
 if (ROOT / "unreal/AegisWar/Saved/WorldEdit/crownward-draft.json").exists():
     raise RuntimeError("Preserve the owner's Crownward draft; reconcile its baseline before regeneration")
