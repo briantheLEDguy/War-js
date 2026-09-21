@@ -12,6 +12,14 @@ struct AEGISWAR_API FWarEquipmentReference
     UPROPERTY(BlueprintReadOnly) int32 BagSlot = INDEX_NONE;
 };
 
+USTRUCT(BlueprintType)
+struct AEGISWAR_API FWarProfessionProgress
+{
+    GENERATED_BODY()
+    UPROPERTY(BlueprintReadOnly) FName Profession;
+    UPROPERTY(BlueprintReadOnly) int32 Xp = 0;
+};
+
 /** One owner-only replication unit; equipment never removes items from the bag. */
 USTRUCT(BlueprintType)
 struct AEGISWAR_API FWarInventorySnapshot
@@ -21,4 +29,5 @@ struct AEGISWAR_API FWarInventorySnapshot
     UPROPERTY(BlueprintReadOnly) TArray<FWarInventoryItem> Items;
     UPROPERTY(BlueprintReadOnly) TArray<FWarInventoryItem> PendingRewards;
     UPROPERTY(BlueprintReadOnly) TArray<FWarEquipmentReference> Equipment;
+    UPROPERTY(BlueprintReadOnly) TArray<FWarProfessionProgress> Professions;
 };

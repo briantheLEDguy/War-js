@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "WarCraftingRules.h"
 #include "WarContentSubsystem.generated.h"
 
 class FJsonObject;
@@ -48,6 +49,9 @@ public:
     bool ValidatePlayableVisual(const UWarCharacterVisualDefinition* Visual, FString& OutError) const;
     FText GetItemDisplayName(FName Key) const;
     bool GetConsumableEffect(FName Key, float& Health, float& Mana) const;
+    bool GetCraftRecipe(FName Id, FWarCraftRecipe& Recipe, FString& Error) const;
+    TArray<FName> GetCraftRecipeIds() const;
+    static bool ParseCraftRecipe(const TSharedPtr<FJsonObject>& Catalog, FName Id, FWarCraftRecipe& Recipe, FString& Error);
 private:
     UPROPERTY() FWarContentSummary Summary;
     UPROPERTY() FString ValidationError;

@@ -110,4 +110,21 @@ void UWarInventoryWidget::Refresh(AWarPlayerState* State)
     Rows->AddSlot().AutoHeight().Padding(0, 12)
         [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).AutoWrapText(true).Text(FText::FromString(FString::Printf(
             TEXT("Click equipment to equip or unequip.\n%d reward entries await bag space."), Inventory.PendingRewards.Num())))];
+    if (!Content) return;
+    Rows->AddSlot().AutoHeight().Padding(0, 12)
+        [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 22)).Text(NSLOCTEXT("AegisWar", "PortableCrafting", "Portable crafting"))];
+    for (const auto RecipeId : Content->GetCraftRecipeIds())
+    {
+        FWarCraftRecipe Recipe; FString Error;
+        if (!Content->GetCraftRecipe(RecipeId, Recipe, Error)) continue;
+        const auto* Progress = Inventory.Professions.FindByPredicate([&Recipe](const auto& Row) { return Row.Profession == Recipe.Profession; });
+        const int32 Xp = Progress ? Progress->Xp : 0;
+        const FString Label = FString::Printf(TEXT("Craft %s\nRank %d required · current rank %d · %d XP"),
+            *Recipe.Name, Recipe.MinimumRank, WarCrafting::RankForXp(Xp), Xp);
+        Rows->AddSlot().AutoHeight().Padding(0, 3)
+            [SNew(SButton).OnClicked_Lambda([WeakState = TWeakObjectPtr<AWarPlayerState>(State), RecipeId, Revision = DisplayedRevision] {
+                if (WeakState.IsValid()) WeakState->ServerCraftRecipe(RecipeId, Revision, nullptr);
+                return FReply::Handled();
+            })[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 18)).AutoWrapText(true).Text(FText::FromString(Label))]];
+    }
 }

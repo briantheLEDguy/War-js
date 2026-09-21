@@ -1,3 +1,9 @@
+## 2026-09-21 — Native crafting recipes
+
+- Added catalog-driven execution of the five existing recipes, server ingredient/rank validation, output rolls and owner-only profession XP.
+- Preserved portable/general/specialist crafting eligibility, added portable recipe buttons and validation for supplied world stations.
+- Added native recipe/rank tests and two-client recipe retry/XP privacy verification. Complete profession and world-station parity remain unfinished.
+
 ## 2026-09-21 — Native inventory interactions
 
 - Added a native inventory panel with catalog names, search, display ordering, equipment selection and server feedback.

@@ -31,6 +31,10 @@ ordering, equip/unequip and catalog-resolved consumable use. Atomic item exchang
 roll back when outputs cannot fit and deliver deferred gear into freed space.
 Durable persistence, complete inventory presentation and equipment meshes remain
 unfinished. See [inventory implementation and limits](docs/unreal-inventory-authority.md).
+Catalog-driven native recipe execution and portable crafting buttons now support
+the five current recipes, with server validation, capacity-safe exchanges and
+private profession XP. See [crafting implementation and limits](docs/unreal-crafting.md);
+world gathering, cultivation, salvaging and complete station workflows remain open.
 
 ## Regional production priorities
 

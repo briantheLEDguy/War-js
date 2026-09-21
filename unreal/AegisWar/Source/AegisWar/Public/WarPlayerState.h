@@ -10,6 +10,7 @@
 class UAbilitySystemComponent;
 class UWarAttributeSet;
 class AWarCharacter;
+class AWarCraftingStation;
 
 /** PlayerState owns GAS so replacing the pawn does not clear ability cooldowns. */
 UCLASS()
@@ -34,6 +35,8 @@ public:
     UFUNCTION(Server, Reliable) void ServerChangeEquipment(int32 ExpectedRevision, int32 BagSlot, bool bEquip);
     bool UseConsumable(int32 ExpectedRevision, int32 BagSlot, FString& Error);
     UFUNCTION(Server, Reliable) void ServerUseConsumable(int32 ExpectedRevision, int32 BagSlot);
+    bool CraftRecipe(FName RecipeId, int32 ExpectedRevision, const AWarCraftingStation* Station, FString& Error);
+    UFUNCTION(Server, Reliable) void ServerCraftRecipe(FName RecipeId, int32 ExpectedRevision, AWarCraftingStation* Station);
     UFUNCTION(Client, Reliable) void ClientInventoryResult(bool bAccepted, const FString& Error);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:

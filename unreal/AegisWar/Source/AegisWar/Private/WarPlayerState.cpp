@@ -7,6 +7,7 @@
 #include "Net/UnrealNetwork.h"
 #include "WarContentSubsystem.h"
 #include "Engine/GameInstance.h"
+#include "WarCraftingStation.h"
 
 AWarPlayerState::AWarPlayerState()
 {
@@ -132,7 +133,7 @@ void AWarPlayerState::ClientInventoryResult_Implementation(const bool bAccepted,
 bool AWarPlayerState::UseConsumable(const int32 ExpectedRevision, const int32 BagSlot, FString& Error)
 {
     Error.Reset();
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || Attributes->GetHealth() <= 0.f)
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
     { Error = TEXT("Item use is unavailable or inventory changed."); return false; }
     const auto* Item = Inventory.Items.FindByPredicate([BagSlot](const auto& Row) { return Row.Slot == BagSlot; });
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
@@ -152,6 +153,52 @@ void AWarPlayerState::ServerUseConsumable_Implementation(const int32 ExpectedRev
 {
     FString Error;
     const bool bAccepted = UseConsumable(ExpectedRevision, BagSlot, Error);
+    ClientInventoryResult(bAccepted, Error);
+}
+
+bool AWarPlayerState::CraftRecipe(const FName RecipeId, const int32 ExpectedRevision,
+    const AWarCraftingStation* Station, FString& Error)
+{
+    Error.Reset();
+    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !GetPawn() || Attributes->GetHealth() <= 0.f)
+    { Error = TEXT("Crafting is unavailable or inventory changed."); return false; }
+    if (Station && !Station->CanInteract(GetPawn()))
+    { Error = TEXT("Crafting station is unavailable or too far away."); return false; }
+    const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
+    FWarCraftRecipe Recipe;
+    if (!Content) { Error = TEXT("Crafting catalog is unavailable."); return false; }
+    if (!Content->GetCraftRecipe(RecipeId, Recipe, Error)) return false;
+    const auto* Progress = Inventory.Professions.FindByPredicate([&Recipe](const auto& Row) { return Row.Profession == Recipe.Profession; });
+    const int32 PreviousXp = Progress ? Progress->Xp : 0;
+    if (static_cast<int64>(PreviousXp) + Recipe.Xp > MAX_int32)
+    { Error = TEXT("Profession XP exceeds the supported range."); return false; }
+    TMap<int32, int32> Consumed;
+    if (!WarCrafting::SelectIngredients(Recipe, Station ? Station->StationKind : NAME_None, PreviousXp, Inventory.Items, Consumed, Error)) return false;
+    TArray<FWarInventoryItem> Outputs;
+    for (const auto& Reward : Recipe.Outputs)
+    {
+        auto Item = Reward.Item;
+        Item.bHasAffix = Reward.bRollStrength;
+        if (Reward.bRollStrength) Item.StrengthBonus = FMath::RandRange(Reward.MinimumStrength, Reward.MaximumStrength);
+        Outputs.Add(Item);
+    }
+    if (!ExchangeItems(FGuid::NewGuid(), ExpectedRevision, Consumed, Outputs, Error)) return false;
+    auto* Updated = Inventory.Professions.FindByPredicate([&Recipe](const auto& Row) { return Row.Profession == Recipe.Profession; });
+    if (!Updated)
+    {
+        FWarProfessionProgress Added;
+        Added.Profession = Recipe.Profession;
+        Inventory.Professions.Add(Added);
+        Updated = &Inventory.Professions.Last();
+    }
+    Updated->Xp = PreviousXp + Recipe.Xp;
+    return true;
+}
+
+void AWarPlayerState::ServerCraftRecipe_Implementation(const FName RecipeId, const int32 ExpectedRevision, AWarCraftingStation* Station)
+{
+    FString Error;
+    const bool bAccepted = CraftRecipe(RecipeId, ExpectedRevision, Station, Error);
     ClientInventoryResult(bAccepted, Error);
 }
 

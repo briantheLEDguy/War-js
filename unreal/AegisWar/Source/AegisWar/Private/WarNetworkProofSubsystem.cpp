@@ -64,6 +64,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("inventoryAuthorityAndPrivacy"), bInventoryVerified);
     Report->SetBoolField(TEXT("combatBeforeHealing"), bCombatVerified);
     Report->SetBoolField(TEXT("consumableAuthority"), bConsumableVerified);
+    Report->SetBoolField(TEXT("craftingAuthority"), bCraftVerified);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -133,7 +134,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
         }
         bInventoryVerified = Aegis->GetInventory().Revision >= 2 && Riftbound->GetInventory().Revision >= 2
             && Aegis->GetInventory().Equipment.Num() == 1 && Riftbound->GetInventory().Equipment.Num() == 1;
-        bConsumableVerified = Aegis->GetInventory().Revision == 3 && Riftbound->GetInventory().Revision == 3
+        bConsumableVerified |= Aegis->GetInventory().Revision == 3 && Riftbound->GetInventory().Revision == 3
             && Aegis->GetInventory().Items.Num() == 2 && Riftbound->GetInventory().Items.Num() == 2
             && Aegis->GetInventory().Items[1].Quantity == 1 && Riftbound->GetInventory().Items[1].Quantity == 1;
     }
@@ -153,7 +154,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             && Snapshot.Items[0].StrengthBonus == 7 && Snapshot.Equipment.Num() == 1
             && Snapshot.Equipment[0].BagSlot == 0 && Remote->GetInventory().Revision == 0
             && Remote->GetInventory().Items.IsEmpty() && Remote->GetInventory().Equipment.IsEmpty();
-        bConsumableVerified = Snapshot.Revision == 3 && Snapshot.Items.Num() == 2 && Snapshot.Items[1].Quantity == 1;
+        bConsumableVerified |= Snapshot.Revision == 3 && Snapshot.Items.Num() == 2 && Snapshot.Items[1].Quantity == 1;
     }
     bAutonomous = !bServer && (bAttackerClient ? Attacker : Defender)->GetLocalRole() == ROLE_AutonomousProxy;
     if (PairReadyAt < 0)
@@ -168,7 +169,10 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     const double Elapsed = Now - PairReadyAt;
     if (bAttackerClient)
     {
-        if (Elapsed < 0.35) Attacker->AddMovementInput(FVector(0, 1, 0));
+        // Startup/shader hitches can consume a fixed time window before several movement frames run.
+        // Drive to a measured distance; retain the independent server/observer acceptance threshold.
+        bMovementDriveComplete |= FVector::Dist2D(InitialAttackerPosition, Attacker->GetActorLocation()) >= 100.f;
+        if (!bMovementDriveComplete && Elapsed < 5.0) Attacker->AddMovementInput(FVector(0, 1, 0));
         if ((StrikeRequests == 0 && Elapsed > 1.0) || (StrikeRequests == 1 && Elapsed > 1.3))
         {
             Attacker->RequestTargetStrike(Defender);
@@ -187,10 +191,52 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
         Local->ServerUseConsumable(2, 1); // Duplicate revision must not consume the second potion.
         bConsumableRequested = true;
     }
-    if (bCombatVerified && bInventoryVerified && bConsumableVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
+    if (bConsumableVerified && Elapsed > 5.0)
+    {
+        if (bServer)
+        {
+            for (auto* State : {Aegis, Riftbound})
+            {
+                if (State->GetInventory().Revision != 3) continue;
+                TArray<FWarInventoryItem> Ingredients;
+                for (const FName Key : {FName(TEXT("craft_vial_cloudy")),
+                    FName(State == Aegis ? TEXT("craft_goldweed") : TEXT("craft_mandrake_root")), FName(TEXT("craft_clear_water"))})
+                {
+                    FWarInventoryItem Item; Item.Key = Key; Item.Kind = TEXT("misc");
+                    Item.Quantity = Ingredients.Num() == 1 ? 2 : 1;
+                    Ingredients.Add(Item);
+                }
+                FString Error;
+                if (!State->GrantRewards(FGuid(5, 6, 7, 8), Ingredients, Error))
+                { Finish(false, TEXT("Crafting proof ingredient delivery failed.")); return; }
+            }
+        }
+        else
+        {
+            auto* Local = bAttackerClient ? Aegis : Riftbound;
+            if (!bCraftRequested && Local->GetInventory().Revision == 4)
+            {
+                const FName Recipe = bAttackerClient ? TEXT("apothecary_minor_mana") : TEXT("apothecary_minor_health");
+                Local->ServerCraftRecipe(TEXT("fabricated_recipe"), 4, nullptr);
+                Local->ServerCraftRecipe(Recipe, 4, nullptr);
+                Local->ServerCraftRecipe(Recipe, 4, nullptr);
+                bCraftRequested = true;
+            }
+        }
+        const auto Crafted = [](const AWarPlayerState* State) {
+            const auto& Snapshot = State->GetInventory();
+            return Snapshot.Revision == 5 && Snapshot.Items.Num() == 2 && Snapshot.Items[1].Quantity == 3
+                && Snapshot.Professions.Num() == 1 && Snapshot.Professions[0].Profession == TEXT("apothecary")
+                && Snapshot.Professions[0].Xp == 10;
+        };
+        bCraftVerified = bServer ? Crafted(Aegis) && Crafted(Riftbound)
+            : Crafted(bAttackerClient ? Aegis : Riftbound)
+                && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Professions.IsEmpty();
+    }
+    if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 100.f)))
     {
-        Finish(true, TEXT("Movement, combat, private inventory, equipment revision checks and authoritative consumable use verified."));
+        Finish(true, TEXT("Movement, combat, private inventory, consumables and authoritative crafting verified."));
     }
     else if (Elapsed > 20)
     {

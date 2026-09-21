@@ -30,6 +30,9 @@ private:
     bool bCombatVerified = false;
     bool bConsumableRequested = false;
     bool bConsumableVerified = false;
+    bool bCraftRequested = false;
+    bool bCraftVerified = false;
+    bool bMovementDriveComplete = false;
     float ObservedHealth = -1;
     float ObservedMana = -1;
     FString ResultRole;

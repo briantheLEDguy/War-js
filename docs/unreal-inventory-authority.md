@@ -17,7 +17,8 @@ The only client mutation is an equip/unequip selection by bag slot and expected
 revision. Server validation rejects nonexistent items, invalid equipment and
 stale revisions. Equipment retains its occupied bag slot. Strength aggregation
 is validated but is not yet applied to combat attributes. Full affix effects,
-equipment visuals, full comparison/filter controls and crafting remain unfinished.
+equipment visuals and full comparison/filter controls remain unfinished.
+Native recipe execution is described in [the crafting increment](unreal-crafting.md).
 
 The native panel opens with `I` and provides catalog names, quantities, strength
 affixes, equipped state, deferred reward count, search and name/bag-slot ordering.
@@ -35,8 +36,8 @@ The current replicated resources are HP/mana; other class resources remain pendi
 It validates exact slot quantities and equipment protection, then requires every
 output to fit before committing consumption. Previously rolled deferred rewards
 fill remaining space without rerolls or another XP/gold award. Failed exchanges
-leave inventory, revision and receipts unchanged. Recipe eligibility, profession
-XP, station validation and actual crafting commands are still to be implemented.
+leave inventory, revision and receipts unchanged. Recipe execution now uses this
+boundary; complete profession/world workflows remain unfinished.
 
 The opt-in development network proof supplies one synthetic inventory test item
 per player (no mesh or visual substitute), plus two catalog potions. Each client submits an invalid slot,
