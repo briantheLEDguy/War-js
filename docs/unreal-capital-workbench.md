@@ -1,10 +1,10 @@
 # Capital restoration workbench
 
-Bastion's authored ground and 145 residential placements are available locally at
+Bastion's authored ground and 145 residences plus 157 walls are available locally at
 `/Game/Capitals/aegis_capital/AegisCapital_Workbench`. This is a terrain workbench,
 not a restored capital or a complete runtime GM toolkit. Buildings, residents,
 encounters and travel remain unfinished. The local development GM panel supports
-construction and editing of eight residential models; full shared GM parity
+construction and editing of nine building models; full shared GM parity
 remains unfinished. Riftspire must retain
 its authored crater, suspended floors and lifts; this exporter rejects that zone
 instead of inventing flat ground.
@@ -117,3 +117,16 @@ the render receipt. World views keep the playable lighting, and the renderer
 does not save its visibility or lighting changes. The reviewed rowhouse images
 show authored facades, roofs, windows and materials; full geometry, native LODs,
 performance and all-instance traversal remain pending.
+
+## Authored wall walkways
+
+All 157 original wall identities now retain three body/parapet collision volumes
+and their flat walkway surface. The 302 placements retain 3,865 sampled volume
+traces and 157 unobstructed walkway-top checks. Native character floor sweeps
+passed at three points on each wall (471 checks). Construction and fresh-process
+draft reload also preserve wall collision component identities. Sloped surfaces
+are deliberately rejected until their proper collision adapter exists. These
+checks do not establish complete capital traversal, LODs or visual approval.
+
+The separate purchased-kit pilot is documented in [modular kits](unreal-modular-kits.md).
+It does not replace the baseline restoration map or count as full city acceptance.

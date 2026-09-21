@@ -13,7 +13,7 @@
     "ownerPurchasedModularKits": {
       "authorized": true,
       "scope": "GM building catalog and city environment",
-      "status": "awaiting-installation-and-per-kit-review",
+      "status": "partially-installed-development-pilot-under-review",
       "rawAssetsInPublicRepository": false,
       "requiresLicenseCompatibilityAndRuntimeVerification": true
     }

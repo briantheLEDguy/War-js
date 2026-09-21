@@ -165,6 +165,14 @@ void UWarImportLibrary::PreparePreviewFrame(USkeletalMeshComponent* Component)
     FlushRenderingCommands();
 }
 
+void UWarImportLibrary::PrepareWorldPreviewFrame(UWorld* World)
+{
+    PreparePreviewFrame(nullptr);
+    // Commandlets do not tick the editor world between camera captures.
+    if (World) World->SendAllEndOfFrameUpdates();
+    FlushRenderingCommands();
+}
+
 FString UWarImportLibrary::GetSourceAnimationName(const UAnimSequence* Animation)
 {
     const UFbxAnimSequenceImportData* Data = Animation

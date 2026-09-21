@@ -24,6 +24,7 @@ private:
     bool bCatalogSearchVerified = false;
     bool bExactTransformVerified = false;
     bool bWorldPickingVerified = false;
+    int32 WalkableWallCount = 0;
     int32 Stage = 0;
     bool bFinished = false;
 };

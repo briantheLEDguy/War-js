@@ -15,7 +15,7 @@ document = json.loads((directory / "props.json").read_text())
 if digest(ROOT / "public/assets/maps/aegis_capital.json") != receipt["sourceSha256"] or digest(directory / "props.json") != receipt["propsInputSha256"]:
     raise RuntimeError("Stale capital buildings")
 for profile, expected in receipt["modelImports"].items():
-    if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2"):
+    if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2", "aegis_wall"):
         raise RuntimeError("Unknown house profile")
     if digest(ROOT / "artifacts/unreal/converted" / profile / "editor-import.json") != expected:
         raise RuntimeError("House import changed after placement")
@@ -24,7 +24,7 @@ if not unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level(recei
 world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
 actors = {actor.get_actor_label(): actor for actor in unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors()}
 unreal.WarImportLibrary.prepare_preview_frame(None)
-results = []
+results, walkways = [], []
 for placement in document["housePlacements"]:
     actor = actors.get("Capital prop " + placement["id"])
     if not isinstance(actor, unreal.StaticMeshActor) or actor.static_mesh_component.static_mesh is None:
@@ -44,7 +44,15 @@ for placement in document["housePlacements"]:
     yaw = actor.get_actor_rotation().yaw
     if abs((yaw - placement["yawDegrees"] + 180) % 360 - 180) > 0.001:
         raise RuntimeError("Building orientation changed")
+    boxes = {box.get_name(): box for box in actor.get_components_by_class(unreal.BoxComponent)}
+    if len(boxes) != len(placement["colliders"]):
+        raise RuntimeError("Unexpected authored collision count")
     for collider in placement["colliders"]:
+        # Adjacent foundations/parapets can overlap. Measure each authored volume
+        # independently, then verify walkable tops again with all collision active.
+        selected = boxes["AuthoredCollision_" + str(collider["index"])]
+        for box in boxes.values():
+            box.set_collision_enabled(unreal.CollisionEnabled.QUERY_AND_PHYSICS if box == selected else unreal.CollisionEnabled.NO_COLLISION)
         center = collider["center"]
         half = collider["halfSize"]
         angle = math.radians(collider["yawDegrees"])
@@ -57,7 +65,7 @@ for placement in document["housePlacements"]:
                 start = unreal.Vector(*(point[i] + direction[i] * (half[axis] + 25) for i in range(3)))
                 end = unreal.Vector(*point)
                 hit = unreal.SystemLibrary.line_trace_single(world, start, end, unreal.TraceTypeQuery.ECC_VISIBILITY,
-                    True, [], unreal.DrawDebugTrace.NONE, True)
+                    True, [other for other in actors.values() if other != actor], unreal.DrawDebugTrace.NONE, True)
                 if not isinstance(hit, unreal.HitResult):
                     raise RuntimeError(f"Missing building collision: {placement['id']}/{axis}/{sign}")
                 parts = hit.to_tuple()
@@ -69,7 +77,21 @@ for placement in document["housePlacements"]:
                 if error > 0.2:
                     raise RuntimeError(f"Building collision extent mismatch: {error} cm")
                 results.append({"id": placement["id"], "collider": collider["index"], "axis": axis, "sign": sign, "errorCm": error})
+    for box in boxes.values():
+        box.set_collision_enabled(unreal.CollisionEnabled.QUERY_AND_PHYSICS)
+    for collider in placement["colliders"]:
+        if not collider.get("walkableSurface"):
+            continue
+        center, half = collider["center"], collider["halfSize"]
+        top = center["Z"] + half[2]
+        hit = unreal.SystemLibrary.line_trace_single(world, unreal.Vector(center["X"], center["Y"], top + 50),
+            unreal.Vector(center["X"], center["Y"], top - 50), unreal.TraceTypeQuery.ECC_VISIBILITY,
+            True, [], unreal.DrawDebugTrace.NONE, True)
+        parts = hit.to_tuple() if isinstance(hit, unreal.HitResult) else None
+        if not parts or not parts[0] or parts[9] != actor or abs(parts[5].z - top) > 0.2:
+            raise RuntimeError("World walkway top is blocked or missing: " + placement["id"])
+        walkways.append({"id": placement["id"], "heightCm": parts[5].z})
 output.write_text(json.dumps({"schemaVersion": 1, "sourceSha256": receipt["sourceSha256"], "passed": True,
-    "buildingCount": len(document["housePlacements"]), "traces": results, "capitalReady": False,
+    "buildingCount": len(document["housePlacements"]), "traces": results, "walkways": walkways, "capitalReady": False,
     "fullTraversalAccepted": False, "geometryApproved": False}, indent=2) + "\n")
 unreal.log("WAR_CAPITAL_BUILDINGS_VERIFIED=" + str(output))

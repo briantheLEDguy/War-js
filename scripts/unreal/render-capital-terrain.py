@@ -21,7 +21,7 @@ if building_receipt.is_file():
     if buildings["sourceSha256"] != receipt["sourceSha256"] or digest(directory / "props.json") != buildings["propsInputSha256"]:
         raise RuntimeError("Stale building placements")
     for profile, expected in buildings["modelImports"].items():
-        if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2"):
+        if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2", "aegis_wall"):
             raise RuntimeError("Unknown building profile")
         if digest(ROOT / "artifacts/unreal/converted" / profile / "editor-import.json") != expected:
             raise RuntimeError("Building import changed")
@@ -82,6 +82,10 @@ if building_hash:
             isolated_ids[profile + "-reverse"] = placement["id"]
             view_specs.append((profile + "-reverse", (p["X"] - distance, p["Y"] - distance, p["Z"] + height * 0.8),
                                (p["X"], p["Y"], p["Z"] + height * 0.45)))
+        if profile == "aegis_wall":
+            isolated_ids[profile + "-walkway"] = placement["id"]
+            view_specs.append((profile + "-walkway", (p["X"] - distance * 0.35, p["Y"] - distance * 0.35, p["Z"] + height * 1.8),
+                               (p["X"], p["Y"], p["Z"] + height * 0.8)))
 for name, eye, focus in view_specs:
     selected_id = isolated_ids.get(name)
     # An inspection-only fill exposes the unlit side of isolated models. It is

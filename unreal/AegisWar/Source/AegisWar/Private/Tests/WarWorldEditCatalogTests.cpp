@@ -27,6 +27,11 @@ bool FWarWorldEditCatalogTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("All search terms must match"), WarWorldEditCatalog::Filter(Entries, TEXT("house 9")).Num(), 0);
     Swap(Baseline[0], Baseline[2]);
     TestEqual(TEXT("Enumeration order does not change the template"), WarWorldEditCatalog::Build(Baseline)[0].TemplateId, Entries[0].TemplateId);
+    Baseline.Add({ TEXT("kit_floor"), FTransform::Identity, false,
+        TEXT("/Game/LicensedKits/MH2/SM_MH_02_Stone_Floor_01.SM_MH_02_Stone_Floor_01:kit-source") });
+    const auto Kit = WarWorldEditCatalog::Filter(WarWorldEditCatalog::Build(Baseline), TEXT("town floor"));
+    TestEqual(TEXT("Purchased modular pieces have searchable player-facing labels"), Kit.Num(), 1);
+    if (Kit.Num() == 1) TestEqual(TEXT("Kit label"), Kit[0].Label, FString(TEXT("Town kit Stone Floor 01")));
     return true;
 }
 #endif

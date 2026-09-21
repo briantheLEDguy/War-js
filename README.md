@@ -15,9 +15,13 @@ and `npm run typecheck:unreal-tools` for the migration tooling. Strict asset and
 release checks intentionally reject missing/unverified models and native parity.
 See [the staged migration and setup guide](docs/unreal-migration.md).
 Already purchased Unreal modular kits are an approved additional source for the
-city builder, pending installation and individual compatibility/license review.
-See [modular kit integration](docs/unreal-modular-kits.md); no purchased kit is
-currently integrated or counted toward model acceptance.
+city builder, pending individual compatibility/license review.
+The owner has installed the first packs into private CityKitStaging. A separate
+capital pilot adds five house-kit models to the GM catalog, with native collision,
+construction and fresh-process draft checks. See [modular kit integration](docs/unreal-modular-kits.md).
+Complete visual, interior, license and platform acceptance remain open.
+AegisWar is registered with Epic Launcher; after active downloads finish, restart
+the launcher if it does not appear under Unreal Engine → Library → My Projects.
 The Windows Editor target has compiled successfully with Unreal 5.8.2. Work
 continued after the [first checkpoint](docs/unreal-checkpoint-1.md); actual
 authored-model imports, sampled animation/skinning parity, a Windows Development
@@ -80,11 +84,11 @@ normalized keyboard/mouse direction and modal blocking. Full touch, remapping,
 world collision and platform acceptance remain open.
 
 The [capital restoration workbench](docs/unreal-capital-workbench.md) now contains
-Bastion's authored elevations, canals and 145 residential placements across eight models, with sampled
+Bastion's authored elevations, canals and 145 residences and 157 walls across nine models, with sampled
 native collision and rendered checks. The remaining city buildings, residents,
 travel and full runtime GM editing remain unfinished; this map is not yet a restored capital.
 Its [native development GM panel](docs/unreal-gm-workbench.md) now opens with `G`
-in Play in Editor and supports placing six house and two rowhouse models, selecting
+in Play in Editor and supports placing six house, two rowhouse and one wall model, selecting
 houses, transforms, hide/restore, undo/redo and local draft save/load. Development
 flight, adjustable movement speed and safe return to arrival support city inspection.
 Adjustable grid/yaw alignment preserves terrain height and mirrored model scale;

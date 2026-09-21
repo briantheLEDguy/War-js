@@ -32,10 +32,13 @@ private:
         FTransform Transform;
         FVector Extent;
         FName Profile;
+        FName Name;
     };
     struct FModelTemplate
     {
         TWeakObjectPtr<class UStaticMesh> Mesh;
+        FName MeshCollisionProfile = TEXT("NoCollision");
+        TArray<TWeakObjectPtr<class UMaterialInterface>> Materials;
         TArray<FCollisionTemplate> Collision;
     };
     TMap<FName, FModelTemplate> Templates;

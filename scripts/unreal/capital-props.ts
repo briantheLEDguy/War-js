@@ -6,8 +6,8 @@ import { sourcePointToUnreal, sourceYawToUnrealDegrees, sha256 } from './content
 import { isMain, repoRoot } from './toolchain';
 
 interface CapitalProps { id: string; size: number; cityElevation: CityElevation; props: PropSpawn[] }
-export const CAPITAL_HOUSE_PROFILES = ['aegis_house_1', 'aegis_house_2', 'aegis_house_3',
-  'aegis_house_4', 'aegis_house_5', 'aegis_house_6', 'aegis_rowhouse_1', 'aegis_rowhouse_2'];
+export const CAPITAL_BUILDING_PROFILES = ['aegis_house_1', 'aegis_house_2', 'aegis_house_3',
+  'aegis_house_4', 'aegis_house_5', 'aegis_house_6', 'aegis_rowhouse_1', 'aegis_rowhouse_2', 'aegis_wall'];
 
 /** FBX imports use (source X, source Z, source Y); world uses (Z, X, Y).
  * A quarter turn with negative local Y scale performs that reflection. */
@@ -21,7 +21,17 @@ export function capitalPropPlacement(prop: PropSpawn, terrainHeight: number) {
   const y = (prop.heightMode === 'absolute' ? 0 : terrainHeight) + (prop.y ?? 0);
   const position = sourcePointToUnreal({ x: prop.x, y, z: prop.z });
   const sign = prop.colliderSpace === 'model' ? -1 : 1;
-  const colliders = (prop.colliders ?? []).map((collider, index) => {
+  const surfaces = (prop.walkableSurfaces ?? []).map(surface => {
+    const height = surface.fromY ?? 0;
+    if (!Number.isFinite(height) || height !== (surface.toY ?? 0))
+      throw new Error('Sloped walkable surfaces require a native ramp implementation.');
+    // A technical slab ends exactly at the browser floor height. Its thickness
+    // stays below the surface; it never replaces visible authored geometry.
+    return { x: surface.x, z: surface.z, rotY: surface.rotY, width: surface.width,
+      depth: surface.depth, minY: height - 0.01, maxY: height };
+  });
+  const originalColliderCount = prop.colliders?.length ?? 0;
+  const colliders = [...(prop.colliders ?? []), ...surfaces].map((collider, index) => {
     if (collider.minY === undefined || collider.maxY === undefined || collider.maxY <= collider.minY
       || ![collider.width, collider.depth].every(value => Number.isFinite(value) && value > 0))
       throw new Error(`Capital collider requires finite explicit vertical bounds: ${prop.id}/${index}`);
@@ -29,7 +39,7 @@ export function capitalPropPlacement(prop: PropSpawn, terrainHeight: number) {
     const cos = Math.cos(prop.rotY!), sin = Math.sin(sign * prop.rotY!);
     const center = sourcePointToUnreal({ x: prop.x + x * cos - z * sin,
       y: y + (collider.minY + collider.maxY) * sy / 2, z: prop.z + x * sin + z * cos });
-    return { index, source: collider, center,
+    return { index, source: collider, walkableSurface: index >= originalColliderCount, center,
       halfSize: [collider.depth * sz * 50, collider.width * sx * 50, (collider.maxY - collider.minY) * sy * 50],
       yawDegrees: -sourceYawToUnrealDegrees(sign * (prop.rotY! + (collider.rotY ?? 0))) };
   });
@@ -47,7 +57,8 @@ export function buildCapitalProps(map: CapitalProps) {
     ids.add(prop.id);
     return { id: prop.id, source: prop };
   });
-  const housePlacements = map.props.filter(prop => CAPITAL_HOUSE_PROFILES.includes(prop.assetKey ?? prop.kind) && prop.visible !== false)
+  // Preserve the version-one field name used by existing native import receipts.
+  const housePlacements = map.props.filter(prop => CAPITAL_BUILDING_PROFILES.includes(prop.assetKey ?? prop.kind) && prop.visible !== false)
     .map(prop => capitalPropPlacement(prop, cityHeightAt(map.cityElevation, map.size, prop.x, prop.z)));
   return { schemaVersion: 1, zoneId: map.id, objects, housePlacements, capitalReady: false };
 }

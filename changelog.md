@@ -1,3 +1,10 @@
+## 2026-09-21 — Capital walls and purchased-kit development pilot
+
+- Restored 157 authored capital walls and their flat walkways; native collision checks cover 302 building placements and 471 character floor sweeps. Sloped walkways, complete city content and LOD/visual acceptance remain open.
+- Added an isolated capital pilot with five Medieval Houses Modular Vol 2 pieces and preserved purchased source packages outside Git. GM construction retains authored mesh collision and material slots; private adaptations enable triangle collision where the kit lacks simple shapes.
+- Verified pilot collision, floor capsule support, catalog search, transforms, picking, undo/redo and fresh-process draft reload in native and packaged Windows runs. Passed all 21 native foundation groups and 85 migration-tooling tests; Unreal tooling typecheck passed. Complete kit visuals/interiors, licenses and shipping-platform acceptance remain unfinished.
+- Registered the main AegisWar project with Epic Launcher without interrupting downloads. Background commandlets support inspection and testing without desktop input.
+
 ## 2026-09-21 - Direct native city selection
 
 - Added pointer selection for registered capital buildings while the GM panel is open. First-hit authored collision preserves occlusion; hidden buildings remain available through the list, and misses retain the existing selection.

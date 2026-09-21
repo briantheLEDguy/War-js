@@ -6,6 +6,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/PrimitiveComponent.h"
 #include "Components/BoxComponent.h"
+#include "PhysicsEngine/BodySetup.h"
 #include "EngineUtils.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
@@ -84,10 +85,24 @@ bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
         Candidates.Add(Id, *It); Objects.Add({ Id, It->GetActorTransform(), It->IsHidden(),
             It->GetStaticMeshComponent()->GetStaticMesh()->GetPathName() + TEXT(":") + SourceHash });
         FModelTemplate Template; Template.Mesh = It->GetStaticMeshComponent()->GetStaticMesh();
+        const auto* MeshComponent = It->GetStaticMeshComponent();
+        if (MeshComponent->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+        {
+            const auto* Body = Template.Mesh->GetBodySetup();
+            // Licensed modular meshes retain their authored convex collision;
+            // a bounding box would seal doors and destroy interior traversal.
+            if (!Body || (Body->AggGeom.GetElementCount() == 0 && Body->CollisionTraceFlag != CTF_UseComplexAsSimple)
+                || MeshComponent->GetCollisionProfileName() != TEXT("BlockAll"))
+            { Error = TEXT("The building requires reviewed authored mesh collision."); return false; }
+            Template.MeshCollisionProfile = TEXT("BlockAll");
+        }
+        for (int32 Index = 0; Index < MeshComponent->GetNumMaterials(); ++Index)
+            Template.Materials.Add(MeshComponent->GetMaterial(Index));
         TArray<UBoxComponent*> Boxes; It->GetComponents(Boxes);
         for (const auto* Box : Boxes)
-            Template.Collision.Add({ Box->GetRelativeTransform(), Box->GetUnscaledBoxExtent(), Box->GetCollisionProfileName() });
-        if (Template.Collision.IsEmpty()) { Error = TEXT("The building template has no authored collision."); return false; }
+            Template.Collision.Add({ Box->GetRelativeTransform(), Box->GetUnscaledBoxExtent(), Box->GetCollisionProfileName(), Box->GetFName() });
+        if (Template.Collision.IsEmpty() && Template.MeshCollisionProfile == TEXT("NoCollision"))
+        { Error = TEXT("The building template has no authored collision."); return false; }
         CandidateTemplates.Add(Id, MoveTemp(Template));
     }
     if (!History.Initialize(Objects, Error)) return false;
@@ -162,11 +177,13 @@ bool UWarWorldEditSubsystem::ApplyHistory(FWarWorldEditHistory Next, FString& Er
         Staged.Add(Row.Id, Actor);
         Actor->SetActorHiddenInGame(true); Actor->SetActorEnableCollision(false);
         auto* Mesh = Actor->GetStaticMeshComponent(); Mesh->SetMobility(EComponentMobility::Movable);
-        Mesh->SetStaticMesh(Template->Mesh.Get()); Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+        Mesh->SetStaticMesh(Template->Mesh.Get()); Mesh->SetCollisionProfileName(Template->MeshCollisionProfile);
+        for (int32 Index = 0; Index < Template->Materials.Num(); ++Index)
+            Mesh->SetMaterial(Index, Template->Materials[Index].Get());
         Actor->Tags.Add(TEXT("WarCreatedBuilding")); Actor->Tags.Add(FName(*(TEXT("WarWorldObject_") + Row.Id.ToString())));
         for (const auto& Collision : Template->Collision)
         {
-            auto* Box = NewObject<UBoxComponent>(Actor);
+            auto* Box = NewObject<UBoxComponent>(Actor, Collision.Name);
             if (!Box) { Error = TEXT("Could not create authored collision; the draft was not applied."); return false; }
             Actor->AddInstanceComponent(Box); Box->SetupAttachment(Mesh); Box->SetMobility(EComponentMobility::Movable);
             Box->SetBoxExtent(Collision.Extent); Box->SetRelativeTransform(Collision.Transform);

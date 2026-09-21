@@ -3,12 +3,12 @@
 The Aegis development workbench now has an in-game **City Builder**, opened with
 `G`. Open `/Game/Capitals/aegis_capital/AegisCapital_Workbench` and use Play in
 Editor. Standalone development launches additionally require `-WarDevelopmentGM`.
-The map currently contains the authored terrain and 145 residential placements, not
+The map currently contains the authored terrain and 145 residences plus 157 walls, not
 the complete capital. Ordinary shared servers and Shipping builds deny these
 development GM operations. Trusted account-based multiplayer GM authorization
 is still required for the production implementation.
 
-The current panel can place six house and two rowhouse models, search/select houses, select the nearest one,
+The current panel can place six house, two rowhouse and one wall model, search/select houses, select the nearest one,
 move along each world axis in adjustable increments, rotate in adjustable steps,
 scale uniformly or enter exact transforms, hide/restore, undo/redo, and save/load a local development draft.
 With the panel open, click a building outside the panel to select it directly.

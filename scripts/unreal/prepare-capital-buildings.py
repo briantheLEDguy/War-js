@@ -21,7 +21,7 @@ require(document["schemaVersion"] == 1 and document["sourceSha256"] == terrain["
 input_hash = imports.sha256(directory / "props.json")
 contexts, meshes, model_imports = {}, {}, {}
 for profile in sorted({row["profileKey"] for row in document["housePlacements"]}):
-    require(profile in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2"), "Unadmitted house profile")
+    require(profile in tuple("aegis_house_" + str(index) for index in range(1, 7)) + ("aegis_rowhouse_1", "aegis_rowhouse_2", "aegis_wall"), "Unadmitted house profile")
     context = imports.validate_inputs(profile)
     receipt_path = context["directory"] / "editor-import.json"
     receipt = imports.load_json(receipt_path)
@@ -44,8 +44,9 @@ for placement in document["housePlacements"]:
     context, mesh = contexts[profile], meshes[profile]
     require(original.get("model") == context["source"].name,
             "House identity/model mismatch")
-    require(not original.get("interaction") and not original.get("walkableSurfaces"),
-            "This placement requires an interaction or walkable-surface implementation")
+    require(not original.get("interaction"), "This placement requires an interaction implementation")
+    require(sum(bool(c.get("walkableSurface")) for c in placement["colliders"]) == len(original.get("walkableSurfaces", [])),
+            "Walkable surface collision is incomplete")
     require(all(c["source"].get("blocksWhen", "always") == "always" and not c["source"].get("interactionId")
                 for c in placement["colliders"]), "Conditional collision is not yet implemented")
     label = "Capital prop " + placement["id"]

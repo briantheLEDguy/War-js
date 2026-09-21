@@ -26,6 +26,8 @@ unreal/AegisWar/Content/MigrationProof/
 unreal/AegisWar/Content/Capitals/
 # Purchased kit source packages remain local/private; never publish raw assets.
 unreal/AegisWar/Content/LicensedKits/
+# House kit keeps publisher package paths to preserve material dependencies.
+unreal/AegisWar/Content/Medieval_Environment/
 # Atomic model jobs and local authoring inputs never ship through Vite.
 artifacts/model-jobs/
 authoring/quarantine/

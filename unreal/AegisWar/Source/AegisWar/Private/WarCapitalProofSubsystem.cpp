@@ -51,6 +51,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("catalogSearchVerified"), bCatalogSearchVerified);
     Report->SetBoolField(TEXT("exactTransformVerified"), bExactTransformVerified);
     Report->SetBoolField(TEXT("worldPickingVerified"), bWorldPickingVerified);
+    Report->SetNumberField(TEXT("walkableWallCount"), WalkableWallCount);
     Report->SetBoolField(TEXT("constructionReload"), FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")));
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
@@ -135,6 +136,68 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
         && WarWorldEditCatalog::Filter(Catalog, TEXT("nonexistent kit")).IsEmpty(),
         TEXT("The native model catalog/search did not resolve trusted templates."))) return;
     bCatalogSearchVerified = true;
+    int32 ExpectedWalls = 0;
+    if (!Check(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedWalls="), ExpectedWalls) && ExpectedWalls > 0,
+        TEXT("Missing expected wall identities."))) return;
+    for (const auto& Row : Editor->GetHistory().GetBaselineObjects())
+    {
+        auto* Wall = Editor->GetObjectActor(Row.Id);
+        if (!Wall || !Wall->ActorHasTag(TEXT("aegis_wall"))) continue;
+        TArray<UBoxComponent*> WallBoxes; Wall->GetComponents(WallBoxes);
+        const auto* Floor = WallBoxes.FindByPredicate([](const auto* Box) { return Box->GetName() == TEXT("AuthoredCollision_3"); });
+        if (!Check(WallBoxes.Num() == 4 && Floor != nullptr, TEXT("Authored wall lost its walkway."))) return;
+        for (const double Offset : { -0.5, 0.0, 0.5 })
+        {
+            const FVector Extent = (*Floor)->GetUnscaledBoxExtent();
+            FVector Standing = (*Floor)->GetComponentTransform().TransformPosition(FVector(0, Extent.Y * Offset, Extent.Z));
+            Standing.Z += Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + 2;
+            FFindFloorResult Result;
+            Character->GetCharacterMovement()->FindFloor(Standing, Result, false);
+            if (!Check(Result.IsWalkableFloor() && Result.HitResult.GetActor() == Wall,
+                FString::Printf(TEXT("Character floor sweep failed on wall walkway %s."), *Row.Id.ToString()))) return;
+        }
+        ++WalkableWallCount;
+    }
+    if (!Check(WalkableWallCount == ExpectedWalls, TEXT("Wall walkway identities are incomplete."))) return;
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalKitProof")))
+    {
+        int32 KitMeshes = 0;
+        for (const auto& Row : Editor->GetHistory().GetBaselineObjects())
+        {
+            auto* KitActor = Cast<AStaticMeshActor>(Editor->GetObjectActor(Row.Id));
+            if (!KitActor || !KitActor->ActorHasTag(TEXT("WarKitPilot"))) continue;
+            const auto Bounds = KitActor->GetStaticMeshComponent()->Bounds;
+            FHitResult Hit;
+            if (!Check(GetWorld()->LineTraceSingleByChannel(Hit, Bounds.Origin + FVector(0, 0, Bounds.BoxExtent.Z + 100),
+                Bounds.Origin - FVector(0, 0, Bounds.BoxExtent.Z + 100), ECC_Visibility) && Hit.GetActor() == KitActor,
+                FString::Printf(TEXT("Kit pilot collision missing or obstructed: %s"), *Row.Id.ToString()))) return;
+            if (Row.Id == TEXT("kit_pilot_doorway"))
+            {
+                const auto* Capsule = Character->GetCapsuleComponent();
+                const double Bottom = Bounds.Origin.Z - Bounds.BoxExtent.Z;
+                FVector Center(Bounds.Origin.X, Bounds.Origin.Y, Bottom + Capsule->GetScaledCapsuleHalfHeight() + 2);
+                FCollisionQueryParams Query(SCENE_QUERY_STAT(WarKitDoorway)); Query.AddIgnoredActor(Character);
+                // The authored timber threshold is a real step. Measure it and
+                // require the character's configured step height before sweeping.
+                FHitResult Threshold;
+                const float StepHeight = Character->GetCharacterMovement()->MaxStepHeight;
+                if (GetWorld()->LineTraceSingleByChannel(Threshold, FVector(Center.X, Center.Y, Bottom + StepHeight),
+                    FVector(Center.X, Center.Y, Bottom - 5), ECC_Visibility, Query) && Threshold.GetActor() == KitActor)
+                {
+                    if (!Check(Threshold.ImpactPoint.Z - Bottom <= StepHeight, TEXT("Door threshold exceeds character step height."))) return;
+                    Center.Z = Threshold.ImpactPoint.Z + Capsule->GetScaledCapsuleHalfHeight() + 2;
+                }
+                const bool bBlocked = GetWorld()->SweepSingleByChannel(Hit, Center - FVector(0, 150, 0), Center + FVector(0, 150, 0),
+                    FQuat::Identity, ECC_Pawn, FCollisionShape::MakeCapsule(Capsule->GetScaledCapsuleRadius(),
+                        Capsule->GetScaledCapsuleHalfHeight()), Query);
+                if (!Check(!bBlocked, FString::Printf(TEXT("Kit doorway blocks capsule: actor=%s point=%s normal=%s penetrating=%d"),
+                    Hit.GetActor() ? *Hit.GetActor()->GetName() : TEXT("none"), *Hit.ImpactPoint.ToString(),
+                    *Hit.ImpactNormal.ToString(), Hit.bStartPenetrating))) return;
+            }
+            ++KitMeshes;
+        }
+        if (!Check(KitMeshes == 5, TEXT("Kit pilot mesh identities are incomplete."))) return;
+    }
     const auto CheckCreated = [&](const FName CreatedId) {
         const auto* Row = Editor->GetHistory().Find(CreatedId);
         auto* CreatedActor = Cast<AStaticMeshActor>(Editor->GetObjectActor(CreatedId));
@@ -143,8 +206,30 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
             && CreatedActor->GetStaticMeshComponent()->GetStaticMesh() == TemplateActor->GetStaticMeshComponent()->GetStaticMesh()
             && CreatedActor->GetActorTransform().Equals(Row->Transform, 0.01), TEXT("Created building lost its authored model or transform."))) return false;
         TArray<UBoxComponent*> CreatedBoxes; CreatedActor->GetComponents(CreatedBoxes);
-        if (!Check(CreatedBoxes.Num() == 1, TEXT("Created building lost authored collision."))) return false;
-        const auto* Box = CreatedBoxes[0]; const FVector Center = Box->GetComponentLocation(), Extent = Box->GetScaledBoxExtent();
+        TArray<UBoxComponent*> TemplateBoxes; TemplateActor->GetComponents(TemplateBoxes);
+        if (CreatedBoxes.IsEmpty() && TemplateBoxes.IsEmpty())
+        {
+            auto* Mesh = CreatedActor->GetStaticMeshComponent();
+            auto* SourceMesh = TemplateActor->GetStaticMeshComponent();
+            if (!Check(Mesh->GetCollisionProfileName() == TEXT("BlockAll")
+                && Mesh->GetNumMaterials() == SourceMesh->GetNumMaterials(), TEXT("Kit collision/material configuration was lost."))) return false;
+            for (int32 Index = 0; Index < Mesh->GetNumMaterials(); ++Index)
+                if (!Check(Mesh->GetMaterial(Index) == SourceMesh->GetMaterial(Index), TEXT("Kit material changed on construction."))) return false;
+            const auto Bounds = Mesh->Bounds;
+            FHitResult Hit;
+            if (!Check(GetWorld()->LineTraceSingleByChannel(Hit, Bounds.Origin + FVector(0, 0, Bounds.BoxExtent.Z + 100),
+                Bounds.Origin - FVector(0, 0, Bounds.BoxExtent.Z + 100), ECC_Visibility) && Hit.GetActor() == CreatedActor,
+                TEXT("Kit construction lost authored mesh collision."))) return false;
+            FFindFloorResult Floor;
+            Character->GetCharacterMovement()->FindFloor(Hit.ImpactPoint + FVector(0, 0,
+                Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + 2), Floor, false);
+            return Check(Floor.IsWalkableFloor() && Floor.HitResult.GetActor() == CreatedActor,
+                TEXT("Constructed kit floor cannot support the character capsule."));
+        }
+        if (!Check(!CreatedBoxes.IsEmpty() && CreatedBoxes.Num() == TemplateBoxes.Num(), TEXT("Created building lost authored collision."))) return false;
+        // The wall floor sits above the body volume; test that authored top rather than an occluded interior face.
+        const auto* Walkway = CreatedBoxes.FindByPredicate([](const auto* Box) { return Box->GetName() == TEXT("AuthoredCollision_3"); });
+        const auto* Box = Walkway ? *Walkway : CreatedBoxes[0]; const FVector Center = Box->GetComponentLocation(), Extent = Box->GetScaledBoxExtent();
         FHitResult Hit;
         return Check(GetWorld()->LineTraceSingleByChannel(Hit, Center + FVector(0, 0, Extent.Z + 25), Center, ECC_Visibility)
             && Hit.GetActor() == CreatedActor && FMath::Abs(Hit.ImpactPoint.Z - Center.Z - Extent.Z) < 0.2,
@@ -232,18 +317,22 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     bExactTransformVerified = true;
     FTransform Placed = Original; Placed.AddToTranslation(FVector(0, 0, 5000));
     const int32 BeforeCreate = Editor->GetHistory().GetRevision();
+    const FName ConstructionTemplate(FParse::Param(FCommandLine::Get(), TEXT("WarCapitalKitProof"))
+        ? TEXT("kit_pilot_floor") : TEXT("aegis_battle_enclosure_front_0_0"));
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalKitProof"))) Placed.SetScale3D(FVector::OneVector);
     Player->ServerCreateWorldObject(TEXT("unregistered"), Placed, BeforeCreate);
     if (!Check(Editor->GetHistory().GetRevision() == BeforeCreate, TEXT("Unknown building template accepted."))) return;
-    Player->ServerCreateWorldObject(Id, Placed, BeforeCreate - 1);
+    Player->ServerCreateWorldObject(ConstructionTemplate, Placed, BeforeCreate - 1);
     if (!Check(Editor->GetHistory().GetRevision() == BeforeCreate, TEXT("Stale building creation accepted."))) return;
-    Player->ServerCreateWorldObject(Id, Placed, BeforeCreate);
+    Player->ServerCreateWorldObject(ConstructionTemplate, Placed, BeforeCreate);
     const auto* Created = Editor->GetHistory().GetObjects().FindByPredicate([](const auto& Row) { return !Row.TemplateId.IsNone(); });
     if (!Check(Created != nullptr && Editor->GetHistory().GetObjects().Num() == ExpectedObjects + 1, TEXT("GM construction failed."))) return;
     const FName CreatedId = Created->Id;
     if (!CheckCreated(CreatedId)) return;
     TArray<UBoxComponent*> PickBoxes; Editor->GetObjectActor(CreatedId)->GetComponents(PickBoxes);
-    const FVector PickCenter = PickBoxes[0]->GetComponentLocation();
-    const FVector PickOrigin = PickCenter + FVector(0, 0, PickBoxes[0]->GetScaledBoxExtent().Z + 100);
+    const auto* PickMesh = Cast<AStaticMeshActor>(Editor->GetObjectActor(CreatedId))->GetStaticMeshComponent();
+    const FVector PickCenter = PickBoxes.IsEmpty() ? PickMesh->Bounds.Origin : PickBoxes[0]->GetComponentLocation();
+    const FVector PickOrigin = PickCenter + FVector(0, 0, (PickBoxes.IsEmpty() ? PickMesh->Bounds.BoxExtent.Z : PickBoxes[0]->GetScaledBoxExtent().Z) + 100);
     if (!Check(Editor->PickObject(Player, PickOrigin, -FVector::UpVector) == CreatedId
         && Editor->PickObject(nullptr, PickOrigin, -FVector::UpVector).IsNone()
         && Editor->PickObject(Player, PickOrigin, FVector::ZeroVector).IsNone(),

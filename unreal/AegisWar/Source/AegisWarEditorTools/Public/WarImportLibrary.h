@@ -38,5 +38,8 @@ public:
     static void PreparePreviewFrame(USkeletalMeshComponent* Component);
 
     UFUNCTION(BlueprintCallable, Category="Migration")
+    static void PrepareWorldPreviewFrame(UWorld* World);
+
+    UFUNCTION(BlueprintCallable, Category="Migration")
     static FBox GetSkinnedBounds(USkeletalMeshComponent* Component);
 };

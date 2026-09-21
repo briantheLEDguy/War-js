@@ -1,28 +1,53 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { buildCapitalProps, CAPITAL_HOUSE_PROFILES, capitalPropPlacement } from '../scripts/unreal/capital-props';
+import { buildCapitalProps, CAPITAL_BUILDING_PROFILES, capitalPropPlacement } from '../scripts/unreal/capital-props';
 
 describe('authored capital prop placement', () => {
   it('restores all 36 authored rowhouses without losing the other capital identities', () => {
     const map = JSON.parse(readFileSync(new URL('../public/assets/maps/aegis_capital.json', import.meta.url), 'utf8'));
     const result = buildCapitalProps(map);
     expect(result.objects).toHaveLength(1880);
-    expect(result.housePlacements).toHaveLength(145);
+    expect(result.housePlacements).toHaveLength(302);
     for (const profile of ['aegis_rowhouse_1', 'aegis_rowhouse_2']) {
       const actual = result.housePlacements.filter(row => row.profileKey === profile);
       expect(actual).toHaveLength(18);
       expect(actual.every(row => row.colliders.length > 0 && row.source.model === `prop_${profile}.glb`)).toBe(true);
     }
   });
-  it('retains every identity while admitting only explicit house and rowhouse variants', () => {
-    const props = [...CAPITAL_HOUSE_PROFILES.map((profile, index) => ({ id: `house-${index}`, kind: profile,
+  it('preserves all 157 walls and their elevated walkways', () => {
+    const map = JSON.parse(readFileSync(new URL('../public/assets/maps/aegis_capital.json', import.meta.url), 'utf8'));
+    const walls = buildCapitalProps(map).housePlacements.filter(row => row.profileKey === 'aegis_wall');
+    expect(walls).toHaveLength(157);
+    for (const wall of walls) {
+      expect(wall.colliders).toHaveLength(4);
+      const floor = wall.colliders[3];
+      expect(floor.walkableSurface).toBe(true);
+      expect(floor.center.Z + floor.halfSize[2]).toBeCloseTo(wall.position.Z + 1200 * wall.scale[2]);
+      expect(floor.halfSize[2]).toBeGreaterThan(0);
+    }
+  });
+  it('preserves flat-floor offsets, mirrored coordinate basis and nonuniform scaling', () => {
+    const placement = capitalPropPlacement({ id: 'platform', kind: 'platform', x: 7, z: 11,
+      rotY: Math.PI / 2, colliderSpace: 'model', scaleX: 2, scaleY: 3, scaleZ: 4,
+      walkableSurfaces: [{ x: 2, z: 3, width: 6, depth: 8, fromY: 5, toY: 5 }] }, 9);
+    const floor = placement.colliders[0];
+    expect(floor.center.X).toBeCloseTo(700);
+    expect(floor.center.Y).toBeCloseTo(1900);
+    expect(floor.center.Z + floor.halfSize[2]).toBeCloseTo(2400);
+    expect(floor.halfSize.slice(0, 2)).toEqual([1600, 600]);
+    expect(floor.yawDegrees).toBe(90);
+    expect(() => capitalPropPlacement({ id: 'ramp', kind: 'ramp', x: 0, z: 0, rotY: 0,
+      walkableSurfaces: [{ width: 2, depth: 2, fromY: 1, toY: 2 }] }, 0)).toThrow('ramp');
+  });
+  it('retains every identity while admitting only explicit house, rowhouse and wall variants', () => {
+    const props = [...CAPITAL_BUILDING_PROFILES.map((profile, index) => ({ id: `house-${index}`, kind: profile,
       assetKey: profile, x: 0, z: 0, rotY: 0 })),
       { id: 'pending-building', kind: 'other', x: 0, z: 0, rotY: 0 },
       { id: 'technical-collision', kind: 'water-collider', x: 0, z: 0, rotY: 0, visible: false }];
     const map = { id: 'aegis_capital', size: 4, cityElevation: { segments: 1, heights: [0, 0, 0, 0] }, props };
     const result = buildCapitalProps(map);
     expect(result.objects.map(row => row.source)).toEqual(props);
-    expect(result.housePlacements.map(row => row.profileKey)).toEqual(CAPITAL_HOUSE_PROFILES);
+    expect(result.housePlacements.map(row => row.profileKey)).toEqual(CAPITAL_BUILDING_PROFILES);
     expect(result.capitalReady).toBe(false);
     expect(() => buildCapitalProps({ ...map, props: [...props, props[0]] })).toThrow('duplicate');
   });

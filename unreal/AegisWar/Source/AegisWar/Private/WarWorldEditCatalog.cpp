@@ -13,7 +13,8 @@ TArray<FWarWorldEditCatalogEntry> WarWorldEditCatalog::Build(const TArray<FWarWo
         FString MeshPath; Row.SourceIdentity.Split(TEXT(":"), &MeshPath, nullptr);
         if (MeshPath.IsEmpty()) continue;
         const FString Label = FPaths::GetBaseFilename(MeshPath).Replace(TEXT("aegis_house_"), TEXT("House "))
-            .Replace(TEXT("aegis_rowhouse_"), TEXT("Rowhouse ")).Replace(TEXT("_"), TEXT(" "));
+            .Replace(TEXT("aegis_rowhouse_"), TEXT("Rowhouse ")).Replace(TEXT("aegis_wall"), TEXT("Capital wall"))
+            .Replace(TEXT("SM_MH_02_"), TEXT("Town kit ")).Replace(TEXT("_"), TEXT(" "));
         Models.Add(Row.SourceIdentity, { Row.Id, Label, Row.SourceIdentity });
     }
     TArray<FWarWorldEditCatalogEntry> Result; Models.GenerateValueArray(Result);
