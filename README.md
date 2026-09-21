@@ -20,6 +20,10 @@ The owner has installed the first packs into private CityKitStaging. A separate
 capital pilot adds five house-kit models to the GM catalog, with native collision,
 construction and fresh-process draft checks. See [modular kit integration](docs/unreal-modular-kits.md).
 Complete visual, interior, license and platform acceptance remain open.
+Town-kit inspection and static assembly adaptation run in private staging with
+background commandlets (`scripts/unreal/inspect-town-kit.py` and
+`scripts/unreal/adapt-town-kit.py`); they do not execute purchased Blueprints or
+register unverified assemblies in the GM catalog.
 AegisWar is registered with Epic Launcher; after active downloads finish, restart
 the launcher if it does not appear under Unreal Engine → Library → My Projects.
 The Windows Editor target has compiled successfully with Unreal 5.8.2. Work

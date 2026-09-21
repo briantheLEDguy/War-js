@@ -1,3 +1,9 @@
+## 2026-09-21 - Private town assembly adaptation
+
+- Added non-executing Blueprint template inspection and an offscreen static assembly adapter for the installed Medieval Modular Town kit. The first assembly preserves 354 component transforms, 18 materials and four LODs; source pack fingerprints are checked before and after conversion.
+- Added fresh-process reload verification of geometry, materials and triangle collision configuration. Rejected the initial NullRHI merge because it substituted default materials; rendering-enabled merges now require exact source material coverage.
+- Passed structural reload, 85 tooling tests, tooling typecheck and Python syntax checks. The assembly remains private staging content: GM integration, visual review, door behavior, traversal, performance and release acceptance are still pending.
+
 ## 2026-09-21 — Capital walls and purchased-kit development pilot
 
 - Restored 157 authored capital walls and their flat walkways; native collision checks cover 302 building placements and 471 character floor sweeps. Sloped walkways, complete city content and LOD/visual acceptance remain open.

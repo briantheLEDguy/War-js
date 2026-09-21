@@ -167,3 +167,35 @@ for any doors or other behavior. Do not spawn arbitrary purchased Blueprints
 from GM draft requests. The current five-piece pilot uses static meshes only.
 
 Final packaged doorway/GM proof: `artifacts/unreal/capital-proof/1790001209987-31332/report.json`.
+
+## Town assembly adaptation
+
+`scripts/unreal/inspect-town-kit.py` inspects Blueprint component templates in
+CityKitStaging without spawning the Blueprint. The installed Medieval Modular
+Town inventory contains 393 static meshes and 56 Blueprints. The first building
+has 354 static components beneath one identity-transform scene root, using 63
+distinct meshes and 18 materials. Other hierarchies or component behaviors need
+an explicit adapter; this is not blanket approval of the pack.
+
+`scripts/unreal/adapt-town-kit.py` creates an isolated inspection world and
+merges those templates into a private static mesh, preserving component
+transforms, material overrides, vertex data and all four source LOD levels.
+Run it using UnrealEditor-Cmd with `-run=pythonscript`, `-RenderOffscreen`,
+`-AllowCommandletRendering` and `-unattended`. Do not use `-NullRHI` for the merge:
+Unreal substitutes its default material when render material resources are
+unavailable. The tool rejects differing material coverage, fingerprints the
+source pack before and after, and gives each adaptation a unique asset path.
+Original purchased assets and previous adaptations are never overwritten.
+
+The verified merge contains 357,648 / 188,507 / 113,557 / 77,932 triangles and
+all 18 materials. This is substantial geometry; district-scale performance is
+not established. `scripts/unreal/verify-town-kit.py` performs fresh-process
+structural reload checks, including triangle collision configuration, and may
+run with `-NullRHI`. Local receipts live in
+`artifacts/unreal/licensed-kits/town-kit-adaptation.json` and `town-kit-reload.json`.
+
+This adaptation remains in private staging, outside the current GM catalog.
+Its construction script and interactive door behavior are not ported. Triangle
+collision configuration alone is not evidence of traversable doors or stairs;
+visual review, traversal, runtime GM integration, performance, licensing and
+platform checks remain required before city deployment.

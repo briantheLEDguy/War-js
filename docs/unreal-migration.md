@@ -11,7 +11,9 @@ identified; descriptions and NPC role labels are not evidence of implementation.
 
 Repository models and adaptations remain the default source. The owner additionally
 authorized evaluation and integration of already purchased Unreal modular kits
-for city environments and the GM catalog. No kits are installed or accepted yet;
+for city environments and the GM catalog. Installed kits are being evaluated in
+private staging; a five-model house-kit pilot passes bounded Windows GM checks,
+while full license, visual, interior and platform acceptance remains open;
 see [kit integration requirements](unreal-modular-kits.md). This does not authorize
 new purchases or public redistribution of purchased source assets. Every
 playable body/class variant, NPC, enemy, resident, ambient creature, preview,
