@@ -4,6 +4,7 @@
 #include "WarWorldEditWidget.generated.h"
 
 class SVerticalBox;
+class SExpandableArea;
 
 UCLASS()
 class AEGISWAR_API UWarWorldEditWidget : public UUserWidget
@@ -11,6 +12,7 @@ class AEGISWAR_API UWarWorldEditWidget : public UUserWidget
     GENERATED_BODY()
 public:
     void SelectObject(FName Id) { Selected = Id; }
+    void ExpandRepeatedConstruction();
 protected:
     virtual TSharedRef<SWidget> RebuildWidget() override;
     virtual void NativeTick(const FGeometry& Geometry, float DeltaTime) override;
@@ -29,8 +31,12 @@ private:
     TSharedPtr<SVerticalBox> CatalogRows;
     int32 CatalogMatches = 0, CatalogTotal = 0;
     TSharedPtr<SVerticalBox> Rows;
+    TSharedPtr<SExpandableArea> RepeatedSection;
     int32 DisplayedRevision = INDEX_NONE;
     int32 GridIndex = 0, AngleIndex = 0;
+    int32 RowCount = 3;
+    double RowGapMeters = 0;
+    bool bRowAlongY = false;
     float LastPanelHeight = 0;
     double GridCentimeters() const;
     double AngleDegrees() const;

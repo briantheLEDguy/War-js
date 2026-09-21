@@ -116,3 +116,12 @@ void AWarPlayerController::ServerDropWorldObject_Implementation(FName Id, int32 
     ClientWorldEditResult(bSuccess ? TEXT("Model dropped to the surface. Undo restores its previous height.")
         : TEXT("Drop rejected: ") + (Error.IsEmpty() ? FString(TEXT("GM access unavailable.")) : Error));
 }
+
+void AWarPlayerController::ServerCreateWorldRow_Implementation(FName Id, int32 Count, bool bAlongY, double Gap, double Grid, int32 ExpectedRevision)
+{
+    auto* Editor=GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error; FName Created;
+    const bool bSuccess=Editor && Editor->CreateRow(this,Id,Count,bAlongY,Gap,Grid,ExpectedRevision,Created,Error);
+    if (bSuccess) ClientWorldObjectCreated(Created);
+    ClientWorldEditResult(bSuccess ? TEXT("Row placed. Undo removes the entire row; save the draft to keep it.")
+        : TEXT("Row rejected: ")+(Error.IsEmpty() ? FString(TEXT("GM access unavailable.")) : Error));
+}

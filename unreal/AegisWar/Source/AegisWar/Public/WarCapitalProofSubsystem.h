@@ -15,6 +15,7 @@ public:
     virtual TStatId GetStatId() const override;
 private:
     void RunSurfacePlacementProof();
+    void RunConstructionRowProof();
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     FVector StartPosition = FVector::ZeroVector;
@@ -22,6 +23,7 @@ private:
     double FlightStartedAt = -1;
     int32 SurfaceModelsVerified = 0;
     bool bSurfacePlacementVerified = false;
+    bool bConstructionRowVerified = false;
     bool bTraversalVerified = false;
     bool bGameplayIntegrationVerified = false;
     bool bPlacementSnappingVerified = false;

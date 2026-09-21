@@ -17,6 +17,7 @@ public:
     bool Create(APlayerController* Controller, FName TemplateId, const FTransform& Transform, int32 Revision, FName& CreatedId, FString& Error);
     bool CreateInFront(APlayerController* Controller, FName TemplateId, double Grid, double Angle, int32 Revision, FName& CreatedId, FString& Error);
     bool DropToSurface(APlayerController* Controller, FName Id, int32 Revision, FString& Error);
+    bool CreateRow(APlayerController* Controller, FName Id, int32 Count, bool bAlongY, double Gap, double Grid, int32 Revision, FName& CreatedId, FString& Error);
     bool Edit(APlayerController* Controller, FName Id, const FTransform& Transform, bool bHidden, int32 Revision, FString& Error);
     bool Undo(APlayerController* Controller, bool bRedo, int32 Revision, FString& Error);
     bool SaveDraft(APlayerController* Controller, int32 Revision, FString& Error);

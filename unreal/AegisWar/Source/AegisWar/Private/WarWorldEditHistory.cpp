@@ -105,11 +105,21 @@ bool FWarWorldEditHistory::Validate(const TArray<FWarWorldEditObject>& Objects, 
 bool FWarWorldEditHistory::Create(const FName Id, const FName TemplateId, const FTransform& Transform,
     const int32 ExpectedRevision, FString& Error)
 {
+    return CreateBatch({ { Id, TemplateId, Transform } }, ExpectedRevision, Error);
+}
+
+bool FWarWorldEditHistory::CreateBatch(const TArray<FWarWorldEditCreation>& Additions,
+    const int32 ExpectedRevision, FString& Error)
+{
     if (!CheckRevision(ExpectedRevision, Error)) return false;
-    const auto* Template = Baseline.FindByPredicate([TemplateId](const auto& Row) { return Row.Id == TemplateId; });
-    if (!Template || Find(Id)) { Error = TEXT("Unknown model template or duplicate object identity."); return false; }
+    if (Additions.IsEmpty() || Additions.Num() > 32) { Error = TEXT("Construction requires between 1 and 32 objects."); return false; }
     auto Next = Current;
-    Next.Add({ Id, Transform, false, Template->SourceIdentity, TemplateId });
+    for (const auto& Added : Additions)
+    {
+        const auto* Template = Baseline.FindByPredicate([&](const auto& Row) { return Row.Id == Added.TemplateId; });
+        if (!Template || Find(Added.Id)) { Error = TEXT("Unknown model template or duplicate object identity."); return false; }
+        Next.Add({ Added.Id, Added.Transform, false, Template->SourceIdentity, Added.TemplateId });
+    }
     if (!Validate(Next, Error)) return false;
     Commit(MoveTemp(Next)); return true;
 }

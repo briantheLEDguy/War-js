@@ -116,6 +116,9 @@ new construction centres the mesh bounds on the chosen surface despite offset
 import pivots. **Drop to surface** lowers selected models onto collision with
 undo and draft persistence. Whole-footprint slope fitting, sockets and assembly
 snapping remain pending.
+Repeated construction places 2-32 copies of a selected model along either local
+axis with dimension-based spacing, a configurable gap and atomic undo/redo.
+Each piece retains its own editable identity and survives draft reload.
 The model catalog has a separate search field and scroll area, with stable
 template identities and one entry per admitted model. Exact transform fields
 provide position, full rotation and nonuniform scale with undo support. Clicking

@@ -40,6 +40,15 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Invalid hit cannot alter placement"), WarWorldEditPlacement::AtSurface(FTransform::Identity,OffsetBounds,
         FVector(std::numeric_limits<double>::quiet_NaN(),0,0)).IsSet());
     TestFalse(TEXT("Out-of-world placement fails"), WarWorldEditPlacement::AtSurface(FTransform::Identity,OffsetBounds,FVector(200000,0,0)).IsSet());
+    const FTransform RowBasis(FRotator(0,45,0),FVector::ZeroVector,FVector(2,-3,1));
+    const auto RowStep=WarWorldEditPlacement::RowStep(RowBasis,OffsetBounds,false,25);
+    const auto CrossStep=WarWorldEditPlacement::RowStep(RowBasis,OffsetBounds,true,0);
+    TestTrue(TEXT("Diagonal spacing uses oriented model width, not larger world box"), RowStep.IsSet()
+        && FMath::IsNearlyEqual(RowStep->Size(),625.,.001) && FMath::IsNearlyEqual(RowStep->Z,0.));
+    TestTrue(TEXT("Mirrored local Y retains correct width and perpendicular direction"), CrossStep.IsSet()
+        && FMath::IsNearlyEqual(CrossStep->Size(),900.,.001) && RowStep.IsSet()
+        && FMath::IsNearlyZero(FVector::DotProduct(*RowStep,*CrossStep),.001));
+    TestFalse(TEXT("Negative row gaps cannot overlap pieces"), WarWorldEditPlacement::RowStep(RowBasis,OffsetBounds,false,-1).IsSet());
     FWarWorldEditHistory History; FString Error;
     FTransform Exact = GridInput;
     TestTrue(TEXT("Exact position accepts metres"), WarWorldEditPlacement::SetComponent(Exact, 0, -12.345));
@@ -115,6 +124,24 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestNull(TEXT("Creation removed by undo"), Construction.Find(Created));
     TestTrue(TEXT("Redo restores created object"), Construction.Undo(true, 2, Error));
     TestNotNull(TEXT("Created object restored by redo"), Construction.Find(Created));
+    FWarWorldEditHistory Batch;
+    Batch.Initialize(Objects,Error);
+    const FName SecondCreated(TEXT("gm_1123456789abcdef0123456789abcdef"));
+    TArray<FWarWorldEditCreation> Additions={{Created,TEXT("house"),Moved},{SecondCreated,TEXT("unknown"),Moved}};
+    TestFalse(TEXT("Invalid last row piece rejects the entire construction"),Batch.CreateBatch(Additions,0,Error));
+    TestEqual(TEXT("Failed batch leaves objects and revision intact"),Batch.GetObjects().Num(),1);
+    TestEqual(TEXT("Failed batch revision"),Batch.GetRevision(),0);
+    Additions[1].TemplateId=TEXT("house");
+    TestTrue(TEXT("Valid row creates every piece"),Batch.CreateBatch(Additions,0,Error));
+    const FString BatchDraft=Batch.ExportDraft();
+    TestFalse(TEXT("Stale row is rejected"),Batch.CreateBatch(Additions,0,Error));
+    TestTrue(TEXT("One undo removes the whole row"),Batch.Undo(false,1,Error));
+    TestEqual(TEXT("Whole row removed"),Batch.GetObjects().Num(),1);
+    TestTrue(TEXT("One redo restores the whole row"),Batch.Undo(true,2,Error));
+    TestEqual(TEXT("Whole row restored"),Batch.GetObjects().Num(),3);
+    FWarWorldEditHistory BatchReload; BatchReload.Initialize(Objects,Error);
+    TestTrue(TEXT("Row survives fresh draft import"),BatchReload.ImportDraft(BatchDraft,0,Error));
+    TestEqual(TEXT("Every row piece reloaded"),BatchReload.GetObjects().Num(),3);
     FWarWorldEditHistory Legacy;
     Legacy.Initialize(Objects, Error);
     TSharedPtr<FJsonObject> LegacyRoot, LegacyBase;

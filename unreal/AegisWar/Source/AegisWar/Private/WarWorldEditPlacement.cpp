@@ -81,3 +81,21 @@ TOptional<FTransform> WarWorldEditPlacement::AtSurface(const FTransform& Basis, 
     if (Result.ContainsNaN() || Result.GetLocation().GetAbsMax() > 100000) return {};
     return Result;
 }
+
+TOptional<FVector> WarWorldEditPlacement::RowStep(const FTransform& Basis, const FBox& LocalBounds, const bool bAlongY, const double Gap)
+{
+    if (!FMath::IsFinite(Gap) || Gap < 0 || Gap > 10000 || !AtSurface(Basis,LocalBounds,FVector::ZeroVector).IsSet()) return {};
+    FVector Direction = Basis.GetRotation().RotateVector(bAlongY ? FVector::RightVector : FVector::ForwardVector);
+    Direction.Z = 0;
+    if (!Direction.Normalize()) return {};
+    // Project the actual oriented box, rather than its larger world-axis box.
+    const FVector Extent = LocalBounds.GetExtent(), Scale = Basis.GetScale3D();
+    double Span = 0;
+    for (int32 Axis=0; Axis<3; ++Axis)
+    {
+        FVector Local = FVector::ZeroVector; Local[Axis] = Extent[Axis]*Scale[Axis];
+        Span += 2*FMath::Abs(FVector::DotProduct(Basis.GetRotation().RotateVector(Local),Direction));
+    }
+    if (Span < .01) return {};
+    return Direction*(Span+Gap);
+}

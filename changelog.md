@@ -1,3 +1,9 @@
+## 2026-09-21 - Atomic GM rows of modular kit pieces
+
+- Add repeated construction for 2-32 copies of the selected model with local-axis width/gap spacing, individual support traces and preserved orientation/scale. A failed piece rejects the whole row; one undo/redo step handles every piece, and all identities survive draft reload.
+- Add expanded native controls and real-capital acceptance for rotated rows, invalid/stale/unsupported requests, collision, undo/redo and fresh-process persistence. Both editor and packaged network clients reject the new development-only RPC.
+- Passed 21 native test groups, 85 tooling tests, tools typechecking, audit, Windows packaging, row and existing single-placement checks. Inspected the packaged controls and row after adding screenshot render warm-up. Evidence: docs/unreal-gm-workbench.md. Full GM, drag previews, socket snapping and release acceptance remain open.
+
 ## 2026-09-21 - Preserve native market-cloth rendering
 
 - Recompile the legacy purchased cloth material into a private native copy, retaining its graph, textures and subsurface shading. The city generator and standalone commandlet share this adaptation; source/adaptation hash receipts protect later edits and original purchased files.

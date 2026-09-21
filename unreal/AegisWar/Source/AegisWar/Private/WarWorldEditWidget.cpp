@@ -102,6 +102,29 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
         .AreaTitleFont(FCoreStyle::GetDefaultFontStyle("Regular", 16))
         .AreaTitle(FText::FromString(TEXT("Exact transform - Enter to apply")))
         .BodyContent()[ExactFields]];
+    auto Repeated = SNew(SVerticalBox);
+    auto RowOptions = SNew(SHorizontalBox);
+    RowOptions->AddSlot().FillWidth(1)[SNew(SNumericEntryBox<int32>).MinValue(2).MaxValue(32).AllowSpin(true).Font(FCoreStyle::GetDefaultFontStyle("Regular",15))
+        .Label()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular",14)).Text(FText::FromString(TEXT("Pieces")))]
+        .Value_Lambda([Weak]() -> TOptional<int32> { return Weak.IsValid() ? Weak->RowCount : 3; })
+        .OnValueChanged_Lambda([Weak](int32 Value) { if (Weak.IsValid()) Weak->RowCount=FMath::Clamp(Value,2,32); })];
+    RowOptions->AddSlot().FillWidth(1)[SNew(SNumericEntryBox<double>).MinValue(0).MaxValue(100).AllowSpin(true).Font(FCoreStyle::GetDefaultFontStyle("Regular",15))
+        .Label()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular",14)).Text(FText::FromString(TEXT("Gap m")))]
+        .Value_Lambda([Weak]() -> TOptional<double> { return Weak.IsValid() ? Weak->RowGapMeters : 0; })
+        .OnValueChanged_Lambda([Weak](double Value) { if (Weak.IsValid() && FMath::IsFinite(Value)) Weak->RowGapMeters=FMath::Clamp(Value,0.,100.); })];
+    RowOptions->AddSlot().AutoWidth()[SNew(SButton).OnClicked_Lambda([Weak] {
+        if (Weak.IsValid()) Weak->bRowAlongY=!Weak->bRowAlongY; return FReply::Handled(); })
+        [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular",15)).Text_Lambda([Weak] { return FText::FromString(Weak.IsValid() && Weak->bRowAlongY ? TEXT("Local Y") : TEXT("Local X")); })]];
+    Repeated->AddSlot().AutoHeight()[RowOptions];
+    Repeated->AddSlot().AutoHeight()[Button(TEXT("Place row of selected model"),[Weak] {
+        if (Weak.IsValid()) if (auto* P=Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
+            if (const auto* E=Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
+                P->ServerCreateWorldRow(Weak->Selected,Weak->RowCount,Weak->bRowAlongY,Weak->RowGapMeters*100,
+                    Weak->GridCentimeters(),E->GetHistory().GetRevision());
+        return FReply::Handled(); })];
+    Body->AddSlot().AutoHeight()[SAssignNew(RepeatedSection,SExpandableArea).InitiallyCollapsed(true).AllowAnimatedTransition(false)
+        .AreaTitleFont(FCoreStyle::GetDefaultFontStyle("Regular",16)).AreaTitle(FText::FromString(TEXT("Repeated construction")))
+        .BodyContent()[Repeated]];
     auto Snapping = SNew(SHorizontalBox);
     Snapping->AddSlot().FillWidth(1)[Button(TEXT("Grid step"), [Weak] {
         if (Weak.IsValid()) Weak->GridIndex = (Weak->GridIndex + 1) % 5;
@@ -156,6 +179,9 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
     return SNew(SBox).WidthOverride(560)[SNew(SBorder).Padding(12)
         .BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush")).BorderBackgroundColor(FLinearColor(0.025f, 0.03f, 0.045f, 1.f))[Body]];
 }
+
+void UWarWorldEditWidget::ExpandRepeatedConstruction()
+{ if (RepeatedSection) RepeatedSection->SetExpanded(true); }
 
 void UWarWorldEditWidget::RefreshRows()
 {
@@ -272,4 +298,4 @@ void UWarWorldEditWidget::NativeTick(const FGeometry& Geometry, const float Delt
 }
 
 void UWarWorldEditWidget::ReleaseSlateResources(const bool bReleaseChildren)
-{ Super::ReleaseSlateResources(bReleaseChildren); Rows.Reset(); CatalogRows.Reset(); DisplayedRevision = INDEX_NONE; LastPanelHeight = 0; }
+{ Super::ReleaseSlateResources(bReleaseChildren); Rows.Reset(); CatalogRows.Reset(); RepeatedSection.Reset(); DisplayedRevision = INDEX_NONE; LastPanelHeight = 0; }

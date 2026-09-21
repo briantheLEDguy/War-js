@@ -7,6 +7,44 @@
 #include "GameFramework/Pawn.h"
 #include "Engine/World.h"
 
+bool UWarWorldEditSubsystem::CreateRow(APlayerController* Controller, const FName Id, const int32 Count,
+    const bool bAlongY, const double Gap, const double Grid, const int32 Revision, FName& CreatedId, FString& Error)
+{
+    CreatedId = NAME_None;
+    if (!Ready(Controller,Error)) return false;
+    if (Revision != History.GetRevision()) { Error=TEXT("Draft changed; refresh before placing a row."); return false; }
+    if (Count<2 || Count>32 || !FMath::IsFinite(Grid) || Grid<0 || Grid>10000)
+    { Error=TEXT("A row requires 2-32 pieces and a valid grid."); return false; }
+    const auto* Row=History.Find(Id);
+    if (!Row || Row->bHidden) { Error=TEXT("Select a visible model to repeat."); return false; }
+    const FName TemplateId=Row->TemplateId.IsNone() ? Row->Id : Row->TemplateId;
+    const auto* Template=Templates.Find(TemplateId);
+    if (!Template || !Template->Mesh.IsValid()) { Error=TEXT("Required authored model is unavailable."); return false; }
+    const FBox Bounds=Template->Mesh->GetBoundingBox();
+    const auto Step=WarWorldEditPlacement::RowStep(Row->Transform,Bounds,bAlongY,Gap);
+    if (!Step.IsSet()) { Error=TEXT("Choose a horizontal model axis and a gap from 0 to 100 metres."); return false; }
+    const APawn* Pawn=Controller->GetPawn();
+    const FVector Origin=WarWorldEditPlacement::SnapHorizontal(Pawn->GetActorLocation()+Pawn->GetActorForwardVector()*2000,Grid);
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(WarBuilderRow),false);
+    Query.AddIgnoredActor(Pawn); Query.AddIgnoredActor(GetObjectActor(Id));
+    TArray<FWarWorldEditCreation> Additions;
+    // Resolve every support before spawning; a missing last surface must not leave a partial row.
+    for (int32 Index=0; Index<Count; ++Index)
+    {
+        const FVector Target=Origin+Step.GetValue()*Index;
+        FHitResult Hit;
+        if (!GetWorld()->LineTraceSingleByChannel(Hit,Target+FVector(0,0,10000),Target-FVector(0,0,20000),ECC_Visibility,Query))
+        { Error=FString::Printf(TEXT("No support beneath row piece %d. Nothing was placed."),Index+1); return false; }
+        const auto Transform=WarWorldEditPlacement::AtSurface(Row->Transform,Bounds,Hit.ImpactPoint);
+        if (!Transform.IsSet()) { Error=TEXT("The row exceeds supported world bounds. Nothing was placed."); return false; }
+        const FName NewId(*(TEXT("gm_")+FGuid::NewGuid().ToString(EGuidFormats::Digits)));
+        Additions.Add({NewId,TemplateId,Transform.GetValue()});
+    }
+    auto Next=History;
+    if (!Next.CreateBatch(Additions,Revision,Error) || !ApplyHistory(MoveTemp(Next),Error)) return false;
+    CreatedId=Additions[0].Id; return true;
+}
+
 bool UWarWorldEditSubsystem::CreateInFront(APlayerController* Controller, const FName TemplateId,
     const double Grid, const double Angle, const int32 Revision, FName& CreatedId, FString& Error)
 {

@@ -29,6 +29,7 @@ private:
     bool bGmReturnRequested = false, bGmReturnDenied = false;
     bool bGmPlacementRequested = false, bGmPlacementDenied = false;
     bool bGmDropRequested = false, bGmDropDenied = false;
+    bool bGmRowRequested = false, bGmRowDenied = false;
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     double PairReadyAt = -1;

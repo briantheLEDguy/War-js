@@ -51,6 +51,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetStringField(TEXT("detail"), Detail); Report->SetBoolField(TEXT("fullCapitalAcceptance"), false);
     Report->SetBoolField(TEXT("sharedGmAuthorization"), false);
     Report->SetBoolField(TEXT("surfacePlacementVerified"), bSurfacePlacementVerified);
+    Report->SetBoolField(TEXT("constructionRowVerified"), bConstructionRowVerified);
     Report->SetNumberField(TEXT("surfaceModelsVerified"), SurfaceModelsVerified);
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
     Report->SetBoolField(TEXT("capitalGameplayIntegrationVerified"), bGameplayIntegrationVerified);
@@ -68,14 +69,16 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     }
     FString Json; FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     FFileHelper::SaveStringToFile(Json, *FPaths::Combine(Directory, TEXT("report.json")));
-    if (bPassed && FParse::Param(FCommandLine::Get(), TEXT("WarProofScreenshot")))
+    const bool bCapture=bPassed && FParse::Param(FCommandLine::Get(), TEXT("WarProofScreenshot"));
+    if (bCapture)
     {
         const FString Image = FPaths::Combine(Directory, TEXT("builder.png"));
         FTimerHandle Capture;
-        GetWorld()->GetTimerManager().SetTimer(Capture, [Image] { FScreenshotRequest::RequestScreenshot(Image, true, false); }, 0.5f, false);
+        // Let recreated mesh render state and shader precaching settle after undo/redo.
+        GetWorld()->GetTimerManager().SetTimer(Capture, [Image] { FScreenshotRequest::RequestScreenshot(Image, true, false); }, 3.f, false);
     }
     FTimerHandle Exit;
-    GetWorld()->GetTimerManager().SetTimer(Exit, [bPassed] { FPlatformMisc::RequestExitWithStatus(false, bPassed ? 0 : 1); }, 2.f, false);
+    GetWorld()->GetTimerManager().SetTimer(Exit, [bPassed] { FPlatformMisc::RequestExitWithStatus(false, bPassed ? 0 : 1); }, bCapture ? 5.f : 2.f, false);
 }
 
 void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
@@ -146,6 +149,8 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
             if (!CheckCity(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedModels="), ExpectedModels)
                 && ExpectedModels > 0 && Catalog.Num() == ExpectedModels, TEXT("City authored model catalog count differs."))) return;
             bCatalogSearchVerified = true;
+            if (FParse::Param(FCommandLine::Get(), TEXT("WarConstructionRowProof")))
+            { RunConstructionRowProof(); return; }
             if (FParse::Param(FCommandLine::Get(), TEXT("WarSurfacePlacementProof")))
             { RunSurfacePlacementProof(); return; }
             if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")))

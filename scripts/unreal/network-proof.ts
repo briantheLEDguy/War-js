@@ -65,6 +65,7 @@ try {
   if (receipts.slice(1).some(receipt => receipt.remoteGmCreationRejected !== true)) throw new Error(`Remote building creation was not rejected; see ${output}`);
   if (receipts.slice(1).some(receipt => receipt.remoteGmPlacementRejected !== true || receipt.remoteGmDropRejected !== true))
     throw new Error(`Remote surface placement/drop was not rejected; see ${output}`);
+  if (receipts.slice(1).some(receipt => receipt.remoteGmRowRejected !== true)) throw new Error(`Remote row construction was not rejected; see ${output}`);
   if (receipts.slice(1).some(receipt => receipt.remoteGmTraversalRejected !== true || receipt.remoteGmReturnRejected !== true))
     throw new Error(`Remote development traversal was not rejected; see ${output}`);
   if (receipts[0].questNpcAuthority !== true) throw new Error(`Server quest NPC interaction checks failed; see ${output}`);

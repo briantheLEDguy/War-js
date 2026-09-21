@@ -73,6 +73,17 @@ stale revisions produce an error without changing the draft. This aligns a
 bounding box to one support point; whole-footprint slope fitting, sockets, drag
 gizmos and kit-specific assembly snapping remain unfinished.
 
+**Repeated construction** places 2-32 copies of the selected model, starting
+20 metres ahead. Choose local X or Y and an additional gap from 0 to 100 metres.
+Copies retain the selection's rotation and scale, including mirrored axes. The
+server uses the oriented model width for spacing, snaps only the row origin to
+the chosen grid, and places each piece on its own collision support point.
+Every surface and transform must succeed before any piece appears. The entire
+row is one undo/redo step; its individual authored identities survive draft
+save/reload and remain individually editable. Existing object/collision overlap
+is not rejected, and footprint fitting, socket joins, group transforms and drag
+chain previews remain pending. Development GM authorization still applies.
+
 **Exact transform** expands nine numeric fields: X/Y/Z in metres, pitch/yaw/roll
 in degrees, and per-axis scale magnitudes. Press Enter to commit one field as an
 undoable revision; changing focus does not submit unfinished text. Position is
@@ -267,6 +278,23 @@ market-stall fabric versus pale fabric in the editor. A recompiled private copy
 of the unchanged authored material corrected the sampled packaged view in
 `artifacts/unreal/capital-proof/crownward-1790009221819/`; all placement/reload
 checks still passed. Full kit material and platform review remain unresolved.
+
+Repeated construction verification (2026-09-21): 21 native groups passed in
+`artifacts/unreal/editor/test-1790010873665-8176/`, including oriented spacing,
+mirrored scale and atomic history failures. The real capital row proof passed
+in `artifacts/unreal/capital-proof/crownward-1790010980788/`; the rebuilt Windows
+package passed row creation, undo/redo and fresh reload in
+`artifacts/unreal/capital-proof/crownward-1790011271544/`. Its expanded controls
+and reload screenshot were inspected. Existing single-model surface placement
+passed in `artifacts/unreal/capital-proof/crownward-1790011286958/`. Two editor
+clients (`artifacts/unreal/network/1790011011585-35068/report.json`) and packaged
+clients (`artifacts/unreal/network/1790011300641-18212/report.json`) rejected the
+row RPC. Tooling tests (85), typechecking and audit passed; release admission
+remains closed. These use isolated proof drafts and leave the owner's draft intact.
+The final packaged capture (`artifacts/unreal/capital-proof/crownward-1790011504055/`)
+adds render warm-up after recreation, showing all three pieces and the expanded
+controls after undo/redo, as well as after reload. Physical mouse interaction
+with the new controls remains untested during background-only work.
 
 Still pending: the remaining building/prefab catalog, drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,

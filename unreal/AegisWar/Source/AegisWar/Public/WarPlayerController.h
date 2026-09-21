@@ -30,6 +30,7 @@ public:
     UFUNCTION(Server, Reliable) void ServerCreateWorldObject(FName TemplateId, FTransform Transform, int32 ExpectedRevision);
     UFUNCTION(Server, Reliable) void ServerPlaceWorldObject(FName TemplateId, double Grid, double Angle, int32 ExpectedRevision);
     UFUNCTION(Server, Reliable) void ServerDropWorldObject(FName Id, int32 ExpectedRevision);
+    UFUNCTION(Server, Reliable) void ServerCreateWorldRow(FName Id, int32 Count, bool bAlongY, double Gap, double Grid, int32 ExpectedRevision);
     UFUNCTION(Client, Reliable) void ClientWorldObjectCreated(FName Id);
     UFUNCTION(Server, Reliable) void ServerWorldEditHistory(bool bRedo, int32 ExpectedRevision);
     UFUNCTION(Server, Reliable) void ServerWorldEditDraft(bool bLoad, int32 ExpectedRevision);
