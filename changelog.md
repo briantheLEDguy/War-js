@@ -1,3 +1,9 @@
+## 2026-09-21 - Native quest network proof and building import
+
+- Verified both realms' real catalog quest completion, exact rewards, retry rejection and owner-only state with packaged Windows clients and an Editor dedicated server.
+- Added contained, fingerprinted repository texture imports and validated emissive material reconstruction; imported the first city house and checked its materials in Unreal.
+- Passed 74 tooling tests, 10 import tests and tools typechecking. Building geometry differences, collision/LODs, full parity and release gates remain open.
+
 ## 2026-09-21 - Validated native quest catalogs
 
 - Validate quest/item/zone identities, objective counts, affix ranges and prerequisite chains before content readiness.

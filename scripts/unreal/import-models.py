@@ -3,7 +3,7 @@
 UnrealEditor-Cmd AegisWar.uproject -unattended -run=pythonscript
   -script=".../import-models.py --profile npc_frontier_sunmeadow_empire_herbalist"
 
-Omit --profile for all four admitted examples. This creates import evidence, never art
+Omit --profile for all five admitted examples. This creates import evidence, never art
 approval, character identity assignments, generated collision, or fallback art.
 """
 import argparse
@@ -15,6 +15,7 @@ from pathlib import Path
 import re
 import struct
 import importlib.util
+from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -24,6 +25,7 @@ PROFILES = (
     "npc_frontier_cinderfen_dark_elf_supply_officer",
     "frontier_field_command_table",
     "mire_warbrute_m",
+    "aegis_house_1",
 )
 PROFILE_TAG = "WarMigrationProfile"
 SOURCE_TAG = "WarMigrationSourceSha256"
@@ -109,20 +111,45 @@ def read_glb(path):
     require(not gltf.get("extensionsRequired"), "Unsupported required glTF extension")
     images = []
     for index, image in enumerate(gltf.get("images", [])):
-        require("uri" not in image and "bufferView" in image, "Only embedded source textures are supported")
-        view = gltf["bufferViews"][image["bufferView"]]
-        require(view.get("buffer", 0) == 0, "Texture references an external buffer")
-        start = view.get("byteOffset", 0)
-        end = start + view["byteLength"]
-        require(0 <= start < end <= len(binary), "Texture buffer view is outside GLB")
         mime = image.get("mimeType")
+        source_path = None
+        if "uri" in image:
+            require("bufferView" not in image and isinstance(image["uri"], str), "Ambiguous texture source")
+            uri = urlsplit(image["uri"])
+            require(not uri.scheme and not uri.netloc and not uri.query and not uri.fragment,
+                    "External textures must be local repository files")
+            decoded = unquote(uri.path, errors="strict")
+            require(decoded and not any(character in decoded for character in ("\\", ":", "\0"))
+                    and not Path(decoded).is_absolute(), "Invalid relative texture URI")
+            texture = contained(path.parent / decoded, ROOT / "public/assets/textures")
+            expected_mime = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg"}.get(texture.suffix.lower())
+            require(expected_mime is not None and (mime is None or mime == expected_mime), "Texture MIME type and filename disagree")
+            mime = expected_mime
+            require(texture.is_file(), f"Repository texture is missing: {texture}")
+            pixels = texture.read_bytes()
+            require(pixels.startswith(b"\x89PNG\r\n\x1a\n") if mime == "image/png" else pixels.startswith(b"\xff\xd8\xff"),
+                    "Repository texture signature is invalid")
+            source_path = texture.relative_to(ROOT.resolve()).as_posix()
+        else:
+            require("bufferView" in image, "Texture has no source")
+            view = gltf["bufferViews"][image["bufferView"]]
+            require(view.get("buffer", 0) == 0, "Texture references an external buffer")
+            start = view.get("byteOffset", 0)
+            end = start + view["byteLength"]
+            require(0 <= start < end <= len(binary), "Texture buffer view is outside GLB")
+            pixels = binary[start:end]
         require(mime in ("image/png", "image/jpeg"), f"Unsupported texture MIME type: {mime}")
-        images.append({"index": index, "name": image.get("name", f"image_{index}"),
-                       "extension": ".png" if mime == "image/png" else ".jpg", "bytes": binary[start:end]})
+        images.append({"index": index, "name": image.get("name", f"image_{index}"), "sourcePath": source_path,
+                       "extension": ".png" if mime == "image/png" else ".jpg", "bytes": pixels})
     material_names = [material["name"] for material in gltf.get("materials", [])]
     require(len(set(material_names)) == len(material_names), "Duplicate source material names")
     require(len(set(map(safe_name, material_names))) == len(material_names), "Material names collide after Unreal sanitization")
     return gltf, images
+
+
+def image_dependencies(images):
+    return [{"index": image["index"], "sourcePath": image["sourcePath"],
+             "sha256": hashlib.sha256(image["bytes"]).hexdigest()} for image in images]
 
 
 def validate_inputs(profile):
@@ -175,7 +202,7 @@ def validate_inputs(profile):
     return {"profile": profile, "directory": directory, "conversion": conversion,
             "conversionPath": conversion_path, "conversionSha256": sha256(conversion_path),
             "source": source, "qc": qc, "fbx": fbx, "samples": sample_path,
-            "gltf": gltf, "images": images, "destination": f"/Game/Imported/{profile}"}
+            "gltf": gltf, "images": images, "imageDependencies": image_dependencies(images), "destination": f"/Game/Imported/{profile}"}
 
 
 def asset_record(asset):
@@ -248,19 +275,38 @@ def import_mesh(unreal, context):
     return list(task.get_editor_property("imported_object_paths"))
 
 
+def emissive_color(material):
+    extensions = material.get("extensions", {})
+    require(isinstance(extensions, dict) and set(extensions).issubset({"KHR_materials_emissive_strength"}),
+            "Unsupported material extension")
+    extension = extensions.get("KHR_materials_emissive_strength", {})
+    require(isinstance(extension, dict) and set(extension).issubset({"emissiveStrength"}),
+            "Unsupported material emissive properties")
+    strength = extension.get("emissiveStrength", 1)
+    factor = material.get("emissiveFactor", [0, 0, 0])
+    require(type(strength) in (int, float) and math.isfinite(strength) and strength >= 0,
+            "Invalid emissive strength")
+    require(isinstance(factor, list) and len(factor) == 3
+            and all(type(value) in (int, float) and math.isfinite(value) and 0 <= value <= 1 for value in factor),
+            "Invalid emissive factor")
+    return [value * strength for value in factor]
+
+
 def texture_roles(gltf):
     roles = {}
     for material in gltf.get("materials", []):
         require(set(material).issubset({"name", "doubleSided", "normalTexture", "occlusionTexture",
-                                       "pbrMetallicRoughness", "extras", "alphaMode", "alphaCutoff"}),
+                                       "pbrMetallicRoughness", "extras", "alphaMode", "alphaCutoff",
+                                       "extensions", "emissiveFactor", "emissiveTexture"}),
                 f"Unsupported material properties: {material['name']}")
+        emissive_color(material)
         require(material.get("alphaMode", "OPAQUE") in ("OPAQUE", "MASK", "BLEND"), "Unsupported alpha mode")
         pbr = material.get("pbrMetallicRoughness", {})
         require(set(pbr).issubset({"baseColorFactor", "baseColorTexture", "metallicFactor", "roughnessFactor", "metallicRoughnessTexture"}),
                 "Unsupported PBR material properties")
         for info, role in ((pbr.get("baseColorTexture"), "color"),
                            (pbr.get("metallicRoughnessTexture"), "linear"), (material.get("normalTexture"), "normal"),
-                           (material.get("occlusionTexture"), "linear")):
+                           (material.get("occlusionTexture"), "linear"), (material.get("emissiveTexture"), "color")):
             if info is not None:
                 require(set(info).issubset({"index", "texCoord", "scale", "strength"}), "Unsupported texture transform or extension")
                 require(info.get("texCoord", 0) == 0, "Only source UV channel 0 is supported by these examples")
@@ -374,6 +420,10 @@ def create_materials(unreal, context, textures):
             color_sample = sample(pbr["baseColorTexture"], "color")
             base = product(color_sample, "RGB", base)
         output(base, unreal.MaterialProperty.MP_BASE_COLOR)
+        emissive = vector(emissive_color(source))
+        if "emissiveTexture" in source:
+            emissive = product(sample(source["emissiveTexture"], "color"), "RGB", emissive)
+        output(emissive, unreal.MaterialProperty.MP_EMISSIVE_COLOR)
         if alpha_mode != "OPAQUE":
             alpha = scalar(factor[3])
             if color_sample is not None:
@@ -516,6 +566,7 @@ def import_profile(unreal, context):
     # Re-read all evidence after the expensive import before publishing success.
     current = validate_inputs(context["profile"])
     require(current["conversionSha256"] == context["conversionSha256"], "Conversion evidence changed during import")
+    require(current["imageDependencies"] == context["imageDependencies"], "Source texture bytes changed during import")
     result = {"schemaVersion": 1, "profileKey": context["profile"], "kind": context["conversion"]["kind"],
               "status": "editor-import-succeeded-unreviewed", "importSucceeded": True, "unrealApproved": False,
               "artApproved": False, "unrealVersion": unreal.SystemLibrary.get_engine_version(),
@@ -526,11 +577,11 @@ def import_profile(unreal, context):
               "importSettings": {"factory": "FbxFactory", "interchangeFbx": False, "convertScene": True,
                                  "convertSceneUnit": True, "forceFrontXAxis": False, "uniformScale": 1,
                                  "createPhysicsAsset": False, "autoGenerateCollision": False,
-                                 "materials": "source GLB PBR reconstruction; exact embedded texture bytes",
+                                 "materials": "source GLB PBR reconstruction; exact embedded or repository texture bytes",
                                  "sampleRate": context["conversion"]["verification"]["bakeFramesPerSecond"]},
               "counts": dict(sorted(Counter(asset.get_class().get_name() for asset in assets).items())),
               "meshes": meshes, "skeletons": skeletons, "animations": animations,
-              "materials": material_records, "textures": texture_records, "poseParity": pose_evidence,
+              "materials": material_records, "textures": texture_records, "sourceImageDependencies": context["imageDependencies"], "poseParity": pose_evidence,
               "limitations": ["Import evidence is not visual, gameplay, performance, licensing, or art approval.",
                               "Sampled raw and compressed bone and skinning transforms are verified; rendered skin, materials, and animation transitions still require visual review.",
                               "Source-authored geometry is retained. No playable identity mapping or replacement art is approved by this receipt."]}

@@ -24,6 +24,10 @@ are outstanding migration debt, not a completed cleanup.
 The owner resumed work after changing models at the first implementation
 checkpoint. `docs/unreal-checkpoint-1.md` records that historical checkpoint.
 
+The first city house also has a native import and limited material inspection;
+see `docs/unreal-building-import.md` for evidence and outstanding geometry,
+collision, LOD and placement checks. This does not close the world/model gates.
+
 ## Implementation and stage gates
 
 | Stage | Required outcome | Current evidence |

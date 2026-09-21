@@ -75,9 +75,53 @@ class ModelImportPreflightTest(unittest.TestCase):
             self.assertEqual(images[0]["bytes"], binary)
             self.assertEqual(hashlib.sha256(images[0]["bytes"]).digest(), hashlib.sha256(binary).digest())
 
+    def test_repository_textures_are_contained_and_fingerprinted(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            model = root / "public/assets/models/house.glb"
+            texture = root / "public/assets/textures/wall.png"
+            model.parent.mkdir(parents=True); texture.parent.mkdir(parents=True)
+            original = b"\x89PNG\r\n\x1a\noriginal"
+            texture.write_bytes(original)
+            def write_model(uri, **extra):
+                payload = json.dumps({"images": [{"uri": uri, "mimeType": "image/png", **extra}]}).encode()
+                payload += b" " * (-len(payload) % 4)
+                model.write_bytes(struct.pack("<4sII", b"glTF", 2, 20 + len(payload))
+                                 + struct.pack("<II", len(payload), 0x4E4F534A) + payload)
+            with patch.object(importer, "ROOT", root):
+                write_model("../textures/wall.png")
+                _, images = importer.read_glb(model)
+                self.assertEqual(images[0]["bytes"], original)
+                before = importer.image_dependencies(images)
+                self.assertEqual(before[0]["sourcePath"], "public/assets/textures/wall.png")
+                texture.write_bytes(original + b"changed")
+                self.assertNotEqual(importer.image_dependencies(importer.read_glb(model)[1]), before)
+                for uri in ("https://example.com/wall.png", "//server/share.png", "C:/private.png",
+                            "../../../secret.png", "%2e%2e/%2e%2e/%2e%2e/secret.png", "../textures/wall.png?token=x"):
+                    with self.subTest(uri=uri):
+                        write_model(uri)
+                        with self.assertRaises(RuntimeError): importer.read_glb(model)
+                write_model("../textures/wall.png", bufferView=0)
+                with self.assertRaisesRegex(RuntimeError, "Ambiguous"): importer.read_glb(model)
+                write_model("../textures/missing.png")
+                with self.assertRaisesRegex(RuntimeError, "missing"): importer.read_glb(model)
+
     def test_unsupported_material_features_fail_instead_of_disappearing(self):
         with self.assertRaisesRegex(RuntimeError, "Unsupported material"):
             importer.texture_roles({"materials": [{"name": "custom", "extensions": {"unsupported": {}}}]})
+
+    def test_emissive_factor_strength_and_color_texture(self):
+        material = {"name": "window", "emissiveFactor": [1, 0.35, 0.055],
+                    "extensions": {"KHR_materials_emissive_strength": {"emissiveStrength": 1.5}},
+                    "emissiveTexture": {"index": 0}}
+        self.assertEqual(importer.emissive_color(material), [1.5, 0.35 * 1.5, 0.055 * 1.5])
+        self.assertEqual(importer.texture_roles({"materials": [material], "textures": [{"source": 0}]}), {0: "color"})
+        for factor in ([1, 2, 0], [1, 0], [True, 0, 0], [float("nan"), 0, 0]):
+            with self.assertRaisesRegex(RuntimeError, "emissive factor"):
+                importer.emissive_color({"emissiveFactor": factor})
+        for strength in (-1, float("inf"), True, "1"):
+            with self.assertRaisesRegex(RuntimeError, "emissive strength"):
+                importer.emissive_color({"extensions": {"KHR_materials_emissive_strength": {"emissiveStrength": strength}}})
 
     def test_visual_registry_invalidates_only_selected_profiles(self):
         with tempfile.TemporaryDirectory() as directory:

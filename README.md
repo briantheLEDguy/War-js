@@ -23,6 +23,9 @@ skeletal-material shader usage; proof lighting is dynamic to avoid unbuilt light
 review, gameplay, Linux/macOS builds and release acceptance remain open.
 See [checkpoint 2](docs/unreal-checkpoint-2.md) for verified evidence, the rejected
 legacy model sources, and the unfinished work.
+The first [city building import](docs/unreal-building-import.md) now preserves
+repository texture dependencies and emissive windows; collision, LODs and world
+placement remain open.
 The next inventory increment adds owner-only replicated bags/equipment on
 PlayerState, server-only reward grants with session receipt deduplication, and
 revision-checked equip/unequip commands. Native and two-client tests cover
@@ -49,7 +52,9 @@ adds server-owned XP/gold, multilevel stat growth and an inventory progression
 readout; durable settlement and full ability integration remain open.
 Native [quest rules and character-state integration](docs/unreal-quests.md)
 preserve both expedition chains, with validated runtime catalogs and server-resolved
-rewards. NPC interaction, quest UI and durable settlement remain pending.
+rewards. Packaged Windows two-client tests verify each realm's first quest rewards,
+completion retry rejection and private quest state. NPC interaction, quest UI and
+durable settlement remain pending.
 
 ## Regional production priorities
 

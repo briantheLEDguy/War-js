@@ -7,6 +7,8 @@
 #include "WarAttributeSet.h"
 #include "WarGameplayEffects.h"
 #include "WarQuestRules.h"
+#include "WarContentSubsystem.h"
+#include "Engine/GameInstance.h"
 #include "AbilitySystemComponent.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
@@ -75,6 +77,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("respawnPreservesProgression"), bRespawnVerified);
     Report->SetBoolField(TEXT("deathObserved"), bDeathObserved);
     Report->SetBoolField(TEXT("questSnapshotPrivacy"), bQuestPrivacyVerified);
+    Report->SetBoolField(TEXT("catalogQuestTransactions"), bQuestPrivacyVerified);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -399,25 +402,36 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     // Keep the respawn observation phase separate from the next inventory revision.
     if (bRespawnVerified && Elapsed > 70.0)
     {
-        // An explicit synthetic server fixture tests transport privacy; it does not claim NPC quest interaction.
+        // Drive real catalog commands directly; NPC proximity and real enemy attribution remain separate gates.
+        const auto QuestId = [](const AWarPlayerState* State) {
+            return State->GetRealm() == EWarRealm::Aegis ? FName(TEXT("dawnline-01-scouting")) : FName(TEXT("cinderfen-01-scouting")); };
         if (bServer)
         {
+            const auto* Content = GetWorld()->GetGameInstance()->GetSubsystem<UWarContentSubsystem>();
             for (auto* State : {Aegis, Riftbound})
             {
                 if (!State->GetInventory().Quests.IsEmpty()) continue;
-                FWarQuestDefinition Quest; Quest.Id = TEXT("development-private-quest");
-                Quest.GiverZoneId = TEXT("development-proof");
-                FWarQuestObjective Objective; Objective.Id = TEXT("private-objective"); Objective.KillTarget = TEXT("Proof Enemy");
-                Quest.Objectives.Add(Objective); FString Error;
-                if (!State->AcceptQuestTrusted(Quest, Quest.GiverZoneId, 11, Error))
-                { Finish(false, TEXT("Private quest snapshot fixture could not be accepted.")); return; }
+                FWarQuestDefinition Quest; FString Error;
+                if (!Content || !Content->GetQuest(QuestId(State), Quest, Error)
+                    || !State->AcceptCatalogQuestTrusted(Quest.Id, Quest.GiverZoneId, 11, Error))
+                { Finish(false, TEXT("Catalog quest could not be accepted.")); return; }
+                for (int32 Kill = 0; Kill < 4; ++Kill)
+                    if (!State->RecordCatalogQuestKillTrusted(Quest.Objectives[0].ZoneId, Quest.Objectives[0].KillTarget, FGuid::NewGuid(), Error))
+                    { Finish(false, TEXT("Catalog quest kill transaction failed.")); return; }
+                if (!State->CompleteCatalogQuestTrusted(Quest.Id, Quest.TurninZoneId, 16, Error)
+                    || State->CompleteCatalogQuestTrusted(Quest.Id, Quest.TurninZoneId, 17, Error))
+                { Finish(false, TEXT("Catalog quest settlement or retry rejection failed.")); return; }
             }
         }
-        const auto HasQuest = [](const AWarPlayerState* State) {
+        const auto HasQuest = [&](const AWarPlayerState* State) {
             const auto& Snapshot = State->GetInventory();
-            return Snapshot.Revision == 12 && Snapshot.Quests.Num() == 1
-                && Snapshot.Quests[0].Id == TEXT("development-private-quest") && Snapshot.Quests[0].Status == TEXT("active")
-                && Snapshot.Quests[0].Counters.Num() == 1 && Snapshot.Quests[0].GetCount(TEXT("private-objective")) == 0;
+            const auto* Potion = Snapshot.Items.FindByPredicate([](const auto& Item) { return Item.Key == TEXT("potion_health"); });
+            return Snapshot.Revision == 17 && Snapshot.Quests.Num() == 1
+                && Snapshot.Quests[0].Id == QuestId(State) && Snapshot.Quests[0].Status == TEXT("completed")
+                && Snapshot.Quests[0].Counters.Num() == 1 && Snapshot.Quests[0].GetCount(TEXT("kill-raiders")) == 4
+                && Snapshot.CharacterProgression.Level == 3 && Snapshot.CharacterProgression.Xp == 150
+                && Snapshot.CharacterProgression.Gold == 33 && Potion
+                && Potion->Quantity == (State->GetRealm() == EWarRealm::Aegis ? 3 : 6);
         };
         bQuestPrivacyVerified |= bServer ? HasQuest(Aegis) && HasQuest(Riftbound)
             : HasQuest(bAttackerClient ? Aegis : Riftbound) && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Quests.IsEmpty();

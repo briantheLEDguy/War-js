@@ -53,8 +53,11 @@ production catalog parser and affix resolver. Native tests also reject duplicate
 quests/objectives, unknown items/zones, fractional counts, missing/cyclic/cross-realm
 prerequisites, malformed optional fields and reversed affix ranges. All 16 native
 groups passed in `artifacts/unreal/editor/test-1789977450617-5460/`; 74 tooling tests
-and tools typechecking passed. The new real-catalog packaged quest transaction
-proof remains pending: packaging hit UnrealBuildTool's conflicting-instance mutex
-while the owner was converting/opening the project in the launcher. Existing
-packaged proof evidence above predates this catalog integration. Preserve the
-owner's `.uproject` and `.vsconfig` changes and retry only after conversion finishes.
+and tools typechecking passed. Windows packaging and the real-catalog two-client
+quest transaction proof passed in
+`artifacts/unreal/network/1789978458889-34160/report.json`. Both realms accept their
+first expedition quest, record four trusted kills, receive 150 XP, eight gold and
+three healing potions, and reject a repeated completion. The proof preserves the
+Riftbound character's three previously crafted healing potions and verifies that
+quest state remains private. This still uses scripted trusted commands and an
+Editor dedicated server; NPC interaction and real enemy attribution remain open.
