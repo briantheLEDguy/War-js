@@ -14,6 +14,7 @@
 #include "HAL/PlatformMisc.h"
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonReader.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "UnrealClient.h"
 #include "TimerManager.h"
@@ -46,6 +47,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     if (const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
     {
         Report->SetNumberField(TEXT("editableObjects"), Editor->GetHistory().GetObjects().Num());
+        Report->SetNumberField(TEXT("retainedBaselineAdditions"), Editor->GetHistory().GetLoadedBaselineAdditions());
         Report->SetStringField(TEXT("isolatedDraft"), Editor->GetDraftLocation());
     }
     FString Json; FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
@@ -109,6 +111,7 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     {
         Player->ServerWorldEditDraft(true, 0);
         if (!Check(Editor->GetHistory().GetObjects().Num() == 110, TEXT("Fresh process did not restore construction draft."))) return;
+        if (!Check(Editor->GetHistory().GetLoadedBaselineAdditions() == 1, TEXT("Fresh process did not retain the newly authored object."))) return;
         const auto* Created = Editor->GetHistory().GetObjects().FindByPredicate([](const auto& Row) { return !Row.TemplateId.IsNone(); });
         if (!Check(Created != nullptr, TEXT("Fresh draft lost created identity.")) || !CheckCreated(Created->Id)) return;
         Finish(true, TEXT("Fresh process restored the constructed complex building, transform and blocking collision.")); return;
@@ -176,9 +179,27 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     if (!CheckCreated(CreatedId)) return;
     Player->ServerWorldEditDraft(false, Editor->GetHistory().GetRevision());
     if (!Check(FFileHelper::LoadFileToString(Saved, *Editor->GetDraftLocation()) && Saved.Contains(CreatedId.ToString()), TEXT("Construction was not saved."))) return;
+    // Model a draft written before one baseline building was imported. The
+    // separate reload process must retain that new building and the GM creation.
+    TSharedPtr<FJsonObject> OlderDraft, OlderBaseline;
+    if (!Check(FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Saved), OlderDraft)
+        && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(OlderDraft->GetStringField(TEXT("baseline"))), OlderBaseline),
+        TEXT("Could not prepare additive import fixture."))) return;
+    auto BaseRows = OlderBaseline->GetArrayField(TEXT("objects"));
+    const FString AddedId = BaseRows.Last()->AsObject()->GetStringField(TEXT("id"));
+    BaseRows.Pop(); OlderBaseline->SetArrayField(TEXT("objects"), BaseRows);
+    FString OlderBaseText; FJsonSerializer::Serialize(OlderBaseline.ToSharedRef(), TJsonWriterFactory<>::Create(&OlderBaseText));
+    OlderDraft->SetStringField(TEXT("baseline"), OlderBaseText);
+    auto DraftRows = OlderDraft->GetArrayField(TEXT("objects"));
+    DraftRows.RemoveAll([&](const auto& Value) { return Value->AsObject()->GetStringField(TEXT("id")) == AddedId; });
+    OlderDraft->SetArrayField(TEXT("objects"), DraftRows);
+    FString OlderText; FJsonSerializer::Serialize(OlderDraft.ToSharedRef(), TJsonWriterFactory<>::Create(&OlderText));
+    if (!Check(FFileHelper::SaveStringToFile(OlderText, *Editor->GetDraftLocation()), TEXT("Could not write earlier-baseline draft."))) return;
     Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
     Player->ServerWorldEditDraft(true, Editor->GetHistory().GetRevision());
     if (!CheckCreated(CreatedId)) return;
+    if (!Check(Editor->GetHistory().GetLoadedBaselineAdditions() == 1 && Editor->GetObjectActor(FName(*AddedId)) != nullptr,
+        TEXT("Older draft removed newly imported capital content."))) return;
     Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
     Player->ToggleInventory(); Player->ToggleWorldEditor(); Player->ToggleQuestLog(); Player->ToggleWorldEditor(); Player->ToggleWorldEditor();
     if (!Check(!Player->IsMoveInputIgnored() && !Player->IsLookInputIgnored() && !Player->bShowMouseCursor,

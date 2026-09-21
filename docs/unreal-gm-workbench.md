@@ -36,9 +36,13 @@ The original imported map packages are not modified by runtime editing.
 Each request carries the expected revision. Invalid identities, stale requests,
 non-finite/unbounded transforms, zero scale and changes to model handedness are
 rejected. Undo retains up to 100 prior states. Drafts include the original object
-layout and source model fingerprints; a different authored world revision is
-rejected rather than silently overwriting it. Reconciliation of drafts after
-new baseline imports remains pending. Keep existing draft files when updating
+layout and source model fingerprints. If an import only adds authored objects,
+older drafts retain those additions alongside saved edits and created buildings.
+The load message reports how many new authored objects were retained. Saving
+again records the expanded baseline. If an original object was removed, moved,
+rescaled, hidden or assigned a different source model, loading rejects the
+conflict without changing the current world. Conflict resolution for those
+non-additive updates remains pending. Keep existing draft files when updating
 the imported map.
 
 Implementation is split between `WarWorldEditHistory` (validated transactions,
@@ -98,6 +102,17 @@ The packaged two-client run
 building creation for both clients. A visible packaged-game UI check opened `G`,
 clicked each of the six house buttons, observed the corresponding rendered
 building and used Undo after each placement. No user draft was saved or changed.
+
+Additive-import compatibility passed all 20 native groups in
+`artifacts/unreal/editor/test-1789990593107-37080/`, including legacy drafts,
+construction, undo, resaving the expanded baseline, and changed/removed model
+conflicts. The real capital proof uses an isolated earlier-baseline fixture,
+then checks that its omitted newly imported building and GM creation coexist
+after loading. This passed in the editor
+(`artifacts/unreal/capital-proof/1789990652567-34144/`) and rebuilt Windows package
+(`artifacts/unreal/capital-proof/1789990788698-28456/`), including a separate
+reload process. Tooling tests (82) and typechecking also passed. A complete
+production world-version migration system is still pending.
 
 Still pending: the remaining building/prefab catalog, arbitrary/drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, GM flight/teleport and

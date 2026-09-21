@@ -33,7 +33,7 @@ const code = runEngineCommand(packagedClient ?? engine.editorCommand!, options);
 const reportPath = path.join(native, 'report.json');
 if (code !== 0 || !existsSync(reportPath)) throw new Error(`Capital proof failed; see ${output}.`);
 const report = JSON.parse(readFileSync(reportPath, 'utf8').replace(/^\uFEFF/, ''));
-if (report.schemaVersion !== 1 || report.passed !== true || report.editableObjects !== 109
+if (report.schemaVersion !== 1 || report.passed !== true || report.editableObjects !== 109 || report.retainedBaselineAdditions !== 1
   || report.fullCapitalAcceptance !== false || report.sharedGmAuthorization !== false) throw new Error('Capital runtime acceptance failed.');
 copyFileSync(reportPath, path.join(output, 'native-report.json'));
 if (args.has('--rendered')) {
@@ -49,7 +49,7 @@ const reloadCode = runEngineCommand(packagedClient ?? engine.editorCommand!, rel
 const reloadReportPath = path.join(path.dirname(native), reloadRun, 'report.json');
 if (reloadCode !== 0 || !existsSync(reloadReportPath)) throw new Error(`Fresh-process construction reload failed; see ${output}.`);
 const reloadReport = JSON.parse(readFileSync(reloadReportPath, 'utf8').replace(/^\uFEFF/, ''));
-if (reloadReport.passed !== true || reloadReport.constructionReload !== true || reloadReport.editableObjects !== 110
+if (reloadReport.passed !== true || reloadReport.constructionReload !== true || reloadReport.editableObjects !== 110 || reloadReport.retainedBaselineAdditions !== 1
   || reloadReport.fullCapitalAcceptance !== false || reloadReport.sharedGmAuthorization !== false)
   throw new Error('Fresh-process construction runtime acceptance failed.');
 copyFileSync(reloadReportPath, path.join(output, 'reload-report.json'));

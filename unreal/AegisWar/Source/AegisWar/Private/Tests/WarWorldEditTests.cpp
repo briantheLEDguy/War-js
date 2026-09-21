@@ -71,6 +71,28 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     StableModels.Create(Created, TEXT("first"), Moved, 0, Error);
     TestFalse(TEXT("A draft cannot change a live object's trusted template"), StableModels.ImportDraft(
         StableModels.ExportDraft().Replace(TEXT("\"templateId\": \"first\""), TEXT("\"templateId\": \"second\"")), 1, Error));
+    FWarWorldEditHistory Expanded;
+    const TArray<FWarWorldEditObject> ExpandedObjects = { Objects[0], { TEXT("new_import"), Original, false } };
+    Expanded.Initialize(ExpandedObjects, Error);
+    TestTrue(TEXT("Earlier construction draft loads after additive city import"), Expanded.ImportDraft(ConstructionDraft, 0, Error));
+    TestEqual(TEXT("Newly imported object count reported"), Expanded.GetLoadedBaselineAdditions(), 1);
+    TestEqual(TEXT("Authored additions and player construction both retained"), Expanded.GetObjects().Num(), 3);
+    TestTrue(TEXT("New baseline object remains unchanged"), Expanded.Find(TEXT("new_import"))->Transform.Equals(Original));
+    TestNotNull(TEXT("Player construction retained across import"), Expanded.Find(Created));
+    TestTrue(TEXT("Additive draft load remains undoable"), Expanded.Undo(false, 1, Error));
+    TestEqual(TEXT("Undo restores expanded baseline"), Expanded.GetObjects().Num(), 2);
+    TestTrue(TEXT("Legacy edit-only draft loads after additive import"), Expanded.ImportDraft(LegacyDraft, 2, Error));
+    FWarWorldEditHistory ChangedModel;
+    ChangedModel.Initialize({ { TEXT("house"), Original, false, TEXT("changed:model") }, ExpandedObjects[1] }, Error);
+    TestFalse(TEXT("Addition does not mask changed model conflict"), ChangedModel.ImportDraft(ConstructionDraft, 0, Error));
+    FWarWorldEditHistory RemovedObject;
+    RemovedObject.Initialize({ ExpandedObjects[1] }, Error);
+    TestFalse(TEXT("Removed authored object rejects load"), RemovedObject.ImportDraft(ConstructionDraft, 0, Error));
+    TestEqual(TEXT("Conflict leaves current document unchanged"), RemovedObject.GetRevision(), 0);
+    FWarWorldEditHistory RoundTrip;
+    RoundTrip.Initialize(ExpandedObjects, Error);
+    TestTrue(TEXT("Expanded draft exports its new baseline"), RoundTrip.ImportDraft(Expanded.ExportDraft(), 0, Error));
+    TestEqual(TEXT("Reconciled baseline does not repeatedly report additions"), RoundTrip.GetLoadedBaselineAdditions(), 0);
     return true;
 }
 #endif

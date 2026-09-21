@@ -45,7 +45,10 @@ void AWarPlayerController::ServerWorldEditDraft_Implementation(bool bLoad, int32
 {
     auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error;
     const bool bSuccess = Editor && (bLoad ? Editor->LoadDraft(this, ExpectedRevision, Error) : Editor->SaveDraft(this, ExpectedRevision, Error));
-    ClientWorldEditResult(bSuccess ? (bLoad ? TEXT("Saved draft loaded. Undo restores your previous edits.") : TEXT("Draft saved locally."))
+    const FString Loaded = bSuccess && bLoad && Editor->GetHistory().GetLoadedBaselineAdditions() > 0
+        ? FString::Printf(TEXT("Draft loaded; %d newly imported objects retained. Undo restores previous edits."), Editor->GetHistory().GetLoadedBaselineAdditions())
+        : TEXT("Saved draft loaded. Undo restores your previous edits.");
+    ClientWorldEditResult(bSuccess ? (bLoad ? Loaded : FString(TEXT("Draft saved locally.")))
         : (Error.IsEmpty() ? TEXT("GM access unavailable.") : Error));
 }
 

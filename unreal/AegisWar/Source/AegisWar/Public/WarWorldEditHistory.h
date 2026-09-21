@@ -21,6 +21,7 @@ public:
     bool ImportDraft(const FString& Json, int32 ExpectedRevision, FString& Error);
     FString ExportDraft() const;
     int32 GetRevision() const { return Revision; }
+    int32 GetLoadedBaselineAdditions() const { return LoadedBaselineAdditions; }
     const TArray<FWarWorldEditObject>& GetObjects() const { return Current; }
     const TArray<FWarWorldEditObject>& GetBaselineObjects() const { return Baseline; }
     const FWarWorldEditObject* Find(FName Id) const;
@@ -31,4 +32,5 @@ private:
     TArray<FWarWorldEditObject> Baseline, Current;
     TArray<TArray<FWarWorldEditObject>> Past, Future;
     int32 Revision = 0;
+    int32 LoadedBaselineAdditions = 0;
 };

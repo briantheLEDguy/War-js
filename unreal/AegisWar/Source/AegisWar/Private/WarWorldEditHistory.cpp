@@ -51,7 +51,7 @@ bool FWarWorldEditHistory::Initialize(const TArray<FWarWorldEditObject>& Objects
     }
     Baseline = Objects;
     Baseline.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
-    Current = Baseline; Past.Reset(); Future.Reset(); Revision = 0; return true;
+    Current = Baseline; Past.Reset(); Future.Reset(); Revision = 0; LoadedBaselineAdditions = 0; return true;
 }
 
 const FWarWorldEditObject* FWarWorldEditHistory::Find(const FName Id) const
@@ -154,10 +154,33 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
     if (Json.Len() > 2000000 || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Root) || !Root.IsValid()
         || !Root->TryGetNumberField(TEXT("schemaVersion"), Version) || (Version != 1 && Version != 2)
         || !Root->TryGetStringField(TEXT("zoneId"), Zone) || Zone != TEXT("aegis_capital")
-        || !Root->TryGetStringField(TEXT("baseline"), Base) || Base != BaselineText(Baseline)
-        || !Root->TryGetArrayField(TEXT("objects"), Objects) || Objects->Num() < Baseline.Num() || Objects->Num() > Baseline.Num() + 1000
-        || (Version == 1 && Objects->Num() != Baseline.Num()))
+        || !Root->TryGetStringField(TEXT("baseline"), Base)
+        || !Root->TryGetArrayField(TEXT("objects"), Objects) || Objects->Num() > Baseline.Num() + 1000)
     { Error = TEXT("Draft is invalid or belongs to a different authored world revision."); return false; }
+    // Allow additions to the imported city, but require every old authored
+    // object to retain its exact original geometry fingerprint and placement.
+    TSharedPtr<FJsonObject> SavedBase;
+    const TArray<TSharedPtr<FJsonValue>>* SavedObjects = nullptr;
+    if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Base), SavedBase) || !SavedBase.IsValid()
+        || !SavedBase->TryGetArrayField(TEXT("objects"), SavedObjects) || SavedObjects->IsEmpty()
+        || SavedObjects->Num() > Baseline.Num() || Objects->Num() < SavedObjects->Num()
+        || Objects->Num() > SavedObjects->Num() + 1000 || (Version == 1 && Objects->Num() != SavedObjects->Num()))
+    { Error = TEXT("Draft has an invalid authored baseline."); return false; }
+    TSet<FName> SavedIds;
+    TArray<FWarWorldEditObject> ExpectedBase;
+    for (const auto& Value : *SavedObjects)
+    {
+        const TSharedPtr<FJsonObject>* Object = nullptr; FString Id;
+        if (!Value->TryGetObject(Object) || !Object->IsValid() || !(*Object)->TryGetStringField(TEXT("id"), Id)
+            || Id.IsEmpty() || Id.Len() > 128 || SavedIds.Contains(FName(*Id)))
+        { Error = TEXT("Draft has an invalid authored identity."); return false; }
+        const auto* Original = Baseline.FindByPredicate([&](const auto& Row) { return Row.Id == FName(*Id); });
+        if (!Original) { Error = FString::Printf(TEXT("Authored object %s was removed. Resolve the draft conflict before loading."), *Id); return false; }
+        ExpectedBase.Add(*Original); SavedIds.Add(Original->Id);
+    }
+    ExpectedBase.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
+    if (Base != BaselineText(ExpectedBase))
+    { Error = TEXT("An existing authored object or model changed. Resolve the draft conflict before loading."); return false; }
     TArray<FWarWorldEditObject> Next;
     for (const auto& Value : *Objects)
     {
@@ -178,8 +201,13 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
             { Error = TEXT("Invalid draft transform."); return false; }
         Next.Add({ FName(*Id), FTransform(FQuat(Numbers[3], Numbers[4], Numbers[5], Numbers[6]),
             FVector(Numbers[0], Numbers[1], Numbers[2]), FVector(Numbers[7], Numbers[8], Numbers[9])), bHidden, SourceIdentity, FName(*TemplateId) });
+        if (TemplateId.IsEmpty() && !SavedIds.Contains(FName(*Id)))
+        { Error = TEXT("Draft edits an authored object outside its original baseline."); return false; }
+        if (!TemplateId.IsEmpty() && !SavedIds.Contains(FName(*TemplateId)))
+        { Error = TEXT("Draft uses a model template outside its original baseline."); return false; }
     }
+    for (const auto& Original : Baseline) if (!SavedIds.Contains(Original.Id)) Next.Add(Original);
     if (!Validate(Next, Error)) return false;
     Next.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
-    Commit(MoveTemp(Next)); return true;
+    Commit(MoveTemp(Next)); LoadedBaselineAdditions = Baseline.Num() - SavedIds.Num(); return true;
 }

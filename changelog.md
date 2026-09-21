@@ -1,3 +1,9 @@
+## 2026-09-21 — Keep GM drafts usable as capital content grows
+
+- Older development drafts now retain newly imported authored objects alongside saved edits and GM construction. Loading reports the added baseline count; resaving advances the draft baseline and undo restores the previous document.
+- Changed original placements/models, removed identities, templates outside the saved baseline and attempts to replace a live object's template remain rejected without changing the world. Legacy version-one edit-only drafts remain supported.
+- Verified 20 native test groups, 82 tooling tests and typechecking; rendered capital and separate-process reload checks passed in editor and rebuilt Windows package using an earlier-baseline fixture. Full production world-version migration and conflict resolution remain pending.
+
 ## 2026-09-21 — Native capital construction and persistent created buildings
 
 - Added placement from all six imported Aegis house models to the development City Builder. New identities reference trusted authored mesh/collision templates; no primitive fallback is generated.

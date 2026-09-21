@@ -82,7 +82,8 @@ travel and full runtime GM editing remain unfinished; this map is not yet a rest
 Its [native development GM panel](docs/unreal-gm-workbench.md) now opens with `G`
 in Play in Editor and supports placing the six imported house models, selecting
 houses, transforms, hide/restore, undo/redo and local draft save/load. Construction
-survives a fresh game process with its authored mesh and collision. Shared GM
+survives a fresh game process with its authored mesh and collision. Older drafts
+retain new authored objects after additive city imports; conflicting changes are rejected. Shared GM
 permissions, the remaining prefab catalog, terrain editing and publication remain pending.
 
 ## Regional production priorities
