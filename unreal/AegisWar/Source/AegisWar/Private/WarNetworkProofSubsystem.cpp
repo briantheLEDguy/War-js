@@ -2,6 +2,7 @@
 #include "AegisWar.h"
 #include "WarCharacter.h"
 #include "WarPlayerState.h"
+#include "WarPlayerController.h"
 #include "WarAttributeSet.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
@@ -16,6 +17,7 @@
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonSerializer.h"
 #include "UnrealClient.h"
+#include "TimerManager.h"
 
 bool UWarNetworkProofSubsystem::ShouldCreateSubsystem(UObject* Outer) const
 {
@@ -60,6 +62,8 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetNumberField(TEXT("strikeRequests"), StrikeRequests);
     Report->SetBoolField(TEXT("graphicalAcceptance"), false);
     Report->SetBoolField(TEXT("inventoryAuthorityAndPrivacy"), bInventoryVerified);
+    Report->SetBoolField(TEXT("combatBeforeHealing"), bCombatVerified);
+    Report->SetBoolField(TEXT("consumableAuthority"), bConsumableVerified);
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -70,7 +74,16 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     }
     UE_LOG(LogAegisWar, Display, TEXT("WAR_NETWORK_PROOF %s passed=%d %s"), *ResultRole, bPassed, *Detail);
     if (GetWorld()->GetNetMode() == NM_Client && FParse::Param(FCommandLine::Get(), TEXT("WarProofScreenshot")))
-        FScreenshotRequest::RequestScreenshot(FPaths::Combine(Directory, ResultRole + TEXT(".png")), false, false);
+    {
+        if (FParse::Param(FCommandLine::Get(), TEXT("WarInventoryProofUI")))
+            if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController())) Controller->ToggleInventory();
+        const FString Screenshot = FPaths::Combine(Directory, ResultRole + TEXT(".png"));
+        const bool bShowUI = FParse::Param(FCommandLine::Get(), TEXT("WarInventoryProofUI"));
+        FTimerHandle CaptureTimer;
+        GetWorld()->GetTimerManager().SetTimer(CaptureTimer, [Screenshot, bShowUI] {
+            FScreenshotRequest::RequestScreenshot(Screenshot, bShowUI, false);
+        }, 0.3f, false);
+    }
 }
 
 void UWarNetworkProofSubsystem::Tick(float DeltaTime)
@@ -112,11 +125,17 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             Reward.EquipSlot = TEXT("mainHand"); Reward.bHasAffix = true; Reward.StrengthBonus = 7;
             FString Error;
             const FGuid Transaction(1, 2, 3, 4);
-            if (!State->GrantRewards(Transaction, {Reward}, Error) || State->GrantRewards(Transaction, {Reward}, Error))
+            FWarInventoryItem Potion;
+            Potion.Key = State == Aegis ? TEXT("potion_mana") : TEXT("potion_health");
+            Potion.Kind = TEXT("consumable"); Potion.Quantity = 2;
+            if (!State->GrantRewards(Transaction, {Reward, Potion}, Error) || State->GrantRewards(Transaction, {Reward, Potion}, Error))
             { Finish(false, TEXT("Trusted reward receipt deduplication failed.")); return; }
         }
-        bInventoryVerified = Aegis->GetInventory().Revision == 2 && Riftbound->GetInventory().Revision == 2
+        bInventoryVerified = Aegis->GetInventory().Revision >= 2 && Riftbound->GetInventory().Revision >= 2
             && Aegis->GetInventory().Equipment.Num() == 1 && Riftbound->GetInventory().Equipment.Num() == 1;
+        bConsumableVerified = Aegis->GetInventory().Revision == 3 && Riftbound->GetInventory().Revision == 3
+            && Aegis->GetInventory().Items.Num() == 2 && Riftbound->GetInventory().Items.Num() == 2
+            && Aegis->GetInventory().Items[1].Quantity == 1 && Riftbound->GetInventory().Items[1].Quantity == 1;
     }
     else
     {
@@ -130,10 +149,11 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             Local->ServerChangeEquipment(1, 0, false); // Stale revision must not undo the accepted equip.
             bInventoryRequestsSent = true;
         }
-        bInventoryVerified = Snapshot.Revision == 2 && Snapshot.Items.Num() == 1
+        bInventoryVerified = Snapshot.Revision >= 2 && Snapshot.Items.Num() == 2
             && Snapshot.Items[0].StrengthBonus == 7 && Snapshot.Equipment.Num() == 1
             && Snapshot.Equipment[0].BagSlot == 0 && Remote->GetInventory().Revision == 0
             && Remote->GetInventory().Items.IsEmpty() && Remote->GetInventory().Equipment.IsEmpty();
+        bConsumableVerified = Snapshot.Revision == 3 && Snapshot.Items.Num() == 2 && Snapshot.Items[1].Quantity == 1;
     }
     bAutonomous = !bServer && (bAttackerClient ? Attacker : Defender)->GetLocalRole() == ROLE_AutonomousProxy;
     if (PairReadyAt < 0)
@@ -158,8 +178,19 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     if (Elapsed > 2.0 && bMoved && bInventoryVerified && FMath::IsNearlyEqual(ObservedHealth, 80.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 90.f))
         && (bServer || (bAutonomous && bMovementAnimation && bStrikeAnimation)))
+        bCombatVerified = true;
+    if (!bServer && bCombatVerified && !bConsumableRequested && Elapsed > 3.0)
     {
-        Finish(true, TEXT("Authored character replication, movement, server damage and duplicate cooldown request verified."));
+        AWarPlayerState* Local = bAttackerClient ? Aegis : Riftbound;
+        Local->ServerUseConsumable(2, 0); // Equipment is not consumable.
+        Local->ServerUseConsumable(2, 1);
+        Local->ServerUseConsumable(2, 1); // Duplicate revision must not consume the second potion.
+        bConsumableRequested = true;
+    }
+    if (bCombatVerified && bInventoryVerified && bConsumableVerified && FMath::IsNearlyEqual(ObservedHealth, 100.f)
+        && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 100.f)))
+    {
+        Finish(true, TEXT("Movement, combat, private inventory, equipment revision checks and authoritative consumable use verified."));
     }
     else if (Elapsed > 20)
     {

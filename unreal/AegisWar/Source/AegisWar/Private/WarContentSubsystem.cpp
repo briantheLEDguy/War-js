@@ -246,3 +246,46 @@ bool UWarContentSubsystem::ValidatePlayableVisual(const UWarCharacterVisualDefin
     }
     return false;
 }
+
+FText UWarContentSubsystem::GetItemDisplayName(const FName Key) const
+{
+    const TSharedPtr<FJsonObject>* Items = nullptr;
+    const TArray<TSharedPtr<FJsonValue>>* Definitions = nullptr;
+    if (Manifest.IsValid() && Manifest->TryGetObjectField(TEXT("items"), Items)
+        && (*Items)->TryGetArrayField(TEXT("definitions"), Definitions))
+    {
+        for (const auto& Value : *Definitions)
+        {
+            const auto Object = Value->AsObject();
+            FString ItemKey, Name;
+            if (Object.IsValid() && Object->TryGetStringField(TEXT("key"), ItemKey)
+                && FName(*ItemKey) == Key && Object->TryGetStringField(TEXT("name"), Name))
+                return FText::FromString(Name);
+        }
+    }
+    return FText::FromName(Key);
+}
+
+bool UWarContentSubsystem::GetConsumableEffect(const FName Key, float& Health, float& Mana) const
+{
+    Health = 0.f; Mana = 0.f;
+    const TSharedPtr<FJsonObject>* Items = nullptr;
+    const TArray<TSharedPtr<FJsonValue>>* Definitions = nullptr;
+    if (!bReady || !Manifest.IsValid() || !Manifest->TryGetObjectField(TEXT("items"), Items)
+        || !(*Items)->TryGetArrayField(TEXT("definitions"), Definitions)) return false;
+    bool bFound = false;
+    for (const auto& Value : *Definitions)
+    {
+        const auto Object = Value->AsObject();
+        FString ItemKey;
+        if (!Object.IsValid() || !Object->TryGetStringField(TEXT("key"), ItemKey) || FName(*ItemKey) != Key) continue;
+        if (bFound) return false;
+        bFound = true;
+        const TSharedPtr<FJsonObject>* Effect = nullptr;
+        if (!Object->TryGetObjectField(TEXT("consumable"), Effect)) return false;
+        if ((*Effect)->HasField(TEXT("hp")) && !(*Effect)->TryGetNumberField(TEXT("hp"), Health)) return false;
+        if ((*Effect)->HasField(TEXT("mp")) && !(*Effect)->TryGetNumberField(TEXT("mp"), Mana)) return false;
+    }
+    return bFound && FMath::IsFinite(Health) && FMath::IsFinite(Mana)
+        && Health >= 0.f && Mana >= 0.f && (Health > 0.f || Mana > 0.f);
+}

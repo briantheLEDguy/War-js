@@ -128,6 +128,25 @@ bool FWarInventoryAuthorityTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Invalid reward is atomic"), State->GrantRewards(InvalidTransaction, {Blade}, Error));
     Blade.Quantity = 1;
     TestTrue(TEXT("Rejected reward did not consume receipt"), State->GrantRewards(InvalidTransaction, {Blade}, Error));
+    AWarPlayerState* Exchange = World->SpawnActor<AWarPlayerState>();
+    FWarInventoryItem Potion;
+    Potion.Key = TEXT("test_potion"); Potion.Kind = TEXT("consumable"); Potion.Quantity = 99;
+    Blade.Quantity = 24;
+    TestTrue(TEXT("Exchange seed fills bag with one deferred blade"), Exchange->GrantRewards(FGuid::NewGuid(), {Potion, Blade}, Error));
+    Blade.Quantity = 1;
+    const FGuid ExchangeId = FGuid::NewGuid();
+    TestFalse(TEXT("Full-bag output rolls consumption back"), Exchange->ExchangeItems(ExchangeId, 1, {{0, 1}}, {Blade}, Error));
+    TestEqual(TEXT("Failed output preserves ingredients"), Exchange->GetInventory().Items[0].Quantity, 99);
+    TestEqual(TEXT("Failed output preserves revision"), Exchange->GetInventory().Revision, 1);
+    TestFalse(TEXT("Invalid quantity cannot create ingredients"), Exchange->ExchangeItems(ExchangeId, 1, {{0, -1}}, {}, Error));
+    TestTrue(TEXT("Freed slot delivers pending rolled reward"), Exchange->ExchangeItems(ExchangeId, 1, {{0, 99}}, {}, Error));
+    TestEqual(TEXT("Deferred reward delivered exactly once"), Exchange->GetInventory().PendingRewards.Num(), 0);
+    TestEqual(TEXT("Bag remains full after delivery"), Exchange->GetInventory().Items.Num(), 24);
+    const auto* Delivered = Exchange->GetInventory().Items.FindByPredicate([](const auto& Item) { return Item.Slot == 0; });
+    TestTrue(TEXT("Delivery retains rolled affix"), Delivered && Delivered->StrengthBonus == 7 && Delivered->bHasAffix);
+    TestFalse(TEXT("Duplicate exchange cannot consume again"), Exchange->ExchangeItems(ExchangeId, 2, {{0, 1}}, {}, Error));
+    TestTrue(TEXT("Equip item before protected consumption"), Exchange->ChangeEquipment(2, 0, true, Error));
+    TestFalse(TEXT("Equipped gear cannot be consumed"), Exchange->ExchangeItems(FGuid::NewGuid(), 3, {{0, 1}}, {}, Error));
     World->DestroyWorld(false);
     return true;
 }

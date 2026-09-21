@@ -26,7 +26,11 @@ The next inventory increment adds owner-only replicated bags/equipment on
 PlayerState, server-only reward grants with session receipt deduplication, and
 revision-checked equip/unequip commands. Native and two-client tests cover
 fabricated selections, stale requests, private inventory and deferred gear.
-This does not yet provide inventory UI, durable persistence or equipment meshes.
+A native inventory panel now opens with `I`, supports search and name/bag-slot
+ordering, equip/unequip and catalog-resolved consumable use. Atomic item exchanges
+roll back when outputs cannot fit and deliver deferred gear into freed space.
+Durable persistence, complete inventory presentation and equipment meshes remain
+unfinished. See [inventory implementation and limits](docs/unreal-inventory-authority.md).
 
 ## Regional production priorities
 

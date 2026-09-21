@@ -46,6 +46,8 @@ public:
     static bool ValidateVisualImportBinding(const UWarCharacterVisualDefinition* Visual,
         const TMap<FName, FWarVisualImportBinding>& Bindings, FString& OutError);
     bool ValidatePlayableVisual(const UWarCharacterVisualDefinition* Visual, FString& OutError) const;
+    FText GetItemDisplayName(FName Key) const;
+    bool GetConsumableEffect(FName Key, float& Health, float& Mana) const;
 private:
     UPROPERTY() FWarContentSummary Summary;
     UPROPERTY() FString ValidationError;

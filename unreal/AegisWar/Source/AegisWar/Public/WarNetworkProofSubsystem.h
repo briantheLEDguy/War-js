@@ -27,6 +27,9 @@ private:
     bool bFinished = false;
     bool bInventoryRequestsSent = false;
     bool bInventoryVerified = false;
+    bool bCombatVerified = false;
+    bool bConsumableRequested = false;
+    bool bConsumableVerified = false;
     float ObservedHealth = -1;
     float ObservedMana = -1;
     FString ResultRole;

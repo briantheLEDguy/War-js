@@ -1,3 +1,9 @@
+## 2026-09-21 — Native inventory interactions
+
+- Added a native inventory panel with catalog names, search, display ordering, equipment selection and server feedback.
+- Added server-resolved consumables and atomic item exchanges with full-bag rollback, equipped-item protection and deferred reward delivery.
+- Extended native/network verification for rollback, potion caps and duplicate-use rejection. Full inventory/gameplay parity and durable persistence remain unfinished.
+
 ## 2026-09-21 — Native inventory authority
 
 - Added owner-only replicated inventory/equipment on Unreal PlayerState, trusted session reward receipts and revision-checked equipment commands.
