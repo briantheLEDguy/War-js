@@ -42,6 +42,9 @@ crafting station; `I` retains portable crafting. Campaign station placement and
 full interaction prompts remain unfinished. Native
 salvaging now preserves affix-dependent materials, protects equipped gear, rolls
 back when outputs cannot fit, and awards server-owned profession XP.
+Native resource gathering now has catalog-backed server transactions and
+per-character cooldowns; [world placement and remaining work](docs/unreal-gathering.md)
+are still pending.
 
 ## Regional production priorities
 

@@ -4,6 +4,7 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "WarCraftingRules.h"
 #include "WarCultivationRules.h"
+#include "WarGatheringRules.h"
 #include "WarContentSubsystem.generated.h"
 
 class FJsonObject;
@@ -50,6 +51,8 @@ public:
     bool ValidatePlayableVisual(const UWarCharacterVisualDefinition* Visual, FString& OutError) const;
     FText GetItemDisplayName(FName Key) const;
     bool GetConsumableEffect(FName Key, float& Health, float& Mana) const;
+    bool GetResourceNode(FName ZoneId, FName NodeId, FWarResourceDefinition& Node, FString& Error) const;
+    static bool ParseResourceNode(const TSharedPtr<FJsonObject>& Catalog, FName ZoneId, FName NodeId, FWarResourceDefinition& Node, FString& Error);
     bool GetCultivationSeed(FName Key, FWarCultivationSeed& Seed, FString& Error) const;
     static bool ParseCultivationSeed(const TSharedPtr<FJsonObject>& Catalog, FName Key, FWarCultivationSeed& Seed, FString& Error);
     bool GetCraftRecipe(FName Id, FWarCraftRecipe& Recipe, FString& Error) const;

@@ -18,6 +18,7 @@ public:
     virtual void SetupInputComponent() override;
     void ToggleInventory();
     void InteractWithStation();
+    void InteractWithWorld();
 private:
     UPROPERTY(Transient) TObjectPtr<UWarInventoryWidget> InventoryWidget;
     UPROPERTY(Transient) TObjectPtr<UWarEntryStatusWidget> EntryStatus;

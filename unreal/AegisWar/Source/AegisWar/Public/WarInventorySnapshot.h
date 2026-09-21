@@ -31,6 +31,15 @@ struct AEGISWAR_API FWarCultivationPlot
     UPROPERTY(BlueprintReadOnly) FName Additive;
 };
 
+USTRUCT(BlueprintType)
+struct AEGISWAR_API FWarResourceCooldown
+{
+    GENERATED_BODY()
+    UPROPERTY(BlueprintReadOnly) FName ZoneId;
+    UPROPERTY(BlueprintReadOnly) FName NodeId;
+    UPROPERTY(BlueprintReadOnly) int64 AvailableAtMs = 0;
+};
+
 /** One owner-only replication unit; equipment never removes items from the bag. */
 USTRUCT(BlueprintType)
 struct AEGISWAR_API FWarInventorySnapshot
@@ -42,4 +51,5 @@ struct AEGISWAR_API FWarInventorySnapshot
     UPROPERTY(BlueprintReadOnly) TArray<FWarEquipmentReference> Equipment;
     UPROPERTY(BlueprintReadOnly) TArray<FWarProfessionProgress> Professions;
     UPROPERTY(BlueprintReadOnly) TArray<FWarCultivationPlot> CultivationPlots;
+    UPROPERTY(BlueprintReadOnly) TArray<FWarResourceCooldown> ResourceCooldowns;
 };

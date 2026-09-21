@@ -179,3 +179,82 @@ bool UWarContentSubsystem::ParseCultivationSeed(const TSharedPtr<FJsonObject>& C
         && (Parsed.Additive.IsNone() || !ReadOutputs(TEXT("bonusOutputs"), Parsed.BonusOutputs))) return false;
     Seed = MoveTemp(Parsed); Error.Reset(); return true;
 }
+
+
+bool UWarContentSubsystem::GetResourceNode(const FName ZoneId, const FName NodeId,
+    FWarResourceDefinition& Node, FString& Error) const
+{
+    if (!bReady) { Error = TEXT("Resource catalog is unavailable."); return false; }
+    return ParseResourceNode(Manifest, ZoneId, NodeId, Node, Error);
+}
+
+bool UWarContentSubsystem::ParseResourceNode(const TSharedPtr<FJsonObject>& Catalog, const FName ZoneId,
+    const FName NodeId, FWarResourceDefinition& Node, FString& Error)
+{
+    Error = TEXT("Unknown or invalid resource node.");
+    const TArray<TSharedPtr<FJsonValue>>* Maps = nullptr;
+    if (!Catalog.IsValid() || ZoneId.IsNone() || NodeId.IsNone() || !Catalog->TryGetArrayField(TEXT("maps"), Maps)) return false;
+    TSharedPtr<FJsonObject> Map;
+    for (const auto& Value : *Maps)
+    {
+        if (!Value.IsValid() || Value->Type != EJson::Object) return false;
+        FString Id;
+        if (!Value->AsObject()->TryGetStringField(TEXT("id"), Id)) return false;
+        if (FName(*Id) != ZoneId) continue;
+        if (Map.IsValid()) return false;
+        const TSharedPtr<FJsonObject>* Definition = nullptr;
+        if (!Value->AsObject()->TryGetObjectField(TEXT("definition"), Definition)) return false;
+        Map = *Definition;
+    }
+    const TArray<TSharedPtr<FJsonValue>>* Nodes = nullptr;
+    if (!Map.IsValid() || !Map->TryGetArrayField(TEXT("resourceNodes"), Nodes)) return false;
+    TSharedPtr<FJsonObject> Definition;
+    for (const auto& Value : *Nodes)
+    {
+        if (!Value.IsValid() || Value->Type != EJson::Object) return false;
+        FString Id;
+        if (!Value->AsObject()->TryGetStringField(TEXT("id"), Id)) return false;
+        if (FName(*Id) != NodeId) continue;
+        if (Definition.IsValid()) return false;
+        Definition = Value->AsObject();
+    }
+    if (!Definition.IsValid()) return false;
+    FWarResourceDefinition Parsed; Parsed.ZoneId = ZoneId; Parsed.NodeId = NodeId;
+    FString Profession, Visual;
+    double Seconds = 0, Radius = 4.5;
+    if (!Definition->TryGetStringField(TEXT("label"), Parsed.Label)
+        || !Definition->TryGetStringField(TEXT("professionId"), Profession) || Profession.IsEmpty()
+        || !FindDefinition(Catalog, TEXT("crafting"), TEXT("professions"), TEXT("id"), FName(*Profession)).IsValid()
+        || !Definition->TryGetStringField(TEXT("visualPropId"), Visual) || Visual.IsEmpty()
+        || !Integer(Definition, TEXT("xp"), Parsed.Xp)
+        || !Definition->TryGetNumberField(TEXT("respawnSeconds"), Seconds) || !FMath::IsFinite(Seconds)
+        || Seconds > MAX_int32 / 1000) return false;
+    if (Definition->HasField(TEXT("radius")) && !Definition->TryGetNumberField(TEXT("radius"), Radius)) return false;
+    if (!FMath::IsFinite(Radius) || Radius <= 0 || Radius > MAX_int32 / 100) return false;
+    Parsed.Profession = FName(*Profession); Parsed.VisualPropId = FName(*Visual);
+    Parsed.bMeasureHeight = Map->HasTypedField<EJson::Object>(TEXT("craterCity")) && Definition->HasField(TEXT("y"));
+    Parsed.RadiusCm = static_cast<float>(Radius * 100);
+    Parsed.CooldownMs = FMath::CeilToInt64(FMath::Max(1.0, Seconds) * 1000);
+    const TArray<TSharedPtr<FJsonValue>>* Loot = nullptr;
+    if (!Definition->TryGetArrayField(TEXT("loot"), Loot) || Loot->IsEmpty()) return false;
+    for (const auto& Value : *Loot)
+    {
+        if (!Value.IsValid() || Value->Type != EJson::Object) return false;
+        const auto Entry = Value->AsObject(); FWarGatheringLoot Reward;
+        FString Key, Kind, Slot;
+        if (!Entry->TryGetStringField(TEXT("key"), Key) || Key.IsEmpty()
+            || !Integer(Entry, TEXT("qty"), Reward.Item.Quantity, 1)
+            || !Entry->TryGetNumberField(TEXT("chance"), Reward.Chance)
+            || !FMath::IsFinite(Reward.Chance) || Reward.Chance < 0 || Reward.Chance > 1) return false;
+        Reward.MinimumQuantity = Reward.MaximumQuantity = Reward.Item.Quantity;
+        if (Entry->HasField(TEXT("minQty")) && !Integer(Entry, TEXT("minQty"), Reward.MinimumQuantity, 1)) return false;
+        if (Entry->HasField(TEXT("maxQty")) && !Integer(Entry, TEXT("maxQty"), Reward.MaximumQuantity, 1)) return false;
+        if (Reward.MaximumQuantity < Reward.MinimumQuantity) return false;
+        const auto Item = FindDefinition(Catalog, TEXT("items"), TEXT("definitions"), TEXT("key"), FName(*Key));
+        if (!Item.IsValid() || !Item->TryGetStringField(TEXT("kind"), Kind)) return false;
+        Item->TryGetStringField(TEXT("equipSlot"), Slot);
+        Reward.Item.Key = FName(*Key); Reward.Item.Kind = FName(*Kind); Reward.Item.EquipSlot = FName(*Slot);
+        Parsed.Loot.Add(Reward);
+    }
+    Node = MoveTemp(Parsed); Error.Reset(); return true;
+}

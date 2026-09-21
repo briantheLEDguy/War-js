@@ -2,6 +2,8 @@
 #include "WarEntryStatusWidget.h"
 #include "WarInventoryWidget.h"
 #include "WarCraftingStation.h"
+#include "WarResourceNode.h"
+#include "WarPlayerState.h"
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
 #include "Components/InputComponent.h"
@@ -11,7 +13,7 @@ void AWarPlayerController::SetupInputComponent()
 {
     Super::SetupInputComponent();
     InputComponent->BindKey(EKeys::I, IE_Pressed, this, &AWarPlayerController::ToggleInventory);
-    InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AWarPlayerController::InteractWithStation);
+    InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AWarPlayerController::InteractWithWorld);
 }
 
 void AWarPlayerController::ToggleInventory()
@@ -75,4 +77,25 @@ void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reaso
     }
     SetInputMode(FInputModeUIOnly());
     bShowMouseCursor = true;
+}
+
+void AWarPlayerController::InteractWithWorld()
+{
+    if (InventoryWidget && InventoryWidget->IsInViewport()) return;
+    if (!IsLocalController() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
+    auto* State = GetPlayerState<AWarPlayerState>();
+    if (!State) return;
+    AWarResourceNode* Nearest = nullptr;
+    double Distance = TNumericLimits<double>::Max();
+    const int64 NowMs = (FDateTime::UtcNow() - FDateTime(1970, 1, 1)).GetTicks() / ETimespan::TicksPerMillisecond;
+    for (TActorIterator<AWarResourceNode> It(GetWorld()); It; ++It)
+    {
+        FWarResourceDefinition Definition; FString Error;
+        if (!It->ResolveInteraction(GetPawn(), Definition, Error)
+            || !WarGathering::IsAvailable(State->GetInventory(), Definition.ZoneId, Definition.NodeId, NowMs)) continue;
+        const double Candidate = FVector::DistSquared2D(GetPawn()->GetActorLocation(), It->GetActorLocation());
+        if (Candidate < Distance) { Distance = Candidate; Nearest = *It; }
+    }
+    if (Nearest) State->ServerGatherResource(Nearest, State->GetInventory().Revision);
+    else InteractWithStation();
 }

@@ -1,3 +1,11 @@
+## 2026-09-21 - Native resource gathering transactions
+
+- Added catalog-backed resource gathering, server loot/XP, private per-character
+  cooldowns, range/visual checks and atomic full-bag rollback.
+- Added native transaction coverage for all 284 current resource definitions.
+- Resource art/world placement, corpse harvesting, durable recovery and rendered
+  gathering acceptance remain unfinished; no primitive node substitutes added.
+
 ## 2026-09-21 - Native character material rendering
 
 - Compile imported character materials for skeletal meshes and reject receipts

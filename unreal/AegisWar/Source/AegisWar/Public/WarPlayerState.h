@@ -11,6 +11,7 @@ class UAbilitySystemComponent;
 class UWarAttributeSet;
 class AWarCharacter;
 class AWarCraftingStation;
+class AWarResourceNode;
 
 /** PlayerState owns GAS so replacing the pawn does not clear ability cooldowns. */
 UCLASS()
@@ -44,6 +45,8 @@ public:
     bool HarvestCrop(FGuid PlotId, int32 ExpectedRevision, FString& Error);
     UFUNCTION(Server, Reliable) void ServerPlantSeed(FName SeedKey, bool bUseSoil, int32 ExpectedRevision);
     UFUNCTION(Server, Reliable) void ServerHarvestCrop(FGuid PlotId, int32 ExpectedRevision);
+    bool GatherResource(const AWarResourceNode* Node, int32 ExpectedRevision, FString& Error);
+    UFUNCTION(Server, Reliable) void ServerGatherResource(AWarResourceNode* Node, int32 ExpectedRevision);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:
     UPROPERTY(Transient) FText InventoryMessage;
