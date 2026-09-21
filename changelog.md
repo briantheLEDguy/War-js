@@ -1,3 +1,9 @@
+## 2026-09-21 — Native capital terrain foundation
+
+- Added an Aegis capital terrain exporter and owned Unreal workbench construction preserving authored elevations, canal openings, nonblocking water and solid beds.
+- Verified 43 native collision samples within 0.2 cm; inspected native terrain renders after correcting daylight and capture exposure.
+- Added three terrain conversion tests; 78 tooling tests and tools typechecking pass. City models, full traversal and runtime GM editing remain unfinished; release admission stays closed.
+
 ## 2026-09-21 — Native autorun and combined movement input
 
 - Added NumLock autorun, cancellation by any movement key, cumulative opposing-key input and normalized keyboard/mouse movement. Modals pause movement; death/flying clear autorun.

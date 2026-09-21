@@ -23,6 +23,7 @@ unreal/AegisWar/Content/Migration/DEVELOPMENT_ONLY.txt
 unreal/AegisWar/Content/Migration/visual-imports.json
 unreal/AegisWar/Content/Imported/
 unreal/AegisWar/Content/MigrationProof/
+unreal/AegisWar/Content/Capitals/
 # Atomic model jobs and local authoring inputs never ship through Vite.
 artifacts/model-jobs/
 authoring/quarantine/

@@ -75,6 +75,11 @@ movement-key cancellation and combined mouse-button forward movement, with
 normalized keyboard/mouse direction and modal blocking. Full touch, remapping,
 world collision and platform acceptance remain open.
 
+The [capital restoration workbench](docs/unreal-capital-workbench.md) now contains
+Bastion's authored elevations and canals, with sampled native collision and
+rendered terrain checks. City buildings, residents, travel and runtime GM editing
+remain unfinished; this map is not yet a restored capital.
+
 ## Regional production priorities
 
 Character models, equipment, and town/siege items take priority; animals come

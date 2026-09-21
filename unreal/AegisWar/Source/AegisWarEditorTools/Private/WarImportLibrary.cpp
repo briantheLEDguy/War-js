@@ -20,6 +20,89 @@
 
 IMPLEMENT_MODULE(FDefaultModuleImpl, AegisWarEditorTools);
 
+UStaticMesh* UWarImportLibrary::CreateCapitalSurface(const FString& ZoneId, const FString& Surface,
+    const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
+    const TArray<FVector2D>& UVs, UMaterialInterface* Material, const bool bCollision)
+{
+    if (ZoneId != TEXT("aegis_capital") || (Surface != TEXT("ground") && Surface != TEXT("water") && Surface != TEXT("bed"))
+        || !Material || Positions.IsEmpty() || Positions.Num() > 2000000 || Positions.Num() != Normals.Num()
+        || Positions.Num() != UVs.Num() || Indices.IsEmpty() || Indices.Num() % 3 || Indices.Num() > 6000000
+        || bCollision != (Surface != TEXT("water"))) return nullptr;
+    for (int32 Index = 0; Index < Positions.Num(); ++Index)
+    {
+        if (Positions[Index].ContainsNaN() || Positions[Index].GetAbsMax() > 100000000.0
+            || Normals[Index].ContainsNaN() || !Normals[Index].IsNormalized()
+            || !FMath::IsFinite(UVs[Index].X) || !FMath::IsFinite(UVs[Index].Y)) return nullptr;
+    }
+    for (int32 Index : Indices) if (!Positions.IsValidIndex(Index)) return nullptr;
+    for (int32 Index = 0; Index < Indices.Num(); Index += 3)
+    {
+        if (FVector::CrossProduct(Positions[Indices[Index + 1]] - Positions[Indices[Index]],
+            Positions[Indices[Index + 2]] - Positions[Indices[Index]]).IsNearlyZero()) return nullptr;
+    }
+    const FString Owner = ZoneId + TEXT(":") + Surface;
+    const FString Name = TEXT("Terrain_") + Surface;
+    const FString PackageName = TEXT("/Game/Capitals/") + ZoneId + TEXT("/") + Name;
+    UPackage* Package = CreatePackage(*PackageName);
+    UStaticMesh* Mesh = LoadObject<UStaticMesh>(nullptr, *(PackageName + TEXT(".") + Name));
+    if (Mesh && Package->GetMetaData().GetValue(Mesh, TEXT("WarCapitalTerrain")) != Owner) return nullptr;
+    const bool bCreated = !Mesh;
+    if (!Mesh) Mesh = NewObject<UStaticMesh>(Package, *Name, RF_Public | RF_Standalone);
+    FMeshDescription Description;
+    FStaticMeshAttributes Attributes(Description);
+    Attributes.Register();
+    auto VertexPositions = Attributes.GetVertexPositions();
+    auto VertexNormals = Attributes.GetVertexInstanceNormals();
+    auto Tangents = Attributes.GetVertexInstanceTangents();
+    auto Signs = Attributes.GetVertexInstanceBinormalSigns();
+    auto Colors = Attributes.GetVertexInstanceColors();
+    auto VertexUVs = Attributes.GetVertexInstanceUVs();
+    VertexUVs.SetNumChannels(1);
+    const FPolygonGroupID Group = Description.CreatePolygonGroup();
+    Attributes.GetPolygonGroupMaterialSlotNames()[Group] = TEXT("Surface");
+    TArray<FVertexID> Vertices;
+    Vertices.Reserve(Positions.Num());
+    for (const auto& Position : Positions)
+    {
+        const FVertexID Vertex = Description.CreateVertex();
+        VertexPositions[Vertex] = FVector3f(Position);
+        Vertices.Add(Vertex);
+    }
+    for (int32 Index = 0; Index < Indices.Num(); Index += 3)
+    {
+        TArray<FVertexInstanceID> Corners;
+        for (int32 Offset = 0; Offset < 3; ++Offset)
+        {
+            const int32 Source = Indices[Index + Offset];
+            const FVertexInstanceID Instance = Description.CreateVertexInstance(Vertices[Source]);
+            VertexNormals[Instance] = FVector3f(Normals[Source]);
+            FVector Tangent = FVector::VectorPlaneProject(FVector::YAxisVector, Normals[Source]).GetSafeNormal();
+            if (Tangent.IsNearlyZero()) Tangent = FVector::VectorPlaneProject(FVector::XAxisVector, Normals[Source]).GetSafeNormal();
+            Tangents[Instance] = FVector3f(Tangent);
+            Signs[Instance] = 1.f;
+            Colors[Instance] = FVector4f(1, 1, 1, 1);
+            VertexUVs.Set(Instance, 0, FVector2f(UVs[Source]));
+            Corners.Add(Instance);
+        }
+        Description.CreateTriangle(Group, Corners);
+    }
+    Mesh->GetStaticMaterials().Reset();
+    Mesh->GetStaticMaterials().Add(FStaticMaterial(Material, TEXT("Surface")));
+    if (!Mesh->BuildFromMeshDescriptions({ &Description })) return nullptr;
+    if (bCollision)
+    {
+        Mesh->CreateBodySetup();
+        Mesh->GetBodySetup()->CollisionTraceFlag = CTF_UseComplexAsSimple;
+        Mesh->GetBodySetup()->bDoubleSidedGeometry = true;
+        Mesh->GetBodySetup()->InvalidatePhysicsData();
+        Mesh->GetBodySetup()->CreatePhysicsMeshes();
+    }
+    Package->GetMetaData().SetValue(Mesh, TEXT("WarCapitalTerrain"), *Owner);
+    if (bCreated) FAssetRegistryModule::AssetCreated(Mesh);
+    Mesh->MarkPackageDirty();
+    return Mesh;
+}
+
 FBox UWarImportLibrary::GetSkinnedBounds(USkeletalMeshComponent* Component)
 {
     FBox Bounds(ForceInit);

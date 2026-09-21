@@ -22,6 +22,12 @@ public:
     UFUNCTION(BlueprintCallable, Category="Migration")
     static UStaticMesh* CreateProofTerrain(UMaterialInterface* Material);
 
+    /** Authored capital ground/canal triangles; never a fallback for scenery. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static UStaticMesh* CreateCapitalSurface(const FString& ZoneId, const FString& Surface,
+        const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
+        const TArray<FVector2D>& UVs, UMaterialInterface* Material, bool bCollision);
+
     UFUNCTION(BlueprintCallable, Category="Migration")
     static void PreparePreviewFrame(USkeletalMeshComponent* Component);
 
