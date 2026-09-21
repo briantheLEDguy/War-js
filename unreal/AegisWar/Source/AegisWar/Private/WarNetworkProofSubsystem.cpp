@@ -49,6 +49,17 @@ TStatId UWarNetworkProofSubsystem::GetStatId() const
     RETURN_QUICK_DECLARE_CYCLE_STAT(UWarNetworkProofSubsystem, STATGROUP_Tickables);
 }
 
+void UWarNetworkProofSubsystem::ReportClientReady(AWarPlayerController* Controller)
+{
+    if (GetWorld()->GetNetMode() == NM_DedicatedServer && IsValid(Controller) && Controller->GetWorld() == GetWorld())
+        ReadyControllers.Add(Controller);
+}
+
+void UWarNetworkProofSubsystem::GrantClientStart()
+{
+    if (GetWorld()->GetNetMode() == NM_Client) bStartGranted = true;
+}
+
 void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail)
 {
     bFinished = true;
@@ -84,6 +95,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("questNpcAuthority"), bQuestNpcVerified);
     Report->SetBoolField(TEXT("questNpcClientRpc"), bQuestNpcRpcVerified);
     Report->SetBoolField(TEXT("cameraSurvivedRespawn"), bCameraSurvivedRespawn);
+    Report->SetBoolField(TEXT("autorunMovement"), bAutorunDriveVerified);
     if (GetWorld()->GetNetMode() == NM_Client && FParse::Param(FCommandLine::Get(), TEXT("WarQuestProofUI")))
     {
         bool bInputRestored = false;
@@ -99,6 +111,9 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
                 const auto Rotation = Controller->GetControlRotation();
                 Character->ApplyCameraWheel(100); Character->ApplyCameraOrbit(100, 100);
                 bCameraControls = Character->GetCameraDistance() == Distance && Controller->GetControlRotation().Equals(Rotation);
+                const bool bWasAutoRunning = Character->IsAutoRunning();
+                Character->ToggleAutoRun();
+                bCameraControls &= Character->IsAutoRunning() == bWasAutoRunning;
             }
             Controller->ToggleInventory();
             Controller->ToggleQuestLog();
@@ -187,6 +202,34 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     const bool bDefenderClient = !bServer && Defender->IsLocallyControlled();
     if (!bServer && !bAttackerClient && !bDefenderClient) return;
     ResultRole = bServer ? TEXT("server") : bAttackerClient ? TEXT("client-aegis") : TEXT("client-riftbound");
+    if (!bStartGranted)
+    {
+        if (bServer)
+        {
+            auto* AttackerController = Cast<AWarPlayerController>(Attacker->GetController());
+            auto* DefenderController = Cast<AWarPlayerController>(Defender->GetController());
+            if (AttackerController && DefenderController && ReadyControllers.Contains(AttackerController) && ReadyControllers.Contains(DefenderController))
+            {
+                AttackerController->ClientDevelopmentProofStart();
+                DefenderController->ClientDevelopmentProofStart();
+                bStartGranted = true;
+            }
+        }
+        else if (!bReadySent)
+        {
+            if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController()))
+            {
+                InitialAttackerPosition = Attacker->GetActorLocation();
+                Controller->ServerDevelopmentProofReady();
+                bReadySent = true;
+            }
+        }
+        if (!bStartGranted)
+        {
+            if (Now - StartedAt > 75) Finish(false, TEXT("Both clients did not acknowledge loaded character content."));
+            return;
+        }
+    }
     if (bServer)
     {
         for (AWarPlayerState* State : {Aegis, Riftbound})
@@ -232,7 +275,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     {
         if (ObservedHealth < 99.f || (bAttackerClient && ObservedMana < 99.f)) return;
         PairReadyAt = Now;
-        InitialAttackerPosition = Attacker->GetActorLocation();
+        if (bServer) InitialAttackerPosition = Attacker->GetActorLocation();
     }
     bMoved |= FVector::Dist2D(InitialAttackerPosition, Attacker->GetActorLocation()) > 50.f;
     bMovementAnimation |= Attacker->GetPlayingAnimation() == TEXT("walk") || Attacker->GetPlayingAnimation() == TEXT("run");
@@ -243,7 +286,21 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
         // Startup/shader hitches can consume a fixed time window before several movement frames run.
         // Drive to a measured distance; retain the independent server/observer acceptance threshold.
         bMovementDriveComplete |= FVector::Dist2D(InitialAttackerPosition, Attacker->GetActorLocation()) >= 100.f;
-        if (!bMovementDriveComplete && Elapsed < 5.0) Attacker->AddMovementInput(FVector(0, 1, 0));
+        if (!bAutorunDriveStarted && Elapsed < 5.0)
+        {
+            auto* Controller = Cast<AWarPlayerController>(Attacker->GetController());
+            if (!Controller) { Finish(false, TEXT("Autorun requires the owning player controller.")); return; }
+            AttackerCameraYaw = Controller->GetLocalCameraState().Yaw;
+            Attacker->ApplyCameraOrbit((90.0 - AttackerCameraYaw) / FMath::RadiansToDegrees(0.005), 0);
+            Attacker->ToggleAutoRun();
+            bAutorunDriveStarted = Attacker->IsAutoRunning();
+        }
+        if (bAutorunDriveStarted && Attacker->IsAutoRunning() && (bMovementDriveComplete || Elapsed >= 5.0))
+        {
+            Attacker->ToggleAutoRun();
+            Attacker->ApplyCameraOrbit((AttackerCameraYaw - 90.0) / FMath::RadiansToDegrees(0.005), 0);
+            bAutorunDriveVerified = bMovementDriveComplete && !Attacker->IsAutoRunning();
+        }
         if ((StrikeRequests == 0 && Elapsed > 1.0) || (StrikeRequests == 1 && Elapsed > 1.3))
         {
             Attacker->RequestTargetStrike(Defender);

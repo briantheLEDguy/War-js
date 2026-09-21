@@ -28,12 +28,12 @@ describe('native automation receipt verification', () => {
     }
   });
   it('requires actual completed native tests instead of accepting process exit alone', () => {
-    expect(validateAutomationReport(report())).toBe(18);
+    expect(validateAutomationReport(report())).toBe(19);
     expect(() => validateAutomationReport({})).toThrow();
     expect(() => validateAutomationReport({ ...report(), tests: [] })).toThrow('did not run');
   });
   it('requires quest marker and camera regressions in every foundation run', () => {
-    for (const suffix of ['QuestMarkerVisibility', 'CameraControls']) {
+    for (const suffix of ['QuestMarkerVisibility', 'CameraControls', 'MovementInput']) {
       const incomplete = report();
       incomplete.tests = incomplete.tests.filter(test => test.fullTestPath !== `AegisWar.Foundation.${suffix}`);
       incomplete.succeeded--;

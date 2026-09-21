@@ -8,7 +8,7 @@ export const requiredNativeTests = [
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
   'InventoryRewardParity', 'InventoryAuthority', 'CraftingCatalogAndRules', 'SalvageParity', 'CultivationTransactions', 'CraftingStationInteraction', 'ResourceGatheringTransactions', 'CharacterProgressionParity', 'ExpeditionQuestParity',
-  'QuestMarkerVisibility', 'CameraControls',
+  'QuestMarkerVisibility', 'CameraControls', 'MovementInput',
 ].map(name => `AegisWar.Foundation.${name}`);
 
 export function validateAutomationReport(report: unknown): number {

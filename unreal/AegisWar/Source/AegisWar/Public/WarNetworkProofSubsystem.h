@@ -6,6 +6,7 @@
 
 class AWarCharacter;
 class AWarPlayerState;
+class AWarPlayerController;
 
 /** Opt-in development acceptance driver; never created in Shipping or ordinary sessions. */
 UCLASS()
@@ -17,7 +18,11 @@ public:
     virtual bool DoesSupportWorldType(EWorldType::Type WorldType) const override;
     virtual void Tick(float DeltaTime) override;
     virtual TStatId GetStatId() const override;
+    void ReportClientReady(AWarPlayerController* Controller);
+    void GrantClientStart();
 private:
+    TSet<TWeakObjectPtr<AWarPlayerController>> ReadyControllers;
+    bool bReadySent = false, bStartGranted = false;
     void Finish(bool bPassed, const FString& Detail);
     double StartedAt = -1;
     double PairReadyAt = -1;
@@ -58,6 +63,8 @@ private:
     TWeakObjectPtr<AWarCharacter> TrackedDefender;
     TWeakObjectPtr<AWarPlayerState> TrackedDefenderState;
     bool bMovementDriveComplete = false;
+    bool bAutorunDriveStarted = false, bAutorunDriveVerified = false;
+    double AttackerCameraYaw = 0.0;
     float ObservedHealth = -1;
     float ObservedMana = -1;
     FString ResultRole;

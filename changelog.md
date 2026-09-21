@@ -1,3 +1,10 @@
+## 2026-09-21 — Native autorun and combined movement input
+
+- Added NumLock autorun, cancellation by any movement key, cumulative opposing-key input and normalized keyboard/mouse movement. Modals pause movement; death/flying clear autorun.
+- Replaced synthetic movement in the multiplayer proof with actual owning-client autorun. Added an opt-in client readiness handshake after a slower client missed the first movement phase; ordinary/Shipping admission remains unchanged.
+- Passed 19 native groups, 75 tooling tests, tools typecheck, rendered Editor networking and packaged Windows two-client networking. Physical-input, touch, rebinding and full world movement parity remain open.
+- Prioritized Bastion of Aegis, then Riftspire, and native runtime GM construction following the owner's request.
+
 ## 2026-09-21 — Authored farmer import and animation compression parity
 
 - Imported the repository's complex Empire farmer into Unreal with its nine animation clips, 17 materials and 22 textures. No playable identity or release approval is inferred.

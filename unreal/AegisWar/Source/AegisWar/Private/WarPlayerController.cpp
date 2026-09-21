@@ -7,10 +7,21 @@
 #include "WarResourceNode.h"
 #include "WarPlayerState.h"
 #include "WarCharacter.h"
+#include "WarNetworkProofSubsystem.h"
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
 #include "Components/InputComponent.h"
 #include "InputCoreTypes.h"
+
+void AWarPlayerController::ServerDevelopmentProofReady_Implementation()
+{
+    if (auto* Proof = GetWorld()->GetSubsystem<UWarNetworkProofSubsystem>()) Proof->ReportClientReady(this);
+}
+
+void AWarPlayerController::ClientDevelopmentProofStart_Implementation()
+{
+    if (auto* Proof = GetWorld()->GetSubsystem<UWarNetworkProofSubsystem>()) Proof->GrantClientStart();
+}
 
 void AWarPlayerController::UpdateRotation(float DeltaTime)
 {

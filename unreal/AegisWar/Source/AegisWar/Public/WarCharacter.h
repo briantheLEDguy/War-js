@@ -4,6 +4,7 @@
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
 #include "WarCameraRules.h"
+#include "WarMovementInput.h"
 #include "WarCharacter.generated.h"
 
 class UWarCharacterVisualDefinition;
@@ -43,6 +44,8 @@ public:
     UFUNCTION(BlueprintCallable, Category="Camera") void SetCameraIndoorMode(bool bEnabled);
     UFUNCTION(BlueprintCallable, Category="Camera") void SetCameraPreferences(float LookSensitivity, float ZoomSensitivity, bool bInvertX, bool bInvertY);
     double GetCameraDistance() const;
+    UFUNCTION(BlueprintCallable, Category="Movement") void ToggleAutoRun();
+    bool IsAutoRunning() const { return MovementInput.bAutoRun; }
 
 protected:
     UPROPERTY(VisibleAnywhere, Category="Camera") TObjectPtr<USpringArmComponent> CameraBoom;
@@ -66,6 +69,7 @@ private:
     bool CanControlCamera() const;
     FWarCameraState* GetCameraState() const;
     void StartJump();
+    void UpdateMovementInput();
     void RequestStrike();
 
     UPROPERTY(Transient) TObjectPtr<UInputMappingContext> MappingContext;
@@ -76,6 +80,9 @@ private:
     UPROPERTY(Transient) TObjectPtr<UInputAction> ZoomAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> JumpAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> StrikeAction;
+    UPROPERTY(Transient) TObjectPtr<UInputAction> AutoRunAction;
+    FWarMovementInput MovementInput;
+    double ForwardAxis = 0.0, RightAxis = 0.0;
     TWeakObjectPtr<AWarCharacter> RequestedStrikeTarget;
     TWeakObjectPtr<UEnhancedInputLocalPlayerSubsystem> InputSubsystem;
     double NextStrikeRequestTime = 0.0;

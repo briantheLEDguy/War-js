@@ -111,6 +111,7 @@ void AWarCharacter::PlayImportedAnimation(const FName Name, const bool bLoop)
 void AWarCharacter::Tick(const float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    UpdateMovementInput();
     if (!bVisualReady || GetNetMode() == NM_DedicatedServer) return;
     if (bDead) { PlayImportedAnimation(TEXT("death"), false); return; }
     if (GetWorld()->GetTimeSeconds() < ActionAnimationUntil) return;
@@ -180,11 +181,14 @@ void AWarCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     };
     MoveForwardAction = MakeAction(EInputActionValueType::Axis1D);
     MoveRightAction = MakeAction(EInputActionValueType::Axis1D);
+    MoveForwardAction->AccumulationBehavior = EInputActionAccumulationBehavior::Cumulative;
+    MoveRightAction->AccumulationBehavior = EInputActionAccumulationBehavior::Cumulative;
     LookYawAction = MakeAction(EInputActionValueType::Axis1D);
     LookPitchAction = MakeAction(EInputActionValueType::Axis1D);
     ZoomAction = MakeAction(EInputActionValueType::Axis1D);
     JumpAction = MakeAction(EInputActionValueType::Boolean);
     StrikeAction = MakeAction(EInputActionValueType::Boolean);
+    AutoRunAction = MakeAction(EInputActionValueType::Boolean);
     MappingContext->MapKey(MoveForwardAction, EKeys::W);
     MappingContext->MapKey(MoveForwardAction, EKeys::S).Modifiers.Add(NewObject<UInputModifierNegate>(MappingContext));
     MappingContext->MapKey(MoveRightAction, EKeys::D);
@@ -194,26 +198,55 @@ void AWarCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     MappingContext->MapKey(ZoomAction, EKeys::MouseWheelAxis);
     MappingContext->MapKey(JumpAction, EKeys::SpaceBar);
     MappingContext->MapKey(StrikeAction, EKeys::LeftMouseButton);
+    MappingContext->MapKey(AutoRunAction, EKeys::NumLock);
     Subsystem->AddMappingContext(MappingContext, 0);
     Input->BindAction(MoveForwardAction, ETriggerEvent::Triggered, this, &AWarCharacter::MoveForward);
     Input->BindAction(MoveRightAction, ETriggerEvent::Triggered, this, &AWarCharacter::MoveRight);
+    for (const auto Event : {ETriggerEvent::Completed, ETriggerEvent::Canceled})
+    {
+        Input->BindAction(MoveForwardAction, Event, this, &AWarCharacter::MoveForward);
+        Input->BindAction(MoveRightAction, Event, this, &AWarCharacter::MoveRight);
+    }
     Input->BindAction(LookYawAction, ETriggerEvent::Triggered, this, &AWarCharacter::LookYaw);
     Input->BindAction(LookPitchAction, ETriggerEvent::Triggered, this, &AWarCharacter::LookPitch);
     Input->BindAction(ZoomAction, ETriggerEvent::Triggered, this, &AWarCharacter::Zoom);
     Input->BindAction(JumpAction, ETriggerEvent::Started, this, &AWarCharacter::StartJump);
     Input->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
     Input->BindAction(StrikeAction, ETriggerEvent::Started, this, &AWarCharacter::RequestStrike);
+    Input->BindAction(AutoRunAction, ETriggerEvent::Started, this, &AWarCharacter::ToggleAutoRun);
     if (auto* Player = Cast<AWarPlayerController>(Controller)) Player->InitializeCameraYaw(Controller->GetControlRotation().Yaw);
     UpdateCamera();
 }
 
 void AWarCharacter::MoveForward(const FInputActionValue& Value)
 {
-    if (Controller && !bDead && bVisualReady) AddMovementInput(FRotationMatrix(FRotator(0.f, Controller->GetControlRotation().Yaw, 0.f)).GetUnitAxis(EAxis::X), Value.Get<float>());
+    ForwardAxis = Value.Get<float>();
 }
 void AWarCharacter::MoveRight(const FInputActionValue& Value)
 {
-    if (Controller && !bDead && bVisualReady) AddMovementInput(FRotationMatrix(FRotator(0.f, Controller->GetControlRotation().Yaw, 0.f)).GetUnitAxis(EAxis::Y), Value.Get<float>());
+    RightAxis = Value.Get<float>();
+}
+void AWarCharacter::ToggleAutoRun()
+{
+    MovementInput.Toggle(IsLocallyControlled() && Controller && !Controller->IsMoveInputIgnored() && !bDead && bVisualReady
+        && GetCharacterMovement()->MovementMode != MOVE_Flying);
+}
+void AWarCharacter::UpdateMovementInput()
+{
+    if (bDead) MovementInput.bAutoRun = false;
+    const auto* PC = Cast<APlayerController>(Controller);
+    if (!IsLocallyControlled() || !PC) return;
+    const bool bAllowed = !PC->IsMoveInputIgnored() && !bDead && bVisualReady;
+    const bool bManualKey = PC->IsInputKeyDown(EKeys::W) || PC->IsInputKeyDown(EKeys::S)
+        || PC->IsInputKeyDown(EKeys::A) || PC->IsInputKeyDown(EKeys::D)
+        || !FMath::IsNearlyZero(ForwardAxis) || !FMath::IsNearlyZero(RightAxis);
+    const auto Intent = MovementInput.Resolve(ForwardAxis, RightAxis, bManualKey,
+        PC->IsInputKeyDown(EKeys::LeftMouseButton) && PC->IsInputKeyDown(EKeys::RightMouseButton),
+        bAllowed, bDead || GetCharacterMovement()->MovementMode == MOVE_Flying);
+    if (!bAllowed) { ForwardAxis = 0; RightAxis = 0; return; }
+    const FRotationMatrix Basis(FRotator(0.f, PC->GetControlRotation().Yaw, 0.f));
+    AddMovementInput(Basis.GetUnitAxis(EAxis::X), Intent.X);
+    AddMovementInput(Basis.GetUnitAxis(EAxis::Y), Intent.Y);
 }
 void AWarCharacter::LookYaw(const FInputActionValue& Value)
 {

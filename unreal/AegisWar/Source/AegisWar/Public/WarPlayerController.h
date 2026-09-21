@@ -23,6 +23,9 @@ public:
     void ToggleQuestLog();
     void InteractWithStation();
     void InteractWithWorld();
+    /** No-op unless the explicitly opted-in development proof subsystem exists. */
+    UFUNCTION(Server, Reliable) void ServerDevelopmentProofReady();
+    UFUNCTION(Client, Reliable) void ClientDevelopmentProofStart();
     FWarCameraState& GetLocalCameraState() { return LocalCameraState; }
     void InitializeCameraYaw(double Yaw)
     {

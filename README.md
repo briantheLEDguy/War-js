@@ -70,6 +70,11 @@ indoor/outdoor view restoration. Camera preferences and view state survive pawn
 replacement; touch, settings persistence/UI and campaign-interior integration
 remain unfinished.
 
+Native [movement input](docs/unreal-movement-input.md) includes NumLock autorun,
+movement-key cancellation and combined mouse-button forward movement, with
+normalized keyboard/mouse direction and modal blocking. Full touch, remapping,
+world collision and platform acceptance remain open.
+
 ## Regional production priorities
 
 Character models, equipment, and town/siege items take priority; animals come

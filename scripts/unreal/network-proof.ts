@@ -64,6 +64,7 @@ try {
   if (receipts[0].questNpcAuthority !== true) throw new Error(`Server quest NPC interaction checks failed; see ${output}`);
   if (receipts.slice(0, 2).some(receipt => receipt.questNpcClientRpc !== true)) throw new Error(`Quest NPC owning-client RPC checks failed; see ${output}`);
   if (receipts[2].cameraSurvivedRespawn !== true) throw new Error(`Camera zoom/orbit did not survive respawn; see ${output}`);
+  if (receipts[1].autorunMovement !== true) throw new Error(`Owning-client autorun did not drive replicated movement; see ${output}`);
   if (args.has('--quest-ui') && receipts.slice(1).some(receipt => receipt.questPanelInputRestored !== true)) {
     throw new Error(`Quest/inventory panel transitions did not restore input; see ${output}`);
   }
