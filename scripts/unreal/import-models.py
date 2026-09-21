@@ -35,6 +35,7 @@ PROFILES = (
     "aegis_rowhouse_2",
     "aegis_wall",
     "npc_frontier_sunmeadow_empire_farmer",
+    "aegis_flowerbed_violets",
 )
 PROFILE_TAG = "WarMigrationProfile"
 SOURCE_TAG = "WarMigrationSourceSha256"

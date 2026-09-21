@@ -5,6 +5,7 @@
 #include "WarPlayerState.h"
 #include "WarQuestNpc.h"
 #include "WarCraftingStation.h"
+#include "WarResourceNode.h"
 #include "EngineUtils.h"
 #include "WarWorldEditPlacement.h"
 #include "WarWorldEditCatalog.h"
@@ -57,6 +58,7 @@ void UWarCapitalProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetNumberField(TEXT("surfaceModelsVerified"), SurfaceModelsVerified);
     Report->SetBoolField(TEXT("developmentTraversalVerified"), bTraversalVerified);
     Report->SetBoolField(TEXT("capitalGameplayIntegrationVerified"), bGameplayIntegrationVerified);
+    Report->SetNumberField(TEXT("capitalResourcesVerified"), CapitalResourcesVerified);
     Report->SetBoolField(TEXT("placementSnappingVerified"), bPlacementSnappingVerified);
     Report->SetBoolField(TEXT("catalogSearchVerified"), bCatalogSearchVerified);
     Report->SetBoolField(TEXT("exactTransformVerified"), bExactTransformVerified);
@@ -226,6 +228,34 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
                 && StationKinds.Contains(TEXT("apothecary")) && StationKinds.Contains(TEXT("cultivation"))
                 && StationKinds.Contains(TEXT("talisman_making")) && StationKinds.Contains(TEXT("salvage")),
                 TEXT("Capital lost source crafting station kinds."))) return;
+            TSet<FName> ExpectedNodes{TEXT("aegis_capital_herb_node_03"),TEXT("aegis_capital_soil_node_04")};
+            for (TActorIterator<AWarResourceNode> It(GetWorld()); It; ++It)
+            {
+                if (!CheckCity(It->ZoneId==TEXT("aegis_capital") && ExpectedNodes.Remove(It->NodeId)==1,
+                    TEXT("Unexpected or duplicate capital gathering node."))) return;
+                FWarResourceDefinition Definition;
+                const int32 Before=State->GetInventory().Revision;
+                Character->SetActorLocation(It->GetActorLocation()+FVector(1000,0,100),false,nullptr,ETeleportType::TeleportPhysics);
+                if (!CheckCity(!State->GatherResource(*It,Before,Error) && State->GetInventory().Revision==Before,
+                    TEXT("Distant gathering changed inventory."))) return;
+                Character->SetActorLocation(It->GetActorLocation()+FVector(100,0,100),false,nullptr,ETeleportType::TeleportPhysics);
+                It->SetActorHiddenInGame(true);
+                const bool HiddenRejected=!State->GatherResource(*It,Before,Error);
+                It->SetActorHiddenInGame(false);
+                if (!CheckCity(HiddenRejected && It->ResolveInteraction(Character,Definition,Error),
+                    TEXT("Gathering visual/range validation failed."))) return;
+                const auto* Previous=State->GetInventory().Professions.FindByPredicate([&](const auto& Row){return Row.Profession==Definition.Profession;});
+                const int32 PreviousXp=Previous ? Previous->Xp : 0;
+                if (!CheckCity(State->GatherResource(*It,Before,Error) && State->GetInventory().Revision==Before+1
+                    && !State->GatherResource(*It,Before,Error) && !State->GatherResource(*It,Before+1,Error)
+                    && State->GetInventory().Revision==Before+1,TEXT("Gather/retry/cooldown checks failed."))) return;
+                const auto* Progress=State->GetInventory().Professions.FindByPredicate([&](const auto& Row){return Row.Profession==Definition.Profession;});
+                if (!CheckCity(Progress && Progress->Xp==PreviousXp+Definition.Xp
+                    && State->GetInventory().ResourceCooldowns.ContainsByPredicate([&](const auto& Row){return Row.NodeId==It->NodeId && Row.ZoneId==It->ZoneId;}),
+                    TEXT("Gathering did not apply source profession XP/cooldown."))) return;
+                ++CapitalResourcesVerified;
+            }
+            if (!CheckCity(ExpectedNodes.IsEmpty() && CapitalResourcesVerified==2,TEXT("Capital gathering bindings missing."))) return;
             Character->SetActorLocation(Arrival, false, nullptr, ETeleportType::TeleportPhysics);
             bGameplayIntegrationVerified = true;
             const auto& Template = Editor->GetHistory().GetBaselineObjects()[0];

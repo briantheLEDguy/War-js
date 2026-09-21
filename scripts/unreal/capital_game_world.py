@@ -1,9 +1,11 @@
 """Assemble original city terrain and existing gameplay actors in the main game."""
 import hashlib
 import json
+import math
 from pathlib import Path
 import unreal
 from capital_geography import ROOT, source_map, point, road_surface, mountain_surface
+from capital_resources import resource_bindings, PROFILE
 
 
 def build_terrain(actors):
@@ -114,6 +116,29 @@ def build_gameplay(actors):
                 actor.set_editor_property("station_kind",station["kind"])
                 actor.set_editor_property("interaction_radius",station["radius"]*100)
         stations.append({"id":station["id"],"kind":station["kind"],"position":point(station)})
+    resources=[]
+    receipt=json.loads((ROOT/"artifacts/unreal/converted"/PROFILE/"editor-import.json").read_text())
+    source_file=ROOT/"public/assets/models/prop_aegis_flowerbed_violets.glb"
+    if (receipt.get("importSucceeded") is not True or receipt.get("sourceSha256") != hashlib.sha256(source_file.read_bytes()).hexdigest()
+            or len(receipt["meshes"]) != 1):
+        raise RuntimeError("Capital gathering import is missing or stale")
+    asset=unreal.load_asset(receipt["meshes"][0]["path"])
+    if not isinstance(asset,unreal.StaticMesh):
+        raise RuntimeError("Capital gathering mesh is unavailable")
+    for binding in resource_bindings(source):
+        node,prop=binding["node"],binding["prop"]
+        actor=actors.spawn_actor_from_class(unreal.WarResourceNode,unreal.Vector(*point(prop,prop.get("y",0)*100)),
+            unreal.Rotator(yaw=90-math.degrees(prop.get("rotY",0))))
+        actor.set_actor_label(node["label"])
+        actor.tags=["WarCapitalGameplay",node["id"]]
+        actor.set_actor_scale3d(unreal.Vector(*([prop.get("scale",1)]*3)))
+        actor.static_mesh_component.set_static_mesh(asset)
+        actor.static_mesh_component.set_collision_profile_name("NoCollision")
+        actor.set_editor_property("zone_id","aegis_capital")
+        actor.set_editor_property("node_id",node["id"])
+        actor.set_editor_property("visual_prop_id",prop["id"])
+        resources.append({"id":node["id"],"visualPropId":prop["id"],"profile":PROFILE,"position":point(prop)})
     return {"zoneId":"aegis_capital","questNpcId":npc_source["id"],"questNpcPosition":point(npc_source),
+            "resources":resources,"pendingResources":[n["id"] for n in source["resourceNodes"] if n["id"] not in {r["id"] for r in resources}],
             "stations":stations,"nativeGameMode":"/Script/AegisWar.WarGameMode","developmentOnly":True,
             "npcArtApproved":False,"fullGameplayParity":False}

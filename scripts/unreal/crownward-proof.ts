@@ -39,7 +39,7 @@ for (const reload of args.has('--castle-traversal') ? [false] : [false, true]) {
     || !report.catalogSearchVerified || (args.has('--castle-traversal') ? !report.castleTraversalVerified || report.castleRoutesWalked !== 4
       : args.has('--construction-row') ? !report.constructionRowVerified : args.has('--surface-placement')
       ? !report.surfacePlacementVerified || (!reload && report.surfaceModelsVerified !== new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size)
-      : !reload && (!report.developmentTraversalVerified || !report.capitalGameplayIntegrationVerified)))
+      : !reload && (!report.developmentTraversalVerified || !report.capitalGameplayIntegrationVerified || report.capitalResourcesVerified !== 2)))
     throw new Error(`Crownward runtime checks failed: ${output}`);
   if (args.has('--rendered')) {
     const screenshot = path.join(nativeSaved, 'CapitalProof', id, 'builder.png');

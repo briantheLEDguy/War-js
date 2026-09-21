@@ -154,3 +154,32 @@ GM edits and fresh-process draft reload also passed at
 `artifacts/unreal/capital-proof/crownward-1790012096191`. Ten layout tests,
 85 tooling tests and tooling typechecking passed. Other towers, interiors,
 platforms and full visual acceptance remain unverified; release remains closed.
+
+Capital gathering integration: the source herb patch and fertile soil node use
+`aegis_flowerbed_violets`, preserving their IDs, source positions, yaw, scale,
+profession, loot, radius and cooldown definitions. These are authored flowerbeds
+with reconstructed source materials, not generated placeholder geometry. Use
+the normal nearby interaction binding to gather. Low decorative beds have no
+blocking collision. `capital_resources.py` rejects missing, duplicate, moved or
+replaced source visual bindings; regeneration requires a current native import.
+The build receipt lists all six remaining capital nodes as pending. Their
+legacy visuals are not silently substituted. Full asset approval and LOD review
+remain open. Run `python tests/unrealCapitalResources.test.py` for binding checks.
+
+Gathering verification (2026-09-21): editor-game interactions and city/GM reload
+passed at `artifacts/unreal/capital-proof/crownward-1790012512431`. Each node was
+checked nearby, outside its range, hidden, with a stale inventory revision and
+on cooldown. Profession XP and node cooldown identity matched the source.
+Offscreen editor captures `crownward-herb-patch.png` and
+`crownward-soil-patch.png` under `artifacts/unreal/licensed-kits/` were inspected:
+flowers, soil and stone borders are visible at both source sites. These captures
+are not packaged rendering or performance acceptance. Three resource-binding
+tests (including five invalid-binding cases), ten layout tests, 85 tooling tests
+and tooling typechecking passed. Release admission still fails with four
+blocking categories and 39 full-parity contracts pending.
+
+The standalone Windows package also passed the gathering, city traversal,
+quest/station and fresh-process GM reload sequence at
+`artifacts/unreal/capital-proof/crownward-1790012814624`. This run used NullRHI;
+only the editor gathering captures were visually reviewed. Ten import-preflight
+and five material-protection tests also passed.

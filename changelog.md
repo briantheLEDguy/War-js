@@ -1,3 +1,9 @@
+## 2026-09-21 - Restore capital herb and soil gathering
+
+- Bound two original capital resource nodes to the detailed authored violet flowerbed, retaining source identities, locations, transforms and gameplay rules. Six other resource visuals remain explicitly pending.
+- Added source-binding rejection tests and native nearby/distant/hidden, retry, cooldown and profession-XP checks to the city proof.
+- Verified editor and packaged Windows interactions, city traversal and GM reload; inspected offscreen editor flowerbed captures. Full asset, city and platform acceptance remain open.
+
 ## 2026-09-21 - Walkable capital castle stairs
 
 - Corrected the imported keep and battlement stair orientation and opened the keep roof stairwell, preserving unrelated placement IDs.

@@ -37,7 +37,9 @@ for view, eye_values, center_values in [
     ("castle", (11000, -8000, 10600), (17800, 0, 5100)),
     ("avenue", (-11000, 0, 230), (20000, 0, 6800)),
     ("market", (-13300, -3700, 620), (-9200, 1500, 200)),
-    ("courtyard", (14800, -2400, 4450), (18500, 0, 5000))]:
+    ("courtyard", (14800, -2400, 4450), (18500, 0, 5000)),
+    ("herb-patch", (-13500, -10500, 260), (-13200, -10200, 30)),
+    ("soil-patch", (-13500, -9500, 240), (-13200, -9200, 20))]:
     eye, center = unreal.Vector(*eye_values), unreal.Vector(*center_values)
     rotation = unreal.MathLibrary.find_look_at_rotation(eye, center)
     capture.set_actor_location_and_rotation(eye, rotation, False, True)

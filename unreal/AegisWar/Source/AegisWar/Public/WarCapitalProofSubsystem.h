@@ -24,6 +24,7 @@ private:
     FVector FlightPosition = FVector::ZeroVector;
     double FlightStartedAt = -1;
     int32 SurfaceModelsVerified = 0;
+    int32 CapitalResourcesVerified = 0;
     bool bSurfacePlacementVerified = false;
     bool bConstructionRowVerified = false;
     bool bCastleTraversalVerified = false;
