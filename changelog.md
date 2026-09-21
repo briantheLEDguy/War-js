@@ -1,3 +1,10 @@
+## 2026-09-21 — Authored farmer import and animation compression parity
+
+- Imported the repository's complex Empire farmer into Unreal with its nine animation clips, 17 materials and 22 textures. No playable identity or release approval is inferred.
+- Fixed compressed skin-transform drift with owned per-profile ACL settings while preserving the existing 0.1 cm pose tolerance. Reimported all three prior character sources successfully.
+- Added isolated, hash-bound profile/clip/time rendering for native visual review; inspected the farmer's run views and terminal death pose. Native LODs, fitted equipment and complete motion review remain pending.
+- Passed 18 required native groups, 75 tooling tests, 10 importer tests, four pose tests and tools typecheck. Release remains closed with four blocker categories.
+
 ## 2026-09-21 — Native camera orbit, zoom and respawn continuity
 
 - Added mouse-button orbit, wheel zoom, source sensitivity/inversion rules and indoor/outdoor view restoration to the native character camera.

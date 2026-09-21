@@ -3,7 +3,7 @@
 UnrealEditor-Cmd AegisWar.uproject -unattended -run=pythonscript
   -script=".../import-models.py --profile npc_frontier_sunmeadow_empire_herbalist"
 
-Omit --profile for all five admitted examples. This creates import evidence, never art
+Omit --profile for all admitted examples. This creates import evidence, never art
 approval, character identity assignments, generated collision, or fallback art.
 """
 import argparse
@@ -26,6 +26,7 @@ PROFILES = (
     "frontier_field_command_table",
     "mire_warbrute_m",
     "aegis_house_1",
+    "npc_frontier_sunmeadow_empire_farmer",
 )
 PROFILE_TAG = "WarMigrationProfile"
 SOURCE_TAG = "WarMigrationSourceSha256"
@@ -478,7 +479,8 @@ def inspect_assets(unreal, context, assets, materials):
     require(all(isinstance(mesh, unreal.SkeletalMesh if skeletal else unreal.StaticMesh) for mesh in meshes), "Unexpected imported mesh class")
     require(len(skeletons) == (1 if skeletal else 0), "Unexpected skeleton count")
     require(len(animations) == len(context["conversion"]["sourceAnimationNames"]), "Animation clip count changed during Unreal import")
-    allowed = (unreal.SkeletalMesh, unreal.StaticMesh, unreal.Skeleton, unreal.AnimSequence, unreal.Material, unreal.Texture2D)
+    allowed = (unreal.SkeletalMesh, unreal.StaticMesh, unreal.Skeleton, unreal.AnimSequence, unreal.Material, unreal.Texture2D,
+               unreal.AnimBoneCompressionSettings)
     require(all(isinstance(asset, allowed) for asset in assets), "Unexpected imported asset class")
     mesh_records = []
     used_materials = set()
@@ -523,10 +525,46 @@ def inspect_assets(unreal, context, assets, materials):
         animation_records.append({**asset_record(animation), "sourceClipName": source_name,
                                   "durationSeconds": length, "sourceDurationSeconds": expected[source_name]["sourceDurationSeconds"],
                                   "frameCount": unreal.AnimationLibrary.get_num_frames(animation),
+                                  "boneCompressionSettings": animation.get_editor_property("bone_compression_settings").get_path_name(),
+                                  "allowFrameStripping": animation.get_editor_property("allow_frame_stripping"),
                                   "boneTrackCount": len(tracks), "boneTrackNames": tracks,
                                   "skeletonPath": skeletons[0].get_path_name()})
     require(sorted(record["sourceClipName"] for record in animation_records) == sorted(expected), "Duplicate or missing animation clips")
     return mesh_records, [asset_record(skeleton) for skeleton in skeletons], sorted(animation_records, key=lambda record: record["sourceClipName"])
+
+
+def configure_animation_compression(unreal, context):
+    animations = [asset for asset in collect_assets(unreal, context) if isinstance(asset, unreal.AnimSequence)]
+    if not animations:
+        return None
+    name = "SourcePoseCompression"
+    path = context["destination"] + "/" + name
+    settings = unreal.load_asset(path) if unreal.EditorAssetLibrary.does_asset_exist(path) else None
+    if settings:
+        require_owned(unreal, settings, context)
+        require(isinstance(settings, unreal.AnimBoneCompressionSettings), "Unexpected compression settings asset class")
+    else:
+        settings = unreal.AssetToolsHelpers.get_asset_tools().create_asset(name, context["destination"],
+            unreal.AnimBoneCompressionSettings, unreal.AnimBoneCompressionSettingsFactory())
+        require(settings is not None, "Could not create source animation compression settings")
+    # ACL does not use AnimSequence.CompressionErrorThresholdScale. Configure
+    # the actual codec, keeping both the source samples and parity limit intact.
+    codec_class = unreal.load_class(None, "/Script/ACLPlugin.AnimBoneCompressionCodec_ACL")
+    require(codec_class is not None, "ACL animation codec is unavailable")
+    codec = unreal.new_object(codec_class, outer=settings)
+    codec.set_editor_property("ErrorThreshold", 0.0001)
+    codec.set_editor_property("DefaultVirtualVertexDistance", 100.0)
+    codec.set_editor_property("SafeVirtualVertexDistance", 100.0)
+    settings.set_editor_property("codecs", [codec])
+    mark_owned(unreal, settings, context)
+    for animation in animations:
+        animation.set_editor_property("allow_frame_stripping", False)
+        animation.set_editor_property("bone_compression_settings", settings)
+    return {"settingsPath": settings.get_path_name(), "codecClass": codec_class.get_path_name(),
+            "errorThresholdCm": codec.get_editor_property("ErrorThreshold"),
+            "virtualVertexDistanceCm": codec.get_editor_property("DefaultVirtualVertexDistance"),
+            "safeVirtualVertexDistanceCm": codec.get_editor_property("SafeVirtualVertexDistance"),
+            "allowFrameStripping": False}
 
 
 def import_profile(unreal, context):
@@ -550,6 +588,7 @@ def import_profile(unreal, context):
         mark_owned(unreal, asset, context)
     textures, texture_records = import_textures(unreal, context)
     materials, material_records = create_materials(unreal, context, textures)
+    compression = configure_animation_compression(unreal, context)
     assets = collect_assets(unreal, context)
     meshes, skeletons, animations = inspect_assets(unreal, context, assets, materials)
     pose_evidence = None
@@ -578,6 +617,7 @@ def import_profile(unreal, context):
                                  "convertSceneUnit": True, "forceFrontXAxis": False, "uniformScale": 1,
                                  "createPhysicsAsset": False, "autoGenerateCollision": False,
                                  "materials": "source GLB PBR reconstruction; exact embedded or repository texture bytes",
+                                 "animationCompression": compression,
                                  "sampleRate": context["conversion"]["verification"]["bakeFramesPerSecond"]},
               "counts": dict(sorted(Counter(asset.get_class().get_name() for asset in assets).items())),
               "meshes": meshes, "skeletons": skeletons, "animations": animations,

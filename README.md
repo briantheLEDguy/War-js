@@ -26,6 +26,9 @@ legacy model sources, and the unfinished work.
 The first [city building import](docs/unreal-building-import.md) now preserves
 repository texture dependencies and emissive windows; collision, LODs and world
 placement remain open.
+The authored [Empire farmer import](docs/unreal-farmer-import.md) adds another
+complex character candidate with nine verified raw/compressed animation clips.
+Its native LODs, equipment, character assignments and release approval remain open.
 The next inventory increment adds owner-only replicated bags/equipment on
 PlayerState, server-only reward grants with session receipt deduplication, and
 revision-checked equip/unequip commands. Native and two-client tests cover

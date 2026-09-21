@@ -58,7 +58,10 @@ def verify_animations(unreal, records, source):
             options.set_editor_property("evaluation_type", mode)
             maxima = [0.0, 0.0]
             for seconds, frame in zip(source[name]["sampleTimesSeconds"], source[name]["samples"], strict=True):
-                errors = compare_frame(frame, evaluate_frame(unreal, animation, seconds, options))
+                try:
+                    errors = compare_frame(frame, evaluate_frame(unreal, animation, seconds, options))
+                except ValueError as error:
+                    raise ValueError(f"Clip {name}, {mode}, time {seconds:.6f}s: {error}") from error
                 maxima = [max(before, after) for before, after in zip(maxima, errors)]
             results.append({"clip": name, "evaluation": str(mode), "samples": len(source[name]["samples"]),
                             "maxJointErrorCm": maxima[0], "maxSkinTransformErrorCm": maxima[1]})

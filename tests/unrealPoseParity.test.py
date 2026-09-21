@@ -3,6 +3,8 @@ import copy
 import importlib.util
 from pathlib import Path
 import unittest
+from types import SimpleNamespace
+from unittest.mock import patch, Mock
 
 spec = importlib.util.spec_from_file_location("pose_parity", Path(__file__).resolve().parents[1] / "scripts/unreal/pose_parity.py")
 parity = importlib.util.module_from_spec(spec)
@@ -36,6 +38,17 @@ class PoseParityTest(unittest.TestCase):
                 broken["root"][field][0][0] = float("nan")
             with self.assertRaisesRegex(ValueError, "Nonfinite"):
                 parity.compare_frame(self.source, broken)
+
+    def test_import_failure_identifies_clip_mode_and_time(self):
+        unreal = SimpleNamespace(load_asset=Mock(return_value=object()),
+            AnimDataEvalType=SimpleNamespace(RAW="RAW", COMPRESSED="COMPRESSED"),
+            AnimPoseEvaluationOptions=Mock(return_value=Mock()))
+        samples = {"attack_melee": {"sampleTimesSeconds": [0.25], "samples": [self.source]}}
+        broken = copy.deepcopy(self.actual)
+        broken["root"]["deformedBasis"][1][0] += 1
+        with patch.object(parity, "evaluate_frame", side_effect=[self.actual, broken]):
+            with self.assertRaisesRegex(ValueError, "Clip attack_melee, COMPRESSED, time 0.250000s.*pose mismatch"):
+                parity.verify_animations(unreal, [{"sourceClipName": "attack_melee", "path": "/example"}], samples)
 
 
 if __name__ == "__main__":

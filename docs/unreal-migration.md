@@ -33,9 +33,9 @@ collision, LOD and placement checks. This does not close the world/model gates.
 | Stage | Required outcome | Current evidence |
 |---|---|---|
 | 0: inventory | Complete behavior/content/model ledgers and reproducible source fingerprints | Exporter, 39 detailed behavior contracts, asset resolver/GLB audit and readiness report implemented; art/rights review remains open |
-| 1: engine proof | Native builds on three OSes, Linux server, representative imports and two-client movement/combat | Windows Editor and Development package build; three admitted character sources and one prop import; raw/compressed pose checks and two-client combat/movement pass, including packaged Windows clients. Linux/server, macOS, equipment, moving mechanisms and full visual acceptance remain open |
+| 1: engine proof | Native builds on three OSes, Linux server, representative imports and two-client movement/combat | Windows Editor and Development package build; four admitted character sources, a command table and a city house imported; raw/compressed pose checks and two-client combat/movement pass, including packaged Windows clients. Linux/server, macOS, equipment, moving mechanisms and full visual acceptance remain open |
 | 2: assets | All character/species/environment replacements, rig/animation/equipment/LOD validation, primitive deletion | Incomplete; audit reports blocked/candidate rows, never fabricated approval |
-| 3: RPG | All current combat, progression, inventory, gathering/crafting, quests and HUD behavior under server authority | Inventory rules pass seven browser-derived scenarios; private inventory, atomic exchanges, deferred delivery, consumables, recipes, salvage and timed cultivation have native/two-client evidence. Initial inventory, portable/station crafting and cultivation controls implemented. Browser-derived XP/level/stat growth, atomic progression rewards and respawn retention pass native, editor-client and packaged Windows two-client tests. Resource gathering rules/actor integration added; rendered node placements and corpse harvesting remain pending. Both expedition chains have browser-fixture/native rule tests and trusted character-state integration; a read-only native quest log now has packaged two-client visual evidence. Playable NPC interactions, markers/navigation and durable settlement remain pending. Complete UI/profession/world parity, durable economy and remaining RPG systems are pending |
+| 3: RPG | All current combat, progression, inventory, gathering/crafting, quests and HUD behavior under server authority | Inventory rules pass seven browser-derived scenarios; private inventory, atomic exchanges, deferred delivery, consumables, recipes, salvage and timed cultivation have native/two-client evidence. Initial inventory, portable/station crafting and cultivation controls implemented. Browser-derived XP/level/stat growth, atomic progression rewards and respawn retention pass native, editor-client and packaged Windows two-client tests. Resource gathering rules/actor integration added; rendered node placements and corpse harvesting remain pending. Both expedition chains have browser-fixture/native rule tests and trusted character-state integration. Quest logs, revision-checked NPC dialogue RPCs and private offer/turn-in markers have Windows runtime evidence. Camera orbit/zoom, modal blocking and respawn continuity also pass native and packaged tests. Complete UI/profession/world parity, navigation, durable economy and remaining RPG systems are pending |
 | 4: online | Steam ownership, full characters/economy/chat, handoffs, supplies/siege/campaign, durable recovery | Pending; native production admission remains closed |
 | 5: world/GM | All 32 campaign zones, 70 directed routes, interiors/lifts, atlas/wiki/settings and runtime GM editor | Pending; preserving raw map data is not importing a playable world |
 | 6: hardening | WAN, simultaneous 18v18 fronts, crashes/retries/backup restore, platform and performance acceptance | Pending |
@@ -151,12 +151,13 @@ Any animation conversion failure is a failed experiment, not a reason to strip
 the animations or replace the character with a primitive.
 
 `scripts/unreal/import-models.py` consumes verified conversion receipts and
-imports the command table, two NPC samples and the Warbrute source into `/Game/Imported/`. Run
+imports the command table, city house, three NPC samples and the Warbrute source into `/Game/Imported/`. Run
 `npm run unreal:import -- --profile frontier_field_command_table` after building
 the Editor; the other supported sample keys are
 `npc_frontier_sunmeadow_empire_herbalist` and
 `npc_frontier_cinderfen_dark_elf_supply_officer` and
-`mire_warbrute_m`. The Warbrute conversion uses `--bake-fps 480` to satisfy
+`mire_warbrute_m`, `npc_frontier_sunmeadow_empire_farmer` and `aegis_house_1`.
+The Warbrute conversion uses `--bake-fps 480` to satisfy
 the same roundtrip tolerances. This reconstructs materials from
 source images and records actual imported mesh/animation paths. Native character
 entry requires a matching `Content/Migration/visual-imports.json` binding in
