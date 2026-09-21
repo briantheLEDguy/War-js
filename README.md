@@ -2,6 +2,13 @@
 
 ## Unreal migration
 
+The new [Crownward capital and castle](docs/unreal-crownward.md) is the editor
+startup map: `/Game/Capitals/crownward/AegisCapital_Workbench`. It provides 3,779
+editable kit placements, 32 houses, streets, a market, ramparts and a castle with
+keep, courtyard, towers and battlements. Press Play, then **G** for City Builder.
+Its local draft is separate from the original capital; full campaign and
+interior/traversal acceptance remain unfinished.
+
 The approved Unreal 5.8.2 / Steam migration is in progress on
 `codex/unreal-migration`. The target preserves implemented gameplay and GM tools
 in an online-only game for Windows, Linux and macOS. The native foundation is

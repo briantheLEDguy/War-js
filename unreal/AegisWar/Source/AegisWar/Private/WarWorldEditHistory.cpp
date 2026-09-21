@@ -151,7 +151,7 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
     if (!CheckRevision(ExpectedRevision, Error)) return false;
     TSharedPtr<FJsonObject> Root; double Version = 0; FString Zone, Base;
     const TArray<TSharedPtr<FJsonValue>>* Objects = nullptr;
-    if (Json.Len() > 2000000 || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Root) || !Root.IsValid()
+    if (Json.Len() > 8000000 || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Root) || !Root.IsValid()
         || !Root->TryGetNumberField(TEXT("schemaVersion"), Version) || (Version != 1 && Version != 2)
         || !Root->TryGetStringField(TEXT("zoneId"), Zone) || Zone != TEXT("aegis_capital")
         || !Root->TryGetStringField(TEXT("baseline"), Base)

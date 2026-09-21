@@ -56,7 +56,8 @@
     "unreal:package-proof": "tsx scripts/unreal/package-proof.ts",
     "typecheck:unreal-tools": "tsc --project tsconfig.unreal-tools.json --noEmit",
     "test:unreal": "vitest run unreal --maxWorkers=2",
-    "unreal:capital-proof": "tsx scripts/unreal/capital-proof.ts"
+    "unreal:capital-proof": "tsx scripts/unreal/capital-proof.ts",
+    "unreal:crownward-proof": "tsx scripts/unreal/crownward-proof.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.115.0",

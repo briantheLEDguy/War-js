@@ -126,6 +126,18 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     RoundTrip.Initialize(ExpandedObjects, Error);
     TestTrue(TEXT("Expanded draft exports its new baseline"), RoundTrip.ImportDraft(Expanded.ExportDraft(), 0, Error));
     TestEqual(TEXT("Reconciled baseline does not repeatedly report additions"), RoundTrip.GetLoadedBaselineAdditions(), 0);
+    TArray<FWarWorldEditObject> CityObjects;
+    for (int32 Index = 0; Index < 4000; ++Index)
+        CityObjects.Add({ FName(*FString::Printf(TEXT("crownward_module_%04d"), Index)), Original, false,
+            TEXT("/Game/LicensedKits/Crownward/SM_StoneWall:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef") });
+    FWarWorldEditHistory LargeCity, ReloadedCity;
+    TestTrue(TEXT("City baseline initializes"), LargeCity.Initialize(CityObjects, Error));
+    TestTrue(TEXT("Fresh city baseline initializes"), ReloadedCity.Initialize(CityObjects, Error));
+    const FString CityDraft = LargeCity.ExportDraft();
+    TestTrue(TEXT("City exceeds the former draft cap"), CityDraft.Len() > 2000000);
+    TestTrue(TEXT("Large city draft round trips"), ReloadedCity.ImportDraft(CityDraft, 0, Error));
+    TestEqual(TEXT("All city modules survive draft reload"), ReloadedCity.GetObjects().Num(), 4000);
+    TestFalse(TEXT("Oversized input remains bounded"), ReloadedCity.ImportDraft(FString::ChrN(8000001, TEXT(' ')), 1, Error));
     return true;
 }
 #endif

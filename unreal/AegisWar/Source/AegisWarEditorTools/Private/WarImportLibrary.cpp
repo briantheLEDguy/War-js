@@ -56,7 +56,7 @@ UStaticMesh* UWarImportLibrary::CreateCapitalSurface(const FString& ZoneId, cons
     const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
     const TArray<FVector2D>& UVs, UMaterialInterface* Material, const bool bCollision)
 {
-    if (ZoneId != TEXT("aegis_capital") || (Surface != TEXT("ground") && Surface != TEXT("water") && Surface != TEXT("bed"))
+    if ((ZoneId != TEXT("aegis_capital") && ZoneId != TEXT("crownward")) || (Surface != TEXT("ground") && Surface != TEXT("water") && Surface != TEXT("bed"))
         || !Material || Positions.IsEmpty() || Positions.Num() > 2000000 || Positions.Num() != Normals.Num()
         || Positions.Num() != UVs.Num() || Indices.IsEmpty() || Indices.Num() % 3 || Indices.Num() > 6000000
         || bCollision != (Surface != TEXT("water"))) return nullptr;

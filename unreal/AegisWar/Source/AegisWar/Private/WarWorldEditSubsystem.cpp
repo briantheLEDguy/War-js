@@ -17,7 +17,7 @@
 
 namespace
 {
-    FString DraftPath()
+    FString DraftPath(const UWorld* World)
     {
         if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")))
         {
@@ -29,12 +29,14 @@ namespace
             }();
             return FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("WorldEditProof"), ProofId, TEXT("draft.json"));
         }
-        return FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("WorldEdit/aegis_capital-draft.json"));
+        const bool bCrownward = World && World->GetOutermost()->GetName().Contains(TEXT("/crownward/"));
+        return FPaths::Combine(FPaths::ProjectSavedDir(), bCrownward
+            ? TEXT("WorldEdit/crownward-draft.json") : TEXT("WorldEdit/aegis_capital-draft.json"));
     }
-    bool ReadDraftFile(FString& Contents, FString& Error)
+    bool ReadDraftFile(const UWorld* World, FString& Contents, FString& Error)
     {
-        const int64 Size = IFileManager::Get().FileSize(*DraftPath());
-        if (Size < 0 || Size > 2000000 || !FFileHelper::LoadFileToString(Contents, *DraftPath()))
+        const int64 Size = IFileManager::Get().FileSize(*DraftPath(World));
+        if (Size < 0 || Size > 8000000 || !FFileHelper::LoadFileToString(Contents, *DraftPath(World)))
         { Error = TEXT("No readable capital draft was found, or it exceeds the size limit."); return false; }
         return true;
     }
@@ -114,7 +116,7 @@ AActor* UWarWorldEditSubsystem::GetObjectActor(const FName Id) const
     const auto* Actor = Actors.Find(Id); return Actor ? Actor->Get() : nullptr;
 }
 
-FString UWarWorldEditSubsystem::GetDraftLocation() const { return DraftPath(); }
+FString UWarWorldEditSubsystem::GetDraftLocation() const { return DraftPath(GetWorld()); }
 
 FName UWarWorldEditSubsystem::PickObject(const APlayerController* Controller, const FVector Origin, const FVector Direction) const
 {
@@ -227,26 +229,29 @@ bool UWarWorldEditSubsystem::SaveDraft(APlayerController* Controller, const int3
 {
     if (!Ready(Controller, Error)) return false;
     if (Revision != History.GetRevision()) { Error = TEXT("Draft changed; refresh before saving."); return false; }
-    if (!IFileManager::Get().MakeDirectory(*FPaths::GetPath(DraftPath()), true))
+    if (!IFileManager::Get().MakeDirectory(*FPaths::GetPath(DraftPath(GetWorld())), true))
     { Error = TEXT("Could not create the draft directory."); return false; }
-    const FString LockPath = DraftPath() + TEXT(".lock");
+    const FString LockPath = DraftPath(GetWorld()) + TEXT(".lock");
     TUniquePtr<FArchive> Lock(IFileManager::Get().CreateFileWriter(*LockPath, FILEWRITE_NoReplaceExisting));
     if (!Lock) { Error = TEXT("Another draft save holds the lock. Current edits remain in memory."); return false; }
     ON_SCOPE_EXIT { Lock.Reset(); IFileManager::Get().Delete(*LockPath); };
-    if (IFileManager::Get().FileExists(*DraftPath()))
+    if (IFileManager::Get().FileExists(*DraftPath(GetWorld())))
     {
         FString CurrentDisk;
-        if (!ReadDraftFile(CurrentDisk, Error)) return false;
+        if (!ReadDraftFile(GetWorld(), CurrentDisk, Error)) return false;
         if (!bObservedDisk || CurrentDisk != LastDiskContents)
         { Error = TEXT("A saved draft exists or changed elsewhere. Load it before saving; unsaved edits remain in undo history."); return false; }
     }
     else if (bObservedDisk && !LastDiskContents.IsEmpty())
     { Error = TEXT("The saved draft was removed outside this session; reload before saving."); return false; }
     const FString Json = History.ExportDraft();
-    const FString Temporary = DraftPath() + TEXT(".") + FGuid::NewGuid().ToString(EGuidFormats::Digits) + TEXT(".tmp");
-    if (!IFileManager::Get().MakeDirectory(*FPaths::GetPath(DraftPath()), true)
+    // Never replace a readable draft with a document the loader would reject.
+    if (FTCHARToUTF8(*Json).Length() > 8000000)
+    { Error = TEXT("This city draft exceeds the 8 MB limit. Current edits remain in memory."); return false; }
+    const FString Temporary = DraftPath(GetWorld()) + TEXT(".") + FGuid::NewGuid().ToString(EGuidFormats::Digits) + TEXT(".tmp");
+    if (!IFileManager::Get().MakeDirectory(*FPaths::GetPath(DraftPath(GetWorld())), true)
         || !FFileHelper::SaveStringToFile(Json, *Temporary, FFileHelper::EEncodingOptions::ForceUTF8WithoutBOM)
-        || !IFileManager::Get().Move(*DraftPath(), *Temporary, true, false))
+        || !IFileManager::Get().Move(*DraftPath(GetWorld()), *Temporary, true, false))
     {
         IFileManager::Get().Delete(*Temporary);
         Error = TEXT("Could not save the draft. Your current edits are still in memory."); return false;
@@ -259,6 +264,6 @@ bool UWarWorldEditSubsystem::LoadDraft(APlayerController* Controller, const int3
     if (!Ready(Controller, Error)) return false;
     FString Json;
     auto Next = History;
-    if (!ReadDraftFile(Json, Error) || !Next.ImportDraft(Json, Revision, Error) || !ApplyHistory(MoveTemp(Next), Error)) return false;
+    if (!ReadDraftFile(GetWorld(), Json, Error) || !Next.ImportDraft(Json, Revision, Error) || !ApplyHistory(MoveTemp(Next), Error)) return false;
     LastDiskContents = Json; bObservedDisk = true; return true;
 }

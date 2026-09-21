@@ -109,6 +109,45 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
     }
     if (Stage == 0)
     {
+        if (FParse::Param(FCommandLine::Get(), TEXT("WarCrownwardProof")))
+        {
+            FString Error;
+            const auto CheckCity = [this](bool Passed, const FString& Detail) { if (!Passed) Finish(false, Detail); return Passed; };
+            int32 Expected = 0;
+            if (!CheckCity(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedObjects="), Expected)
+                && Expected > 0 && Editor->Open(Player, Error), TEXT("City GM open failed: ") + Error)) return;
+            if (!CheckCity(Editor->GetHistory().GetObjects().Num() == Expected, TEXT("City object count differs."))) return;
+            const auto Catalog = WarWorldEditCatalog::Build(Editor->GetHistory().GetBaselineObjects());
+            int32 ExpectedModels = 0;
+            if (!CheckCity(FParse::Value(FCommandLine::Get(), TEXT("WarCapitalExpectedModels="), ExpectedModels)
+                && ExpectedModels > 0 && Catalog.Num() == ExpectedModels, TEXT("City authored model catalog count differs."))) return;
+            bCatalogSearchVerified = true;
+            if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalReloadProof")))
+            {
+                if (!CheckCity(Editor->LoadDraft(Player, 0, Error)
+                    && Editor->GetHistory().GetObjects().Num() == Expected + 1, TEXT("City fresh-process draft reload failed: ") + Error)) return;
+                Finish(true, TEXT("Crownward construction survived a fresh process.")); return;
+            }
+            FCollisionQueryParams Query(SCENE_QUERY_STAT(WarCrownwardRoute), false);
+            Query.AddIgnoredActor(Character);
+            const FVector Route[] = { {0,-12500,120}, {0,-6000,120}, {0,0,120}, {0,6000,120}, {0,8000,120}, {0,9600,120} };
+            for (int32 Index = 1; Index < UE_ARRAY_COUNT(Route); ++Index)
+            {
+                FHitResult Hit;
+                if (!CheckCity(!GetWorld()->SweepSingleByChannel(Hit, Route[Index - 1], Route[Index], FQuat::Identity, ECC_Pawn,
+                    FCollisionShape::MakeCapsule(Character->GetCapsuleComponent()->GetScaledCapsuleRadius(),
+                        Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()), Query),
+                    FString::Printf(TEXT("City route blocked at segment %d: %s"), Index, *Hit.ImpactPoint.ToString()))) return;
+            }
+            bTraversalVerified = true;
+            const auto& Template = Editor->GetHistory().GetBaselineObjects()[0];
+            FTransform Transform = Template.Transform; Transform.AddToTranslation(FVector(0,0,5000));
+            FName Created;
+            if (!CheckCity(Editor->Create(Player, Template.Id, Transform, 0, Created, Error), TEXT("City construction failed: ") + Error)) return;
+            if (!CheckCity(Editor->Undo(Player, false, 1, Error) && Editor->Undo(Player, true, 2, Error), TEXT("City undo/redo failed: ") + Error)) return;
+            if (!CheckCity(Editor->SaveDraft(Player, 3, Error), TEXT("City save failed: ") + Error)) return;
+            Finish(true, TEXT("Crownward GM catalog, route sweeps, construction, undo/redo and draft save passed.")); return;
+        }
         StartPosition = Character->GetActorLocation(); Character->ToggleAutoRun(); Stage = 1; return;
     }
     if (Stage == 1)

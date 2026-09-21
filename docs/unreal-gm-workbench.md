@@ -1,5 +1,12 @@
 # Native capital GM workbench
 
+The editor now starts in [Crownward](unreal-crownward.md), a separate kit-built
+capital and castle with 3,779 editable placements and 14 catalog models. Its
+draft is `Saved/WorldEdit/crownward-draft.json`. The reference workbench described
+below remains available with its original content and draft. Both use the same
+development GM controls; Crownward's native route/construction/reload checks do
+not establish complete campaign, interior or shared multiplayer acceptance.
+
 The Aegis development workbench now has an in-game **City Builder**, opened with
 `G`. Open `/Game/Capitals/aegis_capital/AegisCapital_Workbench` and use Play in
 Editor. Standalone development launches additionally require `-WarDevelopmentGM`.
@@ -40,8 +47,9 @@ the current pawn and reset when it is replaced. These controls remain restricted
 to the local development capital; they are not production multiplayer GM access.
 
 Already purchased modular kits may expand the catalog after installation and
-review. See [the integration path](unreal-modular-kits.md). No purchased kit is
-currently admitted; kit-specific pivot/socket alignment is still pending.
+review. See [the integration path](unreal-modular-kits.md). Purchased kit meshes
+are available in the separate pilot and Crownward maps; kit-specific pivot/socket
+alignment is still pending.
 
 **Grid step** cycles off, 10 cm, 50 cm, 1 m and 2 m. **Turn step** cycles 15°, 45°
 and 90°. Axis nudges use the chosen grid distance (1 m when off). **Snap XY / yaw**

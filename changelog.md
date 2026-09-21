@@ -1,3 +1,10 @@
+## 2026-09-21 - Crownward kit capital and castle
+
+- Built a separate Aegis capital workbench with 3,779 authored placements from two owned kits: 32 complete houses, central avenue, furnished market, cross streets, ramparts and towers, plus a northern castle with keep, courtyard, gatehouse, windows, buttresses, stairs and battlements. No visible primitive fallback models are used.
+- Added independent level terrain and protected deterministic generation; excluded unfinished house construction-stage meshes after visual review. Set the new city as the editor startup level while preserving the reference capital and its drafts.
+- Added an isolated Crownward draft path and raised the bounded draft limit to 8 MB for full city saves. Native checks cover catalog resolution, arrival-to-keep capsule sweeps, construction, undo/redo and fresh-process draft reload. Added a 4,000-object round-trip regression test and pure layout checks.
+- Full NPC/service/campaign migration, all interiors/stair routes, optimization, packaged/platform acceptance and production GM authorization remain open. Release admission remains closed.
+
 ## 2026-09-21 - Town assembly transforms and offscreen review
 
 - Fixed Unreal Python rotation ordering in the town adapter and added per-component rotation checks. The initial malformed assembly was caught by visual inspection and never admitted to the GM catalog.
