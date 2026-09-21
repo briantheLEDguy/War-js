@@ -1,7 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { capitalPropPlacement } from '../scripts/unreal/capital-props';
+import { buildCapitalProps, CAPITAL_HOUSE_PROFILES, capitalPropPlacement } from '../scripts/unreal/capital-props';
 
 describe('authored capital prop placement', () => {
+  it('retains every identity while admitting only the six explicit house variants', () => {
+    const props = [...CAPITAL_HOUSE_PROFILES.map((profile, index) => ({ id: `house-${index}`, kind: profile,
+      assetKey: profile, x: 0, z: 0, rotY: 0 })),
+      { id: 'pending-building', kind: 'other', x: 0, z: 0, rotY: 0 },
+      { id: 'technical-collision', kind: 'water-collider', x: 0, z: 0, rotY: 0, visible: false }];
+    const map = { id: 'aegis_capital', size: 4, cityElevation: { segments: 1, heights: [0, 0, 0, 0] }, props };
+    const result = buildCapitalProps(map);
+    expect(result.objects.map(row => row.source)).toEqual(props);
+    expect(result.housePlacements.map(row => row.profileKey)).toEqual(CAPITAL_HOUSE_PROFILES);
+    expect(result.capitalReady).toBe(false);
+    expect(() => buildCapitalProps({ ...map, props: [...props, props[0]] })).toThrow('duplicate');
+  });
   it('converts asymmetric FBX points through the source world transform', () => {
     for (const yaw of [0, Math.PI / 2, Math.PI, 0.37]) {
       const prop = { id: 'house', kind: 'house', x: 7, z: 11, y: 2, rotY: yaw, scaleX: 2, scaleY: 3, scaleZ: 4 };

@@ -26,6 +26,11 @@ PROFILES = (
     "frontier_field_command_table",
     "mire_warbrute_m",
     "aegis_house_1",
+    "aegis_house_2",
+    "aegis_house_3",
+    "aegis_house_4",
+    "aegis_house_5",
+    "aegis_house_6",
     "npc_frontier_sunmeadow_empire_farmer",
 )
 PROFILE_TAG = "WarMigrationProfile"

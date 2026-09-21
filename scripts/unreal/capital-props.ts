@@ -6,6 +6,8 @@ import { sourcePointToUnreal, sourceYawToUnrealDegrees, sha256 } from './content
 import { isMain, repoRoot } from './toolchain';
 
 interface CapitalProps { id: string; size: number; cityElevation: CityElevation; props: PropSpawn[] }
+export const CAPITAL_HOUSE_PROFILES = ['aegis_house_1', 'aegis_house_2', 'aegis_house_3',
+  'aegis_house_4', 'aegis_house_5', 'aegis_house_6'];
 
 /** FBX imports use (source X, source Z, source Y); world uses (Z, X, Y).
  * A quarter turn with negative local Y scale performs that reflection. */
@@ -45,7 +47,7 @@ export function buildCapitalProps(map: CapitalProps) {
     ids.add(prop.id);
     return { id: prop.id, source: prop };
   });
-  const housePlacements = map.props.filter(prop => prop.assetKey === 'aegis_house_1' && prop.visible !== false)
+  const housePlacements = map.props.filter(prop => CAPITAL_HOUSE_PROFILES.includes(prop.assetKey ?? prop.kind) && prop.visible !== false)
     .map(prop => capitalPropPlacement(prop, cityHeightAt(map.cityElevation, map.size, prop.x, prop.z)));
   return { schemaVersion: 1, zoneId: map.id, objects, housePlacements, capitalReady: false };
 }

@@ -1,3 +1,9 @@
+## 2026-09-21 — Six native capital house variants
+
+- Converted/imported the remaining five authored Aegis house variants and restored all 109 corresponding placements, with 1,771 other prop identities still pending.
+- Verified saved transforms and 545 native collision traces; inspected per-variant renders without neighboring-building occlusion. Geometry/LOD/traversal and full capital acceptance remain open.
+- Passed 82 tooling tests, tools typechecking and ten Python import checks. Added an explicit pending-identity preservation regression.
+
 ## 2026-09-21 — Authored capital house placement
 
 - Placed the first 18 original Aegis house instances with source transforms and attached invisible collision volumes; retained all other 1,862 prop identities as pending.

@@ -1,6 +1,6 @@
 # Capital restoration workbench
 
-Bastion's authored ground and first 18 house placements are available locally at
+Bastion's authored ground and 109 house placements are available locally at
 `/Game/Capitals/aegis_capital/AegisCapital_Workbench`. This is a terrain workbench,
 not a restored capital or a functioning runtime GM editor. Buildings, residents,
 encounters, travel and GM construction remain unfinished. Riftspire must retain
@@ -62,3 +62,19 @@ drafts, publication, rollback and terrain editing are still pending.
 The building increment compiled in Unreal 5.8.2, passed all 19 native foundation
 tests, 81 migration tooling tests and tools typechecking. Repeating placement
 and reloading the saved map passed the same 90 traces without duplicate volumes.
+
+## Six house variants
+
+All six repository house variants are now converted, imported and placed: 109
+original instances, with the other 1,771 prop identities still pending. The five
+additional Blender round trips and native imports passed, including source/QC
+hashes and material dependencies. Saved transforms and 545 wall/top traces pass.
+Native views were inspected for all six variants; neighboring buildings are
+temporarily hidden for individual model inspection, without saving that change.
+The overview retains the complete current arrangement. Material rendering is
+visible, but deep shadows, full geometry, LODs and traversal remain unapproved.
+
+Import evidence is fingerprinted separately for each profile. The expanded
+placement ledger has a regression test retaining all unsupported/invisible
+definitions. All 82 tooling tests, tools typechecking and ten Python import
+preflight tests pass. No native runtime code changed in this expansion.

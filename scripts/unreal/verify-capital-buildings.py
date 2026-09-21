@@ -14,8 +14,11 @@ receipt = json.loads((directory / "buildings-import.json").read_text())
 document = json.loads((directory / "props.json").read_text())
 if digest(ROOT / "public/assets/maps/aegis_capital.json") != receipt["sourceSha256"] or digest(directory / "props.json") != receipt["propsInputSha256"]:
     raise RuntimeError("Stale capital buildings")
-if digest(ROOT / "artifacts/unreal/converted/aegis_house_1/editor-import.json") != receipt["modelImportSha256"]:
-    raise RuntimeError("House import changed after placement")
+for profile, expected in receipt["modelImports"].items():
+    if profile not in tuple("aegis_house_" + str(index) for index in range(1, 7)):
+        raise RuntimeError("Unknown house profile")
+    if digest(ROOT / "artifacts/unreal/converted" / profile / "editor-import.json") != expected:
+        raise RuntimeError("House import changed after placement")
 if not unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level(receipt["map"]):
     raise RuntimeError("Missing capital map")
 world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()

@@ -1,4 +1,4 @@
-"""Place the first verified house profile; preserve and report all pending identities."""
+"""Place admitted authored house profiles; preserve and report all pending identities."""
 import importlib.util
 import json
 from pathlib import Path
@@ -19,15 +19,20 @@ source_hash = imports.sha256(source)
 require(document["schemaVersion"] == 1 and document["sourceSha256"] == terrain["sourceSha256"] == source_hash,
         "Stale capital placement inputs")
 input_hash = imports.sha256(directory / "props.json")
-context = imports.validate_inputs("aegis_house_1")
-receipt_path = context["directory"] / "editor-import.json"
-receipt = imports.load_json(receipt_path)
-require(receipt["importSucceeded"] and receipt["conversionSha256"] == context["conversionSha256"]
-        and receipt["sourceSha256"] == context["conversion"]["sourceSha256"] and len(receipt["meshes"]) == 1,
-        "House native import evidence is stale")
-mesh = unreal.load_asset(receipt["meshes"][0]["path"])
-require(isinstance(mesh, unreal.StaticMesh), "Missing imported complex house")
-imports.require_owned(unreal, mesh, context)
+contexts, meshes, model_imports = {}, {}, {}
+for profile in sorted({row["profileKey"] for row in document["housePlacements"]}):
+    require(profile in tuple("aegis_house_" + str(index) for index in range(1, 7)), "Unadmitted house profile")
+    context = imports.validate_inputs(profile)
+    receipt_path = context["directory"] / "editor-import.json"
+    receipt = imports.load_json(receipt_path)
+    require(receipt["importSucceeded"] and receipt["conversionSha256"] == context["conversionSha256"]
+            and receipt["sourceSha256"] == context["conversion"]["sourceSha256"] and len(receipt["meshes"]) == 1,
+            "House native import evidence is stale")
+    mesh = unreal.load_asset(receipt["meshes"][0]["path"])
+    require(isinstance(mesh, unreal.StaticMesh), "Missing imported complex house")
+    imports.require_owned(unreal, mesh, context)
+    contexts[profile], meshes[profile] = context, mesh
+    model_imports[profile] = imports.sha256(receipt_path)
 level = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
 require(level.load_level(terrain["map"]), "Capital terrain map is missing")
 actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
@@ -35,7 +40,9 @@ existing = {actor.get_actor_label(): actor for actor in actors.get_all_level_act
 placed = []
 for placement in document["housePlacements"]:
     original = placement["source"]
-    require(placement["profileKey"] == "aegis_house_1" and original.get("model") == context["source"].name,
+    profile = placement["profileKey"]
+    context, mesh = contexts[profile], meshes[profile]
+    require(original.get("model") == context["source"].name,
             "House identity/model mismatch")
     require(not original.get("interaction") and not original.get("walkableSurfaces"),
             "This placement requires an interaction or walkable-surface implementation")
@@ -52,7 +59,7 @@ for placement in document["housePlacements"]:
         actor = actors.spawn_actor_from_class(unreal.StaticMeshActor, point, rotation)
     require(actor is not None, "Could not create capital building")
     actor.set_actor_label(label)
-    actor.set_editor_property("tags", ["WarCapitalBuilding", placement["id"], "aegis_house_1"])
+    actor.set_editor_property("tags", ["WarCapitalBuilding", placement["id"], profile])
     actor.set_actor_location_and_rotation(point, rotation, False, True)
     actor.set_actor_scale3d(unreal.Vector(*placement["scale"]))
     actor.static_mesh_component.set_static_mesh(mesh)
@@ -70,10 +77,12 @@ for placement in document["housePlacements"]:
                    "colliders": len(placement["colliders"]), "nativeLodsComplete": False})
 require(imports.sha256(source) == source_hash and imports.sha256(directory / "props.json") == input_hash,
         "Capital source changed during placement")
+require(all(imports.sha256(contexts[profile]["directory"] / "editor-import.json") == digest for profile, digest in model_imports.items()),
+        "Model evidence changed during placement")
 require(level.save_current_level(), "Could not save capital buildings")
 placed_ids = {row["id"] for row in placed}
 output.write_text(json.dumps({"schemaVersion": 1, "sourceSha256": source_hash, "propsInputSha256": input_hash,
-    "modelImportSha256": imports.sha256(receipt_path), "map": terrain["map"], "placed": placed,
+    "modelImports": model_imports, "map": terrain["map"], "placed": placed,
     "pendingPropIds": [row["id"] for row in document["objects"] if row["id"] not in placed_ids],
     "capitalReady": False, "gmBuilderReady": False, "geometryApproved": False}, indent=2) + "\n")
 unreal.log("WAR_CAPITAL_BUILDINGS_CREATED=" + str(output))
