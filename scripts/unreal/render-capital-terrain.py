@@ -14,6 +14,15 @@ if digest(ROOT / "public/assets/maps/aegis_capital.json") != receipt["sourceSha2
     raise RuntimeError("Stale capital source")
 if digest(directory / "terrain.json") != receipt["terrainInputSha256"]:
     raise RuntimeError("Stale capital terrain")
+building_receipt = directory / "buildings-import.json"
+building_hash = None
+if building_receipt.is_file():
+    buildings = json.loads(building_receipt.read_text())
+    if buildings["sourceSha256"] != receipt["sourceSha256"] or digest(directory / "props.json") != buildings["propsInputSha256"]:
+        raise RuntimeError("Stale building placements")
+    if digest(ROOT / "artifacts/unreal/converted/aegis_house_1/editor-import.json") != buildings["modelImportSha256"]:
+        raise RuntimeError("Building import changed")
+    building_hash = digest(building_receipt)
 if not unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level(receipt["map"]):
     raise RuntimeError("Capital workbench missing")
 world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
@@ -38,7 +47,9 @@ settings.set_editor_property("auto_exposure_apply_physical_camera_exposure", Tru
 component.set_editor_property("post_process_settings", settings)
 views = []
 for name, eye, focus in (("overview", (-30000, -26000, 28000), (5000, 0, 0)),
-                         ("raised-ground", (3000, -4500, 2400), (9000, 0, 1300))):
+                         ("raised-ground", (3000, -4500, 2400), (9000, 0, 1300)),
+                         ("house", (-13992, -14420, 950), (-12492, -12920, 600)),
+                         ("house-front", (-10992, -11420, 950), (-12492, -12920, 600))):
     position = unreal.Vector(*eye)
     capture.set_actor_location_and_rotation(position, unreal.MathLibrary.find_look_at_rotation(position, unreal.Vector(*focus)), False, True)
     unreal.WarImportLibrary.prepare_preview_frame(None)
@@ -54,5 +65,6 @@ for name, eye, focus in (("overview", (-30000, -26000, 28000), (5000, 0, 0)),
     views.append({"view": name, "path": path.relative_to(ROOT).as_posix(), "sha256": digest(path)})
 receipt_path.write_text(json.dumps({"schemaVersion": 1, "sourceSha256": receipt["sourceSha256"],
     "terrainInputSha256": receipt["terrainInputSha256"], "views": views,
+    "buildingImportSha256": building_hash,
     "capitalReady": False, "fullTraversalAccepted": False}, indent=2) + "\n")
 unreal.log("WAR_CAPITAL_TERRAIN_RENDERED=" + str(receipt_path))

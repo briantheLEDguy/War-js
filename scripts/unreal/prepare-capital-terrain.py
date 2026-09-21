@@ -125,6 +125,7 @@ def main():
     light.light_component.set_editor_property("intensity", 50000.0)
     sky = spawn(unreal.SkyLight, "Aegis workbench sky", (0, 0, 15000))
     sky.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
+    sky.light_component.set_real_time_capture(True)
     spawn(unreal.SkyAtmosphere, "Aegis atmosphere", (0, 0, 0))
     world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
     own(world)

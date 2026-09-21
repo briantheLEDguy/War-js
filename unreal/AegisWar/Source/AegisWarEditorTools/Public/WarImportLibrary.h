@@ -8,6 +8,7 @@ class UAnimSequence;
 class UStaticMesh;
 class UMaterialInterface;
 class USkeletalMeshComponent;
+class UBoxComponent;
 
 /** Editor-only import provenance, development terrain construction and render diagnostics. */
 UCLASS()
@@ -15,6 +16,11 @@ class AEGISWAREDITORTOOLS_API UWarImportLibrary : public UBlueprintFunctionLibra
 {
     GENERATED_BODY()
 public:
+    /** Attach an invisible authored collision volume to an owned capital building. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static UBoxComponent* SetCapitalBuildingCollision(AActor* Actor, int32 Index,
+        FVector Center, FVector HalfSize, double YawDegrees);
+
     UFUNCTION(BlueprintCallable, Category="Migration")
     static FString GetSourceAnimationName(const UAnimSequence* Animation);
 

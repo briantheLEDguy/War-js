@@ -1,3 +1,9 @@
+## 2026-09-21 — Authored capital house placement
+
+- Placed the first 18 original Aegis house instances with source transforms and attached invisible collision volumes; retained all other 1,862 prop identities as pending.
+- Verified saved native transforms and 90 wall/top collision traces. Inspected native building renders; complete geometry, doorway, LOD and traversal acceptance remain open.
+- Added focused transform/collision-convention tests. Runtime GM editing and full capital restoration remain unfinished.
+
 ## 2026-09-21 — Native capital terrain foundation
 
 - Added an Aegis capital terrain exporter and owned Unreal workbench construction preserving authored elevations, canal openings, nonblocking water and solid beds.

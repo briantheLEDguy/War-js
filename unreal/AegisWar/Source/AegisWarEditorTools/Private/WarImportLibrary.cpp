@@ -10,6 +10,8 @@
 #include "UObject/Package.h"
 #include "UObject/MetaData.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/BoxComponent.h"
+#include "GameFramework/Actor.h"
 #include "AssetCompilingManager.h"
 #include "ShaderCompiler.h"
 #include "RenderingThread.h"
@@ -19,6 +21,36 @@
 #include "Rendering/SkinWeightVertexBuffer.h"
 
 IMPLEMENT_MODULE(FDefaultModuleImpl, AegisWarEditorTools);
+
+UBoxComponent* UWarImportLibrary::SetCapitalBuildingCollision(AActor* Actor, const int32 Index,
+    const FVector Center, const FVector HalfSize, const double YawDegrees)
+{
+    if (!IsValid(Actor) || !Actor->ActorHasTag(TEXT("WarCapitalBuilding")) || !Actor->GetRootComponent()
+        || Index < 0 || Index > 255 || Center.ContainsNaN() || Center.GetAbsMax() > 100000000.0
+        || HalfSize.ContainsNaN() || HalfSize.GetMin() <= 0 || HalfSize.GetMax() > 10000000.0
+        || !FMath::IsFinite(YawDegrees)) return nullptr;
+    const FName Name(*FString::Printf(TEXT("AuthoredCollision_%d"), Index));
+    UBoxComponent* Box = FindObject<UBoxComponent>(Actor, *Name.ToString());
+    if (Box && !Box->ComponentHasTag(TEXT("WarCapitalBuildingCollision"))) return nullptr;
+    if (!Box)
+    {
+        if (FindObject<UObject>(Actor, *Name.ToString())) return nullptr;
+        Box = NewObject<UBoxComponent>(Actor, Name, RF_Transactional);
+        Box->ComponentTags.Add(TEXT("WarCapitalBuildingCollision"));
+        Actor->AddInstanceComponent(Box);
+        Box->SetMobility(Actor->GetRootComponent()->Mobility);
+        Box->SetupAttachment(Actor->GetRootComponent());
+        Box->RegisterComponent();
+    }
+    Box->SetWorldTransform(FTransform(FRotator(0, YawDegrees, 0), Center, FVector::OneVector));
+    Box->SetBoxExtent(HalfSize);
+    Box->SetCollisionProfileName(TEXT("BlockAll"));
+    Box->SetGenerateOverlapEvents(false);
+    Box->SetHiddenInGame(true);
+    Box->SetVisibility(false);
+    Actor->MarkPackageDirty();
+    return Box;
+}
 
 UStaticMesh* UWarImportLibrary::CreateCapitalSurface(const FString& ZoneId, const FString& Surface,
     const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
