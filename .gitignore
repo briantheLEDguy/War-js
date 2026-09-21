@@ -87,3 +87,6 @@ authoring/blender/cinderfen-supply-officer/review/*_review_[abcde].json
 # Rejected rack diagnostics are superseded by retained passing master/export audits.
 authoring/blender/field-arms-rack/review/master-audit-failure.json
 authoring/blender/field-arms-rack/review/tangent-failure.json
+# Private purchased town source dependencies and local mesh adaptations.
+/unreal/AegisWar/Content/Medieval_Mod_Town/
+/unreal/AegisWar/Content/WarKitAdaptations/

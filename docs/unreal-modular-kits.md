@@ -194,7 +194,28 @@ structural reload checks, including triangle collision configuration, and may
 run with `-NullRHI`. Local receipts live in
 `artifacts/unreal/licensed-kits/town-kit-adaptation.json` and `town-kit-reload.json`.
 
-This adaptation remains in private staging, outside the current GM catalog.
+This adaptation remains outside the current GM catalog. A bounded dependency
+closure is copied into ignored game content for inspection using
+`scripts/unreal/stage-town-kit.py`; it refuses changed destination bytes or
+dependencies outside the reviewed pack. The 87 packages retain their original
+material paths. `render-town-kit.py` makes isolated front/rear offscreen images
+without opening an editor window or changing the capital maps or drafts.
+
+Visual inspection caught an incorrect Python positional Rotator conversion in
+the first merge. Unreal uses roll/pitch/yaw positional ordering, whereas the
+inventory records pitch/yaw/roll. The adapter now uses named fields and checks
+all 354 rotations using basis vectors before merging. The corrected front/rear
+renders show a coherent textured exterior; this does not establish complete
+interior, LOD or runtime approval. Corrected receipts and images supersede the
+initial malformed assembly, which was never admitted to the GM catalog.
+
+`scripts/unreal/probe-town-kit.py` records diagnostic 42 cm radius / 96 cm
+half-height capsule sweeps across the front entrance candidate at local x=600.
+All five heights (120–160 cm) hit geometry near y=43 cm. The current static merge
+therefore has no entrance traversal approval. Resolve door/component behavior
+and verify the actual walking route before registering it as a usable building.
+The receipt explicitly keeps `traversalApproved` false.
+
 Its construction script and interactive door behavior are not ported. Triangle
 collision configuration alone is not evidence of traversable doors or stairs;
 visual review, traversal, runtime GM integration, performance, licensing and

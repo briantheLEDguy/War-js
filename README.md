@@ -24,6 +24,9 @@ Town-kit inspection and static assembly adaptation run in private staging with
 background commandlets (`scripts/unreal/inspect-town-kit.py` and
 `scripts/unreal/adapt-town-kit.py`); they do not execute purchased Blueprints or
 register unverified assemblies in the GM catalog.
+The town adapter now checks component rotations explicitly; offscreen exterior
+previews pass a bounded visual review, but entrance collision probes remain
+blocked and the assembly is not yet admitted to the GM catalog.
 AegisWar is registered with Epic Launcher; after active downloads finish, restart
 the launcher if it does not appear under Unreal Engine → Library → My Projects.
 The Windows Editor target has compiled successfully with Unreal 5.8.2. Work

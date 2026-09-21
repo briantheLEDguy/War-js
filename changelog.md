@@ -1,3 +1,10 @@
+## 2026-09-21 - Town assembly transforms and offscreen review
+
+- Fixed Unreal Python rotation ordering in the town adapter and added per-component rotation checks. The initial malformed assembly was caught by visual inspection and never admitted to the GM catalog.
+- Added bounded private dependency staging, isolated offscreen front/rear rendering and reproducible entrance capsule diagnostics. The corrected assembly preserves 18 materials and four LODs on reload; all 87 copied packages stay Git-ignored.
+- Exterior previews now show coherent authored geometry. Five entrance candidate sweeps still hit geometry; traversal, interactive doors and GM admission remain pending. No capital maps or user drafts were modified.
+- Passed 85 tooling tests, tooling typecheck, Python syntax checks and corrected native adaptation/reload/render runs. Release remains closed with four blocking categories.
+
 ## 2026-09-21 - Private town assembly adaptation
 
 - Added non-executing Blueprint template inspection and an offscreen static assembly adapter for the installed Medieval Modular Town kit. The first assembly preserves 354 component transforms, 18 materials and four LODs; source pack fingerprints are checked before and after conversion.

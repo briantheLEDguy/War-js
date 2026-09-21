@@ -52,9 +52,20 @@ for row in meshes:
     mesh = unreal.load_asset(row["mesh"])
     if not isinstance(mesh, unreal.StaticMesh):
         raise RuntimeError("Mesh could not load: " + row["mesh"])
+    # Unreal's Python positional Rotator order is roll/pitch/yaw, unlike the
+    # inventory's pitch/yaw/roll. Named fields prevent silent geometry damage.
+    pitch, yaw, roll = row["rotation"]
     actor = actors.spawn_actor_from_class(unreal.StaticMeshActor, unreal.Vector(*row["location"]),
-                                         unreal.Rotator(*row["rotation"]))
+                                         unreal.Rotator(pitch=pitch, yaw=yaw, roll=roll))
     actor.set_actor_scale3d(unreal.Vector(*row["scale"]))
+    actual_rotation = actor.get_actor_rotation()
+    expected_rotation = unreal.Rotator(pitch=pitch, yaw=yaw, roll=roll)
+    # Euler representations can differ at singularities; compare basis vectors.
+    for basis in [unreal.Vector(1, 0, 0), unreal.Vector(0, 1, 0), unreal.Vector(0, 0, 1)]:
+        expected = unreal.MathLibrary.greater_greater_vector_rotator(basis, expected_rotation)
+        actual = unreal.MathLibrary.greater_greater_vector_rotator(basis, actual_rotation)
+        if (expected - actual).length() > 0.001:
+            raise RuntimeError("Component rotation changed: " + row["name"])
     component = actor.static_mesh_component
     component.set_static_mesh(mesh)
     for index, path in enumerate(row["materials"]):
