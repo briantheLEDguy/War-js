@@ -53,8 +53,9 @@ readout; durable settlement and full ability integration remain open.
 Native [quest rules and character-state integration](docs/unreal-quests.md)
 preserve both expedition chains, with validated runtime catalogs and server-resolved
 rewards. Packaged Windows two-client tests verify each realm's first quest rewards,
-completion retry rejection and private quest state. NPC interaction, quest UI and
-durable settlement remain pending.
+completion retry rejection and private quest state. `L` opens a native quest log
+with objective progress and reward previews. NPC interaction, navigation/markers,
+complete quest presentation and durable settlement remain pending.
 
 ## Regional production priorities
 

@@ -78,6 +78,22 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("deathObserved"), bDeathObserved);
     Report->SetBoolField(TEXT("questSnapshotPrivacy"), bQuestPrivacyVerified);
     Report->SetBoolField(TEXT("catalogQuestTransactions"), bQuestPrivacyVerified);
+    if (GetWorld()->GetNetMode() == NM_Client && FParse::Param(FCommandLine::Get(), TEXT("WarQuestProofUI")))
+    {
+        bool bInputRestored = false;
+        if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController()))
+        {
+            Controller->ToggleInventory();
+            Controller->ToggleQuestLog();
+            const bool bBlocked = Controller->IsMoveInputIgnored() && Controller->IsLookInputIgnored() && Controller->bShowMouseCursor;
+            Controller->ToggleInventory();
+            Controller->ToggleQuestLog();
+            Controller->ToggleQuestLog();
+            bInputRestored = bBlocked && !Controller->IsMoveInputIgnored() && !Controller->IsLookInputIgnored() && !Controller->bShowMouseCursor;
+        }
+        Report->SetBoolField(TEXT("questPanelInputRestored"), bInputRestored);
+        Report->SetBoolField(TEXT("passed"), bPassed && bInputRestored);
+    }
     FString Json;
     FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Json));
     const FString Filename = FPaths::Combine(Directory, ResultRole + TEXT(".json"));
@@ -91,8 +107,11 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     {
         if (FParse::Param(FCommandLine::Get(), TEXT("WarInventoryProofUI")))
             if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController())) Controller->InteractWithStation();
+        if (FParse::Param(FCommandLine::Get(), TEXT("WarQuestProofUI")))
+            if (auto* Controller = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController())) Controller->ToggleQuestLog();
         const FString Screenshot = FPaths::Combine(Directory, ResultRole + TEXT(".png"));
-        const bool bShowUI = FParse::Param(FCommandLine::Get(), TEXT("WarInventoryProofUI"));
+        const bool bShowUI = FParse::Param(FCommandLine::Get(), TEXT("WarInventoryProofUI"))
+            || FParse::Param(FCommandLine::Get(), TEXT("WarQuestProofUI"));
         FTimerHandle CaptureTimer;
         GetWorld()->GetTimerManager().SetTimer(CaptureTimer, [Screenshot, bShowUI] {
             FScreenshotRequest::RequestScreenshot(Screenshot, bShowUI, false);

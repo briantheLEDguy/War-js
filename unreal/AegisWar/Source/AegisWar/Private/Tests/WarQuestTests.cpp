@@ -33,6 +33,14 @@ bool FWarQuestTest::RunTest(const FString& Parameters)
         Rewards.Add(Pair.Key, MoveTemp(Resolved));
     }
     TestEqual(TEXT("All eight source quests"), Definitions.Num(), 8);
+    for (const auto& Value : Catalog->GetArrayField(TEXT("quests")))
+    {
+        const auto Row = Value->AsObject();
+        const auto& Quest = Definitions.FindChecked(Name(Row, TEXT("id")));
+        for (int32 Index = 0; Index < Quest.Objectives.Num(); ++Index)
+            TestEqual(TEXT("Objective description preserved for quest log"), Quest.Objectives[Index].Description,
+                Row->GetArrayField(TEXT("objectives"))[Index]->AsObject()->GetStringField(TEXT("description")));
+    }
     FString CatalogJson;
     FJsonSerializer::Serialize(Catalog.ToSharedRef(), TJsonWriterFactory<>::Create(&CatalogJson));
     const auto Reject = [&](const TCHAR* Label, TFunction<void(TSharedPtr<FJsonObject>)> Mutate) {
@@ -50,6 +58,8 @@ bool FWarQuestTest::RunTest(const FString& Parameters)
         Root->GetArrayField(TEXT("quests"))[0]->AsObject()->SetStringField(TEXT("giverZoneId"), TEXT("missing")); });
     Reject(TEXT("Fractional objective rejected"), [](auto Root) {
         Root->GetArrayField(TEXT("quests"))[0]->AsObject()->GetArrayField(TEXT("objectives"))[0]->AsObject()->SetNumberField(TEXT("required"), 1.5); });
+    Reject(TEXT("Missing objective description rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[0]->AsObject()->GetArrayField(TEXT("objectives"))[0]->AsObject()->RemoveField(TEXT("description")); });
     Reject(TEXT("Duplicate objective rejected"), [](auto Root) {
         auto Quest = Root->GetArrayField(TEXT("quests"))[0]->AsObject(); auto Rows = Quest->GetArrayField(TEXT("objectives"));
         const auto Duplicate = Rows[0]; Rows.Add(Duplicate); Quest->SetArrayField(TEXT("objectives"), Rows); });

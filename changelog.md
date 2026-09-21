@@ -1,3 +1,9 @@
+## 2026-09-21 - Native quest log and modal input
+
+- Added the L-key quest log with private replicated progress, authored objective descriptions, active/completed grouping and catalog reward previews.
+- Prevented local jumping/striking through modal panels; packaged two-client tests verify repeated inventory/quest switching restores movement, camera and cursor state.
+- Passed 16 native groups, Windows packaging, rendered multiplayer, 74 tooling tests and tools typechecking. Inspected both quest-log screenshots; NPC interactions, complete quest UI and release parity remain unfinished.
+
 ## 2026-09-21 - Native quest network proof and building import
 
 - Verified both realms' real catalog quest completion, exact rewards, retry rejection and owner-only state with packaged Windows clients and an Editor dedicated server.

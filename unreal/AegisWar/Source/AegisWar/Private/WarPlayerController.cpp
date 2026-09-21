@@ -1,6 +1,7 @@
 #include "WarPlayerController.h"
 #include "WarEntryStatusWidget.h"
 #include "WarInventoryWidget.h"
+#include "WarQuestLogWidget.h"
 #include "WarCraftingStation.h"
 #include "WarResourceNode.h"
 #include "WarPlayerState.h"
@@ -13,12 +14,14 @@ void AWarPlayerController::SetupInputComponent()
 {
     Super::SetupInputComponent();
     InputComponent->BindKey(EKeys::I, IE_Pressed, this, &AWarPlayerController::ToggleInventory);
+    InputComponent->BindKey(EKeys::L, IE_Pressed, this, &AWarPlayerController::ToggleQuestLog);
     InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AWarPlayerController::InteractWithWorld);
 }
 
 void AWarPlayerController::ToggleInventory()
 {
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
+    if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();
     if (InventoryWidget && InventoryWidget->IsInViewport())
     {
         InventoryWidget->RemoveFromParent();
@@ -56,6 +59,30 @@ void AWarPlayerController::InteractWithStation()
     if (InventoryWidget) InventoryWidget->SetCraftingStation(Nearest);
 }
 
+void AWarPlayerController::ToggleQuestLog()
+{
+    if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
+    if (QuestLogWidget && QuestLogWidget->IsInViewport())
+    {
+        QuestLogWidget->RemoveFromParent();
+        SetInputMode(FInputModeGameOnly());
+        SetIgnoreLookInput(false);
+        SetIgnoreMoveInput(false);
+        bShowMouseCursor = false;
+        return;
+    }
+    if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
+    if (!QuestLogWidget) QuestLogWidget = CreateWidget<UWarQuestLogWidget>(this, UWarQuestLogWidget::StaticClass());
+    if (!QuestLogWidget) return;
+    QuestLogWidget->AddToViewport(10);
+    QuestLogWidget->SetPositionInViewport(FVector2D(32, 32));
+    QuestLogWidget->SetDesiredSizeInViewport(FVector2D(540, 650));
+    SetInputMode(FInputModeGameAndUI());
+    SetIgnoreLookInput(true);
+    SetIgnoreMoveInput(true);
+    bShowMouseCursor = true;
+}
+
 void AWarPlayerController::RecordEntryFailure(const FText& Reason)
 {
     if (!HasAuthority()) return;
@@ -81,6 +108,7 @@ void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reaso
 
 void AWarPlayerController::InteractWithWorld()
 {
+    if (QuestLogWidget && QuestLogWidget->IsInViewport()) return;
     if (InventoryWidget && InventoryWidget->IsInViewport()) return;
     if (!IsLocalController() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
     auto* State = GetPlayerState<AWarPlayerState>();

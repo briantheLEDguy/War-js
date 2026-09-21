@@ -7,6 +7,7 @@ struct AEGISWAR_API FWarQuestObjective
 {
     FName Id;
     FString KillTarget;
+    FString Description;
     FName ZoneId;
     int32 Required = 1;
 };

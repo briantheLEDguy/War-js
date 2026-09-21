@@ -27,10 +27,35 @@ and eligibility before rolling affixes, and retain atomic completion/retry check
 The lower-level rule methods remain available for trusted tests/integration.
 Authenticated callers must still validate NPC identity/range, current zone and
 kill ownership; the actual world/NPC/enemy integration is not yet implemented. These methods are deliberately not exposed to clients or Blueprints.
-Native quest NPCs, interactions, quest log/markers/navigation, notifications and
+Native quest NPCs, interactions, markers/navigation, notifications and
 real enemy attribution remain unfinished. Snapshot/receipt state is session-local;
 durable reconnect/transfer settlement remains required. This is tested rules and
 character-state integration, not a claim of playable quest parity.
+
+`L` opens the native `WarQuestLogWidget`, a read-only view of the owning player's
+replicated snapshot. It groups active/ready and completed quests and displays the
+authored descriptions, current objective counts, XP/gold/item rewards and affix
+ranges. It refreshes when the character or inventory revision changes and removes
+stale rows when character ownership disappears. Unknown definitions produce an
+unavailable message rather than silently hiding saved progress. Opening the log
+closes inventory, and closing it restores gameplay input. Dragging, navigation,
+markers and acceptance/turn-in controls remain unfinished.
+
+Use `npm run unreal:network-proof -- --packaged-root artifacts/unreal/packages/Win64
+--rendered --quest-ui` to capture the quest log after both realms' catalog quest
+transactions. It cannot be combined with `--inventory-ui`. Screenshots require
+actual inspection; their existence alone is not graphical acceptance.
+
+Quest log verification (2026-09-21): all 16 native groups passed in
+`artifacts/unreal/editor/test-1789979574316-35696/`. Windows packaging passed and
+the final two-client proof passed in
+`artifacts/unreal/network/1789979658248-33152/report.json`. Both client screenshots
+were inspected for title, objective text, 4/4 progress, rewards and readable close
+control. Repeated inventory/log switching restores movement, camera and cursor
+state on both clients. Local jump/strike requests now honor the modal input block.
+Active/ready states, scrolling through long logs and interactive keyboard testing
+still need visual acceptance. The 74 tooling tests and tools typecheck passed;
+release admission remains closed with four blocker categories.
 
 Verification on 2026-09-21: 74 migration tooling tests and tools typechecking
 passed. All 16 native Foundation groups passed, including 76 browser-reference

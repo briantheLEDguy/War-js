@@ -209,13 +209,13 @@ void AWarCharacter::MoveRight(const FInputActionValue& Value)
 }
 void AWarCharacter::LookYaw(const FInputActionValue& Value) { AddControllerYawInput(Value.Get<float>()); }
 void AWarCharacter::LookPitch(const FInputActionValue& Value) { AddControllerPitchInput(-Value.Get<float>()); }
-void AWarCharacter::StartJump() { if (!bDead && bVisualReady) Jump(); }
+void AWarCharacter::StartJump() { if (Controller && !Controller->IsMoveInputIgnored() && !bDead && bVisualReady) Jump(); }
 
 void AWarCharacter::RequestStrike()
 {
     if (bDead || !bVisualReady) return;
     const APlayerController* PC = Cast<APlayerController>(Controller);
-    if (!PC) return;
+    if (!PC || PC->IsMoveInputIgnored()) return;
     FVector Origin;
     FRotator Direction;
     PC->GetPlayerViewPoint(Origin, Direction);
@@ -229,7 +229,8 @@ void AWarCharacter::RequestStrike()
 
 void AWarCharacter::RequestTargetStrike(AWarCharacter* Target)
 {
-    if (IsLocallyControlled() && !bDead && bVisualReady && IsValid(Target)) ServerRequestStrike(Target);
+    if (IsLocallyControlled() && Controller && !Controller->IsMoveInputIgnored()
+        && !bDead && bVisualReady && IsValid(Target)) ServerRequestStrike(Target);
 }
 
 void AWarCharacter::ServerRequestStrike_Implementation(AWarCharacter* Target)

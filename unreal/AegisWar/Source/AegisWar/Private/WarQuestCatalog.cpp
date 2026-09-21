@@ -80,6 +80,7 @@ bool UWarContentSubsystem::ParseQuestCatalog(const TSharedPtr<FJsonObject>& Cata
                 || !NameField(Definition, TEXT("zoneId"), Objective.ZoneId, true)
                 || (!Objective.ZoneId.IsNone() && !Zones.Contains(Objective.ZoneId))
                 || !Definition->TryGetStringField(TEXT("killTarget"), Objective.KillTarget) || Objective.KillTarget.IsEmpty()
+                || !Definition->TryGetStringField(TEXT("description"), Objective.Description) || Objective.Description.IsEmpty()
                 || !IntegerField(Definition, TEXT("required"), Objective.Required, 1)) return false;
             ObjectiveIds.Add(Objective.Id); Quest.Objectives.Add(Objective);
         }

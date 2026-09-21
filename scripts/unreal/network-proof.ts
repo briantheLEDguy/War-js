@@ -5,8 +5,9 @@ import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot } from './toolchain';
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-const args = parseArguments(process.argv.slice(2), ['--rendered', '--inventory-ui'], ['--engine-root', '--packaged-root']);
+const args = parseArguments(process.argv.slice(2), ['--rendered', '--inventory-ui', '--quest-ui'], ['--engine-root', '--packaged-root']);
 if (args.has('--inventory-ui') && !args.has('--rendered')) throw new Error('Inventory UI proof requires --rendered.');
+if (args.has('--quest-ui') && (!args.has('--rendered') || args.has('--inventory-ui'))) throw new Error('Quest UI proof requires --rendered without --inventory-ui.');
 const packagedRoot = args.has('--packaged-root') ? path.resolve(args.get('--packaged-root')!) : undefined;
 const packagedClient = packagedRoot && path.join(packagedRoot, 'AegisWar/Binaries/Win64/AegisWar.exe');
 if (packagedClient && !existsSync(packagedClient)) throw new Error('Packaged Windows client does not exist.');
@@ -26,6 +27,7 @@ const logs: ReturnType<typeof createWriteStream>[] = [];
 const common = ['-unattended', '-nop4', '-nosplash', '-nosound', '-stdout', '-FullStdOutLogOutput',
   '-WarDevelopmentNetworking', '-WarNetworkProof', `-WarProofRun=${run}`, '-NoAsyncLoadingThread', '-ExecCmds=t.MaxFPS 60'];
 if (args.has('--inventory-ui')) common.push('-WarInventoryProofUI');
+if (args.has('--quest-ui')) common.push('-WarQuestProofUI');
 
 function start(name: string, options: string[]): ChildProcess {
   const log = createWriteStream(path.join(output, `${name}-stdout.log`)); logs.push(log);
@@ -59,6 +61,9 @@ try {
     await delay(250);
   }
   const receipts = roles.map(role => JSON.parse(readFileSync(receiptPath(role), 'utf8').replace(/^\uFEFF/, '')));
+  if (args.has('--quest-ui') && receipts.slice(1).some(receipt => receipt.questPanelInputRestored !== true)) {
+    throw new Error(`Quest/inventory panel transitions did not restore input; see ${output}`);
+  }
   if (args.has('--rendered')) {
     const screenshots = roles.slice(1).map(role => receiptPath(role).replace(/\.json$/, '.png'));
     while (!screenshots.every(filename => existsSync(filename))) {
