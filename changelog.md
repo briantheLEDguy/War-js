@@ -1,3 +1,9 @@
+## 2026-09-21 - Validated native quest catalogs
+
+- Validate quest/item/zone identities, objective counts, affix ranges and prerequisite chains before content readiness.
+- Resolve quest definitions and rewards through trusted server catalog commands, checking capacity before random rolls.
+- Run the browser-chain parity fixtures through the production parser and reward resolver; extend native malformed-data tests.
+
 ## 2026-09-21 - Native expedition quest transactions
 
 - Port both realm quest chains' acceptance, zone-specific kill counters and strict-capacity turn-in rules, with browser-executed fixtures.

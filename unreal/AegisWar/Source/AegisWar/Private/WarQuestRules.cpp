@@ -74,3 +74,29 @@ bool WarQuests::TurnIn(const FWarQuestDefinition& Quest, FName Realm, FName Zone
     Own->Status = TEXT("completed");
     return true;
 }
+
+bool WarQuests::ResolveRewards(const FWarQuestDefinition& Quest, TFunctionRef<double()> RandomUnit,
+    TArray<FWarInventoryItem>& Rewards, FString& Error)
+{
+    Error.Reset(); TArray<FWarInventoryItem> Result;
+    for (const auto& Reward : Quest.Rewards)
+    {
+        auto Item = Reward.Item;
+        if (Item.Quantity <= 0) { Error = TEXT("Quest reward quantity is invalid."); return false; }
+        auto Probe = Item; Probe.Quantity = 1; Probe.Slot = 0;
+        if (!WarInventory::Validate({Probe}, Error)) return false;
+        if (Reward.bRollStrength)
+        {
+            const int64 Width = int64(Reward.MaximumStrength) - Reward.MinimumStrength + 1;
+            if (Reward.MinimumStrength < 0 || Width <= 0 || Width > MAX_int32)
+            { Error = TEXT("Quest affix range is invalid."); return false; }
+            const double Roll = RandomUnit();
+            if (!FMath::IsFinite(Roll) || Roll < 0.0 || Roll >= 1.0)
+            { Error = TEXT("Quest reward random sample is invalid."); return false; }
+            Item.bHasAffix = true;
+            Item.StrengthBonus = Reward.MinimumStrength + int32(FMath::FloorToDouble(Roll * double(Width)));
+        }
+        Result.Add(Item);
+    }
+    Rewards = MoveTemp(Result); return true;
+}

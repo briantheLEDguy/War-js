@@ -5,6 +5,7 @@
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonSerializer.h"
 #include "WarQuestRules.h"
+#include "WarContentSubsystem.h"
 #include "WarPlayerState.h"
 #include "Engine/World.h"
 
@@ -23,43 +24,58 @@ bool FWarQuestTest::RunTest(const FString& Parameters)
     TMap<FName, TArray<FWarInventoryItem>> Rewards;
     auto Name = [](const TSharedPtr<FJsonObject>& Object, const TCHAR* Key) {
         FString Value; Object->TryGetStringField(Key, Value); return FName(*Value); };
-    for (const auto& Value : Catalog->GetArrayField(TEXT("quests")))
+    if (!TestTrue(TEXT("Runtime quest catalog validates"), UWarContentSubsystem::ParseQuestCatalog(Catalog, Definitions, Error))) return false;
+    for (const auto& Pair : Definitions)
     {
-        const auto Row = Value->AsObject(); FWarQuestDefinition Quest;
-        Quest.Id = Name(Row, TEXT("id")); Quest.Realm = Name(Row, TEXT("realm"));
-        Quest.GiverZoneId = Name(Row, TEXT("giverZoneId")); Quest.TurninZoneId = Name(Row, TEXT("turninZoneId"));
-        Quest.Prerequisite = Name(Row, TEXT("prereqQuestId")); Quest.MinLevel = Row->GetIntegerField(TEXT("minLevel"));
-        for (const auto& Entry : Row->GetArrayField(TEXT("objectives")))
-        {
-            const auto Objective = Entry->AsObject(); FWarQuestObjective Parsed;
-            Parsed.Id = Name(Objective, TEXT("id")); Parsed.ZoneId = Name(Objective, TEXT("zoneId"));
-            Parsed.KillTarget = Objective->GetStringField(TEXT("killTarget")); Parsed.Required = Objective->GetIntegerField(TEXT("required"));
-            Quest.Objectives.Add(Parsed);
-        }
-        const auto Reward = Row->GetObjectField(TEXT("reward"));
-        Quest.Xp = Reward->GetIntegerField(TEXT("xp")); Quest.Gold = Reward->GetIntegerField(TEXT("gold"));
-        for (const auto& Entry : Reward->GetArrayField(TEXT("items")))
-        {
-            const auto Item = Entry->AsObject(); FWarInventoryItem Parsed;
-            Parsed.Key = Name(Item, TEXT("key")); Parsed.Quantity = Item->GetIntegerField(TEXT("qty"));
-            for (const auto& Definition : Catalog->GetObjectField(TEXT("items"))->GetArrayField(TEXT("definitions")))
-            {
-                if (Name(Definition->AsObject(), TEXT("key")) != Parsed.Key) continue;
-                Parsed.Kind = Name(Definition->AsObject(), TEXT("kind")); Parsed.EquipSlot = Name(Definition->AsObject(), TEXT("equipSlot"));
-            }
-            if (Item->HasField(TEXT("kind"))) Parsed.Kind = Name(Item, TEXT("kind"));
-            if (Item->HasField(TEXT("equipSlot"))) Parsed.EquipSlot = Name(Item, TEXT("equipSlot"));
-            const TSharedPtr<FJsonObject>* Roll = nullptr;
-            if (Item->TryGetObjectField(TEXT("strengthRoll"), Roll))
-            {
-                const int32 Min = (*Roll)->GetIntegerField(TEXT("min")), Max = (*Roll)->GetIntegerField(TEXT("max"));
-                Parsed.bHasAffix = true; Parsed.StrengthBonus = Min + FMath::FloorToInt(Fixtures->GetNumberField(TEXT("randomUnit")) * (Max - Min + 1));
-            }
-            Rewards.FindOrAdd(Quest.Id).Add(Parsed);
-        }
-        Definitions.Add(Quest.Id, Quest);
+        TArray<FWarInventoryItem> Resolved;
+        if (!TestTrue(TEXT("Runtime reward resolution"), WarQuests::ResolveRewards(Pair.Value,
+            [&] { return Fixtures->GetNumberField(TEXT("randomUnit")); }, Resolved, Error))) return false;
+        Rewards.Add(Pair.Key, MoveTemp(Resolved));
     }
     TestEqual(TEXT("All eight source quests"), Definitions.Num(), 8);
+    FString CatalogJson;
+    FJsonSerializer::Serialize(Catalog.ToSharedRef(), TJsonWriterFactory<>::Create(&CatalogJson));
+    const auto Reject = [&](const TCHAR* Label, TFunction<void(TSharedPtr<FJsonObject>)> Mutate) {
+        TSharedPtr<FJsonObject> Broken;
+        FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(CatalogJson), Broken);
+        Mutate(Broken); auto Preserved = Definitions;
+        TestFalse(Label, UWarContentSubsystem::ParseQuestCatalog(Broken, Preserved, Error));
+        TestEqual(TEXT("Rejected catalog leaves prior output intact"), Preserved.Num(), 8);
+    };
+    Reject(TEXT("Duplicate quest rejected"), [](auto Root) {
+        auto Rows = Root->GetArrayField(TEXT("quests")); const auto Duplicate = Rows[0]; Rows.Add(Duplicate); Root->SetArrayField(TEXT("quests"), Rows); });
+    Reject(TEXT("Unknown reward rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[0]->AsObject()->GetObjectField(TEXT("reward"))->GetArrayField(TEXT("items"))[0]->AsObject()->SetStringField(TEXT("key"), TEXT("missing")); });
+    Reject(TEXT("Unknown zone rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[0]->AsObject()->SetStringField(TEXT("giverZoneId"), TEXT("missing")); });
+    Reject(TEXT("Fractional objective rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[0]->AsObject()->GetArrayField(TEXT("objectives"))[0]->AsObject()->SetNumberField(TEXT("required"), 1.5); });
+    Reject(TEXT("Duplicate objective rejected"), [](auto Root) {
+        auto Quest = Root->GetArrayField(TEXT("quests"))[0]->AsObject(); auto Rows = Quest->GetArrayField(TEXT("objectives"));
+        const auto Duplicate = Rows[0]; Rows.Add(Duplicate); Quest->SetArrayField(TEXT("objectives"), Rows); });
+    Reject(TEXT("Missing prerequisite rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[0]->AsObject()->SetStringField(TEXT("prereqQuestId"), TEXT("missing")); });
+    Reject(TEXT("Prerequisite cycle rejected"), [](auto Root) {
+        auto Rows = Root->GetArrayField(TEXT("quests")); Rows[0]->AsObject()->SetStringField(TEXT("prereqQuestId"), Rows[1]->AsObject()->GetStringField(TEXT("id"))); });
+    Reject(TEXT("Cross-realm prerequisite rejected"), [](auto Root) {
+        auto Rows = Root->GetArrayField(TEXT("quests")); Rows[0]->AsObject()->SetStringField(TEXT("prereqQuestId"), Rows[4]->AsObject()->GetStringField(TEXT("id"))); });
+    Reject(TEXT("Malformed optional reward array rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[0]->AsObject()->GetObjectField(TEXT("reward"))->SetStringField(TEXT("items"), TEXT("invalid")); });
+    Reject(TEXT("Reversed affix range rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[3]->AsObject()->GetObjectField(TEXT("reward"))->GetArrayField(TEXT("items"))[0]->AsObject()->GetObjectField(TEXT("strengthRoll"))->SetNumberField(TEXT("min"), 99); });
+    Reject(TEXT("Null optional field rejected"), [](auto Root) {
+        Root->GetArrayField(TEXT("quests"))[0]->AsObject()->SetField(TEXT("giverZoneId"), MakeShared<FJsonValueNull>()); });
+    {
+        const auto& Quest = Definitions.FindChecked(TEXT("dawnline-04-keep"));
+        TArray<FWarInventoryItem> Items;
+        TestTrue(TEXT("Lowest affix roll"), WarQuests::ResolveRewards(Quest, [] { return 0.0; }, Items, Error));
+        TestEqual(TEXT("Affix minimum"), Items[0].StrengthBonus, 3);
+        TestTrue(TEXT("Highest affix roll"), WarQuests::ResolveRewards(Quest, [] { return 0.999999; }, Items, Error));
+        TestEqual(TEXT("Affix maximum"), Items[0].StrengthBonus, 7);
+        TestFalse(TEXT("Out-of-range random input rejected"), WarQuests::ResolveRewards(Quest, [] { return 1.0; }, Items, Error));
+        TestEqual(TEXT("Failed roll leaves output intact"), Items[0].StrengthBonus, 7);
+    }
+
     for (const auto& Case : Fixtures->GetArrayField(TEXT("cases")))
     {
         const auto Scenario = Case->AsObject(); const FName Realm = Name(Scenario, TEXT("realm"));

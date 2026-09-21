@@ -19,10 +19,14 @@ status, item placement/affixes, XP/gold and growth at each step. Rejection scena
 cover other realms, missing prerequisites, wrong giver/kill/turn-in zones, repeated
 acceptance/completion and full bags. The deterministic reward roll is 0.5.
 
-The trusted methods require an authenticated server caller to resolve definitions,
-NPC identity/range, current zone, kill ownership and reward items/affixes from the
-catalog. That runtime caller and validated quest catalog adapter are not yet
-implemented. These methods are deliberately not exposed to clients or Blueprints.
+The content subsystem now validates and caches the runtime quest catalog on
+startup. Invalid identities, objective counts, zones, item references, affix ranges
+and prerequisite chains fail content readiness. Catalog-based trusted commands
+resolve quest definitions and rewards on the server, preflight turn-in capacity
+and eligibility before rolling affixes, and retain atomic completion/retry checks.
+The lower-level rule methods remain available for trusted tests/integration.
+Authenticated callers must still validate NPC identity/range, current zone and
+kill ownership; the actual world/NPC/enemy integration is not yet implemented. These methods are deliberately not exposed to clients or Blueprints.
 Native quest NPCs, interactions, quest log/markers/navigation, notifications and
 real enemy attribution remain unfinished. Snapshot/receipt state is session-local;
 durable reconnect/transfer settlement remains required. This is tested rules and
@@ -43,3 +47,14 @@ the proof now allows the respawn phase to replicate before adding quest state.
 The successful run verifies owner-only quest counters alongside movement, combat,
 crafting, cultivation, progression and respawn. It uses a local Unreal Editor
 dedicated server, not a packaged Linux server or production service.
+
+Catalog integration update (2026-09-21): the same 76 snapshots now execute the
+production catalog parser and affix resolver. Native tests also reject duplicate
+quests/objectives, unknown items/zones, fractional counts, missing/cyclic/cross-realm
+prerequisites, malformed optional fields and reversed affix ranges. All 16 native
+groups passed in `artifacts/unreal/editor/test-1789977450617-5460/`; 74 tooling tests
+and tools typechecking passed. The new real-catalog packaged quest transaction
+proof remains pending: packaging hit UnrealBuildTool's conflicting-instance mutex
+while the owner was converting/opening the project in the launcher. Existing
+packaged proof evidence above predates this catalog integration. Preserve the
+owner's `.uproject` and `.vsconfig` changes and retry only after conversion finishes.

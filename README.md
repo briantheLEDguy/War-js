@@ -48,8 +48,8 @@ are still pending. Native [character progression](docs/unreal-progression.md) no
 adds server-owned XP/gold, multilevel stat growth and an inventory progression
 readout; durable settlement and full ability integration remain open.
 Native [quest rules and character-state integration](docs/unreal-quests.md)
-preserve both expedition chains; NPC interaction, quest UI and durable settlement
-remain pending.
+preserve both expedition chains, with validated runtime catalogs and server-resolved
+rewards. NPC interaction, quest UI and durable settlement remain pending.
 
 ## Regional production priorities
 

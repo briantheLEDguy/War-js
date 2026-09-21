@@ -34,6 +34,9 @@ public:
         const TArray<FWarInventoryItem>& Rewards, FString& Error);
     int64 GetEffectiveStrength() const;
     // Trusted zone/NPC/kill services only; these methods are deliberately not RPCs.
+    bool AcceptCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error);
+    bool CompleteCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error);
+    bool RecordCatalogQuestKillTrusted(FName Zone, const FString& EnemyName, const FGuid& KillEvent, FString& Error);
     bool AcceptQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision, FString& Error);
     bool RecordQuestKillTrusted(const TArray<FWarQuestDefinition>& Quests, FName Zone, const FString& EnemyName, const FGuid& KillEvent, FString& Error);
     bool CompleteQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision,

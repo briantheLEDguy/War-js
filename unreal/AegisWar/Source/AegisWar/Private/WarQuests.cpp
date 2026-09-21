@@ -1,5 +1,7 @@
 #include "WarPlayerState.h"
 #include "WarQuestRules.h"
+#include "WarContentSubsystem.h"
+#include "Engine/GameInstance.h"
 
 namespace
 {
@@ -51,4 +53,46 @@ bool AWarPlayerState::CompleteQuestTrusted(const FWarQuestDefinition& Quest, FNa
     Inventory = MoveTemp(Next);
     if (Leveled) ApplyProgressionVitals(true);
     ForceNetUpdate(); return true;
+}
+
+bool AWarPlayerState::AcceptCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error)
+{
+    const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
+    FWarQuestDefinition Quest;
+    if (!Content || !Content->GetQuest(QuestId, Quest, Error))
+    { if (!Content) Error = TEXT("Quest catalog is unavailable."); return false; }
+    return AcceptQuestTrusted(Quest, Zone, ExpectedRevision, Error);
+}
+
+bool AWarPlayerState::CompleteCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error)
+{
+    Error.Reset();
+    if (!HasAuthority() || Realm == EWarRealm::None || ExpectedRevision != Inventory.Revision)
+    { Error = TEXT("Quest completion is unauthorized or character state changed."); return false; }
+    const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
+    FWarQuestDefinition Quest;
+    if (!Content || !Content->GetQuest(QuestId, Quest, Error))
+    { if (!Content) Error = TEXT("Quest catalog is unavailable."); return false; }
+    // Use the minimum affix only for capacity/precondition checks. Rejected turn-ins consume no random samples.
+    TArray<FWarInventoryItem> Rewards;
+    if (!WarQuests::ResolveRewards(Quest, [] { return 0.0; }, Rewards, Error)) return false;
+    auto Progress = Inventory.Quests; FWarInventorySnapshot Preview;
+    if (!WarQuests::TurnIn(Quest, QuestRealm(Realm), Zone, Rewards, Inventory, Progress, Preview, Error)) return false;
+    if (!WarQuests::ResolveRewards(Quest, [] { return double(FMath::FRand()); }, Rewards, Error)) return false;
+    return CompleteQuestTrusted(Quest, Zone, ExpectedRevision, Rewards, Error);
+}
+
+bool AWarPlayerState::RecordCatalogQuestKillTrusted(FName Zone, const FString& EnemyName, const FGuid& KillEvent, FString& Error)
+{
+    const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
+    if (!Content || !Content->IsContentReady()) { Error = TEXT("Quest catalog is unavailable."); return false; }
+    TArray<FWarQuestDefinition> Active;
+    for (const auto& Progress : Inventory.Quests)
+    {
+        if (Progress.Status != TEXT("active")) continue;
+        FWarQuestDefinition Quest;
+        if (!Content->GetQuest(Progress.Id, Quest, Error)) return false;
+        Active.Add(Quest);
+    }
+    return RecordQuestKillTrusted(Active, Zone, EnemyName, KillEvent, Error);
 }

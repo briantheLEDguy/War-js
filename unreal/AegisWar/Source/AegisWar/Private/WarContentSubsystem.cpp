@@ -105,7 +105,11 @@ void UWarContentSubsystem::Initialize(FSubsystemCollectionBase& Collection)
     else
     {
         bReady = ParseManifest(Json, Summary, ValidationError);
-        if (bReady) FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Manifest);
+        if (bReady)
+        {
+            bReady = FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Manifest)
+                && ParseQuestCatalog(Manifest, QuestCatalog, ValidationError);
+        }
     }
     if (!bReady)
     {
