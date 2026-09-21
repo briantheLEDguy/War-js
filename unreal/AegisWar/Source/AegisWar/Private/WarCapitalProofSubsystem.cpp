@@ -228,7 +228,9 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
                 && StationKinds.Contains(TEXT("apothecary")) && StationKinds.Contains(TEXT("cultivation"))
                 && StationKinds.Contains(TEXT("talisman_making")) && StationKinds.Contains(TEXT("salvage")),
                 TEXT("Capital lost source crafting station kinds."))) return;
-            TSet<FName> ExpectedNodes{TEXT("aegis_capital_herb_node_03"),TEXT("aegis_capital_soil_node_04")};
+            TSet<FName> ExpectedNodes{TEXT("aegis_capital_herb_node_03"),TEXT("aegis_capital_soil_node_04"),
+                TEXT("aegis_capital_scrap_node_01"),TEXT("aegis_capital_ore_node_02"),
+                TEXT("aegis_capital_scrap_node_07"),TEXT("aegis_capital_ore_node_08")};
             for (TActorIterator<AWarResourceNode> It(GetWorld()); It; ++It)
             {
                 if (!CheckCity(It->ZoneId==TEXT("aegis_capital") && ExpectedNodes.Remove(It->NodeId)==1,
@@ -255,7 +257,7 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
                     TEXT("Gathering did not apply source profession XP/cooldown."))) return;
                 ++CapitalResourcesVerified;
             }
-            if (!CheckCity(ExpectedNodes.IsEmpty() && CapitalResourcesVerified==2,TEXT("Capital gathering bindings missing."))) return;
+            if (!CheckCity(ExpectedNodes.IsEmpty() && CapitalResourcesVerified==6,TEXT("Capital gathering bindings missing."))) return;
             Character->SetActorLocation(Arrival, false, nullptr, ETeleportType::TeleportPhysics);
             bGameplayIntegrationVerified = true;
             const auto& Template = Editor->GetHistory().GetBaselineObjects()[0];

@@ -39,6 +39,7 @@ for view, eye_values, center_values in [
     ("market", (-13300, -3700, 620), (-9200, 1500, 200)),
     ("courtyard", (14800, -2400, 4450), (18500, 0, 5000)),
     ("herb-patch", (-13500, -10500, 260), (-13200, -10200, 30)),
+    ("supplies", (-13700, -12400, 260), (-13200, -12200, 30)),
     ("soil-patch", (-13500, -9500, 240), (-13200, -9200, 20))]:
     eye, center = unreal.Vector(*eye_values), unreal.Vector(*center_values)
     rotation = unreal.MathLibrary.find_look_at_rotation(eye, center)

@@ -1,3 +1,9 @@
+## 2026-09-21 - Purchased-kit capital gathering supplies
+
+- Restored four original scrap/ore gathering sites using the purchased town crate, bringing the capital to six of eight resource nodes. Water and relic visuals remain pending.
+- Preserved node identities, locations, source loot/profession/cooldown rules; recorded the exact native model and adapted scale without reusing the old generated crate stack.
+- Verified native/editor and Windows packaged six-node interactions, city traversal and GM reload, plus the two-client loopback regression. All 21 native foundation groups, 85 tooling tests, typechecking and focused Python checks passed. Inspected the offscreen editor crate capture; full visual/platform acceptance stays open.
+
 ## 2026-09-21 - Restore capital herb and soil gathering
 
 - Bound two original capital resource nodes to the detailed authored violet flowerbed, retaining source identities, locations, transforms and gameplay rules. Six other resource visuals remain explicitly pending.

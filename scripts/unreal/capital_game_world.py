@@ -84,7 +84,7 @@ def build_terrain(actors):
             "mountainSourceSha256": hashlib.sha256((ROOT/"public/assets/models/prop_aegis_mountain_massif.glb").read_bytes()).hexdigest()}
 
 
-def build_gameplay(actors):
+def build_gameplay(actors, supply_crate):
     source = source_map()
     npc_source = next(n for n in source["npcs"] if n["id"] == "quest-1")
     visual = unreal.load_asset("/Game/MigrationProof/Visual_npc_aegis_mara_vell_brightfen_dispatch_officer")
@@ -125,19 +125,24 @@ def build_gameplay(actors):
     asset=unreal.load_asset(receipt["meshes"][0]["path"])
     if not isinstance(asset,unreal.StaticMesh):
         raise RuntimeError("Capital gathering mesh is unavailable")
+    if not isinstance(supply_crate,unreal.StaticMesh) or supply_crate.get_path_name() != "/Game/LicensedKits/Crownward/SM_Crate.SM_Crate":
+        raise RuntimeError("Purchased capital supply crate is unavailable")
     for binding in resource_bindings(source):
         node,prop=binding["node"],binding["prop"]
         actor=actors.spawn_actor_from_class(unreal.WarResourceNode,unreal.Vector(*point(prop,prop.get("y",0)*100)),
             unreal.Rotator(yaw=90-math.degrees(prop.get("rotY",0))))
         actor.set_actor_label(node["label"])
         actor.tags=["WarCapitalGameplay",node["id"]]
-        actor.set_actor_scale3d(unreal.Vector(*([prop.get("scale",1)]*3)))
-        actor.static_mesh_component.set_static_mesh(asset)
+        is_supply=binding["profile"]=="aegis_crate_stack"
+        # Preserve source locations; fit the purchased single crate to a supply site's footprint.
+        scale=prop.get("scale",1)*(2.5 if is_supply else 1)
+        actor.set_actor_scale3d(unreal.Vector(scale,scale,scale))
+        actor.static_mesh_component.set_static_mesh(supply_crate if is_supply else asset)
         actor.static_mesh_component.set_collision_profile_name("NoCollision")
         actor.set_editor_property("zone_id","aegis_capital")
         actor.set_editor_property("node_id",node["id"])
         actor.set_editor_property("visual_prop_id",prop["id"])
-        resources.append({"id":node["id"],"visualPropId":prop["id"],"profile":PROFILE,"position":point(prop)})
+        resources.append({"id":node["id"],"visualPropId":prop["id"],"sourceProfile":binding["profile"],"mesh":actor.static_mesh_component.static_mesh.get_path_name(),"scale":scale,"position":point(prop)})
     return {"zoneId":"aegis_capital","questNpcId":npc_source["id"],"questNpcPosition":point(npc_source),
             "resources":resources,"pendingResources":[n["id"] for n in source["resourceNodes"] if n["id"] not in {r["id"] for r in resources}],
             "stations":stations,"nativeGameMode":"/Script/AegisWar.WarGameMode","developmentOnly":True,

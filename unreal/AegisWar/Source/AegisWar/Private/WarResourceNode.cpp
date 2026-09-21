@@ -23,7 +23,8 @@ bool AWarResourceNode::ResolveInteraction(const APawn* Pawn, FWarResourceDefinit
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
     if (!Pawn || Pawn->GetWorld() != GetWorld() || Pawn->IsActorBeingDestroyed() || IsActorBeingDestroyed()
         || IsHidden() || !GetStaticMeshComponent()->IsVisible() || !Mesh
-        || !Mesh->GetPathName().StartsWith(TEXT("/Game/Imported/")) || !Content) return false;
+        || !(Mesh->GetPathName().StartsWith(TEXT("/Game/Imported/"))
+            || Mesh->GetPathName()==TEXT("/Game/LicensedKits/Crownward/SM_Crate.SM_Crate")) || !Content) return false;
     FWarResourceDefinition Parsed;
     if (!Content->GetResourceNode(ZoneId, NodeId, Parsed, Error)) return false;
     if (Parsed.VisualPropId != VisualPropId) { Error = TEXT("Resource node visual binding is unavailable."); return false; }

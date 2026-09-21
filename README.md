@@ -9,8 +9,8 @@ is a private asset-import workspace, not another game project. The city uses the
 original mountain terrain, five districts, 145 house sites and winding ascent to
 the hilltop castle, with 8,704 editable purchased-kit placements. Mara Vell and
 all five source crafting stations use the existing native gameplay systems.
-The original herb/soil nodes support gathering; six other capital nodes still
-await suitable visuals. See `docs/unreal-crownward.md` for validation and limits.
+The original herb/soil and four scrap/ore nodes support gathering; the water
+and relic nodes still await suitable visuals. See `docs/unreal-crownward.md` for validation and limits.
 Press Play, **G** for City Builder, **I** for inventory, **L** for quests and **E**
 to interact. Full gameplay migration and city/interior parity remain unfinished.
 The city pipeline recompiles the legacy market cloth material into a private

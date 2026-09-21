@@ -73,7 +73,7 @@ for actor in actors.get_all_level_actors():
             or any(str(tag) in ["WarCrownwardTerrain", "WarCapitalGameplay"] for tag in actor.tags)):
         actors.destroy_actor(actor)
 geography = build_terrain(actors)
-gameplay = build_gameplay(actors)
+gameplay = build_gameplay(actors, meshes["crate"])
 placed = []
 for row in layout["placements"]:
     kind, (sx, sy, sz) = row["kind"], row["scale"]

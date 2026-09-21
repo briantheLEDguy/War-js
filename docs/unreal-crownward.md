@@ -162,7 +162,7 @@ with reconstructed source materials, not generated placeholder geometry. Use
 the normal nearby interaction binding to gather. Low decorative beds have no
 blocking collision. `capital_resources.py` rejects missing, duplicate, moved or
 replaced source visual bindings; regeneration requires a current native import.
-The build receipt lists all six remaining capital nodes as pending. Their
+The build receipt lists the remaining water and relic nodes as pending. Their
 legacy visuals are not silently substituted. Full asset approval and LOD review
 remain open. Run `python tests/unrealCapitalResources.test.py` for binding checks.
 
@@ -183,3 +183,34 @@ quest/station and fresh-process GM reload sequence at
 `artifacts/unreal/capital-proof/crownward-1790012814624`. This run used NullRHI;
 only the editor gathering captures were visually reviewed. Ten import-preflight
 and five material-protection tests also passed.
+
+Purchased supply visuals: four source scrap/ore node identities now map to the
+already staged `/Game/LicensedKits/Crownward/SM_Crate.SM_Crate`, retaining source
+locations, yaw and gathering definitions. A uniform 2.5 multiplier on each
+source visual scale fits the single purchased crate to the former supply-stack
+footprint; it does not reintroduce the old generated box stack. The build
+receipt records each exact native mesh path and scale. Runtime gathering
+explicitly admits this crate in addition to imported repository models, while
+engine fallback meshes remain rejected. The source-binding tests cover all six
+nodes. The crate is decorative/nonblocking like the flowerbed nodes. These
+placements do not add a merchant transaction system or GM resource editing.
+
+Six-node verification: editor gathering/range/hidden/revision/cooldown/XP checks,
+the grounded approach and fresh-process GM reload passed at
+`artifacts/unreal/capital-proof/crownward-1790013015753`. The purchased crate's
+native editor capture (`artifacts/unreal/licensed-kits/crownward-supplies.png`)
+was inspected. All 21 native foundation groups passed at
+`artifacts/unreal/editor/test-1790013129531-34112`, alongside 85 tooling tests,
+tooling typechecking, four resource-binding tests and ten layout tests.
+
+The six-node Windows package passed the same interaction/city/GM reload checks
+at `artifacts/unreal/capital-proof/crownward-1790013219333`. Import binding
+validation also rejects conflicting direct model filenames and non-finite or
+boolean transform values, in addition to missing/replaced source profiles.
+
+The two packaged Windows clients also passed the loopback UDP multiplayer
+regression at `artifacts/unreal/network/1790013274409-4448/report.json`, including
+inventory/crafting/gathering/progression and remote GM rejection. Its server is
+an Unreal Editor dedicated process, not a packaged Linux server; Steam and
+three-platform networking acceptance remain open. Release admission remains
+closed with four blocker categories and all 39 full-parity contracts pending.
