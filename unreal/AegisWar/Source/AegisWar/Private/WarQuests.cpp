@@ -1,12 +1,39 @@
 #include "WarPlayerState.h"
 #include "WarQuestRules.h"
 #include "WarContentSubsystem.h"
+#include "WarQuestNpc.h"
 #include "Engine/GameInstance.h"
 
 namespace
 {
     FName QuestRealm(EWarRealm Realm)
     { return Realm == EWarRealm::Aegis ? FName(TEXT("aegis")) : Realm == EWarRealm::Riftbound ? FName(TEXT("riftbound")) : NAME_None; }
+}
+
+bool AWarPlayerState::InteractQuest(const AWarQuestNpc* Npc, FName QuestId, bool bTurnIn, int32 ExpectedRevision, FString& Error)
+{
+    if (!HasAuthority() || !CanPerformInventoryAction() || ExpectedRevision != Inventory.Revision || !IsValid(Npc))
+    { Error = TEXT("Quest interaction is unavailable or character state changed."); return false; }
+    FString Name;
+    if (!Npc->ResolveInteraction(GetPawn(), Name, Error)) return false;
+    const auto* Content = GetGameInstance()->GetSubsystem<UWarContentSubsystem>();
+    FWarQuestDefinition Quest;
+    if (!Content || !Content->GetQuest(QuestId, Quest, Error)) return false;
+    if ((bTurnIn ? Quest.TurninNpcId : Quest.GiverNpcId) != Npc->NpcId)
+    { Error = TEXT("This character cannot perform that quest interaction."); return false; }
+    return bTurnIn ? CompleteCatalogQuestTrusted(QuestId, Npc->ZoneId, ExpectedRevision, Error)
+        : AcceptCatalogQuestTrusted(QuestId, Npc->ZoneId, ExpectedRevision, Error);
+}
+void AWarPlayerState::ServerInteractQuest_Implementation(AWarQuestNpc* Npc, FName QuestId, bool bTurnIn, int32 ExpectedRevision)
+{
+    FString Error; const bool Accepted = InteractQuest(Npc, QuestId, bTurnIn, ExpectedRevision, Error);
+    ClientQuestResult(Accepted, bTurnIn, Error);
+}
+void AWarPlayerState::ClientQuestResult_Implementation(bool bAccepted, bool bTurnIn, const FString& Error)
+{
+    InventoryMessage = !bAccepted ? FText::FromString(Error) : bTurnIn
+        ? NSLOCTEXT("AegisWar", "QuestCompleted", "Quest completed. Rewards received.")
+        : NSLOCTEXT("AegisWar", "QuestAccepted", "Quest accepted.");
 }
 
 bool AWarPlayerState::AcceptQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision, FString& Error)

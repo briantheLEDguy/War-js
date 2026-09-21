@@ -54,8 +54,13 @@ Native [quest rules and character-state integration](docs/unreal-quests.md)
 preserve both expedition chains, with validated runtime catalogs and server-resolved
 rewards. Packaged Windows two-client tests verify each realm's first quest rewards,
 completion retry rejection and private quest state. `L` opens a native quest log
-with objective progress and reward previews. NPC interaction, navigation/markers,
-complete quest presentation and durable settlement remain pending.
+with objective progress and reward previews. `E` opens nearby native quest NPC
+dialogue with server-validated acceptance and turn-in. The proof scene explicitly
+maps Mara Vell and Ari Vell to the repository's complex Empire herbalist model;
+these development assignments still need final visual approval. Native quest
+markers show offers and ready turn-ins from the owning character's private state.
+Riftbound NPC models, navigation, real enemy kill attribution, complete quest
+presentation and durable settlement remain pending.
 
 ## Regional production priorities
 

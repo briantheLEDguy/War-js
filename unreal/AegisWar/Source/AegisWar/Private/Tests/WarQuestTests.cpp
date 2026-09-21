@@ -33,6 +33,17 @@ bool FWarQuestTest::RunTest(const FString& Parameters)
         Rewards.Add(Pair.Key, MoveTemp(Resolved));
     }
     TestEqual(TEXT("All eight source quests"), Definitions.Num(), 8);
+    FString NpcName; FName NpcProfile;
+    bool bHeight = false;
+    TestTrue(TEXT("Crater city dispatch resolves"), UWarContentSubsystem::ParseQuestNpc(Catalog, TEXT("riftspire_capital"), TEXT("riftspire_dispatch"), NpcName, NpcProfile, Error, &bHeight));
+    TestTrue(TEXT("Crater city measures authored floor height"), bHeight);
+    TestTrue(TEXT("Capital quest giver resolves"), UWarContentSubsystem::ParseQuestNpc(Catalog, TEXT("aegis_capital"), TEXT("quest-1"), NpcName, NpcProfile, Error, &bHeight));
+    TestFalse(TEXT("Ordinary capital uses horizontal range"), bHeight);
+    TestEqual(TEXT("Authored NPC name retained"), NpcName, FString(TEXT("Mara Vell")));
+    TestEqual(TEXT("Explicit NPC profile retained"), NpcProfile, FName(TEXT("npc_aegis_mara_vell_brightfen_dispatch_officer")));
+    TestFalse(TEXT("NPC in wrong zone rejected"), UWarContentSubsystem::ParseQuestNpc(Catalog, TEXT("brightfen_approach"), TEXT("quest-1"), NpcName, NpcProfile, Error));
+    TestFalse(TEXT("Fabricated NPC rejected"), UWarContentSubsystem::ParseQuestNpc(Catalog, TEXT("aegis_capital"), TEXT("fabricated"), NpcName, NpcProfile, Error));
+    TestEqual(TEXT("Rejected identity leaves prior result intact"), NpcName, FString(TEXT("Mara Vell")));
     for (const auto& Value : Catalog->GetArrayField(TEXT("quests")))
     {
         const auto Row = Value->AsObject();
@@ -43,6 +54,29 @@ bool FWarQuestTest::RunTest(const FString& Parameters)
     }
     FString CatalogJson;
     FJsonSerializer::Serialize(Catalog.ToSharedRef(), TJsonWriterFactory<>::Create(&CatalogJson));
+    for (const FName Case : {FName(TEXT("duplicate")), FName(TEXT("wrong-role")), FName(TEXT("missing-profile")), FName(TEXT("duplicate-zone"))})
+    {
+        TSharedPtr<FJsonObject> Broken;
+        FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(CatalogJson), Broken);
+        auto Maps = Broken->GetArrayField(TEXT("maps"));
+        for (const auto& Value : Maps)
+        {
+            const auto Map = Value->AsObject();
+            if (Name(Map, TEXT("id")) != TEXT("aegis_capital")) continue;
+            auto Definition = Map->GetObjectField(TEXT("definition"));
+            auto Npcs = Definition->GetArrayField(TEXT("npcs"));
+            const auto* Found = Npcs.FindByPredicate([&](const auto& Row) { return Name(Row->AsObject(), TEXT("id")) == TEXT("quest-1"); });
+            if (!TestNotNull(TEXT("Authored quest NPC fixture exists"), Found)) return false;
+            const auto Npc = *Found;
+            if (Case == TEXT("duplicate")) { Npcs.Add(Npc); Definition->SetArrayField(TEXT("npcs"), Npcs); }
+            if (Case == TEXT("wrong-role")) Npc->AsObject()->SetStringField(TEXT("role"), TEXT("merchant"));
+            if (Case == TEXT("missing-profile")) Npc->AsObject()->RemoveField(TEXT("characterProfileKey"));
+            if (Case == TEXT("duplicate-zone")) { const auto Duplicate = Value; Maps.Add(Duplicate); Broken->SetArrayField(TEXT("maps"), Maps); }
+            break;
+        }
+        TestFalse(Case.ToString(), UWarContentSubsystem::ParseQuestNpc(Broken, TEXT("aegis_capital"), TEXT("quest-1"), NpcName, NpcProfile, Error));
+        TestEqual(TEXT("Rejected NPC identity preserves output"), NpcName, FString(TEXT("Mara Vell")));
+    }
     const auto Reject = [&](const TCHAR* Label, TFunction<void(TSharedPtr<FJsonObject>)> Mutate) {
         TSharedPtr<FJsonObject> Broken;
         FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(CatalogJson), Broken);

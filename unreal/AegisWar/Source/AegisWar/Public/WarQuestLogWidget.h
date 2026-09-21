@@ -6,12 +6,15 @@
 
 class SVerticalBox;
 class AWarPlayerState;
+class AWarQuestNpc;
 
-/** Read-only view of the owning character's replicated quest progress. */
+/** Owner-only quest log and NPC dialogue; every mutation is validated by the server. */
 UCLASS()
 class AEGISWAR_API UWarQuestLogWidget : public UUserWidget
 {
     GENERATED_BODY()
+public:
+    void SetNpc(AWarQuestNpc* Npc);
 protected:
     virtual TSharedRef<SWidget> RebuildWidget() override;
     virtual void NativeTick(const FGeometry& Geometry, float DeltaTime) override;
@@ -21,4 +24,6 @@ private:
     TSharedPtr<SVerticalBox> Rows;
     TWeakObjectPtr<AWarPlayerState> DisplayedState;
     int32 DisplayedRevision = INDEX_NONE;
+    TWeakObjectPtr<AWarQuestNpc> QuestNpc;
+    bool bNpcInteraction = false;
 };

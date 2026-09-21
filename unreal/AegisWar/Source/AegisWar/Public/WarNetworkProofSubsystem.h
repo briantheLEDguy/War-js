@@ -47,6 +47,10 @@ private:
     bool bDeathObserved = false;
     bool bRespawnVerified = false;
     bool bQuestPrivacyVerified = false;
+    bool bQuestNpcVerified = false;
+    bool bQuestAcceptRequested = false;
+    bool bQuestTurnInRequested = false;
+    bool bQuestNpcRpcVerified = false;
     TWeakObjectPtr<AWarCharacter> DefeatedDefender;
     TWeakObjectPtr<AWarCharacter> TrackedDefender;
     TWeakObjectPtr<AWarPlayerState> TrackedDefenderState;

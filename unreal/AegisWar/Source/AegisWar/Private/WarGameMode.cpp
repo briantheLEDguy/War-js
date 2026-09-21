@@ -7,6 +7,9 @@
 #include "WarPlayerController.h"
 #include "WarRuntimeSettings.h"
 #include "WarTypes.h"
+#include "WarQuestNpc.h"
+#include "WarQuestHud.h"
+#include "EngineUtils.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
@@ -19,6 +22,7 @@ AWarGameMode::AWarGameMode()
     DefaultPawnClass = AWarCharacter::StaticClass();
     PlayerStateClass = AWarPlayerState::StaticClass();
     PlayerControllerClass = AWarPlayerController::StaticClass();
+    HUDClass = AWarQuestHud::StaticClass();
 }
 
 bool AWarGameMode::IsDevelopmentSession() const
@@ -51,6 +55,11 @@ UWarCharacterVisualDefinition* AWarGameMode::ResolveVisual(AController* Controll
     {
         OutError = Content ? Content->GetValidationError() : TEXT("Content subsystem is unavailable.");
         return nullptr;
+    }
+    for (TActorIterator<AWarQuestNpc> It(GetWorld()); It; ++It)
+    {
+        FString Name;
+        if (!It->ValidateIdentity(Name, OutError)) return nullptr;
     }
     const AWarPlayerState* State = Controller ? Controller->GetPlayerState<AWarPlayerState>() : nullptr;
     if (!State || State->GetRealm() == EWarRealm::None)

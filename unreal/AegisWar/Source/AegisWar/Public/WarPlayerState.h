@@ -12,6 +12,7 @@ class UWarAttributeSet;
 class AWarCharacter;
 class AWarCraftingStation;
 class AWarResourceNode;
+class AWarQuestNpc;
 struct FWarQuestDefinition;
 
 /** PlayerState owns GAS so replacing the pawn does not clear ability cooldowns. */
@@ -35,6 +36,9 @@ public:
     int64 GetEffectiveStrength() const;
     // Trusted zone/NPC/kill services only; these methods are deliberately not RPCs.
     bool AcceptCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error);
+    bool InteractQuest(const AWarQuestNpc* Npc, FName QuestId, bool bTurnIn, int32 ExpectedRevision, FString& Error);
+    UFUNCTION(Server, Reliable) void ServerInteractQuest(AWarQuestNpc* Npc, FName QuestId, bool bTurnIn, int32 ExpectedRevision);
+    UFUNCTION(Client, Reliable) void ClientQuestResult(bool bAccepted, bool bTurnIn, const FString& Error);
     bool CompleteCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error);
     bool RecordCatalogQuestKillTrusted(FName Zone, const FString& EnemyName, const FGuid& KillEvent, FString& Error);
     bool AcceptQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision, FString& Error);

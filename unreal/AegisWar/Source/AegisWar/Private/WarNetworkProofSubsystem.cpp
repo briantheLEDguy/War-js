@@ -7,6 +7,8 @@
 #include "WarAttributeSet.h"
 #include "WarGameplayEffects.h"
 #include "WarQuestRules.h"
+#include "WarQuestNpc.h"
+#include "Components/CapsuleComponent.h"
 #include "WarContentSubsystem.h"
 #include "Engine/GameInstance.h"
 #include "AbilitySystemComponent.h"
@@ -78,6 +80,8 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
     Report->SetBoolField(TEXT("deathObserved"), bDeathObserved);
     Report->SetBoolField(TEXT("questSnapshotPrivacy"), bQuestPrivacyVerified);
     Report->SetBoolField(TEXT("catalogQuestTransactions"), bQuestPrivacyVerified);
+    Report->SetBoolField(TEXT("questNpcAuthority"), bQuestNpcVerified);
+    Report->SetBoolField(TEXT("questNpcClientRpc"), bQuestNpcRpcVerified);
     if (GetWorld()->GetNetMode() == NM_Client && FParse::Param(FCommandLine::Get(), TEXT("WarQuestProofUI")))
     {
         bool bInputRestored = false;
@@ -421,7 +425,7 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     // Keep the respawn observation phase separate from the next inventory revision.
     if (bRespawnVerified && Elapsed > 70.0)
     {
-        // Drive real catalog commands directly; NPC proximity and real enemy attribution remain separate gates.
+        // Aegis uses placed NPC authority checks; Riftbound uses trusted catalog commands until its models are ready.
         const auto QuestId = [](const AWarPlayerState* State) {
             return State->GetRealm() == EWarRealm::Aegis ? FName(TEXT("dawnline-01-scouting")) : FName(TEXT("cinderfen-01-scouting")); };
         if (bServer)
@@ -429,10 +433,50 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
             const auto* Content = GetWorld()->GetGameInstance()->GetSubsystem<UWarContentSubsystem>();
             for (auto* State : {Aegis, Riftbound})
             {
-                if (!State->GetInventory().Quests.IsEmpty()) continue;
+                if (State == Riftbound && !State->GetInventory().Quests.IsEmpty()) continue;
                 FWarQuestDefinition Quest; FString Error;
-                if (!Content || !Content->GetQuest(QuestId(State), Quest, Error)
-                    || !State->AcceptCatalogQuestTrusted(Quest.Id, Quest.GiverZoneId, 11, Error))
+                if (!Content || !Content->GetQuest(QuestId(State), Quest, Error))
+                { Finish(false, TEXT("Catalog quest is unavailable.")); return; }
+                AWarQuestNpc* Giver = nullptr; AWarQuestNpc* Turnin = nullptr;
+                auto* Pawn = Cast<AWarCharacter>(State->GetPawn());
+                const bool bNpcCase = State == Aegis;
+                if (bNpcCase)
+                {
+                    for (TActorIterator<AWarQuestNpc> It(GetWorld()); It; ++It)
+                    {
+                        if (It->NpcId == Quest.GiverNpcId && It->ZoneId == Quest.GiverZoneId) Giver = *It;
+                        if (It->NpcId == Quest.TurninNpcId && It->ZoneId == Quest.TurninZoneId) Turnin = *It;
+                    }
+                    if (!Giver || !Turnin || !Pawn) { Finish(false, TEXT("Authored quest NPC proof placements missing.")); return; }
+                    const double Height = Pawn->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+                    if (bQuestNpcVerified)
+                    {
+                        // Acceptance/turn-in must arrive through the owning client's RPC, never a server shortcut.
+                        if (State->GetInventory().Revision == 12)
+                        {
+                            for (int32 Kill = 0; Kill < 4; ++Kill)
+                                if (!State->RecordCatalogQuestKillTrusted(Quest.Objectives[0].ZoneId, Quest.Objectives[0].KillTarget, FGuid::NewGuid(), Error))
+                                { Finish(false, TEXT("NPC quest kill transaction failed.")); return; }
+                            Pawn->SetActorLocation(Turnin->GetActorLocation() + FVector(100, 0, Height));
+                        }
+                        continue;
+                    }
+                    Pawn->SetActorLocation(Giver->GetActorLocation() + FVector(400, 0, Height));
+                    if (State->InteractQuest(Giver, Quest.Id, false, 11, Error))
+                    { Finish(false, TEXT("Quest accepted at excluded four-metre boundary.")); return; }
+                    Pawn->SetActorLocation(Turnin->GetActorLocation() + FVector(100, 0, Height));
+                    if (State->InteractQuest(Turnin, Quest.Id, false, 11, Error))
+                    { Finish(false, TEXT("Wrong NPC accepted quest.")); return; }
+                    Pawn->SetActorLocation(Giver->GetActorLocation() + FVector(100, 0, Height));
+                    Giver->SetActorHiddenInGame(true);
+                    const bool HiddenAccepted = State->InteractQuest(Giver, Quest.Id, false, 11, Error);
+                    Giver->SetActorHiddenInGame(false);
+                    if (HiddenAccepted || State->InteractQuest(Giver, Quest.Id, false, 10, Error))
+                    { Finish(false, TEXT("Hidden NPC or stale revision accepted quest.")); return; }
+                    bQuestNpcVerified = true;
+                    continue;
+                }
+                if (!State->AcceptCatalogQuestTrusted(Quest.Id, Quest.GiverZoneId, 11, Error))
                 { Finish(false, TEXT("Catalog quest could not be accepted.")); return; }
                 for (int32 Kill = 0; Kill < 4; ++Kill)
                     if (!State->RecordCatalogQuestKillTrusted(Quest.Objectives[0].ZoneId, Quest.Objectives[0].KillTarget, FGuid::NewGuid(), Error))
@@ -440,6 +484,36 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
                 if (!State->CompleteCatalogQuestTrusted(Quest.Id, Quest.TurninZoneId, 16, Error)
                     || State->CompleteCatalogQuestTrusted(Quest.Id, Quest.TurninZoneId, 17, Error))
                 { Finish(false, TEXT("Catalog quest settlement or retry rejection failed.")); return; }
+            }
+        }
+        if (bAttackerClient)
+        {
+            AWarQuestNpc* Giver = nullptr; AWarQuestNpc* Turnin = nullptr;
+            for (TActorIterator<AWarQuestNpc> It(GetWorld()); It; ++It)
+            {
+                if (It->NpcId == TEXT("quest-1") && It->ZoneId == TEXT("aegis_capital")) Giver = *It;
+                if (It->NpcId == TEXT("brightfen_approach_dispatch") && It->ZoneId == TEXT("brightfen_approach")) Turnin = *It;
+            }
+            FString Name, Error;
+            if (Giver && Turnin && !bQuestAcceptRequested && Aegis->GetInventory().Revision == 11
+                && Giver->ResolveInteraction(Attacker, Name, Error))
+            {
+                Aegis->ServerInteractQuest(nullptr, QuestId(Aegis), false, 11);
+                Aegis->ServerInteractQuest(Turnin, QuestId(Aegis), false, 11);
+                Aegis->ServerInteractQuest(Giver, QuestId(Aegis), false, 10);
+                Aegis->ServerInteractQuest(Giver, QuestId(Aegis), false, 11);
+                Aegis->ServerInteractQuest(Giver, QuestId(Aegis), false, 11);
+                bQuestAcceptRequested = true;
+            }
+            if (Giver && Turnin && !bQuestTurnInRequested && Aegis->GetInventory().Revision == 16
+                && Turnin->ResolveInteraction(Attacker, Name, Error))
+            {
+                Aegis->ServerInteractQuest(Giver, QuestId(Aegis), true, 16);
+                Aegis->ServerInteractQuest(Turnin, QuestId(Aegis), true, 15);
+                Aegis->ServerInteractQuest(Turnin, QuestId(Aegis), true, 16);
+                Aegis->ServerInteractQuest(Turnin, QuestId(Aegis), true, 16);
+                Aegis->ServerInteractQuest(Turnin, QuestId(Aegis), true, 17);
+                bQuestTurnInRequested = true;
             }
         }
         const auto HasQuest = [&](const AWarPlayerState* State) {
@@ -454,9 +528,12 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
         };
         bQuestPrivacyVerified |= bServer ? HasQuest(Aegis) && HasQuest(Riftbound)
             : HasQuest(bAttackerClient ? Aegis : Riftbound) && (bAttackerClient ? Riftbound : Aegis)->GetInventory().Quests.IsEmpty();
+        bQuestNpcRpcVerified |= (bServer && bQuestNpcVerified && HasQuest(Aegis))
+            || (bAttackerClient && bQuestAcceptRequested && bQuestTurnInRequested && HasQuest(Aegis));
     }
     if (bCombatVerified && bInventoryVerified && bConsumableVerified && bCraftVerified && bSalvageVerified && bCultivationVerified
-        && bProgressionVerified && bRespawnVerified && bQuestPrivacyVerified && FMath::IsNearlyEqual(ObservedHealth, 140.f)
+        && bProgressionVerified && bRespawnVerified && bQuestPrivacyVerified && Elapsed > 74.0
+        && ((!bServer && !bAttackerClient) || bQuestNpcRpcVerified) && FMath::IsNearlyEqual(ObservedHealth, 140.f)
         && ((!bServer && !bAttackerClient) || FMath::IsNearlyEqual(ObservedMana, 120.f)))
     {
         Finish(true, TEXT("Movement, combat, private inventory, consumables, crafting, salvage, cultivation, progression and respawn verified."));

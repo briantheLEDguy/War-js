@@ -2,6 +2,7 @@
 #include "WarEntryStatusWidget.h"
 #include "WarInventoryWidget.h"
 #include "WarQuestLogWidget.h"
+#include "WarQuestNpc.h"
 #include "WarCraftingStation.h"
 #include "WarResourceNode.h"
 #include "WarPlayerState.h"
@@ -74,6 +75,7 @@ void AWarPlayerController::ToggleQuestLog()
     if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
     if (!QuestLogWidget) QuestLogWidget = CreateWidget<UWarQuestLogWidget>(this, UWarQuestLogWidget::StaticClass());
     if (!QuestLogWidget) return;
+    QuestLogWidget->SetNpc(nullptr);
     QuestLogWidget->AddToViewport(10);
     QuestLogWidget->SetPositionInViewport(FVector2D(32, 32));
     QuestLogWidget->SetDesiredSizeInViewport(FVector2D(540, 650));
@@ -113,6 +115,21 @@ void AWarPlayerController::InteractWithWorld()
     if (!IsLocalController() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
     auto* State = GetPlayerState<AWarPlayerState>();
     if (!State) return;
+    AWarQuestNpc* Npc = nullptr;
+    double NpcDistance = TNumericLimits<double>::Max();
+    for (TActorIterator<AWarQuestNpc> It(GetWorld()); It; ++It)
+    {
+        FString Name, Error;
+        if (!It->ResolveInteraction(GetPawn(), Name, Error)) continue;
+        const double Candidate = FVector::DistSquared(GetPawn()->GetActorLocation(), It->GetActorLocation());
+        if (Candidate < NpcDistance) { NpcDistance = Candidate; Npc = *It; }
+    }
+    if (Npc)
+    {
+        ToggleQuestLog();
+        if (QuestLogWidget) QuestLogWidget->SetNpc(Npc);
+        return;
+    }
     AWarResourceNode* Nearest = nullptr;
     double Distance = TNumericLimits<double>::Max();
     const int64 NowMs = (FDateTime::UtcNow() - FDateTime(1970, 1, 1)).GetTicks() / ETimespan::TicksPerMillisecond;

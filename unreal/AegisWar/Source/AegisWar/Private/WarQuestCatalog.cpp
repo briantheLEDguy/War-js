@@ -29,6 +29,60 @@ bool UWarContentSubsystem::GetQuest(FName Id, FWarQuestDefinition& Quest, FStrin
     Quest = *Found; return true;
 }
 
+TArray<FWarQuestDefinition> UWarContentSubsystem::GetQuestsForNpc(FName Zone, FName Npc) const
+{
+    TArray<FWarQuestDefinition> Result;
+    if (!bReady) return Result;
+    for (const auto& Pair : QuestCatalog)
+    {
+        const auto& Quest = Pair.Value;
+        if ((Quest.GiverNpcId == Npc && (Quest.GiverZoneId.IsNone() || Quest.GiverZoneId == Zone))
+            || (Quest.TurninNpcId == Npc && (Quest.TurninZoneId.IsNone() || Quest.TurninZoneId == Zone))) Result.Add(Quest);
+    }
+    Result.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
+    return Result;
+}
+
+bool UWarContentSubsystem::GetQuestNpc(FName Zone, FName Npc, FString& Name, FName& Profile, FString& Error, bool* bMeasureHeight) const
+{
+    if (!bReady) { Error = TEXT("Quest catalog is unavailable."); return false; }
+    return ParseQuestNpc(Manifest, Zone, Npc, Name, Profile, Error, bMeasureHeight);
+}
+
+bool UWarContentSubsystem::ParseQuestNpc(const TSharedPtr<FJsonObject>& Catalog, FName Zone, FName Npc,
+    FString& Name, FName& Profile, FString& Error, bool* bMeasureHeight)
+{
+    Error = TEXT("Quest NPC identity is unknown or ambiguous.");
+    const TArray<TSharedPtr<FJsonValue>>* Maps = nullptr;
+    if (!Catalog || Zone.IsNone() || Npc.IsNone() || !Catalog->TryGetArrayField(TEXT("maps"), Maps)) return false;
+    int32 Matches = 0, ZoneMatches = 0; FString ParsedName; FName ParsedProfile; bool Height = false;
+    for (const auto& Value : *Maps)
+    {
+        const auto Map = Object(Value); FName MapId;
+        if (!Map || !NameField(Map, TEXT("id"), MapId)) return false;
+        if (MapId != Zone) continue;
+        if (++ZoneMatches != 1) return false;
+        const TSharedPtr<FJsonObject>* Definition = nullptr;
+        const TArray<TSharedPtr<FJsonValue>>* Npcs = nullptr;
+        if (!Map->TryGetObjectField(TEXT("definition"), Definition) || !(*Definition)->TryGetArrayField(TEXT("npcs"), Npcs)) return false;
+        for (const auto& Entry : *Npcs)
+        {
+            const auto Row = Object(Entry); FName Id;
+            if (!Row || !NameField(Row, TEXT("id"), Id)) return false;
+            if (Id != Npc) continue;
+            FString Role;
+            if (++Matches != 1 || !Row->TryGetStringField(TEXT("role"), Role) || Role != TEXT("questgiver")
+                || !Row->TryGetStringField(TEXT("name"), ParsedName) || ParsedName.IsEmpty()
+                || !NameField(Row, TEXT("characterProfileKey"), ParsedProfile)) return false;
+            const TSharedPtr<FJsonObject>* Crater = nullptr;
+            double Y;
+            Height = (*Definition)->TryGetObjectField(TEXT("craterCity"), Crater) && Row->TryGetNumberField(TEXT("y"), Y);
+        }
+    }
+    if (Matches != 1) return false;
+    Name = ParsedName; Profile = ParsedProfile; if (bMeasureHeight) *bMeasureHeight = Height; Error.Reset(); return true;
+}
+
 bool UWarContentSubsystem::ParseQuestCatalog(const TSharedPtr<FJsonObject>& Catalog,
     TMap<FName, FWarQuestDefinition>& Quests, FString& Error)
 {

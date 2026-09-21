@@ -234,6 +234,14 @@ retention and dangling equipment rejection are required acceptance cases.
 
 ## Completion and operating acceptance
 
+Native quest work now includes validated expedition transactions, an owner-only
+quest log, authored NPC dialogue, client RPC acceptance/turn-in, and local
+offer/ready markers. The proof scene explicitly reuses the repository Empire
+herbalist for Mara Vell and Ari Vell. These are development mappings, with final
+appearance review, Riftbound quest NPC models, real enemy attribution, navigation,
+campaign placement and durable settlement still open. See
+[quest implementation and evidence](unreal-quests.md) for the exact boundaries.
+
 Maintain a testable checklist for all 240 abilities (including three disabled
 outcomes), both quest chains, all crafting/gathering, inventory capacity and
 reward idempotency, the whole campaign cycle, all travel/interiors/lifts, all GM

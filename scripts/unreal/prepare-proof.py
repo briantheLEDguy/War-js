@@ -90,6 +90,12 @@ def main():
     aegis = visual("civic_battle_prelate_f", "empire", "battle_prelate", unreal.WarRealm.AEGIS,
                    body="f", source_profile="npc_frontier_sunmeadow_empire_herbalist")
     riftbound = visual("mire_warbrute_m", "greenskin", "warbrute", unreal.WarRealm.RIFTBOUND)
+    dispatch = visual("npc_aegis_mara_vell_brightfen_dispatch_officer", "empire", "questgiver", unreal.WarRealm.AEGIS,
+                      body="f", source_profile="npc_frontier_sunmeadow_empire_herbalist")
+    officer = visual("npc_aegis_ari_vell_brightfen_field_officer", "empire", "questgiver", unreal.WarRealm.AEGIS,
+                     body="f", source_profile="npc_frontier_sunmeadow_empire_herbalist")
+    for npc_visual in (dispatch, officer):
+        npc_visual.set_editor_property("mesh_transform", unreal.Transform(rotation=unreal.Rotator(yaw=-90)))
     # The historical male Prelate source failed direct visual review. Its old
     # development DataAsset must not keep a rejected mesh reachable by cooking.
     rejected_visual = existing_asset(DESTINATION + "/Visual_civic_battle_prelate_m")
@@ -147,6 +153,22 @@ def main():
         actor = spawn(kind, name, (250, 250, 0))
         actor.static_mesh_component.set_static_mesh(unreal.load_asset(mesh["path"]))
     spawn(unreal.PlayerStart, "Aegis safe start", (-100, 0, 100))
+    npc_mappings = []
+    for name, zone, npc_id, npc_visual, position in (
+        ("Mara Vell quest interaction proof", "aegis_capital", "quest-1", dispatch, (-350, 0, 0)),
+        ("Ari Vell quest turn-in proof", "brightfen_approach", "brightfen_approach_dispatch", officer, (650, 0, 0)),
+    ):
+        npc = spawn(unreal.WarQuestNpc, name, position)
+        npc.set_editor_property("zone_id", zone)
+        npc.set_editor_property("npc_id", npc_id)
+        npc.set_editor_property("visual", npc_visual)
+        npc_mesh = npc.get_editor_property("mesh")
+        npc_mesh.set_skeletal_mesh_asset(unreal.load_asset(imported("npc_frontier_sunmeadow_empire_herbalist")["meshes"][0]["path"]))
+        npc_mesh.set_relative_transform(npc_visual.mesh_transform, False, True)
+        npc_mappings.append({"zoneId": zone, "npcId": npc_id,
+            "profileKey": str(npc_visual.get_editor_property("profile_key")),
+            "sourceProfileKey": "npc_frontier_sunmeadow_empire_herbalist",
+            "nativeVisual": npc_visual.get_path_name(), "developmentOnly": True, "artApproved": False})
     spawn(unreal.PlayerStart, "Riftbound safe start", (100, 0, 100), unreal.Rotator(yaw=180))
     sun = spawn(unreal.DirectionalLight, "Sun", (0, 0, 700), unreal.Rotator(pitch=-45, yaw=-35))
     sun.light_component.set_editor_property("mobility", unreal.ComponentMobility.MOVABLE)
@@ -162,6 +184,7 @@ def main():
     proof_receipt.write_text(json.dumps({"schemaVersion": 1, "map": map_path,
         "aegisVisual": aegis.get_path_name(), "riftboundVisual": riftbound.get_path_name(),
         "terrain": terrain.get_path_name(), "authoredTableMeshes": len(table["meshes"]),
+        "questNpcMappings": npc_mappings,
         "visualApproval": False, "networkProof": False, "developmentOnly": True}, indent=2) + "\n")
     unreal.log("WAR_PROOF_MAP_CREATED=" + map_path)
 

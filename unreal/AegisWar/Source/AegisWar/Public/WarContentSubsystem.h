@@ -57,6 +57,11 @@ public:
     bool GetCultivationSeed(FName Key, FWarCultivationSeed& Seed, FString& Error) const;
     static bool ParseCultivationSeed(const TSharedPtr<FJsonObject>& Catalog, FName Key, FWarCultivationSeed& Seed, FString& Error);
     bool GetQuest(FName Id, FWarQuestDefinition& Quest, FString& Error) const;
+    TArray<FWarQuestDefinition> GetQuestsForNpc(FName Zone, FName Npc) const;
+    bool GetQuestNpc(FName Zone, FName Npc, FString& Name, FName& Profile, FString& Error, bool* bMeasureHeight = nullptr) const;
+    static bool ParseQuestNpc(const TSharedPtr<FJsonObject>& Catalog, FName Zone, FName Npc,
+        FString& Name, FName& Profile, FString& Error, bool* bMeasureHeight = nullptr);
+    bool ValidateNpcVisual(const UWarCharacterVisualDefinition* Visual, FName Profile, FString& Error) const;
     static bool ParseQuestCatalog(const TSharedPtr<FJsonObject>& Catalog,
         TMap<FName, FWarQuestDefinition>& Quests, FString& Error);
     bool GetCraftRecipe(FName Id, FWarCraftRecipe& Recipe, FString& Error) const;

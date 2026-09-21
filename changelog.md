@@ -1,3 +1,10 @@
+## 2026-09-21 - Native quest NPC dialogue and markers
+
+- Added authored-model quest NPC actors, explicit Mara/Ari development mappings, and entry rejection for missing or mismatched visuals; no primitive fallback was added.
+- Added E-key dialogue with revision-checked client RPC acceptance/turn-in, quest-specific feedback, reward/affix previews and capacity-safe completion warnings.
+- Added private world offer/turn-in markers with realm, level and prerequisite rules. Native automation now has 17 passing groups; interactive Editor checks verified acceptance, active-log state and offer-marker removal.
+- Verified NPC authority, invalid/stale/duplicate request rejection and private rewards with packaged Windows clients. Full world placement, Riftbound NPC models, real enemy attribution, durable settlement and release acceptance remain unfinished.
+
 ## 2026-09-21 - Native quest log and modal input
 
 - Added the L-key quest log with private replicated progress, authored objective descriptions, active/completed grouping and catalog reward previews.

@@ -251,6 +251,13 @@ bool UWarContentSubsystem::ValidatePlayableVisual(const UWarCharacterVisualDefin
     return false;
 }
 
+bool UWarContentSubsystem::ValidateNpcVisual(const UWarCharacterVisualDefinition* Visual, FName Profile, FString& Error) const
+{
+    if (!bReady || !Visual || Visual->ProfileKey != Profile || !VisualImportError.IsEmpty())
+    { Error = TEXT("NPC visual identity or import registry is unavailable."); return false; }
+    return Visual->ValidateForSpawn(Visual->Realm, Error) && ValidateVisualImportBinding(Visual, VisualImports, Error);
+}
+
 FText UWarContentSubsystem::GetItemDisplayName(const FName Key) const
 {
     const TSharedPtr<FJsonObject>* Items = nullptr;
