@@ -32,7 +32,11 @@ wood/metal surfaces and emissive windows after shader compilation. This was a
 limited material inspection, not a full geometry, gameplay or art approval.
 The viewer reports 9,348 rendered triangles, approximately 912 x 928 x 1,262 cm,
 and zero collision primitives. The conversion reports 9,604 source triangles;
-the difference still needs investigation before geometry acceptance. Collision,
+source and FBX both contain 240 exactly zero-area faces and 16 additional faces
+with areas below 2.4e-9 square meters. These account numerically for the 256-face
+difference, consistent with degenerate removal, but individual Unreal faces have
+not been matched and geometry acceptance remains open. The diagnostic is saved
+in `artifacts/unreal/house-geometry-investigation.json`. Collision,
 LODs, world placement, interior traversal, lighting/performance and packaged
 rendering remain unverified. No primitive fallback or replacement was introduced.
 
