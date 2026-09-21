@@ -57,6 +57,15 @@ class CapitalLayoutTests(unittest.TestCase):
             self.assertEqual(route[-1][2]-route[0][2],rise)
             self.assertTrue(all(route[i][2]<=route[i+1][2] for i in range(len(route)-1)))
 
+    def test_keep_floors_have_walking_routes_from_outside_entrance(self):
+        routes=build_layout()["castleRoutes"]
+        self.assertEqual(len(routes),6)
+        for level in range(1,5):
+            route=routes["floor"+str(level)]
+            self.assertEqual(route[0],[16950,0,4210])
+            self.assertEqual(route[-1],[17400+450*level,0,4220+300*level])
+        self.assertEqual(routes["battlement"][0],[13900,0,4210])
+
     def test_original_terrain_and_authored_mountain_geometry(self):
         self.assertEqual(height(0,-118),0)
         self.assertEqual(height(0,180),42)

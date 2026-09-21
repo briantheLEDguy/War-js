@@ -106,10 +106,11 @@ placement, undoes/redoes the whole row, and reloads all three in a fresh process
 The same `--packaged-root` option runs this check on the Windows package.
 
 Use `npm run unreal:crownward-proof -- --castle-traversal --rendered` to walk the
-two castle stair routes in both directions. The character uses ordinary collision
+six castle routes in both directions: entrances to the roof, battlement and
+four upper keep floors. The character uses ordinary collision
 and walking at 3 m/s, with no jumping or flight. Each focused route begins at a
 checked teleport location; movement must reach the specified landing height.
-The rendered capture returns to the already walked keep roof after all four
+The rendered capture returns to the already walked keep roof after all twelve
 legs pass. This mode does not edit or load any draft and does not claim a fresh
 draft reload. Add `--packaged-root artifacts/unreal/packages/Win64` to test the
 packaged client. The default proof still covers the original city approach.
@@ -214,3 +215,20 @@ inventory/crafting/gathering/progression and remote GM rejection. Its server is
 an Unreal Editor dedicated process, not a packaged Linux server; Steam and
 three-platform networking acceptance remain open. Release admission remains
 closed with four blocker categories and all 39 full-parity contracts pending.
+
+Expanded keep access (2026-09-21): all twelve walking legs passed in
+`artifacts/unreal/capital-proof/crownward-1790014126478`. Each keep route starts
+outside its entrance; the battlement route starts outside the curtain gate.
+The four intermediate floors require ordinary walking onto their actual floor
+surfaces and returning downstairs. This adds access evidence, not furniture,
+tower stairs, doors, or complete interior acceptance.
+
+The owner had Unreal Editor open; an Editor DLL rebuild failed with LNK1104.
+The standalone Game target was then built with UAT `-skipbuildeditor -skipcook`
+against the previously cooked city in an isolated archive,
+`artifacts/unreal/packages/castle-access/Win64`. No working map was regenerated.
+A newer owner save occurred during this work; its hash remains different from
+the generation receipt and must be preserved. This proof therefore describes
+the previous cooked geometry, not acceptance of the owner's latest map edits.
+The editor DLL still needs rebuilding after it is released. Eleven layout tests,
+85 tooling tests and tooling typechecking passed. Release remains closed.

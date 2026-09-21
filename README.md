@@ -12,7 +12,8 @@ all five source crafting stations use the existing native gameplay systems.
 The original herb/soil and four scrap/ore nodes support gathering; the water
 and relic nodes still await suitable visuals. See `docs/unreal-crownward.md` for validation and limits.
 Press Play, **G** for City Builder, **I** for inventory, **L** for quests and **E**
-to interact. Full gameplay migration and city/interior parity remain unfinished.
+to interact. Packaged walking checks cover castle entrances, the keep roof,
+four upper floors and a battlement; full city/interior parity remains unfinished.
 The city pipeline recompiles the legacy market cloth material into a private
 native copy, preserving its authored graph and source. This fixes the sampled
 black fabric in Windows packages; full kit material/platform review remains open.

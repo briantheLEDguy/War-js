@@ -26,7 +26,8 @@ void UWarCapitalProofSubsystem::StartCastleTraversal()
             || !FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json),Root) || !Root.IsValid()
             || !Root->TryGetObjectField(TEXT("castleRoutes"),Routes))
         { Finish(false,TEXT("Castle route fixture is missing.")); return; }
-        for (const FString Name : { FString(TEXT("keep")),FString(TEXT("battlement")) })
+        for (const FString Name : { FString(TEXT("keep")),FString(TEXT("battlement")),
+            FString(TEXT("floor1")),FString(TEXT("floor2")),FString(TEXT("floor3")),FString(TEXT("floor4")) })
         {
             const TArray<TSharedPtr<FJsonValue>>* Points=nullptr;
             if (!(*Routes)->TryGetArrayField(Name,Points) || Points->Num()<3 || Points->Num()>100)
@@ -92,7 +93,7 @@ void UWarCapitalProofSubsystem::TickCastleTraversal()
             Player->GetLocalCameraState().Pitch=-25;
             Player->GetLocalCameraState().Distance=900;
         }
-        Finish(true,TEXT("Character walked up and down the keep-to-roof and courtyard-to-battlement stairs.")); return;
+        Finish(true,TEXT("Character walked through the castle entrances and up/down the keep roof, four upper floors and battlement.")); return;
     }
     FVector Direction=Route[CityRouteIndex]-Feet; Direction.Z=0;
     Character->AddMovementInput(Direction.GetSafeNormal(),1.f);

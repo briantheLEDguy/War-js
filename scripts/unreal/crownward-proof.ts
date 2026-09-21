@@ -36,7 +36,7 @@ for (const reload of args.has('--castle-traversal') ? [false] : [false, true]) {
   if (code !== 0 || !existsSync(result)) throw new Error(`Crownward proof failed: ${output}`);
   const report = JSON.parse(readFileSync(result, 'utf8').replace(/^\uFEFF/, ''));
   if (!report.passed || report.editableObjects !== receipt.placements.length + (args.has('--castle-traversal') ? 0 : args.has('--construction-row') ? 3 : 1) || report.fullCapitalAcceptance !== false
-    || !report.catalogSearchVerified || (args.has('--castle-traversal') ? !report.castleTraversalVerified || report.castleRoutesWalked !== 4
+    || !report.catalogSearchVerified || (args.has('--castle-traversal') ? !report.castleTraversalVerified || report.castleRoutesWalked !== 12
       : args.has('--construction-row') ? !report.constructionRowVerified : args.has('--surface-placement')
       ? !report.surfacePlacementVerified || (!reload && report.surfaceModelsVerified !== new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size)
       : !reload && (!report.developmentTraversalVerified || !report.capitalGameplayIntegrationVerified || report.capitalResourcesVerified !== 6)))

@@ -1,3 +1,9 @@
+## 2026-09-21 - Connected castle and keep-floor access checks
+
+- Expanded native walking acceptance to twelve legs through castle entrances, the roof, battlement and all four intermediate keep floors, including return paths.
+- Verified the standalone Game build against the previously cooked city while preserving the owner's open editor and newer saved map. The editor DLL rebuild remains pending release of its file lock; this is not acceptance of later owner edits.
+- Eleven layout tests, 85 tooling tests and tooling typechecking passed. Furnishing, remaining towers/doors, full city parity and release acceptance remain open.
+
 ## 2026-09-21 - Purchased-kit capital gathering supplies
 
 - Restored four original scrap/ore gathering sites using the purchased town crate, bringing the capital to six of eight resource nodes. Water and relic visuals remain pending.

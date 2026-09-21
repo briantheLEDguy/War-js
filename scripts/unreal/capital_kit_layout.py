@@ -96,13 +96,21 @@ def castle_layout():
 
 def castle_routes():
     """Design feet heights for real-character acceptance, not collision evidence."""
-    keep = [[17360, 700, 4210]]
+    entrance = [[16950, 0, 4210], [17400, 0, 4210], [17400, 700, 4210], [17360, 700, 4210]]
+    keep = list(entrance)
     keep += [[17475 + step * 150, 700, 4270 + step * 100] for step in range(15)]
     keep += [[19640, 700, 5710], [19640, 500, 5720], [19500, 0, 5720]]
-    battlement = [[15485, -2850, 4210]]
+    battlement = [[13900, 0, 4210], [14800, 0, 4210], [15485, 0, 4210], [15485, -2850, 4210]]
     battlement += [[15600 + step * 150, -2850, 4270 + step * 100] for step in range(9)]
     battlement += [[17000, -2850, 5120], [17000, -3450, 5120], [17400, -3475, 5120]]
-    return {"keep": keep, "battlement": battlement}
+    routes = {"keep": keep, "battlement": battlement}
+    for level in range(1,5):
+        landing_x, landing_z = 17400+level*450, 4220+level*300
+        route = list(entrance)
+        route += [[17475+step*150,700,4270+step*100] for step in range(level*3)]
+        route += [[landing_x,700,landing_z],[landing_x,350,landing_z],[landing_x,0,landing_z]]
+        routes["floor"+str(level)] = route
+    return routes
 
 
 def build_layout():
