@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from capital_kit_layout import build_layout
 from capital_game_world import build_terrain, build_gameplay
+from capital_materials import cloth_material
 
 directory = ROOT / "artifacts/unreal/licensed-kits"
 layout = build_layout()
@@ -56,6 +57,8 @@ for kind, suffix in names.items():
     if not isinstance(mesh, unreal.StaticMesh) or not all(metadata[source]["materials"]):
         raise RuntimeError("Missing authored mesh or materials: " + kind)
     mesh.get_editor_property("body_setup").set_editor_property("collision_trace_flag", unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
+    if kind == "stall":
+        mesh.set_material(0, cloth_material(ROOT, unreal))
     if not unreal.EditorAssetLibrary.save_loaded_asset(mesh, only_if_is_dirty=False):
         raise RuntimeError("Could not save collision adaptation")
     meshes[kind], bounds[kind] = mesh, metadata[source]

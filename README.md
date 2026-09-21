@@ -11,6 +11,9 @@ the hilltop castle, with 8,712 editable purchased-kit placements. Mara Vell and
 all five source crafting stations use the existing native gameplay systems.
 Press Play, **G** for City Builder, **I** for inventory, **L** for quests and **E**
 to interact. Full gameplay migration and city/interior parity remain unfinished.
+The city pipeline recompiles the legacy market cloth material into a private
+native copy, preserving its authored graph and source. This fixes the sampled
+black fabric in Windows packages; full kit material/platform review remains open.
 
 The approved Unreal 5.8.2 / Steam migration is in progress on
 `codex/unreal-migration`. The target preserves implemented gameplay and GM tools

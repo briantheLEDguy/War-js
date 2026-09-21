@@ -61,6 +61,12 @@ require explicit baseline reconciliation before changing generated geography.
    imported command table. `capital_geography.py` reads the original source;
    `capital_kit_layout.py` builds the modular plan; `capital_game_world.py` assembles
    terrain and existing native gameplay actors.
+   `capital_materials.py` duplicates/recompiles the legacy market cloth material
+   without changing its shader graph, textures or subsurface model, then binds
+   that native copy to the adapted mesh. It can also run as a standalone Python
+   commandlet to update the mesh without regenerating the city or changing drafts.
+   Its private hash receipt rejects changed sources, edited adaptations and
+   unrecorded destination assets. Original purchased material files stay intact.
 3. Run `npm run unreal:crownward-proof`. Its first process uses the configured
    default game map, with no explicit map override. Tests cover the sampled
    459-metre grounded ascent, native quest range/acceptance/retry, station ranges and kinds, GM
@@ -103,3 +109,14 @@ NullRHI; the screenshots above are editor commandlet captures, not a packaged
 rendering/performance claim. Tooling verification: 85 tests, nine Python tests
 and TypeScript checks passed. The release check still reports four blocking
 categories and all 39 full-parity contracts remain pending.
+
+Packaged cloth correction (2026-09-21): an offscreen placement capture revealed
+black market fabric in Windows while the editor rendered it pale. Recompiling
+an unchanged copy of the authored material corrected the sampled Windows view
+in `artifacts/unreal/capital-proof/crownward-1790009221819/`, which also passed all
+14 placement, rejected-operation and fresh-process reload checks. The package
+succeeded after AutomationTool recovered from a transient Zen cache-service
+disconnect. No shader inputs or shading model were replaced. Five material
+protection tests (`python tests/unrealCapitalMaterials.test.py`) and all nine
+layout tests passed; a native commandlet verified the saved adaptation receipt.
+Complete material and three-platform visual acceptance remain open.

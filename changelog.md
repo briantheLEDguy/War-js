@@ -1,3 +1,9 @@
+## 2026-09-21 - Preserve native market-cloth rendering
+
+- Recompile the legacy purchased cloth material into a private native copy, retaining its graph, textures and subsurface shading. The city generator and standalone commandlet share this adaptation; source/adaptation hash receipts protect later edits and original purchased files.
+- The sampled black fabric in the Windows package now matches the pale editor fabric. A fresh Windows package passed all 14 GM placement/rejection checks and draft reload; the screenshot was inspected. Five material-protection tests and nine layout tests passed, and the native adaptation commandlet passed.
+- Full material, interior, performance and three-platform acceptance remain open. Evidence: docs/unreal-crownward.md.
+
 ## 2026-09-21 - Native kit surface placement
 
 - Centre new GM construction by transformed mesh bounds instead of imported pivots, and add Drop to surface with preserved rotation/mirrored scale, revision checks and undo/draft persistence.

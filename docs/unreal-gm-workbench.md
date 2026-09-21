@@ -262,8 +262,11 @@ The rebuilt private Windows package passed all 14 surface placements, rejection
 cases and fresh-process reload in
 `artifacts/unreal/capital-proof/crownward-1790008838579/`; packaged clients rejected
 the new commands in `artifacts/unreal/network/1790008861148-18884/report.json`.
-The offscreen packaged panel was inspected. Market-stall fabric appears black
-there but pale in the editor capture, so material parity remains unresolved.
+The offscreen packaged panel was inspected. That capture exposed black
+market-stall fabric versus pale fabric in the editor. A recompiled private copy
+of the unchanged authored material corrected the sampled packaged view in
+`artifacts/unreal/capital-proof/crownward-1790009221819/`; all placement/reload
+checks still passed. Full kit material and platform review remain unresolved.
 
 Still pending: the remaining building/prefab catalog, drag transforms,
 terrain sculpt/paint, runtime walkable-surface authoring, production GM flight,
