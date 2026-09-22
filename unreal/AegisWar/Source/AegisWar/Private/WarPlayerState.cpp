@@ -1,4 +1,5 @@
 #include "WarPlayerState.h"
+#include "WarAbilityRuntime.h"
 #include "WarAttributeSet.h"
 #include "WarCharacter.h"
 #include "WarGameplayEffects.h"
@@ -11,6 +12,7 @@
 
 AWarPlayerState::AWarPlayerState()
 {
+    ClassAbilities = CreateDefaultSubobject<UWarAbilityRuntime>(TEXT("ClassAbilities"));
     AbilitySystem = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystem"));
     AbilitySystem->SetIsReplicated(true);
     AbilitySystem->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
@@ -20,10 +22,16 @@ AWarPlayerState::AWarPlayerState()
 
 UAbilitySystemComponent* AWarPlayerState::GetAbilitySystemComponent() const { return AbilitySystem; }
 
+void AWarPlayerState::SetCurrentZoneTrusted(FName Zone)
+{
+    if (HasAuthority() && !Zone.IsNone()) { CurrentZone = Zone; ForceNetUpdate(); }
+}
+
 void AWarPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     DOREPLIFETIME(AWarPlayerState, Realm);
+    DOREPLIFETIME(AWarPlayerState, CurrentZone);
     DOREPLIFETIME_CONDITION(AWarPlayerState, Inventory, COND_OwnerOnly);
 }
 
@@ -260,7 +268,11 @@ void AWarPlayerState::ServerCraftRecipe_Implementation(const FName RecipeId, con
 
 void AWarPlayerState::SetDevelopmentRealm(const EWarRealm InRealm)
 {
-    if (HasAuthority() && Realm == EWarRealm::None && InRealm != EWarRealm::None) Realm = InRealm;
+    if (!HasAuthority() || Realm != EWarRealm::None || InRealm == EWarRealm::None) return;
+    Realm = InRealm;
+    // Engine login can choose a provisional start before this fixture assigns a realm.
+    CurrentZone = InRealm == EWarRealm::Riftbound ? TEXT("riftspire_capital") : TEXT("aegis_capital");
+    ForceNetUpdate();
 }
 
 void AWarPlayerState::InitializeForPawn(AWarCharacter* Avatar)

@@ -5,23 +5,23 @@ import {
   ORDER_RACES,
   RACE_DISPLAY,
   type PlayableRace,
-} from '../src/data/careers';
+} from '../shared/data/careers';
 import {
   CRAFTING_PROFESSIONS,
   CRAFTING_RECIPES,
   CULTIVATION_SEEDS,
-} from '../src/data/crafting';
-import { getItemDefinition } from '../src/data/items';
-import { QUESTS } from '../src/data/quests';
+} from '../shared/data/crafting';
+import { getItemDefinition } from '../shared/data/items';
+import { QUESTS } from '../shared/data/quests';
 import {
   CAREER_ABILITY_KITS,
   HOTBAR_KEYS,
   HOTBAR_SLOT_COUNT,
-} from '../src/game/abilities/abilityData';
-import { OVERVIEW_PAGES, ROADMAP_PAGES, WIKI_SECTIONS } from '../src/wiki/wikiMetadata';
-import { buildWikiIndex } from '../src/wiki/wikiContent';
-import type { WikiPage } from '../src/wiki/wikiTypes';
-import { CLASS_GUIDES } from '../src/wiki/classGuides';
+} from '../shared/game/abilities/abilityData';
+import { OVERVIEW_PAGES, ROADMAP_PAGES, WIKI_SECTIONS } from '../shared/wiki/wikiMetadata';
+import { buildWikiIndex } from '../shared/wiki/wikiContent';
+import type { WikiPage } from '../shared/wiki/wikiTypes';
+import { CLASS_GUIDES } from '../shared/wiki/classGuides';
 
 const index = buildWikiIndex();
 const allRaces = [...ORDER_RACES, ...DESTRUCTION_RACES];

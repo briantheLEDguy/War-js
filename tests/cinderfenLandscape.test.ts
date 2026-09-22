@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { orvrHeightAt } from '../src/shared/orvrTerrain';
+import { orvrHeightAt } from '../shared/orvrTerrain';
 import { mapPropNavigation } from '../server/mapNavigation';
-import { campaignColliderContains, campaignColliderBlocksHeight } from '../src/shared/orvr/navigation';
+import { campaignColliderContains, campaignColliderBlocksHeight } from '../shared/orvr/navigation';
 // @ts-expect-error Campaign authoring sources execute in Node.
 import { composeCinderfenEnvironment } from '../scripts/campaign/cinderfen-environment.mjs';
 // @ts-expect-error Campaign authoring sources execute in Node.

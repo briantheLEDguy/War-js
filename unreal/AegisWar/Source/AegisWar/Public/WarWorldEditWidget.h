@@ -37,6 +37,7 @@ private:
     int32 RowCount = 3;
     double RowGapMeters = 0;
     bool bRowAlongY = false;
+    int32 ResetConfirmationRevision = INDEX_NONE;
     float LastPanelHeight = 0;
     double GridCentimeters() const;
     double AngleDegrees() const;

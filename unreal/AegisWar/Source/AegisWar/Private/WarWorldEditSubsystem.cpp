@@ -1,5 +1,7 @@
 #include "WarWorldEditSubsystem.h"
 #include "WarWorldEditMap.h"
+#include "WarGmRules.h"
+#include "WarRuntimeSettings.h"
 #include "Misc/ConfigCacheIni.h"
 #include "WarPlayerController.h"
 #include "GameFramework/Pawn.h"
@@ -16,12 +18,16 @@
 #include "Misc/FileHelper.h"
 #include "Misc/ScopeExit.h"
 #include "HAL/FileManager.h"
+#include "Engine/Level.h"
+#include "Engine/World.h"
+#include "Materials/MaterialInterface.h"
 
 namespace
 {
     FString DraftPath(const UWorld* World)
     {
-        if (FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")))
+        const bool bPortalProof = FParse::Param(FCommandLine::Get(), TEXT("WarPortalProof"));
+        if (bPortalProof || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")))
         {
             static const FString ProofId = [] {
                 FString Requested; FGuid Guid;
@@ -29,7 +35,7 @@ namespace
                     && FGuid::ParseExact(Requested, EGuidFormats::Digits, Guid)
                     ? Guid.ToString(EGuidFormats::Digits) : FGuid::NewGuid().ToString(EGuidFormats::Digits);
             }();
-            return FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("WorldEditProof"), ProofId, TEXT("draft.json"));
+            return FPaths::Combine(FPaths::ProjectSavedDir(), bPortalProof ? TEXT("WorldEditPortalProof") : TEXT("WorldEditProof"), ProofId, TEXT("draft.json"));
         }
         const bool bCrownward = World && World->GetOutermost()->GetName().Contains(TEXT("/crownward/"));
         return FPaths::Combine(FPaths::ProjectSavedDir(), bCrownward
@@ -55,9 +61,10 @@ bool UWarWorldEditSubsystem::CanUse(const APlayerController* Controller) const
     GConfig->GetString(TEXT("/Script/EngineSettings.GameMapsSettings"), TEXT("GameDefaultMap"), SelectedMap, GEngineIni);
     // A client option must never grant GM access on a shared server. This local
     // workbench is deliberately separate from the still-unavailable trusted role.
-    return World && World->GetNetMode() == NM_Standalone && World->IsGameWorld()
+    return World && WarGmRules::AllowsDevelopmentSession(UE_BUILD_SHIPPING != 0,
+        World->GetNetMode(), World->WorldType, GetDefault<UWarRuntimeSettings>()->bEnableLocalDevelopmentGM,
+        FParse::Param(FCommandLine::Get(), TEXT("WarDevelopmentGM")))
         && WarWorldEditMap::IsSupported(UWorld::RemovePIEPrefix(World->GetOutermost()->GetName()), SelectedMap)
-        && (World->WorldType == EWorldType::PIE || FParse::Param(FCommandLine::Get(), TEXT("WarDevelopmentGM")))
         && Player && Player->HasAuthority() && Player->IsLocalController() && Player->GetPawn()
         && Player->GetEntryFailure().IsEmpty();
 #endif
@@ -66,7 +73,7 @@ bool UWarWorldEditSubsystem::CanUse(const APlayerController* Controller) const
 bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
 {
     if (!CanUse(Controller)) { Error = TEXT("GM workbench access is unavailable for this session."); return false; }
-    if (!Actors.IsEmpty()) return Ready(Controller, Error);
+    if (bInitialized) return Ready(Controller, Error);
     TArray<FWarWorldEditObject> Objects;
     TMap<FName, TWeakObjectPtr<AActor>> Candidates;
     TMap<FName, FModelTemplate> CandidateTemplates;
@@ -91,6 +98,7 @@ bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
         Candidates.Add(Id, *It); Objects.Add({ Id, It->GetActorTransform(), It->IsHidden(),
             It->GetStaticMeshComponent()->GetStaticMesh()->GetPathName() + TEXT(":") + SourceHash });
         FModelTemplate Template; Template.Mesh = It->GetStaticMeshComponent()->GetStaticMesh();
+        Template.LevelPackage = It->GetLevel()->GetOutermost()->GetFName();
         const auto* MeshComponent = It->GetStaticMeshComponent();
         if (MeshComponent->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
         {
@@ -112,7 +120,11 @@ bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
         CandidateTemplates.Add(Id, MoveTemp(Template));
     }
     if (!History.Initialize(Objects, Error)) return false;
-    Actors = MoveTemp(Candidates); Templates = MoveTemp(CandidateTemplates); return true;
+    Actors = MoveTemp(Candidates); Templates = MoveTemp(CandidateTemplates);
+    for (const auto& Pair : Templates) BaselineLevels.Add(Pair.Key, Pair.Value.LevelPackage);
+    LevelAddedHandle = FWorldDelegates::LevelAddedToWorld.AddUObject(this, &ThisClass::LevelAdded);
+    LevelRemovedHandle = FWorldDelegates::LevelRemovedFromWorld.AddUObject(this, &ThisClass::LevelRemoved);
+    bInitialized = true; return true;
 }
 
 AActor* UWarWorldEditSubsystem::GetObjectActor(const FName Id) const
@@ -141,10 +153,12 @@ FName UWarWorldEditSubsystem::PickObject(const APlayerController* Controller, co
 
 bool UWarWorldEditSubsystem::Ready(APlayerController* Controller, FString& Error)
 {
-    if (!CanUse(Controller) || Actors.IsEmpty())
+    if (!CanUse(Controller) || !bInitialized)
     { Error = TEXT("Open the authorized GM workbench before editing."); return false; }
+    if (!StreamingConflict.IsEmpty()) { Error = StreamingConflict; return false; }
     for (const auto& Pair : Actors)
-        if (!Pair.Value.IsValid() || !Pair.Value->GetRootComponent())
+        if ((!Pair.Value.IsValid() || !Pair.Value->GetRootComponent())
+            && BaselineLevels.Contains(Pair.Key) && LoadedLevel(BaselineLevels[Pair.Key]))
         { Error = TEXT("The world changed outside the draft; reload the map before editing."); return false; }
     return true;
 }
@@ -154,6 +168,7 @@ void UWarWorldEditSubsystem::ApplyActors()
     for (const auto& Pair : Actors)
     {
         AActor* Actor = Pair.Value.Get();
+        if (!IsValid(Actor)) continue; // The document and undo stacks outlive streamed actors.
         const auto* Found = History.Find(Pair.Key);
         if (!Found) { Actor->SetActorHiddenInGame(true); Actor->SetActorEnableCollision(false); continue; }
         const auto& Row = *Found;
@@ -175,17 +190,30 @@ bool UWarWorldEditSubsystem::ApplyHistory(FWarWorldEditHistory Next, FString& Er
     ON_SCOPE_EXIT { if (!bCommitted) for (const auto& Pair : Staged) if (Pair.Value.IsValid()) Pair.Value->Destroy(); };
     for (const auto& Row : Next.GetObjects())
     {
-        if (Actors.Contains(Row.Id)) continue;
+        if (const auto* Existing = Actors.Find(Row.Id); Existing && Existing->IsValid()) continue;
+        if (Row.TemplateId.IsNone()) continue; // Authored actors return from their original level, never a substitute.
         const auto* Template = Templates.Find(Row.TemplateId);
-        if (!Template || !Template->Mesh.IsValid()) { Error = TEXT("Required authored model is unavailable; the draft was not applied."); return false; }
-        auto* Actor = GetWorld()->SpawnActor<AStaticMeshActor>();
+        if (!Template) { Error = TEXT("Required authored model is unavailable; the draft was not applied."); return false; }
+        ULevel* Level = LoadedLevel(Template->LevelPackage);
+        if (!Level) continue;
+        UStaticMesh* Model = Template->Mesh.LoadSynchronous();
+        if (!Model) { Error = TEXT("Required authored model is unavailable; the draft was not applied."); return false; }
+        TArray<UMaterialInterface*> Materials;
+        for (const auto& Ref : Template->Materials)
+        {
+            auto* Material = Ref.LoadSynchronous();
+            if (!Ref.IsNull() && !Material) { Error = TEXT("Required authored material is unavailable; the draft was not applied."); return false; }
+            Materials.Add(Material);
+        }
+        FActorSpawnParameters Params; Params.OverrideLevel = Level;
+        auto* Actor = GetWorld()->SpawnActor<AStaticMeshActor>(Params);
         if (!Actor) { Error = TEXT("Could not create the building; the draft was not applied."); return false; }
         Staged.Add(Row.Id, Actor);
         Actor->SetActorHiddenInGame(true); Actor->SetActorEnableCollision(false);
         auto* Mesh = Actor->GetStaticMeshComponent(); Mesh->SetMobility(EComponentMobility::Movable);
-        Mesh->SetStaticMesh(Template->Mesh.Get()); Mesh->SetCollisionProfileName(Template->MeshCollisionProfile);
+        Mesh->SetStaticMesh(Model); Mesh->SetCollisionProfileName(Template->MeshCollisionProfile);
         for (int32 Index = 0; Index < Template->Materials.Num(); ++Index)
-            Mesh->SetMaterial(Index, Template->Materials[Index].Get());
+            Mesh->SetMaterial(Index, Materials[Index]);
         Actor->Tags.Add(TEXT("WarCreatedBuilding")); Actor->Tags.Add(FName(*(TEXT("WarWorldObject_") + Row.Id.ToString())));
         for (const auto& Collision : Template->Collision)
         {
@@ -200,7 +228,7 @@ bool UWarWorldEditSubsystem::ApplyHistory(FWarWorldEditHistory Next, FString& Er
     // Undo may remove a created object. Destroy it now and recreate it from its
     // immutable template on redo, keeping actor memory bounded by the document.
     for (auto It = Actors.CreateIterator(); It; ++It)
-        if (!History.Find(It.Key())) { It.Value()->Destroy(); It.RemoveCurrent(); }
+        if (!History.Find(It.Key())) { if (It.Value().IsValid()) It.Value()->Destroy(); It.RemoveCurrent(); }
     return true;
 }
 
@@ -270,4 +298,20 @@ bool UWarWorldEditSubsystem::LoadDraft(APlayerController* Controller, const int3
     auto Next = History;
     if (!ReadDraftFile(GetWorld(), Json, Error) || !Next.ImportDraft(Json, Revision, Error) || !ApplyHistory(MoveTemp(Next), Error)) return false;
     LastDiskContents = Json; bObservedDisk = true; return true;
+}
+
+bool UWarWorldEditSubsystem::ResetDraft(APlayerController* Controller, int32 Revision, FString& Error)
+{
+    if (!Ready(Controller,Error)) return false;
+    auto Next=History;
+    return Next.Reset(Revision,Error) && ApplyHistory(MoveTemp(Next),Error);
+}
+bool UWarWorldEditSubsystem::Duplicate(APlayerController* Controller,FName Id,int32 Revision,FName& CreatedId,FString& Error)
+{
+    if (!Ready(Controller,Error)) return false;
+    const auto* Row=History.Find(Id);
+    if (!Row || Row->bHidden) { Error=TEXT("Select a visible model to duplicate."); return false; }
+    FTransform Transform=Row->Transform;
+    Transform.AddToTranslation(FVector(0,200,0));
+    return Create(Controller,Row->TemplateId.IsNone() ? Row->Id : Row->TemplateId,Transform,Revision,CreatedId,Error);
 }

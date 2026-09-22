@@ -4,7 +4,7 @@ import {
   CLASSES_BY_RACE,
   DESTRUCTION_RACES,
   ORDER_RACES,
-} from '../src/data/careers';
+} from '../shared/data/careers';
 import {
   CAREER_ABILITY_KITS,
   HOTBAR_KEYS,
@@ -12,12 +12,12 @@ import {
   createAbilityResourceState,
   getAbilityForCareer,
   getCareerAbilityKit,
-} from '../src/game/abilities/abilityData';
-import type { AbilityDefinition } from '../src/game/abilities/types';
+} from '../shared/game/abilities/abilityData';
+import type { AbilityDefinition } from '../shared/game/abilities/types';
 import {
   ABILITY_ICON_OVERRIDES,
   abilityIconOverrideKey,
-} from '../src/game/abilities/abilityIconOverrides';
+} from '../shared/game/abilities/abilityIconOverrides';
 
 const playableClasses = [...ORDER_RACES, ...DESTRUCTION_RACES]
   .flatMap((race) => CLASSES_BY_RACE[race]);

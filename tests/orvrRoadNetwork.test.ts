@@ -3,10 +3,10 @@ import { copyFileSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from '
 import { basename, dirname, join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from '../src/shared/orvr/navigation';
-import { defaultZoneConfigs } from '../src/shared/orvr/config';
-import type { ZoneConfig } from '../src/shared/orvr/protocol';
-import type { ZoneDefinition } from '../src/world/ZoneLoader';
+import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from '../shared/orvr/navigation';
+import { defaultZoneConfigs } from '../shared/orvr/config';
+import type { ZoneConfig } from '../shared/orvr/protocol';
+import type { ZoneDefinition } from '../shared/world/ZoneDefinition';
 // @ts-expect-error Executable authoring source is intentionally an mjs module.
 import { applyOrvrZoneLayout } from '../scripts/campaign/orvr-zone-layouts.mjs';
 // @ts-expect-error Executable authoring source is intentionally an mjs module.

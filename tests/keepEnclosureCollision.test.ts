@@ -2,9 +2,9 @@ import { readFile } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { createKeepEnclosureAudit } from '../scripts/audit-keep-enclosures';
-import { addPlayer, advanceSimulation, createCampaign, keepPosterns, submitCommand } from '../src/shared/orvr';
-import type { Position, ZoneConfig } from '../src/shared/orvr';
-import { campaignGroundHeight } from '../src/shared/orvr/navigation';
+import { addPlayer, advanceSimulation, createCampaign, keepPosterns, submitCommand } from '../shared/orvr/index';
+import type { Position, ZoneConfig } from '../shared/orvr/index';
+import { campaignGroundHeight } from '../shared/orvr/navigation';
 
 const configs = (await loadCampaignMapConfigs()).filter(config => config.keeps.length);
 const keeps = configs.flatMap(config => config.keeps.map(keep => ({ config, keep, name: keep.id })));

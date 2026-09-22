@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "weapons": {
+    "patrol_spear": {
+      "source": "authoring/blender/aegis-city-guards/source/standard.json",
+      "sha256": "4bad66a65dfaf26944a093ed52517437387278692aee4cf6fbe19aae5dd85564",
+      "parts": [
+        "ash_shaft",
+        "shaft_ferrule0",
+        "shaft_ferrule1",
+        "shaft_ferrule2",
+        "shaft_ferrule3",
+        "shaft_ferrule4",
+        "shaft_ferrule5",
+        "spear_ridged_blade",
+        "blade_spine"
+      ],
+      "pivot": [
+        -0.55,
+        -0.26,
+        1.15
+      ],
+      "use": "held"
+    },
+    "aegis_heater_shield": {
+      "source": "authoring/blender/aegis-city-guards/source/standard.json",
+      "sha256": "4bad66a65dfaf26944a093ed52517437387278692aee4cf6fbe19aae5dd85564",
+      "parts": [
+        "heater_shield_wood",
+        "heater_shield_painted_face",
+        "shield_brass_rim0",
+        "shield_brass_rim1",
+        "shield_brass_rim2",
+        "shield_brass_rim3",
+        "shield_brass_rim4",
+        "shield_charge_tower",
+        "shield_charge_door",
+        "shield_charge_window0",
+        "shield_charge_window1",
+        "shield_charge_star",
+        "shield_rivet0-1",
+        "shield_rivet01",
+        "shield_rivet1-1",
+        "shield_rivet11",
+        "shield_rivet2-1",
+        "shield_rivet21",
+        "shield_rivet3-1",
+        "shield_rivet31"
+      ],
+      "pivot": [
+        0.48,
+        -0.255,
+        1.115
+      ],
+      "use": "held"
+    },
+    "officer_sidearm": {
+      "source": "authoring/blender/aegis-city-guards/source/captain.json",
+      "sha256": "f1cde1d8105981ff416ba66ab6ec6b4df9dd397120bd2c9363c2b254d00f1b03",
+      "parts": [
+        "officer_sword_scabbard",
+        "officer_sword_grip",
+        "officer_sword_guard"
+      ],
+      "pivot": [
+        0.22,
+        0.05,
+        1.15
+      ],
+      "use": "sheathed"
+    }
+  },
+  "nativeArtApproved": false
+}

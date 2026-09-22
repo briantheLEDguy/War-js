@@ -1,4 +1,5 @@
 #include "WarCityServiceWidget.h"
+#include "WarUiArtwork.h"
 #include "WarCityNpc.h"
 #include "WarCityServices.h"
 #include "WarPlayerState.h"
@@ -17,8 +18,7 @@ void UWarCityServiceWidget::SetNpc(AWarCityNpc* Value) { Npc = Value; Revision =
 TSharedRef<SWidget> UWarCityServiceWidget::RebuildWidget()
 {
     return SNew(SBox).WidthOverride(620).HeightOverride(650)
-        [SNew(SBorder).BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush"))
-            .Padding(18).BorderBackgroundColor(FLinearColor(.03f,.03f,.04f,1))
+        [SNew(SWarArtWindow)
             [SNew(SScrollBox)+SScrollBox::Slot()[SAssignNew(Rows,SVerticalBox)]]];
 }
 void UWarCityServiceWidget::ReleaseSlateResources(bool ReleaseChildren)

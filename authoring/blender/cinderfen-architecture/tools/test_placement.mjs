@@ -10,7 +10,7 @@ import { composeCinderfenLandscape } from '../../../../scripts/campaign/cinderfe
 const work = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.resolve(work, '../../..');
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
-const sharedPaths = ['server/mapNavigation.ts', 'src/shared/worldNavigation.ts', 'src/shared/orvrTerrain.ts', 'src/shared/orvr/navigation.ts'];
+const sharedPaths = ['server/mapNavigation.ts', 'shared/worldNavigation.ts', 'shared/orvrTerrain.ts', 'shared/orvr/navigation.ts'];
 const sharedSources = await Promise.all(sharedPaths.map(file => fs.readFile(path.join(root, file), 'utf8')));
 const joined = sharedSources.map((source, index) => {
   const parsed = ts.createSourceFile(sharedPaths[index], source, ts.ScriptTarget.ESNext, true);

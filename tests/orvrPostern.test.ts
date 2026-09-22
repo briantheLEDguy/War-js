@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
-import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, keepPosterns, nearbyKeepPostern, posternExitFor, submitCommand } from '../src/shared/orvr';
-import type { PlayerAction, Realm } from '../src/shared/orvr';
+import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, keepPosterns, nearbyKeepPostern, posternExitFor, submitCommand } from '../shared/orvr/index';
+import type { PlayerAction, Realm } from '../shared/orvr/index';
 
 function setup(realm: Realm = 'aegis') {
   const config = defaultZoneConfig('sunmeadow_march');

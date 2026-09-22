@@ -12,7 +12,7 @@
   "modelSourceExceptions": {
     "ownerPurchasedModularKits": {
       "authorized": true,
-      "scope": "GM building catalog and city environment",
+      "scope": "GM building catalog, city environments, outdoor zones and dungeons",
       "status": "partially-installed-development-pilot-under-review",
       "rawAssetsInPublicRepository": false,
       "requiresLicenseCompatibilityAndRuntimeVerification": true

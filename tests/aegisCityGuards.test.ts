@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { aegisEnemyGuardVariantFor, aegisNpcGuardVariantFor } from '../src/data/modelOverrides';
+import { aegisEnemyGuardVariantFor, aegisNpcGuardVariantFor } from '../shared/data/modelOverrides';
 
 describe('Aegis civic guard loadouts', () => {
   test('distributes four stable guard variants without changing other NPCs', () => {

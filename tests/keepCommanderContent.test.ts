@@ -1,9 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, test } from 'vitest';
-import { CAMPAIGN_GRAPH_EDGES, CAMPAIGN_ZONES } from '../src/data/campaign';
-import { QUESTS } from '../src/data/quests';
-import type { EnemySpawn, PropSpawn, ZoneDefinition } from '../src/world/ZoneLoader';
+import { CAMPAIGN_GRAPH_EDGES, CAMPAIGN_ZONES } from '../shared/data/campaign';
+import { QUESTS } from '../shared/data/quests';
+import type { EnemySpawn, PropSpawn, ZoneDefinition } from '../shared/world/ZoneDefinition';
 
 const maps = new Map(CAMPAIGN_ZONES.map((node) => [node.id, readZone(node.id)]));
 const keepZones = CAMPAIGN_ZONES.filter((node) => node.nodeRole === 'battlefield' || node.nodeRole === 'fortress');

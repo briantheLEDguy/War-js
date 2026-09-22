@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { orvrHeightAt } from '../../../src/shared/orvrTerrain';
+import { orvrHeightAt } from '../../../shared/orvrTerrain';
 import { composeCinderfenLandscape } from '../../../scripts/campaign/cinderfen-landscape.mjs';
 
 const zone = composeCinderfenLandscape(JSON.parse(await readFile('public/assets/maps/cinderfen_outskirts.json', 'utf8')));

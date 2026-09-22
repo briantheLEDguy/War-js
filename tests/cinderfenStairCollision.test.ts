@@ -2,8 +2,8 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { describe, expect, test } from 'vitest';
 import { mapPropNavigation } from '../server/mapNavigation';
-import { campaignColliderBlocksHeight, campaignColliderContains } from '../src/shared/orvr/navigation';
-import { supportedGroundHeight, type NavigationProp } from '../src/shared/worldNavigation';
+import { campaignColliderBlocksHeight, campaignColliderContains } from '../shared/orvr/navigation';
+import { supportedGroundHeight, type NavigationProp } from '../shared/worldNavigation';
 // @ts-expect-error Native ESM authoring utility.
 import { measuredStairRails } from '../authoring/blender/cinderfen-architecture/tools/repair_stair_navigation.mjs';
 

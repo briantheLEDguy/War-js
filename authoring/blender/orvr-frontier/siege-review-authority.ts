@@ -1,5 +1,5 @@
-import { addPlayer, advanceSimulation, createCampaign, submitCommand } from '../../../src/shared/orvr';
-import type { EquipmentKind, PlayerAction } from '../../../src/shared/orvr';
+import { addPlayer, advanceSimulation, createCampaign, submitCommand } from '../../../shared/orvr';
+import type { EquipmentKind, PlayerAction } from '../../../shared/orvr';
 
 /** Isolated review campaign; all boarding, movement and operations use the production authority. */
 export function createSiegeReviewAuthority(kind: EquipmentKind) {

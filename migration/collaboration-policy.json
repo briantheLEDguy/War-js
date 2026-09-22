@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "5.8.2",
+  "vmName": "AegisWar-Collaboration",
+  "guestComputerName": "AEGIS-UNREAL",
+  "serverPort": 50000,
+  "collaboratorAccess": "closed",
+  "hostTailscale": "forbidden-do-not-read-reconfigure-or-reuse",
+  "vpnScope": "separate-project-account-in-guest-only",
+  "requiredEvidence": [
+    "licensed-guest-media",
+    "vm-created-without-host-redirection",
+    "guest-standard-user",
+    "guest-editor-graphics-performance",
+    "private-content-rights-and-hashes",
+    "project-vpn-account-and-mfa",
+    "vpn-default-deny-and-revocation",
+    "guest-and-host-firewall-isolation",
+    "no-host-lan-or-management-access",
+    "two-machine-edit-save-reconnect"
+  ]
+}

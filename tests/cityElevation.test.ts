@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
-import { cityHeightAt, type CityElevation } from '../src/world/CityElevation';
+import { cityHeightAt, type CityElevation } from '../shared/world/CityElevation';
 import { compactCityElevation } from '../scripts/campaign/compact-city-elevation.mjs';
 
 function expand(field: CityElevation): number[] {

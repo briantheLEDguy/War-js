@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { startAuthority } from '../server/authority';
 import { DevelopmentAuthenticator } from '../server/auth';
 import { FileCampaignRepository, MemoryCampaignRepository } from '../server/persistence';
-import { createCampaign, type ServerMessage, type Realm } from '../src/shared/orvr';
+import { createCampaign, type ServerMessage, type Realm } from '../shared/orvr/index';
 
 describe('shared ORvR WebSocket authority', () => {
   const servers: Awaited<ReturnType<typeof startAuthority>>[] = [];

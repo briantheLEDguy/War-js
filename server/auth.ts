@@ -1,6 +1,6 @@
 import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import type { PlayerIdentity, Realm } from '../src/shared/orvr/protocol';
+import type { PlayerIdentity, Realm } from '../shared/orvr/protocol';
 import { recruitCombatProfile } from './abilityCatalog';
 
 export interface Authenticator {

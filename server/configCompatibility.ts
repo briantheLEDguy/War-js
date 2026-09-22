@@ -1,4 +1,4 @@
-import { createCampaign, type CampaignConfig, type CampaignState } from '../src/shared/orvr';
+import { createCampaign, type CampaignConfig, type CampaignState } from '../shared/orvr/index';
 
 /** Match persisted JSON semantics while ignoring object/property insertion order. Array order remains meaningful. */
 function canonicalJson(value: unknown): string {

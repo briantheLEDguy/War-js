@@ -4,11 +4,12 @@ import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
 export const requiredNativeTests = [
-  'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CityServices',
+  'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
+  'CharacterFrontend', 'ClassAbilityCatalog', 'ClassCombatStatus',
   'InventoryRewardParity', 'InventoryAuthority', 'CraftingCatalogAndRules', 'SalvageParity', 'CultivationTransactions', 'CraftingStationInteraction', 'ResourceGatheringTransactions', 'CharacterProgressionParity', 'ExpeditionQuestParity',
-  'QuestMarkerVisibility', 'CameraControls', 'MovementInput', 'WorldEditHistory', 'WorldEditCatalog',
+  'InterfaceRules', 'LocalGmAccess', 'QuestMarkerVisibility', 'CameraControls', 'MovementInput', 'WorldEditHistory', 'WorldEditCatalog', 'WorldEditStreaming', 'ZonePortal', 'ZoneStreaming', 'ZoneRespawn', 'ZoneAtmosphere',
 ].map(name => `AegisWar.Foundation.${name}`);
 
 export function validateAutomationReport(report: unknown): number {

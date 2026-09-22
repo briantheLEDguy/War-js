@@ -193,9 +193,8 @@ export function generateBuilderCatalog() {
     }
   }
   // Include procedurally scattered nature and road pieces absent from serialized map props.
-  const fallbackSource = fs.readFileSync(path.join(root, 'src/world/Props.ts'), 'utf8');
-  for (const match of fallbackSource.matchAll(/case '(\w+)':/g)) {
-    const kind = match[1];
+  const legacyKinds = JSON.parse(fs.readFileSync(path.join(root, 'shared/world/editor/legacy-prop-kinds.json'), 'utf8'));
+  for (const kind of legacyKinds) {
     if (result.some(e => e.kind === kind)) continue;
     result.push({ kind, label: title(kind), group: kind.startsWith('pnw_') ? 'Nature' : 'World Scenery',
       fallbackKind: kind, footprint: { width: 1, depth: 1, chainAxis: 'z' } });
@@ -210,7 +209,7 @@ export function writeBuilderCatalog() {
 }
 
 function writeCatalog(output) {
-  const target = path.join(root, 'src/world/editor/prefabs.generated.json');
+  const target = path.join(root, 'shared/world/editor/prefabs.generated.json');
   const pending = `${target}.${process.pid}.pending`;
   fs.writeFileSync(pending, output);
   fs.renameSync(pending, target);
@@ -218,7 +217,7 @@ function writeCatalog(output) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const output = `${JSON.stringify(generateBuilderCatalog(), null, 2)}\n`;
-  const target = path.join(root, 'src/world/editor/prefabs.generated.json');
+  const target = path.join(root, 'shared/world/editor/prefabs.generated.json');
   if (process.argv.includes('--check')) {
     if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8').replaceAll('\r\n', '\n') !== output) {
       throw new Error('GM catalog is stale. Run npm run builder:generate.');

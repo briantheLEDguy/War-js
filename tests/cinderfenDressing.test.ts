@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
-import type { ZoneDefinition } from '../src/world/ZoneLoader';
+import type { ZoneDefinition } from '../shared/world/ZoneDefinition';
 // @ts-expect-error Native ESM campaign authoring module.
 import { fitCinderfenDressing } from '../scripts/campaign/cinderfen-dressing.mjs';
 // @ts-expect-error Native ESM geometry survey module.

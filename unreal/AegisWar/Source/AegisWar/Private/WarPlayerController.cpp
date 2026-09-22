@@ -1,5 +1,6 @@
 #include "WarPlayerController.h"
 #include "WarEntryStatusWidget.h"
+#include "WarFrontendWidget.h"
 #include "WarInventoryWidget.h"
 #include "WarQuestLogWidget.h"
 #include "WarWorldEditWidget.h"
@@ -38,15 +39,31 @@ void AWarPlayerController::UpdateRotation(float DeltaTime)
 void AWarPlayerController::SetupInputComponent()
 {
     Super::SetupInputComponent();
-    InputComponent->BindKey(EKeys::I, IE_Pressed, this, &AWarPlayerController::ToggleInventory);
-    InputComponent->BindKey(EKeys::L, IE_Pressed, this, &AWarPlayerController::ToggleQuestLog);
-    InputComponent->BindKey(EKeys::G, IE_Pressed, this, &AWarPlayerController::ToggleWorldEditor);
+    LoadControlKeys();
+    BindControlKeys();
+}
+
+void AWarPlayerController::BindControlKeys()
+{
+    if (!InputComponent) return;
+    InputComponent->KeyBindings.Empty();
+    BindActionBarKeys();
+    InputComponent->BindKey(EKeys::Escape, IE_Pressed, this, &AWarPlayerController::ToggleMenu);
+    InputComponent->BindKey(GetControlKey(TEXT("Map")), IE_Pressed, this, &AWarPlayerController::ToggleMap);
+    InputComponent->BindKey(GetControlKey(TEXT("Character")), IE_Pressed, this, &AWarPlayerController::ToggleCharacter);
+    InputComponent->BindKey(GetControlKey(TEXT("Guide")), IE_Pressed, this, &AWarPlayerController::ToggleGuide);
+    InputComponent->BindKey(GetControlKey(TEXT("GM")), IE_Pressed, this, &AWarPlayerController::ToggleGmTools);
+    InputComponent->BindKey(EKeys::F1, IE_Pressed, this, &AWarPlayerController::ToggleGuide);
+    InputComponent->BindKey(GetControlKey(TEXT("Inventory")), IE_Pressed, this, &AWarPlayerController::ToggleInventory);
+    InputComponent->BindKey(GetControlKey(TEXT("Quests")), IE_Pressed, this, &AWarPlayerController::ToggleQuestLog);
+    InputComponent->BindKey(GetControlKey(TEXT("Build")), IE_Pressed, this, &AWarPlayerController::ToggleWorldEditor);
     InputComponent->BindKey(EKeys::LeftMouseButton, IE_Pressed, this, &AWarPlayerController::PickWorldEditorObject).bConsumeInput = false;
-    InputComponent->BindKey(EKeys::E, IE_Pressed, this, &AWarPlayerController::InteractWithWorld);
+    InputComponent->BindKey(GetControlKey(TEXT("Interact")), IE_Pressed, this, &AWarPlayerController::InteractWithWorld);
 }
 
 void AWarPlayerController::ToggleInventory()
 {
+    CloseInterface();
     CloseCityService();
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport()) ToggleWorldEditor();
@@ -90,6 +107,7 @@ void AWarPlayerController::InteractWithStation()
 
 void AWarPlayerController::ToggleQuestLog()
 {
+    CloseInterface();
     CloseCityService();
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport()) ToggleWorldEditor();
@@ -119,12 +137,25 @@ void AWarPlayerController::RecordEntryFailure(const FText& Reason)
 {
     if (!HasAuthority()) return;
     LastEntryFailure = Reason;
+    if (bCharacterEntryPending)
+    {
+        bCharacterEntryPending = false;
+        CreatedCharacterVisual = nullptr;
+        ClientCharacterEntryResult(false, Reason.ToString());
+        return;
+    }
     ClientEntryRejected(Reason);
 }
 
 void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reason)
 {
     LastEntryFailure = Reason;
+    if (FrontendWidget && FrontendWidget->IsInViewport())
+    {
+        FrontendWidget->ShowError(Reason.ToString());
+        return;
+    }
+    CloseAllPanels();
     SetIgnoreMoveInput(true);
     SetIgnoreLookInput(true);
     if (!IsLocalController() || !GetLocalPlayer()) return;
@@ -140,6 +171,7 @@ void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reaso
 
 void AWarPlayerController::InteractWithWorld()
 {
+    if (IsInterfaceOpen()) return;
     if (CityServiceWidget && CityServiceWidget->IsInViewport()) { CloseCityService(); return; }
     if (const auto* WarPawn = Cast<AWarCharacter>(GetPawn()); WarPawn && WarPawn->IsDevelopmentFlying()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport()) return;

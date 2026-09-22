@@ -26,7 +26,7 @@ export function auditPrimitives(root: string): { findings: PrimitiveFinding[]; m
     if (/\.(?:glb|gltf|blend|fbx|obj)$/i.test(file) && /(?:primitive|proxy|test-assets|test_body|test_character)/i.test(file)) {
       modelFiles.push({ path: file, classification: /test/.test(file) ? 'test_fixture_model' : 'name_requires_review' });
     }
-    if (!/\.(?:tsx?|mjs|js|py)$/.test(file) || !/^(src|scripts|authoring|tests)\//.test(file)
+    if (!/\.(?:tsx?|mjs|js|py)$/.test(file) || !/^(src|shared|scripts|authoring|tests)\//.test(file)
       || file.startsWith('scripts/unreal/') || !existsSync(path.join(root, file))) continue;
     const lines = readFileSync(path.join(root, file), 'utf8').split(/\r?\n/);
     for (const [index, line] of lines.entries()) {

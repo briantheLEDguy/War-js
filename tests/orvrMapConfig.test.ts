@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { campaignGateNavigation, loadCampaignMapConfigs } from '../server/mapConfig';
-import { createCampaign } from '../src/shared/orvr';
+import { createCampaign } from '../shared/orvr/index';
 import { campaignAbilityRules, recruitCombatProfile } from '../server/abilityCatalog';
-import { campaignColliderBlocksHeight, campaignColliderContains } from '../src/shared/orvr/navigation';
+import { campaignColliderBlocksHeight, campaignColliderContains } from '../shared/orvr/navigation';
 
 describe('generated maps at the authority boundary', () => {
   it('grounds and rotates closed gate collision independently of its animation hinge', () => {

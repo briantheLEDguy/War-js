@@ -9,8 +9,8 @@ import { startAuthority } from '../server/authority';
 import { DevelopmentAuthenticator } from '../server/auth';
 import { FileCampaignRepository, MemoryCampaignRepository } from '../server/persistence';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { createCampaign, defaultZoneConfig } from '../src/shared/orvr';
-import type { CampaignEvent, CampaignState, PlayerAction, ServerMessage } from '../src/shared/orvr';
+import { createCampaign, defaultZoneConfig } from '../shared/orvr/index';
+import type { CampaignEvent, CampaignState, PlayerAction, ServerMessage } from '../shared/orvr/index';
 
 class JournalRepository extends MemoryCampaignRepository {
   journals: CampaignEvent[][] = [];

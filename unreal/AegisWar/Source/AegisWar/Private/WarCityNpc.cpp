@@ -1,10 +1,12 @@
 #include "WarCityNpc.h"
 #include "WarCityServices.h"
+#include "WarNpcEquipment.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Components/TextRenderComponent.h"
 #include "Camera/PlayerCameraManager.h"
 #include "Kismet/GameplayStatics.h"
+#include "Engine/World.h"
 
 AWarCityNpc::AWarCityNpc()
 {
@@ -14,15 +16,34 @@ AWarCityNpc::AWarCityNpc()
     Nameplate->SetHorizontalAlignment(EHTA_Center);Nameplate->SetWorldSize(18);
     Nameplate->SetTextRenderColor(FColor(210,202,179));Nameplate->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
+void AWarCityNpc::PostRegisterAllComponents()
+{
+    Super::PostRegisterAllComponents();
+#if WITH_EDITOR
+    if (!IsTemplate() && GetWorld() && !GetWorld()->IsGameWorld() && !bPreparingEditorEquipment
+        && GetSkeletalMeshComponent()->GetSkeletalMeshAsset())
+    {
+        TGuardValue<bool> Guard(bPreparingEditorEquipment, true); FString Error;
+        UWarNpcEquipmentLibrary::Apply(GetSkeletalMeshComponent(), CharacterProfile, NpcId, CityRole, Error);
+    }
+#endif
+}
+
 void AWarCityNpc::BeginPlay()
 {
     Super::BeginPlay();
+    FString EquipmentError;
+    bEquipmentReady = UWarNpcEquipmentLibrary::Apply(GetSkeletalMeshComponent(), CharacterProfile, NpcId, CityRole, EquipmentError);
+    if (!bEquipmentReady)
+        UE_LOG(LogTemp, Error, TEXT("WAR_NPC_EQUIPMENT_BLOCKED %s: %s"), *NpcId.ToString(), *EquipmentError);
+    if (!Nameplate) return;
     FString RoleLabel=CityRole.ToString().Replace(TEXT("_"),TEXT(" "));
     Nameplate->SetText(FText::FromString(DisplayName+TEXT("\n")+RoleLabel));
 }
 void AWarCityNpc::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
+    if (!Nameplate) return;
     if(auto* Camera=UGameplayStatics::GetPlayerCameraManager(this,0))
     {
         const FVector Delta=Camera->GetCameraLocation()-Nameplate->GetComponentLocation();

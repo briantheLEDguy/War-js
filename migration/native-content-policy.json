@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "5.8.2",
+  "repository": "https://github.com/briantheLEDguy/War-js-content.git",
+  "approvedRoots": [],
+  "restrictedRoots": ["LicensedKits", "Medieval_Environment", "Medieval_Mod_Town", "WarKitAdaptations"],
+  "reviewRequired": "Record per-root distribution rights and source provenance before adding an approvedRoots entry with root and evidence. Purchased-kit and supplied-animation sharing reviews are incomplete. Private visibility alone is not approval."
+}

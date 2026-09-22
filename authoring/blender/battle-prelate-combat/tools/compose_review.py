@@ -5,7 +5,7 @@ import json
 
 root=Path(__file__).resolve().parents[1]
 repo=root.parents[2]
-motions=json.loads((repo/'src/game/animation/battlePrelateMotions.json').read_text())['motions']
+motions=json.loads((repo/'shared/game/animation/battlePrelateMotions.json').read_text())['motions']
 for variant in ['male','female','novitiate']:
     for phase in ['windup','contact']:
         output=Image.new('RGB',(1000,990),'#17212c')

@@ -30,6 +30,7 @@ void AWarPlayerController::ToggleWorldEditor()
     auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
     FString Error;
     if (!Editor || !Editor->Open(this, Error)) { WorldEditMessage = Error; return; }
+    CloseInterface();
     if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();
     if (!WorldEditWidget)

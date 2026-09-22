@@ -1,7 +1,9 @@
 #include "WarWorldEditWidget.h"
+#include "WarUiArtwork.h"
 #include "WarWorldEditSubsystem.h"
 #include "WarWorldEditPlacement.h"
 #include "WarWorldEditCatalog.h"
+#include "WarInterfaceStyle.h"
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
 #include "Engine/World.h"
@@ -29,7 +31,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
     Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Development draft — click a building to select")))];
     auto Commands = SNew(SHorizontalBox);
     const auto Button = [](const FString& Label, TFunction<FReply()> Action) -> TSharedRef<SWidget> {
-        return SNew(SButton).OnClicked_Lambda(MoveTemp(Action))[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Label))];
+        return SNew(SButton).ButtonStyle(&WarInterfaceStyle::Button()).OnClicked_Lambda(MoveTemp(Action))[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Label))];
     };
     Commands->AddSlot().AutoWidth()[Button(TEXT("Close"), [Weak] { if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer())) P->ToggleWorldEditor(); return FReply::Handled(); })];
     Commands->AddSlot().AutoWidth()[Button(TEXT("Select nearest"), [Weak] { if (Weak.IsValid()) Weak->SelectNearest(); return FReply::Handled(); })];
@@ -67,7 +69,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
         + SScrollBox::Slot()[SAssignNew(CatalogRows, SVerticalBox)]]];
     Body->AddSlot().AutoHeight()[SNew(SSearchBox).InitialText(FText::FromString(Search)).HintText(FText::FromString(TEXT("Find a placed building")))
         .OnTextChanged_Lambda([Weak](const FText& Text) { if (Weak.IsValid()) { Weak->Search = Text.ToString(); Weak->RefreshRows(); } })];
-    Body->AddSlot().FillHeight(1).Padding(0, 8)[SNew(SScrollBox) + SScrollBox::Slot()[SAssignNew(Rows, SVerticalBox)]];
+    Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(SBox).HeightOverride(120)[SNew(SScrollBox) + SScrollBox::Slot()[SAssignNew(Rows, SVerticalBox)]]];
     Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).AutoWrapText(true).Text_Lambda([Weak] {
         if (!Weak.IsValid()) return FText::GetEmpty();
         auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
@@ -171,13 +173,31 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
                 if (auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>()) P->ServerWorldEditDraft(bLoad, E->GetHistory().GetRevision());
             return FReply::Handled(); })];
     Body->AddSlot().AutoHeight().Padding(0, 8)[Storage];
+    auto Extra = SNew(SHorizontalBox);
+    Extra->AddSlot().FillWidth(1)[Button(TEXT("Duplicate"),[Weak] {
+        if (Weak.IsValid()) if (auto* P=Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
+            if (const auto* E=Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>()) P->ServerDuplicateWorldObject(Weak->Selected,E->GetHistory().GetRevision());
+        return FReply::Handled(); })];
+    Extra->AddSlot().FillWidth(1)[Button(TEXT("Measure"),[Weak] {
+        if (Weak.IsValid()) if (auto* P=Cast<AWarPlayerController>(Weak->GetOwningPlayer())) P->MeasureWorldObject(Weak->Selected);
+        return FReply::Handled(); })];
+    Extra->AddSlot().FillWidth(1)[SNew(SButton).ButtonStyle(&WarInterfaceStyle::Button())
+        .Text_Lambda([Weak] { return FText::FromString(Weak.IsValid() && Weak->ResetConfirmationRevision!=INDEX_NONE ? TEXT("Confirm reset") : TEXT("Reset to authored")); })
+        .OnClicked_Lambda([Weak] {
+            if (Weak.IsValid()) if (auto* P=Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
+                if (const auto* E=Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
+                {
+                    if (Weak->ResetConfirmationRevision==E->GetHistory().GetRevision()) { P->ServerResetWorldDraft(Weak->ResetConfirmationRevision);Weak->ResetConfirmationRevision=INDEX_NONE; }
+                    else Weak->ResetConfirmationRevision=E->GetHistory().GetRevision();
+                }
+            return FReply::Handled(); })];
+    Body->AddSlot().AutoHeight().Padding(0,6)[Extra];
     Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).AutoWrapText(true).Text_Lambda([Weak] {
         const auto* P = Weak.IsValid() ? Cast<AWarPlayerController>(Weak->GetOwningPlayer()) : nullptr;
         return P ? FText::FromString(P->GetWorldEditMessage()) : FText::GetEmpty(); })];
     RefreshCatalog(); RefreshRows();
     if (Selected.IsNone()) SelectNearest();
-    return SNew(SBox).WidthOverride(560)[SNew(SBorder).Padding(12)
-        .BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush")).BorderBackgroundColor(FLinearColor(0.025f, 0.03f, 0.045f, 1.f))[Body]];
+    return SNew(SBox).WidthOverride(560)[SNew(SWarArtWindow)[SNew(SScrollBox)+SScrollBox::Slot()[Body]]];
 }
 
 void UWarWorldEditWidget::ExpandRepeatedConstruction()

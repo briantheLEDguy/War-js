@@ -6,6 +6,7 @@
 #include "WarCultivationRules.h"
 #include "WarGatheringRules.h"
 #include "WarQuestRules.h"
+#include "WarWorldVisualCatalog.h"
 #include "WarContentSubsystem.generated.h"
 
 class FJsonObject;
@@ -50,10 +51,14 @@ public:
     static bool ValidateVisualImportBinding(const UWarCharacterVisualDefinition* Visual,
         const TMap<FName, FWarVisualImportBinding>& Bindings, FString& OutError);
     bool ValidatePlayableVisual(const UWarCharacterVisualDefinition* Visual, FString& OutError) const;
+    TSharedPtr<const FJsonObject> GetInterfaceCatalogSource() const { return Manifest; }
+    FString GetCampaignAtlasText() const;
     FText GetItemDisplayName(FName Key) const;
     FString GetCityTeachingText(FName Service) const;
     bool GetConsumableEffect(FName Key, float& Health, float& Mana) const;
     bool GetResourceNode(FName ZoneId, FName NodeId, FWarResourceDefinition& Node, FString& Error) const;
+    bool ValidateWorldVisual(FName Purpose, FName ZoneId, FName EntityId, FName VisualPropId,
+        const class UStaticMeshComponent* Component, FString& Error) const;
     static bool ParseResourceNode(const TSharedPtr<FJsonObject>& Catalog, FName ZoneId, FName NodeId, FWarResourceDefinition& Node, FString& Error);
     bool GetCultivationSeed(FName Key, FWarCultivationSeed& Seed, FString& Error) const;
     static bool ParseCultivationSeed(const TSharedPtr<FJsonObject>& Catalog, FName Key, FWarCultivationSeed& Seed, FString& Error);
@@ -77,4 +82,6 @@ private:
     TMap<FName, FWarVisualImportBinding> VisualImports;
     FString VisualImportError;
     TMap<FName, FWarQuestDefinition> QuestCatalog;
+    TMap<FString, FWarWorldVisualBinding> WorldVisuals;
+    FString WorldVisualError;
 };

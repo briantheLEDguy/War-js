@@ -1,7 +1,7 @@
 # Purchased modular kits in the GM builder
 
 The owner has authorized using already purchased Unreal store modular kits for
-city environments and the native GM building catalog. This is a narrow addition
+city environments, outdoor zones, dungeons and the native GM building catalog. This is an addition
 to the repository-source policy, not authorization to purchase more assets.
 The owner approved launcher inspection. Three relevant owned entries were
 identified on 2026-09-21; their listing metadata is summarized below. Actual

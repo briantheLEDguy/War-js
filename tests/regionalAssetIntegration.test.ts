@@ -13,7 +13,7 @@ import { composeCinderfenLandscape } from '../scripts/campaign/cinderfen-landsca
 // @ts-expect-error Campaign authoring source is executable JavaScript.
 import { integrateCinderfen } from '../scripts/campaign/cinderfen-integration.mjs';
 import { mapPropNavigation } from '../server/mapNavigation';
-import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../src/shared/orvr/navigation';
+import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../shared/orvr/navigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { createKeepEnclosureAudit } from '../scripts/audit-keep-enclosures';
 const read = (file: string) => JSON.parse(fs.readFileSync(file, 'utf8'));

@@ -11,6 +11,7 @@ class AEGISWAR_API AWarCityNpc : public ASkeletalMeshActor
 public:
     AWarCityNpc();
     virtual void BeginPlay() override;
+    virtual void PostRegisterAllComponents() override;
     virtual void Tick(float DeltaTime) override;
     UPROPERTY(EditAnywhere, Category="City") FName NpcId;
     UPROPERTY(EditAnywhere, Category="City") FString DisplayName;
@@ -18,6 +19,9 @@ public:
     UPROPERTY(EditAnywhere, Category="City") FName CharacterProfile;
     FName GetService() const;
     bool CanInteract(const APawn* Pawn) const;
+    bool IsEquipmentReady() const { return bEquipmentReady; }
 private:
+    bool bEquipmentReady = false;
+    bool bPreparingEditorEquipment = false;
     UPROPERTY(VisibleAnywhere) TObjectPtr<UTextRenderComponent> Nameplate;
 };

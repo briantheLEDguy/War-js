@@ -9,6 +9,7 @@
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "UObject/Package.h"
 #include "UObject/MetaData.h"
+#include "Misc/PackageName.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "GameFramework/Actor.h"
@@ -16,11 +17,43 @@
 #include "ShaderCompiler.h"
 #include "RenderingThread.h"
 #include "Engine/World.h"
+#include "Engine/LevelStreaming.h"
+#include "Engine/Level.h"
 #include "Rendering/SkeletalMeshRenderData.h"
 #include "Rendering/SkeletalMeshLODRenderData.h"
 #include "Rendering/SkinWeightVertexBuffer.h"
 
 IMPLEMENT_MODULE(FDefaultModuleImpl, AegisWarEditorTools);
+
+TArray<AActor*> UWarImportLibrary::CopyCampaignActorsToLevel(const TArray<AActor*>& Actors, ULevelStreaming* Destination)
+{
+    TArray<AActor*> Copies;
+    ULevel* Level = Destination ? Destination->GetLoadedLevel() : nullptr;
+    UWorld* World = Level ? Level->OwningWorld : nullptr;
+    if (!World || !Level->GetOutermost()->GetName().StartsWith(TEXT("/Game/WorldRebuild/Zones_"))) return Copies;
+    for (const auto* Actor : Actors)
+    {
+        if (!IsValid(Actor) || Actor->GetWorld() != World || Actor->GetAttachParentActor()
+            || !Actor->GetOutermost()->GetName().StartsWith(TEXT("/Game/WorldRebuild/Zones_"))
+            || !Actor->Tags.ContainsByPredicate([](FName Tag) { return Tag.ToString().StartsWith(TEXT("WarZoneObject_")); })) return Copies;
+    }
+    for (auto* Source : Actors)
+    {
+        FActorSpawnParameters Parameters;
+        Parameters.Template = Source;
+        Parameters.OverrideLevel = Level;
+        Parameters.Name = Source->GetFName();
+        Parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+        // Template root transforms are already authored in world coordinates; do not multiply them twice.
+        auto* Copy = World->SpawnActor<AActor>(Source->GetClass(), FTransform::Identity, Parameters);
+        if (!Copy) return Copies;
+        Copy->SetActorTransform(Source->GetActorTransform(), false, nullptr, ETeleportType::TeleportPhysics);
+        Copy->SetActorLabel(Source->GetActorLabel());
+        Copy->SetFolderPath(Source->GetFolderPath());
+        Copies.Add(Copy);
+    }
+    return Copies;
+}
 
 UBoxComponent* UWarImportLibrary::SetCapitalBuildingCollision(AActor* Actor, const int32 Index,
     const FVector Center, const FVector HalfSize, const double YawDegrees)
@@ -56,10 +89,65 @@ UStaticMesh* UWarImportLibrary::CreateCapitalSurface(const FString& ZoneId, cons
     const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
     const TArray<FVector2D>& UVs, UMaterialInterface* Material, const bool bCollision)
 {
-    if ((ZoneId != TEXT("aegis_capital") && ZoneId != TEXT("crownward")) || (Surface != TEXT("ground") && Surface != TEXT("water") && Surface != TEXT("bed") && Surface != TEXT("roads") && Surface != TEXT("mountain"))
-        || !Material || Positions.IsEmpty() || Positions.Num() > 2000000 || Positions.Num() != Normals.Num()
-        || Positions.Num() != UVs.Num() || Indices.IsEmpty() || Indices.Num() % 3 || Indices.Num() > 6000000
+    if ((ZoneId != TEXT("aegis_capital") && ZoneId != TEXT("crownward") && ZoneId != TEXT("brightfen_approach") && ZoneId != TEXT("sunmeadow_march")) || (Surface != TEXT("ground") && Surface != TEXT("water") && Surface != TEXT("bed") && Surface != TEXT("roads") && Surface != TEXT("mountain"))
         || bCollision != (Surface != TEXT("water"))) return nullptr;
+    return BuildSurface(TEXT("/Game/Capitals/") + ZoneId + TEXT("/Terrain_") + Surface, ZoneId + TEXT(":") + Surface,
+        Positions, Indices, Normals, UVs, Material, bCollision);
+}
+
+UStaticMesh* UWarImportLibrary::CreateWorldSurface(const FString& Collection, const FString& Key,
+    const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
+    const TArray<FVector2D>& UVs, UMaterialInterface* Material, const bool bCollision)
+{
+    return CreateColoredWorldSurface(Collection, Key, Positions, Indices, Normals, UVs, {}, Material, bCollision);
+}
+
+UStaticMesh* UWarImportLibrary::CreateColoredWorldSurface(const FString& Collection, const FString& Key,
+    const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
+    const TArray<FVector2D>& UVs, const TArray<FLinearColor>& VertexColors, UMaterialInterface* Material, const bool bCollision)
+{
+    const auto SafeKey = [](const FString& Value) {
+        if (Value.IsEmpty() || Value.Len() > 120) return false;
+        for (const TCHAR C : Value) if (!FChar::IsAlnum(C) && C != TEXT('_')) return false;
+        return true;
+    };
+    if (!SafeKey(Collection) || !SafeKey(Key)) return nullptr;
+    return BuildSurface(TEXT("/Game/WorldRebuild/") + Collection + TEXT("/Meshes/") + Key, Collection + TEXT(":") + Key,
+        Positions, Indices, Normals, UVs, Material, bCollision, VertexColors);
+}
+
+UStaticMesh* UWarImportLibrary::CreateCompositeWorldSurface(const FString& Collection, const FString& Key,
+    const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
+    const TArray<FVector2D>& UVs, const TArray<FLinearColor>& VertexColors,
+    const TArray<int32>& TriangleMaterials, const TArray<UMaterialInterface*>& Materials, const bool bCollision)
+{
+    for (const FString* Value : {&Collection, &Key})
+    {
+        if (Value->IsEmpty() || Value->Len() > 120) return nullptr;
+        for (TCHAR C : *Value) if (!FChar::IsAlnum(C) && C != TEXT('_')) return nullptr;
+    }
+    if (Materials.IsEmpty()) return nullptr;
+    return BuildSurface(TEXT("/Game/WorldRebuild/") + Collection + TEXT("/Meshes/") + Key, Collection + TEXT(":") + Key,
+        Positions, Indices, Normals, UVs, Materials[0], bCollision, VertexColors, TriangleMaterials, Materials);
+}
+
+UStaticMesh* UWarImportLibrary::BuildSurface(const FString& PackageName, const FString& Owner,
+    const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
+    const TArray<FVector2D>& UVs, UMaterialInterface* Material, const bool bCollision,
+    const TArray<FLinearColor>& VertexColors, const TArray<int32>& TriangleMaterials,
+    const TArray<UMaterialInterface*>& Materials)
+{
+    if (!Material || Positions.IsEmpty() || Positions.Num() > 2000000 || Positions.Num() != Normals.Num()
+        || Positions.Num() != UVs.Num() || Indices.IsEmpty() || Indices.Num() % 3 || Indices.Num() > 6000000
+        || (!VertexColors.IsEmpty() && VertexColors.Num() != Positions.Num())) return nullptr;
+    const TArray<UMaterialInterface*> Slots = Materials.IsEmpty() ? TArray<UMaterialInterface*>{Material} : Materials;
+    if (Slots.Num() > 64 || Slots.Contains(nullptr)
+        || (!TriangleMaterials.IsEmpty() && TriangleMaterials.Num() != Indices.Num() / 3)
+        || (Slots.Num() > 1 && TriangleMaterials.IsEmpty())) return nullptr;
+    for (int32 Index : TriangleMaterials) if (!Slots.IsValidIndex(Index)) return nullptr;
+    for (const auto& Color : VertexColors)
+        for (float Channel : {Color.R, Color.G, Color.B, Color.A})
+            if (!FMath::IsFinite(Channel) || Channel < 0.f || Channel > 1.f) return nullptr;
     for (int32 Index = 0; Index < Positions.Num(); ++Index)
     {
         if (Positions[Index].ContainsNaN() || Positions[Index].GetAbsMax() > 100000000.0
@@ -72,9 +160,7 @@ UStaticMesh* UWarImportLibrary::CreateCapitalSurface(const FString& ZoneId, cons
         if (FVector::CrossProduct(Positions[Indices[Index + 1]] - Positions[Indices[Index]],
             Positions[Indices[Index + 2]] - Positions[Indices[Index]]).IsNearlyZero()) return nullptr;
     }
-    const FString Owner = ZoneId + TEXT(":") + Surface;
-    const FString Name = TEXT("Terrain_") + Surface;
-    const FString PackageName = TEXT("/Game/Capitals/") + ZoneId + TEXT("/") + Name;
+    const FString Name = FPackageName::GetShortName(PackageName);
     UPackage* Package = CreatePackage(*PackageName);
     UStaticMesh* Mesh = LoadObject<UStaticMesh>(nullptr, *(PackageName + TEXT(".") + Name));
     if (Mesh && Package->GetMetaData().GetValue(Mesh, TEXT("WarCapitalTerrain")) != Owner) return nullptr;
@@ -90,8 +176,15 @@ UStaticMesh* UWarImportLibrary::CreateCapitalSurface(const FString& ZoneId, cons
     auto Colors = Attributes.GetVertexInstanceColors();
     auto VertexUVs = Attributes.GetVertexInstanceUVs();
     VertexUVs.SetNumChannels(1);
-    const FPolygonGroupID Group = Description.CreatePolygonGroup();
-    Attributes.GetPolygonGroupMaterialSlotNames()[Group] = TEXT("Surface");
+    TArray<FPolygonGroupID> Groups;
+    TArray<FName> SlotNames;
+    for (int32 Index = 0; Index < Slots.Num(); ++Index)
+    {
+        const FName Slot = Slots.Num() == 1 ? FName(TEXT("Surface")) : FName(*FString::Printf(TEXT("Surface_%d"), Index));
+        const FPolygonGroupID Group = Description.CreatePolygonGroup();
+        Attributes.GetPolygonGroupMaterialSlotNames()[Group] = Slot;
+        Groups.Add(Group); SlotNames.Add(Slot);
+    }
     TArray<FVertexID> Vertices;
     Vertices.Reserve(Positions.Num());
     for (const auto& Position : Positions)
@@ -112,14 +205,16 @@ UStaticMesh* UWarImportLibrary::CreateCapitalSurface(const FString& ZoneId, cons
             if (Tangent.IsNearlyZero()) Tangent = FVector::VectorPlaneProject(FVector::XAxisVector, Normals[Source]).GetSafeNormal();
             Tangents[Instance] = FVector3f(Tangent);
             Signs[Instance] = 1.f;
-            Colors[Instance] = FVector4f(1, 1, 1, 1);
+            const FLinearColor Color = VertexColors.IsEmpty() ? FLinearColor::White : VertexColors[Source];
+            Colors[Instance] = FVector4f(Color.R, Color.G, Color.B, Color.A);
             VertexUVs.Set(Instance, 0, FVector2f(UVs[Source]));
             Corners.Add(Instance);
         }
-        Description.CreateTriangle(Group, Corners);
+        Description.CreateTriangle(Groups[TriangleMaterials.IsEmpty() ? 0 : TriangleMaterials[Index / 3]], Corners);
     }
     Mesh->GetStaticMaterials().Reset();
-    Mesh->GetStaticMaterials().Add(FStaticMaterial(Material, TEXT("Surface")));
+    for (int32 Index = 0; Index < Slots.Num(); ++Index)
+        Mesh->GetStaticMaterials().Add(FStaticMaterial(Slots[Index], SlotNames[Index]));
     if (!Mesh->BuildFromMeshDescriptions({ &Description })) return nullptr;
     if (bCollision)
     {
@@ -148,6 +243,15 @@ FBox UWarImportLibrary::GetSkinnedBounds(USkeletalMeshComponent* Component)
     for (uint32 Index = 0; Index < LOD.GetNumVertices(); ++Index)
         Bounds += FVector(USkeletalMeshComponent::GetSkinnedVertexPosition(Component, Index, LOD, *Weights, Matrices));
     return Bounds;
+}
+
+bool UWarImportLibrary::PrepareCompressedAnimation(UAnimSequence* Animation)
+{
+    if (!IsValid(Animation)) return false;
+    Animation->WaitOnExistingCompression();
+    Animation->CacheDerivedDataForCurrentPlatform();
+    Animation->WaitOnExistingCompression();
+    return Animation->IsCompressedDataValid() && Animation->IsBoneCompressedDataValid();
 }
 
 void UWarImportLibrary::PreparePreviewFrame(USkeletalMeshComponent* Component)

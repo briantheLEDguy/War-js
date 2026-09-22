@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "baselineMain": "496599622fa73504624e74c74e6e70fc8a612f75",
+  "baselineUnreal": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+  "branches": [
+    {
+      "branch": "backup-main-before-lfs-cleanup-20260713-153709",
+      "commit": "03b8de5e630c1178d6e9ca01be004dbd67a5e7e5",
+      "containedInCleanupHistory": false,
+      "disposition": "recovery-only-external-assets",
+      "recoveryTag": "recovery/2026-09-22/backup-main-before-lfs-cleanup-20260713-153709"
+    },
+    {
+      "branch": "codex/ability-icon-guide-sweep",
+      "commit": "a375ca4a762d8995aa92cb09738793fb20ab10dc",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/ability-icon-guide-sweep"
+    },
+    {
+      "branch": "codex/aegis-city-guards",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/aegis-city-guards"
+    },
+    {
+      "branch": "codex/aegis-civic-decorations",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/aegis-civic-decorations"
+    },
+    {
+      "branch": "codex/aegis-gothic-canal-city",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/aegis-gothic-canal-city"
+    },
+    {
+      "branch": "codex/aegis-greenery-reviewed-cast",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/aegis-greenery-reviewed-cast"
+    },
+    {
+      "branch": "codex/aegis-people-court",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/aegis-people-court"
+    },
+    {
+      "branch": "codex/battle-prelate-animation-v20",
+      "commit": "565a1cc5d371f31547e83abf1dd18870041b2269",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/battle-prelate-animation-v20"
+    },
+    {
+      "branch": "codex/battle-prelate-combat-animation",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/battle-prelate-combat-animation"
+    },
+    {
+      "branch": "codex/battle-prelate-novitiate-armor",
+      "commit": "1a67df6f888826e8cbcd5d5d72ad5036dfe82718",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/battle-prelate-novitiate-armor"
+    },
+    {
+      "branch": "codex/camera-range-obstructions",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/camera-range-obstructions"
+    },
+    {
+      "branch": "codex/capital-performance",
+      "commit": "cb2da07fc3c7eecdcf329a7ba1850bd92b006a22",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/capital-performance"
+    },
+    {
+      "branch": "codex/capital-training-dummies",
+      "commit": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/capital-training-dummies"
+    },
+    {
+      "branch": "codex/citadel-gothic-spires",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/citadel-gothic-spires"
+    },
+    {
+      "branch": "codex/code-size-cleanup",
+      "commit": "0582a074d3402be6e3d90ceecbb0607410d4e79e",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/code-size-cleanup"
+    },
+    {
+      "branch": "codex/ember-arcanist-reference",
+      "commit": "1a67df6f888826e8cbcd5d5d72ad5036dfe82718",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/ember-arcanist-reference"
+    },
+    {
+      "branch": "codex/expanded-world-orvr",
+      "commit": "ff53bf82b90b6cd46fdb9e13d64f6a5eca401e1b",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/expanded-world-orvr"
+    },
+    {
+      "branch": "codex/fortress-build-pack",
+      "commit": "dafd77ac38c54c1dcb16ac5997bffd49a165811b",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/fortress-build-pack"
+    },
+    {
+      "branch": "codex/full-roster-model-review",
+      "commit": "b00cc3e317ae4aea798ee28d6391cfaac51e438a",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/full-roster-model-review"
+    },
+    {
+      "branch": "codex/hotkey-mapping-settings",
+      "commit": "71ef67fbd37939ea4802c311342b73a28d7a2460",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/hotkey-mapping-settings"
+    },
+    {
+      "branch": "codex/integrate-gameplay-world-assets",
+      "commit": "6f2639a261b89702fc9077da835d9f8cbb6c1b08",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/integrate-gameplay-world-assets"
+    },
+    {
+      "branch": "codex/local-unreal-gm",
+      "commit": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/local-unreal-gm"
+    },
+    {
+      "branch": "codex/manual-battle-prelate-attempt",
+      "commit": "1a67df6f888826e8cbcd5d5d72ad5036dfe82718",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/manual-battle-prelate-attempt"
+    },
+    {
+      "branch": "codex/map-readability",
+      "commit": "5eb9ed118ec476f30355ac1f324822376f21f474",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/map-readability"
+    },
+    {
+      "branch": "codex/model-pipeline-rework",
+      "commit": "8c1239c303217dfcab2e34e8f98f06be7dbd9f52",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/model-pipeline-rework"
+    },
+    {
+      "branch": "codex/native-graphics-settings",
+      "commit": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/native-graphics-settings"
+    },
+    {
+      "branch": "codex/playability-first-expedition",
+      "commit": "1a67df6f888826e8cbcd5d5d72ad5036dfe82718",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/playability-first-expedition"
+    },
+    {
+      "branch": "codex/real-character-mcp-pilot",
+      "commit": "e6ada6cc1c73f7404ab0bd34619696021ab31394",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/real-character-mcp-pilot"
+    },
+    {
+      "branch": "codex/realistic-dark-fantasy-town-models",
+      "commit": "565a1cc5d371f31547e83abf1dd18870041b2269",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/realistic-dark-fantasy-town-models"
+    },
+    {
+      "branch": "codex/recover-battle-prelate",
+      "commit": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/recover-battle-prelate"
+    },
+    {
+      "branch": "codex/reduce-runtime-memory",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/reduce-runtime-memory"
+    },
+    {
+      "branch": "codex/reference-battle-prelate-rebuild",
+      "commit": "1a67df6f888826e8cbcd5d5d72ad5036dfe82718",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/reference-battle-prelate-rebuild"
+    },
+    {
+      "branch": "codex/render-resource-budget",
+      "commit": "bfd34ff4ddba1295779652a08c83129d5d08b1b6",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/render-resource-budget"
+    },
+    {
+      "branch": "codex/riftspire-crater-capital",
+      "commit": "ff53bf82b90b6cd46fdb9e13d64f6a5eca401e1b",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/riftspire-crater-capital"
+    },
+    {
+      "branch": "codex/smoother-frame-pacing",
+      "commit": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/smoother-frame-pacing"
+    },
+    {
+      "branch": "codex/thematic-combat-animation",
+      "commit": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/thematic-combat-animation"
+    },
+    {
+      "branch": "codex/unified-campaign-map",
+      "commit": "e95d9dc668b70e0186f87c6bb2a6fb98b71c82cf",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-worktree-retained",
+      "recoveryTag": "recovery/2026-09-22/codex/unified-campaign-map"
+    },
+    {
+      "branch": "codex/unreal-browser-retirement",
+      "commit": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+      "containedInCleanupHistory": true,
+      "disposition": "active-cleanup",
+      "recoveryTag": null
+    },
+    {
+      "branch": "codex/unreal-migration",
+      "commit": "80d26c9445e3e2d7ea01f107e6ed0f2c82a93b00",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/unreal-migration"
+    },
+    {
+      "branch": "codex/world-continuation",
+      "commit": "2c4a37a36b8682656597dbf14c55c22dc5a05425",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/world-continuation"
+    },
+    {
+      "branch": "codex/world-quality-continuation",
+      "commit": "496599622fa73504624e74c74e6e70fc8a612f75",
+      "containedInCleanupHistory": true,
+      "disposition": "integrated-history-redundant-branch",
+      "recoveryTag": "recovery/2026-09-22/codex/world-quality-continuation"
+    },
+    {
+      "branch": "main",
+      "commit": "496599622fa73504624e74c74e6e70fc8a612f75",
+      "containedInCleanupHistory": true,
+      "disposition": "integration-target",
+      "recoveryTag": null
+    }
+  ],
+  "worktreeRecovery": [
+    {
+      "head": "b00cc3e317ae4aea798ee28d6391cfaac51e438a",
+      "counts": {
+        "same-as-current": 0,
+        "historical-browser": 0,
+        "private-recovery-candidate": 0,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "8c1239c303217dfcab2e34e8f98f06be7dbd9f52",
+      "counts": {
+        "same-as-current": 0,
+        "historical-browser": 0,
+        "private-recovery-candidate": 99,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "e95d9dc668b70e0186f87c6bb2a6fb98b71c82cf",
+      "counts": {
+        "same-as-current": 13,
+        "historical-browser": 0,
+        "private-recovery-candidate": 8,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "counts": {
+        "same-as-current": 105,
+        "historical-browser": 1,
+        "private-recovery-candidate": 8,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "8a4225221bd560625ddc9258be01ce54f9865636",
+      "counts": {
+        "same-as-current": 8,
+        "historical-browser": 0,
+        "private-recovery-candidate": 389,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "1a67df6f888826e8cbcd5d5d72ad5036dfe82718",
+      "counts": {
+        "same-as-current": 528,
+        "historical-browser": 4,
+        "private-recovery-candidate": 420,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "1a67df6f888826e8cbcd5d5d72ad5036dfe82718",
+      "counts": {
+        "same-as-current": 1250,
+        "historical-browser": 9,
+        "private-recovery-candidate": 757,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "cb2da07fc3c7eecdcf329a7ba1850bd92b006a22",
+      "counts": {
+        "same-as-current": 0,
+        "historical-browser": 0,
+        "private-recovery-candidate": 0,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    },
+    {
+      "head": "0582a074d3402be6e3d90ceecbb0607410d4e79e",
+      "counts": {
+        "same-as-current": 0,
+        "historical-browser": 0,
+        "private-recovery-candidate": 0,
+        "deleted-in-old-worktree": 0
+      },
+      "disposition": "retained-in-place-and-private-snapshot"
+    }
+  ]
+}

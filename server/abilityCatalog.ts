@@ -1,5 +1,5 @@
-import { CAREER_ABILITY_KITS, getCareerAbilityKit } from '../src/game/abilities/abilityData';
-import type { AbilityRule, PlayerIdentity, Realm } from '../src/shared/orvr/protocol';
+import { CAREER_ABILITY_KITS, getCareerAbilityKit } from '../shared/game/abilities/abilityData';
+import type { AbilityRule, PlayerIdentity, Realm } from '../shared/orvr/protocol';
 
 export function campaignAbilityRules(): AbilityRule[] {
   return Object.values(CAREER_ABILITY_KITS).flatMap(kit => kit.abilities.map(ability => ({

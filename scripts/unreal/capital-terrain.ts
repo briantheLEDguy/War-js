@@ -1,7 +1,7 @@
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { canalAt, citySurfaceGeometry, type CanalDefinition } from '../../src/world/CityWater';
-import { cityHeightAt, type CityElevation } from '../../src/world/CityElevation';
+import { canalAt, citySurfaceGeometry, type CanalDefinition } from '../../shared/world/CityWater';
+import { cityHeightAt, type CityElevation } from '../../shared/world/CityElevation';
 import { canonicalJson, sha256, sourcePointToUnreal } from './content-contract';
 import { isMain, repoRoot } from './toolchain';
 

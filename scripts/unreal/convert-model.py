@@ -11,6 +11,9 @@ from pathlib import Path
 import struct
 import sys
 
+sys.path.insert(0, str(Path(__file__).parent))
+from equipped_source import resolve_source
+
 import bpy
 import numpy as np
 from mathutils import Vector
@@ -123,6 +126,15 @@ def evaluated_snapshot():
 def action_curves(action, slot):
     return [curve for layer in action.layers for strip in layer.strips
             for bag in strip.channelbags if bag.slot_handle == slot.handle for curve in bag.fcurves]
+
+
+def stabilize_strip_endpoint(strip):
+    # Float32 glTF seconds can put an integer endpoint just below the final
+    # sample. FBX then drops that frame, losing the end of walk/melee clips.
+    end = strip.frame_end
+    rounded = round(end)
+    if 0 < rounded - end < 0.0001:
+        strip.frame_end = float(rounded)
 
 
 def source_clip_bindings(names):
@@ -274,19 +286,15 @@ def main():
     kind, record = rows[0]
     if record.get("approvalState") != "approved" or not record.get("runtimeReady"):
         raise ValueError("Only an approved repository source may enter the conversion experiment")
-    models_root = (ROOT / "public/assets/models").resolve()
-    source = (models_root / record["model"]).resolve()
-    source.relative_to(models_root)
+    source, qc, source_hash, qc_hash = resolve_source(ROOT, kind, args.profile, record, registry)
     reviews = json.loads((ROOT / "migration/visual-reviews.json").read_text(encoding="utf-8"))
     if reviews.get("schemaVersion") != 1:
         raise ValueError("Unsupported visual review schema")
     if any(review["status"] == "rejected" and review["sourceSha256"] == digest(source) for review in reviews["reviews"]):
         raise ValueError("Source failed the nonprimitive visual review; replacement is required")
-    if source.suffix.lower() != ".glb" or digest(source) != record.get("modelSha256"):
+    if source.suffix.lower() != ".glb" or digest(source) != source_hash:
         raise ValueError("Source GLB bytes do not match the registered source hash")
-    qc = (models_root / record["qc"]).resolve()
-    qc.relative_to(models_root)
-    if digest(qc) != record.get("qcSha256"):
+    if digest(qc) != qc_hash:
         raise ValueError("Source QC bytes do not match the registered QC hash")
     data = source.read_bytes()
     if len(data) < 20 or data[:4] != b"glTF" or struct.unpack_from("<II", data, 4) != (2, len(data)):
@@ -357,6 +365,7 @@ def main():
                 track.mute = False
                 for strip in track.strips:
                     strip.mute = False
+                    stabilize_strip_endpoint(strip)
     bpy.ops.export_scene.fbx(
         filepath=str(output), use_selection=False, object_types={"MESH", "ARMATURE", "EMPTY"},
         axis_forward="-Y", axis_up="Z", global_scale=1.0, apply_unit_scale=True,
@@ -384,7 +393,7 @@ def main():
         raise ValueError(f"FBX roundtrip changed bind-pose placement or meter bounds: {rest_deltas}")
     after_clips = sample_clips(imported_bindings, imported_transforms, {name: entry["sampleTimesSeconds"] for name, entry in before_clips.items()})
     animation_checks = validate_animation_samples(before_clips, after_clips)
-    if digest(source) != record["modelSha256"] or digest(qc) != record["qcSha256"]:
+    if digest(source) != source_hash or digest(qc) != qc_hash:
         raise ValueError("Registered source or QC bytes changed while conversion was running")
     samples_path = output_dir / "animation-samples.json"
     samples_path.write_text(json.dumps({"source": before_clips, "converted": after_clips}, indent=2, allow_nan=False) + "\n", encoding="utf-8")

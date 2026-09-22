@@ -87,8 +87,7 @@ def main():
     proof_receipt = ROOT / "artifacts/unreal/proof-map.json"
     proof_receipt.unlink(missing_ok=True)
     table = imported("frontier_field_command_table")
-    aegis = visual("civic_battle_prelate_f", "empire", "battle_prelate", unreal.WarRealm.AEGIS,
-                   body="f", source_profile="npc_frontier_sunmeadow_empire_herbalist")
+    aegis = visual("civic_battle_prelate_m", "empire", "battle_prelate", unreal.WarRealm.AEGIS)
     riftbound = visual("mire_warbrute_m", "greenskin", "warbrute", unreal.WarRealm.RIFTBOUND)
     dispatch = visual("npc_aegis_mara_vell_brightfen_dispatch_officer", "empire", "questgiver", unreal.WarRealm.AEGIS,
                       body="f", source_profile="npc_frontier_sunmeadow_empire_herbalist")
@@ -96,24 +95,6 @@ def main():
                      body="f", source_profile="npc_frontier_sunmeadow_empire_herbalist")
     for npc_visual in (dispatch, officer):
         npc_visual.set_editor_property("mesh_transform", unreal.Transform(rotation=unreal.Rotator(yaw=-90)))
-    # The historical male Prelate source failed direct visual review. Its old
-    # development DataAsset must not keep a rejected mesh reachable by cooking.
-    rejected_visual = existing_asset(DESTINATION + "/Visual_civic_battle_prelate_m")
-    if rejected_visual:
-        require(unreal.EditorAssetLibrary.delete_asset(rejected_visual.get_path_name()), "Could not remove rejected proof visual")
-        # Some editor deletion paths remove the registry entry but leave this loose file.
-        # Ownership was checked above; remove only this exact obsolete generated package.
-        rejected_file = imports.PROJECT / "Content/MigrationProof/Visual_civic_battle_prelate_m.uasset"
-        rejected_file.unlink(missing_ok=True)
-        require(not rejected_file.exists(), "Rejected proof visual remains on disk")
-    imports.update_visual_registry(["civic_battle_prelate_m"])
-    rejected_context = {"destination": "/Game/Imported/civic_battle_prelate_m", "profile": "civic_battle_prelate_m"}
-    rejected_assets = imports.collect_assets(unreal, rejected_context)
-    for asset in rejected_assets:
-        require(unreal.EditorAssetLibrary.get_metadata_tag(asset, imports.PROFILE_TAG) == "civic_battle_prelate_m",
-                "Refusing to remove an unowned asset from the rejected source directory")
-    for asset in rejected_assets:
-        require(unreal.EditorAssetLibrary.delete_asset(asset.get_path_name()), "Could not remove rejected generated asset")
     terrain = unreal.WarImportLibrary.create_proof_terrain(terrain_material())
     require(terrain is not None, "Terrain generation failed")
     own(terrain)

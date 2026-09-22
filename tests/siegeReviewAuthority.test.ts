@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createSiegeReviewAuthority } from '../authoring/blender/orvr-frontier/siege-review-authority';
-import { equipmentOperatorPosition, equipmentOperatorSeat } from '../src/shared/orvr';
+import { equipmentOperatorPosition, equipmentOperatorSeat } from '../shared/orvr/index';
 
 describe('siege browser review authority fixture', () => {
   it.each(['ram', 'catapult', 'oil'] as const)('boards the %s outside solid gates and accepts its operation', kind => {

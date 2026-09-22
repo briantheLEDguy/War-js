@@ -1,4 +1,5 @@
 #include "WarQuestLogWidget.h"
+#include "WarUiArtwork.h"
 #include "WarContentSubsystem.h"
 #include "WarPlayerController.h"
 #include "WarPlayerState.h"
@@ -24,8 +25,7 @@ TSharedRef<SWidget> UWarQuestLogWidget::RebuildWidget()
 {
     DisplayedRevision = INDEX_NONE;
     return SNew(SBox).WidthOverride(540.f).HeightOverride(650.f)
-        [SNew(SBorder).BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush")).Padding(16.f)
-            .BorderBackgroundColor(FLinearColor(0.025f, 0.03f, 0.045f, 1.f))
+        [SNew(SWarArtWindow)
             [SNew(SVerticalBox)
                 + SVerticalBox::Slot().AutoHeight().Padding(0, 0, 0, 12)
                 [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 26))

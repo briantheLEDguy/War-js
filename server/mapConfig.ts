@@ -1,10 +1,10 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { defaultZoneConfigs } from '../src/shared/orvr/config';
-import { orvrGridHeightAt } from '../src/shared/orvrTerrain';
-import type { NavigationProp } from '../src/shared/worldNavigation';
-import type { ZoneConfig, Position, Realm } from '../src/shared/orvr/protocol';
-import type { OrvrZoneLayout } from '../src/world/orvrTypes';
+import { defaultZoneConfigs } from '../shared/orvr/config';
+import { orvrGridHeightAt } from '../shared/orvrTerrain';
+import type { NavigationProp } from '../shared/worldNavigation';
+import type { ZoneConfig, Position, Realm } from '../shared/orvr/protocol';
+import type { OrvrZoneLayout } from '../shared/world/orvrTypes';
 import { mapPropNavigation } from './mapNavigation';
 
 interface CampaignMap {

@@ -1,23 +1,23 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BODY_VARIANTS, BODY_VARIANT_DISPLAY, CLASS_RENAMES, CLASSES_BY_RACE, DEFAULT_CLASS_NAME, DESTRUCTION_RACES, ORDER_RACES, RACE_DISPLAY, playerRealmForRace } from '../../src/data/careers';
-import { PLAYABLE_CHARACTER_PROFILES } from '../../src/data/playableAssets.generated';
-import { CAREER_ABILITY_KITS, HOTBAR_KEYS, HOTBAR_SLOT_COUNT } from '../../src/game/abilities/abilityData';
-import { abilityUnlockLevel, FULL_KIT_LEVEL } from '../../src/game/abilities/abilityProgression';
-import { ITEM_CATALOG, INVENTORY_CAPACITY, EQUIP_SLOT_ORDER, EQUIP_SLOT_LABELS } from '../../src/data/items';
-import { CRAFTING_PROFESSIONS, CRAFTING_RECIPES, CULTIVATION_SEEDS, CRAFTING_XP_PER_RANK, CULTIVATION_SLOT_COUNT, createDefaultCraftingState, getEnemyGatheringDefinition, getSalvageOutputs } from '../../src/data/crafting';
-import { QUESTS } from '../../src/data/quests';
-import * as campaign from '../../src/data/campaign';
-import * as campaignSource from '../../src/data/campaign.generated';
-import { WORLD_EDITOR_PREFABS, WORLD_EDITOR_PREFAB_GROUPS } from '../../src/world/editor/PrefabCatalog';
-import { buildWikiIndex } from '../../src/wiki/wikiContent';
-import { DEFAULT_KEYBINDINGS, KEYBIND_CATEGORIES, KEYBIND_DEFINITIONS } from '../../src/data/keybindings';
-import { DEFAULT_GAMEPLAY_SETTINGS } from '../../src/state/gameStore';
-import { VIEW_DISTANCE_MIN, VIEW_DISTANCE_MAX, VIEW_DISTANCE_STEP } from '../../src/config/viewDistance';
-import { GUIDED_TASKS } from '../../src/ui/hud/guidedTasks';
-import { ORVR_RULES, ORVR_TRACKS, defaultZoneConfigs } from '../../src/shared/orvr/config';
-import type { ZoneDefinition } from '../../src/world/ZoneLoader';
+import { BODY_VARIANTS, BODY_VARIANT_DISPLAY, CLASS_RENAMES, CLASSES_BY_RACE, DEFAULT_CLASS_NAME, DESTRUCTION_RACES, ORDER_RACES, RACE_DISPLAY, playerRealmForRace } from '../../shared/data/careers';
+import { PLAYABLE_CHARACTER_PROFILES } from '../../shared/data/playableAssets.generated';
+import { CAREER_ABILITY_KITS, HOTBAR_KEYS, HOTBAR_SLOT_COUNT } from '../../shared/game/abilities/abilityData';
+import { abilityUnlockLevel, FULL_KIT_LEVEL } from '../../shared/game/abilities/abilityProgression';
+import { ITEM_CATALOG, INVENTORY_CAPACITY, EQUIP_SLOT_ORDER, EQUIP_SLOT_LABELS } from '../../shared/data/items';
+import { CRAFTING_PROFESSIONS, CRAFTING_RECIPES, CULTIVATION_SEEDS, CRAFTING_XP_PER_RANK, CULTIVATION_SLOT_COUNT, createDefaultCraftingState, getEnemyGatheringDefinition, getSalvageOutputs } from '../../shared/data/crafting';
+import { QUESTS } from '../../shared/data/quests';
+import * as campaign from '../../shared/data/campaign';
+import * as campaignSource from '../../shared/data/campaign.generated';
+import { WORLD_EDITOR_PREFABS, WORLD_EDITOR_PREFAB_GROUPS } from '../../shared/world/editor/PrefabCatalog';
+import { buildWikiIndex } from '../../shared/wiki/wikiContent';
+import { DEFAULT_KEYBINDINGS, KEYBIND_CATEGORIES, KEYBIND_DEFINITIONS } from '../../shared/data/keybindings';
+import { DEFAULT_GAMEPLAY_SETTINGS } from '../../shared/config/gameplaySettings';
+import { VIEW_DISTANCE_MIN, VIEW_DISTANCE_MAX, VIEW_DISTANCE_STEP } from '../../shared/config/viewDistance';
+import { GUIDED_TASKS } from '../../shared/data/guidedTasks';
+import { ORVR_RULES, ORVR_TRACKS, defaultZoneConfigs } from '../../shared/orvr/config';
+import type { ZoneDefinition } from '../../shared/world/ZoneDefinition';
 import { assertJsonSerializable, canonicalJson, CONTENT_SCHEMA_VERSION, COORDINATE_CONTRACT, requireUniqueIds, sha256 } from './content-contract';
 
 export { canonicalJson, sourcePointToUnreal, sourceYawToUnrealDegrees } from './content-contract';
@@ -105,8 +105,8 @@ async function sourceFiles(): Promise<ContentManifest['source']['files']> {
     }
   }
   // Include behavior sources as provenance, not just the subset of catalogs understood by the first importer.
-  for (const directory of ['src', 'scripts/campaign', 'public/assets/maps']) await walk(directory);
-  paths.push('scripts/unreal/export-content.ts', 'scripts/unreal/content-contract.ts');
+  for (const directory of ['shared', 'scripts/campaign', 'public/assets/maps']) await walk(directory);
+  paths.push('migration/browser-reference.json', 'scripts/unreal/export-content.ts', 'scripts/unreal/content-contract.ts');
   return Promise.all(paths.sort().map(async relative => ({ path: relative, sha256: sha256(await readFile(path.join(REPOSITORY_ROOT, relative))) })));
 }
 

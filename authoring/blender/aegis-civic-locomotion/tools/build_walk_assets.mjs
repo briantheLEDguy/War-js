@@ -16,7 +16,7 @@ catch (error) {
 }
 const WORK = path.join(ROOT, 'authoring/blender/aegis-civic-locomotion');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-const sourceCode = fs.readFileSync(path.join(ROOT, 'src/world/CivicLocomotion.ts'), 'utf8');
+const sourceCode = fs.readFileSync(path.join(ROOT, 'shared/animation/CivicLocomotion.ts'), 'utf8');
 const compiled = ts.transpileModule(sourceCode, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText
   .replace("from 'three'", `from ${JSON.stringify(import.meta.resolve('three'))}`);
 const { createCivicWalkClip } = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`);

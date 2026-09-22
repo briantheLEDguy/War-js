@@ -124,6 +124,10 @@ void UWarContentSubsystem::Initialize(FSubsystemCollectionBase& Collection)
     if (!FFileHelper::LoadFileToString(ImportsJson, *FPaths::Combine(FPaths::ProjectContentDir(), TEXT("Migration/visual-imports.json"))))
         VisualImportError = TEXT("Verified visual-imports.json is missing. Complete an actual character import before entry.");
     else ParseVisualImports(ImportsJson, VisualImports, VisualImportError);
+    FString WorldJson;
+    if (!FFileHelper::LoadFileToString(WorldJson, *FPaths::Combine(FPaths::ProjectContentDir(), TEXT("Migration/world-visuals.json"))))
+        WorldVisualError = TEXT("Reviewed world-visuals.json is missing. Reconcile the world asset catalog before gathering.");
+    else WarWorldVisuals::Parse(WorldJson, Summary.SourceSha256, WorldVisuals, WorldVisualError);
 }
 
 bool UWarContentSubsystem::ParseVisualImports(const FString& Json, TMap<FName, FWarVisualImportBinding>& OutBindings, FString& OutError)
@@ -215,6 +219,8 @@ bool UWarContentSubsystem::ValidateVisualImportBinding(const UWarCharacterVisual
 
 bool UWarContentSubsystem::ValidatePlayableVisual(const UWarCharacterVisualDefinition* Visual, FString& OutError) const
 {
+    if (!Visual || !Visual->HasPlayableSourceIdentity())
+    { OutError = TEXT("Playable characters require their own imported model; an NPC or different class cannot substitute for it."); return false; }
     if (!VisualImportError.IsEmpty()) { OutError = VisualImportError; return false; }
     if (!ValidateVisualImportBinding(Visual, VisualImports, OutError)) return false;
     OutError = TEXT("Character visual identity does not match the exported playable profile.");

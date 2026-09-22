@@ -6,10 +6,10 @@ import { beforeAll, describe, expect, test } from 'vitest';
 import { buildAssetLedger, runAssetLedgerCli, strictAssetLedgerExitCode } from '../scripts/unreal/asset-ledger';
 import { containedPath, inspectGlb } from '../scripts/unreal/asset-evidence';
 import { classifyPrimitive } from '../scripts/unreal/primitive-audit';
-import { PLAYABLE_CHARACTER_PROFILES } from '../src/data/playableAssets.generated';
-import { WORLD_EDITOR_PREFABS } from '../src/world/editor/PrefabCatalog';
-import { applyBiomeKits } from '../src/world/BiomeKit';
-import { applyZonePaths } from '../src/world/PathKit';
+import { PLAYABLE_CHARACTER_PROFILES } from '../shared/data/playableAssets.generated';
+import { WORLD_EDITOR_PREFABS } from '../shared/world/editor/PrefabCatalog';
+import { applyBiomeKits } from '../shared/world/BiomeKit';
+import { applyZonePaths } from '../shared/world/PathKit';
 
 const root = process.cwd();
 type Ledger = Awaited<ReturnType<typeof buildAssetLedger>>;
@@ -98,7 +98,7 @@ describe('Unreal asset assignment coverage', () => {
     expect(ledger.assignments.find(row => row.id === 'caravan:driver')?.clips).toContain('driver_seated');
     expect(ledger.assignments.find(row => row.id === 'caravan:frontier_supply_wagon')?.blockers).not.toContain('animation_pack_invalid_or_incompatible');
     expect(ledger.assignments.find(row => row.id === 'siege_crew:riftbound:ram:right')?.blockers).toContain('ram_operator_rig_not_supported_by_current_runtime');
-    const source = readFileSync(path.join(root, 'src/game/HouseInteriorRuntime.ts'), 'utf8');
+    const source = readBrowserReference('src/game/HouseInteriorRuntime.ts');
     const residentFunction = source.slice(source.indexOf('function addOccupants('), source.indexOf('function addHearth('));
     expect([...residentFunction.matchAll(/\{ name: '/g)]).toHaveLength(5);
     expect(ledger.summary.bySurface.interior.total).toBe(18);
@@ -160,7 +160,7 @@ describe('binary evidence and primitive classification', () => {
     expect(classifyPrimitive('src/game/abilities/AbilityVfx.ts', 'new THREE.SphereGeometry(1)')).toBe('technical_geometry');
     expect(classifyPrimitive('src/world/editor/WorldEditorRuntime.ts', 'new THREE.BoxGeometry(1, 1, 1)')).toBe('technical_geometry');
     expect(classifyPrimitive('authoring/blender/character/build.py', 'bpy.ops.mesh.primitive_uv_sphere_add()')).toBe('authoring_geometry_review');
-    expect(ledger.primitiveAudit.findings.some(row => row.path === 'src/game/CharacterMeshes.ts')).toBe(true);
+    expect(ledger.primitiveAudit.findings.some(row => row.path.startsWith('src/'))).toBe(false);
     expect(ledger.primitiveAudit.findings.every(row => !row.action.includes('delete'))).toBe(true);
   });
 
@@ -169,3 +169,4 @@ describe('binary evidence and primitive classification', () => {
     await expect(runAssetLedgerCli(['--allow-primitives'])).rejects.toThrow('Unknown/incomplete argument');
   });
 });
+import { readBrowserReference } from '../scripts/unreal/browser-reference';

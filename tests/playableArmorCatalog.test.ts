@@ -1,13 +1,13 @@
 import { createHash } from 'node:crypto';
 import { describe, expect, test } from 'vitest';
-import { ITEM_CATALOG } from '../src/data/items';
+import { ITEM_CATALOG } from '../shared/data/items';
 import {
   PLAYABLE_ARMOR_ITEM_CATALOG,
   PLAYABLE_ARMOR_SLOTS,
   PLAYABLE_CHARACTER_PROFILES,
   starterArmorEquipmentFor,
   starterArmorInventoryFor,
-} from '../src/data/playableAssets.generated';
+} from '../shared/data/playableAssets.generated';
 
 describe('playable starter armor catalog', () => {
   test('preserves every expanded profile and its ordering when constructing from shared seeds', () => {

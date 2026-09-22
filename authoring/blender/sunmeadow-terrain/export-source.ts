@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { orvrHeightAt } from '../../../src/shared/orvrTerrain';
+import { orvrHeightAt } from '../../../shared/orvrTerrain';
 import { composeSunmeadowEnvironment } from '../../../scripts/campaign/sunmeadow-environment.mjs';
 
 const zone = composeSunmeadowEnvironment(JSON.parse(await readFile('public/assets/maps/sunmeadow_march.json', 'utf8')));

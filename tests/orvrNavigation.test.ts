@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, submitCommand } from '../src/shared/orvr';
-import { campaignGroundHeight, campaignColliderContains } from '../src/shared/orvr/navigation';
+import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, submitCommand } from '../shared/orvr/index';
+import { campaignGroundHeight, campaignColliderContains } from '../shared/orvr/navigation';
 import { mapPropNavigation } from '../server/mapNavigation';
-import { colliderBlocksBody, supportedGroundHeight, walkableSurfaceHeight, type WalkableSurface } from '../src/shared/worldNavigation';
-import { createOrvrGridHeightSampler, orvrGridHeightAt, type OrvrTerrainControls } from '../src/shared/orvrTerrain';
+import { colliderBlocksBody, supportedGroundHeight, walkableSurfaceHeight, type WalkableSurface } from '../shared/worldNavigation';
+import { createOrvrGridHeightSampler, orvrGridHeightAt, type OrvrTerrainControls } from '../shared/orvrTerrain';
 
 const surface = (overrides: Partial<WalkableSurface> = {}): WalkableSurface => ({
   id: 'deck', x: 0, z: 0, width: 4, depth: 4, rotY: 0, fromY: .6, toY: .6, axis: 'z', ...overrides,

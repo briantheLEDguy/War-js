@@ -1,7 +1,7 @@
 import { mkdir, readFile, rename, open, unlink } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { CampaignEvent, CampaignState } from '../src/shared/orvr/protocol';
+import type { CampaignEvent, CampaignState } from '../shared/orvr/protocol';
 
 export interface Checkpoint { revision: number; state: CampaignState }
 export interface CampaignRepository {

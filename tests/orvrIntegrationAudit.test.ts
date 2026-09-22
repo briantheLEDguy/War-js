@@ -8,10 +8,10 @@ import { campaignAbilityRules, recruitCombatProfile } from '../server/abilityCat
 import { loadCampaignMapConfigs } from '../server/mapConfig';
 import { startAuthority } from '../server/authority';
 import { FileCampaignRepository } from '../server/persistence';
-import { addPlayer, advanceSimulation, createCampaign, submitCommand } from '../src/shared/orvr';
-import { orvrGridHeightAt } from '../src/shared/orvrTerrain';
-import { CAREER_ABILITY_KITS } from '../src/game/abilities/abilityData';
-import type { CampaignState, Position, Realm } from '../src/shared/orvr';
+import { addPlayer, advanceSimulation, createCampaign, submitCommand } from '../shared/orvr/index';
+import { orvrGridHeightAt } from '../shared/orvrTerrain';
+import { CAREER_ABILITY_KITS } from '../shared/game/abilities/abilityData';
+import type { CampaignState, Position, Realm } from '../shared/orvr/index';
 
 afterEach(() => { vi.unstubAllGlobals(); });
 

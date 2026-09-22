@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
-import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, equipmentOperatorPosition, submitCommand } from '../src/shared/orvr';
-import type { PlayerAction } from '../src/shared/orvr';
+import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, equipmentOperatorPosition, submitCommand } from '../shared/orvr/index';
+import type { PlayerAction } from '../shared/orvr/index';
 
 function setup() {
   const config = defaultZoneConfig('sunmeadow_march'), keepConfig = config.keeps[0];

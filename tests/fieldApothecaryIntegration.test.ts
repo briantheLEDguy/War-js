@@ -5,9 +5,9 @@ import { expect, test } from 'vitest';
 import { modelTriangles } from './helpers/staticGlbGeometry';
 import { mapPropNavigation } from '../server/mapNavigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from '../src/shared/orvr/navigation';
-import { WORLD_EDITOR_PREFABS } from '../src/world/editor/PrefabCatalog';
-import type { PropSpawn } from '../src/world/ZoneLoader';
+import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from '../shared/orvr/navigation';
+import { WORLD_EDITOR_PREFABS } from '../shared/world/editor/PrefabCatalog';
+import type { PropSpawn } from '../shared/world/ZoneDefinition';
 // @ts-expect-error Executable campaign authoring source.
 import { integrateRegionalApothecaries, REGIONAL_APOTHECARIES, regionalWorksiteReservations } from '../scripts/campaign/regional-worksites.mjs';
 

@@ -15,14 +15,23 @@ from pathlib import Path
 import re
 import struct
 import importlib.util
+import sys
 from urllib.parse import unquote, urlsplit
+
+sys.path.insert(0, str(Path(__file__).parent))
+from equipped_source import resolve_source
 
 
 ROOT = Path(__file__).resolve().parents[2]
 PROJECT = ROOT / "unreal/AegisWar"
 PROFILES = (
+    "enemy_aegis_campaign_raider_raider",
+    "civic_battle_prelate_m",
     "npc_frontier_sunmeadow_empire_herbalist",
     "npc_frontier_cinderfen_dark_elf_supply_officer",
+    "npc_frontier_cinderfen_greenskin_peat_worker",
+    "npc_frontier_sunmeadow_high_elf_scout",
+    "npc_frontier_sunmeadow_dwarf_artisan",
     "frontier_field_command_table",
     "mire_warbrute_m",
     "aegis_house_1",
@@ -176,17 +185,17 @@ def validate_inputs(profile):
     record = registry[kind][profile]
     require(record.get("approvalState") == "approved" and record.get("runtimeReady") is True,
             "Source is no longer permitted by its existing browser registry")
-    source = relative_path(conversion["source"], ROOT / "public/assets/models")
-    require(source == contained(ROOT / "public/assets/models" / record["model"], ROOT / "public/assets/models"),
+    expected_source, qc, source_hash, qc_hash = resolve_source(ROOT, kind, profile, record, registry)
+    source = relative_path(conversion["source"])
+    require(source == expected_source.resolve(),
             "Conversion source no longer matches the registry")
-    require(conversion["sourceSha256"] == record["modelSha256"], "Registry source SHA differs")
+    require(conversion["sourceSha256"] == source_hash, "Registry source SHA differs")
     verified_file(source, conversion["sourceSha256"])
     reviews = load_json(ROOT / "migration/visual-reviews.json")
     require(reviews.get("schemaVersion") == 1, "Unsupported visual review schema")
     require(not any(row["status"] == "rejected" and row["sourceSha256"] == conversion["sourceSha256"] for row in reviews["reviews"]),
             "Source failed nonprimitive visual review")
-    qc = contained(ROOT / "public/assets/models" / record["qc"], ROOT / "public/assets/models")
-    require(conversion["qcSha256"] == record["qcSha256"], "Registry QC SHA differs")
+    require(conversion["qcSha256"] == qc_hash, "Registry QC SHA differs")
     verified_file(qc, conversion["qcSha256"])
     fbx = relative_path(conversion["output"], directory)
     require(fbx.suffix.lower() == ".fbx", "Expected FBX output")
@@ -542,11 +551,11 @@ def inspect_assets(unreal, context, assets, materials):
     return mesh_records, [asset_record(skeleton) for skeleton in skeletons], sorted(animation_records, key=lambda record: record["sourceClipName"])
 
 
-def configure_animation_compression(unreal, context):
+def configure_animation_compression(unreal, context, full_precision_rotations=False):
     animations = [asset for asset in collect_assets(unreal, context) if isinstance(asset, unreal.AnimSequence)]
     if not animations:
         return None
-    name = "SourcePoseCompression"
+    name = "SourcePoseCompressionFullRotation" if full_precision_rotations else "SourcePoseCompression"
     path = context["destination"] + "/" + name
     settings = unreal.load_asset(path) if unreal.EditorAssetLibrary.does_asset_exist(path) else None
     if settings:
@@ -558,7 +567,8 @@ def configure_animation_compression(unreal, context):
         require(settings is not None, "Could not create source animation compression settings")
     # ACL does not use AnimSequence.CompressionErrorThresholdScale. Configure
     # the actual codec, keeping both the source samples and parity limit intact.
-    codec_class = unreal.load_class(None, "/Script/ACLPlugin.AnimBoneCompressionCodec_ACL")
+    codec_name = "AnimBoneCompressionCodec_ACLSafe" if full_precision_rotations else "AnimBoneCompressionCodec_ACL"
+    codec_class = unreal.load_class(None, "/Script/ACLPlugin."+codec_name)
     require(codec_class is not None, "ACL animation codec is unavailable")
     codec = unreal.new_object(codec_class, outer=settings)
     codec.set_editor_property("ErrorThreshold", 0.0001)
@@ -602,11 +612,32 @@ def import_profile(unreal, context):
     meshes, skeletons, animations = inspect_assets(unreal, context, assets, materials)
     pose_evidence = None
     if animations:
+        # Recreated packages retain a loaded path but are not end-loaded until
+        # saved. Unreal refuses compression in that state and can evaluate raw
+        # tracks instead. Save the owned candidate; publish no receipt yet.
+        require(unreal.EditorAssetLibrary.save_directory(context["destination"], only_if_is_dirty=False, recursive=True),
+                "Unreal failed to save animation candidates before compression")
         spec = importlib.util.spec_from_file_location("war_pose_parity", Path(__file__).with_name("pose_parity.py"))
         parity = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(parity)
         unreal.WarImportLibrary.prepare_preview_frame(None)
-        pose_evidence = parity.verify_animations(unreal, animations, load_json(context["samples"])["source"])
+        samples = load_json(context["samples"])["source"]
+        try:
+            pose_evidence = parity.verify_animations(unreal, animations, samples)
+        except ValueError as error:
+            if "COMPRESSED" not in str(error): raise
+            # Keep the same source and 1 mm acceptance limit; preserve full quaternion
+            # precision when quantization cannot satisfy the source deformation checks.
+            unreal.log_warning("Retrying source animation parity with full-precision rotations: "+str(error))
+            compression = configure_animation_compression(unreal, context, full_precision_rotations=True)
+            unreal.WarImportLibrary.prepare_preview_frame(None)
+            pose_evidence = parity.verify_animations(unreal, animations, samples)
+        # The precision retry can add a settings asset and replace each clip's
+        # compression reference. Report and save the final inventory.
+        assets = collect_assets(unreal, context)
+        for record in animations:
+            animation = unreal.load_asset(record["path"])
+            record["boneCompressionSettings"] = animation.get_editor_property("bone_compression_settings").get_path_name()
     for asset in assets:
         mark_owned(unreal, asset, context)
     require(unreal.EditorAssetLibrary.save_directory(context["destination"], only_if_is_dirty=False, recursive=True),

@@ -6,6 +6,7 @@
 #include "Serialization/JsonSerializer.h"
 #include "WarContentSubsystem.h"
 #include "WarGatheringRules.h"
+#include "WarResourceNode.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarGatheringTest, "AegisWar.Foundation.ResourceGatheringTransactions",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
@@ -13,6 +14,29 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarGatheringTest, "AegisWar.Foundation.Resourc
 bool FWarGatheringTest::RunTest(const FString& Parameters)
 {
     FString Json, Error;
+    {
+    const FString Hash = FString::ChrN(64, 'a');
+    const FString Entry = FString::Printf(TEXT(R"({"purpose":"resource","zone":"riftspire_capital","entity":"ore_1","visualProp":"ore_visual","sourceModel":"ore.glb","sourceSha256":"%s","mesh":"/Game/Reviewed/Ore.Ore","materials":["/Game/Reviewed/Stone.Stone"],"collision":"BlockAll","reviewState":"development"})"), *Hash);
+    const auto Catalog = [&Hash](const FString& Rows) { return FString::Printf(TEXT(R"({"schemaVersion":1,"sourceContentSha256":"%s","productionAccepted":false,"bindings":[%s]})"), *Hash, *Rows); };
+    TMap<FString, FWarWorldVisualBinding> Bindings;
+    TestTrue(TEXT("Exact development catalog parses"), WarWorldVisuals::Parse(Catalog(Entry), Hash, Bindings, Error));
+    const FString Key = WarWorldVisuals::Key(TEXT("resource"), TEXT("riftspire_capital"), TEXT("ore_1"));
+    if (const auto* Binding = Bindings.Find(Key))
+    {
+        const TArray<FString> Materials = {TEXT("/Game/Reviewed/Stone.Stone")};
+        TestTrue(TEXT("Matching visual, mesh, materials and collision admitted"), WarWorldVisuals::Matches(*Binding,TEXT("ore_visual"),Binding->Mesh,Materials,TEXT("BlockAll")));
+        TestFalse(TEXT("Different imported mesh rejected"), WarWorldVisuals::Matches(*Binding,TEXT("ore_visual"),TEXT("/Game/Imported/Other.Other"),Materials,TEXT("BlockAll")));
+        TestFalse(TEXT("Changed material rejected"), WarWorldVisuals::Matches(*Binding,TEXT("ore_visual"),Binding->Mesh,{TEXT("/Game/Reviewed/Other.Other")},TEXT("BlockAll")));
+        TestFalse(TEXT("Changed collision rejected"), WarWorldVisuals::Matches(*Binding,TEXT("ore_visual"),Binding->Mesh,Materials,TEXT("NoCollision")));
+        TestFalse(TEXT("Different source visual rejected"), WarWorldVisuals::Matches(*Binding,TEXT("other_visual"),Binding->Mesh,Materials,TEXT("BlockAll")));
+    }
+    else AddError(TEXT("Parsed binding missing"));
+    TestFalse(TEXT("A binding cannot admit another zone"), Bindings.Contains(WarWorldVisuals::Key(TEXT("resource"),TEXT("sunmeadow_march"),TEXT("ore_1"))));
+    TestFalse(TEXT("Duplicate resource binding rejected"), WarWorldVisuals::Parse(Catalog(Entry+TEXT(",")+Entry),Hash,Bindings,Error));
+    TestTrue(TEXT("Invalid catalog exposes no partial bindings"), Bindings.IsEmpty());
+    TestFalse(TEXT("Stale source catalog rejected"), WarWorldVisuals::Parse(Catalog(Entry),FString::ChrN(64,'b'),Bindings,Error));
+    TestFalse(TEXT("Engine primitive rejected"), WarWorldVisuals::Parse(Catalog(Entry.Replace(TEXT("/Game/Reviewed/Ore.Ore"),TEXT("/Engine/BasicShapes/Cube.Cube"))),Hash,Bindings,Error));
+    }
     if (!TestTrue(TEXT("Staged catalog exists"), FFileHelper::LoadFileToString(Json,
         *FPaths::Combine(FPaths::ProjectContentDir(), TEXT("Migration/content.json"))))) return false;
     TSharedPtr<FJsonObject> Root;

@@ -1,0 +1,36 @@
+name: Verify native content and retained infrastructure
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tooling:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run typecheck:server
+      - run: npm run typecheck:unreal-tools
+      - run: npm test
+      - run: npm run world:validate
+      - run: npm run models:validate
+      - run: npm run builder:validate
+      - run: npm run unreal:audit
+      - name: Confirm incomplete native release remains blocked
+        shell: bash
+        run: |
+          set +e
+          npm run unreal:release-check
+          result=$?
+          set -e
+          test "$result" -eq 1

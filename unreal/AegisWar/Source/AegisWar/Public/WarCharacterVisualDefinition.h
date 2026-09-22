@@ -16,7 +16,7 @@ class AEGISWAR_API UWarCharacterVisualDefinition : public UPrimaryDataAsset
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName ProfileKey;
-    /** Explicit reusable source identity; playable class/body identity remains ProfileKey. */
+    /** NPCs may explicitly reuse a source; playable visuals must use their own ProfileKey. */
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Provenance") FName SourceProfileKey;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName RaceId;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName ClassId;
@@ -34,6 +34,8 @@ public:
     UFUNCTION(BlueprintCallable, Category="Validation")
     bool ValidateForSpawn(EWarRealm ExpectedRealm, FString& OutError) const;
     FName GetSourceProfileKey() const { return SourceProfileKey.IsNone() ? ProfileKey : SourceProfileKey; }
+    /** NPC source reuse is allowed only for NPC visuals, never playable class substitutes. */
+    bool HasPlayableSourceIdentity() const { return !ProfileKey.IsNone() && GetSourceProfileKey() == ProfileKey; }
 
     virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 #if WITH_EDITOR

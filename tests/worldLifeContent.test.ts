@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, test } from 'vitest';
-import { applyBiomeKits } from '../src/world/BiomeKit';
-import type { PropSpawn, ZoneDefinition } from '../src/world/ZoneLoader';
+import { applyBiomeKits } from '../shared/world/BiomeKit';
+import type { PropSpawn, ZoneDefinition } from '../shared/world/ZoneDefinition';
 // @ts-expect-error Shared native ESM authoring module.
 import { AEGIS_REVIEWED_SCENERY, reviewedSceneryModelBounds } from '../scripts/campaign/aegis-reviewed-scenery.mjs';
 // @ts-expect-error Shared native ESM authoring module.

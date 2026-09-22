@@ -15,6 +15,7 @@ void AWarPlayerController::CloseCityService()
 void AWarPlayerController::OpenCityService(AWarCityNpc* Npc)
 {
     if (!IsLocalController() || !GetLocalPlayer() || !IsValid(Npc) || !Npc->CanInteract(GetPawn()) || !LastEntryFailure.IsEmpty()) return;
+    CloseInterface();
     CloseCityService();
     if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
     if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();

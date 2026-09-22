@@ -3,9 +3,9 @@ import { Box3, Ray, Vector3 } from 'three';
 import { expect, test } from 'vitest';
 import { modelTriangles } from './helpers/staticGlbGeometry';
 import { mapPropNavigation } from '../server/mapNavigation';
-import { campaignGroundHeight } from '../src/shared/orvr/navigation';
+import { campaignGroundHeight } from '../shared/orvr/navigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { WORLD_EDITOR_PREFABS } from '../src/world/editor/PrefabCatalog';
+import { WORLD_EDITOR_PREFABS } from '../shared/world/editor/PrefabCatalog';
 // @ts-expect-error Executable campaign authoring source.
 import { composeSunmeadowEnvironment } from '../scripts/campaign/sunmeadow-environment.mjs';
 

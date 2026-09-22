@@ -1,6 +1,6 @@
-import type { NavigationProp } from '../src/shared/worldNavigation';
-import { colliderHasWalkableTop } from '../src/shared/worldNavigation';
-import type { ZoneConfig } from '../src/shared/orvr/protocol';
+import type { NavigationProp } from '../shared/worldNavigation';
+import { colliderHasWalkableTop } from '../shared/worldNavigation';
+import type { ZoneConfig } from '../shared/orvr/protocol';
 
 /** The same local/model yaw and terrain-relative placement used by the rendered map props. */
 export function mapPropNavigation(props: NavigationProp[], groundAt: (x: number, z: number) => number,

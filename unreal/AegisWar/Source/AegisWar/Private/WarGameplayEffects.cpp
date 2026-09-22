@@ -40,3 +40,12 @@ UWarStrikeDamageEffect::UWarStrikeDamageEffect()
     DurationPolicy = EGameplayEffectDurationType::Instant;
     Modifiers.Add(Modifier(UWarAttributeSet::GetHealthAttribute(), -WarValidation::StrikeDamage, EGameplayModOp::Additive));
 }
+
+UWarEnemyDamageEffect::UWarEnemyDamageEffect()
+{
+    DurationPolicy = EGameplayEffectDurationType::Instant;
+    FGameplayModifierInfo Damage;
+    Damage.Attribute = UWarAttributeSet::GetHealthAttribute(); Damage.ModifierOp = EGameplayModOp::Additive;
+    FSetByCallerFloat Magnitude; Magnitude.DataName = TEXT("WarEnemyDamage");
+    Damage.ModifierMagnitude = FGameplayEffectModifierMagnitude(Magnitude); Modifiers.Add(Damage);
+}

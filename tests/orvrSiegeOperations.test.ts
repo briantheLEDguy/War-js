@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { addPlayer, createCampaign, restoreCampaign, snapshotFor, submitCommand } from '../src/shared/orvr';
-import type { PlayerAction } from '../src/shared/orvr';
+import { addPlayer, createCampaign, restoreCampaign, snapshotFor, submitCommand } from '../shared/orvr/index';
+import type { PlayerAction } from '../shared/orvr/index';
 
 describe('authoritative siege presentation state', () => {
   it.each(['ram', 'oil', 'catapult'] as const)('records only accepted %s operations and retains their immutable target through recovery', kind => {

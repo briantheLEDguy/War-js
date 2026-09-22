@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "reviewState": "development",
+  "productionAccepted": false,
+  "notes": "Exact repository-source bindings for existing resource identities. Meadow and marsh plants replace the legacy procedural herb visuals; gameplay, locations and rewards remain source-defined. Native visuals and release acceptance remain pending.",
+  "bindings": [
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_ore_node_01",
+      "visualProp": "riftspire_works_resource_0",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "ore",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_scrap_node_02",
+      "visualProp": "riftspire_works_resource_1",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "scrap",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_relic_node_03",
+      "visualProp": "riftspire_works_resource_2",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "relic",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_ore_node_04",
+      "visualProp": "riftspire_works_resource_3",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "ore",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_soil_node_05",
+      "visualProp": "riftspire_works_resource_4",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "soil",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_scrap_node_06",
+      "visualProp": "riftspire_works_resource_5",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "scrap",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_ore_node_07",
+      "visualProp": "riftspire_works_resource_6",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "ore",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "riftspire_capital",
+      "entity": "riftspire_capital_scrap_node_08",
+      "visualProp": "riftspire_works_resource_7",
+      "sourceKind": "riftspire_crate",
+      "resourceKind": "scrap",
+      "assetKey": "riftspire_crate",
+      "model": "prop_riftspire_crate.glb",
+      "sourceSha256": "614f08f5f5ebdd6d6a506f44451be3eece295fec30a4b159f84785ebfee319a3",
+      "heightMode": "absolute"
+    },
+    {
+      "zone": "sunmeadow_march",
+      "entity": "sunmeadow_march_herb_node_01",
+      "visualProp": "sunmeadow_march_herb_node_01_visual",
+      "sourceKind": "pnw_wildflower_clump",
+      "resourceKind": "herb",
+      "assetKey": "frontier_sunmeadow_meadow",
+      "model": "frontier_sunmeadow_meadow_lod0.glb",
+      "sourceSha256": "3c0f772f1a0b237933102c02a15678c294df64e30d8dba3b9ca515de53913446",
+      "heightMode": "terrain"
+    },
+    {
+      "zone": "sunmeadow_march",
+      "entity": "sunmeadow_march_herb_node_07",
+      "visualProp": "sunmeadow_march_herb_node_07_visual",
+      "sourceKind": "pnw_wildflower_clump",
+      "resourceKind": "herb",
+      "assetKey": "frontier_sunmeadow_meadow",
+      "model": "frontier_sunmeadow_meadow_lod0.glb",
+      "sourceSha256": "3c0f772f1a0b237933102c02a15678c294df64e30d8dba3b9ca515de53913446",
+      "heightMode": "terrain"
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "entity": "cinderfen_outskirts_herb_node_01",
+      "visualProp": "cinderfen_outskirts_herb_node_01_visual",
+      "sourceKind": "pnw_wildflower_clump",
+      "resourceKind": "herb",
+      "assetKey": "frontier_cinderfen_sedge_horsetail",
+      "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+      "sourceSha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+      "heightMode": "terrain"
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "entity": "cinderfen_outskirts_herb_node_04",
+      "visualProp": "cinderfen_outskirts_herb_node_04_visual",
+      "sourceKind": "pnw_sword_fern",
+      "resourceKind": "herb",
+      "assetKey": "frontier_cinderfen_sedge_horsetail",
+      "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+      "sourceSha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+      "heightMode": "terrain"
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "entity": "cinderfen_outskirts_herb_node_07",
+      "visualProp": "cinderfen_outskirts_herb_node_07_visual",
+      "sourceKind": "pnw_wildflower_clump",
+      "resourceKind": "herb",
+      "assetKey": "frontier_cinderfen_sedge_horsetail",
+      "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+      "sourceSha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+      "heightMode": "terrain"
+    },
+    {
+      "zone": "cinderfen_outskirts",
+      "entity": "cinderfen_outskirts_herb_node_10",
+      "visualProp": "cinderfen_outskirts_herb_node_10_visual",
+      "sourceKind": "pnw_sword_fern",
+      "resourceKind": "herb",
+      "assetKey": "frontier_cinderfen_sedge_horsetail",
+      "model": "frontier_cinderfen_sedge_horsetail_lod0.glb",
+      "sourceSha256": "3792876915e7aeeddeb3e9563389e562afbd3210681af1fe84aed7e38a065416",
+      "heightMode": "terrain"
+    }
+  ]
+}

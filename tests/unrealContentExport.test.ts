@@ -2,9 +2,9 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeAll, describe, expect, test } from 'vitest';
-import { CAREER_ABILITY_KITS } from '../src/game/abilities/abilityData';
-import { ITEM_CATALOG } from '../src/data/items';
-import { WORLD_EDITOR_PREFABS } from '../src/world/editor/PrefabCatalog';
+import { CAREER_ABILITY_KITS } from '../shared/game/abilities/abilityData';
+import { ITEM_CATALOG } from '../shared/data/items';
+import { WORLD_EDITOR_PREFABS } from '../shared/world/editor/PrefabCatalog';
 import { assertJsonSerializable, canonicalJson, sourcePointToUnreal, sourceYawToUnrealDegrees } from '../scripts/unreal/content-contract';
 import { buildContentManifest, exportContent, REPOSITORY_ROOT, validateContentManifest, type ContentManifest } from '../scripts/unreal/export-content';
 
@@ -61,7 +61,7 @@ describe('Unreal engine-neutral content archive', () => {
     expect(manifest.source.sha256).toMatch(/^[a-f0-9]{64}$/);
     expect(manifest.source.contentSha256).toMatch(/^[a-f0-9]{64}$/);
     expect(manifest.source.files.every(file => !path.isAbsolute(file.path) && !file.path.includes('\\'))).toBe(true);
-    expect(manifest.source.files.some(file => file.path === 'src/game/HouseInteriorRuntime.ts')).toBe(true);
+    expect(manifest.source.files.some(file => file.path === 'migration/browser-reference.json')).toBe(true);
     expect(manifest).not.toHaveProperty('generatedAt');
   });
 

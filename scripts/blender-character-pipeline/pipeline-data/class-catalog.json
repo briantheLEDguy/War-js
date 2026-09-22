@@ -9,5 +9,5 @@
     "Warbrute", "Fang Herder", "Bog Hexer", "Cleaver",
     "Blood Dancer", "Dread Guard", "Dusk Weaver", "Crimson Acolyte"
   ],
-  "source": "src/data/careers.ts"
+  "source": "shared/data/careers.ts"
 }

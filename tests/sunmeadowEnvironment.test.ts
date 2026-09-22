@@ -3,10 +3,10 @@ import { copyFileSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from '
 import { basename, dirname, join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { defaultZoneConfigs } from '../src/shared/orvr/config';
-import type { GateKind, ZoneConfig } from '../src/shared/orvr/protocol';
-import type { ZoneDefinition } from '../src/world/ZoneLoader';
-import { campaignColliderContains } from '../src/shared/orvr/navigation';
+import { defaultZoneConfigs } from '../shared/orvr/config';
+import type { GateKind, ZoneConfig } from '../shared/orvr/protocol';
+import type { ZoneDefinition } from '../shared/world/ZoneDefinition';
+import { campaignColliderContains } from '../shared/orvr/navigation';
 // @ts-expect-error Executable authoring source deliberately remains an mjs module.
 import { composeSunmeadowEnvironment, sunmeadowPlacementClear } from '../scripts/campaign/sunmeadow-environment.mjs';
 

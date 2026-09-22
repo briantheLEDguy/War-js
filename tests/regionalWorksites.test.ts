@@ -15,8 +15,8 @@ import { composeCinderfenLandscape } from '../scripts/campaign/cinderfen-landsca
 import { integrateCinderfen } from '../scripts/campaign/cinderfen-integration.mjs';
 import { mapPropNavigation } from '../server/mapNavigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from '../src/shared/orvr/navigation';
-import type { ZoneConfig } from '../src/shared/orvr/protocol';
+import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from '../shared/orvr/navigation';
+import type { ZoneConfig } from '../shared/orvr/protocol';
 
 const read = (file: string) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const registry = read('public/assets/models/asset-index.json');

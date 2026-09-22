@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { repoRoot } from './toolchain';
+import { readBrowserReference } from './browser-reference';
 
 export interface ParityFeature {
   id: string;
@@ -80,7 +81,10 @@ export function validateParityLedger(root = repoRoot): string[] {
     ids.add(entry.id);
     if (!entry.acceptance.length || !entry.sourceFiles.length) errors.push(`Incomplete behavior contract: ${entry.id}`);
     for (const file of [...entry.sourceFiles, ...entry.referenceTests]) {
-      if (!existsSync(path.join(root, file))) errors.push(`${entry.id}: missing evidence source ${file}`);
+      if (!existsSync(path.join(root, file))) {
+        try { readBrowserReference(file, root); }
+        catch (error) { errors.push(`${entry.id}: ${error instanceof Error ? error.message : error}`); }
+      }
     }
   }
   return errors;

@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, ORVR_RULES,
   removePlayer, restoreCampaign, snapshotFor, submitCommand,
-} from '../src/shared/orvr';
-import type { CampaignState, PlayerAction, Realm, ZoneState } from '../src/shared/orvr';
+} from '../shared/orvr/index';
+import type { CampaignState, PlayerAction, Realm, ZoneState } from '../shared/orvr/index';
 
 function add(state: CampaignState, id = 'a', realm: Realm = 'aegis', zoneId = 'sunmeadow_march') {
   expect(addPlayer(state, { id, userId: `user-${id}`, characterId: `char-${id}`, realm, zoneId }).ok).toBe(true);

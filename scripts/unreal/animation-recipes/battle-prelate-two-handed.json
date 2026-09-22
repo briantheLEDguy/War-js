@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "character": "Battle Prelate",
+  "profileKey": "civic_battle_prelate_m",
+  "output": "artifacts/unreal/two-handed",
+  "stages": [
+    { "name": "prepare", "engine": "blender", "script": "prepare-prelate-two-handed.py" },
+    { "name": "retarget", "engine": "unreal", "script": "import-prelate-two-handed.py" },
+    { "name": "fit", "engine": "unreal", "script": "fit-prelate-grip.py" },
+    { "name": "install", "engine": "unreal", "script": "install-prelate-two-handed.py" },
+    { "name": "verify", "engine": "unreal", "script": "verify-prelate-two-handed.py" },
+    { "name": "review", "engine": "unreal-render", "script": "review-prelate-two-handed.py" },
+    { "name": "preview", "engine": "python", "script": "create-prelate-animation-preview.py" }
+  ]
+}

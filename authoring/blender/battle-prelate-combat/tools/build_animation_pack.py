@@ -15,7 +15,7 @@ from mathutils import Matrix, Quaternion, Vector, Euler
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parents[2]
 MODEL = REPO / 'public/assets/models'
-CONTRACT = json.loads((REPO / 'src/game/animation/battlePrelateMotions.json').read_text())
+CONTRACT = json.loads((REPO / 'shared/game/animation/battlePrelateMotions.json').read_text())
 # Dense bake limits grip error when Three.js interpolates between contact poses.
 FPS = 120
 

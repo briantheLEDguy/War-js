@@ -9,6 +9,8 @@
 #include "WarTypes.h"
 #include "WarQuestNpc.h"
 #include "WarQuestHud.h"
+#include "WarZoneAnchor.h"
+#include "WarZoneStreamingSubsystem.h"
 #include "EngineUtils.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
@@ -68,7 +70,9 @@ UWarCharacterVisualDefinition* AWarGameMode::ResolveVisual(AController* Controll
         return nullptr;
     }
     const UWarRuntimeSettings* Settings = GetDefault<UWarRuntimeSettings>();
-    UWarCharacterVisualDefinition* Visual = (State->GetRealm() == EWarRealm::Aegis
+    const auto* Player = Cast<AWarPlayerController>(Controller);
+    UWarCharacterVisualDefinition* Visual = Player ? Player->GetCreatedCharacterVisual() : nullptr;
+    if (!Visual) Visual = (State->GetRealm() == EWarRealm::Aegis
         ? Settings->AegisDevelopmentVisual : Settings->RiftboundDevelopmentVisual).LoadSynchronous();
     if (!Visual)
     {
@@ -81,6 +85,22 @@ UWarCharacterVisualDefinition* AWarGameMode::ResolveVisual(AController* Controll
 
 void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer)
 {
+    // Automated acceptance fixtures opt into direct entry; ordinary launches start at login.
+    const bool bProofEntry = !UE_BUILD_SHIPPING && (
+        FParse::Param(FCommandLine::Get(), TEXT("WarNetworkProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarZoneNetworkProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarPortalProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarEnemyProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarTrainingDummyProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarAbilityProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarInterfaceProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarCityPopulationProof")));
+    if (!bProofEntry)
+    {
+        if (auto* Player = Cast<AWarPlayerController>(NewPlayer)) Player->ClientOpenFrontend();
+        return;
+    }
     if (!IsDevelopmentSession())
     {
         RejectEntry(NewPlayer, TEXT("This foundation has no production session authenticator."));
@@ -133,20 +153,61 @@ void AWarGameMode::RestartPlayerAtPlayerStart(AController* NewPlayer, AActor* St
     if (!IsValid(NewPlayer)) return;
     if (!IsValid(StartSpot))
     {
+        PendingStartDeadlines.Remove(NewPlayer);
         RejectEntry(Cast<APlayerController>(NewPlayer), TEXT("This map has no valid PlayerStart. Add a safe start to the authored map before entry."));
         FailedToRestartPlayer(NewPlayer);
         return;
     }
+    if (const auto* Anchor = Cast<AWarZoneAnchor>(StartSpot))
+    {
+        auto* Streaming = GetWorld()->GetSubsystem<UWarZoneStreamingSubsystem>();
+        auto* PC = Cast<APlayerController>(NewPlayer);
+        if (Streaming && !Streaming->IsZoneReady(Anchor->ZoneId, PC))
+        {
+            FString Error;
+            const double Now = GetWorld()->GetTimeSeconds();
+            const double Deadline = PendingStartDeadlines.FindOrAdd(NewPlayer, Now + 30.0);
+            if (!Streaming->EnsureZone(Anchor->ZoneId, Error) || Now >= Deadline)
+            {
+                PendingStartDeadlines.Remove(NewPlayer);
+                if (Error.IsEmpty())
+                {
+                    FString Reason;
+                    Streaming->IsZoneReady(Anchor->ZoneId, PC, &Reason);
+                    UE_LOG(LogAegisWar, Warning, TEXT("Arrival readiness timeout: %s"), *Reason);
+                }
+                RejectEntry(PC, Error.IsEmpty() ? TEXT("Arrival content did not load. Please retry character entry.") : Error);
+                return;
+            }
+            const TWeakObjectPtr<AController> WeakPlayer = NewPlayer;
+            const TWeakObjectPtr<AActor> WeakStart = StartSpot;
+            FTimerHandle Retry;
+            GetWorldTimerManager().SetTimer(Retry, FTimerDelegate::CreateWeakLambda(this, [this, WeakPlayer, WeakStart]() {
+                if (WeakPlayer.IsValid() && !WeakPlayer->GetPawn())
+                    RestartPlayerAtPlayerStart(WeakPlayer.Get(), WeakStart.Get());
+                else PendingStartDeadlines.Remove(WeakPlayer);
+            }), 0.1f, false);
+            return;
+        }
+    }
+    PendingStartDeadlines.Remove(NewPlayer);
     Super::RestartPlayerAtPlayerStart(NewPlayer, StartSpot);
 }
 
 void AWarGameMode::FailedToRestartPlayer(AController* NewPlayer)
 {
     if (!IsValid(NewPlayer)) return;
+    PendingStartDeadlines.Remove(NewPlayer);
     const AWarPlayerController* Player = Cast<AWarPlayerController>(NewPlayer);
     if (!Player || Player->GetEntryFailure().IsEmpty())
         RejectEntry(Cast<APlayerController>(NewPlayer), TEXT("Character entry failed. Check imported visuals, player start clearance and the server log."));
     Super::FailedToRestartPlayer(NewPlayer);
+}
+
+void AWarGameMode::FinishRestartPlayer(AController* NewPlayer, const FRotator& StartRotation)
+{
+    Super::FinishRestartPlayer(NewPlayer, StartRotation);
+    if (auto* Player = Cast<AWarPlayerController>(NewPlayer)) Player->CompleteCharacterEntry();
 }
 
 void AWarGameMode::RespawnAfterDeath(AWarCharacter* Character)
@@ -154,6 +215,8 @@ void AWarGameMode::RespawnAfterDeath(AWarCharacter* Character)
     if (!Character || !Character->HasAuthority()) return;
     AController* Controller = Character->GetController();
     if (!Controller) return;
+    if (const auto* Zone = AWarZoneAnchor::FindAt(GetWorld(), Character->GetActorLocation()))
+        if (auto* State = Controller->GetPlayerState<AWarPlayerState>()) State->SetCurrentZoneTrusted(Zone->ZoneId);
     Controller->UnPossess();
     Character->SetLifeSpan(5.f);
     const TWeakObjectPtr<AController> WeakController = Controller;
@@ -161,4 +224,24 @@ void AWarGameMode::RespawnAfterDeath(AWarCharacter* Character)
     GetWorldTimerManager().SetTimer(Timer, FTimerDelegate::CreateWeakLambda(this, [this, WeakController]() {
         if (WeakController.IsValid() && !WeakController->GetPawn()) RestartPlayer(WeakController.Get());
     }), 5.f, false);
+}
+
+bool AWarGameMode::ShouldSpawnAtStartSpot(AController* Player)
+{
+    // Unreal caches the original start across deaths; campaign travel must select the current zone instead.
+    const auto* State = Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr;
+    if (State && AWarZoneAnchor::FindById(GetWorld(), State->GetCurrentZone())) return false;
+    return Super::ShouldSpawnAtStartSpot(Player);
+}
+
+AActor* AWarGameMode::ChoosePlayerStart_Implementation(AController* Player)
+{
+    if (auto* State = Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr; State && State->GetRealm() != EWarRealm::None)
+    {
+        const FName Zone = State->GetCurrentZone().IsNone()
+            ? FName(State->GetRealm() == EWarRealm::Riftbound ? TEXT("riftspire_capital") : TEXT("aegis_capital")) : State->GetCurrentZone();
+        if (auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone))
+        { State->SetCurrentZoneTrusted(Zone); return Anchor; }
+    }
+    return Super::ChoosePlayerStart_Implementation(Player);
 }

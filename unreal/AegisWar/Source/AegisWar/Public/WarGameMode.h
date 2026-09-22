@@ -19,10 +19,14 @@ public:
     virtual APawn* SpawnDefaultPawnAtTransform_Implementation(AController* NewPlayer, const FTransform& SpawnTransform) override;
     virtual void RestartPlayerAtPlayerStart(AController* NewPlayer, AActor* StartSpot) override;
     virtual void FailedToRestartPlayer(AController* NewPlayer) override;
+    virtual void FinishRestartPlayer(AController* NewPlayer, const FRotator& StartRotation) override;
     void RespawnAfterDeath(AWarCharacter* Character);
-private:
+    virtual AActor* ChoosePlayerStart_Implementation(AController* Player) override;
+    virtual bool ShouldSpawnAtStartSpot(AController* Player) override;
     bool IsDevelopmentSession() const;
+private:
     UWarCharacterVisualDefinition* ResolveVisual(AController* Controller, FString& OutError) const;
     void RejectEntry(APlayerController* Controller, const FString& Error) const;
     int32 DevelopmentJoins = 0;
+    TMap<TWeakObjectPtr<AController>, double> PendingStartDeadlines;
 };

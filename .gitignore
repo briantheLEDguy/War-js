@@ -21,10 +21,12 @@ unreal/**/*.sln
 unreal/AegisWar/Content/Migration/content.json
 unreal/AegisWar/Content/Migration/DEVELOPMENT_ONLY.txt
 unreal/AegisWar/Content/Migration/visual-imports.json
+unreal/AegisWar/Content/Migration/world-visuals.json
 unreal/AegisWar/Content/Migration/capital-development.json
 unreal/AegisWar/Content/Imported/
 unreal/AegisWar/Content/MigrationProof/
 unreal/AegisWar/Content/Capitals/
+unreal/AegisWar/Content/WorldRebuild/
 # Purchased kit source packages remain local/private; never publish raw assets.
 unreal/AegisWar/Content/LicensedKits/
 # House kit keeps publisher package paths to preserve material dependencies.
@@ -91,3 +93,11 @@ authoring/blender/field-arms-rack/review/tangent-failure.json
 # Private purchased town source dependencies and local mesh adaptations.
 /unreal/AegisWar/Content/Medieval_Mod_Town/
 /unreal/AegisWar/Content/WarKitAdaptations/
+
+# Owner-supplied animation source files remain local.
+/unreal/AegisWar/AnimationImport/
+
+# Native content belongs to the private companion repository after rights review.
+/unreal/AegisWar/Content/
+/unreal/AegisWar/graphics-new/
+unreal/**/*.slnx

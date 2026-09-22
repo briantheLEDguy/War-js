@@ -26,7 +26,10 @@ public:
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     const UWarAttributeSet* GetAttributes() const { return Attributes; }
+    class UWarAbilityRuntime* GetClassAbilities() const { return ClassAbilities; }
     EWarRealm GetRealm() const { return Realm; }
+    FName GetCurrentZone() const { return CurrentZone; }
+    void SetCurrentZoneTrusted(FName Zone);
     void SetDevelopmentRealm(EWarRealm InRealm);
     void InitializeForPawn(AWarCharacter* Avatar);
     const FWarInventorySnapshot& GetInventory() const { return Inventory; }
@@ -46,6 +49,8 @@ public:
     UFUNCTION(Client, Reliable) void ClientQuestResult(bool bAccepted, bool bTurnIn, const FString& Error);
     bool CompleteCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error);
     bool RecordCatalogQuestKillTrusted(FName Zone, const FString& EnemyName, const FGuid& KillEvent, FString& Error);
+    bool AwardEnemyKillTrusted(FName Zone, FName EnemyId, const FGuid& KillEvent,
+        const TArray<FWarInventoryItem>& Loot, FString& Error);
     bool AcceptQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision, FString& Error);
     bool RecordQuestKillTrusted(const TArray<FWarQuestDefinition>& Quests, FName Zone, const FString& EnemyName, const FGuid& KillEvent, FString& Error);
     bool CompleteQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision,
@@ -70,6 +75,7 @@ public:
     UFUNCTION(Server, Reliable) void ServerGatherResource(AWarResourceNode* Node, int32 ExpectedRevision);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:
+    UPROPERTY(Replicated) FName CurrentZone;
     bool CanPerformInventoryAction() const;
     void ApplyProgressionVitals(bool bRestorePools);
     UPROPERTY(Transient) FText InventoryMessage;
@@ -78,6 +84,7 @@ private:
     TSet<FGuid> QuestKillReceipts;
     UPROPERTY(VisibleAnywhere) TObjectPtr<UAbilitySystemComponent> AbilitySystem;
     UPROPERTY() TObjectPtr<UWarAttributeSet> Attributes;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UWarAbilityRuntime> ClassAbilities;
     UPROPERTY(Replicated) EWarRealm Realm = EWarRealm::None;
     bool bGrantedDevelopmentAbility = false;
 };

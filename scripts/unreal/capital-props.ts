@@ -1,7 +1,7 @@
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import type { PropSpawn } from '../../src/world/ZoneLoader';
-import { cityHeightAt, type CityElevation } from '../../src/world/CityElevation';
+import type { PropSpawn } from '../../shared/world/ZoneDefinition';
+import { cityHeightAt, type CityElevation } from '../../shared/world/CityElevation';
 import { sourcePointToUnreal, sourceYawToUnrealDegrees, sha256 } from './content-contract';
 import { isMain, repoRoot } from './toolchain';
 

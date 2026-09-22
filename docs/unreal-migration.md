@@ -11,7 +11,7 @@ identified; descriptions and NPC role labels are not evidence of implementation.
 
 Repository models and adaptations remain the default source. The owner additionally
 authorized evaluation and integration of already purchased Unreal modular kits
-for city environments and the GM catalog. Installed kits are being evaluated in
+for city environments, outdoor zones, dungeons and the GM catalog. Installed kits are being evaluated in
 private staging; a five-model house-kit pilot passes bounded Windows GM checks,
 while full license, visual, interior and platform acceptance remains open;
 see [kit integration requirements](unreal-modular-kits.md). This does not authorize
@@ -23,9 +23,10 @@ acceptable. Collision, navigation, terrain construction, editor guides and
 intentional effects remain valid technical geometry. Preserve Git history.
 
 `migration/unreal-policy.json` records these decisions and browser baseline
-`4965996`. The branch is `codex/unreal-migration`. The browser game remains the
-behavior reference while replacements are developed; its legacy primitive paths
-are outstanding migration debt, not a completed cleanup.
+`4965996`. Browser retirement is consolidated on `codex/unreal-browser-retirement`. The browser reference is preserved at tag `browser-reference-before-retirement-20260922`.
+The runnable browser and its primitive rendering paths have been removed after
+shared dependency extraction. Outstanding native behavior/model acceptance remains
+required; browser retirement does not approve native replacements.
 
 The owner resumed work after changing models at the first implementation
 checkpoint. `docs/unreal-checkpoint-1.md` records that historical checkpoint.
@@ -135,8 +136,9 @@ sphere, capsule or training dummy substitutes for a missing character.
 The build wrapper only accepts Development/DebugGame configurations. Production
 packaging acceptance and the trusted Steam admission gateway
 are future implementation gates. Run `npm run unreal:test-native` after building
-the Editor target to execute the 21 `AegisWar.Foundation` automation groups.
-The wrapper requires a fresh report containing all 21 successful groups;
+the Editor target to execute the `AegisWar.Foundation` automation suite (43 tests
+passed during browser retirement). The wrapper requires a fresh report containing
+every required group and rejects failed, missing or duplicate results;
 editor exit status alone is not a passing test result.
 
 ## Asset conversion experiments
@@ -234,7 +236,7 @@ they do not yet provide replicated UI, durable reward idempotency, consumables,
 crafting transactions or equipment attachment visuals.
 
 `npm run unreal:inventory-fixtures` captures seven reference scenarios directly
-from `src/game/RewardInventory.ts` into `migration/fixtures/inventory.json`.
+from `shared/game/RewardInventory.ts` into `migration/fixtures/inventory.json`.
 Vitest verifies the source hash and expected results against the browser; native
 automation compares the C++ outputs with the same fixtures. Full-bag reward
 retention and dangling equipment rejection are required acceptance cases.
@@ -285,3 +287,11 @@ Neither client log reports missing material usage flags or material compile
 failures. Tooling tests (72), TypeScript checks and Python import preflight
 checks (8) pass. These rendering checks do not approve clothing, equipment,
 LOD/performance, species suitability or complete model coverage.
+
+## Browser retirement and collaboration
+
+See [retirement disposition](browser-retirement.md) and [isolated collaboration](unreal-collaboration.md).
+Shared tooling now consumes `shared/`. Browser fixture commands verify immutable
+references; regeneration belongs in the tagged historical checkout. Native Content
+is private and distribution is closed pending rights review. The host work VPN
+account is explicitly forbidden.

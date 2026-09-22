@@ -226,3 +226,10 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
     Next.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
     Commit(MoveTemp(Next)); LoadedBaselineAdditions = Baseline.Num() - SavedIds.Num(); return true;
 }
+
+bool FWarWorldEditHistory::Reset(int32 ExpectedRevision, FString& Error)
+{
+    if (!CheckRevision(ExpectedRevision, Error)) return false;
+    Commit(Baseline);
+    return true;
+}

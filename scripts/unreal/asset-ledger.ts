@@ -1,21 +1,22 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import ts from 'typescript';
-import { PLAYABLE_CHARACTER_PROFILES } from '../../src/data/playableAssets.generated';
-import { ITEM_CATALOG } from '../../src/data/items';
+import { readBrowserReference } from './browser-reference';
+import { PLAYABLE_CHARACTER_PROFILES } from '../../shared/data/playableAssets.generated';
+import { ITEM_CATALOG } from '../../shared/data/items';
 import { aegisEnemyGuardVariantFor, aegisHouseResidentVariantFor, aegisNpcCivilianVariantFor,
-  aegisNpcGuardVariantFor, playerModelOverrideForRace } from '../../src/data/modelOverrides';
-import { worldLifeCharacterProfile } from '../../src/world/worldLifeModels';
-import { applyBiomeKits } from '../../src/world/BiomeKit';
-import { applyZonePaths } from '../../src/world/PathKit';
-import { WORLD_EDITOR_PREFABS } from '../../src/world/editor/PrefabCatalog';
-import { campaignNpcProfile } from '../../src/game/network/CampaignCharacterPresentation';
-import { CARAVAN_DRIVER_PROFILE } from '../../src/game/network/CampaignCaravanPresentation';
-import { SIEGE_ASSET_KEYS } from '../../src/game/network/CampaignSiegePresentation';
+  aegisNpcGuardVariantFor, playerModelOverrideForRace } from '../../shared/data/modelOverrides';
+import { worldLifeCharacterProfile } from '../../shared/world/worldLifeModels';
+import { applyBiomeKits } from '../../shared/world/BiomeKit';
+import { applyZonePaths } from '../../shared/world/PathKit';
+import { WORLD_EDITOR_PREFABS } from '../../shared/world/editor/PrefabCatalog';
+import { campaignNpcProfile } from '../../shared/assets/campaignModels';
+import { CARAVAN_DRIVER_PROFILE } from '../../shared/assets/caravanModels';
+import { SIEGE_ASSET_KEYS } from '../../shared/assets/siegeModels';
 import { recruitCombatProfile } from '../../server/abilityCatalog';
 import { loadCampaignMapConfigs } from '../../server/mapConfig';
-import type { ZoneDefinition, NpcSpawn, EnemySpawn } from '../../src/world/ZoneLoader';
+import type { ZoneDefinition, NpcSpawn, EnemySpawn } from '../../shared/world/ZoneDefinition';
 import { containedPath, fileHash, inspectGlb, readJson, type GlbEvidence } from './asset-evidence';
 import { auditPrimitives } from './primitive-audit';
 
@@ -253,7 +254,7 @@ export async function buildAssetLedger(repoRoot = ROOT) {
     }
   }
   const previewSource = 'src/ui/screens/CharacterPreviewStage.tsx';
-  for (const reference of previewReferences(readFileSync(path.join(root, previewSource), 'utf8'))) add({
+  for (const reference of previewReferences(readBrowserReference(previewSource, root))) add({
     id: `preview_environment:${reference.line}`, surface: 'preview_environment', source: `${previewSource}:${reference.line}`,
     entityId: reference.key ?? reference.model, role: 'preview_scenery', requested: { assetKey: reference.key, model: reference.model },
     resolution: reference.key ? resolve('staticProps', reference.key, reference.model) : { model: reference.model, method: 'direct_file' } });

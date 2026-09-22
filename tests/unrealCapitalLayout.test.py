@@ -110,15 +110,24 @@ class CapitalLayoutTests(unittest.TestCase):
     def test_staging_project_cannot_receive_the_game_world(self):
         script = Path(__file__).resolve().parents[1] / "scripts/unreal/build-kit-capital.py"
         fake = SimpleNamespace(Paths=SimpleNamespace(project_dir=lambda: str(script.parent / "CityKitStaging")))
-        with patch.dict(sys.modules, {"unreal": fake}), patch.object(Path,"exists",lambda path: False):
+        with patch.dict(sys.modules, {"unreal": fake}), patch.object(Path,"exists",lambda path: False), \
+                patch.object(Path, "read_text", return_value=""):
             with self.assertRaisesRegex(RuntimeError,"Build the playable city in AegisWar"):
                 runpy.run_path(str(script))
 
     def test_owner_draft_blocks_generation_before_any_unreal_mutation(self):
         script = Path(__file__).resolve().parents[1] / "scripts/unreal/build-kit-capital.py"
         with patch.dict(sys.modules, {"unreal": object()}), patch.object(Path, "exists",
-                lambda path: str(path).replace("\\", "/").endswith("Saved/WorldEdit/crownward-draft.json")):
+                lambda path: str(path).replace("\\", "/").endswith("Saved/WorldEdit/crownward-draft.json")), \
+                patch.object(Path, "read_text", return_value=""):
             with self.assertRaisesRegex(RuntimeError, "Preserve the owner's Crownward draft"):
+                runpy.run_path(str(script))
+
+    def test_official_city_blocks_regeneration_even_without_a_draft(self):
+        script = Path(__file__).resolve().parents[1] / "scripts/unreal/build-kit-capital.py"
+        with patch.dict(sys.modules, {"unreal": object()}), patch.object(Path, "exists", return_value=False), \
+                patch.object(Path, "read_text", return_value="GameDefaultMap=/Game/Capitals/crownward/FinalAppearance_reviewed/City"):
+            with self.assertRaisesRegex(RuntimeError, "FinalAppearance city is official"):
                 runpy.run_path(str(script))
 
 

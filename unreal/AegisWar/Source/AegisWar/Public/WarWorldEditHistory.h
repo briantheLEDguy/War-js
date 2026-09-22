@@ -24,6 +24,7 @@ public:
     bool Edit(FName Id, const FTransform& Transform, bool bHidden, int32 ExpectedRevision, FString& Error);
     bool Create(FName Id, FName TemplateId, const FTransform& Transform, int32 ExpectedRevision, FString& Error);
     bool CreateBatch(const TArray<FWarWorldEditCreation>& Additions, int32 ExpectedRevision, FString& Error);
+    bool Reset(int32 ExpectedRevision, FString& Error);
     bool Undo(bool bRedo, int32 ExpectedRevision, FString& Error);
     bool ImportDraft(const FString& Json, int32 ExpectedRevision, FString& Error);
     FString ExportDraft() const;

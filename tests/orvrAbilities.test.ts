@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, submitCommand } from '../src/shared/orvr';
-import type { AbilityRule, CampaignState, PlayerAction } from '../src/shared/orvr';
+import { addPlayer, advanceSimulation, createCampaign, defaultZoneConfig, submitCommand } from '../shared/orvr/index';
+import type { AbilityRule, CampaignState, PlayerAction } from '../shared/orvr/index';
 
 function command(state: CampaignState, id: string, action: PlayerAction) {
   return submitCommand(state, id, { version: 1, sequence: state.players[id].lastSequence + 1, activationId: state.zones[state.players[id].zoneId].activationId, action });

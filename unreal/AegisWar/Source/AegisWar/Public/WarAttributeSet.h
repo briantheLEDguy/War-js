@@ -28,6 +28,7 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
     virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
+    virtual bool PreGameplayEffectExecute(FGameplayEffectModCallbackData& Data) override;
 private:
     UFUNCTION() void OnRep_Health(const FGameplayAttributeData& Previous);
     UFUNCTION() void OnRep_MaxHealth(const FGameplayAttributeData& Previous);

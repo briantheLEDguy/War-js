@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { applyZonePaths } from '../src/world/PathKit';
-import type { ZoneDefinition } from '../src/world/ZoneLoader';
+import { applyZonePaths } from '../shared/world/PathKit';
+import type { ZoneDefinition } from '../shared/world/ZoneDefinition';
 
 describe('path generation', () => {
   test('connects nearby path endpoints without adding walkable shelves', () => {

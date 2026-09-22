@@ -1,0 +1,47 @@
+{
+  "groups": {
+    "group:aegis-editors": [
+      "replace-with-project-owner@example.invalid",
+      "replace-with-approved-collaborator@example.invalid"
+    ]
+  },
+  "grants": [
+    {
+      "src": [
+        "group:aegis-editors"
+      ],
+      "dst": [
+        "aegis-unreal-server"
+      ],
+      "ip": [
+        "udp:50000"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "src": "replace-with-approved-collaborator@example.invalid",
+      "proto": "udp",
+      "accept": [
+        "aegis-unreal-server:50000"
+      ],
+      "deny": [
+        "aegis-unreal-server:53"
+      ]
+    },
+    {
+      "src": "replace-with-approved-collaborator@example.invalid",
+      "proto": "tcp",
+      "deny": [
+        "aegis-unreal-server:22",
+        "aegis-unreal-server:445",
+        "aegis-unreal-server:3389",
+        "aegis-unreal-server:5985",
+        "aegis-unreal-server:5986"
+      ]
+    }
+  ],
+  "hosts": {
+    "aegis-unreal-server": "100.64.0.1"
+  }
+}

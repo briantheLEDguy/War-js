@@ -3,7 +3,7 @@ import { WebSocketServer, WebSocket } from 'ws';
 import {
   createCampaign, restoreCampaign, addPlayer, removePlayer, submitCommand, advanceSimulation, snapshotFor,
   type CampaignState, type CampaignConfig, type ClientMessage, type ServerMessage, type CampaignEvent, type WorldUpdate,
-} from '../src/shared/orvr';
+} from '../shared/orvr/index';
 import { DevelopmentAuthenticator, type Authenticator } from './auth';
 import { MemoryCampaignRepository, type CampaignRepository } from './persistence';
 import { assertCampaignConfigCompatible } from './configCompatibility';

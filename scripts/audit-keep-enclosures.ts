@@ -1,6 +1,6 @@
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../src/shared/orvr/navigation';
-import type { Position, ZoneConfig } from '../src/shared/orvr/protocol';
+import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../shared/orvr/navigation';
+import type { Position, ZoneConfig } from '../shared/orvr/protocol';
 
 type GateStage = 'outer' | 'inner';
 type KeepConfig = ZoneConfig['keeps'][number];

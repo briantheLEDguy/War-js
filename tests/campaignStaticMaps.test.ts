@@ -6,8 +6,8 @@ import {
   CAMPAIGN_GRAPH_EDGES,
   CAMPAIGN_STATIC_MAP_HASHES,
   CAMPAIGN_ZONES,
-} from '../src/data/campaign';
-import type { OrvrKeepLayout, OrvrZoneLayout } from '../src/world/orvrTypes';
+} from '../shared/data/campaign';
+import type { OrvrKeepLayout, OrvrZoneLayout } from '../shared/world/orvrTypes';
 
 interface ZoneFile {
   id: string;

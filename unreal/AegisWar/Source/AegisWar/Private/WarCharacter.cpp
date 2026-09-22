@@ -1,4 +1,6 @@
 #include "WarCharacter.h"
+#include "WarAbilityRuntime.h"
+#include "WarCombatStatus.h"
 #include "AegisWar.h"
 #include "WarAttributeSet.h"
 #include "WarCharacterVisualDefinition.h"
@@ -6,6 +8,7 @@
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
 #include "WarStrikeAbility.h"
+#include "WarEnemy.h"
 #include "WarTypes.h"
 #include "AbilitySystemComponent.h"
 #include "Animation/AnimSequence.h"
@@ -27,6 +30,7 @@
 
 AWarCharacter::AWarCharacter()
 {
+    CombatStatus = CreateDefaultSubobject<UWarCombatStatus>(TEXT("CombatStatus"));
     bReplicates = true;
     PrimaryActorTick.bCanEverTick = true;
     bUseControllerRotationYaw = false;
@@ -94,7 +98,37 @@ bool AWarCharacter::ApplyVisual(FString& OutError)
         PlayingAnimation = TEXT("idle");
     }
     bVisualReady = true;
+    if (HasAuthority() && GetPlayerState<AWarPlayerState>()) GetPlayerState<AWarPlayerState>()->GetClassAbilities()->InitializeCharacter(this);
     return true;
+}
+
+FName AWarCharacter::GetCareerId() const { return VisualDefinition ? VisualDefinition->ClassId : NAME_None; }
+FName AWarCharacter::GetAnimationProfile() const { return VisualDefinition ? VisualDefinition->ProfileKey : NAME_None; }
+float AWarCharacter::GetAbilityAnimationDuration(FName MotionRole) const
+{
+    const auto* Ref = VisualDefinition ? VisualDefinition->ImportedAnimations.Find(MotionRole) : nullptr;
+    const auto* Animation = Ref ? Ref->LoadSynchronous() : nullptr;
+    return Animation ? Animation->GetPlayLength() : 0;
+}
+bool AWarCharacter::IsActionPlaying() const { return GetWorld()->GetTimeSeconds() < ActionAnimationUntil; }
+void AWarCharacter::MulticastPlayAbilityMotion_Implementation(FName MotionRole, float Duration, bool bLoop)
+{
+    if (bDead || !bVisualReady) return;
+    ActionAnimationUntil = GetWorld()->GetTimeSeconds() + Duration;
+    if (GetCharacterMovement()->IsMovingOnGround()) GetCharacterMovement()->StopMovementImmediately();
+    if (GetNetMode() != NM_DedicatedServer) { PlayingAnimation = NAME_None; PlayImportedAnimation(MotionRole, bLoop); }
+}
+bool AWarCharacter::CanAbilityTarget(const AActor* Target, float Range, bool bRequireSight) const
+{
+    if (!bVisualReady || bDead || IsDevelopmentFlying() || !IsValid(Target) || Target == this || Target->GetWorld() != GetWorld() || Target->IsHidden()) return false;
+    const auto* Self = GetPlayerState<AWarPlayerState>(); if (!Self || Self->GetRealm() == EWarRealm::None) return false;
+    if (const auto* Enemy = Cast<AWarEnemy>(Target)) return Enemy->CanReceiveAbility(this, Range, bRequireSight);
+    const auto* OtherPawn = Cast<AWarCharacter>(Target); const auto* Other = OtherPawn ? OtherPawn->GetPlayerState<AWarPlayerState>() : nullptr;
+    if (!Other || !OtherPawn->IsVisualReady() || OtherPawn->IsDead() || OtherPawn->IsDevelopmentFlying()
+        || Self->GetCurrentZone() != Other->GetCurrentZone() || Other->GetRealm() == EWarRealm::None || Other->GetRealm() == Self->GetRealm()
+        || FVector::DistSquared(GetActorLocation(), Target->GetActorLocation()) > FMath::Square(Range)) return false;
+    FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(WarAbilitySight), false, this);
+    return !bRequireSight || !GetWorld()->LineTraceSingleByChannel(Hit, GetActorLocation(), Target->GetActorLocation(), ECC_Visibility, Params) || Hit.GetActor() == Target;
 }
 
 void AWarCharacter::PlayImportedAnimation(const FName Name, const bool bLoop)
@@ -111,6 +145,13 @@ void AWarCharacter::PlayImportedAnimation(const FName Name, const bool bLoop)
 void AWarCharacter::Tick(const float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    if (!bDead && !bDevelopmentFlying)
+    {
+        const auto* State = GetPlayerState<AWarPlayerState>();
+        const bool bBusy = IsActionPlaying() || (State && State->GetClassAbilities()->IsBusy());
+        GetCharacterMovement()->MaxWalkSpeed = bBusy ? 0 : (bDevelopmentSpeedsCaptured ? DevelopmentBaseWalkSpeed : 600.f) * DevelopmentSpeed * CombatStatus->MovementScale();
+        if ((bBusy || CombatStatus->MovementScale() == 0) && GetCharacterMovement()->IsMovingOnGround()) GetCharacterMovement()->StopMovementImmediately();
+    }
     UpdateMovementInput();
     if (!bVisualReady || GetNetMode() == NM_DedicatedServer) return;
     if (bDead) { PlayImportedAnimation(TEXT("death"), false); return; }
@@ -147,7 +188,8 @@ void AWarCharacter::OnRep_VisualDefinition()
 
 void AWarCharacter::InitializeAbilityActor()
 {
-    if (AWarPlayerState* State = GetPlayerState<AWarPlayerState>()) State->InitializeForPawn(this);
+    if (AWarPlayerState* State = GetPlayerState<AWarPlayerState>())
+    { State->InitializeForPawn(this); if (bVisualReady) State->GetClassAbilities()->InitializeCharacter(this); }
 }
 
 void AWarCharacter::PossessedBy(AController* NewController)
@@ -189,16 +231,7 @@ void AWarCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     JumpAction = MakeAction(EInputActionValueType::Boolean);
     StrikeAction = MakeAction(EInputActionValueType::Boolean);
     AutoRunAction = MakeAction(EInputActionValueType::Boolean);
-    MappingContext->MapKey(MoveForwardAction, EKeys::W);
-    MappingContext->MapKey(MoveForwardAction, EKeys::S).Modifiers.Add(NewObject<UInputModifierNegate>(MappingContext));
-    MappingContext->MapKey(MoveRightAction, EKeys::D);
-    MappingContext->MapKey(MoveRightAction, EKeys::A).Modifiers.Add(NewObject<UInputModifierNegate>(MappingContext));
-    MappingContext->MapKey(LookYawAction, EKeys::MouseX);
-    MappingContext->MapKey(LookPitchAction, EKeys::MouseY);
-    MappingContext->MapKey(ZoomAction, EKeys::MouseWheelAxis);
-    MappingContext->MapKey(JumpAction, EKeys::SpaceBar);
-    MappingContext->MapKey(StrikeAction, EKeys::LeftMouseButton);
-    MappingContext->MapKey(AutoRunAction, EKeys::NumLock);
+    RefreshControlMappings();
     Subsystem->AddMappingContext(MappingContext, 0);
     Input->BindAction(MoveForwardAction, ETriggerEvent::Triggered, this, &AWarCharacter::MoveForward);
     Input->BindAction(MoveRightAction, ETriggerEvent::Triggered, this, &AWarCharacter::MoveRight);
@@ -218,6 +251,25 @@ void AWarCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
     UpdateCamera();
 }
 
+void AWarCharacter::RefreshControlMappings()
+{
+    const auto* PC = Cast<AWarPlayerController>(Controller);
+    if (!PC || !MappingContext || !InputSubsystem.IsValid()) return;
+    ForwardAxis=0; RightAxis=0;
+    MappingContext->UnmapAll();
+    MappingContext->MapKey(MoveForwardAction, PC->GetControlKey(TEXT("Forward")));
+    MappingContext->MapKey(MoveForwardAction, PC->GetControlKey(TEXT("Backward"))).Modifiers.Add(NewObject<UInputModifierNegate>(MappingContext));
+    MappingContext->MapKey(MoveRightAction, PC->GetControlKey(TEXT("Right")));
+    MappingContext->MapKey(MoveRightAction, PC->GetControlKey(TEXT("Left"))).Modifiers.Add(NewObject<UInputModifierNegate>(MappingContext));
+    MappingContext->MapKey(LookYawAction, EKeys::MouseX);
+    MappingContext->MapKey(LookPitchAction, EKeys::MouseY);
+    MappingContext->MapKey(ZoomAction, EKeys::MouseWheelAxis);
+    MappingContext->MapKey(JumpAction, PC->GetControlKey(TEXT("Jump")));
+    MappingContext->MapKey(StrikeAction, PC->GetControlKey(TEXT("Strike")));
+    MappingContext->MapKey(AutoRunAction, PC->GetControlKey(TEXT("AutoRun")));
+    InputSubsystem->RequestRebuildControlMappings();
+}
+
 void AWarCharacter::MoveForward(const FInputActionValue& Value)
 {
     ForwardAxis = Value.Get<float>();
@@ -234,32 +286,32 @@ void AWarCharacter::ToggleAutoRun()
 void AWarCharacter::UpdateMovementInput()
 {
     if (bDead) MovementInput.bAutoRun = false;
-    const auto* PC = Cast<APlayerController>(Controller);
+    const auto* PC = Cast<AWarPlayerController>(Controller);
     if (!IsLocallyControlled() || !PC) return;
-    const bool bAllowed = !PC->IsMoveInputIgnored() && !bDead && bVisualReady;
-    const bool bManualKey = PC->IsInputKeyDown(EKeys::W) || PC->IsInputKeyDown(EKeys::S)
-        || PC->IsInputKeyDown(EKeys::A) || PC->IsInputKeyDown(EKeys::D)
+    const bool bAllowed = !PC->IsMoveInputIgnored() && !bDead && bVisualReady && !IsActionPlaying() && CombatStatus->MovementScale() > 0;
+    const bool bManualKey = PC->IsInputKeyDown(PC->GetControlKey(TEXT("Forward"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Backward")))
+        || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Left"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Right")))
         || !FMath::IsNearlyZero(ForwardAxis) || !FMath::IsNearlyZero(RightAxis);
     const auto Intent = MovementInput.Resolve(ForwardAxis, RightAxis, bManualKey,
-        PC->IsInputKeyDown(EKeys::LeftMouseButton) && PC->IsInputKeyDown(EKeys::RightMouseButton),
+        PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit"))),
         bAllowed, bDead || GetCharacterMovement()->MovementMode == MOVE_Flying);
     if (!bAllowed) { ForwardAxis = 0; RightAxis = 0; return; }
     const FRotationMatrix Basis(FRotator(0.f, PC->GetControlRotation().Yaw, 0.f));
     AddMovementInput(Basis.GetUnitAxis(EAxis::X), Intent.X);
     AddMovementInput(Basis.GetUnitAxis(EAxis::Y), Intent.Y);
     if (IsDevelopmentFlying())
-        AddMovementInput(FVector::UpVector, (PC->IsInputKeyDown(EKeys::E) ? 1.f : 0.f) - (PC->IsInputKeyDown(EKeys::Q) ? 1.f : 0.f));
+        AddMovementInput(FVector::UpVector, (PC->IsInputKeyDown(PC->GetControlKey(TEXT("Interact"))) ? 1.f : 0.f) - (PC->IsInputKeyDown(PC->GetControlKey(TEXT("FlyDown"))) ? 1.f : 0.f));
 }
 void AWarCharacter::LookYaw(const FInputActionValue& Value)
 {
-    const auto* PC = Cast<APlayerController>(Controller);
-    if (PC && (PC->IsInputKeyDown(EKeys::LeftMouseButton) || PC->IsInputKeyDown(EKeys::RightMouseButton)))
+    const auto* PC = Cast<AWarPlayerController>(Controller);
+    if (PC && (PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit")))))
         ApplyCameraOrbit(Value.Get<float>(), 0.0);
 }
 void AWarCharacter::LookPitch(const FInputActionValue& Value)
 {
-    const auto* PC = Cast<APlayerController>(Controller);
-    if (PC && (PC->IsInputKeyDown(EKeys::LeftMouseButton) || PC->IsInputKeyDown(EKeys::RightMouseButton)))
+    const auto* PC = Cast<AWarPlayerController>(Controller);
+    if (PC && (PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit")))))
         ApplyCameraOrbit(0.0, -Value.Get<float>());
 }
 void AWarCharacter::Zoom(const FInputActionValue& Value)
@@ -269,6 +321,7 @@ void AWarCharacter::Zoom(const FInputActionValue& Value)
 }
 bool AWarCharacter::CanControlCamera() const
 {
+    if (const auto* PC = Cast<AWarPlayerController>(Controller); PC && PC->IsEditingUi()) return false;
     return IsLocallyControlled() && GetCameraState() && !Controller->IsLookInputIgnored() && bVisualReady && !bDead;
 }
 FWarCameraState* AWarCharacter::GetCameraState() const
@@ -307,13 +360,14 @@ void AWarCharacter::SetCameraPreferences(float LookSensitivity, float ZoomSensit
 {
     if (IsLocallyControlled() && GetCameraState()) GetCameraState()->SetPreferences(LookSensitivity, ZoomSensitivity, bInvertX, bInvertY);
 }
-void AWarCharacter::StartJump() { if (Controller && !Controller->IsMoveInputIgnored() && !bDead && bVisualReady) Jump(); }
+void AWarCharacter::StartJump() { if (Controller && !Controller->IsMoveInputIgnored() && !bDead && bVisualReady && !IsActionPlaying() && CombatStatus->MovementScale() > 0) Jump(); }
 
 void AWarCharacter::RequestStrike()
 {
     if (bDead || !bVisualReady) return;
     const APlayerController* PC = Cast<APlayerController>(Controller);
     if (!PC || PC->IsMoveInputIgnored()) return;
+    if (PC->bShowMouseCursor) return;
     FVector Origin;
     FRotator Direction;
     PC->GetPlayerViewPoint(Origin, Direction);
@@ -321,31 +375,35 @@ void AWarCharacter::RequestStrike()
     FCollisionQueryParams Params(SCENE_QUERY_STAT(WarSelectTarget), false, this);
     if (GetWorld()->LineTraceSingleByChannel(Hit, Origin, Origin + Direction.Vector() * 5000.f, ECC_Visibility, Params))
     {
-        if (AWarCharacter* Target = Cast<AWarCharacter>(Hit.GetActor())) RequestTargetStrike(Target);
+        RequestTargetStrike(Hit.GetActor());
     }
 }
 
-void AWarCharacter::RequestTargetStrike(AWarCharacter* Target)
+void AWarCharacter::RequestTargetStrike(AActor* Target)
 {
     if (IsLocallyControlled() && Controller && !Controller->IsMoveInputIgnored()
         && !bDead && bVisualReady && IsValid(Target)) ServerRequestStrike(Target);
 }
 
-void AWarCharacter::ServerRequestStrike_Implementation(AWarCharacter* Target)
+void AWarCharacter::ServerRequestStrike_Implementation(AActor* Target)
 {
     const double Now = GetWorld()->GetTimeSeconds();
     if (Now < NextStrikeRequestTime) return;
     NextStrikeRequestTime = Now + 0.1;
     if (!CanStrikeTarget(Target)) return;
+    const auto* State = GetPlayerState<AWarPlayerState>();
+    if (IsActionPlaying() || CombatStatus->Has(TEXT("stagger")) || (State && State->GetClassAbilities()->IsBusy())) return;
     RequestedStrikeTarget = Target;
     GetAbilitySystemComponent()->TryActivateAbilityByClass(UWarStrikeAbility::StaticClass());
     RequestedStrikeTarget.Reset();
 }
 
-bool AWarCharacter::CanStrikeTarget(const AWarCharacter* Target) const
+bool AWarCharacter::CanStrikeTarget(const AActor* Actor) const
 {
-    if (!HasAuthority() || !IsValid(Target) || Target->GetWorld() != GetWorld()
-        || !bVisualReady || !Target->bVisualReady || bDead || Target->bDead) return false;
+    if (!HasAuthority() || !bVisualReady || bDead || !GetAbilitySystemComponent() || GetCharacterMovement()->IsFalling()) return false;
+    if (const auto* Enemy = Cast<AWarEnemy>(Actor)) return Enemy->CanReceiveStrike(this);
+    const auto* Target = Cast<AWarCharacter>(Actor);
+    if (!IsValid(Target) || Target->GetWorld() != GetWorld() || !Target->bVisualReady || Target->bDead) return false;
     const AWarPlayerState* SelfState = GetPlayerState<AWarPlayerState>();
     const AWarPlayerState* TargetState = Target->GetPlayerState<AWarPlayerState>();
     if (!SelfState || !TargetState || !GetAbilitySystemComponent() || !Target->GetAbilitySystemComponent()) return false;

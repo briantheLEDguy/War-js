@@ -40,7 +40,7 @@ describe('fitted cauldron export', () => {
       const original = readGlb(fs.readFileSync(`authoring/blender/orvr-frontier/runtime/${lod.model}`));
       expect(animationSignature(readGlb(fs.readFileSync(file)))).toEqual(animationSignature(original));
     }
-    const catalog = read('src/world/editor/prefabs.generated.json');
+    const catalog = read('shared/world/editor/prefabs.generated.json');
     const entry = catalog.find((item: { assetKey: string }) => item.assetKey === 'frontier_oil_cauldron');
     expect([entry.model, ...entry.lodModels]).toEqual(qc.lods.map((lod: { model: string }) => lod.model));
   });

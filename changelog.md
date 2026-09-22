@@ -1,8 +1,198 @@
+## 2026-09-22 - Browser retirement and isolated collaboration preparation
+
+- Retire the React/Three.js browser application and Pages deployment after
+  extracting shared catalogs, campaign authority dependencies and native tooling.
+- Preserve the complete gameplay export, frozen browser-derived fixtures and
+  39 native acceptance contracts with hash-verified Git reference evidence.
+- Preserve local worktree changes and native assets in verified private recovery
+  snapshots; retain unreviewed asset variants without promoting them.
+- Create the private native-content companion repository and pin its inventory.
+  Distribution remains blocked pending source/license review.
+- Add content synchronization validation, read-only host security audit, offline
+  VM provisioning and a guest-only collaboration launcher. Explicitly forbid
+  using the host's work Tailscale account. VM licensing/media, virtual graphics,
+  isolation configuration and remote acceptance remain outstanding.
+
+## 2026-09-22 - Supplied native UI artwork
+
+- Apply the six owner-provided PNGs to ability tiles/endcaps, health/mana/XP tracks, local radar and expandable inventory, quest, service and builder windows.
+- Preserve the original menu artwork and all source PNG bytes; stage runtime copies under Content/UI and keep live values, radar markers and Edit UI drag/save behavior.
+- Normalize every inner ability square to the same size, join adjacent gold edges without transparent gaps, and reserve outer space for endcap ornaments. Add square/rail/viewport layout tests plus runtime PNG decoding, dimension and source-integrity coverage.
+- Correct the class-ability duplicate-input test fixture to copy its array element before appending, avoiding Unreal's container-alias assertion.
+
+## 2026-09-22 - Capital combat training dummies
+
+## Native class abilities and Prelate action timing
+
+- Connected all 24 exported class kits to native hotbars, progression, server-validated costs, cooldowns, class resources and effects; retained the three source-unimplemented summons as unavailable.
+- Added an Abilities menu, per-class assignments, resource/status feedback, and class-aware GM restore/cooldown reset.
+- Bound Prelate actions to the supplied equipped two-handed roles; delayed weapon damage to forward contact, blocked planted-action sliding, and swept Penance movement across validated ground.
+- Added catalog/status regression coverage and an opt-in live capital-dummy ability proof.
+
+- Place three source training targets in each native capital using the existing Aegis and Riftspire dummy models, with exact mesh/material bindings and saved-level backups.
+- Support stationary, non-retaliating strike targets with source health, replicated damage/death and a 15-second respawn; exclude XP, loot and quest rewards.
+- Add source/model regression tests, saved-scene captures and an opt-in native combat/respawn proof. Keep production acceptance closed.
+
+## 2026-09-22 - Native graphics settings
+
+- Add a shared Graphics page at character entry and in-game Options, with windowed/borderless/fullscreen modes, supported resolutions and all existing graphics controls.
+- Separate drafts from applied preferences; preview changes with a 15-second confirmation, automatic rollback and protection against incidental saves and automatic resize confirmation.
+- Validate capabilities and numeric bounds, retain existing preferences, report persistence failures and add early `-WarSafeGraphics` recovery. Add native tests and an isolated rendered proof with forced-exit/relaunch checks.
+- Physical display, GPU/driver and Linux/macOS acceptance remain separate from native automation and offscreen rendering.
+
+## 2026-09-22 - Configurable native action bars
+
+- Add UI Settings with unrestricted bar creation, 1-10 buttons per bar, per-button actions and key bindings, and Edit UI drag handles with saved viewport-relative positions. Shrinking a bar retains hidden assignments; removing it releases its keys.
+- Connect native strike and inventory potions to live cooldown/resource/count displays, tooltips and keyboard/click activation; add hostile target cycling and an action cursor. Preserve existing key choices when new defaults conflict.
+- Add persistence, resizing, conflict and invalid-action automation plus rendered UI Settings/Edit UI proof coverage. Class-specific ability gameplay is still unfinished.
+
+## 2026-09-22 - Directional light selection
+
+- Give the primary capital and zone suns forward-shading priority 1, with fill lights at 0, so fog, water and translucency have an explicit main light. Preserve existing brightness, colors and shadows.
+- Add a targeted capital light repair with package backups and native zone-light regression coverage.
+
+## 2026-09-22 - Local development character entry
+
+- Keep character entry pending while the starting city streams, and close the review only after successful possession. This removes the premature clearance warning and misleading local-session warning on retry.
+- Exclude only the level's editor builder brush from collision readiness; retain blocking-volume and arrival-floor checks. Log the exact pending object on a loading timeout.
+- Disable repeated entry/edit/back actions during loading, preserve real failure messages, and allow retries after failed loads. Added native regression coverage for delayed possession and retry handling.
+
+## 2026-09-22 - Supplied Battle Prelate two-handed animations
+
+- Imported 11 owner-supplied FBX clips onto the equipped Prelate skeleton. Assigned two-handed idle, combat idle, walk and the suitable slash variant to the live visual; retained existing run, jump, death and casting roles.
+- Adapted the hammer grip, fitted the support arm without stretching bones, restored the target rig's bind scale, and checked saved native bindings and compressed poses. Library-only combinations/specials still need clearance or action integration.
+- Added a recipe runner, stage-resume commands, source hashes, backups, role regression tests and reusable notes for importing subsequent characters. Procedural animation authoring is paused.
+
+## 2026-09-22 - Combat NPC weapon loadouts
+
+- Equipped all nine currently placed combat NPCs with source-derived patrol spears, Aegis shields, officer sidearms, or the scout's existing recurve bow and quiver. Unbuilt campaign combatants remain incomplete.
+- Added exact identity/body/equipment bindings, missing-weapon readiness rejection, bone-following transient attachments in the editor and game, and duplicate-free reconstruction after streaming. Soft catalog references avoid keeping other zones' body meshes resident.
+- Added source fingerprints, catalog backups/conflict checks, equipment coverage and native tests. Saved zone packages and authored capital actors remain intact. Grip poses, weapon-specific attacks and final art approval remain open.
+
+## 2026-09-22 - Heavy two-handed hammer study (paused)
+
+- This procedural revision was paused before native/visual acceptance when the owner supplied FBX animations; it is not installed in gameplay.
+
+
+- Replaced the Prelate's frontal clock sweep with a rear shoulder load, overhead forward strike, staggered stance, stronger pelvis/knee response, and deliberate recovery.
+- Moved the two-handed grip down the haft, retained coupled hand contact, and added swing-plane regression checks plus ground clearance to the equipped weapon audit.
+- Added synchronized native front/side playback at 30 fps, with scrubbing and slow playback, so the entire wind-up and recovery can be reviewed.
+## 2026-09-22 - Sunmeadow native raider foundation
+
+- Placed the three original Sunmeadow Campaign Raiders in the generated zone level with exact source identities, imported skeletal meshes and animation bindings, backups and repeat-run conflict checks.
+- Added server-owned melee chasing, line-of-sight/range checks, leash reset, replicated health/death, safe respawn, and session state retained across zone unloading.
+- Added atomic source XP/loot/quest kill attribution with duplicate-death rejection and full-bag pending rewards; extended the development strike and nearby enemy health display.
+- Strengthened streamed-zone readiness to wait for blocking physics and actual arrival-surface queries, addressing fast-return landing failures observed by the live encounter proof.
+- Added native source/state regression tests and opt-in saved-world combat, unload/reload, placement and rendering checks. Source specials, navigation, equipment/material review, full multiplayer combat and all production release gates remain open.
+
+## 2026-09-22 - Independent zone residency and themed lighting
+
+- Extracted the saved Bastion into its authored streamed level, retaining 9,150 actors, its 25-actor population layer, original startup path and rollback backups. Client travel can now unload the capital.
+- Preserved GM drafts and undo/redo across level unload/reload with stable identities, soft asset references and conflict checks for changed authored content.
+- Added distinct local-view lighting profiles for all 32 zones, including sun, fill, skylight, fog and grading. Bastion retains its authored lighting; previews never save map changes.
+- Added exact reviewed bindings and complete multi-material visuals for two Sunmeadow and four Cinderfen herb sites. The native gathering proof now covers 20 sites, including full inventory and repeat failures.
+- Strengthened native animation verification to require actual compressed data and retain the 1 mm tolerance when retrying full-precision rotations.
+- Added two-client residency evidence, fresh-process capital preservation, lighting captures and source coverage receipts. World content, combat, production networking and release acceptance remain incomplete.
+
+## 2026-09-22 - Thematic combat animation studies
+
+- Added six native animation studies: Battle Prelate hammer/gold gestures first, then Ember Arcanist firecasting and a separate violet presentation study.
+- Added pelvis-led weight transfer, planted-foot and two-hand grip IK, limb-length and support checks, and regression tests for invalid whole-body motion.
+- Added skeletal emitter anchors, weapon ribbons, release-timed spell effects, source/raw/compressed pose checks, and an isolated native review gallery.
+- Live ability integration, other body variants and final visual acceptance remain open; existing gameplay bindings are preserved.
+
+## 2026-09-22 - Local Unreal GM access
+
+- Enable GM tools and the builder by default after character entry in supported standalone development workbenches launched from AegisWar.uproject; retain local editor Play and explicit -WarDevelopmentGM access.
+- Add a standalone project setting while preserving Shipping, network-mode, map, authority and character-entry checks. Add native regression coverage and update launch instructions.
+
+## 2026-09-22 � Battle Prelate recovery
+
+- Restore the male Battle Prelate development selection and assemble its preserved body, nine armor modules and hammer for native import, without replacing browser source assets.
+- Remove the proof-map script that deleted the male import and assigned an herbalist NPC to the female Prelate identity. Reject NPC/different-class source substitutions for playable characters.
+- Add exact module/hash validation and regression coverage for incomplete or stale recovered assemblies. Native import and release acceptance remain distinct.
+
+## 2026-09-22 — Zone streaming and first-pair buildout
+
+- Split the owned campaign into routing plus 32 Generated/Authored level pairs, preserving 16,369 existing actor states and the main capital/startup experience. Added source/package fingerprints, backups, conflict refusal and per-zone manifests/coverage.
+- Added development server/client destination readiness, per-player level requests, cancellation/deadlines, safe landing revalidation and deferred respawn/GM travel. Fixed provisional Aegis starts being retained by Riftbound test characters and decorative text access on dedicated servers.
+- Added a dedicated-server/two-client zone-isolation proof and expanded the 70-route proof to deferred loading, failure, cancellation, all 14 existing gathering sites and respawn.
+- Installed Sunmeadow/Cinderfen's 32 source terrain sectors as 60 native ground/road/water surfaces, preserving vertex colors and alpha behavior. Road/water overlays do not provide ground collision.
+- Imported and placed the exact Sunmeadow scout/artisan and Cinderfen peat worker, bringing the first pair to six source characters. Preserved nine source animations per added character; full-precision scout rotations meet the existing deformation tolerance.
+- Replaced resource folder-name admission with exact source/zone/node/visual, mesh, material and collision catalog bindings. Extended authorized owned-kit use to outdoor zones and dungeons; no purchases or release approvals were made.
+- Added idempotent placement checks and explicit per-zone enemy/mechanism/objective gaps. Environment polish, playable encounters/lairs, GM expansion, online warfare, performance, Steam and platform acceptance remain unfinished.
+
+## 2026-09-22 — Riftspire native gathering sites
+
+- Activated all eight original Riftspire resource sites using their existing authored crate surfaces, source positions and native server-authoritative loot, profession XP and cooldowns.
+- Added source-binding validation and guarded, idempotent scenery-to-resource upgrades with map backups. Missing outdoor resource visuals remain explicitly pending; no fallback props are spawned.
+- Restricted the additional resource mesh admission to the imported Riftspire crate surface in its campaign package and zone. Added negative coverage for unrelated scenery, wrong zones and engine primitives.
+- Extended live world verification to gather every new node, reject repeat gathering on cooldown, and carry the populated inventory through all portals and zone-local respawn.
+## 2026-09-22 — Campaign respawn and source population
+
+- Fixed death after portal travel reusing Unreal's cached capital PlayerStart; campaign respawn now selects the current zone while legacy maps retain engine behaviour.
+- Added an engine-level regression for cached starts and improved native traversal diagnostics. The portal proof now carries a real three-item potion stack through every route and death/respawn.
+- Saved the exact imported Sunmeadow farmer/herbalist and Cinderfen supply officer into the main campaign layer. Corrected source-role handling: ambient residents and guards are population actors, not quest givers. Guard AI and service interactions remain pending.
+- Extended saved-scene verification to inspect NPC meshes, height and population identity alongside all portal labels. Generated content remains local and release gates remain closed.
+## 2026-09-21 — Main-world campaign reconstruction
+
+- Expanded source-derived world tooling from the three-zone pilot to all 32 zones and 70 reciprocal portal routes, with native terrain, roads, approved static source scenery and explicit pending-content records.
+- Added campaign sublevel attachment to the existing main capital with a pre-attachment backup and source/actor validation; startup configuration is retained.
+- Added native zone identity, realm home starts, zone-local respawn and map positioning. Portal landing checks include capsule clearance; the gameplay proof now covers all routes and respawn.
+- Detailed the existing capital with 126 authored post/sconce/light sets, 18 market props and 628 district material-slot variations. Existing actors are preserved.
+- Kept generated and purchased native assets private. Missing models, interactive lifts/gates, final art, Steam travel and platform acceptance remain unfinished and release-blocking.
+## 2026-09-21 - Ornate shared menu artwork
+
+- Applied the supplied menuback.png to native entry, menu/map/options/guide, inventory, quest, service and GM-builder panels.
+- Added a shared 15-region frame that extends straight rails and stone while preserving the centre crest and corner ornaments; tall panels retain scrolling.
+- Staged the unchanged PNG as a runtime UI resource and added layout/asset availability checks.
+
+- Verified Windows Editor/Game builds, 27 native groups, 94 tooling tests, typecheck/audit and rendered menu, tall builder and entry frames.
+
+## 2026-09-21 - Native menu parity and GM utilities
+
+- Compared the original toolbar, map, guide, options and GM/build panels; documented coverage and remaining gaps in `docs/unreal-interface.md`.
+- Added Clean Map, interactive Zone/Route/Campaign navigation, layers, pan/zoom and all 305 searchable original guide pages with native how-to pages.
+- Added authority-checked development GM recovery, cooldown reset, coordinate copy and validated loaded-zone/current-character travel; extended building with duplicate, measurement and undoable confirmed draft reset.
+- Added saved keyboard/mouse bindings, render scale and view distance; protected text entry from menu shortcuts. Terrain/collider authoring, shared publication, production GM roles and full gameplay UI parity remain unfinished.
+
+- Verified Windows Editor/Game builds, 26 native groups, 91 tooling tests, typecheck, audit and a fresh ten-panel rendered smoke test including live GM duplicate/reset/undo.
+
+## 2026-09-21 - Native world and portal pilot
+
+- Added the complete campaign portal graph validator and an isolated three-zone builder using the existing capital and Brightfen/Sunmeadow heightfields.
+- Added development server-authoritative reciprocal portals with safe landing checks, cooldowns and preserved pawn/session inventory. Unfinished destinations remain closed.
+- Added graph/terrain regression tests, native admission tests and an opt-in traversal proof. Outdoor scenery/population, other zones and production handoffs remain unfinished.
+
+## 2026-09-21 - Styled native entry menu
+
+- Styled login, character creation and review with a framed midnight-blue panel, gold accents, ivory typography, themed form controls and button hover/press states.
+- Added entry-step navigation cues, a visible development-status notice, and a scaled scrollable layout for smaller windows.
+
 ## 2026-09-21 — Capital population and basic city services
 
 - Added a dedicated population sublevel to the official FinalAppearance city: 17 explicitly mapped complex human NPCs plus existing Mara, with stable IDs, five district groups, looping idles and eight purchased-kit accents. Existing city appearance and layout are preserved.
 - Added native E-interaction merchants with atomic gold/inventory changes, distance/catalog/revision/idempotency checks and limited buyback. Added catalog-based class/profession guidance; banking remains unavailable.
 - Added population tooling, editor attachment safeguards, native transaction tests and a live gameplay proof. Session receipts do not establish durable economy or full migration acceptance.
+
+## 2026-09-21 - Native in-game UI recovery
+
+- Styled the native War Council menu with charcoal panels, antique-gold borders, numbered navigation and a prominent Resume action.
+- Added an Escape menu, live local map with hover labels/zoom, authored campaign route atlas, character status and controls guide.
+- Restored vitals/progression HUD, active quest summaries and local service radar; linked existing inventory, quest, crafting and GM panels through unified navigation.
+- Added saved camera sensitivity/inversion and master volume, plus Unreal quality presets, VSync and frame-cap controls.
+- Added panel transition/input-lock smoke checks and native projection tests. Windows Editor/Game compilation, 24 native groups, 87 tooling tests, tooling typecheck, audit and the rendered interface smoke test passed. Full browser UI parity, Steam and three-platform acceptance remain open.
+
+## 2026-09-21 - Native character entry screens
+
+- Added native login, development character setup and review before ordinary startup, preserving explicit automated proof entry.
+- Added race/career/body selection, name validation and authority-side exact-model checks with recoverable errors for unavailable characters.
+- Steam authentication, durable character storage, rendered previews and Riftspire entry remain pending. Development characters are session-only; production admission stays closed.
+
+## 2026-09-21 - Default capital background music
+
+- Added the owner's imported ambient loop to the official Aegis capital as an autoplaying, non-spatial AmbientSound at 50% volume, with SoundWave looping enabled.
+- Added repeatable editor setup and read-only saved-asset verification scripts. Listening and packaged playback acceptance remain unverified.
 
 ## 2026-09-21 - Official FinalAppearance capital
 

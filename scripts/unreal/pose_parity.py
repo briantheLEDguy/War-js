@@ -34,6 +34,9 @@ def compare_frame(source, actual):
 
 
 def evaluate_frame(unreal, animation, seconds, options):
+    # glTF float32 endpoints can exceed the imported duration by sub-microseconds.
+    # Unreal returns a reference pose outside the clip instead of its final pose.
+    seconds = bounded_sample_time(seconds, float(unreal.AnimationLibrary.get_sequence_length(animation)))
     pose = unreal.AnimPoseExtensions.get_anim_pose_at_time(animation, seconds, options)
     result = {}
     for bone in unreal.AnimPoseExtensions.get_bone_names(pose):
@@ -48,11 +51,19 @@ def evaluate_frame(unreal, animation, seconds, options):
     return result
 
 
+def bounded_sample_time(seconds, duration):
+    if not math.isfinite(seconds) or not math.isfinite(duration) or duration < 0 or seconds < 0 or seconds > duration + 0.000001:
+        raise ValueError("Animation sample is outside the imported duration")
+    return min(seconds, duration)
+
+
 def verify_animations(unreal, records, source):
     results = []
     for record in records:
         name = record["sourceClipName"]
         animation = unreal.load_asset(record["path"])
+        if not unreal.WarImportLibrary.prepare_compressed_animation(animation):
+            raise ValueError(f"Clip {name}: current-platform compression is unavailable")
         for mode in (unreal.AnimDataEvalType.RAW, unreal.AnimDataEvalType.COMPRESSED):
             options = unreal.AnimPoseEvaluationOptions()
             options.set_editor_property("evaluation_type", mode)

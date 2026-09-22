@@ -1,5 +1,6 @@
 #include "WarAttributeSet.h"
 #include "WarCharacter.h"
+#include "WarCombatStatus.h"
 #include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
 
@@ -19,6 +20,15 @@ void UWarAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, f
     if (Attribute == GetHealthAttribute()) NewValue = FMath::Clamp(NewValue, 0.f, GetMaxHealth());
     if (Attribute == GetManaAttribute()) NewValue = FMath::Clamp(NewValue, 0.f, GetMaxMana());
     if (Attribute == GetMaxHealthAttribute() || Attribute == GetMaxManaAttribute()) NewValue = FMath::Max(1.f, NewValue);
+}
+
+bool UWarAttributeSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData& Data)
+{
+    if (!Super::PreGameplayEffectExecute(Data)) return false;
+    if (Data.EvaluatedData.Attribute == GetHealthAttribute() && Data.EvaluatedData.Magnitude < 0)
+        if (auto* Status = UWarCombatStatus::On(GetOwningAbilitySystemComponent()->GetAvatarActor()))
+            Data.EvaluatedData.Magnitude = -Status->ReceiveDamage(-Data.EvaluatedData.Magnitude);
+    return true;
 }
 
 void UWarAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)

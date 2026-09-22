@@ -6,7 +6,7 @@ import {
   keybindingFromKeyboardEvent,
   normalizeKeybinding,
   normalizeKeybindings,
-} from '../src/data/keybindings';
+} from '../shared/data/keybindings';
 
 describe('keybinding helpers', () => {
   test('normalizes modifier order and rejects invalid bindings', () => {

@@ -1,5 +1,10 @@
 #include "WarStrikeAbility.h"
 #include "WarCharacter.h"
+#include "WarEnemy.h"
+#include "WarCombatStatus.h"
+#include "WarPlayerState.h"
+#include "WarAbilityRuntime.h"
+#include "TimerManager.h"
 #include "WarGameplayEffects.h"
 #include "AbilitySystemComponent.h"
 #include "NativeGameplayTags.h"
@@ -35,18 +40,23 @@ void UWarStrikeAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
     const FGameplayEventData* TriggerEventData)
 {
     AWarCharacter* Attacker = ActorInfo ? Cast<AWarCharacter>(ActorInfo->AvatarActor.Get()) : nullptr;
-    AWarCharacter* Target = Attacker ? Attacker->GetRequestedStrikeTarget() : nullptr;
+    AActor* Target = Attacker ? Attacker->GetRequestedStrikeTarget() : nullptr;
     // Revalidate immediately before cost and cooldown; the client never supplies damage, resource or range.
-    if (!Attacker || !Attacker->HasAuthority() || !Attacker->CanStrikeTarget(Target)
+    if (!Attacker || !Attacker->HasAuthority() || !Attacker->CanStrikeTarget(Target) || Attacker->IsActionPlaying()
+        || (Attacker->GetPlayerState<AWarPlayerState>() && Attacker->GetPlayerState<AWarPlayerState>()->GetClassAbilities()->IsBusy())
         || !CommitAbility(Handle, ActorInfo, ActivationInfo))
     {
         EndAbility(Handle, ActorInfo, ActivationInfo, true, true);
         return;
     }
-    UAbilitySystemComponent* Source = Attacker->GetAbilitySystemComponent();
-    UAbilitySystemComponent* Destination = Target->GetAbilitySystemComponent();
-    const FGameplayEffectSpecHandle Damage = Source->MakeOutgoingSpec(UWarStrikeDamageEffect::StaticClass(), 1.f, Source->MakeEffectContext());
-    if (Damage.IsValid()) Source->ApplyGameplayEffectSpecToTarget(*Damage.Data.Get(), Destination);
-    Attacker->MulticastPlayStrike();
+    const float Duration = Attacker->GetAbilityAnimationDuration(TEXT("attack_melee"));
+    const TWeakObjectPtr<AActor> WeakTarget(Target);
+    FTimerHandle Impact;
+    Attacker->GetWorldTimerManager().SetTimer(Impact, FTimerDelegate::CreateWeakLambda(Attacker, [Attacker, WeakTarget] {
+        const auto* Status = UWarCombatStatus::On(Attacker);
+        if (Status && Status->Has(TEXT("stagger"))) return;
+        UWarCombatStatus::Damage(WeakTarget.Get(), Attacker, WarValidation::StrikeDamage * (Status ? Status->OutgoingScale() : 1), WarValidation::StrikeRangeCm);
+    }), FMath::Max(.01f, Duration * (Attacker->GetAnimationProfile() == TEXT("civic_battle_prelate_m") ? .8f : .52f)), false);
+    Attacker->MulticastPlayAbilityMotion(TEXT("attack_melee"), Duration, false);
     EndAbility(Handle, ActorInfo, ActivationInfo, true, false);
 }

@@ -26,18 +26,25 @@ public:
     virtual void PossessedBy(AController* NewController) override;
     virtual void OnRep_PlayerState() override;
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+    void RefreshControlMappings();
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     virtual void Tick(float DeltaSeconds) override;
 
     bool SetVisualDefinition(UWarCharacterVisualDefinition* Definition, FString& OutError);
     bool IsDead() const { return bDead; }
     bool IsVisualReady() const { return bVisualReady; }
+    FName GetCareerId() const;
+    FName GetAnimationProfile() const;
+    bool CanAbilityTarget(const AActor* Target, float Range, bool bRequireSight = true) const;
+    float GetAbilityAnimationDuration(FName MotionRole) const;
+    bool IsActionPlaying() const;
+    UFUNCTION(NetMulticast, Reliable) void MulticastPlayAbilityMotion(FName MotionRole, float Duration, bool bLoop);
     FName GetPlayingAnimation() const { return PlayingAnimation; }
-    bool CanStrikeTarget(const AWarCharacter* Target) const;
-    AWarCharacter* GetRequestedStrikeTarget() const { return RequestedStrikeTarget.Get(); }
+    bool CanStrikeTarget(const AActor* Target) const;
+    AActor* GetRequestedStrikeTarget() const { return RequestedStrikeTarget.Get(); }
     void HandleDeath();
     /** The server revalidates target, range, realm, cost and cooldown for every request. */
-    UFUNCTION(BlueprintCallable, Category="Combat") void RequestTargetStrike(AWarCharacter* Target);
+    UFUNCTION(BlueprintCallable, Category="Combat") void RequestTargetStrike(AActor* Target);
     UFUNCTION(NetMulticast, Unreliable) void MulticastPlayStrike();
     void ApplyCameraOrbit(double X, double Y);
     void ApplyCameraWheel(double DeltaPixels);
@@ -54,13 +61,14 @@ public:
 protected:
     UPROPERTY(VisibleAnywhere, Category="Camera") TObjectPtr<USpringArmComponent> CameraBoom;
     UPROPERTY(VisibleAnywhere, Category="Camera") TObjectPtr<UCameraComponent> FollowCamera;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UWarCombatStatus> CombatStatus;
     UPROPERTY(ReplicatedUsing=OnRep_VisualDefinition) TObjectPtr<UWarCharacterVisualDefinition> VisualDefinition;
     UPROPERTY(ReplicatedUsing=OnRep_Dead) bool bDead = false;
 
 private:
     UFUNCTION() void OnRep_VisualDefinition();
     UFUNCTION() void OnRep_Dead();
-    UFUNCTION(Server, Reliable) void ServerRequestStrike(AWarCharacter* Target);
+    UFUNCTION(Server, Reliable) void ServerRequestStrike(AActor* Target);
     bool ApplyVisual(FString& OutError);
     void PlayImportedAnimation(FName Name, bool bLoop);
     void InitializeAbilityActor();
@@ -87,7 +95,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<UInputAction> AutoRunAction;
     FWarMovementInput MovementInput;
     double ForwardAxis = 0.0, RightAxis = 0.0;
-    TWeakObjectPtr<AWarCharacter> RequestedStrikeTarget;
+    TWeakObjectPtr<AActor> RequestedStrikeTarget;
     TWeakObjectPtr<UEnhancedInputLocalPlayerSubsystem> InputSubsystem;
     double NextStrikeRequestTime = 0.0;
     bool bVisualReady = false;

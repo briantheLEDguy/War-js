@@ -5,6 +5,14 @@
 #include "WarGameplayEffects.generated.h"
 
 UCLASS()
+class AEGISWAR_API UWarEnemyDamageEffect : public UGameplayEffect
+{
+    GENERATED_BODY()
+public:
+    UWarEnemyDamageEffect();
+};
+
+UCLASS()
 class AEGISWAR_API UWarInitialAttributesEffect : public UGameplayEffect
 {
     GENERATED_BODY()

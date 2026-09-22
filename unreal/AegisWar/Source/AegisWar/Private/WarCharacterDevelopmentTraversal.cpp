@@ -30,7 +30,8 @@ bool AWarCharacter::SetDevelopmentTraversal(const bool bFlying, const float Spee
     auto* Movement = GetCharacterMovement();
     if (!bDevelopmentSpeedsCaptured)
     {
-        DevelopmentBaseWalkSpeed = Movement->MaxWalkSpeed;
+        // Capture the unmodified character speed, not a temporary root/slow/action lock.
+        DevelopmentBaseWalkSpeed = GetClass()->GetDefaultObject<AWarCharacter>()->GetCharacterMovement()->MaxWalkSpeed;
         DevelopmentBaseFlySpeed = Movement->MaxFlySpeed;
         DevelopmentBaseBraking = Movement->BrakingDecelerationFlying;
         DevelopmentCollision = GetCapsuleComponent()->GetCollisionEnabled();

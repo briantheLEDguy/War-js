@@ -3,6 +3,7 @@ import copy
 import importlib.util
 from pathlib import Path
 import unittest
+from types import SimpleNamespace
 import bpy
 
 
@@ -29,6 +30,15 @@ def clip():
 
 
 class RoundtripVerificationTest(unittest.TestCase):
+    def test_float32_endpoint_keeps_the_final_fbx_sample(self):
+        strip = SimpleNamespace(frame_end=119.999992)
+        conversion.stabilize_strip_endpoint(strip)
+        self.assertEqual(strip.frame_end, 120.0)
+        for frame in (119.5, 120.0, 120.000008):
+            strip = SimpleNamespace(frame_end=frame)
+            conversion.stabilize_strip_endpoint(strip)
+            self.assertEqual(strip.frame_end, frame)
+
     def test_source_graph_rejects_generated_display_mesh(self):
         bpy.ops.wm.read_factory_settings(use_empty=True)
         source_graph = {"nodes": [{"name": "authored_body", "mesh": 0}],

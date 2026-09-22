@@ -4,9 +4,9 @@ import { expect, test } from 'vitest';
 import { integrateRegionalInhabitants, REGIONAL_INHABITANTS, integrateRegionalServicePresentations, REGIONAL_SERVICE_PRESENTATIONS } from '../scripts/campaign/regional-inhabitants.mjs';
 import { mapPropNavigation } from '../server/mapNavigation';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../src/shared/orvr/navigation';
-import { campaignNpcProfile } from '../src/game/network/CampaignCharacterPresentation';
-import type { ZoneDefinition, NpcSpawn } from '../src/world/ZoneLoader';
+import { campaignColliderContains, campaignColliderBlocksHeight, campaignGroundHeight } from '../shared/orvr/navigation';
+import { campaignNpcProfile } from '../shared/assets/campaignModels';
+import type { ZoneDefinition, NpcSpawn } from '../shared/world/ZoneDefinition';
 
 const map = (id: string) => JSON.parse(fs.readFileSync(`public/assets/maps/${id}.json`, 'utf8')) as ZoneDefinition;
 const profile = (civilian: { assetId: string }) => ({ runtimeReady: true, assetId: civilian.assetId,

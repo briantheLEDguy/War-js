@@ -6,8 +6,8 @@ import { assertCampaignConfigCompatible } from '../server/configCompatibility';
 import { startAuthority } from '../server/authority';
 import { DevelopmentAuthenticator } from '../server/auth';
 import { FileCampaignRepository } from '../server/persistence';
-import { createCampaign, defaultZoneConfig } from '../src/shared/orvr';
-import type { AbilityRule, CampaignConfig } from '../src/shared/orvr';
+import { createCampaign, defaultZoneConfig } from '../shared/orvr/index';
+import type { AbilityRule, CampaignConfig } from '../shared/orvr/index';
 
 const strike: AbilityRule = { id: 'prelate.strike', cooldownSeconds: 1, range: 3, damage: 20 };
 const heal: AbilityRule = { id: 'prelate.heal', cooldownSeconds: 2, range: 20, healing: 10 };

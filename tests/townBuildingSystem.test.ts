@@ -4,7 +4,7 @@ import { describe, expect, test } from 'vitest';
 import {
   prefabDefinitionForKind,
   prefabsForGroup,
-} from '../src/world/editor/PrefabCatalog';
+} from '../shared/world/editor/PrefabCatalog';
 
 interface AssetIndex {
   staticProps: Record<string, { model: string }>;

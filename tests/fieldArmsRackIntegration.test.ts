@@ -2,10 +2,10 @@ import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import { Box3, Matrix4, Quaternion, Vector3 } from 'three';
 import { expect, test } from 'vitest';
-import { WORLD_EDITOR_PREFABS } from '../src/world/editor/PrefabCatalog';
+import { WORLD_EDITOR_PREFABS } from '../shared/world/editor/PrefabCatalog';
 import { loadCampaignMapConfigs } from '../server/mapConfig';
-import { campaignGroundHeight } from '../src/shared/orvr/navigation';
-import type { PropSpawn } from '../src/world/ZoneLoader';
+import { campaignGroundHeight } from '../shared/orvr/navigation';
+import type { PropSpawn } from '../shared/world/ZoneDefinition';
 import { modelTriangles } from './helpers/staticGlbGeometry';
 
 const key = 'frontier_field_arms_rack', packagePath = 'authoring/blender/field-arms-rack';

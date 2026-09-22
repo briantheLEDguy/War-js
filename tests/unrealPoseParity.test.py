@@ -12,6 +12,13 @@ spec.loader.exec_module(parity)
 
 
 class PoseParityTest(unittest.TestCase):
+    def test_float32_endpoints_sample_the_final_pose(self):
+        self.assertEqual(parity.bounded_sample_time(2.000000127, 2.0), 2.0)
+        self.assertEqual(parity.bounded_sample_time(1.5, 2.0), 1.5)
+        for seconds in (2.001, -0.001, float("nan"), float("inf")):
+            with self.assertRaisesRegex(ValueError, "outside the imported duration"):
+                parity.bounded_sample_time(seconds, 2.0)
+
     def setUp(self):
         self.source = {"joints": {"rig/root": [0, 0, 0]},
                        "deformations": {"rig/root": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]}}
@@ -41,6 +48,7 @@ class PoseParityTest(unittest.TestCase):
 
     def test_import_failure_identifies_clip_mode_and_time(self):
         unreal = SimpleNamespace(load_asset=Mock(return_value=object()),
+            WarImportLibrary=SimpleNamespace(prepare_compressed_animation=Mock(return_value=True)),
             AnimDataEvalType=SimpleNamespace(RAW="RAW", COMPRESSED="COMPRESSED"),
             AnimPoseEvaluationOptions=Mock(return_value=Mock()))
         samples = {"attack_melee": {"sampleTimesSeconds": [0.25], "samples": [self.source]}}
@@ -49,6 +57,14 @@ class PoseParityTest(unittest.TestCase):
         with patch.object(parity, "evaluate_frame", side_effect=[self.actual, broken]):
             with self.assertRaisesRegex(ValueError, "Clip attack_melee, COMPRESSED, time 0.250000s.*pose mismatch"):
                 parity.verify_animations(unreal, [{"sourceClipName": "attack_melee", "path": "/example"}], samples)
+
+    def test_missing_compression_cannot_pass_by_evaluating_raw_tracks(self):
+        unreal = SimpleNamespace(load_asset=Mock(return_value=object()),
+            WarImportLibrary=SimpleNamespace(prepare_compressed_animation=Mock(return_value=False)))
+        with patch.object(parity, "evaluate_frame") as evaluate:
+            with self.assertRaisesRegex(ValueError, "compression is unavailable"):
+                parity.verify_animations(unreal, [{"sourceClipName": "idle", "path": "/example"}], {})
+            evaluate.assert_not_called()
 
 
 if __name__ == "__main__":
