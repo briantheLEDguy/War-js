@@ -3,6 +3,11 @@
 The browser application has been removed after shared dependency extraction.
 `migration/browser-retirement.json` lists extracted and removed files. Source maps,
 assets, authoring tools, database schema, backend authority and native code remain.
+The Pages deployment workflow is removed. Disabling the previously published
+GitHub Pages site through the repository API was rejected with HTTP 422
+("Deactivating GitHub pages for this repository is not allowed"). Site takedown
+therefore remains an owner/settings blocker; removal of the workflow alone does
+not establish that the old public site is offline.
 
 ## Behavior preservation
 
