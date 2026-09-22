@@ -1,5 +1,10 @@
 ## 2026-09-22 - Browser retirement and isolated collaboration preparation
 
+- Fast-forward main without rewriting history; verify recovery tags and remove 31
+  redundant local branch names while retaining all ten worktrees and draft assets.
+- Back up and disable eight broad host Unreal inbound firewall rules; preserve
+  the work VPN. Record Linux guest support and the desktop Hyper-V GPU blocker.
+
 - Retire the React/Three.js browser application and Pages deployment after
   extracting shared catalogs, campaign authority dependencies and native tooling.
 - Preserve the complete gameplay export, frozen browser-derived fixtures and

@@ -36,16 +36,32 @@ reviewed assets or described as integrated gameplay. Matching files are classifi
 separately. Worktrees stay in place because unrelated ignored local material may
 still be present; branch-tip ancestry alone is not permission to delete it.
 
-Unattached redundant feature branches can be removed after their recovery tags
-are verified. Branches attached to retained worktrees stay available until the
-remaining material is reviewed. No remote feature branches or recovery tags are
-deleted/published automatically.
+After verifying recovery tags and fast-forward integration into main, 31
+unattached local branch names were removed. Eleven local branches remain,
+including main, the cleanup branch and nine attached worktree branches. All ten
+worktrees remain. No remote feature branches were deleted and no recovery tags
+were published. The quarantined pre-LFS history exists only under its local
+recovery tag; it was not merged.
+
+## Verified checks
+
+- Retained TypeScript/backend/database/tooling suite: 81 files, 586 tests passed.
+- Native Windows Editor build succeeded; 43 foundation automation tests passed.
+- Python import/layout/world tests and eight Blender conversion tests passed.
+- Typechecks, 33-map world validation, 906-model validation and builder validation passed.
+- Gameplay export remains equivalent to the browser reference; migration audit
+  passes while the native release gate still rejects incomplete acceptance.
+- Eight broad host Unreal firewall rules were backed up and disabled. This is
+  limited hardening, not completed VM or host isolation acceptance.
 
 ## Collaboration blockers
 
 - Windows guest license/media are unavailable; no VM or collaboration service is running.
 - Hyper-V administration and encryption verification need an administrator session.
 - Actual guest graphics, enforced network isolation and two-machine acceptance are pending.
+- A Linux guest avoids Windows guest licensing, but the full Editor VM has no
+  supported Hyper-V GPU route on this Windows 11 Pro/Radeon desktop. A server-only
+  guest does not meet the owner's Editor isolation requirement.
 - Native content distribution/source rights are unreviewed; the private repository
   currently publishes only its closed inventory and instructions.
 - The host's existing work Tailscale account is forbidden. The new separate project
