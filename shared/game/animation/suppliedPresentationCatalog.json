@@ -1,0 +1,1508 @@
+{
+  "schemaVersion": 1,
+  "clips": {
+    "two.idle": {
+      "source": "Two-handed/Great Sword Idle.fbx",
+      "sha256": "3588224a28fbf9a726700077b02c021a718d9ec81014534e08b1faf8e25a14b2",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.0,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00020982386195100844,
+        -0.0007679206319153309,
+        0.9857375621795654
+      ],
+      "hipsEnd": [
+        -0.00021067442139610648,
+        -0.0007696205866523087,
+        0.9857382774353027
+      ],
+      "uses": [
+        "civic_battle_prelate_m:idle",
+        "civic_battle_prelate_m:combat_idle"
+      ]
+    },
+    "two.walk": {
+      "source": "Two-handed/Great Sword Walk forwards.fbx",
+      "sha256": "bfd2551748e1d25d40ada4bff7a3edf83ccd46e3d9c1a7f59195ac8c6ecf954c",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.3666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        0.0019895562436431646,
+        -0.0022977718617767096,
+        0.9352466464042664
+      ],
+      "hipsEnd": [
+        0.0019895711448043585,
+        -1.5169382095336914,
+        0.9352467060089111
+      ],
+      "uses": [
+        "civic_battle_prelate_m:walk"
+      ]
+    },
+    "two.back": {
+      "source": "Two-handed/Great Sword Walk backwards.fbx",
+      "sha256": "c2537af3937436f3c2f9c071fbc2544887adefaa6145058c45aec30f453c50a8",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.3,
+      "fps": 30.0,
+      "hipsStart": [
+        0.0019895932637155056,
+        -0.002297737402841449,
+        0.935246467590332
+      ],
+      "hipsEnd": [
+        0.001989572076126933,
+        1.3326891660690308,
+        0.9352463483810425
+      ],
+      "uses": [
+        "civic_battle_prelate_m:walk_backward"
+      ]
+    },
+    "two.run": {
+      "source": "Two-handed/Great Sword Run.fbx",
+      "sha256": "44cb27d1d1cd2a43655aa60a556255e446b093edeb51a73c95e45093ccc19c4c",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.6,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.0026148068718612194,
+        0.007209411822259426,
+        0.9315724968910217
+      ],
+      "hipsEnd": [
+        -0.0026148571632802486,
+        -2.6133792400360107,
+        0.931572675704956
+      ],
+      "uses": [
+        "civic_battle_prelate_m:run"
+      ]
+    },
+    "two.left": {
+      "source": "Two-handed/Great Sword Strafe left.fbx",
+      "sha256": "118ed2015d9150de6cedcd19b047793830558f4fe91e3ab84b75e8039aa241bd",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.1,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00022832273680251092,
+        -0.004138025920838118,
+        0.9175832867622375
+      ],
+      "hipsEnd": [
+        1.29417884349823,
+        -0.004107095766812563,
+        0.917583167552948
+      ],
+      "uses": [
+        "civic_battle_prelate_m:strafe_left"
+      ]
+    },
+    "two.right": {
+      "source": "Two-handed/Great Sword Strafe right.fbx",
+      "sha256": "152bb0b9784d65dba8e2734c366a39fd45633341be9d4d2c1d7e0fbd0b27ecda",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.1666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00040196298505179584,
+        -0.004124757833778858,
+        0.9175832867622375
+      ],
+      "hipsEnd": [
+        -1.4841077327728271,
+        -0.0041229864582419395,
+        0.9175881743431091
+      ],
+      "uses": [
+        "civic_battle_prelate_m:strafe_right"
+      ]
+    },
+    "two.turn_left": {
+      "source": "Two-handed/Great Sword Turn left.fbx",
+      "sha256": "b2c9145f0b6dcb7bf76e4da8ad258c5b643bc6d006880dba18dfcbf585487bcb",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.8333333333333334,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00020750673138536513,
+        -0.0007685691816732287,
+        0.9857379794120789
+      ],
+      "hipsEnd": [
+        -0.11413125693798065,
+        -0.10232958942651749,
+        0.985741913318634
+      ],
+      "uses": [
+        "civic_battle_prelate_m:turn_left"
+      ]
+    },
+    "two.turn_right": {
+      "source": "Two-handed/Great Sword Turn right.fbx",
+      "sha256": "2b633cf584beb3a2bbff72a063d8292c6af7e6657d3683891cd3338118a80968",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.7333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00028113307780586183,
+        -0.0007447654497809708,
+        0.985737681388855
+      ],
+      "hipsEnd": [
+        0.0038162516430020332,
+        -0.177293062210083,
+        0.9857380390167236
+      ],
+      "uses": [
+        "civic_battle_prelate_m:turn_right"
+      ]
+    },
+    "two.impact": {
+      "source": "Two-handed/Great Sword Impact.fbx",
+      "sha256": "9cd448e22fe3a63ea06ef156a74d8f616d7109b321dc09f312f0639938c7eed1",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.2,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00020982982823625207,
+        -0.0007679206319153309,
+        0.9857380390167236
+      ],
+      "hipsEnd": [
+        -0.0002098325057886541,
+        -0.0007679146947339177,
+        0.9857379198074341
+      ],
+      "uses": [
+        "civic_battle_prelate_m:hit_front"
+      ]
+    },
+    "two.jump": {
+      "source": "Two-handed/Great Sword Jump.fbx",
+      "sha256": "24e4584bd7f77d287c4e020cd5a62a213776c1c691cff516c91019626a7d13f4",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.6333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        0.0005456372746266425,
+        -0.0033287140540778637,
+        0.9808871150016785
+      ],
+      "hipsEnd": [
+        0.0005541637656278908,
+        -1.7439100742340088,
+        0.980887234210968
+      ],
+      "uses": [
+        "civic_battle_prelate_m:jump",
+        "civic_ember_arcanist_m:jump"
+      ]
+    },
+    "two.death": {
+      "source": "Two-handed/Two Handed Sword Death.fbx",
+      "sha256": "8b45119d70d306bd39c73582b72b6146240bf1e19f9e83bf47812d3a5c5fb83e",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.4,
+      "fps": 30.0,
+      "hipsStart": [
+        0.007244695443660021,
+        -0.003933060448616743,
+        0.9857379198074341
+      ],
+      "hipsEnd": [
+        0.004700288642197847,
+        0.8648905158042908,
+        0.12887582182884216
+      ],
+      "uses": [
+        "civic_battle_prelate_m:death"
+      ]
+    },
+    "two.slash": {
+      "source": "Two-handed/Great Sword Slash.fbx",
+      "sha256": "594e5d1215288ab2e4d46b1ccc209923232f6510e9ec4450330091b902f197ce",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 3.533333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00020977796521037817,
+        -0.0007679015980102122,
+        0.9857375621795654
+      ],
+      "hipsEnd": [
+        -0.00020588784536812454,
+        -3.1653900146484375,
+        0.9857379794120789
+      ],
+      "uses": [
+        "civic_battle_prelate_m:battle_prelate.litany_of_strikes",
+        "civic_battle_prelate_m:battle_prelate.sanctified_blow"
+      ]
+    },
+    "two.slide": {
+      "source": "Two-handed/Great Sword Slide Attack.fbx",
+      "sha256": "f4ee12d503a0902f2c4790b02eaa1a71f0c5c1716be3b1a6e39b8d8129e0382e",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.1333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        0.00021817683591507375,
+        -0.0033660551998764277,
+        0.9808873534202576
+      ],
+      "hipsEnd": [
+        -0.06831486523151398,
+        -3.559007167816162,
+        0.9857380986213684
+      ],
+      "uses": [
+        "civic_battle_prelate_m:battle_prelate.penance_step"
+      ]
+    },
+    "two.jump_attack": {
+      "source": "Two-handed/Great Sword Jump Attack.fbx",
+      "sha256": "27a5257934d479601ca8c7f8858958979bc8e5cc00821eded11c34416061f340",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.1666666666666665,
+      "fps": 30.0,
+      "hipsStart": [
+        0.000545637623872608,
+        -0.0033287403639405966,
+        0.9808871150016785
+      ],
+      "hipsEnd": [
+        -0.07780832797288895,
+        -3.2497949600219727,
+        0.9854979515075684
+      ],
+      "uses": [
+        "civic_battle_prelate_m:battle_prelate.reliquary_smash"
+      ]
+    },
+    "two.spin": {
+      "source": "Two-handed/Great Sword High Spin Attack.fbx",
+      "sha256": "bd65ac8475a49302807f98e6081586438dd2f7f27199d61f5b970e4440c5e5b0",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.8666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        0.0005456089857034385,
+        -0.0033287284895777702,
+        0.9808871150016785
+      ],
+      "hipsEnd": [
+        -0.0021258112974464893,
+        -2.3868980407714844,
+        0.9857378602027893
+      ],
+      "uses": [
+        "civic_battle_prelate_m:battle_prelate.reliquary_smash"
+      ]
+    },
+    "two.invocation": {
+      "source": "Two-handed/Spell Cast one hand.fbx",
+      "sha256": "81f99e6cd3de9facdac4583b265f945c8f16e2c84819d3eb867da355261c71fb",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.1333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.06550727039575577,
+        -0.05900527909398079,
+        0.9857379198074341
+      ],
+      "hipsEnd": [
+        -0.06550727039575577,
+        -0.05900527909398079,
+        0.9857379198074341
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:sunfire_templar.solar_edict"
+      ]
+    },
+    "shield.walk": {
+      "source": "swordandshield/Sword And Shield Walk forwards.fbx",
+      "sha256": "d76c93e735288a67c9ada53a0397fd5b773ad96df9865c616113bcc3c26d827a",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.1,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.0003257320786360651,
+        -0.01030678115785122,
+        1.0017629861831665
+      ],
+      "hipsEnd": [
+        -0.0002971716457977891,
+        -1.6622459888458252,
+        1.0017635822296143
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:walk",
+        "mire_warbrute_m:walk"
+      ]
+    },
+    "shield.back": {
+      "source": "swordandshield/Sword And Shield Walk backwards.fbx",
+      "sha256": "f2cae25dd6a98e39b0e25d8eb8525a88c93035893dd90f1b4b9042023859d816",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.2666666666666666,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.0003267678548581898,
+        -0.010305743664503098,
+        1.0017627477645874
+      ],
+      "hipsEnd": [
+        -0.00031510082772001624,
+        1.427864909172058,
+        1.0017625093460083
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:walk_backward",
+        "mire_warbrute_m:walk_backward"
+      ]
+    },
+    "shield.run": {
+      "source": "swordandshield/Sword And Shield Run forwards.fbx",
+      "sha256": "a2aed49ae033b43802a98ec82025e402c598c7b9b1624cd1c39b42cb9ef6a6b0",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.7,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00304429535754025,
+        -0.015491734258830547,
+        0.9318714737892151
+      ],
+      "hipsEnd": [
+        -0.0029914192855358124,
+        -2.917780637741089,
+        0.931871771812439
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:run",
+        "mire_warbrute_m:run"
+      ]
+    },
+    "shield.left": {
+      "source": "swordandshield/Sword And Shield Strafe left.fbx",
+      "sha256": "eee315e14cf0ec8e0504874f5c17c8a7861a4c27172c9636eab5d02575f2e033",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.3,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.008628669194877148,
+        -0.0050737508572638035,
+        0.8402048945426941
+      ],
+      "hipsEnd": [
+        1.405871868133545,
+        -0.005060599651187658,
+        0.8402047753334045
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:strafe_left",
+        "mire_warbrute_m:strafe_left"
+      ]
+    },
+    "shield.right": {
+      "source": "swordandshield/Sword And Shield Strafe right.fbx",
+      "sha256": "eacdc3bbc3b09bc64c4320637788129a1abe1636a0f0d4c34489e6226810035c",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.1333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00862871389836073,
+        -0.005073728505522013,
+        0.8402048349380493
+      ],
+      "hipsEnd": [
+        -1.4024215936660767,
+        -0.005060585681349039,
+        0.840204656124115
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:strafe_right",
+        "mire_warbrute_m:strafe_right"
+      ]
+    },
+    "shield.turn_left": {
+      "source": "swordandshield/Sword And Shield Turn left.fbx",
+      "sha256": "f1ed418c185862173ddaa75b839e07209d88632959ca2fe277879874f1946a65",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.9333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.008431856520473957,
+        -0.007182890083640814,
+        0.8813132047653198
+      ],
+      "hipsEnd": [
+        0.00807927455753088,
+        -0.007243907544761896,
+        0.8805803656578064
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:turn_left",
+        "mire_warbrute_m:turn_left"
+      ]
+    },
+    "shield.turn_right": {
+      "source": "swordandshield/Sword And Shield Turn right.fbx",
+      "sha256": "2951dc9bb9c8287d944ab76efc2e92fab6b1d35f7ae9abf48739478cf5e4399d",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.9333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.008446182124316692,
+        -0.007061612792313099,
+        0.8812575340270996
+      ],
+      "hipsEnd": [
+        -0.005601263139396906,
+        0.009478268213570118,
+        0.8812567591667175
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:turn_right",
+        "mire_warbrute_m:turn_right"
+      ]
+    },
+    "shield.impact": {
+      "source": "swordandshield/Sword And Shield Impact.fbx",
+      "sha256": "0d294586cd71ee4e17c4ec976a5fbd9ea8fec740246c3fce30389b22867e2853",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.7,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.008446037769317627,
+        -0.007062167394906282,
+        0.8812569379806519
+      ],
+      "hipsEnd": [
+        -0.008449667133390903,
+        -0.007052725646644831,
+        0.8812569975852966
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:hit_front",
+        "mire_warbrute_m:hit_front"
+      ]
+    },
+    "shield.jump": {
+      "source": "swordandshield/Sword And Shield Jump.fbx",
+      "sha256": "34d664aeb152d3295a824a85c8118cec0d19b428b61c4e97bfe512c7371d09d0",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.8333333333333334,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.0014303541975095868,
+        -0.013970808126032352,
+        0.9260377883911133
+      ],
+      "hipsEnd": [
+        -0.0014648825163021684,
+        -2.6344289779663086,
+        0.9260377287864685
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:jump",
+        "mire_warbrute_m:jump"
+      ]
+    },
+    "shield.death": {
+      "source": "swordandshield/Sword And Shield Death.fbx",
+      "sha256": "295a66efcb3c9ebdeed0e01831b5eff46f3347b974a68267bde0e0982b004a50",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.3,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.008446301333606243,
+        -0.007061494514346123,
+        0.8812561631202698
+      ],
+      "hipsEnd": [
+        0.03559737280011177,
+        1.2573665380477905,
+        0.14658285677433014
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:death",
+        "mire_warbrute_m:death"
+      ]
+    },
+    "shield.slash": {
+      "source": "swordandshield/Sword And Shield Attack.fbx",
+      "sha256": "d93bc16f8484d59078e0009eb2ebc8f68c08bc4e121c5c67f2799c454ad92b07",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.7333333333333334,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.0027906070463359356,
+        -0.015543298795819283,
+        0.9318827390670776
+      ],
+      "hipsEnd": [
+        -0.010691821575164795,
+        -2.4276301860809326,
+        0.8812388777732849
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:sunfire_templar.sunbrand_strike",
+        "civic_sunfire_templar_m:sunfire_templar.radiant_counter",
+        "mire_warbrute_m:warbrute.sneaky_start"
+      ]
+    },
+    "shield.combo": {
+      "source": "swordandshield/Sword And Shield Double Slash and Ground hit.fbx",
+      "sha256": "d553dcf5717093a7508a403ec35f93f45a58ba97b66efafea8ee563d3c3ef0c4",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 3.533333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.008446050807833672,
+        -0.007062111981213093,
+        0.8812567591667175
+      ],
+      "hipsEnd": [
+        -0.00839353259652853,
+        -2.4567649364471436,
+        0.8812571167945862
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:sunfire_templar.heavenrend_sweep",
+        "mire_warbrute_m:warbrute.proper_wallop",
+        "mire_warbrute_m:warbrute.biggest_finish",
+        "mire_warbrute_m:warbrute.boss_stomp",
+        "mire_warbrute_m:warbrute.boss_s_big_idea"
+      ]
+    },
+    "shield.kick": {
+      "source": "swordandshield/Sword And Shield Kick.fbx",
+      "sha256": "8fc6901a3e2f2ef55ea3bbe060cc342385cd8fea96ae7faca5592d7740ffaad5",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.2,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00844605267047882,
+        -0.007062134332954884,
+        0.8812569379806519
+      ],
+      "hipsEnd": [
+        -0.00844605267047882,
+        -0.007062134332954884,
+        0.8812569379806519
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:sunfire_templar.rallying_rebuke",
+        "mire_warbrute_m:warbrute.wot_s_yours_is_mine"
+      ]
+    },
+    "shield.block": {
+      "source": "swordandshield/Sword And Shield Block.fbx",
+      "sha256": "57d8b2201c4dd21c281495feaf57cf2f0cf370eced2cbad4515d44b119ec0598",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.5666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.008624022826552391,
+        -0.0068437037989497185,
+        0.8812569379806519
+      ],
+      "hipsEnd": [
+        -0.04061032831668854,
+        -0.27098432183265686,
+        0.7586851119995117
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:idle",
+        "civic_sunfire_templar_m:combat_idle",
+        "civic_sunfire_templar_m:sunfire_templar.bastion_edict",
+        "civic_sunfire_templar_m:sunfire_templar.shield_of_noon",
+        "civic_sunfire_templar_m:sunfire_templar.banner_rush",
+        "civic_sunfire_templar_m:sunfire_templar.radiant_counter",
+        "mire_warbrute_m:idle",
+        "mire_warbrute_m:combat_idle",
+        "mire_warbrute_m:warbrute.shut_it",
+        "mire_warbrute_m:warbrute.get_stuck_in",
+        "mire_warbrute_m:warbrute.you_watch_me"
+      ]
+    },
+    "shield.power": {
+      "source": "swordandshield/Sword And Shield Power Up.fbx",
+      "sha256": "fa1ed0828b1e2debc66ec99e3ebf9629bbb444647db024e2e6ed4a03bb557273",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.3666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.00844606477767229,
+        -0.007062066812068224,
+        0.8812569379806519
+      ],
+      "hipsEnd": [
+        -0.00844605267047882,
+        -0.007062132004648447,
+        0.8812569975852966
+      ],
+      "uses": [
+        "civic_sunfire_templar_m:sunfire_templar.pursuit_edict",
+        "mire_warbrute_m:warbrute.keep_smashin",
+        "mire_warbrute_m:warbrute.boss_s_big_idea"
+      ]
+    },
+    "spell.idle": {
+      "source": "Spellcast/Standing Idle 03.fbx",
+      "sha256": "b0bdcc7e15a035f487da0ab1d7611b9fc0128660310b8e7d15ddfe7e258aac17",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 11.4,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.013161678798496723,
+        -0.007669735234230757,
+        0.9252591729164124
+      ],
+      "hipsEnd": [
+        -0.01316166017204523,
+        -0.007669641170650721,
+        0.9252608418464661
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:idle",
+        "civic_ember_arcanist_m:combat_idle"
+      ]
+    },
+    "spell.walk": {
+      "source": "Spellcast/Standing Walk Forward.fbx",
+      "sha256": "dfd694a1b0fd1e6786cc5b4dfb7016a98d49caaccd5fd61bc070ec6a7bb5546f",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.1333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.006862615700811148,
+        -0.01377802062779665,
+        0.942725658416748
+      ],
+      "hipsEnd": [
+        -0.006863466463983059,
+        -1.9046013355255127,
+        0.9427262544631958
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:walk",
+        "civic_ember_arcanist_m:walk_backward"
+      ]
+    },
+    "spell.run": {
+      "source": "Spellcast/Standing Run Forward.fbx",
+      "sha256": "abd10bbe183baed7596e0aa127dbf04cba525004541e4391d0028e15c87aa25b",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 0.7333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.006129708606749773,
+        -0.013060339726507664,
+        0.9110291004180908
+      ],
+      "hipsEnd": [
+        -0.006129639223217964,
+        -2.8922364711761475,
+        0.9110292196273804
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:run"
+      ]
+    },
+    "spell.left": {
+      "source": "Spellcast/Standing Walk Left.fbx",
+      "sha256": "3727547623764bee1727a36d64cf93d5315d265891b35f96ceb348d67a59c1b6",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.1666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        0.0046202861703932285,
+        -0.013989030383527279,
+        0.9900057911872864
+      ],
+      "hipsEnd": [
+        1.55744469165802,
+        -0.013988559134304523,
+        0.990005612373352
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:strafe_left"
+      ]
+    },
+    "spell.right": {
+      "source": "Spellcast/Standing Walk Right.fbx",
+      "sha256": "ca868ad917f1c94ef7ea07f00f19a5f0e43ada91efe9d4bfaf3124adef432625",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.2,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.01246858574450016,
+        -0.008651177398860455,
+        0.99078768491745
+      ],
+      "hipsEnd": [
+        -1.664448618888855,
+        -0.008651802316308022,
+        0.9907883405685425
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:strafe_right"
+      ]
+    },
+    "spell.turn_left": {
+      "source": "Spellcast/Standing Turn Left 90.fbx",
+      "sha256": "6d3e7ef63cab39e9caed19c77310a83a2ca4e133556aec82b3e9c30bb1a16e0a",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.8666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.013161541894078255,
+        -0.007669538725167513,
+        0.9252647161483765
+      ],
+      "hipsEnd": [
+        0.0076702372170984745,
+        -0.013161479495465755,
+        0.9252660870552063
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:turn_left"
+      ]
+    },
+    "spell.turn_right": {
+      "source": "Spellcast/Standing Turn Right 90.fbx",
+      "sha256": "f1febb55596897185295fe2eee0cd5f7a2d06a2bb082ba91ede90c9d0d946bb3",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.6333333333333333,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.013161624781787395,
+        -0.007669966667890549,
+        0.9252593517303467
+      ],
+      "hipsEnd": [
+        -0.00763560039922595,
+        0.013177333399653435,
+        0.9252605438232422
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:turn_right"
+      ]
+    },
+    "spell.impact": {
+      "source": "Spellcast/Standing React Small From Front.fbx",
+      "sha256": "b1f49b65fd980cfdd59bddc305ecf0e8ad6d9254f386b996c94d608266d7c2fd",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.2,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.013161608017981052,
+        -0.007669678423553705,
+        0.9252614378929138
+      ],
+      "hipsEnd": [
+        -0.013161652721464634,
+        -0.00766958761960268,
+        0.9252617359161377
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:hit_front"
+      ]
+    },
+    "spell.impact_back": {
+      "source": "Spellcast/Standing React Large From Back.fbx",
+      "sha256": "8df28d54f14bafd9b498d93a77a448a675263d7ef0f722422d21564b6987fa90",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 1.6666666666666667,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.013161510229110718,
+        -0.007669883314520121,
+        0.9252614974975586
+      ],
+      "hipsEnd": [
+        -0.01316148042678833,
+        -1.6313793659210205,
+        0.9252623319625854
+      ],
+      "uses": [
+        "civic_battle_prelate_m:hit_back",
+        "civic_sunfire_templar_m:hit_back",
+        "mire_warbrute_m:hit_back",
+        "civic_ember_arcanist_m:hit_back"
+      ]
+    },
+    "spell.death": {
+      "source": "Spellcast/Standing React Death Forward.fbx",
+      "sha256": "6a4ca36e5b32c3655d0fb73978165dc40114a2faa130fe49ccfe30732daffcf3",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 3.6666666666666665,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.01316183339804411,
+        -0.007669693324714899,
+        0.9252559542655945
+      ],
+      "hipsEnd": [
+        -0.07600913196802139,
+        -1.3810899257659912,
+        0.13343806564807892
+      ],
+      "uses": [
+        "civic_ember_arcanist_m:death"
+      ]
+    },
+    "spell.bolt": {
+      "source": "Spellcast/Standing 1H Magic Attack 01.fbx",
+      "sha256": "fc8bec5b4f48b7ff4de72084ff8867fc0dbd0a4e74e484c2796a3f8abb49b105",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.3,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.013161336071789265,
+        -0.007669941056519747,
+        0.9252673387527466
+      ],
+      "hipsEnd": [
+        -0.013162191025912762,
+        -0.0076684425584971905,
+        0.9252679944038391
+      ],
+      "uses": [
+        "civic_battle_prelate_m:battle_prelate.judgment_of_ash",
+        "civic_ember_arcanist_m:ember_arcanist.spark_lash",
+        "civic_ember_arcanist_m:ember_arcanist.kindle_hex",
+        "civic_ember_arcanist_m:ember_arcanist.flashstep"
+      ]
+    },
+    "spell.focus": {
+      "source": "Spellcast/Standing 2H Magic Attack 01.fbx",
+      "sha256": "69a6b332b9560fb1376a19660679639c7094491004cca6a5ecffdeae1e0c052f",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 2.7,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.013161476701498032,
+        -0.007669822778552771,
+        0.9252644777297974
+      ],
+      "hipsEnd": [
+        -0.013161485083401203,
+        -0.007669589947909117,
+        0.9252676963806152
+      ],
+      "uses": [
+        "civic_battle_prelate_m:battle_prelate.martyr_s_ward",
+        "civic_battle_prelate_m:battle_prelate.hymn_of_resolve",
+        "civic_battle_prelate_m:battle_prelate.last_homily",
+        "civic_ember_arcanist_m:ember_arcanist.cinder_lance",
+        "civic_ember_arcanist_m:ember_arcanist.white_cautery",
+        "civic_ember_arcanist_m:ember_arcanist.ashen_cataclysm",
+        "civic_ember_arcanist_m:ember_arcanist.phoenix_collapse"
+      ]
+    },
+    "spell.ritual": {
+      "source": "Spellcast/Standing 2H Magic Attack 03.fbx",
+      "sha256": "4dafd067e689d4792069db2bb911dd46f788d5476488cf23d5d0dca675e45c40",
+      "skeletonHash": "ff079436149b2ec88fcac3c2349e5a3e4090595349b0a3fddaa04868a7f621f2",
+      "duration": 4.3,
+      "fps": 30.0,
+      "hipsStart": [
+        -0.01316144596785307,
+        -0.007669628132134676,
+        0.9252676963806152
+      ],
+      "hipsEnd": [
+        -0.013161429204046726,
+        -0.007669654209166765,
+        0.9252676963806152
+      ],
+      "uses": [
+        "civic_battle_prelate_m:battle_prelate.redemption_surge",
+        "civic_battle_prelate_m:battle_prelate.icon_of_wrath",
+        "civic_battle_prelate_m:battle_prelate.last_homily",
+        "civic_sunfire_templar_m:sunfire_templar.daybreak_standard",
+        "civic_ember_arcanist_m:ember_arcanist.soot_veil",
+        "civic_ember_arcanist_m:ember_arcanist.pyre_circle",
+        "civic_ember_arcanist_m:ember_arcanist.furnace_heart",
+        "civic_ember_arcanist_m:ember_arcanist.phoenix_collapse"
+      ]
+    }
+  },
+  "profiles": {
+    "civic_battle_prelate_m": {
+      "career": "battle_prelate",
+      "style": "two",
+      "locomotion": {
+        "idle": "two.idle",
+        "combat_idle": "two.idle",
+        "walk": "two.walk",
+        "walk_backward": "two.back",
+        "run": "two.run",
+        "strafe_left": "two.left",
+        "strafe_right": "two.right",
+        "turn_left": "two.turn_left",
+        "turn_right": "two.turn_right",
+        "hit_front": "two.impact",
+        "hit_back": "spell.impact_back",
+        "jump": "two.jump",
+        "death": "two.death"
+      },
+      "abilities": [
+        {
+          "id": "battle_prelate.litany_of_strikes",
+          "sources": [
+            "two.slash"
+          ],
+          "choreography": "combo",
+          "contactFraction": 0.55,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "battle_prelate.sanctified_blow",
+          "sources": [
+            "two.slash"
+          ],
+          "choreography": "finisher",
+          "contactFraction": 0.6,
+          "hold": 0.15,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "battle_prelate.martyr_s_ward",
+          "sources": [
+            "spell.focus"
+          ],
+          "choreography": "ward",
+          "contactFraction": 0.45,
+          "hold": 0.2,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "battle_prelate.penance_step",
+          "sources": [
+            "two.slide"
+          ],
+          "choreography": "slide",
+          "contactFraction": 0.65,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "slide"
+        },
+        {
+          "id": "battle_prelate.hymn_of_resolve",
+          "sources": [
+            "spell.focus"
+          ],
+          "choreography": "channel",
+          "contactFraction": 0.35,
+          "hold": 0.6,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "battle_prelate.reliquary_smash",
+          "sources": [
+            "two.jump_attack",
+            "two.spin"
+          ],
+          "choreography": "smash",
+          "contactFraction": 0.7,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "leap"
+        },
+        {
+          "id": "battle_prelate.judgment_of_ash",
+          "sources": [
+            "spell.bolt"
+          ],
+          "choreography": "line",
+          "contactFraction": 0.5,
+          "hold": 0.1,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "battle_prelate.redemption_surge",
+          "sources": [
+            "spell.ritual"
+          ],
+          "choreography": "heal",
+          "contactFraction": 0.55,
+          "hold": 0.25,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "battle_prelate.icon_of_wrath",
+          "sources": [
+            "spell.ritual"
+          ],
+          "choreography": "place",
+          "contactFraction": 0.65,
+          "hold": 0.35,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "battle_prelate.last_homily",
+          "sources": [
+            "spell.focus",
+            "spell.ritual"
+          ],
+          "choreography": "sermon",
+          "contactFraction": 0.6,
+          "hold": 0.5,
+          "equipment": "stowed",
+          "movement": "stationary"
+        }
+      ]
+    },
+    "civic_sunfire_templar_m": {
+      "career": "sunfire_templar",
+      "style": "shield",
+      "locomotion": {
+        "idle": "shield.block",
+        "combat_idle": "shield.block",
+        "walk": "shield.walk",
+        "walk_backward": "shield.back",
+        "run": "shield.run",
+        "strafe_left": "shield.left",
+        "strafe_right": "shield.right",
+        "turn_left": "shield.turn_left",
+        "turn_right": "shield.turn_right",
+        "hit_front": "shield.impact",
+        "hit_back": "spell.impact_back",
+        "jump": "shield.jump",
+        "death": "shield.death"
+      },
+      "abilities": [
+        {
+          "id": "sunfire_templar.solar_edict",
+          "sources": [
+            "two.invocation"
+          ],
+          "choreography": "edict",
+          "contactFraction": 0.5,
+          "hold": 0.15,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "sunfire_templar.bastion_edict",
+          "sources": [
+            "shield.block"
+          ],
+          "choreography": "brace",
+          "contactFraction": 0.4,
+          "hold": 0.3,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "sunfire_templar.pursuit_edict",
+          "sources": [
+            "shield.power"
+          ],
+          "choreography": "rally",
+          "contactFraction": 0.45,
+          "hold": 0.1,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "sunfire_templar.sunbrand_strike",
+          "sources": [
+            "shield.slash"
+          ],
+          "choreography": "cut",
+          "contactFraction": 0.5,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "sunfire_templar.shield_of_noon",
+          "sources": [
+            "shield.block"
+          ],
+          "choreography": "guard",
+          "contactFraction": 0.35,
+          "hold": 0.6,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "sunfire_templar.rallying_rebuke",
+          "sources": [
+            "shield.kick"
+          ],
+          "choreography": "rebuke",
+          "contactFraction": 0.5,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "sunfire_templar.banner_rush",
+          "sources": [
+            "shield.block"
+          ],
+          "choreography": "charge",
+          "contactFraction": 0.65,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "charge"
+        },
+        {
+          "id": "sunfire_templar.radiant_counter",
+          "sources": [
+            "shield.block",
+            "shield.slash"
+          ],
+          "choreography": "counter",
+          "contactFraction": 0.65,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "sunfire_templar.heavenrend_sweep",
+          "sources": [
+            "shield.combo"
+          ],
+          "choreography": "cleave",
+          "contactFraction": 0.7,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "leap"
+        },
+        {
+          "id": "sunfire_templar.daybreak_standard",
+          "sources": [
+            "spell.ritual"
+          ],
+          "choreography": "standard",
+          "contactFraction": 0.6,
+          "hold": 0.4,
+          "equipment": "stowed",
+          "movement": "stationary"
+        }
+      ]
+    },
+    "mire_warbrute_m": {
+      "career": "warbrute",
+      "style": "shield",
+      "locomotion": {
+        "idle": "shield.block",
+        "combat_idle": "shield.block",
+        "walk": "shield.walk",
+        "walk_backward": "shield.back",
+        "run": "shield.run",
+        "strafe_left": "shield.left",
+        "strafe_right": "shield.right",
+        "turn_left": "shield.turn_left",
+        "turn_right": "shield.turn_right",
+        "hit_front": "shield.impact",
+        "hit_back": "spell.impact_back",
+        "jump": "shield.jump",
+        "death": "shield.death"
+      },
+      "abilities": [
+        {
+          "id": "warbrute.sneaky_start",
+          "sources": [
+            "shield.slash"
+          ],
+          "choreography": "opener",
+          "contactFraction": 0.45,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "warbrute.proper_wallop",
+          "sources": [
+            "shield.combo"
+          ],
+          "choreography": "combo",
+          "contactFraction": 0.55,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "leap"
+        },
+        {
+          "id": "warbrute.biggest_finish",
+          "sources": [
+            "shield.combo"
+          ],
+          "choreography": "finisher",
+          "contactFraction": 0.75,
+          "hold": 0.15,
+          "equipment": "drawn",
+          "movement": "leap"
+        },
+        {
+          "id": "warbrute.shut_it",
+          "sources": [
+            "shield.block"
+          ],
+          "choreography": "bash",
+          "contactFraction": 0.5,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "warbrute.get_stuck_in",
+          "sources": [
+            "shield.block"
+          ],
+          "choreography": "charge",
+          "contactFraction": 0.65,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "charge"
+        },
+        {
+          "id": "warbrute.wot_s_yours_is_mine",
+          "sources": [
+            "shield.kick"
+          ],
+          "choreography": "kick",
+          "contactFraction": 0.5,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "warbrute.keep_smashin",
+          "sources": [
+            "shield.power"
+          ],
+          "choreography": "rage",
+          "contactFraction": 0.4,
+          "hold": 0.15,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "warbrute.boss_stomp",
+          "sources": [
+            "shield.combo"
+          ],
+          "choreography": "ground",
+          "contactFraction": 0.8,
+          "hold": 0,
+          "equipment": "drawn",
+          "movement": "leap"
+        },
+        {
+          "id": "warbrute.you_watch_me",
+          "sources": [
+            "shield.block"
+          ],
+          "choreography": "guard",
+          "contactFraction": 0.4,
+          "hold": 0.5,
+          "equipment": "drawn",
+          "movement": "stationary"
+        },
+        {
+          "id": "warbrute.boss_s_big_idea",
+          "sources": [
+            "shield.power",
+            "shield.combo"
+          ],
+          "choreography": "brawl",
+          "contactFraction": 0.65,
+          "hold": 0.25,
+          "equipment": "drawn",
+          "movement": "leap"
+        }
+      ]
+    },
+    "civic_ember_arcanist_m": {
+      "career": "ember_arcanist",
+      "style": "spell",
+      "locomotion": {
+        "idle": "spell.idle",
+        "combat_idle": "spell.idle",
+        "walk": "spell.walk",
+        "walk_backward": "spell.walk",
+        "run": "spell.run",
+        "strafe_left": "spell.left",
+        "strafe_right": "spell.right",
+        "turn_left": "spell.turn_left",
+        "turn_right": "spell.turn_right",
+        "hit_front": "spell.impact",
+        "hit_back": "spell.impact_back",
+        "jump": "two.jump",
+        "death": "spell.death"
+      },
+      "abilities": [
+        {
+          "id": "ember_arcanist.spark_lash",
+          "sources": [
+            "spell.bolt"
+          ],
+          "choreography": "bolt",
+          "contactFraction": 0.45,
+          "hold": 0,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.cinder_lance",
+          "sources": [
+            "spell.focus"
+          ],
+          "choreography": "lance",
+          "contactFraction": 0.6,
+          "hold": 0.2,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.kindle_hex",
+          "sources": [
+            "spell.bolt"
+          ],
+          "choreography": "mark",
+          "contactFraction": 0.5,
+          "hold": 0.25,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.soot_veil",
+          "sources": [
+            "spell.ritual"
+          ],
+          "choreography": "cone",
+          "contactFraction": 0.4,
+          "hold": 0,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.flashstep",
+          "sources": [
+            "spell.bolt"
+          ],
+          "choreography": "blink",
+          "contactFraction": 0.55,
+          "hold": 0,
+          "equipment": "stowed",
+          "movement": "charge"
+        },
+        {
+          "id": "ember_arcanist.pyre_circle",
+          "sources": [
+            "spell.ritual"
+          ],
+          "choreography": "ground",
+          "contactFraction": 0.65,
+          "hold": 0.25,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.white_cautery",
+          "sources": [
+            "spell.focus"
+          ],
+          "choreography": "heal",
+          "contactFraction": 0.45,
+          "hold": 0.4,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.furnace_heart",
+          "sources": [
+            "spell.ritual"
+          ],
+          "choreography": "empower",
+          "contactFraction": 0.4,
+          "hold": 0.3,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.ashen_cataclysm",
+          "sources": [
+            "spell.focus"
+          ],
+          "choreography": "channel",
+          "contactFraction": 0.4,
+          "hold": 0.7,
+          "equipment": "stowed",
+          "movement": "stationary"
+        },
+        {
+          "id": "ember_arcanist.phoenix_collapse",
+          "sources": [
+            "spell.focus",
+            "spell.ritual"
+          ],
+          "choreography": "meteor",
+          "contactFraction": 0.75,
+          "hold": 0.35,
+          "equipment": "stowed",
+          "movement": "stationary"
+        }
+      ]
+    }
+  },
+  "gameplayEvidence": "unreal/AegisWar/Saved/supplied-animation-gameplay.json",
+  "characterContactCorrections": {
+    "profile": "civic_battle_prelate_m",
+    "measurement": "source-contact-trajectories.json: equipped hammer forward strike and descending smash phases, 30 Hz",
+    "markers": {
+      "two.slash": {
+        "default": 1.7666666666666666,
+        "finisher": 2.6666666666666665
+      },
+      "two.slide": {
+        "default": 1.2666666666666666
+      },
+      "two.jump_attack": {
+        "default": 1.2
+      },
+      "two.spin": {
+        "default": 1.2
+      }
+    }
+  },
+  "shieldContactCorrections": {
+    "profiles": [
+      "civic_sunfire_templar_m",
+      "mire_warbrute_m"
+    ],
+    "measurement": "shield-contact-trajectories.json: forward sword crossing, final descending combo strike and extended kick, 30 Hz",
+    "markers": {
+      "shield.slash": {
+        "default": 0.8
+      },
+      "shield.combo": {
+        "default": 2.6
+      },
+      "shield.kick": {
+        "default": 0.5666666666666667
+      }
+    }
+  },
+  "technicalEvidence": "artifacts/unreal/animation-replacement/technical-verification.json"
+}

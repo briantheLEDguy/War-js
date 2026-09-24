@@ -1,5 +1,26 @@
 # Dark Fantasy Class Ability System Blueprint
 
+## Native workshop implementation
+
+The current native implementation is documented in
+[GM Ability Workshop](docs/unreal-ability-workshop.md). Its composer stores stable
+effect/rule identities and explicit class assignments; numeric class edits are
+overrides of a shared base ability. Class libraries can exceed ten abilities,
+independently of hotbar layout. The original 240 abilities retain their IDs and
+unlock levels.
+
+Conditions support active ability/specific-effect presence, HoTs, DoTs and
+casting/channeling, with ALL/ANY groups, negation and explicit source ownership.
+Cast-start decisions are captured; application checks use each recipient's
+pre-event state; periodic ticks reevaluate against an immutable application
+baseline. Amounts use `(base + sum(flat)) * (1 + sum(percent))` before rounding.
+Shared publication remains closed until native admission and GM authorization
+are verified. Personal GM deployment, rollback and restart restoration are
+available from Review & Publish. The online arena and shared gateway-to-native
+deployment bridge remain unfinished.
+
+The following blueprint retains the original design context.
+
 ## Current-state read of your uploaded pipeline
 
 I inspected your uploaded zip locally. The bundle is primarily a **Blender and MCP-based character/content export pipeline**, not a gameplay ability framework. In practical terms, it already has the right *content-side* ingredients for class presentation—career-specific character generation, modular equipment exports, slot metadata, and a small shared animation library—but it does **not** appear to include the dedicated gameplay-side layer you need for cooldowns, resources, target logic, status effects, interrupts, cancel rules, hit confirmation, or loadout composition.

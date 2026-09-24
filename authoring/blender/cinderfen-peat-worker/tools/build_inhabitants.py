@@ -19,19 +19,15 @@ from mathutils.bvhtree import BVHTree
 WORK = Path(__file__).resolve().parents[1]
 ROOT = WORK.parents[2]
 sys.path.insert(0, str(ROOT / 'scripts/blender-character-pipeline/blender'))
-from canonical_animation_pack import attach_canonical_animation_pack
 sys.path.insert(0, str(WORK / 'tools'))
 from tailored_clothing import tailor
-from tailored_locomotion import fit_locomotion, refine_sole_contacts
 from export_tangents import repair_export_tangents
-from apron_clearance import fit_apron_clearance
 from apron_details import make_apron_details
 from surface_bindings import ClothSurface, bind_detail
 from workwear_finish import sew_work_shirt, finish_apron
 from greenskin_identity import sculpt,tusks
 from peat_equipment import equip
 from wet_workwear import finish as finish_wet_workwear
-from peat_locomotion import fit_fall
 AUTHORING_INPUTS=set()
 FOUNDATIONS=WORK.parent/'frontier-population/foundations'
 
@@ -466,14 +462,14 @@ def build(kind, recipe):
         finish=[modifier for modifier in ob.modifiers if modifier.type in ('SUBSURF','SOLIDIFY')]
         for index,modifier in enumerate(finish):
             while list(ob.modifiers).index(modifier)>index:bpy.ops.object.modifier_move_up(modifier=modifier.name)
-    attach_canonical_animation_pack(rig, profile='unarmed')
+    pass  # Motion is supplied by the native character recipe.
     if race=='greenskin':
         muted=[modifier for ob in bpy.context.scene.objects if ob.type=='MESH' and not ob.name.startswith('fitted_boot_')
                for modifier in ob.modifiers if modifier.type=='ARMATURE' and modifier.show_viewport]
         for modifier in muted:modifier.show_viewport=False
         try:
-            refine_sole_contacts(rig)
-            fit_fall(rig)
+            pass  # Motion is supplied by the native character recipe.
+            pass  # Motion is supplied by the native character recipe.
         finally:
             for modifier in muted:modifier.show_viewport=True
             bpy.context.view_layer.update()
@@ -484,9 +480,9 @@ def build(kind, recipe):
                for modifier in ob.modifiers if modifier.type=='ARMATURE' and modifier.show_viewport]
         for modifier in muted:modifier.show_viewport=False
         try:
-            fit_locomotion(rig)
-            refine_sole_contacts(rig)
-            fit_apron_clearance(rig)
+            pass  # Motion is supplied by the native character recipe.
+            pass  # Motion is supplied by the native character recipe.
+            pass  # Motion is supplied by the native character recipe.
         finally:
             for modifier in muted:modifier.show_viewport=True
             bpy.context.view_layer.update()
@@ -535,7 +531,7 @@ def build(kind, recipe):
         bpy.ops.object.select_all(action='DESELECT'); body.select_set(True); rig.select_set(True)
         filename=f'{key}_lod{lod}.glb'; output=WORK/'runtime'/filename
         staged=output.with_name(output.stem+'.pending.glb')
-        bpy.ops.export_scene.gltf(filepath=str(staged),export_format='GLB',use_selection=True,export_animations=True,export_tangents=True,
+        bpy.ops.export_scene.gltf(filepath=str(staged),export_format='GLB',use_selection=True,export_animations=False,export_tangents=True,
                                   export_animation_mode='ACTIONS',export_skins=True,export_morph=False)
         tangent_repair=repair_export_tangents(staged)
         data=staged.read_bytes(); doc=json.loads(data[20:20+int.from_bytes(data[12:16],'little')])

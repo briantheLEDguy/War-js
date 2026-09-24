@@ -1,10 +1,10 @@
 """Assemble a draft equipped review from already-serialized runtime GLBs.
 
-The verified body GLB owns the only armature and animation set. Each modular
+The verified body GLB owns the only armature and rest pose. Each modular
 armor GLB is imported independently, checked against that armature's rest pose,
 rebound by canonical bone name, and stripped of its duplicate armature before a
 combined review GLB is exported. The emitted file is then imported into a clean
-scene and rendered in bind and idle poses.
+scene and rendered in its rest pose. Native equipped animation is verified separately.
 """
 
 from __future__ import annotations
@@ -20,17 +20,7 @@ import bpy
 from mathutils import Matrix, Quaternion, Vector
 
 
-REQUIRED_CLIPS = (
-    "idle",
-    "walk",
-    "run",
-    "combat_idle",
-    "attack_melee",
-    "attack_ranged",
-    "cast",
-    "death",
-    "jump",
-)
+REQUIRED_CLIPS = ()
 EXPECTED_SLOTS = (
     "head",
     "shoulders",
@@ -48,61 +38,6 @@ RIG_NAME = "humanoid_game_v2"
 # shaft rise from the palm in bind pose; animation remains responsible for
 # the carry angle and strike.  It changes no mesh vertices.
 HAMMER_GRIP_ROTATION = Quaternion((0.9290, 0.2974, -0.2204, 0.0)).normalized()
-
-# Equipment animation corrections are profile data, separate from generic
-# MPFB locomotion.  Future class/weapon profiles can supply their own node,
-# local axis, and normalized clip targets without changing the alignment
-# algorithm.
-EQUIPMENT_ANIMATION_PROFILES = {
-    "battle_prelate_hammer": {
-        "handedness": "two_handed",
-        "massClass": "heavy",
-        "anchorBone": "hips",
-        "secondaryGripNode": "weapon_grip_socket_hand_L",
-        "secondaryGripLocalFallback": (0.0, 0.0, 0.30),
-        "rightPoleOffset": (-0.65, 0.45, 0.36),
-        "leftPoleOffset": (-1.00, 0.50, -0.49),
-        "maxPrimaryGripErrorM": 0.01,
-        "maxSecondaryGripErrorM": 0.015,
-        "maxDirectionErrorDegrees": 8.0,
-        "clips": {
-            # normalized phase, primary-grip offset from hips, strike-head axis
-            "idle": [
-                (0.0, (-0.18, -0.17, 0.06), (0.66, 0.00, 0.75)),
-                (0.5, (-0.18, -0.17, 0.065), (0.66, 0.00, 0.75)),
-                (1.0, (-0.18, -0.17, 0.06), (0.66, 0.00, 0.75)),
-            ],
-            "walk": [
-                (0.0, (-0.18, -0.17, 0.06), (0.66, 0.00, 0.75)),
-                (0.25, (-0.18, -0.17, 0.065), (0.66, 0.00, 0.75)),
-                (0.5, (-0.18, -0.17, 0.06), (0.66, 0.00, 0.75)),
-                (0.75, (-0.18, -0.17, 0.065), (0.66, 0.00, 0.75)),
-                (1.0, (-0.18, -0.17, 0.06), (0.66, 0.00, 0.75)),
-            ],
-            "run": [
-                (0.0, (-0.16, -0.15, 0.11), (0.58, 0.00, 0.81)),
-                (0.25, (-0.16, -0.15, 0.12), (0.58, 0.00, 0.81)),
-                (0.5, (-0.16, -0.15, 0.11), (0.58, 0.00, 0.81)),
-                (0.75, (-0.16, -0.15, 0.12), (0.58, 0.00, 0.81)),
-                (1.0, (-0.16, -0.15, 0.11), (0.58, 0.00, 0.81)),
-            ],
-            "combat_idle": [
-                (0.0, (-0.19, -0.23, 0.12), (0.78, -0.08, 0.62)),
-                (0.5, (-0.19, -0.23, 0.125), (0.78, -0.08, 0.62)),
-                (1.0, (-0.19, -0.23, 0.12), (0.78, -0.08, 0.62)),
-            ],
-            "attack_melee": [
-                (0.0, (-0.19, -0.23, 0.12), (0.78, -0.08, 0.62)),
-                (7 / 30, (-0.19, -0.23, 0.12), (0.72, 0.05, 0.69)),
-                (12 / 30, (-0.19, -0.23, 0.12), (0.70, -0.15, 0.70)),
-                (14 / 30, (-0.19, -0.23, 0.12), (0.72, -0.30, 0.63)),
-                (21 / 30, (-0.19, -0.23, 0.12), (0.78, -0.20, 0.60)),
-                (1.0, (-0.19, -0.23, 0.12), (0.78, -0.08, 0.62)),
-            ],
-        },
-    },
-}
-
 
 def parse_args() -> argparse.Namespace:
     argv = sys.argv[sys.argv.index("--") + 1 :] if "--" in sys.argv else []
@@ -292,332 +227,6 @@ def attach_hammer(path: Path, socket: bpy.types.Object) -> tuple[list[bpy.types.
     }
 
 
-def set_normalized_action_frame(action: bpy.types.Action, normalized: float) -> float:
-    start, end = action.frame_range
-    value = float(start) + (float(end) - float(start)) * normalized
-    whole = math.floor(value)
-    bpy.context.scene.frame_set(whole, subframe=value - whole)
-    bpy.context.view_layer.update()
-    return value
-
-
-def resolve_weapon_strike_axis(
-    weapon_root: bpy.types.Object,
-    weapon_objects: list[bpy.types.Object],
-) -> tuple[Vector, dict]:
-    """Resolve grip-to-striking-head direction without assuming a mesh axis."""
-    marker = next(
-        (obj for obj in weapon_objects if obj.name.startswith("weapon_strike_head")),
-        None,
-    )
-    inverse_root = weapon_root.matrix_world.inverted()
-    if marker is not None:
-        local_head = inverse_root @ marker.matrix_world.translation
-        axis = local_head.normalized()
-        return axis, {
-            "source": "weapon_strike_head_marker",
-            "marker": marker.name,
-            "headLocal": list(local_head),
-            "axisLocal": list(axis),
-        }
-
-    local_points = []
-    for mesh in (obj for obj in weapon_objects if obj.type == "MESH"):
-        transform = inverse_root @ mesh.matrix_world
-        local_points.extend(transform @ vertex.co for vertex in mesh.data.vertices)
-    if not local_points:
-        raise RuntimeError("Weapon strike-axis derivation found no mesh vertices")
-    ranked = sorted(local_points, key=lambda point: point.length, reverse=True)
-    cluster_size = max(8, math.ceil(len(ranked) * 0.05))
-    local_head = sum(ranked[:cluster_size], Vector()) / cluster_size
-    if local_head.length <= 1e-6:
-        raise RuntimeError("Weapon strike-axis derivation produced a zero-length vector")
-    axis = local_head.normalized()
-    return axis, {
-        "source": "farthest_geometry_cluster_from_grip",
-        "sampledVertexCount": len(local_points),
-        "clusterVertexCount": cluster_size,
-        "headLocal": list(local_head),
-        "axisLocal": list(axis),
-    }
-
-
-def interpolate_equipment_target(phase_targets: list[tuple], normalized: float) -> tuple[Vector, Vector]:
-    phases = sorted(phase_targets, key=lambda row: float(row[0]))
-    if normalized <= float(phases[0][0]):
-        return Vector(phases[0][1]), Vector(phases[0][2]).normalized()
-    if normalized >= float(phases[-1][0]):
-        return Vector(phases[-1][1]), Vector(phases[-1][2]).normalized()
-    right_index = next(index for index, row in enumerate(phases) if float(row[0]) >= normalized)
-    left = phases[right_index - 1]
-    right = phases[right_index]
-    span = float(right[0]) - float(left[0])
-    factor = (normalized - float(left[0])) / max(span, 1e-9)
-    offset = Vector(left[1]).lerp(Vector(right[1]), factor)
-    direction = Vector(left[2]).lerp(Vector(right[2]), factor).normalized()
-    return offset, direction
-
-
-def world_bone_point(rig: bpy.types.Object, bone_name: str, endpoint: str = "head") -> Vector:
-    return rig.matrix_world @ getattr(rig.pose.bones[bone_name], endpoint)
-
-
-def solve_arm_ik(
-    rig: bpy.types.Object,
-    side: str,
-    target_world: Vector,
-    pole_world: Vector,
-) -> None:
-    """Solve one arm visually, remove the temporary constraint, and retain FK pose data."""
-    names = (f"upper_arm_{side}", f"forearm_{side}", f"hand_{side}")
-    hand = rig.pose.bones[names[-1]]
-    target = bpy.data.objects.new(f"runtime_grip_target_{side}", None)
-    pole = bpy.data.objects.new(f"runtime_grip_pole_{side}", None)
-    bpy.context.scene.collection.objects.link(target)
-    bpy.context.scene.collection.objects.link(pole)
-    target.location = target_world
-    pole.location = pole_world
-    constraint = hand.constraints.new("IK")
-    constraint.name = f"runtime_two_hand_ik_{side}"
-    constraint.target = target
-    constraint.pole_target = pole
-    constraint.chain_count = 3
-    constraint.use_rotation = False
-    bpy.context.view_layer.update()
-    solved = {name: rig.pose.bones[name].matrix.copy() for name in names}
-    hand.constraints.remove(constraint)
-    bpy.data.objects.remove(target, do_unlink=True)
-    bpy.data.objects.remove(pole, do_unlink=True)
-    for name in names:
-        rig.pose.bones[name].matrix = solved[name]
-    bpy.context.view_layer.update()
-    for name in names:
-        bone = rig.pose.bones[name]
-        location, rotation, scale = bone.matrix_basis.decompose()
-        bone.rotation_mode = "QUATERNION"
-        bone.location = location
-        bone.rotation_quaternion = rotation.normalized()
-        bone.scale = scale
-    bpy.context.view_layer.update()
-
-
-def align_hand_weapon_axis(
-    rig: bpy.types.Object,
-    hand: bpy.types.PoseBone,
-    weapon_root: bpy.types.Object,
-    local_axis: Vector,
-    target_world: Vector,
-) -> None:
-    current_world = (weapon_root.matrix_world.to_3x3() @ local_axis).normalized()
-    correction_world = current_world.rotation_difference(target_world.normalized())
-    rig_rotation = rig.matrix_world.to_3x3().normalized()
-    correction_armature = (
-        rig_rotation.inverted() @ correction_world.to_matrix() @ rig_rotation
-    ).to_quaternion()
-    pose_matrix = hand.matrix.copy()
-    head = pose_matrix.translation.copy()
-    hand.matrix = (
-        Matrix.Translation(head)
-        @ correction_armature.to_matrix().to_4x4()
-        @ Matrix.Translation(-head)
-        @ pose_matrix
-    )
-    location, rotation, scale = hand.matrix_basis.decompose()
-    hand.rotation_mode = "QUATERNION"
-    hand.location = location
-    hand.rotation_quaternion = rotation.normalized()
-    hand.scale = scale
-    bpy.context.view_layer.update()
-
-
-def arm_angle_degrees(rig: bpy.types.Object, upper_name: str, lower_name: str) -> float:
-    upper = (world_bone_point(rig, upper_name, "tail") - world_bone_point(rig, upper_name)).normalized()
-    lower = (world_bone_point(rig, lower_name, "tail") - world_bone_point(rig, lower_name)).normalized()
-    return math.degrees(upper.angle(lower))
-
-
-def set_linear_arm_keys(action: bpy.types.Action, arm_bones: tuple[str, ...]) -> None:
-    """Prevent quaternion overshoot between dense two-hand pose keys."""
-    curves = getattr(action, "fcurves", None)
-    if curves is None:
-        # Blender 4.4+ stores curves in layered channel bags.
-        curves = []
-        for layer in action.layers:
-            for strip in layer.strips:
-                for channelbag in strip.channelbags:
-                    curves.extend(channelbag.fcurves)
-    names = set(arm_bones)
-    for curve in curves:
-        if curve.group and curve.group.name in names:
-            for key in curve.keyframe_points:
-                key.interpolation = "LINEAR"
-
-
-def align_weapon_axis_animation(
-    rig: bpy.types.Object,
-    weapon_root: bpy.types.Object,
-    profile_name: str,
-    local_axis: Vector,
-) -> dict:
-    """Bake a profile-driven two-hand FK pose against the serialized grip markers."""
-    profile = EQUIPMENT_ANIMATION_PROFILES.get(profile_name)
-    if profile is None:
-        return {"profile": profile_name, "applied": False, "reason": "no_equipment_alignment_policy"}
-    if rig.animation_data is None:
-        raise RuntimeError("Equipment animation alignment requires armature actions")
-    for track in rig.animation_data.nla_tracks:
-        track.mute = True
-    secondary_grip = next(
-        (obj for obj in bpy.context.scene.objects if obj.name.startswith(profile["secondaryGripNode"])),
-        None,
-    )
-    if secondary_grip is None:
-        raise RuntimeError(f"Two-hand animation requires {profile['secondaryGripNode']}")
-    required_bones = {
-        profile["anchorBone"],
-        "shoulder_L", "upper_arm_L", "forearm_L", "hand_L",
-        "shoulder_R", "upper_arm_R", "forearm_R", "hand_R",
-    }
-    if not required_bones.issubset(rig.pose.bones.keys()):
-        raise RuntimeError(f"Two-hand animation bones are incomplete: {sorted(required_bones - set(rig.pose.bones.keys()))}")
-    local_axis = local_axis.normalized()
-    rig_rotation = rig.matrix_world.to_3x3().normalized()
-    arm_bones = (
-        "upper_arm_L", "forearm_L", "hand_L",
-        "upper_arm_R", "forearm_R", "hand_R",
-    )
-    audit_clips = []
-
-    for clip_name, phase_targets in profile["clips"].items():
-        action = bpy.data.actions.get(clip_name)
-        if action is None:
-            raise RuntimeError(f"Equipment alignment clip is missing: {clip_name}")
-        rig.animation_data.action = action
-        start, end = action.frame_range
-        frame_count = max(1, round(float(end) - float(start)))
-        sampled = []
-        for index in range(frame_count + 1):
-            normalized = index / frame_count
-            frame = float(start) + index
-            bpy.context.scene.frame_set(math.floor(frame), subframe=frame - math.floor(frame))
-            bpy.context.view_layer.update()
-            offset, target_direction = interpolate_equipment_target(phase_targets, normalized)
-            target_world = (rig_rotation @ target_direction).normalized()
-            anchor = world_bone_point(rig, profile["anchorBone"])
-            desired_primary = anchor + rig_rotation @ offset
-            right_pole = anchor + rig_rotation @ Vector(profile["rightPoleOffset"])
-            right_target = desired_primary.copy()
-            for _ in range(8):
-                solve_arm_ik(rig, "R", right_target, right_pole)
-                align_hand_weapon_axis(
-                    rig,
-                    rig.pose.bones["hand_R"],
-                    weapon_root,
-                    local_axis,
-                    target_world,
-                )
-                primary_delta = desired_primary - weapon_root.matrix_world.translation
-                right_target += primary_delta
-                if primary_delta.length <= 0.0005:
-                    break
-
-            desired_secondary = secondary_grip.matrix_world.translation.copy()
-            left_pole = anchor + rig_rotation @ Vector(profile["leftPoleOffset"])
-            left_target = desired_secondary.copy()
-            left_socket = next(
-                obj for obj in bpy.context.scene.objects
-                if obj.name.startswith("socket_hand_L")
-            )
-            for _ in range(8):
-                solve_arm_ik(rig, "L", left_target, left_pole)
-                secondary_delta = desired_secondary - left_socket.matrix_world.translation
-                left_target += secondary_delta
-                if secondary_delta.length <= 0.0005:
-                    break
-
-            actual_direction = (weapon_root.matrix_world.to_3x3() @ local_axis).normalized()
-            primary_error = (weapon_root.matrix_world.translation - desired_primary).length
-            secondary_error = (left_socket.matrix_world.translation - desired_secondary).length
-            direction_error = math.degrees(actual_direction.angle(target_world))
-            sampled.append({
-                "normalized": normalized,
-                "frame": frame,
-                "primaryGripErrorM": primary_error,
-                "secondaryGripErrorM": secondary_error,
-                "directionErrorDegrees": direction_error,
-                "rightElbowFlexDegrees": arm_angle_degrees(rig, "upper_arm_R", "forearm_R"),
-                "leftElbowFlexDegrees": arm_angle_degrees(rig, "upper_arm_L", "forearm_L"),
-                "rightShoulderToGripM": (
-                    world_bone_point(rig, "shoulder_R") - weapon_root.matrix_world.translation
-                ).length,
-            })
-            for bone_name in arm_bones:
-                bone = rig.pose.bones[bone_name]
-                bone.keyframe_insert(data_path="location", frame=frame, group=bone_name)
-                bone.keyframe_insert(data_path="rotation_quaternion", frame=frame, group=bone_name)
-
-        set_linear_arm_keys(action, arm_bones)
-
-        worst_primary = max(sampled, key=lambda row: row["primaryGripErrorM"])
-        worst_secondary = max(sampled, key=lambda row: row["secondaryGripErrorM"])
-        straightest_left = min(sampled, key=lambda row: row["leftElbowFlexDegrees"])
-        audit_clips.append({
-            "clip": clip_name,
-            "keyCount": len(sampled),
-            "maxPrimaryGripErrorM": max(row["primaryGripErrorM"] for row in sampled),
-            "maxSecondaryGripErrorM": max(row["secondaryGripErrorM"] for row in sampled),
-            "maxDirectionErrorDegrees": max(row["directionErrorDegrees"] for row in sampled),
-            "rightElbowFlexRangeDegrees": [
-                min(row["rightElbowFlexDegrees"] for row in sampled),
-                max(row["rightElbowFlexDegrees"] for row in sampled),
-            ],
-            "leftElbowFlexRangeDegrees": [
-                min(row["leftElbowFlexDegrees"] for row in sampled),
-                max(row["leftElbowFlexDegrees"] for row in sampled),
-            ],
-            "maxRightShoulderToGripM": max(row["rightShoulderToGripM"] for row in sampled),
-            "worstPrimaryGripFrame": {
-                "frame": worst_primary["frame"],
-                "normalized": worst_primary["normalized"],
-            },
-            "worstSecondaryGripFrame": {
-                "frame": worst_secondary["frame"],
-                "normalized": worst_secondary["normalized"],
-            },
-            "straightestLeftElbowFrame": {
-                "frame": straightest_left["frame"],
-                "normalized": straightest_left["normalized"],
-            },
-            "clampedKeyCount": 0,
-        })
-
-    rig.animation_data.action = None
-    bpy.context.scene.frame_set(0)
-    bpy.context.view_layer.update()
-    passed = all(
-        row["maxPrimaryGripErrorM"] <= float(profile["maxPrimaryGripErrorM"])
-        and row["maxSecondaryGripErrorM"] <= float(profile["maxSecondaryGripErrorM"])
-        and row["maxDirectionErrorDegrees"] <= float(profile["maxDirectionErrorDegrees"])
-        and row["clampedKeyCount"] == 0
-        for row in audit_clips
-    )
-    return {
-        "profile": profile_name,
-        "applied": True,
-        "handedness": profile["handedness"],
-        "massClass": profile["massClass"],
-        "secondaryGripNode": secondary_grip.name,
-        "weaponAxisLocal": list(local_axis),
-        "clips": audit_clips,
-        "limits": {
-            "maxPrimaryGripErrorM": profile["maxPrimaryGripErrorM"],
-            "maxSecondaryGripErrorM": profile["maxSecondaryGripErrorM"],
-            "maxDirectionErrorDegrees": profile["maxDirectionErrorDegrees"],
-        },
-        "passed": passed,
-    }
-
-
 def export_combined(output: Path, objects: list[bpy.types.Object]) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.object.select_all(action="DESELECT")
@@ -630,7 +239,7 @@ def export_combined(output: Path, objects: list[bpy.types.Object]) -> None:
         "filepath": str(output),
         "export_format": "GLB",
         "use_selection": True,
-        "export_animations": True,
+        "export_animations": False,
         "export_skins": True,
         "export_morph": True,
         "export_extras": True,
@@ -828,19 +437,6 @@ def reset_bind_pose(rig: bpy.types.Object) -> None:
     bpy.context.view_layer.update()
 
 
-def set_idle_pose(rig: bpy.types.Object) -> dict:
-    action = bpy.data.actions.get("idle")
-    if not action:
-        raise RuntimeError("Imported combined GLB is missing idle action")
-    rig.animation_data_create()
-    rig.animation_data.action = action
-    first, last = action.frame_range
-    frame = round((first + last) * 0.5)
-    bpy.context.scene.frame_set(frame)
-    bpy.context.view_layer.update()
-    return {"action": action.name, "frame": frame, "frameRange": [first, last]}
-
-
 def post_import_audit(output: Path, review_dir: Path, expected_bones: list[str]) -> dict:
     clear_scene()
     imported = import_glb(output)
@@ -860,38 +456,21 @@ def post_import_audit(output: Path, review_dir: Path, expected_bones: list[str])
         "nineModules": len(module_meshes) == 9,
         "fourBodyMeshes": len(body_meshes) == 4,
         "weaponPresent": len(weapon_meshes) == 1,
-        "nineRequiredClips": clips == sorted(REQUIRED_CLIPS),
+        "animationFree": clips == sorted(REQUIRED_CLIPS),
         "allModulesBoundToBodyRig": all(
             armature_modifier(mesh).object == rig for mesh in module_meshes
         ),
     }
     reset_bind_pose(rig)
     bind_snapshot = bounds_snapshot(meshes)
-    pose_meshes = [
-        mesh for mesh in meshes
-        if str(mesh.get("assetId", "")).startswith(("arm.", "body_"))
-    ]
-    pose_bind_snapshot = bounds_snapshot(pose_meshes)
     bind_evidence = render_views(meshes, review_dir / "bind")
-    idle_info = set_idle_pose(rig)
-    idle_snapshot = bounds_snapshot(meshes)
-    pose_idle_snapshot = bounds_snapshot(pose_meshes)
-    idle_evidence = render_views(meshes, review_dir / "idle")
-    # Weapon orientation is intentionally allowed to change substantially between
-    # bind and idle (that is the point of the carry profile). Compare the body and
-    # armor envelope for deformation regressions; weapon bounds are still retained
-    # in the review evidence and audited separately by the handling profile.
-    pose_delta = compare_pose_bounds(
-        pose_bind_snapshot,
-        pose_idle_snapshot,
-    )
     document = glb_document(output)
     json_checks = {
         "singleSkin": len(document.get("skins", [])) == 1,
-        "nineAnimations": sorted(animation.get("name", "") for animation in document.get("animations", []))
+        "noEmbeddedAnimations": sorted(animation.get("name", "") for animation in document.get("animations", []))
         == sorted(REQUIRED_CLIPS),
     }
-    passed = all(bind_checks.values()) and all(json_checks.values()) and pose_delta["passed"]
+    passed = all(bind_checks.values()) and all(json_checks.values())
     return {
         "importedObjectCount": len(imported),
         "meshCount": len(meshes),
@@ -903,8 +482,6 @@ def post_import_audit(output: Path, review_dir: Path, expected_bones: list[str])
         "checks": bind_checks,
         "glbJsonChecks": json_checks,
         "bindPose": {"bounds": bind_snapshot, "previews": bind_evidence},
-        "idlePose": {"info": idle_info, "bounds": idle_snapshot, "previews": idle_evidence},
-        "idleDeltaAudit": pose_delta,
         "passed": passed,
     }
 
@@ -935,7 +512,7 @@ def main() -> None:
     body_rig.name = RIG_NAME
     expected_bones = sorted(bone.name for bone in body_rig.data.bones)
     if sorted(action.name for action in bpy.data.actions) != sorted(REQUIRED_CLIPS):
-        raise RuntimeError("Verified runtime body does not contain the canonical nine actions")
+        raise RuntimeError("Body must not contain embedded actions")
     delete_objects([obj for obj in body_import if obj not in [body_rig, *body_meshes, *sockets]])
 
     module_paths = sorted(modules_dir.glob("arm_civic_humanoid_v2_battle_prelate_v1_*_m.glb"))
@@ -958,19 +535,6 @@ def main() -> None:
         raise RuntimeError("Verified runtime body is missing socket_hand_R")
     hammer_objects, hammer_audit = attach_hammer(hammer_glb, socket)
     hammer_root = next(obj for obj in hammer_objects if obj.name.startswith("battle_prelate_hammer_root"))
-    strike_axis, strike_axis_audit = resolve_weapon_strike_axis(hammer_root, hammer_objects)
-    hammer_audit["strikeAxis"] = strike_axis_audit
-    animation_profile = str(body_rig.get("animationProfile", ""))
-    hammer_audit["animationAlignment"] = align_weapon_axis_animation(
-        body_rig,
-        hammer_root,
-        animation_profile,
-        strike_axis,
-    )
-    if hammer_audit["animationAlignment"].get("applied") is not True:
-        raise RuntimeError(f"Missing equipment animation policy for profile: {animation_profile}")
-    if hammer_audit["animationAlignment"].get("passed") is not True:
-        raise RuntimeError(f"Equipment animation alignment failed: {hammer_audit['animationAlignment']}")
     body_rig["assetId"] = "chr.civic_humanoid_v2.battle_prelate_m.runtime_assembled_review"
     body_rig["assetCategory"] = "characterReview"
     body_rig["lifecycleStatus"] = "draft"
@@ -984,7 +548,7 @@ def main() -> None:
         "nineModuleMeshes": len(module_meshes) == 9,
         "nineSlots": slots == sorted(EXPECTED_SLOTS),
         "allModulesRebound": all(armature_modifier(mesh).object == body_rig for mesh in module_meshes),
-        "nineClips": sorted(action.name for action in bpy.data.actions) == sorted(REQUIRED_CLIPS),
+        "animationFree": sorted(action.name for action in bpy.data.actions) == sorted(REQUIRED_CLIPS),
     }
     roundtrip = post_import_audit(output, review_dir, expected_bones)
     report = {
@@ -1006,7 +570,7 @@ def main() -> None:
         "technicalRoundTripPassed": all(pre_export_checks.values()) and roundtrip["passed"],
         "visualApprovalPassed": False,
         "blockingReasons": [
-            "human_bind_and_idle_visual_approval_missing",
+            "human_bind_visual_approval_missing",
             "stress_pose_review_missing",
         ],
     }
@@ -1018,7 +582,6 @@ def main() -> None:
         "moduleCount": len(module_meshes),
         "boneCount": len(expected_bones),
         "clipCount": len(REQUIRED_CLIPS),
-        "idleDeltaPassed": roundtrip["idleDeltaAudit"]["passed"],
         "technicalRoundTripPassed": report["technicalRoundTripPassed"],
     }))
     if not report["technicalRoundTripPassed"]:

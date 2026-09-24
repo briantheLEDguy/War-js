@@ -1,3 +1,78 @@
+## 2026-09-24 - Native ability workshop and conditional runtime
+
+- Connect personal local GM deployment to the running native catalog at a simulation-tick boundary. Save immutable versions with confirmed activation, rollback, interrupted-deployment recovery and automatic restoration on the next authorized GM launch. Validate every changed assignment against configured admitted presentations; keep shared/Shipping gates closed.
+
+- Add a maximizable GM class spreadsheet and ability library with column filters, saved views, numeric override previews, rectangular clipboard operations, fill-down and undo/redo.
+- Add structured effects and ALL/ANY/NOT conditions with explicit subject, effect provenance, source ownership and cast/application/tick evaluation. Preserve existing IDs, unlocks and saved hotbar entries; remove the runtime catalog/presentation ten-ability limit.
+- Capture immutable activations and periodic baselines across staged catalog changes; support allied targeting, authored cast/channel timing and configurable HoTs/DoTs. Preserve cooldowns and synchronize complete catalogs to connected clients.
+- Add local draft recovery, revision conflicts, gateway-only RLS tables, immutable versions and a two-phase deployment protocol with fenced acknowledgements. Keep publication/deployment closed pending native admission and shared GM authorization.
+- Add shared/native tests, a rendered workshop fixture and isolated loopback combat verification. Add a calculated scenario panel with starting statuses, ownership, casting state and stale-result indicators. The interactive online arena and shared gateway-to-native deployment bridge remain unfinished; these checks do not establish Steam, remote collaboration or platform acceptance.
+
+- Add affected-class before/after review and 23 shared TypeScript/Unreal condition fixtures. Preserve numeric filter behavior when a column is hidden and retain the shared environment in local recovery.
+
+## 2026-09-24 - Supplied animation replacement and equipped roster
+
+- Add four equipped development profiles: Battle Prelate, male Empire Sunfire Templar, Warbrute and Ember Arcanist, with forty explicit ability presentations from the 44 supplied FBXs.
+- Add native blended directional movement, reactions, death, replicated action variants/start times, authored contact events and collision-owned slide/charge/leap motion.
+- Implement Icon of Wrath's ten-second authored relic, actual-damage healing, allied player/bot eligibility, occlusion, nonstacking and lifecycle cleanup.
+- Separate body/rig import from animation, strip embedded character tracks while preserving model data, and delete obsolete animation packages, generators, imports, backups and review outputs. Preserve environmental animation and textual provenance.
+- Add native player/bot execution, interruption/obstacle, relic, late-join and removal proofs. Keep graphical and production/platform acceptance distinct from structural and gameplay checks.
+- Verify all 44 sources, 40 abilities and 41 variants with 82 player/bot executions, 548 captured frames and two clients including a late join. Fix pose selection order during movement-driven animation updates; publish hash-bound coverage and removal receipts.
+
+## 2026-09-24 - Siege battlefield isolation and navigation
+
+- Isolate owned city geometry and remove inherited campaign actors and empty streaming records without changing campaign packages.
+- Add physical stage blockades, courtyard controls, optional props, inner-hall braziers and repeatable native navigation/render scripts.
+- Verify all 17 objective/spawn navigation anchors; move the disconnected inner defender spawn.
+- Fix melee bot approach, hazard priority, through-wall capture, zero-length path validation and grounded encounter spawning; expand escort and gate/reset tests.
+- Equipped rosters and full native multiplayer acceptance remain required before launch approval.
+
+## 2026-09-24 - Aegis siege runtime and authoring foundation
+
+- Add native three-stage rules for 6v6, 12v12 and 18v18, contested objectives, checkpoint recovery and bounded overtime.
+- Add bot filling, role decisions, squad following, respawn waves, encounter scaling, allied siege healing and temporary combat-stat normalization.
+- Add replicated state, a siege HUD, local GM controls, native rules tests and an isolated capital authoring draft.
+- Keep launch gated on equipped rosters, encounter models, gate bindings and navigation; playable multiplayer and platform acceptance remain unfinished.
+
+## 2026-09-24 - Battle Prelate combat variety
+
+- Separate heavy strikes, wide sweeps, raised-hammer wards and kneeling invocations using supplied full-body animation segments.
+- Align ability release times with each motion and preserve Penance collision-checked approach.
+- Add reusable native grip/compression/clearance validation, rendered review, and hash-checked installation; retain unsafe full spin/jump/slide clips as library-only.
+
+## 2026-09-23 - Visible local development login
+
+- Put Local development login first on the entry screen, taking testers directly to character creation without an account or companion app.
+- Move optional GitHub developer-account controls to a separate page and keep a clear route back to local testing.
+- Exercise the actual Slate buttons for local character setup and account-page return in native frontend tests.
+
+## 2026-09-23 - Local GM character level control
+
+- Add Escape > GM Tools > Set level (1-45), with server authorization and range validation.
+- Update progression stats, ability unlocks and health/mana immediately; reset XP while preserving gold, gear, quests and cooldowns. Reject changes during active actions.
+- Add native boundary, reversal, preservation and live Battle Prelate level/ability checks.
+
+## 2026-09-23 - Development provisioning checkpoint
+
+- Record Ubuntu VM networking, NetBird 0.79.0 installation and resume point.
+  Account policies, enrollment and isolation acceptance remain outstanding.
+
+## 2026-09-23 - Free development identity and persistence foundations
+
+- Restrict native proof admission to loopback; place both combat proof fixtures
+  in the same authoritative zone so cross-zone damage checks remain enforced.
+
+
+- Create a separate Frankfurt Supabase Free project and closed-client SQL APIs
+  for approval, drafts, immutable versions, run leases, single-use tickets,
+  transactional receipts and audit history.
+- Add a memory-only PKCE companion, non-Shipping native sign-in entry, owner CLI
+  and guest-only TLS gateway source, with focused authentication/SQL tests.
+- Preserve production and local GM restrictions. Remote admission remains closed.
+- Record the hosting strategy and setup. Native save/admission/shared GM, OAuth
+  configuration, Linux source build, VM/NetBird isolation, content rights and
+  two-machine recovery acceptance remain incomplete.
+
 ## 2026-09-22 - Browser retirement and isolated collaboration preparation
 
 - Fast-forward main without rewriting history; verify recovery tags and remove 31

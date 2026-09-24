@@ -1,8 +1,7 @@
 """
 Armature creation and weight-painting utilities for manifest character rigs.
 
-Bone naming convention matches Three.js SkinnedMesh expectations and the
-animation keyframe names in anim_library.py.
+Bone names form the body/rig contract used by the native animation retargeter.
 """
 
 import bpy
@@ -255,57 +254,3 @@ def special_attachment_bone(name: str) -> str | None:
     if "pauldron" in lower and "_1" in lower:
         return "shoulder_L"
     return None
-
-
-def apply_animations(arm_obj: bpy.types.Object, actions: dict) -> None:
-    """
-    Apply animation clips from anim_library.ACTIONS to the armature.
-    Each clip becomes a named Action on the armature's NLA stack.
-    """
-    arm_obj.select_set(True)
-    bpy.context.view_layer.objects.active = arm_obj
-
-    if arm_obj.animation_data is None:
-        arm_obj.animation_data_create()
-
-    nla = arm_obj.animation_data.nla_tracks
-
-    for action_name, action_def in actions.items():
-        action = bpy.data.actions.new(name=action_name)
-        action.use_fake_user = True
-        arm_obj.animation_data.action = action
-
-        for bone_name, keyframe_list in action_def["keyframes"].items():
-            pose_bone = arm_obj.pose.bones.get(bone_name)
-            if pose_bone is None:
-                continue
-            pose_bone.rotation_mode = 'XYZ'
-
-            for frame, loc, rot in keyframe_list:
-                # Blender 5 stores Action data behind the animation API rather
-                # than direct action.fcurves access. keyframe_insert works
-                # across Blender 3.6-5.x and still exports to GLB clips.
-                pose_bone.location = loc
-                pose_bone.rotation_euler = rot
-                pose_bone.keyframe_insert(data_path="location", frame=frame)
-                pose_bone.keyframe_insert(data_path="rotation_euler", frame=frame)
-
-        # Mark loop via custom property (Three.js reads GLTF extras)
-        action["loop"] = action_def.get("loop", True)
-
-        # Push to NLA so it exports
-        track = nla.new()
-        track.name = action_name
-        strip = track.strips.new(action_name, 1, action)
-        strip.action_frame_start = 1
-        strip.action_frame_end = action_def["duration_frames"]
-        strip.frame_start = 1
-        strip.frame_end = action_def["duration_frames"]
-
-    arm_obj.animation_data.action = None
-    for pose_bone in arm_obj.pose.bones:
-        pose_bone.rotation_mode = 'XYZ'
-        pose_bone.location = (0, 0, 0)
-        pose_bone.rotation_euler = (0, 0, 0)
-        pose_bone.scale = (1, 1, 1)
-    bpy.context.view_layer.update()

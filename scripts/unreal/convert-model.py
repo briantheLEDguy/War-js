@@ -275,6 +275,7 @@ def main():
     global BAKE_FPS
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", required=True)
+    parser.add_argument("--verify-existing", action="store_true", help="Validate retained FBX bytes after lossless track removal without re-exporting model data")
     parser.add_argument("--bake-fps", type=int, choices=(120, 240, 480), default=120)
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
     BAKE_FPS = args.bake_fps
@@ -315,6 +316,8 @@ def main():
                 raise ValueError(f"Missing source dependency: {uri}")
     if kind == "characterProfiles" and not gltf.get("skins"):
         raise ValueError("Character conversion requires authored skinned geometry")
+    if kind == "characterProfiles" and gltf.get("animations"):
+        raise ValueError("Strip character source tracks first; motion is imported separately from supplied FBXs")
     names = [animation.get("name") for animation in gltf.get("animations", [])]
     if any(not isinstance(name, str) or not name for name in names) or len(set(names)) != len(names):
         raise ValueError("Source animations require unique nonempty names for auditable FBX take mapping")
@@ -329,9 +332,13 @@ def main():
     receipt_path = output_dir / "conversion.json"
     # An interrupted or failed re-run must not leave an earlier success receipt beside new bytes.
     receipt_path.unlink(missing_ok=True)
-    (output_dir / "editor-import.json").unlink(missing_ok=True)
+    old_import = output_dir / "editor-import.json"
+    if args.verify_existing and old_import.exists():
+        history = output_dir / "historical-editor-import.json"
+        if not history.exists(): history.write_bytes(old_import.read_bytes())
+    old_import.unlink(missing_ok=True)
     binding_path = ROOT / "unreal/AegisWar/Content/Migration/visual-imports.json"
-    if binding_path.exists():
+    if binding_path.exists() and not args.verify_existing:
         bindings = json.loads(binding_path.read_text(encoding="utf-8"))
         if bindings.get("schemaVersion") != 1 or not isinstance(bindings.get("entries"), list):
             raise ValueError("Cannot invalidate an unsupported visual import registry")
@@ -366,15 +373,16 @@ def main():
                 for strip in track.strips:
                     strip.mute = False
                     stabilize_strip_endpoint(strip)
-    bpy.ops.export_scene.fbx(
-        filepath=str(output), use_selection=False, object_types={"MESH", "ARMATURE", "EMPTY"},
-        axis_forward="-Y", axis_up="Z", global_scale=1.0, apply_unit_scale=True,
-        apply_scale_options="FBX_SCALE_NONE",
-        add_leaf_bones=False, use_armature_deform_only=False, use_triangles=True,
-        bake_anim=bool(gltf.get("animations")), bake_anim_use_nla_strips=True,
-        bake_anim_use_all_actions=False, bake_anim_simplify_factor=0.0, bake_anim_step=1.0,
-        path_mode="COPY", embed_textures=True,
-    )
+    if not args.verify_existing:
+        bpy.ops.export_scene.fbx(
+            filepath=str(output), use_selection=False, object_types={"MESH", "ARMATURE", "EMPTY"},
+            axis_forward="-Y", axis_up="Z", global_scale=1.0, apply_unit_scale=True,
+            apply_scale_options="FBX_SCALE_NONE",
+            add_leaf_bones=False, use_armature_deform_only=False, use_triangles=True,
+            bake_anim=bool(gltf.get("animations")), bake_anim_use_nla_strips=True,
+            bake_anim_use_all_actions=False, bake_anim_simplify_factor=0.0, bake_anim_step=1.0,
+            path_mode="COPY", embed_textures=True,
+        )
     global_settings = fbx_global_settings(output)
     bpy.ops.wm.read_factory_settings(use_empty=True)
     bpy.ops.import_scene.fbx(filepath=str(output), anim_offset=0.0, automatic_bone_orientation=False)
@@ -396,7 +404,7 @@ def main():
     if digest(source) != source_hash or digest(qc) != qc_hash:
         raise ValueError("Registered source or QC bytes changed while conversion was running")
     samples_path = output_dir / "animation-samples.json"
-    samples_path.write_text(json.dumps({"source": before_clips, "converted": after_clips}, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    samples_path.write_text(json.dumps({"restSource": before_rest, "source": before_clips, "converted": after_clips}, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     receipt = {
         "schemaVersion": 1, "profileKey": args.profile, "kind": kind,
         "status": "converted-unverified-in-unreal", "unrealApproved": False,

@@ -17,8 +17,6 @@ from bl_ext.blender_org.mpfb.services import HumanService, LocationService, Targ
 SCRIPT_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
-from canonical_animation_pack import attach_canonical_animation_pack
-from canonical_mpfb_animation_library import ANIMATION_PROFILES, DEFAULT_ANIMATION_PROFILE
 from glb_roundtrip_audit import roundtrip_bind_audit
 
 
@@ -73,11 +71,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", required=True)
     parser.add_argument("--review-dir", required=True)
     parser.add_argument("--save-blend")
-    parser.add_argument(
-        "--animation-profile",
-        choices=ANIMATION_PROFILES,
-        default=DEFAULT_ANIMATION_PROFILE,
-    )
     return parser.parse_args(argv)
 
 
@@ -793,7 +786,7 @@ def export_glb(output: Path, objects: list[bpy.types.Object]) -> None:
         "filepath": str(output),
         "export_format": "GLB",
         "use_selection": True,
-        "export_animations": True,
+        "export_animations": False,
         "export_skins": True,
         "export_morph": True,
         "export_extras": True,
@@ -898,7 +891,7 @@ def write_qc(
         "allVerticesWeighted": unweighted_vertices == 0,
         "reviewViewsPresent": len(previews) == 4 and all(Path(row["path"]).is_file() for row in previews),
         "skinSourcePresent": skin.is_file(),
-        "requiredAnimationClipsEmbedded": animation_clips == sorted(required_clips),
+        "bodyContainsNoAnimation": not animation_clips,
         "runtimeBodyMaterialsOpaque": bool(runtime_materials) and all(
             row["alphaMode"] == "OPAQUE"
             for row in runtime_materials
@@ -981,7 +974,11 @@ def main() -> None:
     sockets = add_sockets(rig)
     export_objects = [rig, *meshes, *sockets]
     set_metadata(export_objects, family_recipe, variant_recipe)
-    animation_audit = attach_canonical_animation_pack(rig, profile=args.animation_profile)
+    # Bodies carry the rest rig and skin only. Supplied native animation recipes
+    # are imported separately for each equipped character.
+    if bpy.data.actions:
+        raise RuntimeError("Body generation unexpectedly introduced animation actions")
+    animation_audit = {"clips": [], "importPolicy": "separate_native_supplied_set"}
 
     # Armor fitting needs MPFB's stable 19,158-vertex authoring topology and
     # live target keys. Save it before mutating the in-memory runtime copy.

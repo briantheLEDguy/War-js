@@ -55,7 +55,7 @@ def render(objects,lod,mode,view):
 
 def main():
     bpy.ops.wm.read_factory_settings(use_empty=True)
-    inputs=[ROOT/'source/scene.json',ROOT/'source/humanoid_game_v2_animation_contract.blend',
+    inputs=[ROOT/'source/scene.json',ROOT/'source/humanoid_game_v2_rest_rig.blend',
             ROOT/'runtime/runtime_report.json',ROOT/'battle_prelate_game_master.blend',
             ROOT/'tools/rig_character.py',ROOT/'tools/bake_atlas.py',ROOT/'tools/build_proof.py']
     inputs+=list((ROOT/'source').glob('*.json'))

@@ -71,7 +71,8 @@ def tick(_delta):
             return
         mesh = pawn.get_component_by_class(unreal.SkeletalMeshComponent).get_editor_property('skeletal_mesh_asset')
         location = pawn.get_actor_location()
-        if not mesh or 'PrelateTwoHanded' not in mesh.get_path_name():
+        expected=unreal.load_asset('/Game/MigrationProof/Visual_civic_battle_prelate_m')
+        if not mesh or not expected or mesh!=expected.skeletal_mesh:
             finish(False, 'The equipped two-handed Prelate mesh was not installed')
             return
         if location.z < state['initial_z'] - 150:

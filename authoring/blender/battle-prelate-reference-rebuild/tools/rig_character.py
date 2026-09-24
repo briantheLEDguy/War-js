@@ -1,6 +1,6 @@
-"""Bind only the new authored geometry to the existing animation contract.
+"""Bind only the new authored geometry to the existing rest rig contract.
 
-The old GLB supplies its armature and actions only. Imported meshes, materials and
+The old GLB supplies its armature and rest pose only. Imported meshes, materials and
 images are discarded. Source control meshes remain separately editable; runtime
 modules contain inspectable evaluated geometry and explicit vertex weights.
 """
@@ -26,7 +26,7 @@ import build_proof as authored
 
 SLOTS=("body","head","shoulders","chest","hands","waist","legs","feet","back","tabard","weapon")
 COMPONENT_SLOTS={"head":"body","gorget":"head","breastplate":"chest","pauldron":"shoulders","medallion":"chest","garments":"tabard","backplate":"back","warhammer":"weapon","tome":"waist","arms":"hands","body_underlayers":"body"}
-CLIPS={"idle","walk","run","combat_idle","attack_melee","attack_ranged","cast","death","jump"}
+CLIPS=set()
 BAKED_CLOTH_DETAILS={"relic_tabard_fold_following_cross","relic_tabard_gilded_pointed_hem"}
 LOD2_OMIT={
     "gorget_creed_inlay","gorget_authored_rivet","knee_skull_teeth",
@@ -57,20 +57,20 @@ def verify_contract_rig(rig):
 
 
 def import_contract_rig(path):
-    frozen=ROOT/"source/humanoid_game_v2_animation_contract.blend"
+    frozen=ROOT/"source/humanoid_game_v2_rest_rig.blend"
     if frozen.exists():
         metadata=json.loads(frozen.with_suffix(".dat").read_text())
         if hashlib.sha256(frozen.read_bytes()).hexdigest()!=metadata["sha256"]:
             raise ValueError("Frozen animation contract hash mismatch")
         with bpy.data.libraries.load(str(frozen),link=False) as (data_from,data_to):
             data_to.objects=data_from.objects
-            data_to.actions=data_from.actions
+            if data_from.actions: raise ValueError("Rest rig unexpectedly contains animation")
         for obj in data_to.objects:
             if obj.type not in {"ARMATURE","EMPTY"}:
                 raise ValueError("Animation contract must contain no mesh objects")
             bpy.context.scene.collection.objects.link(obj)
         rigs=[obj for obj in data_to.objects if obj.type=="ARMATURE"]
-        if len(rigs)!=1 or not CLIPS.issubset({a.name for a in data_to.actions}):
+        if len(rigs)!=1:
             raise ValueError("Frozen animation contract missing rig/actions")
         rig=rigs[0]
         rig.data.pose_position="REST"
@@ -104,8 +104,8 @@ def import_contract_rig(path):
     for image in set(bpy.data.images)-before_images:
         if image.users==0:
             bpy.data.images.remove(image)
-    if not CLIPS.issubset({a.name for a in bpy.data.actions}):
-        raise ValueError("Canonical source is missing required animation clips")
+    if bpy.data.actions:
+        raise ValueError("Body source unexpectedly contains animation clips")
     if rig.animation_data:
         rig.animation_data.action=None
         for track in rig.animation_data.nla_tracks:
@@ -115,7 +115,7 @@ def import_contract_rig(path):
         bone.matrix_basis=Matrix.Identity(4)
     rig["socket_objects"]=json.dumps(sorted(o.name for o in sockets))
     bpy.context.view_layer.update()
-    rig["geometry_provenance"]="Armature and compatible animations only; no original mesh retained"
+    rig["geometry_provenance"]="Armature and rest pose only; no original mesh retained"
     rig["source_sha256"]=hashlib.sha256(path.read_bytes()).hexdigest()
     verify_contract_rig(rig)
     bpy.data.libraries.write(str(frozen),{rig,*sockets,*bpy.data.actions},fake_user=True,compress=True)
@@ -303,7 +303,7 @@ def export_glb(path, objects, animations):
         obj.select_set(True)
     bpy.context.view_layer.objects.active=objects[0]
     bpy.ops.export_scene.gltf(filepath=str(path),export_format="GLB",use_selection=True,
-        export_animations=animations,export_skins=True,export_morph=False,export_extras=True,
+        export_animations=False,export_skins=True,export_morph=False,export_extras=True,
         export_yup=True,export_apply=False,export_draco_mesh_compression_enable=False,
         export_force_sampling=False,
         export_tangents=True,
@@ -446,9 +446,6 @@ def main():
         report["lods"][str(lod)]["draw_calls"]=sum(len(obj.data.materials) for obj in modules)
         if args.bake and report["lods"][str(lod)]["draw_calls"]>16:
             raise ValueError("Equipped draw-call budget exceeded")
-    if (ROOT/"tools/correct_animation.py").exists():
-        from correct_animation import apply_animation_corrections
-        report["animation_corrections"]=apply_animation_corrections(rig,next(o for o in all_modules[min(all_modules)] if o["slot"]=="weapon"))
     from tessellate_runtime import prepare_tangents
     report["tessellation_tool_sha256"]=hashlib.sha256((ROOT/"tools/tessellate_runtime.py").read_bytes()).hexdigest()
     for lod,modules in all_modules.items():

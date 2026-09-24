@@ -16,7 +16,7 @@
     "bindPoseId": "sunmeadow_herbalist_a_pose_v1"
   },
   "hashes": {
-    "modelSha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+    "modelSha256": "42d4d78fd55c8c0640e10fc3ca644cf2e721781b8d0d0dd7346898e7ae9832df",
     "qcSha256": "d51b7866d203003e4af481489e903ffe5dce68445dd41a8696e3d7ec6585b45a",
     "previews": {
       "front": "3090810c9765376e49812e1dc6f9511cfb714ac728e0bebce7345702c62a7e9d",
@@ -47,7 +47,23 @@
       "pbr_materials",
       "rig_and_motion",
       "export_review"
-    ]
+    ],
+    "sourceAnimationRemoval": {
+      "beforeSha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+      "afterSha256": "42d4d78fd55c8c0640e10fc3ca644cf2e721781b8d0d0dd7346898e7ae9832df",
+      "preservationSha256": "e6560ae30f37865a47b48f0f405ac3883d801870b9dc4e12778a1e18cdbc2d87",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "approvalState": "approved"
 }

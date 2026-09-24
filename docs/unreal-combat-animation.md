@@ -1,3 +1,6 @@
+> Historical record: the animation payloads and recovery scripts described below
+> were removed by the supplied-set replacement. Use [the current workflow](unreal-animation-import.md).
+
 # Native combat animation studies
 
 **Paused:** the owner replaced this authoring work with supplied FBX animations.

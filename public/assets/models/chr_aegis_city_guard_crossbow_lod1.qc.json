@@ -3,8 +3,8 @@
   "assetId": "chr.aegis.city_guard.crossbow",
   "category": "character",
   "model": "chr_aegis_city_guard_crossbow_lod1.glb",
-  "modelSha256": "70b874c9fa5b43af9a7106ecb5c9a589a5b14f5d9d95bbc72b979415472115ee",
-  "fileSizeBytes": 5801192,
+  "modelSha256": "f47d5f10a22e527623c697e5933a10b6de0649e15b730176ab9c734060e6c024",
+  "fileSizeBytes": 5542408,
   "lod": 1,
   "bodyFamily": "aegis_city_guard",
   "bodyVariant": "m",
@@ -13,17 +13,7 @@
   "totalTris": 44932,
   "drawCalls": 9,
   "meshCount": 1,
-  "animationClips": [
-    "attack_melee",
-    "attack_ranged",
-    "cast",
-    "combat_idle",
-    "death",
-    "idle",
-    "jump",
-    "run",
-    "walk"
-  ],
+  "animationClips": [],
   "pbrChannels": [
     "baseColor",
     "metallic",
@@ -43,17 +33,38 @@
     {
       "name": "LOD0",
       "model": "chr_aegis_city_guard_crossbow.glb",
-      "sha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17"
+      "sha256": "49079a8eb330f04a1984fda18bf3b09f900a4a5730a0840e6c3030a76e7913ee"
     },
     {
       "name": "LOD1",
       "model": "chr_aegis_city_guard_crossbow_lod1.glb",
-      "sha256": "70b874c9fa5b43af9a7106ecb5c9a589a5b14f5d9d95bbc72b979415472115ee"
+      "sha256": "f47d5f10a22e527623c697e5933a10b6de0649e15b730176ab9c734060e6c024"
     },
     {
       "name": "LOD2",
       "model": "chr_aegis_city_guard_crossbow_lod2.glb",
-      "sha256": "3787d1154a4d781766f105bc174934c0965af330225cef42b58cc51a170901bc"
+      "sha256": "f69e6e5a6200753762709d7fd668b08e4733214211045fc8d4401cc782a15f22"
     }
-  ]
+  ],
+  "sourceAnimationRemoval": {
+    "beforeSha256": "70b874c9fa5b43af9a7106ecb5c9a589a5b14f5d9d95bbc72b979415472115ee",
+    "afterSha256": "f47d5f10a22e527623c697e5933a10b6de0649e15b730176ab9c734060e6c024",
+    "preservationSha256": "3b2160bec78d8a6dcdce5493e82f84c41ae552f760c90108b3cd74a42a428de6",
+    "removedClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ],
+    "modelContentUnchanged": true,
+    "animationValidation": "Native supplied-set evidence is separate"
+  },
+  "provenance": {
+    "retiredEmbeddedAnimationValidation": {}
+  }
 }

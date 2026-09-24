@@ -66,9 +66,10 @@ FName AWarPlayerController::GetActionSlot(int32 Slot)
         if (!bLegacyDefault || Slot >= 10) bStored = GConfig->GetString(TEXT("AegisWar.ActionBar"), *WarActionBar::Binding(Slot).ToString(), Stored, GGameUserSettingsIni);
     }
     const FName Action(*Stored);
-    const auto* Ability = Catalog ? Catalog->Find(Action) : nullptr;
+    const auto* Ability = Catalog ? Catalog->Find(Action,Career) : nullptr;
     const FName Default = Slot >= 0 && Slot < Kit.Num() ? Kit[Slot]->Id : Slot < 10 && Kit.IsEmpty() ? WarActionBar::Default(Slot) : NAME_None;
-    const FName Result = bStored && (WarActionBar::IsSupported(Action) || (Ability && Ability->Career == Career)) ? Action : Default;
+    // Persisted identities survive assignment removal; unavailable entries remain visibly disabled.
+    const FName Result = bStored ? Action : Default;
     if (!Career.IsNone()) ActionSlots.Add(Slot, Result);
     return Result;
 }
@@ -87,8 +88,9 @@ bool AWarPlayerController::SetActionSlot(int32 Slot, FName Action)
 FString AWarPlayerController::GetActionLabel(FName Action) const
 {
     const auto* Catalog = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarAbilityCatalog>() : nullptr;
-    const auto* Ability = Catalog ? Catalog->Find(Action) : nullptr;
-    return Ability ? Ability->Name : WarActionBar::Label(Action);
+    const auto* LocalPawn=Cast<AWarCharacter>(GetPawn());
+    const auto* Ability = Catalog && LocalPawn ? Catalog->Find(Action,LocalPawn->GetCareerId()) : nullptr;
+    return Ability ? Ability->Name : WarActionBar::IsSupported(Action) ? WarActionBar::Label(Action) : Action.ToString()+TEXT(" (unassigned)");
 }
 TArray<FName> AWarPlayerController::GetAvailableActions() const
 {
@@ -116,7 +118,7 @@ bool AWarPlayerController::IsCombatTarget(const AActor* Target) const
     const auto* Other = TargetCharacter ? TargetCharacter->GetPlayerState<AWarPlayerState>() : nullptr;
     return Other && TargetCharacter->IsVisualReady() && !TargetCharacter->IsDead()
         && Other->GetCurrentZone() == State->GetCurrentZone() && State->GetRealm() != EWarRealm::None
-        && Other->GetRealm() != EWarRealm::None && Other->GetRealm() != State->GetRealm();
+        && Other->GetRealm() != EWarRealm::None;
 }
 
 AActor* AWarPlayerController::GetCombatTarget() const
@@ -141,7 +143,7 @@ void AWarPlayerController::CycleCombatTarget()
 FString AWarPlayerController::GetCombatTargetLabel() const
 {
     const auto* Target = GetCombatTarget();
-    if (!Target) return TEXT("No target - ") + GetControlKey(TEXT("CycleTarget")).GetDisplayName().ToString() + TEXT(" selects a nearby hostile");
+    if (!Target) return TEXT("No target - ") + GetControlKey(TEXT("CycleTarget")).GetDisplayName().ToString() + TEXT(" selects a nearby combatant");
     FString Name; float Health = 0, Max = 0;
     if (const auto* Enemy = Cast<AWarEnemy>(Target))
     { Name = Enemy->GetDefinition().Name; Health = Enemy->GetHealth(); Max = Enemy->GetDefinition().MaxHealth; }
@@ -165,8 +167,8 @@ FWarActionSlotView AWarPlayerController::GetActionSlotView(int32 Slot)
     const FName Action = GetActionSlot(Slot);
     View.Label = GetActionLabel(Action);
     const auto* Catalog = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarAbilityCatalog>() : nullptr;
-    const auto* Ability = Catalog ? Catalog->Find(Action) : nullptr;
     const auto* Self = Cast<AWarCharacter>(GetPawn());
+    const auto* Ability = Catalog && Self ? Catalog->Find(Action,Self->GetCareerId()) : nullptr;
     const auto* State = GetPlayerState<AWarPlayerState>();
     const auto* Stats = State ? State->GetAttributes() : nullptr;
     if (!Self || !Stats || !Self->IsVisualReady() || Self->IsDead() || IsMoveInputIgnored())
@@ -181,7 +183,7 @@ FWarActionSlotView AWarPlayerController::GetActionSlotView(int32 Slot)
         View.bAvailable = Runtime->CanActivate(*Ability, GetCombatTarget(), Reason, false);
         if (!Reason.IsEmpty()) View.Detail += TEXT("\n") + Reason;
         View.Footer = !Ability->UnavailableReason.IsEmpty() ? TEXT("Unavailable")
-            : State->GetInventory().CharacterProgression.Level < Ability->UnlockLevel ? FString::Printf(TEXT("Level %d"), Ability->UnlockLevel)
+            : State->GetCombatLevel() < Ability->UnlockLevel ? FString::Printf(TEXT("Level %d"), Ability->UnlockLevel)
             : FString::Printf(TEXT("%.0f mana"), Ability->Mana);
     }
     else if (Action == TEXT("strike"))
@@ -198,7 +200,7 @@ FWarActionSlotView AWarPlayerController::GetActionSlotView(int32 Slot)
         const AActor* Target = GetCombatTarget();
         View.bAvailable = Target && !Self->IsActionPlaying() && !State->GetClassAbilities()->IsBusy() && View.Cooldown <= 0 && Stats->GetMana() >= WarValidation::StrikeManaCost
             && FVector::DistSquared(Target->GetActorLocation(), Self->GetActorLocation()) <= FMath::Square(WarValidation::StrikeRangeCm)
-            && LineOfSightTo(Target);
+            && LineOfSightTo(Target) && Self->CanAbilityTarget(Target,WarValidation::StrikeRangeCm);
         if (!Target) View.Detail += TEXT(" Select a hostile target first.");
         else if (!View.bAvailable) View.Detail += TEXT(" Requires enough mana, a clear path and melee range; wait for any cooldown.");
     }
@@ -215,7 +217,7 @@ FWarActionSlotView AWarPlayerController::GetActionSlotView(int32 Slot)
         View.Detail = TEXT("Uses the first matching potion in bag-slot order. Requires a missing resource; quantity comes from your inventory.");
         View.Footer = FString::Printf(TEXT("x%d"), View.Count);
     }
-    else View.Detail = TEXT("Empty slot. Assign a class ability or potion in Menu > UI Settings > Configure button.");
+    else View.Detail = Action.IsNone() ? TEXT("Empty slot. Assign a class ability or potion in Menu > UI Settings > Configure button.") : TEXT("This assignment was removed. The saved hotbar identity is retained; choose an available class ability.");
     return View;
 }
 
@@ -233,8 +235,14 @@ void AWarPlayerController::ActivateActionSlot(int32 Slot)
     if (!View.bAvailable) { ActionMessage = View.Detail; ActionMessageUntil = GetWorld()->GetTimeSeconds() + 4; return; }
     const FName Action = GetActionSlot(Slot);
     const auto* Catalog = GetGameInstance()->GetSubsystem<UWarAbilityCatalog>();
-    if (Catalog && Catalog->Find(Action))
-    { if (auto* State = GetPlayerState<AWarPlayerState>()) State->GetClassAbilities()->ServerActivate(Action, GetCombatTarget()); return; }
+    const auto* LocalPawn=Cast<AWarCharacter>(GetPawn());
+    if (Catalog && LocalPawn && Catalog->Find(Action,LocalPawn->GetCareerId()))
+    {
+        FVector Ground=FVector::ZeroVector;
+        if (Catalog->Find(Action,LocalPawn->GetCareerId())->TargetKind==TEXT("ground"))
+        { FHitResult Hit; if (!GetHitResultUnderCursor(ECC_Visibility,false,Hit)) { ActionMessage=TEXT("Point at a loaded ground surface."); ActionMessageUntil=GetWorld()->GetTimeSeconds()+4; return; } Ground=Hit.ImpactPoint; }
+        if (auto* State=GetPlayerState<AWarPlayerState>()) State->GetClassAbilities()->ServerActivateVersioned(Action,GetCombatTarget(),Catalog->GetVersion(),Ground); return;
+    }
     if (Action == TEXT("strike"))
     { if (auto* Self = Cast<AWarCharacter>(GetPawn())) Self->RequestTargetStrike(GetCombatTarget()); return; }
     auto* State = GetPlayerState<AWarPlayerState>();

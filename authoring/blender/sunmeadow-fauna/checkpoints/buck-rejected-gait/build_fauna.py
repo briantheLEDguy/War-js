@@ -13,7 +13,6 @@ from mathutils.bvhtree import BVHTree
 from mathutils.geometry import barycentric_transform
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from quadruped_rig import create_rig, bind_explicit_weights
-from motion import mammal_clips,bird_clips
 from bird_geometry import bird_bones,bird_geometry
 from stitched_skin import build_stitched_skin
 from atlas_checks import assert_single_atlas_island
@@ -520,7 +519,8 @@ def unify_skin(cage,key,material,lod,definition):
         if len(obj.data.vertices)!=original_count+len(branch_weights):raise RuntimeError('Antler join changed weight ordering')
     return obj,weights
 
-def build(kind,definition,rest_only=False):
+def build(kind,definition,rest_only=True):
+    rest_only=True  # Species-specific native motion requires a separately approved source set.
     bpy.ops.wm.read_factory_settings(use_empty=True);material=paint_material(kind,definition);bones=animal_rig(definition)
     if kind=='skylark':bones=bird_bones(bones)
     rig=create_rig(kind+'_rig',bones);key='frontier_sunmeadow_'+kind;lods=[];models=[]
@@ -556,18 +556,19 @@ def build(kind,definition,rest_only=False):
             control=cage.object(key+'_editable_anatomical_cage',material);control.hide_set(True);control.hide_render=True
         obj.hide_set(level!=0);obj.hide_render=level!=0
         print('FAUNA_GEOMETRY',key,level,triangles,flush=True)
+    rest_only=True
     motion=[]
     if not rest_only:
-        actions,motion=(bird_clips if kind=='skylark' else mammal_clips)(rig,kind,definition)
+        actions,motion=[],[]
         for level,obj in enumerate(models):
             obj.hide_set(False);obj.hide_render=False;bpy.ops.object.select_all(action='DESELECT');obj.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=obj
             target=ROOT/'runtime'/lods[level]['model']
-            bpy.ops.export_scene.gltf(filepath=str(target),export_format='GLB',use_selection=True,export_yup=True,export_normals=True,export_tangents=True,export_texcoords=True,export_skins=True,export_animations=True,export_animation_mode='ACTIONS',export_anim_single_armature=True,export_force_sampling=True,export_frame_range=False,export_vertex_color='NAME',export_vertex_color_name='AnatomicalTint',export_all_vertex_colors=False)
+            bpy.ops.export_scene.gltf(filepath=str(target),export_format='GLB',use_selection=True,export_yup=True,export_normals=True,export_tangents=True,export_texcoords=True,export_skins=True,export_animations=False,export_animation_mode='ACTIONS',export_anim_single_armature=True,export_force_sampling=True,export_frame_range=False,export_vertex_color='NAME',export_vertex_color_name='AnatomicalTint',export_all_vertex_colors=False)
             lods[level].update(sha256=sha(target),bytes=target.stat().st_size)
             obj.hide_set(level!=0);obj.hide_render=level!=0
     master=ROOT/'masters'/f'{key}.blend';bpy.ops.wm.save_as_mainfile(filepath=str(master),compress=True)
-    source_files=['source/anatomy.json',*['tools/'+name for name in ['build_fauna.py','quadruped_rig.py','motion.py','bird_geometry.py','stitched_skin.py','atlas_checks.py','surface_detail.py','texture_detail.py']]]
-    (ROOT/'review'/f'{key}_build.json').write_text(json.dumps({'asset':key,'status':'anatomy-prototype-motion-pending' if rest_only else 'anatomy-and-motion-review-required','source_sha256':sha(ROOT/'source/anatomy.json'),'builder_sha256':sha(__file__),'rig_helper_sha256':sha(ROOT/'tools/quadruped_rig.py'),'motion_source_sha256':sha(ROOT/'tools/motion.py'),'source_files':{file:sha(ROOT/file) for file in source_files},'texture_sources':{file.relative_to(ROOT).as_posix():sha(file) for file in sorted((ROOT/'textures').glob(kind+'_*.png'))},'cage':(ROOT/'source'/f'{key}_cage.json').relative_to(ROOT).as_posix(),'cage_sha256':sha(ROOT/'source'/f'{key}_cage.json'),'motion':motion,'master':master.relative_to(ROOT).as_posix(),'master_sha256':sha(master),'lods':lods,'bones':bones},indent=2,default=list)+'\n')
+    source_files=['source/anatomy.json',*['tools/'+name for name in ['build_fauna.py','quadruped_rig.py','bird_geometry.py','stitched_skin.py','atlas_checks.py','surface_detail.py','texture_detail.py']]]
+    (ROOT/'review'/f'{key}_build.json').write_text(json.dumps({'asset':key,'status':'anatomy-prototype-motion-pending' if rest_only else 'anatomy-and-motion-review-required','source_sha256':sha(ROOT/'source/anatomy.json'),'builder_sha256':sha(__file__),'rig_helper_sha256':sha(ROOT/'tools/quadruped_rig.py'),'source_files':{file:sha(ROOT/file) for file in source_files},'texture_sources':{file.relative_to(ROOT).as_posix():sha(file) for file in sorted((ROOT/'textures').glob(kind+'_*.png'))},'cage':(ROOT/'source'/f'{key}_cage.json').relative_to(ROOT).as_posix(),'cage_sha256':sha(ROOT/'source'/f'{key}_cage.json'),'motion':motion,'master':master.relative_to(ROOT).as_posix(),'master_sha256':sha(master),'lods':lods,'bones':bones},indent=2,default=list)+'\n')
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--assets',default='roe_deer_buck');parser.add_argument('--rest-only',action='store_true');args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])

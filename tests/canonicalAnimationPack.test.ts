@@ -1,105 +1,47 @@
 import { describe, expect, test } from 'vitest';
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
+import catalog from '../shared/game/animation/suppliedPresentationCatalog.json';
+import { CAREER_ABILITY_KITS } from '../shared/game/abilities/abilityData';
 
-const root = process.cwd();
-const contract = JSON.parse(readFileSync(path.join(
-  root,
-  'scripts/blender-character-pipeline/data/body-families/canonical-animation-pack.json',
-), 'utf8'));
-const mpfbSource = readFileSync(path.join(
-  root,
-  'scripts/blender-character-pipeline/blender/canonical_mpfb_animation_library.py',
-), 'utf8');
-const adapterSource = readFileSync(path.join(
-  root,
-  'scripts/blender-character-pipeline/blender/canonical_animation_pack.py',
-), 'utf8');
-const motionAuditSource = readFileSync(path.join(
-  root,
-  'scripts/blender-character-pipeline/blender/audit_canonical_animation_motion.py',
-), 'utf8');
-const geometryAuditSource = readFileSync(path.join(
-  root,
-  'scripts/blender-character-pipeline/tools/compare-glb-geometry.mjs',
-), 'utf8');
-const assemblySource = readFileSync(path.join(
-  root,
-  'scripts/blender-character-pipeline/blender/assemble_runtime_equipped_review.py',
-), 'utf8');
-
-const requiredClips = [
-  'idle',
-  'walk',
-  'run',
-  'combat_idle',
-  'attack_melee',
-  'attack_ranged',
-  'cast',
-  'death',
-  'jump',
-];
-
-describe('free canonical animation pack', () => {
-  test('covers the exact runtime clip contract in deterministic order', () => {
-    expect(contract.clips.map((clip: { name: string }) => clip.name)).toEqual(requiredClips);
-    expect(new Set(contract.clips.map((clip: { name: string }) => clip.name)).size).toBe(requiredClips.length);
-    for (const clip of contract.clips) {
-      expect(clip.durationFrames).toBeGreaterThan(0);
-      expect(typeof clip.loop).toBe('boolean');
+describe('supplied animation presentation contract', () => {
+  test('every supplied source has a reachable character state or ability', () => {
+    expect(Object.keys(catalog.clips)).toHaveLength(44);
+    const reachable = new Set<string>();
+    for (const [profile, definition] of Object.entries(catalog.profiles)) {
+      for (const role of Object.keys(definition.locomotion)) reachable.add(`${profile}:${role}`);
+      for (const ability of definition.abilities) reachable.add(`${profile}:${ability.id}`);
+    }
+    for (const clip of Object.values(catalog.clips)) {
+      expect(clip.sha256).toMatch(/^[a-f0-9]{64}$/);
+      expect(clip.duration).toBeGreaterThan(0);
+      expect(clip.fps).toBeGreaterThan(0);
+      expect(clip.uses.length).toBeGreaterThan(0);
+      expect(clip.uses.every(use => reachable.has(use))).toBe(true);
     }
   });
-
-  test('is local, original, zero-cost, and remains review-gated', () => {
-    expect(contract.skeletonId).toBe('humanoid_game_v2');
-    expect(contract.bindPoseId).toBe('a_pose_v2');
-    expect(contract.cost).toBe('free_local_only');
-    expect(contract.source.kind).toBe('project_authored_keyframes');
-    expect(contract.source.externalAsset).toBe(false);
-    expect(contract.lifecycle.status).toBe('draft');
-    expect(contract.lifecycle.reviewRequired).toBe(true);
+  test('all forty live abilities have explicit presentation recipes', () => {
+    const abilities = Object.values(CAREER_ABILITY_KITS).flatMap(kit => kit.abilities);
+    const ids = new Set(abilities.map(ability => ability.id));
+    const recipes = Object.values(catalog.profiles).flatMap(profile => profile.abilities);
+    expect(recipes).toHaveLength(40);
+    expect(new Set(recipes.map(recipe => recipe.id)).size).toBe(40);
+    for (const recipe of recipes) {
+      expect(ids.has(recipe.id), recipe.id).toBe(true);
+      expect(recipe.sources.every(source => source in catalog.clips)).toBe(true);
+      expect(recipe.contactFraction).toBeGreaterThan(0);
+      expect(recipe.contactFraction).toBeLessThan(1);
+    }
   });
-
-  test('uses MPFB rest-axis locomotion and an explicit hammer profile', () => {
-    expect(contract.animationPackId).toBe('humanoid_game_v2_local_keyframes_v2');
-    expect(contract.coordinateConversion.rotation).toContain('MPFB bone rest basis');
-    expect(mpfbSource).toContain('"battle_prelate_hammer"');
-    expect(mpfbSource).toContain('"hand_R"');
-    expect(mpfbSource).toContain('BATTLE_PRELATE_HAMMER_OVERRIDES');
-    expect(adapterSource).toContain('_armature_space_quaternion');
-    expect(adapterSource).toContain('rotation_quaternion');
-  });
-
-  test('pose-space audit hard-gates stance, two-hand ergonomics, and a bounded hammer arc', () => {
-    expect(motionAuditSource).toContain('SAMPLE_COUNT = 101');
-    expect(motionAuditSource).toContain('audit_neutral_stance');
-    expect(motionAuditSource).toContain('"stanceWidthNatural"');
-    expect(motionAuditSource).toContain('"kneesTrackHipFootLine"');
-    expect(motionAuditSource).toContain('"leftLegStaysLeftOfCenterline"');
-    expect(motionAuditSource).toContain('"rightLegStaysRightOfCenterline"');
-    expect(motionAuditSource).toContain('TWO_HAND_CLIPS');
-    expect(motionAuditSource).toContain('"secondaryGripAttached"');
-    expect(motionAuditSource).toContain('"shoulderReachCompact"');
-    expect(motionAuditSource).toContain('"wristsWithinAnatomicalLimit"');
-    expect(motionAuditSource).toContain('"substantiveHammerArc"');
-    expect(motionAuditSource).toContain('"hammerArcCompact"');
-    expect(motionAuditSource).toContain('"wristDrivesImpact"');
-    expect(motionAuditSource).toContain('weapon_strike_head');
-    expect(motionAuditSource).toContain('"modelSha256"');
-    expect(motionAuditSource).not.toContain('advisory_until_secondary_grip');
-  });
-
-  test('geometry preservation hashes logical position and index payloads', () => {
-    expect(geometryAuditSource).toContain("primitive.attributes.POSITION");
-    expect(geometryAuditSource).toContain("primitive.indices");
-    expect(geometryAuditSource).toContain("createHash('sha256')");
-  });
-
-  test('equipment alignment is profile-driven and resolves a semantic strike axis', () => {
-    expect(assemblySource).toContain('EQUIPMENT_ANIMATION_PROFILES');
-    expect(assemblySource).toContain('resolve_weapon_strike_axis');
-    expect(assemblySource).toContain('weapon_strike_head_marker');
-    expect(assemblySource).toContain('farthest_geometry_cluster_from_grip');
-    expect(assemblySource).toContain('maxSecondaryGripErrorM');
+  test('hybrid invocations use magic and physical weapon attacks retain weapon motions', () => {
+    const prelate = catalog.profiles.civic_battle_prelate_m;
+    const strike = prelate.abilities.find(a => a.id.endsWith('.litany_of_strikes'))!;
+    const heal = prelate.abilities.find(a => a.id.endsWith('.redemption_surge'))!;
+    const smash = prelate.abilities.find(a => a.id.endsWith('.reliquary_smash'))!;
+    expect(strike.sources).toEqual(['two.slash']);
+    expect(heal.sources).toEqual(['spell.ritual']);
+    expect(heal.equipment).toBe('stowed');
+    expect(smash.sources).toEqual(['two.jump_attack', 'two.spin']);
+    for (const ability of catalog.profiles.civic_ember_arcanist_m.abilities) {
+      expect(ability.sources.every(source => source.startsWith('spell.'))).toBe(true);
+    }
   });
 });

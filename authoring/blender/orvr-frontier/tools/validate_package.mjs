@@ -11,7 +11,7 @@ const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const source=JSON.parse(await fs.readFile(path.join(root,'source/frontier_collection.json'),'utf8'));
 const keys=[...Object.keys(source.assets),'frontier_draft_horse','frontier_caravan_reins','frontier_supply_officer_kit'];
 const records=[];const issues=[];
-for(const key of [...keys,'frontier_teamster_animations']){
+for(const key of keys){
  const report=JSON.parse(await fs.readFile(path.join(root,`review/${key}_build.json`),'utf8'));
  const lods=report.lods??[{...report,level:null}];
  for(const lod of lods){

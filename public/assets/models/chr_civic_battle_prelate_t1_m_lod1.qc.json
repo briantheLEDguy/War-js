@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "assetId": "chr.civic.battle_prelate.t1.m",
   "model": "chr_civic_battle_prelate_t1_m_lod1.glb",
-  "modelSha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
-  "fileSizeBytes": 3919252,
+  "modelSha256": "a06981c4bd265767ceebc0b8a450085e7274a8b1a931b37a576d81daee79a564",
+  "fileSizeBytes": 3467184,
   "category": "character",
   "slot": "body",
   "lod": 1,
@@ -32,32 +32,22 @@
   ],
   "maxTextureDimension": 1024,
   "maxTextureResolution": 1024,
-  "animationClips": [
-    "attack_melee",
-    "attack_ranged",
-    "cast",
-    "combat_idle",
-    "death",
-    "idle",
-    "jump",
-    "run",
-    "walk"
-  ],
+  "animationClips": [],
   "builtLods": [
     {
       "name": "LOD0",
       "model": "chr_civic_battle_prelate_t1_m.glb",
-      "sha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380"
+      "sha256": "afac14e5617104b5bb8d528608fe3c81b8bb829dcf827c9ccef444cb78cf9620"
     },
     {
       "name": "LOD1",
       "model": "chr_civic_battle_prelate_t1_m_lod1.glb",
-      "sha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980"
+      "sha256": "a06981c4bd265767ceebc0b8a450085e7274a8b1a931b37a576d81daee79a564"
     },
     {
       "name": "LOD2",
       "model": "chr_civic_battle_prelate_t1_m_lod2.glb",
-      "sha256": "333c476821bc062db8bcd03aaba3326a190e1a6ea4cffcabfa7035e1c3d78e9f"
+      "sha256": "d974c5ba0668be5b64061ad16f603408985c63dfd281e3a6aaf78c2af908b8d9"
     }
   ],
   "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
@@ -323,7 +313,8 @@
           }
         ]
       }
-    ]
+    ],
+    "retiredEmbeddedAnimationValidation": {}
   },
   "checks": {
     "freshBinaryValidation": true,
@@ -334,5 +325,23 @@
     "triangleBudget": true,
     "drawCallBudget": true
   },
-  "qcPassed": true
+  "qcPassed": true,
+  "sourceAnimationRemoval": {
+    "beforeSha256": "0351b7dc6b1ab5309b95da5a5c3632a8b6bbae2ec47a60ce32ac53b59b19d980",
+    "afterSha256": "a06981c4bd265767ceebc0b8a450085e7274a8b1a931b37a576d81daee79a564",
+    "preservationSha256": "c0956f499614f8613004b85c6aafd84e72e5c77fc4d333786ee4e6d23ef728a8",
+    "removedClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ],
+    "modelContentUnchanged": true,
+    "animationValidation": "Native supplied-set evidence is separate"
+  }
 }

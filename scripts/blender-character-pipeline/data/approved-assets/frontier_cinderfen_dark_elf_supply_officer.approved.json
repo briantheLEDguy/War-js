@@ -16,7 +16,7 @@
     "bindPoseId": "cinderfen_supply_officer_a_v1"
   },
   "hashes": {
-    "modelSha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+    "modelSha256": "a0f4bd2682ee472d20e9c72796fe378478020bd2a5bcbdcbb9b7b80b144c9e93",
     "qcSha256": "740ae99eb2850c51069136bd03b4ec2befb9fd27b8706ffc8b349b730f389e51",
     "previews": {
       "front": "af58c731334d3dd3fc1aec7fe1925596a0eb72b6212ea82ac0b243e8df3a158c",
@@ -47,7 +47,23 @@
       "pbr_materials",
       "rig_and_motion",
       "export_review"
-    ]
+    ],
+    "sourceAnimationRemoval": {
+      "beforeSha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "afterSha256": "a0f4bd2682ee472d20e9c72796fe378478020bd2a5bcbdcbb9b7b80b144c9e93",
+      "preservationSha256": "6b9fb081978a1a81b4ed06199854b9f29f21d9a951d864783ab66cf0becc7ab3",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "approvalState": "approved"
 }

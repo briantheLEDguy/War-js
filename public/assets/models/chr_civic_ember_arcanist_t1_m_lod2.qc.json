@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "assetId": "chr.civic.ember_arcanist.t1.m",
   "model": "chr_civic_ember_arcanist_t1_m_lod2.glb",
-  "modelSha256": "0ca0345f17ade8726ebbdc01839954668e9b8d14522d9ede09d8004e21fe9655",
-  "fileSizeBytes": 1353652,
+  "modelSha256": "8ae32a043a65fd85630bd7943b86c7ea5b0608aff08e294b42509bbd88196dde",
+  "fileSizeBytes": 933768,
   "category": "character",
   "slot": "body",
   "lod": 2,
@@ -32,32 +32,22 @@
   ],
   "maxTextureDimension": 512,
   "maxTextureResolution": 512,
-  "animationClips": [
-    "attack_melee",
-    "attack_ranged",
-    "cast",
-    "combat_idle",
-    "death",
-    "idle",
-    "jump",
-    "run",
-    "walk"
-  ],
+  "animationClips": [],
   "builtLods": [
     {
       "name": "LOD0",
       "model": "chr_civic_ember_arcanist_t1_m.glb",
-      "sha256": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856"
+      "sha256": "b36f2c55183d0c9683144d8ebb5c03eff6000a9f354c2703b596692d1e8148cc"
     },
     {
       "name": "LOD1",
       "model": "chr_civic_ember_arcanist_t1_m_lod1.glb",
-      "sha256": "5e7dd63242b786c13b7a7c43355b2f155c01e3c16a06931391d17b2dc653afba"
+      "sha256": "946a4e0e044f9be02cf82cf883b2f0e51765ce29a5fa91eac54bf97a3874d4ad"
     },
     {
       "name": "LOD2",
       "model": "chr_civic_ember_arcanist_t1_m_lod2.glb",
-      "sha256": "0ca0345f17ade8726ebbdc01839954668e9b8d14522d9ede09d8004e21fe9655"
+      "sha256": "8ae32a043a65fd85630bd7943b86c7ea5b0608aff08e294b42509bbd88196dde"
     }
   ],
   "lodRuntimeStatus": "LOD0 mapped; LOD1/2 published, no current runtime distance switching",
@@ -410,7 +400,8 @@
           }
         ]
       }
-    ]
+    ],
+    "retiredEmbeddedAnimationValidation": {}
   },
   "checks": {
     "freshBinaryValidation": true,
@@ -421,5 +412,23 @@
     "triangleBudget": true,
     "drawCallBudget": true
   },
-  "qcPassed": true
+  "qcPassed": true,
+  "sourceAnimationRemoval": {
+    "beforeSha256": "0ca0345f17ade8726ebbdc01839954668e9b8d14522d9ede09d8004e21fe9655",
+    "afterSha256": "8ae32a043a65fd85630bd7943b86c7ea5b0608aff08e294b42509bbd88196dde",
+    "preservationSha256": "65d2b236093afc491a1b615e3477d7564263d61e5586ece8efbea17f96a9aa47",
+    "removedClips": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ],
+    "modelContentUnchanged": true,
+    "animationValidation": "Native supplied-set evidence is separate"
+  }
 }

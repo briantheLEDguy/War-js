@@ -57,6 +57,21 @@ def bounded_sample_time(seconds, duration):
     return min(seconds, duration)
 
 
+def verify_rest(unreal, skeleton, source):
+    """Check the imported bind skeleton independently of any animation asset."""
+    pose = unreal.AnimPoseExtensions.get_reference_pose(skeleton)
+    actual = {}
+    for bone in unreal.AnimPoseExtensions.get_bone_names(pose):
+        transform = unreal.AnimPoseExtensions.get_ref_bone_pose(pose, bone, unreal.AnimPoseSpaces.WORLD)
+        point = transform.translation
+        actual[str(bone)] = {"position": [point.x, point.y, point.z],
+            "deformedBasis": [[0, 0, 0], [100, 0, 0], [0, 100, 0], [0, 0, 100]]}
+    joint_error, skin_error = compare_frame(source, actual)
+    return {"status": "passed", "toleranceCm": TOLERANCE_CM, "clips": [],
+            "restBoneCount": len(source["joints"]), "maxJointErrorCm": joint_error,
+            "maxSkinTransformErrorCm": skin_error, "visualApproval": False}
+
+
 def verify_animations(unreal, records, source):
     results = []
     for record in records:

@@ -33,6 +33,12 @@ bool AWarGameMode::IsDevelopmentSession() const
         GetNetMode() == NM_Standalone || FParse::Param(FCommandLine::Get(), TEXT("WarDevelopmentNetworking")));
 }
 
+bool AWarGameMode::IsLoopbackProofAddress(const FString& Address)
+{
+    // PreLogin receives the connection's numeric address, never a client option.
+    return Address == TEXT("127.0.0.1") || Address == TEXT("::1") || Address == TEXT("::ffff:127.0.0.1");
+}
+
 void AWarGameMode::PreLogin(const FString& Options, const FString& Address,
     const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage)
 {
@@ -41,6 +47,8 @@ void AWarGameMode::PreLogin(const FString& Options, const FString& Address,
     // An online subsystem ID alone is not proof of Steam ownership or backend session authorization.
     if (!IsDevelopmentSession())
         ErrorMessage = TEXT("Production admission is unavailable. Development servers require -WarDevelopmentNetworking in a non-Shipping build.");
+    else if (!IsLoopbackProofAddress(Address))
+        ErrorMessage = TEXT("Remote admission is closed. Development proof flags authorize loopback tests only.");
 }
 
 void AWarGameMode::RejectEntry(APlayerController* Controller, const FString& Error) const
@@ -88,6 +96,9 @@ void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* New
     // Automated acceptance fixtures opt into direct entry; ordinary launches start at login.
     const bool bProofEntry = !UE_BUILD_SHIPPING && (
         FParse::Param(FCommandLine::Get(), TEXT("WarNetworkProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarAnimationNetworkProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarWorkshopCombatProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarWorkshopDeploymentProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarZoneNetworkProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarPortalProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarEnemyProof"))

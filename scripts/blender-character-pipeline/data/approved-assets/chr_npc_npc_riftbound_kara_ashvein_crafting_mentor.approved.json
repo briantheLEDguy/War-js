@@ -16,7 +16,7 @@
     "bindPoseId": "a_pose_v2"
   },
   "hashes": {
-    "modelSha256": "1aacdad9d3aea134cda17baa469a897c69dfc8e510fa725bd18301a60d2b65eb",
+    "modelSha256": "125bfb426ae7bb8daf4dc9d8737b74b73b650b3a9ae5bd48e3b84529b7dee359",
     "qcSha256": "5169d29d295141727d5e1dc5f424d44a1e626d421cd698d4ef387a27a6240b84",
     "previews": {
       "front": "999738d4d71d31080a31581de0eb6e313ad439b0ddabde297cad62f67d3b7367"
@@ -30,7 +30,23 @@
     "sourceRevision": 1,
     "sourceRunId": "npc-creature-pilot",
     "bypassApproval": true,
-    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch."
+    "bypassReason": "User-authorized production bypass for the NPC and creature pilot batch.",
+    "sourceAnimationRemoval": {
+      "beforeSha256": "1aacdad9d3aea134cda17baa469a897c69dfc8e510fa725bd18301a60d2b65eb",
+      "afterSha256": "125bfb426ae7bb8daf4dc9d8737b74b73b650b3a9ae5bd48e3b84529b7dee359",
+      "preservationSha256": "ea15bff3ba030ff1e92c4733d36f024dee07cafd6def9340bf7044cfe48a2777",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",

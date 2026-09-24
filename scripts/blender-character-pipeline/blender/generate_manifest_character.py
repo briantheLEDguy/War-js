@@ -16,7 +16,6 @@ from pathlib import Path
 import bpy
 from mathutils import Vector
 
-from anim_library import ACTIONS, make_profile_actions
 from export_utils import normalize_y_up_scene_to_blender_z_up, repo_relative_path
 from mesh_primitives import (
     box_prism,
@@ -31,7 +30,7 @@ from mesh_primitives import (
     torso_shell,
     tube_shell_between,
 )
-from rig_utils import apply_animations, create_humanoid_rig
+from rig_utils import create_humanoid_rig
 
 PIPELINE_ROOT = Path(__file__).resolve().parents[1]
 PLAYABLE_ROSTER_PATH = PIPELINE_ROOT / "data" / "playable-character-roster.json"
@@ -389,7 +388,7 @@ def build_playable_character(manifest: dict, style: dict) -> tuple[list[bpy.type
         pos = tuple(anchor.get("position", [0, 0, 0]))
         anchors.append(add_anchor(anchor["name"], anchor["parent"], pos, manifest))
     add_manifest_metadata([armature, *anchors], manifest)
-    apply_animations(armature, make_profile_actions(style["animationProfile"]))
+    pass  # Native supplied-set recipes own animation.
     return objects, armature, anchors
 
 
@@ -763,7 +762,7 @@ def build_manifest_character(manifest: dict) -> tuple[list[bpy.types.Object], bp
     add_manifest_metadata(objects, manifest)
     armature = create_humanoid_rig(objects, (1.0, 1.0, 1.0), rig_profile="default")
     add_manifest_metadata([armature, *anchors], manifest)
-    apply_animations(armature, ACTIONS)
+    pass  # Native supplied-set recipes own animation.
     return objects, armature, anchors
 
 
@@ -863,7 +862,7 @@ def export_character(output_path: Path) -> None:
     bpy.ops.export_scene.gltf(
         filepath=str(output_path),
         export_format="GLB",
-        export_animations=True,
+        export_animations=False,
         export_skins=True,
         export_extras=True,
         export_apply=True,

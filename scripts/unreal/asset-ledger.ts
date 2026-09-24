@@ -30,6 +30,7 @@ interface IndexedAsset {
 }
 type AssetIndex = Record<Category, Record<string, IndexedAsset>> & { assetVersion?: string };
 interface Qc { model?: string; modelSha256?: string; qcPassed?: boolean; reviewStatus?: string; lifecycleStatus?: string;
+  sourceAnimationRemoval?: { beforeSha256: string; afterSha256: string; modelContentUnchanged: boolean };
   provenance?: unknown; lods?: Lod[]; builtLods?: Lod[]; validationErrors?: number }
 interface Lod { model?: string; sha256?: string; name?: string; level?: number }
 interface SourceRecord { path: string; provenance: unknown; licenses: string[]; approvalState?: string }
@@ -151,6 +152,11 @@ export async function buildAssetLedger(repoRoot = ROOT) {
     const qc = readJson<Qc>(root, `${MODEL_ROOT}${entry.qc}`);
     qcCache.set(entry.qc, qc); return qc;
   };
+  for (const entry of Object.values(index.characterProfiles)) {
+    const removal = qcFor(entry)?.sourceAnimationRemoval;
+    if (removal?.modelContentUnchanged && removal.afterSha256 === entry.modelSha256 && rejectedSources.has(removal.beforeSha256))
+      rejectedSources.set(removal.afterSha256, rejectedSources.get(removal.beforeSha256)!);
+  }
   const resolve = (category: Category, key: string, direct?: string): Resolution => {
     const entry = index[category]?.[key];
     return { category, key, entry, model: approved(entry) ? entry.model : direct, method: approved(entry) ? 'registry' : direct ? 'direct_file' : 'unresolved' };
@@ -183,6 +189,10 @@ export async function buildAssetLedger(repoRoot = ROOT) {
     const evidence = model ? inspect(model) : undefined;
     const qc = qcFor(entry);
     const blockers = [...(input.blockers ?? [])];
+    // Removing animation payloads cannot overturn an existing model rejection.
+    const removal = qc?.sourceAnimationRemoval;
+    if (removal?.modelContentUnchanged && removal.afterSha256 === evidence?.sha256 && rejectedSources.has(removal.beforeSha256))
+      rejectedSources.set(removal.afterSha256, rejectedSources.get(removal.beforeSha256)!);
     if (evidence?.sha256 && rejectedSources.has(evidence.sha256)) blockers.push(`visual_source_rejected:${rejectedSources.get(evidence.sha256)}`);
     if (!model) { if (input.requiresModel !== false) blockers.push('no_model_assignment'); }
     else if (!evidence?.exists) blockers.push('model_file_missing');

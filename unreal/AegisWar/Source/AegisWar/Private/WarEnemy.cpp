@@ -1,4 +1,5 @@
 #include "WarEnemy.h"
+#include "WarWrathRelic.h"
 #include "WarCombatStatus.h"
 #include "WarNpcEquipment.h"
 #include "WarEnemyStateSubsystem.h"
@@ -156,7 +157,10 @@ bool AWarEnemy::ReceiveAbilityDamage(AWarCharacter* Attacker, float Damage, floa
         Target.Reset(); GetCharacterMovement()->StopMovementImmediately();
     }
     else if (!Definition.bTrainingDummy) Target = Attacker;
-    Health = Remaining; Life.Health = Remaining; OnRep_Health(); ForceNetUpdate(); return true;
+    const float HealthLost = Health - Remaining;
+    Health = Remaining; Life.Health = Remaining; OnRep_Health(); ForceNetUpdate();
+    if (!Definition.bTrainingDummy) AWarWrathRelic::HostileHealthDamage(Attacker, HealthLost);
+    return true;
 }
 
 void AWarEnemy::Play(FName Clip, bool bLoop)

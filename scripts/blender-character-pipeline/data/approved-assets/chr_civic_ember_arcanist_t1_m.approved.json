@@ -15,8 +15,8 @@
     "bindPoseId": "a_pose_v2"
   },
   "hashes": {
-    "modelSha256": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856",
-    "qcSha256": "09f2e802133a21ffb5457bfe5398a57705de96a07534c6e06ae82ded2045f18c",
+    "modelSha256": "b36f2c55183d0c9683144d8ebb5c03eff6000a9f354c2703b596692d1e8148cc",
+    "qcSha256": "280037b3a634218720e0af15fdbe3ce4bacfbbb974636dda8f6dc5d7119fdd20",
     "previews": {
       "front": "40ef65c4a476e27adcf6ff1602386832b00d60e0667b605e3cb86c85efb61c9a",
       "isometric": "fa128e9141116154daf478d16576b97a881db63a9f0a89a23d1744149f18abab",
@@ -354,7 +354,23 @@
           }
         ]
       }
-    ]
+    ],
+    "sourceAnimationRemoval": {
+      "beforeSha256": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856",
+      "afterSha256": "b36f2c55183d0c9683144d8ebb5c03eff6000a9f354c2703b596692d1e8148cc",
+      "preservationSha256": "64b606c91f546f2ab045a6b3a9b493b2497725c57166e015e3ec518824c89403",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "review": {
     "reviewedBy": "Codex visual inspection (not user approval)",

@@ -1,3 +1,6 @@
+> Historical record: the animation payloads and recovery scripts described below
+> were removed by the supplied-set replacement. Use [the current workflow](unreal-animation-import.md).
+
 # Battle Prelate recovery
 
 The native development selection is **Empire / Battle Prelate / Male**.

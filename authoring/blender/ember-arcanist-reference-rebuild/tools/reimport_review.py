@@ -3,7 +3,7 @@
 No source geometry, weights, bind matrices, camera calibration, or animations are
 authored here. Armor rigs are replaced only after exact rest-rig compatibility and
 world-space rest-vertex checks. Output is pending visual review, never approval.
-Run --compose REPORT with bundled Python/Pillow to make the stress contact sheet.
+Character animation review is performed by the native animation pipeline.
 """
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SLOTS = ("body", "head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard", "weapon")
-CLIPS = ("idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump")
+CLIPS = ()  # Motion belongs to the supplied native animation sets.
 SOCKETS = {"socket_hand_R", "socket_hand_L", "socket_back", "socket_root"}
 FULL_VIEWS = ("full_front", "full_three_quarter", "full_side", "full_back")
 VIEW_LABEL = {"full_front": "front", "full_three_quarter": "isometric", "full_side": "side", "full_back": "back"}
@@ -126,7 +126,7 @@ def import_body(path):
     sockets = {obj.name: obj for obj in objects if obj.type == "EMPTY" and obj.name in SOCKETS}
     require(set(sockets) == SOCKETS, "Body is missing a canonical socket EMPTY")
     actions = {action.name: action for action in set(bpy.data.actions) - before_actions}
-    require(set(CLIPS).issubset(actions), "Body reimport is missing the nine named actions")
+    require(not actions, "Body/rig imports must not embed character animations")
     # Preserve glTF-imported action-slot bindings, including animated socket roots.
     bindings = {name: [] for name in CLIPS}
     rest_world = {obj: obj.matrix_world.copy() for obj in objects}
@@ -284,37 +284,6 @@ def render(record, output, engine, samples, percentage=100, neutral=None):
             "camera": record, "frame": scene.frame_current + scene.frame_subframe}
 
 
-def compose(report_path):
-    from PIL import Image, ImageDraw, ImageFont
-    report_path = Path(report_path).resolve()
-    report = json.loads(report_path.read_text())
-    frames = report.get("motion_frames", [])
-    require(len(frames) == 27, "Contact sheet requires all three recorded samples for each of nine clips")
-    width, height = 340, 392
-    canvas = Image.new("RGB", (width * 3, height * 9), (25, 27, 31))
-    draw = ImageDraw.Draw(canvas)
-    try:
-        font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 17)
-    except OSError:
-        font = ImageFont.load_default()
-    for index, entry in enumerate(frames):
-        path = ROOT / entry["path"]
-        require(digest(path) == entry["sha256"], "Motion image changed since render")
-        with Image.open(path) as image:
-            image = image.convert("RGB")
-            image.thumbnail((width, height - 30))
-            x, y = (index % 3)*width, (index//3)*height
-            canvas.paste(image, (x + (width-image.width)//2, y))
-            draw.text((x+8, y+height-25), f"{entry['clip']}  {entry['fraction']:.0%}  frame {entry['frame']:.1f}", fill=(230,231,234), font=font)
-    output = report_path.parent / "reimport_motion_contact.png"
-    canvas.save(output)
-    record = {"id": "animation_stress_contact", "scope": "animation_stress", "path": output.relative_to(ROOT).as_posix(), "sha256": digest(output),
-              "kind": "Contact sheet of actual GLB action renders; no synthesized frames", "clips": list(CLIPS)}
-    report["contact_sheet"] = record
-    report["evidence"] = [entry for entry in report["evidence"] if entry.get("id") != record["id"]] + [record]
-    report_path.write_text(json.dumps(report, indent=2) + "\n")
-    print("REIMPORT_CONTACT_COMPLETE " + str(output))
-
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -326,11 +295,7 @@ def main():
     parser.add_argument("--motion-engine", choices=("CYCLES", "BLENDER_EEVEE"), default="BLENDER_EEVEE")
     parser.add_argument("--motion-percentage", type=int, default=40)
     parser.add_argument("--skip-motion", action="store_true", help="Partial inspection only; cannot provide motion evidence")
-    parser.add_argument("--compose", type=Path, metavar="REPORT", help="Run with Python/Pillow after Blender finishes")
     args = parser.parse_args(sys.argv[sys.argv.index("--")+1:] if "--" in sys.argv else None)
-    if args.compose:
-        compose(args.compose)
-        return
     global bpy, Matrix
     import bpy as blender
     from mathutils import Matrix as BlenderMatrix
@@ -386,7 +351,7 @@ def main():
     check_files(args.runtime, args.validation, lods)
     require(digest(scene_path) == report["scene_source_sha256"], "Camera/scene source changed during rendering")
     report["status"] = "rendered_pending_visual_review"
-    report["complete_evidence"] = set(lods) == {0,1,2} and len(report["motion_frames"]) == 27
+    report["complete_evidence"] = set(lods) == {0,1,2} and not assembly["actions"]
     report_path.write_text(json.dumps(report, indent=2) + "\n")
     print("REIMPORT_REVIEW_COMPLETE " + str(report_path))
 

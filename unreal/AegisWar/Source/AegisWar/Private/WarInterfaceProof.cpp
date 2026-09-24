@@ -7,6 +7,8 @@
 #include "WarContentSubsystem.h"
 #include "WarInterfaceCatalog.h"
 #include "WarWorldEditSubsystem.h"
+#include "WarAbilityWorkshopWidget.h"
+#include "UObject/UObjectIterator.h"
 #include "AbilitySystemComponent.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
@@ -102,6 +104,40 @@ void UWarInterfaceProof::Tick(float DeltaTime)
         return;
     }
     const auto Check = [this](bool Good, const FString& Detail) { if (!Good) Finish(false, Detail); return Good; };
+    if (FParse::Param(FCommandLine::Get(),TEXT("WarWorkshopProof")))
+    {
+        FString Run; FGuid Id; if (!FParse::Value(FCommandLine::Get(),TEXT("WarWorkshopRun="),Run) || !FGuid::Parse(Run,Id)) { Finish(false,TEXT("Isolated workshop proof ID required")); return; }
+        const FString Folder=FPaths::ProjectSavedDir()/TEXT("AbilityWorkshopProof")/Id.ToString(EGuidFormats::Digits); IFileManager::Get().MakeDirectory(*Folder,true);
+        if (Step==0) PC->OpenAbilityWorkshop();
+        else if (Step==1)
+        {
+            bool Found=false; FString Error;
+            for (TObjectIterator<UWarAbilityWorkshopWidget> It;It;++It) if (It->GetOwningPlayer()==PC && It->IsInViewport()) { Found=It->VerifyInteractions(Error); break; }
+            if (!Found) { FFileHelper::SaveStringToFile(Error,*(Folder/TEXT("failure.txt"))); Finish(false,TEXT("Workshop interactions failed")); return; }
+        }
+        else if (Step==2) FScreenshotRequest::RequestScreenshot(Folder/TEXT("workshop.png"),true,false);
+        else if (Step==3)
+        {
+            bool Found=false; FString Error;
+            for (TObjectIterator<UWarAbilityWorkshopWidget> It;It;++It) if (It->GetOwningPlayer()==PC && It->IsInViewport()) { Found=It->VerifyAnalysis(Error); break; }
+            if (!Found) { FFileHelper::SaveStringToFile(Error,*(Folder/TEXT("failure.txt"))); Finish(false,TEXT("Workshop scenario preview failed")); return; }
+        }
+        else if (Step==4) FScreenshotRequest::RequestScreenshot(Folder/TEXT("analysis.png"),true,false);
+        else if (Step==5)
+        {
+            bool Found=false; FString Error;
+            for (TObjectIterator<UWarAbilityWorkshopWidget> It;It;++It) if (It->GetOwningPlayer()==PC && It->IsInViewport()) { Found=It->VerifyReview(Error); break; }
+            if (!Found) { FFileHelper::SaveStringToFile(Error,*(Folder/TEXT("failure.txt"))); Finish(false,TEXT("Workshop review failed")); return; }
+        }
+        else if (Step==6) FScreenshotRequest::RequestScreenshot(Folder/TEXT("review.png"),true,false);
+        else if (Step==7)
+        {
+            PC->CloseAllPanels(); const bool Passed=!PC->IsMoveInputIgnored() && !PC->IsLookInputIgnored();
+            FFileHelper::SaveStringToFile(Passed ? TEXT("{\"passed\":true,\"sharedAdmission\":false,\"nativeArena\":false}") : TEXT("{\"passed\":false}"),*(Folder/TEXT("report.json")));
+            Finish(Passed,TEXT("Workshop filters, edit preview, undo/redo, conditional composer and input release")); return;
+        }
+        ++Step; NextStep=Now+3; return;
+    }
     const TArray<FName> Pages{TEXT("Menu"), TEXT("Map"), TEXT("Clean Map"), TEXT("Campaign"), TEXT("Character"), TEXT("Options"), TEXT("Guide"), TEXT("GM Tools"), TEXT("Key bindings"), TEXT("UI Settings"), TEXT("Edit UI"), TEXT("World builder")};
     if (FParse::Param(FCommandLine::Get(), TEXT("WarActionBarProof")))
     {

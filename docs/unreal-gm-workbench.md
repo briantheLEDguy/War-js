@@ -1,5 +1,44 @@
 # Native capital GM workbench
 
+**Escape > GM Tools > Ability Workshop** opens the native class spreadsheet and
+structured ability composer under the same authorized local GM gate. Filter
+headers, select class assignments and preview numeric overrides; structural
+changes are edited and validated in the inspector. Draft recovery is stored in
+`Saved/AbilityWorkshop/draft.json`. Use **Review & Publish > Deploy draft to this
+game** to activate it for future casts in your personal GM session. Version
+History supports rollback, restore-shipped, and automatic restoration of your
+last confirmed version on the next launch. Shared publication/deployment and the online
+test arena remain gated or unfinished. See the
+[workshop workflow and verification limits](unreal-ability-workshop.md).
+
+Choose **Local development login** (the first entry-screen button), create an
+Empire / Battle Prelate / Male character, and enter the campaign. Local testing
+does not need the companion app. The separate **Developer account** page retains
+optional GitHub sign-in; it does not provide shared server admission yet.
+
+**Escape > GM Tools > Set level** changes your current character to any level
+from **1 to 45** in an authorized local development session. Type or drag the
+integer selector, then click **Set level**. The current level and result are
+shown in the panel. The server validates the range and rejects changes while
+loading, dead, or performing an attack/cast. Shared/Shipping sessions retain
+the existing GM denial.
+
+Changing level applies the existing per-level growth (+20 health, +10 mana,
++2 strength), resets XP within the level to zero, restores health/mana, and
+immediately updates ability eligibility, including re-locking abilities when
+lowering the level. Gold, equipment, quests, class resource, and cooldowns are
+preserved; the separate Restore and Reset cooldowns controls remain available.
+The limit of 45 applies to this GM control. Normal XP reward rules are unchanged.
+This is session progression, retained through respawn but not saved across login.
+
+Implementation: `WarGmPage` sends `ServerGmSetLevel`; the existing development
+authorization gate precedes `WarPlayerState::SetGmLevelTrusted`, which commits
+validated progression and its inventory revision and updates GAS vitals. Ability
+eligibility already reads the replicated progression level. Foundation tests cover
+range/growth/reversal and preservation; `-WarAbilityProof -WarGmLevelProof
+-WarDevelopmentGM` additionally exercises the real controller command at level 45,
+level-one re-locking and mid-cast denial while running the Prelate ability fixture.
+
 The editor and development game now start in the [integrated kit capital](unreal-crownward.md)
 inside AegisWar, with 8,704 editable placements and 14 kit catalog models. It
 preserves the original mountain geography, districts and house sites, and adds

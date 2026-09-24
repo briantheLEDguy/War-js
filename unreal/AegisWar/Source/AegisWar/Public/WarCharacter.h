@@ -14,6 +14,19 @@ class UInputAction;
 class UInputMappingContext;
 class UEnhancedInputLocalPlayerSubsystem;
 struct FInputActionValue;
+struct FWarAbilityPresentation;
+
+USTRUCT()
+struct FWarReplicatedMotion
+{
+    GENERATED_BODY()
+    UPROPERTY() FName Role;
+    UPROPERTY() double Start = 0;
+    UPROPERTY() float Duration = 0;
+    UPROPERTY() bool bLoop = false;
+    UPROPERTY() bool bStowEquipment = false;
+    UPROPERTY() int32 Serial = 0;
+};
 
 UCLASS()
 class AEGISWAR_API AWarCharacter : public ACharacter, public IAbilitySystemInterface
@@ -37,6 +50,11 @@ public:
     FName GetAnimationProfile() const;
     bool CanAbilityTarget(const AActor* Target, float Range, bool bRequireSight = true) const;
     float GetAbilityAnimationDuration(FName MotionRole) const;
+    float GetBasicAttackContact() const;
+    const FWarAbilityPresentation* GetAbilityPresentation(FName Ability) const;
+    FName BeginAbilityPresentation(FName Ability);
+    void ReactToHit(const AActor* Source, float HealthLost);
+    const FWarReplicatedMotion& GetReplicatedMotion() const { return Motion; }
     bool IsActionPlaying() const;
     UFUNCTION(NetMulticast, Reliable) void MulticastPlayAbilityMotion(FName MotionRole, float Duration, bool bLoop);
     FName GetPlayingAnimation() const { return PlayingAnimation; }
@@ -45,7 +63,6 @@ public:
     void HandleDeath();
     /** The server revalidates target, range, realm, cost and cooldown for every request. */
     UFUNCTION(BlueprintCallable, Category="Combat") void RequestTargetStrike(AActor* Target);
-    UFUNCTION(NetMulticast, Unreliable) void MulticastPlayStrike();
     void ApplyCameraOrbit(double X, double Y);
     void ApplyCameraWheel(double DeltaPixels);
     UFUNCTION(BlueprintCallable, Category="Camera") void SetCameraIndoorMode(bool bEnabled);
@@ -64,13 +81,21 @@ protected:
     UPROPERTY(VisibleAnywhere) TObjectPtr<class UWarCombatStatus> CombatStatus;
     UPROPERTY(ReplicatedUsing=OnRep_VisualDefinition) TObjectPtr<UWarCharacterVisualDefinition> VisualDefinition;
     UPROPERTY(ReplicatedUsing=OnRep_Dead) bool bDead = false;
+    UPROPERTY(Replicated) FWarReplicatedMotion Motion;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UStaticMeshComponent> Weapon;
+    UPROPERTY(VisibleAnywhere) TObjectPtr<class UStaticMeshComponent> Shield;
 
 private:
+    friend class UWarAnimationInstance;
     UFUNCTION() void OnRep_VisualDefinition();
     UFUNCTION() void OnRep_Dead();
     UFUNCTION(Server, Reliable) void ServerRequestStrike(AActor* Target);
     bool ApplyVisual(FString& OutError);
     void PlayImportedAnimation(FName Name, bool bLoop);
+    void UpdateNativeAnimation(float Delta);
+    void UpdateEquipmentPresentation();
+    void UpdateReleasedEquipment(float Elapsed);
+    double AnimationTime() const;
     void InitializeAbilityActor();
     void MoveForward(const FInputActionValue& Value);
     void MoveRight(const FInputActionValue& Value);
@@ -101,6 +126,15 @@ private:
     bool bVisualReady = false;
     FName PlayingAnimation;
     double ActionAnimationUntil = 0.0;
+    double LocomotionStart = 0, TurnUntil = 0, LandingUntil = 0;
+    bool bWasFalling = false;
+    float PreviousYaw = 0;
+    float LocomotionPhase = 0;
+    FName LocomotionRole, TurnRole;
+    TMap<FName, int32> PresentationSerials;
+    bool bEquipmentReleased = false;
+    FDelegateHandle EquipmentPoseHandle;
+    FTransform ReleasedStart[2], ReleasedEnd[2];
     bool bDevelopmentFlying = false, bDevelopmentSpeedsCaptured = false;
     float DevelopmentSpeed = 1.f, DevelopmentBaseWalkSpeed = 600.f, DevelopmentBaseFlySpeed = 600.f;
     float DevelopmentBaseBraking = 0.f;

@@ -16,7 +16,7 @@
   },
   "approvalState": "approved",
   "hashes": {
-    "modelSha256": "071f6bc8c7a7bda2e329852698db3bfbe061d4dc2c3a0aebb2e614cee85dde11",
+    "modelSha256": "090ffeef2b7c6e69c78323eedf8fbbccd3001cab0fb5abd84ebc96c76c97d438",
     "qcSha256": "c67da3550de8485d5eb49683f6896ca3f5357cb58eb4cbb9ab48f8eed7cb1318",
     "previews": {
       "front": "90eff9b1ac6c050ef48bb874d46c65489116cbd176375ddba78cfa522405e65c"
@@ -35,6 +35,22 @@
     "sourceModel": "chr_npc_greenskin_m_ambient_m.glb",
     "sourceSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
     "geometry": "Adapted reviewed anatomy and rig with fitted Riftbound apparel, headgear and faction features. Original upstream anatomy licenses and provenance remain applicable.",
-    "limitations": "Middle LOD used for residents. Dark Elf uses the existing civic idle and generated walking cycle."
+    "limitations": "Middle LOD used for residents. Dark Elf uses the existing civic idle and generated walking cycle.",
+    "sourceAnimationRemoval": {
+      "beforeSha256": "071f6bc8c7a7bda2e329852698db3bfbe061d4dc2c3a0aebb2e614cee85dde11",
+      "afterSha256": "090ffeef2b7c6e69c78323eedf8fbbccd3001cab0fb5abd84ebc96c76c97d438",
+      "preservationSha256": "f2a592d2d8f7a62ceccb35e3b900980ed6cf8ef8f9181bb13fd0d5bd2c128c38",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   }
 }

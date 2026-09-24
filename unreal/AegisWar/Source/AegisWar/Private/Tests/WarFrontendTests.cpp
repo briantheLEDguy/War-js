@@ -9,6 +9,25 @@
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerStart.h"
 #include "TimerManager.h"
+#include "Widgets/Input/SButton.h"
+#include "Widgets/Text/STextBlock.h"
+
+namespace
+{
+    void EntryButtons(const TSharedRef<SWidget>& Widget, TArray<TSharedRef<SButton>>& Buttons)
+    {
+        if (Widget->GetTypeAsString() == TEXT("SButton"))
+        {
+            const auto Button = StaticCastSharedRef<SButton>(Widget);
+            if (Button->GetContent()->GetTypeAsString() == TEXT("STextBlock")) Buttons.Add(Button);
+        }
+        auto* Children = Widget->GetChildren();
+        for (int32 Index = 0; Children && Index < Children->Num(); ++Index)
+            EntryButtons(Children->GetChildAt(Index), Buttons);
+    }
+    FString ButtonLabel(const TSharedRef<SButton>& Button)
+    { return StaticCastSharedRef<STextBlock>(Button->GetContent())->GetText().ToString(); }
+}
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarFrontendTest, "AegisWar.Foundation.CharacterFrontend",
     EAutomationTestFlags_ApplicationContextMask | EAutomationTestFlags::EngineFilter)
@@ -84,6 +103,37 @@ bool FWarFrontendTest::RunTest(const FString& Parameters)
     Mode->RestartPlayerAtPlayerStart(Player, nullptr);
     TestFalse(TEXT("A missing arrival start ends pending entry"), Player->IsCharacterEntryPending());
     TestTrue(TEXT("Missing start retains its actionable error"), Player->GetEntryFailure().ToString().Contains(TEXT("no valid PlayerStart")));
+    auto* Frontend = NewObject<UWarFrontendWidget>(World);
+    Frontend->Initialize();
+    const auto Entry = Frontend->TakeWidget();
+    TArray<TSharedRef<SButton>> Buttons;
+    EntryButtons(Entry, Buttons);
+    TestTrue(TEXT("Login exposes a primary local entry action"), !Buttons.IsEmpty()
+        && ButtonLabel(Buttons[0]) == TEXT("Local development login"));
+    const auto Click = [this, &Entry](const FString& Label) {
+        TArray<TSharedRef<SButton>> Current;
+        EntryButtons(Entry, Current);
+        for (const auto& Button : Current)
+            if (ButtonLabel(Button) == Label) { Button->SimulateClick(); return true; }
+        AddError(TEXT("Missing entry button: ") + Label); return false;
+    };
+    if (Click(TEXT("Local development login")))
+    {
+        Buttons.Reset(); EntryButtons(Entry, Buttons);
+        TestTrue(TEXT("Local entry opens character creation without an account companion"),
+            Buttons.ContainsByPredicate([](const auto& Button) { return ButtonLabel(Button) == TEXT("Review character"); }));
+        Click(TEXT("Back to login"));
+    }
+    if (Click(TEXT("Developer account")))
+    {
+        Buttons.Reset(); EntryButtons(Entry, Buttons);
+        TestTrue(TEXT("Optional account page retains GitHub sign-in"),
+            Buttons.ContainsByPredicate([](const auto& Button) { return ButtonLabel(Button) == TEXT("Sign in with GitHub"); }));
+        Click(TEXT("Back to login"));
+        Buttons.Reset(); EntryButtons(Entry, Buttons);
+        TestTrue(TEXT("Leaving account tools returns to usable local login"), !Buttons.IsEmpty()
+            && ButtonLabel(Buttons[0]) == TEXT("Local development login"));
+    }
     World->DestroyWorld(false); GEngine->DestroyWorldContext(World);
     return true;
 }

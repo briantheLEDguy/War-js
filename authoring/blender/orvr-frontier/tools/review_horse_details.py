@@ -1,4 +1,4 @@
-"""Literal GLB anatomy, harness and shoulder/hip pose close views."""
+"""Animation-free GLB anatomy and harness close views."""
 import json
 from pathlib import Path
 import sys
@@ -6,8 +6,7 @@ import bpy
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import build_collection as build
-from review_motion import activate_clip
-from review_caravan_assembly import snapshots
+from review_model_helpers import snapshots
 ROOT=build.ROOT
 
 
@@ -29,15 +28,15 @@ def render(objects, name, centre, direction, scale):
 
 def main():
     path=ROOT/'runtime/frontier_draft_horse_lod0.glb';records=[]
-    for name,clip,time,centre,offset,scale in [
-      ('frontier_draft_horse_head_close','idle',0,(0,-1.34,1.84),(2.1,-3,1.0),1.63),
-      ('frontier_draft_horse_side_anatomy','idle',0,(0,-.15,1.18),(6,-.25,1.1),3.65),
-      ('frontier_draft_horse_trot_side','draft_trot',.1666666667,(0,-.15,1.18),(6,-.25,1.1),3.65)]:
+    for name,centre,offset,scale in [
+      ('frontier_draft_horse_head_close',(0,-1.34,1.84),(2.1,-3,1.0),1.63),
+      ('frontier_draft_horse_side_anatomy',(0,-.15,1.18),(6,-.25,1.1),3.65),
+      ('frontier_draft_horse_front_anatomy',(0,-.15,1.18),(0,-6,1.1),3.65)]:
         bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.scene.render.fps=30;bpy.ops.import_scene.gltf(filepath=str(path))
         sources=[obj for obj in bpy.context.scene.objects if obj.type=='MESH' and not obj.hide_render and obj.visible_get()]
-        activate_clip(clip,time);objects=snapshots(sources)
+        objects=snapshots(sources)
         for obj in sources:obj.hide_render=True;obj.hide_set(True)
-        records.append({'asset':'frontier_draft_horse','glb_sha256':build.sha(path),'clip':clip,'seconds':time,
+        records.append({'asset':'frontier_draft_horse','glb_sha256':build.sha(path),'pose':'rest',
                         'decision':'pending_visual_review',**render(objects,name,centre,offset,scale)})
     (ROOT/'review/frontier_draft_horse_details.json').write_text(json.dumps({'views':records},indent=2)+'\n')
 

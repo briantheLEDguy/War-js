@@ -241,6 +241,11 @@ void UWarNetworkProofSubsystem::Tick(float DeltaTime)
     {
         if (bServer)
         {
+            // This authored proof arena represents one zone. Realm defaults put
+            // the two fixtures in different capitals, which correctly blocks
+            // impact-time damage despite both pawns occupying the same map.
+            Aegis->SetCurrentZoneTrusted(TEXT("aegis_capital"));
+            Riftbound->SetCurrentZoneTrusted(TEXT("aegis_capital"));
             auto* AttackerController = Cast<AWarPlayerController>(Attacker->GetController());
             auto* DefenderController = Cast<AWarPlayerController>(Defender->GetController());
             if (AttackerController && DefenderController && ReadyControllers.Contains(AttackerController) && ReadyControllers.Contains(DefenderController))

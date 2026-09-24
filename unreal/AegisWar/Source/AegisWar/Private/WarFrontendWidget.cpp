@@ -1,4 +1,6 @@
 #include "WarFrontendWidget.h"
+#include "WarDevelopmentAccount.h"
+#include "Engine/GameInstance.h"
 #include "WarGraphicsWidget.h"
 #include "WarMenuFrame.h"
 #include "WarPlayerController.h"
@@ -49,12 +51,8 @@ namespace
     const TMap<FString, TArray<FString>>& Roster()
     {
         static const TMap<FString, TArray<FString>> Values = {
-            {TEXT("Empire"), {TEXT("Ember Arcanist"), TEXT("Hex Inquisitor"), TEXT("Sunfire Templar"), TEXT("Battle Prelate")}},
-            {TEXT("Dwarf"), {TEXT("Stoneguard"), TEXT("Doomseeker"), TEXT("Glyphbinder"), TEXT("Siegewright")}},
-            {TEXT("High Elf"), {TEXT("Blade Savant"), TEXT("Pride Warden"), TEXT("Aether Sage"), TEXT("Veil Ranger")}},
-            {TEXT("Chaos"), {TEXT("Dreadsworn"), TEXT("Warped Reaver"), TEXT("Void Magister"), TEXT("Ruin Oracle")}},
-            {TEXT("Greenskin"), {TEXT("Warbrute"), TEXT("Fang Herder"), TEXT("Bog Hexer"), TEXT("Cleaver")}},
-            {TEXT("Dark Elf"), {TEXT("Blood Dancer"), TEXT("Dread Guard"), TEXT("Dusk Weaver"), TEXT("Crimson Acolyte")}}
+            {TEXT("Empire"), {TEXT("Battle Prelate"), TEXT("Sunfire Templar"), TEXT("Ember Arcanist")}},
+            {TEXT("Greenskin"), {TEXT("Warbrute")}}
         };
         return Values;
     }
@@ -150,13 +148,40 @@ void UWarFrontendWidget::ShowLogin()
         [SNew(SBorder).BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush")).BorderBackgroundColor(FLinearColor(0.028f, 0.042f, 0.054f)).Padding(20)
             [SNew(STextBlock).Text(FText::FromString(TEXT("DEVELOPMENT PREVIEW\nSteam sign-in is not connected yet. Character setup is available for this session.")))
                 .Font(FCoreStyle::GetDefaultFontStyle("Regular", 15)).ColorAndOpacity(Ivory).AutoWrapText(true)]];
-    AddButton(TEXT("Graphics"), [this] { UWarGraphicsWidget::Open(GetOwningPlayer(), this, true); }, false);
+#if !UE_BUILD_SHIPPING
+    // Keep the usable local entry above optional account tools, including in short windows.
+    if (GetWorld() && GetWorld()->GetNetMode() == NM_Standalone)
+    {
+        AddButton(TEXT("Local development login"), [this]() { ShowCreation(); });
+        Panel->AddSlot().AutoHeight().Padding(0, 4, 0, 8)[SNew(STextBlock).AutoWrapText(true).ColorAndOpacity(Ivory)
+            .Text(FText::FromString(TEXT("Create a character for this test session. No account or companion app required.")))];
+    }
+#endif
     AddButton(TEXT("Sign in with Steam"), [this]() {
         ShowError(TEXT("Steam account authentication is not connected yet. Online character storage and production entry remain unavailable."));
-    });
+    }, false);
 #if !UE_BUILD_SHIPPING
-    if (GetWorld() && GetWorld()->GetNetMode() == NM_Standalone)
-        AddButton(TEXT("Development character setup"), [this]() { ShowCreation(); }, false);
+    AddButton(TEXT("Developer account"), [this]() { ShowDeveloperAccount(); }, false);
+#endif
+    AddButton(TEXT("Graphics"), [this] { UWarGraphicsWidget::Open(GetOwningPlayer(), this, true); }, false);
+}
+
+void UWarFrontendWidget::ShowDeveloperAccount()
+{
+#if !UE_BUILD_SHIPPING
+    AddHeading(TEXT("Developer account"), TEXT("Optional GitHub account sign-in requires the development companion app. Shared server entry is still under development. For local character testing, return to login and choose Local development login."));
+    AddButton(TEXT("Back to login"), [this]() { ShowLogin(); });
+    AddButton(TEXT("Sign in with GitHub"), [this]() {
+        if (auto* Account = GetGameInstance()->GetSubsystem<UWarDevelopmentAccount>()) Account->BeginLogin();
+    }, false);
+    AddButton(TEXT("Sign out of developer account"), [this]() {
+        if (auto* Account = GetGameInstance()->GetSubsystem<UWarDevelopmentAccount>()) Account->Logout();
+    }, false);
+    Panel->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).AutoWrapText(true).ColorAndOpacity(Muted)
+        .Text_Lambda([this]() {
+            const auto* Account = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarDevelopmentAccount>() : nullptr;
+            return FText::FromString(Account ? Account->GetStatus() : TEXT("Development account unavailable."));
+        })];
 #endif
 }
 
@@ -178,10 +203,13 @@ void UWarFrontendWidget::ShowCreation()
             [SNew(STextComboBox).ButtonStyle(&EntryButtonStyle(false)).ColorAndOpacity(Ivory).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).ContentPadding(FMargin(16, 10)).OptionsSource(&Options.Get()).InitiallySelectedItem(Initial)
                 .OnSelectionChanged_Lambda([Options, Change](TSharedPtr<FString> Item, ESelectInfo::Type) { if (Item) Change(*Item); })];
     };
-    Combo(TEXT("Race"), {TEXT("Empire"), TEXT("Dwarf"), TEXT("High Elf"), TEXT("Chaos"), TEXT("Greenskin"), TEXT("Dark Elf")}, Race,
+    if (!Roster().Contains(Race)) Race = TEXT("Empire");
+    if (!Roster()[Race].Contains(Career)) Career = Roster()[Race][0];
+    Body = TEXT("Male");
+    Combo(TEXT("Race"), {TEXT("Empire"), TEXT("Greenskin")}, Race,
         [this](FString Value) { if (Race != Value) { Race = Value; Career = Roster()[Race][0]; ShowCreation(); } });
     Combo(TEXT("Career"), Roster()[Race], Career, [this](FString Value) { Career = Value; });
-    Combo(TEXT("Body"), {TEXT("Female"), TEXT("Male")}, Body, [this](FString Value) { Body = Value; });
+    Combo(TEXT("Body"), {TEXT("Male")}, Body, [this](FString Value) { Body = Value; });
     AddButton(TEXT("Review character"), [this]() {
         CharacterName = CharacterName.TrimStartAndEnd();
         FString Error;

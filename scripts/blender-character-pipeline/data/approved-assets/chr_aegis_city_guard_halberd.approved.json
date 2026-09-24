@@ -15,8 +15,8 @@
     "bindPoseId": "a_pose_v2"
   },
   "hashes": {
-    "modelSha256": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b",
-    "qcSha256": "b6711cb7710dda02926458999e3247310363915bfd31db9dc31d5dde9ba9d47c",
+    "modelSha256": "50e557a335b4642ae7c937c10d438270c1730c82f7ffb09353a59dbcfdda226c",
+    "qcSha256": "fb69cc1eb8adbbe738d9918680ac53cb476a5bb93cca3b2744e29dbb2a96a7d3",
     "previews": {
       "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
     }
@@ -36,6 +36,22 @@
     "sourceSha256": "e71eb70b887be90b2ac8e8461040e1d06c4f9fe783b972750cd2b60265a14d4f",
     "validationSha256": "94479ab260919a17e485dc7b5f48b26b2f772e507abc089fcfe2afc44a0dd038",
     "geometry": "Adapted fitted armor cages, natural human head/neck and authored civic equipment; see derivation.json and anatomy/provenance.json",
-    "limitations": "Simplified cloth, fur and feathers; patrol holds over canonical motion, no dedicated reload animation"
+    "limitations": "Simplified cloth, fur and feathers; patrol holds over canonical motion, no dedicated reload animation",
+    "sourceAnimationRemoval": {
+      "beforeSha256": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b",
+      "afterSha256": "50e557a335b4642ae7c937c10d438270c1730c82f7ffb09353a59dbcfdda226c",
+      "preservationSha256": "dc80ba784d78347a5dca46dff7f1c5b16a70b66599be52cfaae719dd78aabb71",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   }
 }

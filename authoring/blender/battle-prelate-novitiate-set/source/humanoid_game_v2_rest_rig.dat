@@ -1,0 +1,25 @@
+{
+  "sha256": "64f9038b8be075bdd59ce9b257b584b1bcbd0b95b35432e5d8cf6ba41cd57b20",
+  "source_glb_sha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+  "geometry_retained": false,
+  "contents": "Canonical rest armature and four socket empties; animation imported separately",
+  "previousSha256": "083f4afb646502759a2e39274c12e3dd5dfb25a449824ce34d9739ee255daeb0",
+  "animationRemoval": {
+    "path": "authoring/blender/battle-prelate-novitiate-set/source/humanoid_game_v2_animation_contract.blend",
+    "beforeSha256": "083f4afb646502759a2e39274c12e3dd5dfb25a449824ce34d9739ee255daeb0",
+    "afterSha256": "64f9038b8be075bdd59ce9b257b584b1bcbd0b95b35432e5d8cf6ba41cd57b20",
+    "preservationSha256": "5ecb0013e0c0bc78f9450600c8ec6824e14c518689168bde1c1d6f06d92c9f6e",
+    "removedActions": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ],
+    "remainingActions": []
+  }
+}

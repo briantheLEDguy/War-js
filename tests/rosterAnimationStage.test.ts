@@ -6,11 +6,13 @@ import {
 } from "../scripts/blender-character-pipeline/tools/roster-generation.mjs";
 
 describe("roster animation stage", () => {
-  it("requires the complete canonical nine-clip contract", () => {
+  it("requires animation-free bodies for separate native animation import", () => {
     const audit = auditAnimationClipNames(REQUIRED_ANIMATION_CLIPS);
     expect(audit.matches).toBe(true);
     expect(audit.missing).toEqual([]);
     expect(audit.unexpected).toEqual([]);
+    expect(REQUIRED_ANIMATION_CLIPS).toEqual([]);
+    expect(auditAnimationClipNames(["idle"]).matches).toBe(false);
   });
 
   it("reports missing and unexpected clips instead of silently accepting a partial pack", () => {
@@ -20,9 +22,11 @@ describe("roster animation stage", () => {
     expect(audit.unexpected).toEqual(["custom_preview"]);
   });
 
-  it("selects only authored profiles for the two pilot characters", () => {
-    expect(animationProfileForGroup({ key: "battle_prelate" })).toBe("battle_prelate_hammer");
-    expect(animationProfileForGroup({ key: "warbrute" })).toBe("unarmed");
-    expect(animationProfileForGroup({ key: "future_character" })).toBe("unarmed");
+  it("routes four approved characters to supplied styles and leaves unknown rigs unassigned", () => {
+    expect(animationProfileForGroup({ key: "battle_prelate" })).toBe("two");
+    expect(animationProfileForGroup({ key: "warbrute" })).toBe("shield");
+    expect(animationProfileForGroup({ key: "sunfire_templar" })).toBe("shield");
+    expect(animationProfileForGroup({ key: "ember_arcanist" })).toBe("spell");
+    expect(animationProfileForGroup({ key: "future_character" })).toBeNull();
   });
 });

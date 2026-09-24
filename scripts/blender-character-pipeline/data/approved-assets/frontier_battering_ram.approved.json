@@ -6,21 +6,7 @@
   "model": "frontier_battering_ram_lod0.glb",
   "qc": "frontier_battering_ram_lod0.qc.json",
   "runtime": {
-    "staticKey": "frontier_battering_ram",
-    "operatorAnimationPacks": {
-      "left": {
-        "model": "frontier_ram_crew_left_animations.glb",
-        "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
-        "skeletonId": "humanoid_game_v2",
-        "bindPoseId": "a_pose_v2"
-      },
-      "right": {
-        "model": "frontier_ram_crew_right_animations.glb",
-        "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
-        "skeletonId": "humanoid_game_v2",
-        "bindPoseId": "a_pose_v2"
-      }
-    }
+    "staticKey": "frontier_battering_ram"
   },
   "compatibility": {
     "bodyFamily": "static_architecture",
@@ -58,7 +44,23 @@
     "referencePackId": "original_frontier_siege_v1",
     "similarityReview": "not_required",
     "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
-    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+    "retiredAnimationBindings": {
+      "operatorAnimationPacks": {
+        "left": {
+          "model": "frontier_ram_crew_left_animations.glb",
+          "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
+          "skeletonId": "humanoid_game_v2",
+          "bindPoseId": "a_pose_v2"
+        },
+        "right": {
+          "model": "frontier_ram_crew_right_animations.glb",
+          "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
+          "skeletonId": "humanoid_game_v2",
+          "bindPoseId": "a_pose_v2"
+        }
+      }
+    }
   },
   "approvalState": "approved"
 }

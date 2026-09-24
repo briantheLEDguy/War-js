@@ -2,12 +2,14 @@
 import json
 from pathlib import Path
 import unreal
+import sys
+sys.path.insert(0,str(Path(__file__).parent))
+from native_animation_bindings import installed
 
 ROOT = Path(__file__).resolve().parents[2]
 for profile in ("npc_frontier_sunmeadow_empire_herbalist", "mire_warbrute_m"):
     folder = ROOT / "artifacts/unreal/converted" / profile
-    receipt = json.loads((folder / "editor-import.json").read_text())
-    source = json.loads((folder / "animation-samples.json").read_text())["source"]
+    receipt = installed(profile)
     options = unreal.AnimPoseEvaluationOptions()
     options.set_editor_property("evaluation_type", unreal.AnimDataEvalType.RAW)
     result = {}
@@ -15,7 +17,7 @@ for profile in ("npc_frontier_sunmeadow_empire_herbalist", "mire_warbrute_m"):
         name = clip["sourceClipName"]
         animation = unreal.load_asset(clip["path"])
         frames = []
-        for time in source[name]["sampleTimesSeconds"]:
+        for time in (clip['durationSeconds']*i/16 for i in range(17)):
             pose = unreal.AnimPoseExtensions.get_anim_pose_at_time(animation, time, options)
             joints = {}
             for bone in unreal.AnimPoseExtensions.get_bone_names(pose):

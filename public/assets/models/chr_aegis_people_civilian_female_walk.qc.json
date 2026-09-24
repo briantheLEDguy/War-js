@@ -1,7 +1,7 @@
 {
   "assetId": "chr.aegis.people.civilian_female_walk",
   "model": "chr_aegis_people_civilian_female_walk.glb",
-  "modelSha256": "cbe2ed167cde84f1a465e4332bcc25e19492c9acb36e92a0c31e73a61ca19d63",
+  "modelSha256": "a43c194ad24ee715a358113670e6a1d9ce991b9ee24cde222d5cad6dea86554e",
   "triangles": 81770,
   "skeletonId": "aegis_people_v1",
   "bindPoseId": "civic_relaxed_v1",
@@ -17,5 +17,20 @@
   "sourceSha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
   "repairedVertices": 16146,
   "preservedChannels": "Positions, topology, normals, tangents, UVs, embedded images, materials, skeleton and original idle clip unchanged",
-  "review": "reviews/aegis-civic-locomotion/approval.json"
+  "review": "reviews/aegis-civic-locomotion/approval.json",
+  "fileSizeBytes": 7802496,
+  "sourceAnimationRemoval": {
+    "beforeSha256": "cbe2ed167cde84f1a465e4332bcc25e19492c9acb36e92a0c31e73a61ca19d63",
+    "afterSha256": "a43c194ad24ee715a358113670e6a1d9ce991b9ee24cde222d5cad6dea86554e",
+    "preservationSha256": "8b6512ddb7afcfc7b0b90dc9b0d3b41580737e24a8cbcdc0f8a76338c22f5416",
+    "removedClips": [
+      "idle",
+      "walk"
+    ],
+    "modelContentUnchanged": true,
+    "animationValidation": "Native supplied-set evidence is separate"
+  },
+  "provenance": {
+    "retiredEmbeddedAnimationValidation": {}
+  }
 }

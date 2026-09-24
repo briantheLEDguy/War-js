@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 2,
+  "style": "shield",
+  "sourceFolder": "swordandshield",
+  "locomotion": {
+    "idle": "shield.block",
+    "combat_idle": "shield.block",
+    "walk": "shield.walk",
+    "walk_backward": "shield.back",
+    "run": "shield.run",
+    "strafe_left": "shield.left",
+    "strafe_right": "shield.right",
+    "turn_left": "shield.turn_left",
+    "turn_right": "shield.turn_right",
+    "hit_front": "shield.impact",
+    "hit_back": "spell.impact_back",
+    "jump": "shield.jump",
+    "death": "shield.death"
+  }
+}

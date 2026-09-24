@@ -33,7 +33,10 @@ describe('Aegis civic guard loadouts', () => {
       const entry = index.characterProfiles[`npc_aegis_city_guard_${variant}`];
       const hash = createHash('sha256').update(readFileSync(root + entry.model)).digest('hex');
       expect(hash).toBe(entry.modelSha256);
-      expect(hash).toBe(audit.models[variant]);
+      const qc = JSON.parse(readFileSync(root + entry.qc, 'utf8'));
+      expect(qc.sourceAnimationRemoval.beforeSha256).toBe(audit.models[variant]);
+      expect(qc.sourceAnimationRemoval.afterSha256).toBe(hash);
+      expect(qc.sourceAnimationRemoval.modelContentUnchanged).toBe(true);
     }
     for (const variant of ['halberd', 'crossbow']) {
       const samples = audit.samples.filter((s: { variant: string }) => s.variant === variant);

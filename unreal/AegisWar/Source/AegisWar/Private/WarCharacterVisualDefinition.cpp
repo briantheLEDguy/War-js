@@ -4,6 +4,7 @@
 #include "Animation/AnimSequence.h"
 #include "Animation/Skeleton.h"
 #include "Engine/SkeletalMesh.h"
+#include "Engine/StaticMesh.h"
 #if WITH_EDITOR
 #include "Misc/DataValidation.h"
 #endif
@@ -54,6 +55,43 @@ bool UWarCharacterVisualDefinition::ValidateForSpawn(const EWarRealm ExpectedRea
         const UAnimSequence* Animation = Entry.Value.LoadSynchronous();
         if (!Animation || Animation->GetSkeleton() != Mesh->GetSkeleton())
             return Reject(TEXT("Character animation set contains a missing or incompatible sequence."));
+    }
+    if (!AnimationStyle.IsNone())
+    {
+        const UAnimSequence* Basic = ImportedAnimations.FindRef(TEXT("attack_melee")).LoadSynchronous();
+        if (!Basic || !FMath::IsFinite(BasicContactSeconds) || BasicContactSeconds <= 0 || BasicContactSeconds >= Basic->GetPlayLength())
+            return Reject(TEXT("Basic attack requires an authored contact inside its recovery duration."));
+        for (FName Required : {FName(TEXT("idle")), FName(TEXT("walk_backward")), FName(TEXT("strafe_left")), FName(TEXT("strafe_right")),
+            FName(TEXT("turn_left")), FName(TEXT("turn_right")), FName(TEXT("hit_front")), FName(TEXT("hit_back")), FName(TEXT("landing"))})
+            if (!ImportedAnimations.Contains(Required)) return Reject(TEXT("Native animation states are incomplete."));
+        const bool bPlayable = ProfileKey == TEXT("civic_battle_prelate_m") || ProfileKey == TEXT("civic_sunfire_templar_m")
+            || ProfileKey == TEXT("civic_ember_arcanist_m") || ProfileKey == TEXT("mire_warbrute_m");
+        if (bPlayable && AbilityPresentations.IsEmpty()) return Reject(TEXT("Playable profile requires explicit ability presentations."));
+        if (bPlayable && !WeaponMesh.LoadSynchronous()) return Reject(TEXT("Playable profile requires its authored weapon."));
+        if (bPlayable && AnimationStyle == TEXT("shield") && !ShieldMesh.LoadSynchronous()) return Reject(TEXT("Sword-and-shield profile requires its authored shield."));
+        for (const auto& Entry : AbilityPresentations)
+        {
+            const auto& Recipe = Entry.Value;
+            if (!Entry.Key.ToString().StartsWith(ClassId.ToString()+TEXT(".")) || Recipe.VariantRoles.IsEmpty() || Recipe.SuppliedSources.IsEmpty()
+                || !FMath::IsFinite(Recipe.Duration) || !FMath::IsFinite(Recipe.ContactSeconds)
+                || Recipe.ContactSeconds <= 0 || Recipe.ContactSeconds >= Recipe.Duration)
+                return Reject(TEXT("Ability presentation has invalid identity or event timing."));
+            if (Recipe.Movement == TEXT("leap"))
+            {
+                if (Recipe.CapsuleHeights.Num() < 2 || !FMath::IsNearlyZero(Recipe.CapsuleHeights[0]) || !FMath::IsNearlyZero(Recipe.CapsuleHeights.Last()))
+                    return Reject(TEXT("Leap movement requires a grounded start and recovery."));
+                for (float Height : Recipe.CapsuleHeights)
+                    if (!FMath::IsFinite(Height) || Height < 0 || Height > 150)
+                        return Reject(TEXT("Leap capsule movement is invalid."));
+            }
+            for (FName Variant : Recipe.VariantRoles)
+            {
+                const auto* Ref = ImportedAnimations.Find(Variant);
+                const auto* Sequence = Ref ? Ref->LoadSynchronous() : nullptr;
+                if (!Sequence || FMath::Abs(Sequence->GetPlayLength()-Recipe.Duration) > 1.f/30.f)
+                    return Reject(TEXT("Ability variants must exist and share the same gameplay duration."));
+            }
+        }
     }
     return true;
 }

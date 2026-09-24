@@ -51,12 +51,13 @@ void UWarStrikeAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
     }
     const float Duration = Attacker->GetAbilityAnimationDuration(TEXT("attack_melee"));
     const TWeakObjectPtr<AActor> WeakTarget(Target);
+    const int32 ActionSerial = Attacker->GetReplicatedMotion().Serial + 1;
     FTimerHandle Impact;
-    Attacker->GetWorldTimerManager().SetTimer(Impact, FTimerDelegate::CreateWeakLambda(Attacker, [Attacker, WeakTarget] {
+    Attacker->GetWorldTimerManager().SetTimer(Impact, FTimerDelegate::CreateWeakLambda(Attacker, [Attacker, WeakTarget, ActionSerial] {
         const auto* Status = UWarCombatStatus::On(Attacker);
-        if (Status && Status->Has(TEXT("stagger"))) return;
+        if (Attacker->IsDead() || Attacker->GetReplicatedMotion().Serial != ActionSerial || (Status && Status->Has(TEXT("stagger")))) return;
         UWarCombatStatus::Damage(WeakTarget.Get(), Attacker, WarValidation::StrikeDamage * (Status ? Status->OutgoingScale() : 1), WarValidation::StrikeRangeCm);
-    }), FMath::Max(.01f, Duration * (Attacker->GetAnimationProfile() == TEXT("civic_battle_prelate_m") ? .8f : .52f)), false);
+    }), FMath::Max(.01f, Attacker->GetBasicAttackContact()), false);
     Attacker->MulticastPlayAbilityMotion(TEXT("attack_melee"), Duration, false);
     EndAbility(Handle, ActorInfo, ActivationInfo, true, false);
 }

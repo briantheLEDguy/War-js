@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "historicalContentSha256": "279731e631b268d4cfbacb99765eeacaa5af851c5611100335c92aceb438e37e",
+  "currentContentSha256": "00e5e9cfaa83e12ffd5416f219ede6c43ca1eee2f2db5d3eb118d0ef93f8ff2e",
+  "reason": "Approved supplied animation replacement removes legacy Prelate presentation overrides and implements Icon of Wrath; concurrent ability-workshop baseline exports are preserved. The original browser content digest remains immutable."
+}

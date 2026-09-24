@@ -5,6 +5,9 @@ import importlib.util
 import math
 from pathlib import Path
 import unreal
+import sys
+sys.path.insert(0,str(Path(__file__).parent))
+from native_animation_bindings import installed, PRESENTATIONS
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "artifacts/unreal/visual-proof"
@@ -22,11 +25,7 @@ spec.loader.exec_module(imports)
 profiles = tuple(dict.fromkeys(options.profile or ("npc_frontier_sunmeadow_empire_herbalist", "mire_warbrute_m")))
 receipts = []
 for profile in profiles:
-    context = imports.validate_inputs(profile)
-    receipt = imports.load_json(context["directory"] / "editor-import.json")
-    imports.require(receipt["importSucceeded"] and receipt["conversionSha256"] == context["conversionSha256"]
-                    and receipt["sourceSha256"] == context["conversion"]["sourceSha256"], "Stale preview import evidence")
-    imports.require(receipt["kind"] == "characterProfiles", "Character preview requires skeletal geometry")
+    receipt = installed(profile)
     if not options.rest:
         clip = next((clip for clip in receipt["animations"] if clip["sourceClipName"] == options.clip), None)
         imports.require(clip is not None and options.time <= clip["durationSeconds"], "Unknown clip or preview time beyond duration")
@@ -60,7 +59,7 @@ for index, (profile, receipt) in enumerate(zip(profiles, receipts, strict=True))
     measured = unreal.WarImportLibrary.get_skinned_bounds(component)
     unreal.log(f"WAR_SKIN_BOUNDS {profile} {measured}")
     rendered_models.append({"profileKey": profile, "sourceSha256": receipt["sourceSha256"],
-        "importReceiptSha256": imports.sha256(ROOT / "artifacts/unreal/converted" / profile / "editor-import.json"),
+        "presentationManifestSha256": imports.sha256(PRESENTATIONS),
         "skeletalMeshPath": receipt["meshes"][0]["path"], "skinnedBoundsCm": {
             "min": [measured.min.x, measured.min.y, measured.min.z],
             "max": [measured.max.x, measured.max.y, measured.max.z]}})

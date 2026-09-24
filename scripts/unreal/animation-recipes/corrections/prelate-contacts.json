@@ -1,0 +1,10 @@
+{
+  "profile": "civic_battle_prelate_m",
+  "measurement": "source-contact-trajectories.json: equipped hammer forward strike and descending smash phases, 30 Hz",
+  "markers": {
+    "two.slash": {"default": 1.7666666666666666, "finisher": 2.6666666666666665},
+    "two.slide": {"default": 1.2666666666666666},
+    "two.jump_attack": {"default": 1.2},
+    "two.spin": {"default": 1.2}
+  }
+}

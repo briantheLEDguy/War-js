@@ -1,6 +1,9 @@
 #include "WarAttributeSet.h"
 #include "WarCharacter.h"
 #include "WarCombatStatus.h"
+#include "WarSiegeGameMode.h"
+#include "WarWrathRelic.h"
+#include "WarPlayerState.h"
 #include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
 
@@ -25,6 +28,13 @@ void UWarAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, f
 bool UWarAttributeSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData& Data)
 {
     if (!Super::PreGameplayEffectExecute(Data)) return false;
+    if (Data.EvaluatedData.Attribute == GetHealthAttribute()) HealthBeforeEffect = GetHealth();
+    if (auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Siege && Data.EvaluatedData.Attribute == GetHealthAttribute())
+    {
+        auto* Avatar = GetOwningAbilitySystemComponent()->GetAvatarActor();
+        if (Data.EvaluatedData.Magnitude < 0 && (Siege->IsProtected(Avatar) || Siege->IsProtected(Data.EffectSpec.GetContext().GetInstigator()))) return false;
+        if (const auto* Unit = Cast<AWarSiegeCharacter>(Avatar); Unit && Unit->Unit == EWarSiegeUnit::Commander && Data.EvaluatedData.Magnitude > 0) return false;
+    }
     if (Data.EvaluatedData.Attribute == GetHealthAttribute() && Data.EvaluatedData.Magnitude < 0)
         if (auto* Status = UWarCombatStatus::On(GetOwningAbilitySystemComponent()->GetAvatarActor()))
             Data.EvaluatedData.Magnitude = -Status->ReceiveDamage(-Data.EvaluatedData.Magnitude);
@@ -36,7 +46,21 @@ void UWarAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbac
     Super::PostGameplayEffectExecute(Data);
     if (Data.EvaluatedData.Attribute == GetHealthAttribute())
     {
+        if (Data.EvaluatedData.Magnitude < 0)
+            if (const auto* Unit = Cast<AWarSiegeCharacter>(GetOwningAbilitySystemComponent()->GetAvatarActor()); Unit && Unit->Unit == EWarSiegeUnit::Commander)
+                if (auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>()) Siege->CommanderDamaged();
         SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
+        const float HealthLost = FMath::Max(0.f, HealthBeforeEffect - GetHealth());
+        auto* Dealer = Cast<AWarCharacter>(Data.EffectSpec.GetContext().GetInstigator());
+        const auto* Victim = Cast<AWarCharacter>(GetOwningAbilitySystemComponent()->GetAvatarActor());
+        const auto* DealerState = Dealer ? Dealer->GetPlayerState<AWarPlayerState>() : nullptr;
+        const auto* VictimState = Victim ? Victim->GetPlayerState<AWarPlayerState>() : nullptr;
+        if (Data.EvaluatedData.Magnitude < 0 && DealerState && VictimState && DealerState->GetRealm() != EWarRealm::None
+            && VictimState->GetRealm() != EWarRealm::None && DealerState->GetRealm() != VictimState->GetRealm()
+            && DealerState->GetCurrentZone() == VictimState->GetCurrentZone()) AWarWrathRelic::HostileHealthDamage(Dealer, HealthLost);
+        if (HealthLost > 0 && GetHealth() > 0)
+            if (auto* Avatar = Cast<AWarCharacter>(GetOwningAbilitySystemComponent()->GetAvatarActor()))
+                Avatar->ReactToHit(Data.EffectSpec.GetContext().GetInstigator(), HealthLost);
         if (GetHealth() <= 0.f)
         {
             if (AWarCharacter* Avatar = Cast<AWarCharacter>(GetOwningAbilitySystemComponent()->GetAvatarActor()))

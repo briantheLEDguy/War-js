@@ -1,125 +1,143 @@
-# Supplied animation import workflow
+# Supplied animation replacement
 
-The procedural animation studies are paused. The current implementation uses
-the owner's local FBXs in `unreal/AegisWar/AnimationImport/Two-handed`.
-Source FBXs and generated Unreal packages remain local/ignored.
+The active source contract is all **44 FBXs** in `AnimationImport/Two-handed`,
+`swordandshield` and `Spellcast`. `animation_replacement.py` records exact names,
+style templates, four character recipes and forty ability presentations. FBXs and
+native Content remain private, ignored assets.
 
-## Battle Prelate result
+| Profile | Equipped presentation | Movement |
+|---|---|---|
+| Battle Prelate | Established body, armor and two-handed hammer | Two-handed |
+| Sunfire Templar | Male Empire body, articulated plate, blue tabard, sun heraldry, sword and shield | Sword and shield |
+| Warbrute | Existing Greenskin body and armor, cleaver and scavenged shield | Sword and shield |
+| Ember Arcanist | Existing body, robes and staff | Spellcast |
 
-Eleven Mixamo two-handed clips are imported and retargeted onto the equipped
-Prelate's own skeleton. The live `Visual_civic_battle_prelate_m` uses the new
-idle, combat idle, walk and `Great Sword Slash (1)` for the basic strike. The
-other slash is a longer combination whose ground clearance fails on this hammer;
-it remains a library entry. All eleven are also registered under
-`two_handed_<clip>` names. The original run, jump, death, ranged and cast roles
-remain assigned: the supplied set has no run/death/cast, and jump/special attacks
-need movement and ability timing integration before activation.
+Hybrid abilities select weapon or Spellcast choreography individually. Equipment
+moves between hand and back bindings for free-handed casts. The three spell
+attacks provide projectile, focused/channelled and broad ritual families. Shield
+idle derives from the new block pose; caster backward movement reverses the new
+walk; caster jump and landing adapt the supplied two-handed jump. No missing
+state falls back to an old character clip.
 
-The same body, armor, materials and hammer are retained. The hammer's rigid
-binding moves 72 cm along its shaft to put the hands below its head and shorten
-the pommel behind them. The support arm is fitted to the shaft without stretching
-its bones; the supplied pelvis, torso and leg rotations are preserved. Linear
-horizontal travel is removed from movement/basic attack library clips because
-the current pawn uses CharacterMovement and single-node animation playback.
-
-The saved native visual and runtime admission registry are updated together.
-`BeforeTwoHanded` and `original-binding.json` retain the previous visual and
-registry entry. The installer changes only the Prelate entry, preserving other
-characters and unrelated animation roles. Re-run installation after the older
-`recover-battle-prelate.py` or `prepare-proof.py` resets this visual.
-
-## Repeatable command
+## Pipeline and ownership
 
 ```powershell
-python scripts/unreal/animation-pipeline.py battle-prelate-two-handed --review
-python scripts/unreal/animation-pipeline.py battle-prelate-two-handed --from-stage verify
-python tests/unrealPrelateTwoHanded.test.py
+python scripts/unreal/animation-pipeline.py supplied-four --review
+python scripts/unreal/animation-pipeline.py supplied-four --from-stage verify
+python scripts/unreal/animation-pipeline.py sunfire-templar --from-stage retarget --review
 ```
 
-`--unreal` and `--blender` override executable locations; `WAR_UNREAL_EDITOR`
-also overrides Unreal. Stages stop on failure and write separate logs under
-`artifacts/unreal/two-handed`. Rendering is optional. `--from-stage` resumes
-at a known stage. **Re-run retarget before fit**: grip fitting intentionally
-rejects fitting an already-fitted animation. Source imports are reused by
-source/body hash; changing FBX bytes creates a separate import directory.
+`--unreal`, `--blender` and `WAR_UNREAL_EDITOR` override executable locations.
+Recipes live in `scripts/unreal/animation-recipes/`; reusable locomotion templates
+live in its `styles/` directory. The all-character recipe also migrates admitted
+humanoid NPC rigs. Character recipes restrict retargeting, fitting and composition
+to that profile. Logs and receipts live in `artifacts/unreal/animation-replacement`.
+Run Unreal mutation stages sequentially with other Editor/proof processes closed.
 
-Stages are declared in `scripts/unreal/animation-recipes/`. Source filenames,
-bone-chain mapping and live role decisions are in `prelate_two_handed.py`.
-The Blender preparation measures the original authored grip locations and
-adapts only the weapon binding. Unreal performs the actual animation import,
-IK retarget, compression, native validation and rendering.
+1. Inventory every FBX's SHA-256, skeleton, duration, frame rate and hip travel.
+2. Prepare animation-free bodies and separately imported equipment. Templar
+   additions use the established human body/rig and baked material channels.
+3. Retarget onto each body's own skeleton. Preserve rest scale and limb lengths.
+   The current humanoid rig has a 100x root above metre-space bones; this
+   correction must not be assumed for another rig.
+4. Fit the Prelate support hand to the hammer shaft without stretching bones.
+   Its 72 cm shaft correction belongs only to that character.
+5. Compose preparations, combinations, holds and full recoveries. Both Smash
+   variants share one authoritative contact time and recovery duration. Remove
+   horizontal source travel; the capsule owns slide, charge and leap movement.
+   The airborne sword-and-shield chains transfer their sampled vertical travel
+   into the swept capsule. Landing adaptations keep the feet at physical ground.
+   Contact markers are measured against the equipped hammer, sword and cleaver;
+   the second hammer slash supplies Sanctified Blow's distinct finishing motion.
+   The final descending shield-combo strike owns its damage event.
+6. Install visual definitions and `Content/Migration/visual-imports.json` together.
+   Each playable has ten ability bindings. Unknown active rigs fail installation.
+7. Verify skeleton associations, raw/compressed poses, finite transforms, limb
+   lengths and recovery; render equipped front/side views.
 
-## Notes for subsequent characters
+`SuppliedPoseCompressionV1` has a stable codec identity and scale-aware settings.
+`WarImportLibrary.finalize_animation_sampling` synchronizes authored tracks and
+platform compression rates. Body import is separate from animation: character
+GLBs with embedded tracks are rejected. `convert-model.py --verify-existing`
+checks retained, track-stripped FBXs without re-exporting their meshes. New body
+import receipts verify reference poses and contain an empty animation array.
 
-1. Inventory FBX skeleton, frame rate, duration and travel before importing.
-   Reuse one source skeleton for clips with the same hierarchy. Never make the
-   Mixamo mannequin the character's gameplay mesh.
-2. Add an explicit character recipe and anatomical chain mapping. Reuse the
-   source-rig pattern and runner; keep class-specific weapon/grip, source paths,
-   live roles and backup destinations separate. Do not apply the Prelate's
-   72 cm hammer offset or 100x bind correction to another rig automatically.
-3. Establish a bind pose and scale baseline before touching poses. This rig has
-   a `humanoid_game_v2` armature at 100x above meter-space bones. UE 5.8 retarget
-   processing strips scale. Restore that top-bone bind scale and divide the
-   retargeted pelvis translation by 100; other FK local translations already
-   use the target bone units. The root-motion operation must not copy Mixamo's
-   pelvis height into the ground root.
-4. Align chain poses, then inspect the equipped character from front and side.
-   Weapon skinning can bias automatic hand alignment. Fit contact after body
-   retargeting, retain original elbow planes, slide the support grip only along
-   the shaft, and reject unreachable contacts for live roles. Check the head,
-   torso, armor and legs through the complete swing, including recovery.
-5. Decide movement ownership per clip. Forward-moving attacks and jumps cannot
-   simply play at full root travel on a capsule-driven pawn. Do not fabricate a
-   run from a walk, or bind a slide/spin to a basic strike merely because it exists.
-6. Use scale-aware ACL compression and sample raw/compressed native poses.
-   Verify every limb length and every saved animation/skeleton association.
-   Register paths in both the visual DataAsset and `visual-imports.json` or the
-   native admission gate correctly rejects the character.
-7. Keep all source assets local, maintain backup bindings, and record which clips
-   are active versus library-only. Repeat technical validation and visual review
-   for each character; successful retargeting is not animation/art approval.
+## Native runtime
 
-### Verified Unreal 5.8 Python API details
+`WarAnimationInstance` extracts and blends supplied poses. `WarCharacter`
+selects directional locomotion, turn-in-place, jump/landing, directional reactions,
+actions and death. Locomotion phase follows measured speed. The server chooses
+the variant and replicates its identity, serial, start, duration and equipment
+state. Clients evaluate poses against the server clock, including late joins.
+Drawn and stowed equipment use native bone sockets. Supplied preparation and
+recovery poses carry the equipment by its grip around the torso, with fixed-length
+arm fitting before the back attachment takes over. Equipment updates after bone
+finalization using the evaluated pose's time, including parallel evaluation;
+death releases it beside the corpse above ground. Structural checks also compare
+the hand and back transforms at each attachment handoff.
 
-- Use absolute `.uproject` paths in unattended commands; prefer legacy FBX
-  import here (`Interchange.FeatureFlags.Import.FBX 0`). Source namespaces are
-  stripped (`mixamorig:Hips` becomes `Hips`).
-- `IKRigController.add_retarget_chain(name, start, end, "None")`,
-  `set_retarget_root`, `IKRetargeterController.add_default_ops`,
-  `auto_map_chains(EXACT, True)` and `auto_align_all_bones(TARGET)` are supported.
-- Use `IKRetargetBatchOperation.run_batch_retarget(inputs)` in 5.8.
-- Read `AnimSequence` skeleton with `get_editor_property("skeleton")`.
-  Write tracks via `animation.controller.set_bone_track_keys`; there is no
-  Python `get_controller()` method on AnimSequence.
-- Mesh materials are edited through the `materials` struct array. FBX slot
-  sanitization replaces dots with underscores; match names, not slot ordering.
-- This `validate_for_spawn` binding returns the error string on success (empty)
-  or `None` on failure, not a `(bool, string)` tuple.
-- Never reuse `new_level` at an existing asset path. Review levels are isolated
-  and uniquely named; the owner's city map is not saved by these tools.
+`WarAbilityRuntime` owns contact/release events, interruption and capsule motion.
+Sweeps reject obstructed travel before spending resources; new obstructions cancel
+pending contact. Smash shares one capsule trajectory across both variants,
+rejects insufficient overhead clearance and removes duplicate pose lift.
+The ten-slot bar and existing controls remain.
 
-## Verification and remaining work
+`WarWrathRelic` implements Icon of Wrath: 14-second cooldown, 15 mana, five-metre
+radius and ten-second lifetime. Its authored relic heals allied living players
+and participant bots for 10% of actual hostile health damage while in range and
+line of sight. Overlaps do not stack; encounter NPCs, overheal and recursive
+healing are excluded. Replacement, death, disconnect and zone exit remove it.
 
-`verify-prelate-two-handed.py` reloads saved assets, checks native spawn readiness
-and registry agreement, then compares raw/compressed poses at 60 Hz with a
-0.1 cm position tolerance and 0.01 cm limb-length tolerance. It checks the full
-rigid weapon bounding box against the ground and rejects live roles that cross
-it. This conservative ground check does not replace body/armor collision review.
-The role tests cover
-preservation of existing clips, distinct source clips and rejection of missing,
-nonfinite or unreachable live grips.
+## Removal and verification
 
-Some library-only clips still have up to approximately 2 cm of unreachable
-support-hand contact with this body. They are not active gameplay roles.
-Final armor/weapon clearance, animation blending, movement-speed matching,
-contact-timed damage and jump/special action integration remain review work.
-No production, Steam, Linux/macOS or final visual approval is implied.
+`migration/animation-removal.json` preserves textual provenance and before/after
+hashes. GLB, Blender and binary FBX cleanup verifies that meshes, materials,
+skinning, corrective shapes and rest rigs survive. Animation-only sources,
+obsolete native sequences/graphs, duplicate imports, backups and obsolete
+generators are deleted. The standalone `AnimationImport/Spell Cast.fbx` is
+deleted. Environmental door/gate/mechanism animation and Git history remain.
 
-Current Windows/UE 5.8.2 evidence: 11 native clips, 1,251 raw/compressed pose
-samples at 60 Hz, native spawn and saved-registry validation, three focused
-role tests, 94 Unreal tooling tests and tooling typecheck passed. Migration audit
-retains four release blockers. `verification.json`, `installed.json`,
-`grip-fit.json` and native review frames record the local result. A standalone
-native pawn activation probe could not set the protected visual property from
-Python; it is not counted as an end-to-end gameplay test.
+```powershell
+python scripts/unreal/publish-animation-removal.py
+python scripts/unreal/verify-animation-removal.py
+npm run unreal:test-native
+npm run unreal:test-native -- --capture-animations
+npm run unreal:animation-network-proof
+python scripts/unreal/publish-animation-coverage.py
+```
+
+Run `verify-complete-animation-replacement.py` through the Unreal Python commandlet
+for the complete installed playable/NPC check, equipped ground measurements and
+fresh asset-registry, redirector-dependency and populated-map checks.
+`measure-equipped-motion.py` samples every LOD0 equipment vertex at 30 Hz, including
+stow transitions and capsule-owned leaps, and rejects ground penetration. This
+ground check does not replace body/armor clearance review.
+
+`SuppliedAnimationGameplay` executes forty abilities and both Smash variants for
+player and participant-bot fixtures, then movement, turns, jump/landing, reactions
+and death. It checks contact timing, recovery, interruption, obstacles, released
+equipment and production respawn for all four selected profiles.
+The optional capture pass waits for actual mesh and shader compilation, then
+records the production actors at preparation, contact and recovery from two
+views, plus movement/reaction/death/respawn. Its images and execution times are
+in `Saved/AnimationGameplayCapture/frames.json`; snapshots do not independently
+grant production art approval.
+`IconOfWrath` tests actual-damage eligibility, occlusion, overlap and cleanup.
+The loopback proof requires both clients to evaluate all 41 variants and a
+delayed client to observe an action in progress. Received identities and
+start/duration values are compared with the authority. Pose receipts are published
+after Unreal completes evaluation and include the server time sampled by that
+evaluation. The proof checks phase against that timestamp and rejects poses older
+than one frame plus 50 ms; asset-loading hitches cannot be mistaken for clock drift.
+State selection runs at pose preparation, so movement-triggered mesh updates do
+not reuse the previous pawn tick's action time.
+
+`publish-animation-coverage.py` requires every source to have recorded player
+and bot execution, all forty abilities to execute, structural checks to pass and
+late-join synchronization to be verified. Its public manifest links source
+hashes to private receipts and exact scenario indices. Importing a clip or
+placing it in a preview never counts as gameplay coverage.
+
+Review equipped renders and complete movement/contact/clearance evidence before
+visual acceptance. Windows development proofs do not approve Steam admission,
+Linux/macOS packages or three-platform release gates.

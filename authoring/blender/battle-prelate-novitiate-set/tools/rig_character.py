@@ -31,7 +31,7 @@ import build_proof as authored
 
 SLOTS=("body","head","shoulders","chest","hands","waist","legs","feet","back","tabard","weapon")
 COMPONENT_SLOTS={"head":"body","gorget":"head","breastplate":"chest","pauldron":"shoulders","medallion":"chest","garments":"tabard","backplate":"back","warhammer":"weapon","tome":"waist","arms":"hands","body_underlayers":"body"}
-CLIPS={"idle","walk","run","combat_idle","attack_melee","attack_ranged","cast","death","jump"}
+CLIPS=set()
 BAKED_CLOTH_DETAILS={"relic_tabard_fold_following_cross","relic_tabard_gilded_pointed_hem"}
 LOD2_OMIT={
     "gorget_creed_inlay","gorget_authored_rivet","knee_skull_teeth",
@@ -62,20 +62,20 @@ def verify_contract_rig(rig):
 
 
 def import_contract_rig(path):
-    frozen=ROOT/"source/humanoid_game_v2_animation_contract.blend"
+    frozen=ROOT/"source/humanoid_game_v2_rest_rig.blend"
     if frozen.exists():
         metadata=json.loads(frozen.with_suffix(".dat").read_text())
         if hashlib.sha256(frozen.read_bytes()).hexdigest()!=metadata["sha256"]:
             raise ValueError("Frozen animation contract hash mismatch")
         with bpy.data.libraries.load(str(frozen),link=False) as (data_from,data_to):
             data_to.objects=data_from.objects
-            data_to.actions=data_from.actions
+            if data_from.actions: raise ValueError("Rest rig unexpectedly contains animation")
         for obj in data_to.objects:
             if obj.type not in {"ARMATURE","EMPTY"}:
                 raise ValueError("Animation contract must contain no mesh objects")
             bpy.context.scene.collection.objects.link(obj)
         rigs=[obj for obj in data_to.objects if obj.type=="ARMATURE"]
-        if len(rigs)!=1 or not CLIPS.issubset({a.name for a in data_to.actions}):
+        if len(rigs)!=1:
             raise ValueError("Frozen animation contract missing rig/actions")
         rig=rigs[0]
         rig.data.pose_position="REST"
@@ -109,8 +109,8 @@ def import_contract_rig(path):
     for image in set(bpy.data.images)-before_images:
         if image.users==0:
             bpy.data.images.remove(image)
-    if not CLIPS.issubset({a.name for a in bpy.data.actions}):
-        raise ValueError("Canonical source is missing required animation clips")
+    if bpy.data.actions:
+        raise ValueError("Body source unexpectedly contains animation clips")
     if rig.animation_data:
         rig.animation_data.action=None
         for track in rig.animation_data.nla_tracks:
@@ -120,7 +120,7 @@ def import_contract_rig(path):
         bone.matrix_basis=Matrix.Identity(4)
     rig["socket_objects"]=json.dumps(sorted(o.name for o in sockets))
     bpy.context.view_layer.update()
-    rig["geometry_provenance"]="Armature and compatible animations only; no original mesh retained"
+    rig["geometry_provenance"]="Armature and rest pose only; no original mesh retained"
     rig["source_sha256"]=hashlib.sha256(path.read_bytes()).hexdigest()
     verify_contract_rig(rig)
     bpy.data.libraries.write(str(frozen),{rig,*sockets,*bpy.data.actions},fake_user=True,compress=True)
@@ -314,7 +314,7 @@ def export_glb(path, objects, animations):
         obj.select_set(True)
     bpy.context.view_layer.objects.active=objects[0]
     bpy.ops.export_scene.gltf(filepath=str(path),export_format="GLB",use_selection=True,
-        export_animations=animations,export_skins=True,export_morph=False,export_extras=True,
+        export_animations=False,export_skins=True,export_morph=False,export_extras=True,
         export_yup=True,export_apply=False,export_draco_mesh_compression_enable=False,
         export_force_sampling=False,
         export_tangents=True,
@@ -523,49 +523,6 @@ def record_baked_surfaces(obj,sources,slot,lod):
         obj["baked_surface_details"]=json.dumps(retained)
 
 
-def reuse_accepted_action_bank(rig):
-    """Master playback must use the same immutable clips as the shared body GLBs.
-
-Fresh grip/support corrections remain a diagnostic. Less boot armor can change
-the death support solution slightly, so the accepted bank is authoritative.
-"""
-    from correct_animation import _curve_digest
-    fresh={name:bpy.data.actions[name] for name in CLIPS}
-    before_objects=set(bpy.data.objects)
-    with bpy.data.libraries.load(str(SHARED_MASTER),link=False) as (data_from,data_to):
-        if not CLIPS.issubset(data_from.actions):
-            raise ValueError("Accepted master does not contain all nine animation clips")
-        data_to.actions=sorted(CLIPS)
-    if set(bpy.data.objects)!=before_objects:
-        raise ValueError("Appending the accepted animation bank unexpectedly added objects")
-    comparison={}
-    final_hashes={}
-    for name,accepted in zip(sorted(CLIPS),data_to.actions):
-        expected=_curve_digest(accepted,[])
-        comparison[name]=_curve_digest(fresh[name],[])==expected
-        fresh[name].user_remap(accepted)
-        bpy.data.actions.remove(fresh[name],do_unlink=True)
-        accepted.name=name
-        accepted.use_fake_user=True
-        if accepted.name!=name or _curve_digest(accepted,[])!=expected:
-            raise ValueError(f"Accepted clip changed during reuse: {name}")
-        final_hashes[name]=expected
-    rig.animation_data.action=None
-    for bone in rig.pose.bones:
-        bone.matrix_basis=Matrix.Identity(4)
-    bpy.context.view_layer.update()
-    verify_contract_rig(rig)
-    metadata={"source_master_sha256":SHARED_MASTER_SHA256,"policy":"Reuse all nine accepted action datablocks; shared body GLB animation bytes remain unchanged",
-        "fresh_corrections_exact_before_reuse":comparison,"final_all_nine_curves_exact":True,
-        "accepted_curve_sha256":final_hashes,"ground_clearance_note":"Fresh support corrections are diagnostic only; inspect final shared GLB clips against the Novitiate boots."}
-    rig["immutable_animation_reuse"]=json.dumps(metadata)
-    if rig.get("animation_correction_summary"):
-        summary=json.loads(rig["animation_correction_summary"])
-        summary["scope"]="Fresh correction diagnostics; final master actions replaced by immutable accepted action bank"
-        rig["animation_correction_summary"]=json.dumps(summary)
-    return metadata
-
-
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--lods",default="0")
@@ -648,11 +605,6 @@ def main():
         report["lods"][str(lod)]["draw_calls"]=sum(len(obj.data.materials) for obj in modules)
         if args.bake and report["lods"][str(lod)]["draw_calls"]>16:
             raise ValueError("Equipped draw-call budget exceeded")
-    if (ROOT/"tools/correct_animation.py").exists():
-        from correct_animation import apply_animation_corrections
-        report["animation_corrections"]=apply_animation_corrections(rig,next(o for o in all_modules[min(all_modules)] if o["slot"]=="weapon"))
-        report["animation_corrections"]["scope"]="Fresh diagnostic solve; final master uses the accepted shared-body action bank"
-    report["immutable_animation_reuse"]=reuse_accepted_action_bank(rig)
     from tessellate_runtime import prepare_tangents
     report["tessellation_tool_sha256"]=hashlib.sha256((ROOT/"tools/tessellate_runtime.py").read_bytes()).hexdigest()
     for lod,modules in all_modules.items():

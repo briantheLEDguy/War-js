@@ -63,6 +63,10 @@ public:
     UFUNCTION(BlueprintCallable, Category="Migration")
     static bool PrepareCompressedAnimation(UAnimSequence* Animation);
 
+    /** Finish controller-authored tracks and synchronize compression sampling with the data model. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static bool FinalizeAnimationSampling(UAnimSequence* Animation);
+
 
     UFUNCTION(BlueprintCallable, Category="Migration")
     static void PrepareWorldPreviewFrame(UWorld* World);

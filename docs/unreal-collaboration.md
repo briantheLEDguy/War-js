@@ -1,5 +1,17 @@
 # Isolated Unreal collaboration
 
+## Current decision — 2026-09-23
+
+The owner approved a **headless Linux game-server VM with separate NetBird**,
+independent developer checkouts, GitHub login and shared runtime GM. Follow
+[development-environment.md](development-environment.md) for implementation status.
+This supersedes the full Editor VM as the current delivery target. The design
+below is retained as deferred research; its license/GPU blockers do not prevent
+a headless server design. They must not be represented as solved. Host work
+Tailscale stays strictly off limits; all remote admission remains closed.
+
+## Deferred full Editor VM design
+
 **Access is closed.** The Windows VM has not been provisioned: the owner has no
 guest license or installation ISO. Native content sharing rights, guest graphics,
 firewall isolation and two-machine acceptance are also outstanding.

@@ -16,7 +16,7 @@
     "bindPoseId": "sunmeadow_scout_a_pose_v1"
   },
   "hashes": {
-    "modelSha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+    "modelSha256": "a15c504c7728afe0ab4b361247c7d8a177a845fbb13ae833834f64374d232c33",
     "qcSha256": "1bfea7b2019af9eba056f471e5e89db51f80699e3747f8e83089c92f5eef43a0",
     "previews": {
       "front": "428ff775aca18fda4d6f9234e425ee7fc22a4b9ae1da0bb4b03d6905f2bf9b28",
@@ -47,7 +47,23 @@
       "pbr_materials",
       "rig_and_motion",
       "export_review"
-    ]
+    ],
+    "sourceAnimationRemoval": {
+      "beforeSha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+      "afterSha256": "a15c504c7728afe0ab4b361247c7d8a177a845fbb13ae833834f64374d232c33",
+      "preservationSha256": "7e176d6c4b2627b5fc1a5a658e935142f5a4c181fcdd65599844daba02abe6af",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "approvalState": "approved"
 }

@@ -1,0 +1,30 @@
+{
+  "gripsWorld": {
+    "primary_grip_local": [
+      -0.5585231781005859,
+      -0.3184959888458252,
+      1.0956896543502808
+    ],
+    "secondary_grip_local": [
+      -0.5585228800773621,
+      -0.31849560141563416,
+      0.7556895017623901
+    ],
+    "head_center_local": [
+      -0.5585235357284546,
+      -0.31849637627601624,
+      1.515689492225647
+    ]
+  },
+  "leftPalmWorld": [
+    0.5585231781005859,
+    -0.31849607825279236,
+    1.095689296722412
+  ],
+  "hammerShiftMeters": [
+    -6.130766223577666e-07,
+    -6.641662935180648e-07,
+    0.7200000286102295
+  ],
+  "provenance": "Character-specific hammer adaptation retained from the equipped Prelate review; source geometry is unchanged."
+}

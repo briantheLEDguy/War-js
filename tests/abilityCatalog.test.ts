@@ -137,7 +137,7 @@ function expectTargetingValid(ability: AbilityDefinition): void {
 
 function expectEffectsValid(ability: AbilityDefinition): void {
   for (const effect of ability.effects) {
-    expect(['damage', 'heal', 'status', 'player_status', 'cleanse', 'movement']).toContain(effect.kind);
+    expect(['damage', 'heal', 'status', 'player_status', 'cleanse', 'movement', 'wrath_relic']).toContain(effect.kind);
     if (effect.kind === 'damage' || effect.kind === 'heal') {
       expect(effect.school).toBeDefined();
       expect(effect.amount?.min).toBeGreaterThan(0);

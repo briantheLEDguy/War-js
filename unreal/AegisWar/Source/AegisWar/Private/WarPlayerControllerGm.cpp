@@ -77,6 +77,21 @@ void AWarPlayerController::ServerGmRestore_Implementation()
     State->GetClassAbilities()->RestoreResource();
     ClientWorldEditResult(TEXT("Health, mana and class resource restored."));
 }
+
+void AWarPlayerController::ServerGmSetLevel_Implementation(const int32 Level)
+{
+    FString Error;
+    if (!Authorized(this, Error)) { ClientWorldEditResult(Error); return; }
+    auto* State = GetPlayerState<AWarPlayerState>();
+    const auto* GmPawn = Cast<AWarCharacter>(GetPawn());
+    if (!State || !GmPawn || GmPawn->IsDead() || !GmPawn->IsVisualReady())
+    { ClientWorldEditResult(TEXT("Wait for the character to finish loading or respawning.")); return; }
+    // A pending strike snapshots its damage; do not change levels mid-action.
+    if (GmPawn->IsActionPlaying() || State->GetClassAbilities()->IsBusy())
+    { ClientWorldEditResult(TEXT("Finish the current action before changing level.")); return; }
+    if (!State->SetGmLevelTrusted(Level, Error)) { ClientWorldEditResult(Error); return; }
+    ClientWorldEditResult(FString::Printf(TEXT("Level set to %d. XP reset; health and mana restored. Ability unlocks updated."), Level));
+}
 void AWarPlayerController::ServerGmResetCooldowns_Implementation()
 {
     FString Error;

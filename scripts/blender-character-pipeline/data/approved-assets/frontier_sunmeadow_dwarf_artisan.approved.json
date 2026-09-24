@@ -16,7 +16,7 @@
     "bindPoseId": "frontier_dwarf_artisan_rest_v1"
   },
   "hashes": {
-    "modelSha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+    "modelSha256": "4b94164f7162c0735bf4931c7f6161abb1bc875d29ccc4cf56e30fdb6a433a56",
     "qcSha256": "ae7eabce14b4b24ce99e8bccb1d5fb0e020564fb58d1133897313a09a393a0d0",
     "previews": {
       "front": "fd9c09fab95a2c5b6fb0029b9b58fa20e41963594c399d58aae1a46befa39038",
@@ -47,7 +47,23 @@
       "pbr_materials",
       "rig_and_motion",
       "export_review"
-    ]
+    ],
+    "sourceAnimationRemoval": {
+      "beforeSha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+      "afterSha256": "4b94164f7162c0735bf4931c7f6161abb1bc875d29ccc4cf56e30fdb6a433a56",
+      "preservationSha256": "5c590aaf76cba22a3a55cd1a293c45ac101e610db8b639cd8df4ceab5331084f",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "approvalState": "approved"
 }

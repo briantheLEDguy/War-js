@@ -26,7 +26,7 @@ describe('Aegis civic cast integration',()=>{
       const data=readFileSync('public/assets/models/'+entry.model);
       expect(createHash('sha256').update(data).digest('hex')).toBe(entry.modelSha256);
       const gltf=JSON.parse(data.subarray(20,20+data.readUInt32LE(12)).toString());
-      expect(gltf.animations.map((a:any)=>a.name)).toEqual(['idle']);expect(gltf.skins).toHaveLength(1);
+      expect(gltf.animations ?? []).toEqual([]);expect(gltf.skins).toHaveLength(1);
     }
   });
 });

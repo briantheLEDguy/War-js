@@ -20,12 +20,6 @@ export const GENERATOR_PATH = path.join(
   "blender",
   "assemble_runtime_equipped_review.py",
 );
-export const MOTION_AUDIT_PATH = path.join(
-  PIPELINE_ROOT,
-  "blender",
-  "audit_canonical_animation_motion.py",
-);
-
 export const DEFAULTS = Object.freeze({
   body: "artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/body/body_civic_humanoid_v2_m.glb",
   modules: "artifacts/model-jobs/local-armor-pilot-v18/civic_humanoid_v2_m/modules",
@@ -33,20 +27,9 @@ export const DEFAULTS = Object.freeze({
   output: "artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.glb",
   reviewDir: "artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/runtime-assembly-roundtrip",
   report: "artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/battle_preplate_m_runtime_assembled_review.qc.json",
-  motionReport: "artifacts/model-jobs/local-armor-pilot-v20/civic_humanoid_v2_m/battle_preplate_m_v20_motion.qc.json",
 });
 
-const REQUIRED_CLIPS = [
-  "idle",
-  "walk",
-  "run",
-  "combat_idle",
-  "attack_melee",
-  "attack_ranged",
-  "cast",
-  "death",
-  "jump",
-].sort();
+const REQUIRED_CLIPS = [];
 const REQUIRED_VIEWS = ["front", "side", "back", "isometric"];
 const MODULE_PATTERN = /^arm_civic_humanoid_v2_battle_prelate_v1_(head|shoulders|chest|hands|waist|legs|feet|back|tabard)_m\.glb$/u;
 
@@ -73,10 +56,6 @@ export function resolveOptions(argv = process.argv.slice(2), environment = proce
       option(argv, "report") ?? (option(argv, "output") ? `${option(argv, "output").replace(/\.glb$/iu, "")}.qc.json` : DEFAULTS.report),
       "assembly QC report",
     ),
-    motionReportPath: resolveJobOutput(
-      option(argv, "motion-report") ?? DEFAULTS.motionReport,
-      "motion QC report",
-    ),
     timeoutMs: Number.parseInt(option(argv, "timeout-ms") ?? "900000", 10),
     dryRun: argv.includes("--dry-run"),
     json: argv.includes("--json"),
@@ -86,7 +65,6 @@ export function resolveOptions(argv = process.argv.slice(2), environment = proce
 export function validateInputs(options) {
   const errors = [];
   if (!existsSync(GENERATOR_PATH)) errors.push(`assembly generator is missing: ${GENERATOR_PATH}`);
-  if (!existsSync(MOTION_AUDIT_PATH)) errors.push(`motion audit is missing: ${MOTION_AUDIT_PATH}`);
   if (!existsSync(options.bodyPath) || path.extname(options.bodyPath).toLowerCase() !== ".glb") {
     errors.push(`verified runtime body GLB is missing: ${options.bodyPath}`);
   }
@@ -109,7 +87,7 @@ export function validateInputs(options) {
 
 export function buildBlenderArgs(options) {
   return [
-    "--background",
+    "--background", "--factory-startup", "--python-exit-code", "1",
     "--python", GENERATOR_PATH,
     "--",
     "--body-glb", options.bodyPath,
@@ -118,16 +96,6 @@ export function buildBlenderArgs(options) {
     "--output", options.outputPath,
     "--review-dir", options.reviewDir,
     "--report", options.reportPath,
-  ];
-}
-
-export function buildMotionAuditArgs(options) {
-  return [
-    "--background",
-    "--python", MOTION_AUDIT_PATH,
-    "--",
-    "--model", options.outputPath,
-    "--output", options.motionReportPath,
   ];
 }
 
@@ -160,10 +128,8 @@ export function validateOutputs(options) {
   const errors = [];
   if (!existsSync(options.outputPath)) errors.push("combined runtime assembly GLB is missing");
   if (!existsSync(options.reportPath)) errors.push("runtime assembly QC report is missing");
-  if (!existsSync(options.motionReportPath)) errors.push("canonical motion QC report is missing");
   if (errors.length) throw workflowError("RUNTIME_ASSEMBLY_OUTPUT_INVALID", errors.join("; "), { errors });
   const report = readJson(options.reportPath);
-  const motionReport = readJson(options.motionReportPath);
   const actualHash = sha256(options.outputPath);
   if (report.modelSha256 !== actualHash) errors.push("combined GLB hash does not match its QC report");
   if (report.technicalRoundTripPassed !== true) errors.push("technical GLB round-trip did not pass");
@@ -175,15 +141,12 @@ export function validateOutputs(options) {
   if (report.roundTrip?.weaponMeshCount !== 1) errors.push("serialized assembly does not contain one hammer mesh");
   if (report.roundTrip?.boneCount !== 56) errors.push("serialized assembly does not contain 56 canonical bones");
   if ([...(report.roundTrip?.animationClips ?? [])].sort().join("|") !== REQUIRED_CLIPS.join("|")) {
-    errors.push("serialized assembly does not contain the canonical nine clips");
+    errors.push("serialized assembly contains embedded animation");
   }
-  if (report.roundTrip?.idleDeltaAudit?.passed !== true) errors.push("bind-to-idle center/extent audit failed");
-  if (motionReport.modelSha256 !== actualHash) errors.push("motion QC hash does not match the assembled GLB");
-  if (motionReport.passed !== true) errors.push("canonical motion ergonomic audit failed");
   if (!everyBooleanTrue(report.roundTrip?.checks) || !everyBooleanTrue(report.roundTrip?.glbJsonChecks)) {
     errors.push("one or more post-import structure checks failed");
   }
-  for (const pose of ["bindPose", "idlePose"]) {
+  for (const pose of ["bindPose"]) {
     const evidence = report.roundTrip?.[pose]?.previews ?? [];
     for (const view of REQUIRED_VIEWS) {
       const row = evidence.find((candidate) => candidate.view === view);
@@ -203,12 +166,12 @@ export function validateOutputs(options) {
     const document = readGlbJson(options.outputPath);
     if (document.skins?.length !== 1) errors.push(`combined GLB has ${document.skins?.length ?? 0} skins instead of one`);
     const clips = (document.animations ?? []).map((animation) => animation.name).sort();
-    if (clips.join("|") !== REQUIRED_CLIPS.join("|")) errors.push("combined GLB JSON animation names are incomplete");
+    if (clips.join("|") !== REQUIRED_CLIPS.join("|")) errors.push("combined GLB contains embedded animation");
   } catch (error) {
     errors.push(`combined GLB inspection failed: ${error.message}`);
   }
   if (errors.length) throw workflowError("RUNTIME_ASSEMBLY_OUTPUT_INVALID", errors.join("; "), { errors });
-  return { report, motionReport, actualHash };
+  return { report, actualHash };
 }
 
 function runBlender(blenderPath, args, timeoutMs) {
@@ -249,11 +212,9 @@ export async function main(argv = process.argv.slice(2)) {
     outputs: {
       model: repoRelative(options.outputPath),
       report: repoRelative(options.reportPath),
-      motionReport: repoRelative(options.motionReportPath),
       reviewDir: repoRelative(options.reviewDir),
     },
     commandArgs: blenderArgs,
-    motionAuditArgs: buildMotionAuditArgs(options),
   };
   if (options.dryRun) {
     console.log(options.json ? JSON.stringify(planned, null, 2) : `READY: ${planned.outputs.model}`);
@@ -263,20 +224,18 @@ export async function main(argv = process.argv.slice(2)) {
     throw workflowError("BLENDER_NOT_FOUND", `Blender not found: ${options.blenderPath}`);
   }
   const execution = await runBlender(options.blenderPath, blenderArgs, options.timeoutMs);
-  await runBlender(options.blenderPath, buildMotionAuditArgs(options), options.timeoutMs);
   const validated = validateOutputs(options);
   const summary = {
     ...planned,
     modelSha256: validated.actualHash,
     technicalRoundTripPassed: validated.report.technicalRoundTripPassed,
-    idleDeltaPassed: validated.report.roundTrip.idleDeltaAudit.passed,
     promotionEligible: validated.report.promotionEligible,
   };
   if (options.json) console.log(JSON.stringify(summary, null, 2));
   else {
     console.log(`OK: runtime-equipped review assembled at ${summary.outputs.model}`);
     console.log(`sha256=${summary.modelSha256}`);
-    console.log("technicalRoundTripPassed=true idleDeltaPassed=true promotionEligible=false");
+    console.log("technicalRoundTripPassed=true promotionEligible=false");
     const important = execution.stdout.split(/\r?\n/u).filter((line) => line.startsWith("[runtime-equipped-assembly]"));
     if (important.length) console.log(important.join("\n"));
   }

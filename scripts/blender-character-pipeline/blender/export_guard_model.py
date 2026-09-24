@@ -2,9 +2,8 @@
 Export the runtime guard NPC model from a supplied Blender scene.
 
 The source scene is a normal Blender Z-up character file. This script keeps the
-armature/skinned meshes intact, adds a subtle looping idle action when the file
-does not already contain one, scales the visible character to game size, and
-exports a Three.js-ready GLB.
+armature/skinned meshes intact, removes embedded motion, scales the visible
+character to game size, and exports an animation-free source GLB.
 """
 
 from __future__ import annotations
@@ -204,79 +203,6 @@ def strip_non_runtime_objects(armature: bpy.types.Object, meshes: list[bpy.types
             bpy.data.objects.remove(obj, do_unlink=True)
 
 
-def add_idle_action(armature: bpy.types.Object) -> bpy.types.Action:
-    existing = bpy.data.actions.get("idle")
-    if existing:
-        existing.use_fake_user = True
-        return existing
-
-    action = bpy.data.actions.new(name="idle")
-    action.use_fake_user = True
-    action["loop"] = True
-
-    armature.animation_data_create()
-    armature.animation_data.action = action
-
-    rotation_bones = {
-        "Middle.003": (0.002, 0.0, 0.001),
-        "Middle.004": (0.003, 0.0, -0.001),
-        "Middle.005": (-0.002, 0.0, 0.001),
-        "Bone": (0.002, 0.0, 0.001),
-        "Bone.026": (-0.002, 0.0, -0.001),
-    }
-    location_bones = {
-        "Middle": Vector((0.0, 0.001, 0.001)),
-        "ArmCR": Vector((-0.002, 0.0, 0.003)),
-        "ArmCR.001": Vector((0.002, 0.0, 0.003)),
-    }
-
-    base_rotations: dict[str, Euler] = {}
-    base_locations: dict[str, Vector] = {}
-    for bone_name in rotation_bones:
-        pose_bone = armature.pose.bones.get(bone_name)
-        if pose_bone:
-            pose_bone.rotation_mode = "XYZ"
-            base_rotations[bone_name] = pose_bone.rotation_euler.copy()
-    for bone_name in location_bones:
-        pose_bone = armature.pose.bones.get(bone_name)
-        if pose_bone:
-            base_locations[bone_name] = pose_bone.location.copy()
-
-    frames = (
-        (IDLE_START, 0.0),
-        (25, 1.0),
-        (49, 0.0),
-        (73, -1.0),
-        (IDLE_END, 0.0),
-    )
-
-    for frame, amount in frames:
-        bpy.context.scene.frame_set(frame)
-        for bone_name, radians_xyz in rotation_bones.items():
-            pose_bone = armature.pose.bones.get(bone_name)
-            if not pose_bone or bone_name not in base_rotations:
-                continue
-            rx, ry, rz = radians_xyz
-            base = base_rotations[bone_name]
-            pose_bone.rotation_euler = Euler((base.x + rx * amount, base.y + ry * amount, base.z + rz * amount), "XYZ")
-            pose_bone.keyframe_insert(data_path="rotation_euler", frame=frame)
-
-        for bone_name, delta in location_bones.items():
-            pose_bone = armature.pose.bones.get(bone_name)
-            if not pose_bone or bone_name not in base_locations:
-                continue
-            pose_bone.location = base_locations[bone_name] + (delta * amount)
-            pose_bone.keyframe_insert(data_path="location", frame=frame)
-
-    track = armature.animation_data.nla_tracks.new()
-    track.name = "idle"
-    strip = track.strips.new("idle", IDLE_START, action)
-    strip.action_frame_start = IDLE_START
-    strip.action_frame_end = IDLE_END
-    strip.frame_start = IDLE_START
-    strip.frame_end = IDLE_END
-    armature.animation_data.action = None
-    return action
 
 
 def select_runtime_objects(armature: bpy.types.Object, meshes: list[bpy.types.Object]) -> None:
@@ -294,7 +220,7 @@ def export_glb(output_path: Path) -> None:
         filepath=str(output_path),
         export_format="GLB",
         use_selection=True,
-        export_animations=True,
+        export_animations=False,
         export_animation_mode="ACTIONS",
         export_skins=True,
         export_yup=True,
@@ -320,7 +246,7 @@ def main() -> None:
     strip_non_runtime_objects(armature, meshes)
     sanitize_guard_materials(meshes)
     scale_and_ground(armature, meshes, args.target_height)
-    idle = add_idle_action(armature)
+    armature.animation_data_clear()
     remove_export_constraints(armature)
     select_runtime_objects(armature, meshes)
     export_glb(output)
@@ -328,7 +254,7 @@ def main() -> None:
     min_v, max_v = mesh_world_bounds(meshes)
     print(
         "[WAR] Guard rig export ok: "
-        f"meshes={len(meshes)} action={idle.name} "
+        f"meshes={len(meshes)} animations=0 "
         f"bounds_min=({min_v.x:.3f},{min_v.y:.3f},{min_v.z:.3f}) "
         f"bounds_max=({max_v.x:.3f},{max_v.y:.3f},{max_v.z:.3f}) "
         f"output={output}"

@@ -6,7 +6,7 @@ import bpy
 from mathutils import Matrix, Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import build_collection as build
-from review_caravan_assembly import PUBLIC, PROJECT, imported, equipped_actor, snapshots
+from review_model_helpers import PUBLIC, PROJECT, imported, equipped_actor, snapshots
 ROOT=build.ROOT
 
 
@@ -18,9 +18,6 @@ def main():
         if expected and expected!=actual:raise ValueError('Approved actor input hash mismatch')
         inputs.append({'path':str(path.relative_to(PROJECT)),'sha256':actual});return imported(path)
     rig,body,equipment,hidden=equipped_actor(catalog,load)
-    action=bpy.data.actions[rig['review_idle_action']]
-    rig.animation_data_create();rig.animation_data.action=action
-    if action.slots:rig.animation_data.action_slot=action.slots[0]
     kit=load(ROOT/'runtime/frontier_supply_officer_kit_lod0.glb')
     socket=next(obj for obj in kit if obj.name=='socket.belt_mount')
     # The pouch clears the left cuisse and hangs from the actual existing belt.

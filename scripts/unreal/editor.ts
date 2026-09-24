@@ -1,13 +1,13 @@
 import { mkdirSync, readFileSync, rmSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
 export const requiredNativeTests = [
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
-  'ClosedProductionAdmission', 'NoPrimitiveVisualFallback',
+  'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
-  'CharacterFrontend', 'ClassAbilityCatalog', 'ClassCombatStatus',
+  'CharacterFrontend', 'ClassAbilityCatalog', 'ClassCombatStatus', 'AbilityConditions', 'AbilityConditionValidation', 'AbilityConditionConformance', 'AbilityWorkshopDocument', 'AbilityDeploymentJournal', 'IconOfWrath', 'SuppliedAnimationGameplay',
   'InventoryRewardParity', 'InventoryAuthority', 'CraftingCatalogAndRules', 'SalvageParity', 'CultivationTransactions', 'CraftingStationInteraction', 'ResourceGatheringTransactions', 'CharacterProgressionParity', 'ExpeditionQuestParity',
   'InterfaceRules', 'LocalGmAccess', 'QuestMarkerVisibility', 'CameraControls', 'MovementInput', 'WorldEditHistory', 'WorldEditCatalog', 'WorldEditStreaming', 'ZonePortal', 'ZoneStreaming', 'ZoneRespawn', 'ZoneAtmosphere',
 ].map(name => `AegisWar.Foundation.${name}`);
@@ -41,9 +41,10 @@ export function validateImportReceipt(report: unknown, profile: string, conversi
     || data.artApproved !== false || data.unrealApproved !== false || !String(data.unrealVersion).startsWith('5.8.2-')
     || !Array.isArray(data.meshes) || data.meshes.length === 0) throw new Error('Missing, stale or invalid Unreal import evidence.');
   if (data.kind === 'characterProfiles') {
-    const poses = data.poseParity as { status?: string; toleranceCm?: number; clips?: unknown[] } | undefined;
+    const poses = data.poseParity as { status?: string; toleranceCm?: number; restBoneCount?: number; clips?: unknown[] } | undefined;
     if (poses?.status !== 'passed' || poses.toleranceCm !== 0.1 || !Array.isArray(poses.clips)
-      || !Array.isArray(data.animations) || poses.clips.length !== data.animations.length * 2 || !poses.clips.length) {
+      || !Array.isArray(data.animations) || data.animations.length !== 0 || poses.clips.length !== 0
+      || !Number.isInteger(poses.restBoneCount) || Number(poses.restBoneCount) <= 0) {
       throw new Error('Missing or invalid Unreal skinning parity evidence.');
     }
     const materials = data.materials as Array<{ skeletalMeshUsage?: boolean }> | undefined;
@@ -55,16 +56,19 @@ export function validateImportReceipt(report: unknown, profile: string, conversi
 
 if (isMain(import.meta.url)) {
   try {
-    const args = parseArguments(process.argv.slice(2), [], ['--engine-root', '--mode', '--profile']);
+    const args = parseArguments(process.argv.slice(2), ['--capture-animations'], ['--engine-root', '--mode', '--profile']);
     const mode = args.get('--mode') ?? 'test';
     if (!['test', 'import'].includes(mode)) throw new Error('Editor mode must be test or import.');
     const report = inspectToolchain(args.get('--engine-root') ?? defaultEngineRoot());
     if (report.blockers.length || !report.editorCommand) throw new Error(report.blockers.join('\n'));
     const output = path.join(repoRoot, 'artifacts/unreal/editor', `${mode}-${Date.now()}-${process.pid}`);
     mkdirSync(output, { recursive: true });
-    const common = [projectPath, '-unattended', '-nop4', '-nosplash', '-nosound', '-stdout', '-FullStdOutLogOutput', `-abslog=${path.join(output, 'editor.log')}`];
+    const common = [projectPath, '-unattended', '-nop4', '-nosplash', '-nosound', '-stdout', '-FullStdOutLogOutput',
+      `-SessionId=${randomUUID()}`, `-SessionOwner=NativeProof-${process.pid}`, `-abslog=${path.join(output, 'editor.log')}`];
     let invocation: string[];
-    if (mode === 'test') invocation = [...common, '-nullrhi', '-ExecCmds=Automation RunTests AegisWar.Foundation', '-TestExit=Automation Test Queue Empty', `-ReportExportPath=${output}`];
+    if (mode === 'test') invocation = [...common,
+      ...(args.has('--capture-animations') ? ['-AllowCommandletRendering', '-WarCaptureSuppliedAnimation'] : ['-nullrhi']),
+      '-ExecCmds=Automation RunTests AegisWar.Foundation', '-TestExit=Automation Test Queue Empty', `-ReportExportPath=${output}`];
     else {
       const profile = args.get('--profile');
       if (!profile || !/^[a-zA-Z0-9_-]+$/.test(profile)) throw new Error('Model import requires a safe --profile registry key.');

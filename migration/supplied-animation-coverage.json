@@ -1,0 +1,4214 @@
+{
+  "schemaVersion": 1,
+  "gameplayVerified": true,
+  "graphicalAcceptance": false,
+  "steamAcceptance": false,
+  "clips": {
+    "two.idle": {
+      "source": "Two-handed/Great Sword Idle.fbx",
+      "sha256": "3588224a28fbf9a726700077b02c021a718d9ec81014534e08b1faf8e25a14b2",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 16
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "idle",
+          "executor": "participant_bot",
+          "scenarioIndex": 40
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 186
+        }
+      ]
+    },
+    "two.walk": {
+      "source": "Two-handed/Great Sword Walk forwards.fbx",
+      "sha256": "bfd2551748e1d25d40ada4bff7a3edf83ccd46e3d9c1a7f59195ac8c6ecf954c",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "walk",
+          "executor": "player",
+          "scenarioIndex": 11
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "walk",
+          "executor": "participant_bot",
+          "scenarioIndex": 35
+        }
+      ]
+    },
+    "two.back": {
+      "source": "Two-handed/Great Sword Walk backwards.fbx",
+      "sha256": "c2537af3937436f3c2f9c071fbc2544887adefaa6145058c45aec30f453c50a8",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "walk_backward",
+          "executor": "player",
+          "scenarioIndex": 13
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "walk_backward",
+          "executor": "participant_bot",
+          "scenarioIndex": 37
+        }
+      ]
+    },
+    "two.run": {
+      "source": "Two-handed/Great Sword Run.fbx",
+      "sha256": "44cb27d1d1cd2a43655aa60a556255e446b093edeb51a73c95e45093ccc19c4c",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "run",
+          "executor": "player",
+          "scenarioIndex": 12
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "run",
+          "executor": "participant_bot",
+          "scenarioIndex": 36
+        }
+      ]
+    },
+    "two.left": {
+      "source": "Two-handed/Great Sword Strafe left.fbx",
+      "sha256": "118ed2015d9150de6cedcd19b047793830558f4fe91e3ab84b75e8039aa241bd",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "strafe_left",
+          "executor": "player",
+          "scenarioIndex": 14
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "strafe_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 38
+        }
+      ]
+    },
+    "two.right": {
+      "source": "Two-handed/Great Sword Strafe right.fbx",
+      "sha256": "152bb0b9784d65dba8e2734c366a39fd45633341be9d4d2c1d7e0fbd0b27ecda",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "strafe_right",
+          "executor": "player",
+          "scenarioIndex": 15
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "strafe_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 39
+        }
+      ]
+    },
+    "two.turn_left": {
+      "source": "Two-handed/Great Sword Turn left.fbx",
+      "sha256": "b2c9145f0b6dcb7bf76e4da8ad258c5b643bc6d006880dba18dfcbf585487bcb",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "turn_left",
+          "executor": "player",
+          "scenarioIndex": 17
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "turn_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 41
+        }
+      ]
+    },
+    "two.turn_right": {
+      "source": "Two-handed/Great Sword Turn right.fbx",
+      "sha256": "2b633cf584beb3a2bbff72a063d8292c6af7e6657d3683891cd3338118a80968",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "turn_right",
+          "executor": "player",
+          "scenarioIndex": 18
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "turn_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 42
+        }
+      ]
+    },
+    "two.impact": {
+      "source": "Two-handed/Great Sword Impact.fbx",
+      "sha256": "9cd448e22fe3a63ea06ef156a74d8f616d7109b321dc09f312f0639938c7eed1",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "hit_front",
+          "executor": "player",
+          "scenarioIndex": 21
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "hit_front",
+          "executor": "participant_bot",
+          "scenarioIndex": 45
+        }
+      ]
+    },
+    "two.jump": {
+      "source": "Two-handed/Great Sword Jump.fbx",
+      "sha256": "24e4584bd7f77d287c4e020cd5a62a213776c1c691cff516c91019626a7d13f4",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "jump",
+          "executor": "player",
+          "scenarioIndex": 19
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "jump",
+          "executor": "participant_bot",
+          "scenarioIndex": 43
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "jump",
+          "executor": "player",
+          "scenarioIndex": 158
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "jump",
+          "executor": "participant_bot",
+          "scenarioIndex": 181
+        }
+      ]
+    },
+    "two.death": {
+      "source": "Two-handed/Two Handed Sword Death.fbx",
+      "sha256": "8b45119d70d306bd39c73582b72b6146240bf1e19f9e83bf47812d3a5c5fb83e",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "death",
+          "executor": "player",
+          "scenarioIndex": 23
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "death",
+          "executor": "participant_bot",
+          "scenarioIndex": 47
+        }
+      ]
+    },
+    "two.slash": {
+      "source": "Two-handed/Great Sword Slash.fbx",
+      "sha256": "594e5d1215288ab2e4d46b1ccc209923232f6510e9ec4450330091b902f197ce",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.litany_of_strikes__0",
+          "executor": "player",
+          "scenarioIndex": 0
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.sanctified_blow__0",
+          "executor": "player",
+          "scenarioIndex": 1
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.litany_of_strikes__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 24
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.sanctified_blow__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 25
+        }
+      ]
+    },
+    "two.slide": {
+      "source": "Two-handed/Great Sword Slide Attack.fbx",
+      "sha256": "f4ee12d503a0902f2c4790b02eaa1a71f0c5c1716be3b1a6e39b8d8129e0382e",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.penance_step__0",
+          "executor": "player",
+          "scenarioIndex": 3
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.penance_step__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 27
+        }
+      ]
+    },
+    "two.jump_attack": {
+      "source": "Two-handed/Great Sword Jump Attack.fbx",
+      "sha256": "27a5257934d479601ca8c7f8858958979bc8e5cc00821eded11c34416061f340",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.reliquary_smash__0",
+          "executor": "player",
+          "scenarioIndex": 5
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.reliquary_smash__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 29
+        }
+      ]
+    },
+    "two.spin": {
+      "source": "Two-handed/Great Sword High Spin Attack.fbx",
+      "sha256": "bd65ac8475a49302807f98e6081586438dd2f7f27199d61f5b970e4440c5e5b0",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.reliquary_smash__1",
+          "executor": "player",
+          "scenarioIndex": 6
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.reliquary_smash__1",
+          "executor": "participant_bot",
+          "scenarioIndex": 30
+        }
+      ]
+    },
+    "two.invocation": {
+      "source": "Two-handed/Spell Cast one hand.fbx",
+      "sha256": "81f99e6cd3de9facdac4583b265f945c8f16e2c84819d3eb867da355261c71fb",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.solar_edict__0",
+          "executor": "player",
+          "scenarioIndex": 48
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.solar_edict__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 71
+        }
+      ]
+    },
+    "shield.walk": {
+      "source": "swordandshield/Sword And Shield Walk forwards.fbx",
+      "sha256": "d76c93e735288a67c9ada53a0397fd5b773ad96df9865c616113bcc3c26d827a",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "walk",
+          "executor": "player",
+          "scenarioIndex": 58
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "walk",
+          "executor": "participant_bot",
+          "scenarioIndex": 81
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "walk",
+          "executor": "player",
+          "scenarioIndex": 104
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "walk",
+          "executor": "participant_bot",
+          "scenarioIndex": 127
+        }
+      ]
+    },
+    "shield.back": {
+      "source": "swordandshield/Sword And Shield Walk backwards.fbx",
+      "sha256": "f2cae25dd6a98e39b0e25d8eb8525a88c93035893dd90f1b4b9042023859d816",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "walk_backward",
+          "executor": "player",
+          "scenarioIndex": 60
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "walk_backward",
+          "executor": "participant_bot",
+          "scenarioIndex": 83
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "walk_backward",
+          "executor": "player",
+          "scenarioIndex": 106
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "walk_backward",
+          "executor": "participant_bot",
+          "scenarioIndex": 129
+        }
+      ]
+    },
+    "shield.run": {
+      "source": "swordandshield/Sword And Shield Run forwards.fbx",
+      "sha256": "a2aed49ae033b43802a98ec82025e402c598c7b9b1624cd1c39b42cb9ef6a6b0",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "run",
+          "executor": "player",
+          "scenarioIndex": 59
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "run",
+          "executor": "participant_bot",
+          "scenarioIndex": 82
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "run",
+          "executor": "player",
+          "scenarioIndex": 105
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "run",
+          "executor": "participant_bot",
+          "scenarioIndex": 128
+        }
+      ]
+    },
+    "shield.left": {
+      "source": "swordandshield/Sword And Shield Strafe left.fbx",
+      "sha256": "eee315e14cf0ec8e0504874f5c17c8a7861a4c27172c9636eab5d02575f2e033",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "strafe_left",
+          "executor": "player",
+          "scenarioIndex": 61
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "strafe_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 84
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "strafe_left",
+          "executor": "player",
+          "scenarioIndex": 107
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "strafe_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 130
+        }
+      ]
+    },
+    "shield.right": {
+      "source": "swordandshield/Sword And Shield Strafe right.fbx",
+      "sha256": "eacdc3bbc3b09bc64c4320637788129a1abe1636a0f0d4c34489e6226810035c",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "strafe_right",
+          "executor": "player",
+          "scenarioIndex": 62
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "strafe_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 85
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "strafe_right",
+          "executor": "player",
+          "scenarioIndex": 108
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "strafe_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 131
+        }
+      ]
+    },
+    "shield.turn_left": {
+      "source": "swordandshield/Sword And Shield Turn left.fbx",
+      "sha256": "f1ed418c185862173ddaa75b839e07209d88632959ca2fe277879874f1946a65",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "turn_left",
+          "executor": "player",
+          "scenarioIndex": 64
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "turn_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 87
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "turn_left",
+          "executor": "player",
+          "scenarioIndex": 110
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "turn_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 133
+        }
+      ]
+    },
+    "shield.turn_right": {
+      "source": "swordandshield/Sword And Shield Turn right.fbx",
+      "sha256": "2951dc9bb9c8287d944ab76efc2e92fab6b1d35f7ae9abf48739478cf5e4399d",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "turn_right",
+          "executor": "player",
+          "scenarioIndex": 65
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "turn_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 88
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "turn_right",
+          "executor": "player",
+          "scenarioIndex": 111
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "turn_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 134
+        }
+      ]
+    },
+    "shield.impact": {
+      "source": "swordandshield/Sword And Shield Impact.fbx",
+      "sha256": "0d294586cd71ee4e17c4ec976a5fbd9ea8fec740246c3fce30389b22867e2853",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "hit_front",
+          "executor": "player",
+          "scenarioIndex": 68
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "hit_front",
+          "executor": "participant_bot",
+          "scenarioIndex": 91
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "hit_front",
+          "executor": "player",
+          "scenarioIndex": 114
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "hit_front",
+          "executor": "participant_bot",
+          "scenarioIndex": 137
+        }
+      ]
+    },
+    "shield.jump": {
+      "source": "swordandshield/Sword And Shield Jump.fbx",
+      "sha256": "34d664aeb152d3295a824a85c8118cec0d19b428b61c4e97bfe512c7371d09d0",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "jump",
+          "executor": "player",
+          "scenarioIndex": 66
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "jump",
+          "executor": "participant_bot",
+          "scenarioIndex": 89
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "jump",
+          "executor": "player",
+          "scenarioIndex": 112
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "jump",
+          "executor": "participant_bot",
+          "scenarioIndex": 135
+        }
+      ]
+    },
+    "shield.death": {
+      "source": "swordandshield/Sword And Shield Death.fbx",
+      "sha256": "295a66efcb3c9ebdeed0e01831b5eff46f3347b974a68267bde0e0982b004a50",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "death",
+          "executor": "player",
+          "scenarioIndex": 70
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "death",
+          "executor": "participant_bot",
+          "scenarioIndex": 93
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "death",
+          "executor": "player",
+          "scenarioIndex": 116
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "death",
+          "executor": "participant_bot",
+          "scenarioIndex": 139
+        }
+      ]
+    },
+    "shield.slash": {
+      "source": "swordandshield/Sword And Shield Attack.fbx",
+      "sha256": "d93bc16f8484d59078e0009eb2ebc8f68c08bc4e121c5c67f2799c454ad92b07",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.sunbrand_strike__0",
+          "executor": "player",
+          "scenarioIndex": 51
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.radiant_counter__0",
+          "executor": "player",
+          "scenarioIndex": 55
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.sunbrand_strike__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 74
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.radiant_counter__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 78
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.sneaky_start__0",
+          "executor": "player",
+          "scenarioIndex": 94
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.sneaky_start__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 117
+        }
+      ]
+    },
+    "shield.combo": {
+      "source": "swordandshield/Sword And Shield Double Slash and Ground hit.fbx",
+      "sha256": "d553dcf5717093a7508a403ec35f93f45a58ba97b66efafea8ee563d3c3ef0c4",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.heavenrend_sweep__0",
+          "executor": "player",
+          "scenarioIndex": 56
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.heavenrend_sweep__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 79
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.proper_wallop__0",
+          "executor": "player",
+          "scenarioIndex": 95
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.biggest_finish__0",
+          "executor": "player",
+          "scenarioIndex": 96
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.boss_stomp__0",
+          "executor": "player",
+          "scenarioIndex": 101
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.boss_s_big_idea__0",
+          "executor": "player",
+          "scenarioIndex": 103
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.proper_wallop__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 118
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.biggest_finish__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 119
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.boss_stomp__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 124
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.boss_s_big_idea__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 126
+        }
+      ]
+    },
+    "shield.kick": {
+      "source": "swordandshield/Sword And Shield Kick.fbx",
+      "sha256": "8fc6901a3e2f2ef55ea3bbe060cc342385cd8fea96ae7faca5592d7740ffaad5",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.rallying_rebuke__0",
+          "executor": "player",
+          "scenarioIndex": 53
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.rallying_rebuke__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 76
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.wot_s_yours_is_mine__0",
+          "executor": "player",
+          "scenarioIndex": 99
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.wot_s_yours_is_mine__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 122
+        }
+      ]
+    },
+    "shield.block": {
+      "source": "swordandshield/Sword And Shield Block.fbx",
+      "sha256": "57d8b2201c4dd21c281495feaf57cf2f0cf370eced2cbad4515d44b119ec0598",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.bastion_edict__0",
+          "executor": "player",
+          "scenarioIndex": 49
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.shield_of_noon__0",
+          "executor": "player",
+          "scenarioIndex": 52
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.banner_rush__0",
+          "executor": "player",
+          "scenarioIndex": 54
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.radiant_counter__0",
+          "executor": "player",
+          "scenarioIndex": 55
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 63
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.bastion_edict__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 72
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.shield_of_noon__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 75
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.banner_rush__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 77
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.radiant_counter__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 78
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "idle",
+          "executor": "participant_bot",
+          "scenarioIndex": 86
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.shut_it__0",
+          "executor": "player",
+          "scenarioIndex": 97
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.get_stuck_in__0",
+          "executor": "player",
+          "scenarioIndex": 98
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.you_watch_me__0",
+          "executor": "player",
+          "scenarioIndex": 102
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 109
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.shut_it__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 120
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.get_stuck_in__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 121
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.you_watch_me__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 125
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "idle",
+          "executor": "participant_bot",
+          "scenarioIndex": 132
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 187
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 188
+        }
+      ]
+    },
+    "shield.power": {
+      "source": "swordandshield/Sword And Shield Power Up.fbx",
+      "sha256": "fa1ed0828b1e2debc66ec99e3ebf9629bbb444647db024e2e6ed4a03bb557273",
+      "executions": [
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.pursuit_edict__0",
+          "executor": "player",
+          "scenarioIndex": 50
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.pursuit_edict__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 73
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.keep_smashin__0",
+          "executor": "player",
+          "scenarioIndex": 100
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.boss_s_big_idea__0",
+          "executor": "player",
+          "scenarioIndex": 103
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.keep_smashin__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 123
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "warbrute.boss_s_big_idea__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 126
+        }
+      ]
+    },
+    "spell.idle": {
+      "source": "Spellcast/Standing Idle 03.fbx",
+      "sha256": "b0bdcc7e15a035f487da0ab1d7611b9fc0128660310b8e7d15ddfe7e258aac17",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 155
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "idle",
+          "executor": "participant_bot",
+          "scenarioIndex": 178
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "idle",
+          "executor": "player",
+          "scenarioIndex": 189
+        }
+      ]
+    },
+    "spell.walk": {
+      "source": "Spellcast/Standing Walk Forward.fbx",
+      "sha256": "dfd694a1b0fd1e6786cc5b4dfb7016a98d49caaccd5fd61bc070ec6a7bb5546f",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "walk",
+          "executor": "player",
+          "scenarioIndex": 150
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "walk_backward",
+          "executor": "player",
+          "scenarioIndex": 152
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "walk",
+          "executor": "participant_bot",
+          "scenarioIndex": 173
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "walk_backward",
+          "executor": "participant_bot",
+          "scenarioIndex": 175
+        }
+      ]
+    },
+    "spell.run": {
+      "source": "Spellcast/Standing Run Forward.fbx",
+      "sha256": "abd10bbe183baed7596e0aa127dbf04cba525004541e4391d0028e15c87aa25b",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "run",
+          "executor": "player",
+          "scenarioIndex": 151
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "run",
+          "executor": "participant_bot",
+          "scenarioIndex": 174
+        }
+      ]
+    },
+    "spell.left": {
+      "source": "Spellcast/Standing Walk Left.fbx",
+      "sha256": "3727547623764bee1727a36d64cf93d5315d265891b35f96ceb348d67a59c1b6",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "strafe_left",
+          "executor": "player",
+          "scenarioIndex": 153
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "strafe_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 176
+        }
+      ]
+    },
+    "spell.right": {
+      "source": "Spellcast/Standing Walk Right.fbx",
+      "sha256": "ca868ad917f1c94ef7ea07f00f19a5f0e43ada91efe9d4bfaf3124adef432625",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "strafe_right",
+          "executor": "player",
+          "scenarioIndex": 154
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "strafe_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 177
+        }
+      ]
+    },
+    "spell.turn_left": {
+      "source": "Spellcast/Standing Turn Left 90.fbx",
+      "sha256": "6d3e7ef63cab39e9caed19c77310a83a2ca4e133556aec82b3e9c30bb1a16e0a",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "turn_left",
+          "executor": "player",
+          "scenarioIndex": 156
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "turn_left",
+          "executor": "participant_bot",
+          "scenarioIndex": 179
+        }
+      ]
+    },
+    "spell.turn_right": {
+      "source": "Spellcast/Standing Turn Right 90.fbx",
+      "sha256": "f1febb55596897185295fe2eee0cd5f7a2d06a2bb082ba91ede90c9d0d946bb3",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "turn_right",
+          "executor": "player",
+          "scenarioIndex": 157
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "turn_right",
+          "executor": "participant_bot",
+          "scenarioIndex": 180
+        }
+      ]
+    },
+    "spell.impact": {
+      "source": "Spellcast/Standing React Small From Front.fbx",
+      "sha256": "b1f49b65fd980cfdd59bddc305ecf0e8ad6d9254f386b996c94d608266d7c2fd",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "hit_front",
+          "executor": "player",
+          "scenarioIndex": 160
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "hit_front",
+          "executor": "participant_bot",
+          "scenarioIndex": 183
+        }
+      ]
+    },
+    "spell.impact_back": {
+      "source": "Spellcast/Standing React Large From Back.fbx",
+      "sha256": "8df28d54f14bafd9b498d93a77a448a675263d7ef0f722422d21564b6987fa90",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "hit_back",
+          "executor": "player",
+          "scenarioIndex": 22
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "hit_back",
+          "executor": "participant_bot",
+          "scenarioIndex": 46
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "hit_back",
+          "executor": "player",
+          "scenarioIndex": 69
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "hit_back",
+          "executor": "participant_bot",
+          "scenarioIndex": 92
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "hit_back",
+          "executor": "player",
+          "scenarioIndex": 115
+        },
+        {
+          "profile": "mire_warbrute_m",
+          "role": "hit_back",
+          "executor": "participant_bot",
+          "scenarioIndex": 138
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "hit_back",
+          "executor": "player",
+          "scenarioIndex": 161
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "hit_back",
+          "executor": "participant_bot",
+          "scenarioIndex": 184
+        }
+      ]
+    },
+    "spell.death": {
+      "source": "Spellcast/Standing React Death Forward.fbx",
+      "sha256": "6a4ca36e5b32c3655d0fb73978165dc40114a2faa130fe49ccfe30732daffcf3",
+      "executions": [
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "death",
+          "executor": "player",
+          "scenarioIndex": 162
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "death",
+          "executor": "participant_bot",
+          "scenarioIndex": 185
+        }
+      ]
+    },
+    "spell.bolt": {
+      "source": "Spellcast/Standing 1H Magic Attack 01.fbx",
+      "sha256": "fc8bec5b4f48b7ff4de72084ff8867fc0dbd0a4e74e484c2796a3f8abb49b105",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.judgment_of_ash__0",
+          "executor": "player",
+          "scenarioIndex": 7
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.judgment_of_ash__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 31
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.spark_lash__0",
+          "executor": "player",
+          "scenarioIndex": 140
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.kindle_hex__0",
+          "executor": "player",
+          "scenarioIndex": 142
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.flashstep__0",
+          "executor": "player",
+          "scenarioIndex": 144
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.spark_lash__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 163
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.kindle_hex__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 165
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.flashstep__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 167
+        }
+      ]
+    },
+    "spell.focus": {
+      "source": "Spellcast/Standing 2H Magic Attack 01.fbx",
+      "sha256": "69a6b332b9560fb1376a19660679639c7094491004cca6a5ecffdeae1e0c052f",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.martyr_s_ward__0",
+          "executor": "player",
+          "scenarioIndex": 2
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.hymn_of_resolve__0",
+          "executor": "player",
+          "scenarioIndex": 4
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.last_homily__0",
+          "executor": "player",
+          "scenarioIndex": 10
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.martyr_s_ward__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 26
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.hymn_of_resolve__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 28
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.last_homily__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 34
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.cinder_lance__0",
+          "executor": "player",
+          "scenarioIndex": 141
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.white_cautery__0",
+          "executor": "player",
+          "scenarioIndex": 146
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.ashen_cataclysm__0",
+          "executor": "player",
+          "scenarioIndex": 148
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.phoenix_collapse__0",
+          "executor": "player",
+          "scenarioIndex": 149
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.cinder_lance__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 164
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.white_cautery__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 169
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.ashen_cataclysm__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 171
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.phoenix_collapse__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 172
+        }
+      ]
+    },
+    "spell.ritual": {
+      "source": "Spellcast/Standing 2H Magic Attack 03.fbx",
+      "sha256": "4dafd067e689d4792069db2bb911dd46f788d5476488cf23d5d0dca675e45c40",
+      "executions": [
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.redemption_surge__0",
+          "executor": "player",
+          "scenarioIndex": 8
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.icon_of_wrath__0",
+          "executor": "player",
+          "scenarioIndex": 9
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.last_homily__0",
+          "executor": "player",
+          "scenarioIndex": 10
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.redemption_surge__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 32
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.icon_of_wrath__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 33
+        },
+        {
+          "profile": "civic_battle_prelate_m",
+          "role": "battle_prelate.last_homily__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 34
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.daybreak_standard__0",
+          "executor": "player",
+          "scenarioIndex": 57
+        },
+        {
+          "profile": "civic_sunfire_templar_m",
+          "role": "sunfire_templar.daybreak_standard__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 80
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.soot_veil__0",
+          "executor": "player",
+          "scenarioIndex": 143
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.pyre_circle__0",
+          "executor": "player",
+          "scenarioIndex": 145
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.furnace_heart__0",
+          "executor": "player",
+          "scenarioIndex": 147
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.phoenix_collapse__0",
+          "executor": "player",
+          "scenarioIndex": 149
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.soot_veil__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 166
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.pyre_circle__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 168
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.furnace_heart__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 170
+        },
+        {
+          "profile": "civic_ember_arcanist_m",
+          "role": "ember_arcanist.phoenix_collapse__0",
+          "executor": "participant_bot",
+          "scenarioIndex": 172
+        }
+      ]
+    }
+  },
+  "abilities": {
+    "battle_prelate.litany_of_strikes": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.litany_of_strikes__0",
+        "executor": "player",
+        "scenarioIndex": 0
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.litany_of_strikes__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 24
+      }
+    ],
+    "battle_prelate.sanctified_blow": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.sanctified_blow__0",
+        "executor": "player",
+        "scenarioIndex": 1
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.sanctified_blow__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 25
+      }
+    ],
+    "battle_prelate.martyr_s_ward": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.martyr_s_ward__0",
+        "executor": "player",
+        "scenarioIndex": 2
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.martyr_s_ward__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 26
+      }
+    ],
+    "battle_prelate.penance_step": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.penance_step__0",
+        "executor": "player",
+        "scenarioIndex": 3
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.penance_step__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 27
+      }
+    ],
+    "battle_prelate.hymn_of_resolve": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.hymn_of_resolve__0",
+        "executor": "player",
+        "scenarioIndex": 4
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.hymn_of_resolve__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 28
+      }
+    ],
+    "battle_prelate.reliquary_smash": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.reliquary_smash__0",
+        "executor": "player",
+        "scenarioIndex": 5
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.reliquary_smash__1",
+        "executor": "player",
+        "scenarioIndex": 6
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.reliquary_smash__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 29
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.reliquary_smash__1",
+        "executor": "participant_bot",
+        "scenarioIndex": 30
+      }
+    ],
+    "battle_prelate.judgment_of_ash": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.judgment_of_ash__0",
+        "executor": "player",
+        "scenarioIndex": 7
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.judgment_of_ash__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 31
+      }
+    ],
+    "battle_prelate.redemption_surge": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.redemption_surge__0",
+        "executor": "player",
+        "scenarioIndex": 8
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.redemption_surge__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 32
+      }
+    ],
+    "battle_prelate.icon_of_wrath": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.icon_of_wrath__0",
+        "executor": "player",
+        "scenarioIndex": 9
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.icon_of_wrath__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 33
+      }
+    ],
+    "battle_prelate.last_homily": [
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.last_homily__0",
+        "executor": "player",
+        "scenarioIndex": 10
+      },
+      {
+        "profile": "civic_battle_prelate_m",
+        "role": "battle_prelate.last_homily__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 34
+      }
+    ],
+    "sunfire_templar.solar_edict": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.solar_edict__0",
+        "executor": "player",
+        "scenarioIndex": 48
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.solar_edict__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 71
+      }
+    ],
+    "sunfire_templar.bastion_edict": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.bastion_edict__0",
+        "executor": "player",
+        "scenarioIndex": 49
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.bastion_edict__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 72
+      }
+    ],
+    "sunfire_templar.pursuit_edict": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.pursuit_edict__0",
+        "executor": "player",
+        "scenarioIndex": 50
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.pursuit_edict__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 73
+      }
+    ],
+    "sunfire_templar.sunbrand_strike": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.sunbrand_strike__0",
+        "executor": "player",
+        "scenarioIndex": 51
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.sunbrand_strike__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 74
+      }
+    ],
+    "sunfire_templar.shield_of_noon": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.shield_of_noon__0",
+        "executor": "player",
+        "scenarioIndex": 52
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.shield_of_noon__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 75
+      }
+    ],
+    "sunfire_templar.rallying_rebuke": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.rallying_rebuke__0",
+        "executor": "player",
+        "scenarioIndex": 53
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.rallying_rebuke__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 76
+      }
+    ],
+    "sunfire_templar.banner_rush": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.banner_rush__0",
+        "executor": "player",
+        "scenarioIndex": 54
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.banner_rush__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 77
+      }
+    ],
+    "sunfire_templar.radiant_counter": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.radiant_counter__0",
+        "executor": "player",
+        "scenarioIndex": 55
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.radiant_counter__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 78
+      }
+    ],
+    "sunfire_templar.heavenrend_sweep": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.heavenrend_sweep__0",
+        "executor": "player",
+        "scenarioIndex": 56
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.heavenrend_sweep__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 79
+      }
+    ],
+    "sunfire_templar.daybreak_standard": [
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.daybreak_standard__0",
+        "executor": "player",
+        "scenarioIndex": 57
+      },
+      {
+        "profile": "civic_sunfire_templar_m",
+        "role": "sunfire_templar.daybreak_standard__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 80
+      }
+    ],
+    "warbrute.sneaky_start": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.sneaky_start__0",
+        "executor": "player",
+        "scenarioIndex": 94
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.sneaky_start__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 117
+      }
+    ],
+    "warbrute.proper_wallop": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.proper_wallop__0",
+        "executor": "player",
+        "scenarioIndex": 95
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.proper_wallop__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 118
+      }
+    ],
+    "warbrute.biggest_finish": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.biggest_finish__0",
+        "executor": "player",
+        "scenarioIndex": 96
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.biggest_finish__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 119
+      }
+    ],
+    "warbrute.shut_it": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.shut_it__0",
+        "executor": "player",
+        "scenarioIndex": 97
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.shut_it__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 120
+      }
+    ],
+    "warbrute.get_stuck_in": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.get_stuck_in__0",
+        "executor": "player",
+        "scenarioIndex": 98
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.get_stuck_in__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 121
+      }
+    ],
+    "warbrute.wot_s_yours_is_mine": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.wot_s_yours_is_mine__0",
+        "executor": "player",
+        "scenarioIndex": 99
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.wot_s_yours_is_mine__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 122
+      }
+    ],
+    "warbrute.keep_smashin": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.keep_smashin__0",
+        "executor": "player",
+        "scenarioIndex": 100
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.keep_smashin__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 123
+      }
+    ],
+    "warbrute.boss_stomp": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.boss_stomp__0",
+        "executor": "player",
+        "scenarioIndex": 101
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.boss_stomp__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 124
+      }
+    ],
+    "warbrute.you_watch_me": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.you_watch_me__0",
+        "executor": "player",
+        "scenarioIndex": 102
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.you_watch_me__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 125
+      }
+    ],
+    "warbrute.boss_s_big_idea": [
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.boss_s_big_idea__0",
+        "executor": "player",
+        "scenarioIndex": 103
+      },
+      {
+        "profile": "mire_warbrute_m",
+        "role": "warbrute.boss_s_big_idea__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 126
+      }
+    ],
+    "ember_arcanist.spark_lash": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.spark_lash__0",
+        "executor": "player",
+        "scenarioIndex": 140
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.spark_lash__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 163
+      }
+    ],
+    "ember_arcanist.cinder_lance": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.cinder_lance__0",
+        "executor": "player",
+        "scenarioIndex": 141
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.cinder_lance__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 164
+      }
+    ],
+    "ember_arcanist.kindle_hex": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.kindle_hex__0",
+        "executor": "player",
+        "scenarioIndex": 142
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.kindle_hex__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 165
+      }
+    ],
+    "ember_arcanist.soot_veil": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.soot_veil__0",
+        "executor": "player",
+        "scenarioIndex": 143
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.soot_veil__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 166
+      }
+    ],
+    "ember_arcanist.flashstep": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.flashstep__0",
+        "executor": "player",
+        "scenarioIndex": 144
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.flashstep__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 167
+      }
+    ],
+    "ember_arcanist.pyre_circle": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.pyre_circle__0",
+        "executor": "player",
+        "scenarioIndex": 145
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.pyre_circle__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 168
+      }
+    ],
+    "ember_arcanist.white_cautery": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.white_cautery__0",
+        "executor": "player",
+        "scenarioIndex": 146
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.white_cautery__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 169
+      }
+    ],
+    "ember_arcanist.furnace_heart": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.furnace_heart__0",
+        "executor": "player",
+        "scenarioIndex": 147
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.furnace_heart__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 170
+      }
+    ],
+    "ember_arcanist.ashen_cataclysm": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.ashen_cataclysm__0",
+        "executor": "player",
+        "scenarioIndex": 148
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.ashen_cataclysm__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 171
+      }
+    ],
+    "ember_arcanist.phoenix_collapse": [
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.phoenix_collapse__0",
+        "executor": "player",
+        "scenarioIndex": 149
+      },
+      {
+        "profile": "civic_ember_arcanist_m",
+        "role": "ember_arcanist.phoenix_collapse__0",
+        "executor": "participant_bot",
+        "scenarioIndex": 172
+      }
+    ]
+  },
+  "gameplayImages": [
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase0_0.png",
+      "sha256": "0298f9952932cacb84cdf06b5c80506c70e5b90bb7ce3af470766cb455767d9d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase0_1.png",
+      "sha256": "239c82b13449032fd28ad42f8a5cee46698063368fe414182dea69e81e75b03c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase1_0.png",
+      "sha256": "1b62b682af8673a30515ec11882a2ae381fd01fa1b1bda7f3a8df8f5cee41ca2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase1_1.png",
+      "sha256": "1b5671bc4b14c92f7db5b2178196a01705e6d25a2c51d7e5114891ad718ee543"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase2_0.png",
+      "sha256": "4a36577fe9fe478318c514b51c2da993bc998311d50ae2798fa5595a5fde1e69"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase2_1.png",
+      "sha256": "67f092168465f40d2160ecf55479e34fa34012896725feb7eec360257a1dc70b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase3_0.png",
+      "sha256": "c62cc698c967534503550ae142173ded55e525463cf7a7c74ecdb701213a2000"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.litany_of_strikes__0_phase3_1.png",
+      "sha256": "492632af25d5983775c974429202c7ac250db801640966df2cd704c73d63f30d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase0_0.png",
+      "sha256": "777be01aeac6b75fe57dedb7dfd16eb0d221478b8b112eef901169317490c5fa"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase0_1.png",
+      "sha256": "0834e2fdda836b96c6e22034f75931fb0e421a65b76b79e02b61bbee4a4d6c92"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase1_0.png",
+      "sha256": "b5a766ac6089c4ac77282c67ba0d85ab65b99b8e0407d86540eaa5cae4bf4329"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase1_1.png",
+      "sha256": "6c2cd8e8352116942bc1e7e6cfd2aa3148feba47329893c85e66bd2335f8ee9b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase2_0.png",
+      "sha256": "72e65dac16245f6a611d89999ae40bbb4f6b200d4e3a62dfe94da5d36aa4fe90"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase2_1.png",
+      "sha256": "3c619c25172d57617d8984f68bf3038f506646dcc6ce6cca347019b14b8733d9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase3_0.png",
+      "sha256": "0f9198fdf6edab18d369c41b8cffdd4789f350d1eacc8872c7c2cabd3b0cb072"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.sanctified_blow__0_phase3_1.png",
+      "sha256": "ee93a79bab64af935ba5f57aefaaae640901a280a0fc6172dd1e956aeca947e5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase0_0.png",
+      "sha256": "293787adb08993e1c489f3a2b13863e2cba2442493146ffa8aaa0b8bfbf84ad2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase0_1.png",
+      "sha256": "59a11aff7d64326479c379ae3a2657ddf7e87461ba673d06d2fe29b20e85d8fb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase1_0.png",
+      "sha256": "ece8df120932f7838de2c1fb3d442be13efc87a0e6b1f41c48f81f289f8b21e7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase1_1.png",
+      "sha256": "44b500378b9761f250681fcdab2cbbd9d185a11262fc35b309c3ba1a394f4b77"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase2_0.png",
+      "sha256": "4453f14cf3f49b3da9201504d3990f489bd3a4ad7bbb18d851586ce8d8cbb4bb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase2_1.png",
+      "sha256": "a2e6a23339be714d7931516230c40301844d4d485434161cbd5786eaf3f4e036"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase3_0.png",
+      "sha256": "9e939507c3c9e4b44e651f33e80f1f7de2fdb86ccda76a35edda325ef57624fd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.martyr_s_ward__0_phase3_1.png",
+      "sha256": "b003456f99ae1d1bbbe45643701774cd31616103500036a51a49dfb417f4ab19"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase0_0.png",
+      "sha256": "97977172442a0a37e49742dc9bd9eeeab018f2fb8fbaf2e6fe6ef5aa0835ae3e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase0_1.png",
+      "sha256": "c195e0ca57073b71f66894954d55ef76de595956671c206eff467fe43200d8ea"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase1_0.png",
+      "sha256": "8ed1bd17eaa4d80b68bb15420be8bf7511f18cb405d07b818778a20981e242a9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase1_1.png",
+      "sha256": "1ce266f2785002fd7acbaf4083c8d1d9a9d2b9013c62626e77cc0db89f2847c6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase2_0.png",
+      "sha256": "c75b43696335b0f682514f5b32b7a5e76289b80b0a2bb78a0e2a500802cea234"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase2_1.png",
+      "sha256": "ba9b017dc87e592a9efdeacbc631ad09d24bd7a193dbda3c7fb5dd0a2a56094b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase3_0.png",
+      "sha256": "4636e9587c30a77d77f2c9e091f37a6e947c4ece232974c560d2b9670e53551d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.penance_step__0_phase3_1.png",
+      "sha256": "def5f82bc972258431480179f2b8ebbb12f622c446b9409809547051f39b16a8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase0_0.png",
+      "sha256": "9a215028e2b243e620c2b7991a7ab7b686e42129325b2937a32989da0e636564"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase0_1.png",
+      "sha256": "eb7865965702c518e0785ce343d090dc18e3bf2a2d432251ea8b2481b1662d96"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase1_0.png",
+      "sha256": "24b49b7c01b2b06991e0f4be54aab502ee5ad3fdac183418627c6b3cfcefcced"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase1_1.png",
+      "sha256": "a097e0c9e8e222b2ac50544b9e29f2aab2e3808fb17185f6231bf7492bd2b29b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase2_0.png",
+      "sha256": "a800beeda16d49223ee4912afe5eed2a24ddf297689a6dc1def5a827511e87c8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase2_1.png",
+      "sha256": "2c49d562e1e967591b86d306c00a7d726611179facc165513c3b93660242e884"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase3_0.png",
+      "sha256": "6a2be8ed8561d599ed392abfa6ff6c087d1145b75fefeedb43b506b3b58756a9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.hymn_of_resolve__0_phase3_1.png",
+      "sha256": "c9d66b10f6cf1d8bec34f26b9548447b4584ca21126948b038196ca7b283d675"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase0_0.png",
+      "sha256": "084bff97e59736a127983e28757f5a80516abe781e4364cb065ff40add33af5c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase0_1.png",
+      "sha256": "e6c8635fc1383345021a1ed59ef2e5525a8d26df1b3633f9e5c75d8763d0b8fa"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase1_0.png",
+      "sha256": "ae6b973a8d9fe1bea9aaf8cd1a8e7e901264f69c47de1f4063414e5babee9e71"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase1_1.png",
+      "sha256": "1c3cc9f9c08dbbc3e1ca5b0448c96478682d7883f44b3e1677916e5df4864519"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase2_0.png",
+      "sha256": "505fbe2a171fa3e0c6ac4c7bd829afe7b17277a6ec7ccb3fd827e395820a10ad"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase2_1.png",
+      "sha256": "42bedef4776f935d2aac9a98b5f851120e8b1d918358a57716cae47ecbc0f09e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase3_0.png",
+      "sha256": "bdb9ab4b70bec2e740cc1b45cf6d81a55ad2cdc84bfea64e3e031d571157de21"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__0_phase3_1.png",
+      "sha256": "d80b1994705acf4a8be6df71ba034a997f005519411722611283415bbbb2c48b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase0_0.png",
+      "sha256": "6e4d8d4a73ca33cefef8ef8df0cb5b22873b136f38b5c8047927b87c388d194e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase0_1.png",
+      "sha256": "967d026c25c654b5cafc141eb8149843ae1023fb00e91fa4d0a3455ff128ed5a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase1_0.png",
+      "sha256": "c8606024d410f0301742fa0b96b71f407aa5f123ab4ea53d441f3da96674ecd8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase1_1.png",
+      "sha256": "959a5a12444034a1ce762c2a672f111e151d9a2e60b29718d6e414342b31f9fd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase2_0.png",
+      "sha256": "ce3efea5e1da5eed82bb368afe97f8de58f1aaccd3dcda127bff593e44b3d3c5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase2_1.png",
+      "sha256": "f765be633ed42b32f9284c401b4ebd7df7fb16f895cd92a05e389ca58541e097"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase3_0.png",
+      "sha256": "0da311f786a7ae7e2815758331be695d87f7980af021e7e7d30c476f80dff678"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.reliquary_smash__1_phase3_1.png",
+      "sha256": "bdc3a2e1a98db1a50e3ef2955bbd6afdd4ec3ecab137bb9c00a3f465b3db52b2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase0_0.png",
+      "sha256": "39c3e297ce85f4fad26c0253fc5f783530c3d5a93fb77b771661a4593b26db91"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase0_1.png",
+      "sha256": "1b107d86bc50cb77d9893776431d1dcf0fb78b5ce3c6d5a21dd06e0e59d15359"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase1_0.png",
+      "sha256": "22567058a74fda06a6e743b8767cc28db11b7a79a6cfc9e28a699f5c3a59b0f9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase1_1.png",
+      "sha256": "d41ac71fbf7462f9516c9efd6df9db595c475fe3975c1bf3c6a9900153750bf8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase2_0.png",
+      "sha256": "4658ba2ca6b387d038e85c3b6cd96162277534f3b287119eb04757fa9887462c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase2_1.png",
+      "sha256": "d2aadabbae64a0ebd3c6013dea19ffb7ffbbc568f7bcf8af81fbd739d8b8f573"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase3_0.png",
+      "sha256": "784863cb2d3b42c372abbac502aeeb7d7a01eeeb81b831f7fdc8a9f53bba5757"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.judgment_of_ash__0_phase3_1.png",
+      "sha256": "7a6013b1ef2f39aea4501dac00ba0c5eb8db971eccf5e8a5fac9aa81bb679766"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase0_0.png",
+      "sha256": "c60827deb0161c4072aa9bd1cb7fdfc740007e5e12fdc1fe9806f852eb02ce93"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase0_1.png",
+      "sha256": "248aa6a65ef84074c4bfe1908abae307bcceeca9b0dc32d945de4b1915848237"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase1_0.png",
+      "sha256": "6f95c93f0acbfa80f81f295b5d464ca2df28d328764d891aadf81daea88694f9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase1_1.png",
+      "sha256": "a0093c41686bdd5b48b386ef7d03841d19726f9aff0555b155ceaa229321c0c2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase2_0.png",
+      "sha256": "c50546133874b1ddaa0a7884bfea7ab03c7fab7db9a1ee11d01aec587a9cda10"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase2_1.png",
+      "sha256": "3ab19af64f6b1170abab47da2645c438764f49e83ba178734151a323eee14fd0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase3_0.png",
+      "sha256": "6c10aefed146e385307bbc973b410bd649c5b9e45760ee85fd0169287961191d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.redemption_surge__0_phase3_1.png",
+      "sha256": "070a47870d572e400c9e564c14cee879a7e343f6e5167bd8194e4f9b61d48328"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase0_0.png",
+      "sha256": "baa7946f8fa533a7c505cf9370873d78b22e4cd3665fae703cec10e7967e9add"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase0_1.png",
+      "sha256": "c0317808a3c8a5a923119eba56825bb844ea8bde2dfc0f8765bf29379e486ba7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase1_0.png",
+      "sha256": "4e26ee00643fcfff3a6b1131cc1523a3b7e185bdac424b4aa0aaeb3cae0b4bf3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase1_1.png",
+      "sha256": "79fc51206b000b24459be15aab23ce834363b749a7ea08781f7995876e0df25f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase2_0.png",
+      "sha256": "361f526ea52f0224a88fa3b6821fb30de12e0d466a6c36bf4e2b58ee0fa7c4f4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase2_1.png",
+      "sha256": "f6bda4cd1ab1ef4fe853c6c28d71b19b3351c0642e2b796043597355d203d9e2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase3_0.png",
+      "sha256": "2a5a64afe4144010708e6d4ee578a3e7ad6e71953d25f67e7a4ceff91ed503de"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.icon_of_wrath__0_phase3_1.png",
+      "sha256": "a137ff4e5440df734fda7e3c4ea3a9ab8894774d30a1222e52a5033189a38aec"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase0_0.png",
+      "sha256": "93361606d7f45bd31037e83a73352bf68958e270fecc9a4a8a61c1258b9143a6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase0_1.png",
+      "sha256": "d0ba1a087a553285947740048730bcd6fcae519d2c5750eeaa87b56439bce01d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase1_0.png",
+      "sha256": "1968aa54a70c021d022228ea0ba690adaeeeef6942744eede8e5a466dcaa06af"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase1_1.png",
+      "sha256": "502a66e13c6ec716eb2655fa8b0d4bf5ccf3811570912bf414936b05a8f4c156"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase2_0.png",
+      "sha256": "a59d2e9b569dac5cdad96ee92be99c6c6456e070a0f3ffb478f2e97c0069ff51"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase2_1.png",
+      "sha256": "82c4faa3f7e29369ffa7f5e6dd80a40d8b129d5cf3c789cd5fbaf6331e5bd539"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase3_0.png",
+      "sha256": "8e879c907b279b256906becf84ded7943ef7e1c12b6409bc164ab16e4ca95fa4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_battle_prelate.last_homily__0_phase3_1.png",
+      "sha256": "c94e50017a6270ef71c4a8c8ce04267a2ffe94e35a3b3a5a40bfe9aa4a017f3b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_walk_0.png",
+      "sha256": "b0fefeb54ad9d54e7b0ae293bf0425fa2b501ab306e1892073bbe14bd3d823d3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_walk_1.png",
+      "sha256": "625cf44c18d52e8a6ed1952a764f69c8be987a594d6dbbcf4d8f9cd30bc55328"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_run_0.png",
+      "sha256": "4e8a54f3693695809e06e491f24c5a156bcc1d6e08280b0a1cd0049a8619e343"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_run_1.png",
+      "sha256": "ec4ad64674ce3261cab523b3a7dd3752fd9227c2586cf03a53501ba99a6933db"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_walk_backward_0.png",
+      "sha256": "75cb808a0b5ae12f6f5caffb9696a60e44def23503863713197a2cd4f42e887d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_walk_backward_1.png",
+      "sha256": "25705ea459301e083a1eb478c99632cfdbc2ea4aa27fc24444137c5f5db05219"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_strafe_left_0.png",
+      "sha256": "1dc6dff41ddbc6caeb2ddc1086134a4738627248e41986cc3d55358febefcbca"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_strafe_left_1.png",
+      "sha256": "7785a40715675770632a03c0444b7717136e47e63faf20eb5593d818dae7d3ab"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_strafe_right_0.png",
+      "sha256": "507dc078b0a706173614c3ad463da7fe67fff945b2ef5006c4b9d37ed568c1bc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_locomotion_strafe_right_1.png",
+      "sha256": "1774011aeb0c0395822b670e5a35ef7e4f4cd28041276dbc07e7a4ccccbef57d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_idle_idle_0.png",
+      "sha256": "7ae72878ba58c4ae84d39c1012018515072335246fae7792d557be0390a5b065"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_idle_idle_1.png",
+      "sha256": "8ac6b0fdad1cd7bb675f3c7bf7a39bcaa589fd5f47d68a7a4f78381c6d42dc3c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_turn_turn_left_0.png",
+      "sha256": "459b540693b81b44c834dadbb60238d3cf4a29e031a381f08396c4160f51adb9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_turn_turn_left_1.png",
+      "sha256": "c8cff4038492e3f72757d70bf7c9b9cb07193b21f6889d835366ae1c02ed0d43"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_turn_turn_right_0.png",
+      "sha256": "e010ae4f10abf2556f3e22f5ecd07faf29bf4048008bc9ac1b68c01b8aae28c1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_turn_turn_right_1.png",
+      "sha256": "d98881cc05d5702604d768fbe3ff3cdfb15aa4e7c5c24fca199366318dccf9d4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_jump_jump_0.png",
+      "sha256": "791f75e478e3d0f0b00c98b72e28692d544c58ca1e6d37faaaee54297b824cb4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_jump_jump_1.png",
+      "sha256": "6654fc45a38ef0bb85217f60c4070d113bb2d0dae0f3555d2be5011ed861d791"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_landing_landing_0.png",
+      "sha256": "0a4d50e4d6cf3547608e0d6b918ed19bf97015484c08d0d2f277ed047418767a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_landing_landing_1.png",
+      "sha256": "4c40dd9c7f5190bb7656184289d80a23e98fd8b344b3fd53e76c8cbd80f3477a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_reaction_hit_front_0.png",
+      "sha256": "0a01280bb81be5a40271cb9c94fd4536bd8af5ab8bfddd4a858a2cbd0fa0ae58"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_reaction_hit_front_1.png",
+      "sha256": "ae5fb269b7198ed91387712418c32b1aa9121324cbe1f7711074a3a514347db0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_reaction_hit_back_0.png",
+      "sha256": "254f5db7586288ca152aa718b287229b9a54187a11f7393541657859e41ce656"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_reaction_hit_back_1.png",
+      "sha256": "489e048ba677d66fac7d624e1fdccc4eca447bad36f7dd6af83cd96caf8a4f81"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_death_death_0.png",
+      "sha256": "f71a7a1e3dd550e67e4d335ec13b9f0925f38f27e3425f8344152c384068e3ce"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_death_death_1.png",
+      "sha256": "3b4fd23d2c40e4426567680fd930ac82a35c31a760998c019dd878c01d8ae734"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_walk_0.png",
+      "sha256": "02c8fc83c82fe105f73789c7989a4da1b66625f16e7d800d07337bf9af7533a9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_walk_1.png",
+      "sha256": "9a21e8dab279ceabc75db629c2e0410db8dfe315699f15fba1fcd36e033dfca4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_run_0.png",
+      "sha256": "c80185e56d3b9605dbb1fb022d8be0fc7d7661d8c809e5fae4b4e14ea4d06ecf"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_run_1.png",
+      "sha256": "de9402af2278e8d008b16d9a7c287a7e3a7869ba9fd970337e489b2462a3daec"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_walk_backward_0.png",
+      "sha256": "7a8a5cb9fd7de257bed883a220b94d3f69247ef044e3c4ea4cd253cdce00a92a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_walk_backward_1.png",
+      "sha256": "c738140285b4f51be213aca490f31502f4965c79173b7b80f5c0d8962e34a7db"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_strafe_left_0.png",
+      "sha256": "aa712593964261c05d56175a158245027f8119c59410a2e9615e0225cfbd8e7f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_strafe_left_1.png",
+      "sha256": "6cf4ee7cb1056db1652b4e25bf7256e382540827c30f2d2b0bcc5db0fad985e5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_strafe_right_0.png",
+      "sha256": "862f7b7a779456a7482a3c592e258d62a2a48bbbd7507199d15ab4a8ad717cf6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_locomotion_strafe_right_1.png",
+      "sha256": "ecbdf9e4c4a9e935ca0f1464d26dd6e94e3ffd3e82077d5670ce782ec6c65c8d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_idle_idle_0.png",
+      "sha256": "c5ded1b7f3aab8dcf8ac5078bd6b261dbe4d3e0cf24ebc4c2429799d67684395"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_idle_idle_1.png",
+      "sha256": "0d4feff87dfc10b54e5ee8a61f3bc115fa9baf1b4d310c4a771a8da448475b2e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_turn_turn_left_0.png",
+      "sha256": "5224268ec7f63a90f51ba2b5f1062edb8d869b9da90632d5926065b81a26241b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_turn_turn_left_1.png",
+      "sha256": "f7d0d24a80009e4154f8cb0a11f96ea9fa02ab38f36d1c3da576d6cba1303cdb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_turn_turn_right_0.png",
+      "sha256": "ae8ac3ab52160f1ac07e1d8aec0fd26ed3620d7e947b8035092e2af4e9314d70"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_turn_turn_right_1.png",
+      "sha256": "06abd04b0a274cb302c8b3ed401536c1a94b9bb96ca1e47a464ca7f9e4064f9b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_jump_jump_0.png",
+      "sha256": "62bd3fa0c0677e09847dda14375419ccff877b250ba260b35eb2c63428aaf60f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_jump_jump_1.png",
+      "sha256": "8bb4bb68949d7f8b3abaaea207ce6717c32968d7f465b31ae9a1ce11d7de2d0a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_landing_landing_0.png",
+      "sha256": "334056fbfbf9431dd132a7ce4e5daf4c0b2c7eecdf85d5021a2013b056805d1e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_landing_landing_1.png",
+      "sha256": "a8d5fdc731d2dc98b19d0ce938ec5426ff1ab9b99832dbbb55008f7b3fd4e9fe"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_reaction_hit_front_0.png",
+      "sha256": "9d2505ccd983e7c98d3c842b22cf2be35beb769c559029dc0121cf295e4175bb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_reaction_hit_front_1.png",
+      "sha256": "f5ae167e85347d45b4c02e9a158d20a3c5895584600af53036333c9c98220cb0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_reaction_hit_back_0.png",
+      "sha256": "196d12e80bfd37af28faccd843103630116d4d621757696980123f2e6d5b4b30"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_reaction_hit_back_1.png",
+      "sha256": "a9d63920fdf1a7885037582e5e95a3c7bac52a58acd19d423c698c84b5b4b5d8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_death_death_0.png",
+      "sha256": "943f50977038b971d914a4f76d5e877a3b085c8a592c61b853f046dd01d55d1d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_participant_bot_death_death_1.png",
+      "sha256": "fa172660fb757a0a0d57b907dbbc0ac830eb5ee4e8aa8c10606b1d879c9ed78f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase0_0.png",
+      "sha256": "315e58b719ba354b3970f63d0d97135080c68146279a7f7d058c8c6e47a2965c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase0_1.png",
+      "sha256": "3372f3c6eb684c632fdd158add70237ce018c65bc17e623a44b2cc3a69e1daf9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase1_0.png",
+      "sha256": "0b5bd3ff008db116ac1dbe566b75535aa4239519f03b7e515ec5bfae53e5bf5b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase1_1.png",
+      "sha256": "4c39a2c2809f303b2d2a2e11bc8d44834ab43aaf1469d48dd3edfb3ef88c6b81"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase2_0.png",
+      "sha256": "37b7592fccf750f20a55101daceb7973cd671fc8ae40f61e0ec2b0112b4bf587"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase2_1.png",
+      "sha256": "2a93d64f1299936ecaa394b1afb3d8b897d4f19f337e2aaf9ce6c9ed807e739f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase3_0.png",
+      "sha256": "d94d17b15356f8148d868080c486d126a1a0e7c763a91aa1ed56541e59915be7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.solar_edict__0_phase3_1.png",
+      "sha256": "6d4080979b9e068f40e48276bd94cabac573ff41c398e6fb73039fade7f7794b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase0_0.png",
+      "sha256": "ed0dba1bca9e340a4bae07c3f83cb708cafbb2c3274e3e443f1a66a3322f3a72"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase0_1.png",
+      "sha256": "b3036b9c54401ac41132377295e7a57154e622603803d73c7ac69185983876f1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase1_0.png",
+      "sha256": "939081ba3bde34222a93b9cdc8b17bf3fcf9502c793ddd2ac422d2efde0bba1a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase1_1.png",
+      "sha256": "ee161a3bec1ce932b3e16d9261bec94f8d4ba04881ea43a1ce88e489856ed7e1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase2_0.png",
+      "sha256": "51c6a323297388610dc67db46a13f25b847081ef3cb7596c01fede63bd51ee9a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase2_1.png",
+      "sha256": "c16de0bd46a44c43ab531f660b0f989144eca9864915dda003182dbb6db92696"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase3_0.png",
+      "sha256": "881d9f9d686a287a5163f4980f1d5d28436cc249372fdcde4ec4ef88936b5d78"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.bastion_edict__0_phase3_1.png",
+      "sha256": "607745f44b737783e928fcf7a4b98b69401f32497db625ea91d294f7a66b5d8b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase0_0.png",
+      "sha256": "28b7085b8de8e2509d2326ae8d6170606fa0bdf6efb5a975f13acaabd64764cd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase0_1.png",
+      "sha256": "6b49414ea340cb5f9ab6ee69945b44b78d4730e37e88881cedde1ac31b116873"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase1_0.png",
+      "sha256": "c0d4108376fdadb8e13223424fbc899d63d2f6cf25ae9a3f30a4008b70cf8705"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase1_1.png",
+      "sha256": "716e4793f6a31a5f6fa7cccaece4d139d5525c3a1914d635748bd8f9604a470e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase2_0.png",
+      "sha256": "0a755ee607cc8cd3b57d1665cfc3d45cee3c7ffbabcead57954e6dbdd1cd1c90"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase2_1.png",
+      "sha256": "14b0da8c5cd288024783e2be2414c10a4e217bc16233dfc6993c993217d17ef3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase3_0.png",
+      "sha256": "73ed287bb28099a34c751826016c9ab7644c64bb42733a58599b90ea183c1843"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.pursuit_edict__0_phase3_1.png",
+      "sha256": "48c3ae089743b6757a4b1ed97b0ee056e2e40b16fff00e520e6bca5290228986"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase0_0.png",
+      "sha256": "8abc5fff824c989b4b390739d33e2a33e678983f5432a2b46cd610ff2e40f436"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase0_1.png",
+      "sha256": "85d21e483a7444f44ba3305650cb568311d7cfde7203b4ac4e0b559dfa72c9db"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase1_0.png",
+      "sha256": "c8e4af37d36ef875f2b9b6abe2b097b15bf5c4ba2f1f322543bebb3742df0ce6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase1_1.png",
+      "sha256": "aa642762562a1e98c775857c5550fdf8967fa565d142728e80ad34664300df8f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase2_0.png",
+      "sha256": "ca491416deb544107e9ab93d8d4d1a0a7321c21344952d29ec52f38d5e6438a1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase2_1.png",
+      "sha256": "63a4227a5de934cb70b4777ba16f1dba903db333c48ee72298e9e1938bb062ae"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase3_0.png",
+      "sha256": "3722ee12bbaef9f6ebc2330b094bb910179c8905e7c59b6a36fb2d1e8a2f54a9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.sunbrand_strike__0_phase3_1.png",
+      "sha256": "725d625fbe7c79094eeff01e32dec78e008d2417dbbc51a3edb81304fe55b6f3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase0_0.png",
+      "sha256": "127ab70e9b904c75f8280d88996c8f47697730edb7749d5ff58c1d63687c8c74"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase0_1.png",
+      "sha256": "aaf831bf03c92277d4d5e80b92f74e35a781682ff57c1a1793f98505aa5bb133"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase1_0.png",
+      "sha256": "5e8649c12f7f7032aabbf3040601be5b0da48dcf881e10af7e853192959f6ca8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase1_1.png",
+      "sha256": "927e609fd59ca3964d2ca8c631d9ca375bee8518b41c9869a24d6ee70a4b35df"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase2_0.png",
+      "sha256": "b38fc9b451ad6ea750d7d16352ef2943201478ea8793b421fb7ce8c47c364f90"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase2_1.png",
+      "sha256": "11ad68694183e4217af4b8ae515f0205039c66c2cc7889bc92ce7608c2da3b86"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase3_0.png",
+      "sha256": "a0e0488afbf402b9705bc7c10523607ac6a1c1f89774e1cd9894eabb07c0b06e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.shield_of_noon__0_phase3_1.png",
+      "sha256": "cabb6f7814fecca773d657a4ad74f1b8dd7c222d518bbbb1850e591d6197b139"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase0_0.png",
+      "sha256": "3981279dee8c0455195d1d2979ecf71e2040c01742d01e0479a625de1f269b9d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase0_1.png",
+      "sha256": "44164160f60091e03fc74c4abb465f6d357055be160d37872b7853d76020081f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase1_0.png",
+      "sha256": "0607d6b73b0f2d6f1250f1649edc7d76470f43c7ee2f4d4d35f4dbb3f866affc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase1_1.png",
+      "sha256": "25ea7e8568fc4b3dd5a26519d8a8e09379ac0d9863debea9228014cd55218656"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase2_0.png",
+      "sha256": "de3074aeb5bac718d04a1f7b19abf13a95d9f8c014f88697b4cf17de29bd3ce0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase2_1.png",
+      "sha256": "9bc6600869770f9ffa446d974b31febe2e5ff3847f10f8e8c0411329292f148c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase3_0.png",
+      "sha256": "62abdf99019deedc3a043f2bd6119ce70da0feb1d50364b8d240459eda26401d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.rallying_rebuke__0_phase3_1.png",
+      "sha256": "8178245ed76e683d118f690222e5a984dc1591df30b3e9cffd7db4b22be8394b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase0_0.png",
+      "sha256": "30bfdf2ee348c15610957641b50ce652c2d5ca04c12dab51686041cbc08c2c93"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase0_1.png",
+      "sha256": "55b3c657040df81dc73bf5d1fdf6c2b68b47ee44324a99c60f3a2d5f53f28711"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase1_0.png",
+      "sha256": "9b8bfcc24cdafb277c81e427bec708916655e461444343e1d572212ae19cbefa"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase1_1.png",
+      "sha256": "6d0860fda79e4dee74f2bba36f77c1a71c9d56dfba99b605090048d14b1a084b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase2_0.png",
+      "sha256": "3392922f8b263fa70443e79abfd1dda6e6e8cf72d3cb793a03cdbbcedbee3c26"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase2_1.png",
+      "sha256": "ac29aad400631f8c6ac4a3e6e9fcd34de347ab56d1a38441b4526d497793c875"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase3_0.png",
+      "sha256": "15824d3c456c69000d6bb752ef5adb976ce7fd6311c0bea3523c8fc6517cf691"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.banner_rush__0_phase3_1.png",
+      "sha256": "e61ea6e3ef7bf14fcd3bd360f3ec3cbc5844ba777b35353954311a4d024ba5aa"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase0_0.png",
+      "sha256": "91891e91fde27de4c5313efad1de86a67396675a95439f96635801ad237ca7a2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase0_1.png",
+      "sha256": "83e39ca89164e6f97e34a2caea32fe6ba7d8e139d243b4ec60bf104c3d0636b8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase1_0.png",
+      "sha256": "97451dd67e159663c63f7059d6374db28286ff48ed978ee1692b6f055629d708"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase1_1.png",
+      "sha256": "599b9dadc40464d4d35c5ac0422ff2e408635598a12cab76ab0da81914f56986"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase2_0.png",
+      "sha256": "8ae8b56ae5bec971dd5012332fce5d79b3f64a1df2d888ab3dd5e4245383274b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase2_1.png",
+      "sha256": "43364355371e266e748da9dc3052f7f01f5c014f1f69b0c0a800b2082a910b5c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase3_0.png",
+      "sha256": "0434354274f164817258117ba91a4e6f930e6f650fbf51eaf688d0c7eb2dc36a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.radiant_counter__0_phase3_1.png",
+      "sha256": "725d625fbe7c79094eeff01e32dec78e008d2417dbbc51a3edb81304fe55b6f3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase0_0.png",
+      "sha256": "175bc53c1ca1f45d3cd994227300b4fd12c2d7774c0c7c61b2a2eba3c7475d0a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase0_1.png",
+      "sha256": "2b0c83ab5ab809c354676cce75cdfd33c5b9d56168f56cad1e50e6f8c906ceb9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase1_0.png",
+      "sha256": "d5c645f9cd98c9b3f38f22988ab6cdfc2e1d5ba176d5410260aafd0c484667bb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase1_1.png",
+      "sha256": "a62d0a0be0e122fa253f7d07edc3f5179cb75bf034f8199665c1dae6442d4385"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase2_0.png",
+      "sha256": "25eefe91ebb896d2968b920739b26e7df9788b1134f7ac9e4ec20325e217a4f4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase2_1.png",
+      "sha256": "39f45768608c1bb8607ab5ab9848b778a45bc9c9148c874bdf1483bd20fc7c26"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase3_0.png",
+      "sha256": "26b3a6396bfd4799179c169cedc74828b1df0010d0e1b74aa1b01260d5688b60"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.heavenrend_sweep__0_phase3_1.png",
+      "sha256": "0641de466dfdb5996760dbb6c59bfeaf982e12a0f99ded84890a0fb7ae6ebef9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase0_0.png",
+      "sha256": "c2a08abae56767fe18bef7771c0fd1d52d4bb5d6634092d1a1d5610e2c286a6d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase0_1.png",
+      "sha256": "180858ef8b785ba8dbd2733766b964898424b8b6ad8ff9983ce6bc8a769c9d10"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase1_0.png",
+      "sha256": "b0b6718abca38d7f44e18a801408478d39b69e3339f132d94837ff630c372c74"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase1_1.png",
+      "sha256": "51ab22046ee549f44136859718b12345b50daf73e64130d6852060f965746d8a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase2_0.png",
+      "sha256": "6f131301e44aaca49aa9350288d4e53e7b4669715e1e3ff1fd83a8b653c2e795"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase2_1.png",
+      "sha256": "7efce677735fc25db56d73dfd3d46e59f895e09614ba2311ff929c771e40f479"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase3_0.png",
+      "sha256": "99bff61f00c93e6ff62f59d9fbe9179bd786f921955a687231d11a2ee3edd9d9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_sunfire_templar.daybreak_standard__0_phase3_1.png",
+      "sha256": "52617304f430adcaeeb96089bb578d4a01c672a98ff9b9b2959ac89d00f887df"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_walk_0.png",
+      "sha256": "f108289633906ef7ea373888332ac7c2a65b75aefc1edb09e167b61161998668"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_walk_1.png",
+      "sha256": "7c007822e5c5ca4cc4fc65c15d9fed58f50c5aea6b0f9ecd9dd2e14ac1d7ab22"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_run_0.png",
+      "sha256": "4b6248308d6438f2ca54ea1bb5ccb337a2cf46c841cc2a5fd599392988903087"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_run_1.png",
+      "sha256": "f7bc43784c40d1648511b95a410d09049f9bc6a6627351aa2c96c1fbb6b3be4d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_walk_backward_0.png",
+      "sha256": "a62e0c25fda1db5e8436f1c0884129a15de825d3bd3fc906f8787a3d9c77971d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_walk_backward_1.png",
+      "sha256": "0e19cd6a5680a52fef105f73956f930609e0f5f9cced316e351d2d4c03542bf3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_strafe_left_0.png",
+      "sha256": "ff3b18e052f9bd2cd2b8ef93e684ebb320409ee8fb1bf4ee9191944259c509b9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_strafe_left_1.png",
+      "sha256": "78d8ac5259ee374764188818a6b6d1ed30ad02bcb0ae0be3e4377d85dc11cdee"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_strafe_right_0.png",
+      "sha256": "18128ea9b152c2e959c30595d170ea1f58b54efc92bd5eb3989ee865bd8bce0e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_locomotion_strafe_right_1.png",
+      "sha256": "2c6c188f675ebabff7f72981b2b7489673dd58a79492cd5ca03b3ebcfd03a9c2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_idle_idle_0.png",
+      "sha256": "b5892afb529b5ab3bf0585c3c68bbe1d554ce561772b0bf9f833e9cfdbfd9583"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_idle_idle_1.png",
+      "sha256": "6ab75a95a2a979c77a877c9d7bb6d28bcac2b98e0a2c4edb939f1d7b785612df"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_turn_turn_left_0.png",
+      "sha256": "59c56a172c318d911e389da7388fd6e0ff588d67722e0161dae74c5350ec89fb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_turn_turn_left_1.png",
+      "sha256": "688d36d99bd35267ab600121a15119c8bf4cab9d9d8cb35c82fdf23218327917"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_turn_turn_right_0.png",
+      "sha256": "6b98a26178914ad8a5bc0bdc15ec7cb5169d84e1884d7199f239b3dd1f556de5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_turn_turn_right_1.png",
+      "sha256": "e1332ec612244eb809e65c74288730e13cdc836fba39c2a63c7a8f71b53579bd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_jump_jump_0.png",
+      "sha256": "2b160780fff6e44d0f4b0389c67937c28d7e849ce18e55282471d24553e5de12"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_jump_jump_1.png",
+      "sha256": "d0ec8ddd533f992396c4ae047095ffc735b4ca5a90509fe15e53b52800ff2285"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_landing_landing_0.png",
+      "sha256": "95778d6b2f58a9e7a57e3995ec3a9d205de334b554e9693c09aac89a3723038c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_landing_landing_1.png",
+      "sha256": "34d5a2571f1dd711e7e281991323838f4b8cc342f32d86b4c7e72e40297ab5c2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_reaction_hit_front_0.png",
+      "sha256": "571de07068e7a0c6d594a81c1541ddd60b85a22cd531dec5c60d83268c0ce3d8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_reaction_hit_front_1.png",
+      "sha256": "e1f338bf206906e73744c497e0fd7722e8cd7f03d400eecf619f8a9430cd825b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_reaction_hit_back_0.png",
+      "sha256": "ae3c80c80c315f8d1d9912f9636d0e6d267bfec94916f2850836409a91818c30"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_reaction_hit_back_1.png",
+      "sha256": "58f723a1cf9ccc3fcd44118aa0aad80ba425423f577f4fe2e28320cf44009e10"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_death_death_0.png",
+      "sha256": "11bc443478bd414c5c8fd12e5a7278e25f61f863c8741f673579a3feb56e2326"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_death_death_1.png",
+      "sha256": "7c47c37760f4083494541c75d1a928c3bcc955c166c8e3f7a7d0e47bf9c8e333"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_walk_0.png",
+      "sha256": "90863cb1b2bfa818491c90d2dad3a6a24a46a4e52a10dd8f34976ed0a234341b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_walk_1.png",
+      "sha256": "5bddde08383edc407fb42c05efed74261b9287f4c53d396461ef3f89a9f6efdd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_run_0.png",
+      "sha256": "656b5062ca539028ccc81d02fb9215c9c3bca0964f175d1a5d844b884aa7d8a9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_run_1.png",
+      "sha256": "0d49a6ec68ae3c49eb03ce89883044f9829474b77db1673a26b607018955c721"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_walk_backward_0.png",
+      "sha256": "e10eac750bf28a83e3f0295bdd0f8d1758900ee5a90b00bc4e6d5348176e6569"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_walk_backward_1.png",
+      "sha256": "94af87ccadc88974b71e5c02ecdbe87eca580390496f8879c0f8e9c545ae2f42"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_strafe_left_0.png",
+      "sha256": "05d3d260dbb1972dc806ec7c4f7155afd9de281e9e356048143f1cdec48843f4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_strafe_left_1.png",
+      "sha256": "8ea32e7c87393c3bb07d908e09797b6a6142c92db0e224264c8036975b0008f5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_strafe_right_0.png",
+      "sha256": "440d9549a446f3391f21cf6649d8541613176d8d8292730cc6d10681b281b246"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_locomotion_strafe_right_1.png",
+      "sha256": "fbd15b8085f72dda8ca8e5af082f99eccc96a55cb5413059e1a032a12018441c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_idle_idle_0.png",
+      "sha256": "6dfaf7fb5a1f5bcde20a66aa6eeba8a999ebc9533dc497eb9369c366c0b58753"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_idle_idle_1.png",
+      "sha256": "b6a01cec34f62b0d56aca3f49a2008ac0437b830253661782d37fec6e6e213e3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_turn_turn_left_0.png",
+      "sha256": "5c3a7cba96b0c6d4779cbcddbc6fc5ba2ec6cec2544348441e0503e732fd6601"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_turn_turn_left_1.png",
+      "sha256": "cdfc1d55c7ed5f0a6519778f761d9d56c86756bfa7b05da5dd7d32ec796923ef"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_turn_turn_right_0.png",
+      "sha256": "bb1ecc685100f422fe34af6b8764a5bd2f90841cf09ba3452a4e1ebea97c1f7b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_turn_turn_right_1.png",
+      "sha256": "eac5fa4323621e32224f1a56a33cfec3ebfe57542cd31b49c482ef515cace9d5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_jump_jump_0.png",
+      "sha256": "f1ba8f0052fb49a7a72f82639a7d4ca0eea9987ba63a4974ae271bc55f8e864f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_jump_jump_1.png",
+      "sha256": "03f7fe539b3621efb7e10f08717894f5641578cb2359da25176f6e47fb4e60aa"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_landing_landing_0.png",
+      "sha256": "c15c76a9d6c25748a96daa107d52eef75383caa46d4eccc623de911dc80b417c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_landing_landing_1.png",
+      "sha256": "13a64b9a76160f8de0d8dfd09d021e713be001e5c857f579f9a34aeace21e284"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_reaction_hit_front_0.png",
+      "sha256": "1118409c79ddbbc3105fba31cf2760d61382716fbc19b14d1638efb6a8c51644"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_reaction_hit_front_1.png",
+      "sha256": "8e2522c8b8f85e785ab5fe12b82eb44293a533a014f87c68bf4d70011747eeb2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_reaction_hit_back_0.png",
+      "sha256": "2c419cec9cc55b32970518e5259ca40a8dee7199ae38c227127bd0f4ab24729c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_reaction_hit_back_1.png",
+      "sha256": "b2971e031b906967f7e5900ea503109fa78a85dc103da07026017953c98da343"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_death_death_0.png",
+      "sha256": "2408929546ffc3b4e4a00963d177b35424e58e69f38c4acdab41f62948a13f81"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_participant_bot_death_death_1.png",
+      "sha256": "1402590454872b1bb81db1b205765ea496ac13c17a79e168d638cd969ff1d148"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase0_0.png",
+      "sha256": "14a8fd0b5b827223dc324a571ecd3a7bf9a35728c38e51dc8b7fc03dfd3198dd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase0_1.png",
+      "sha256": "e1952298aaf25b423a652c5229c831efed1adefbdc7b412d031f525fc0e7b206"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase1_0.png",
+      "sha256": "7d2dcffd2fc2f805e129a947ac27200683b6cd2a86b7197025f620b75f4b511b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase1_1.png",
+      "sha256": "82659229cabc4dd492b0b2c851955267e88d2d2a30a785d13c1910c236851f48"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase2_0.png",
+      "sha256": "b22536f3802acd979a1411f8ece47abfccad2a4c8b5f16060a44a8acdde117ca"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase2_1.png",
+      "sha256": "69dbc3aa36a88b2ba3a94f3a114d584d0be98834eceaa5f2582095832790f4bd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase3_0.png",
+      "sha256": "d808a9077909a8a3656babfc51ac28f1dd149ec7e0be53acc38daafb5f4cbecc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.sneaky_start__0_phase3_1.png",
+      "sha256": "397e9103fd2a7b94ec2b409dcb20c3f89b74600eece2fc5df314755eccb91a0a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase0_0.png",
+      "sha256": "f31884434e748ec10b0ecee402ca013342055f7dc759d99d99538ab744004f1d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase0_1.png",
+      "sha256": "98dc3c437104d92a778129a5f8088bb178706e5318d31d67364f120fd0755a04"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase1_0.png",
+      "sha256": "186b4d66c712d1f1157e3dd64f0a31f022c1c771e521c1399f1fa04ff5bfcc65"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase1_1.png",
+      "sha256": "29fc28a8ef8f76a1f25ca7a4d87f055a98e15ded89fdada9acf16b0d19144dda"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase2_0.png",
+      "sha256": "42a44a5242026448f722a066dc444f5ecbf548a6946059927f2914203d8ca9ad"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase2_1.png",
+      "sha256": "d534bdbd562d85ddf5ec7d6987a7c6a76bc0ad96f06e5456a05868dfe7ed9b24"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase3_0.png",
+      "sha256": "bcb59f4c000ca6fe59ab53e50b284826975832d4be264714e024c7755e9af4cd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.proper_wallop__0_phase3_1.png",
+      "sha256": "3790839e1dd88fa71ad3b00b3aad911fac42e5d412da3472de7fbb012ea816e4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase0_0.png",
+      "sha256": "04e8131cf8b6a26dfcf173089fe3438a34c4e124cd6a78263cfb17e15afa99ec"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase0_1.png",
+      "sha256": "87a3d457a9814561e3ea67b172cb0a33cff459d1bc0ee6e5283c27e44959dee4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase1_0.png",
+      "sha256": "a950191d6527bfd74ac30c1a7b5710ea8a129cc8cf8c8fb4983d57b2eb3371ad"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase1_1.png",
+      "sha256": "04b99542a3f6927557ee474ce943345412975b630aefa3f73011d6497c1f115f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase2_0.png",
+      "sha256": "e6fe4fedc2dd5b3da0821dd45566686ef985056715a8d6ed9340b3bb5c27831e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase2_1.png",
+      "sha256": "4c10e890ac9338d3c3fda135242809e3c45934268d0fa83499ef8845c290744f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase3_0.png",
+      "sha256": "63a3931b2252e0ecf11310f09f6c70ce66989f2b2f5c549f797f1eb2b88e8c0d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.biggest_finish__0_phase3_1.png",
+      "sha256": "37247bb788d836b5cacda788e5b01e2e825f7f0366141cb7f8210a79124f2c5f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase0_0.png",
+      "sha256": "b2f1fd865c3cdd59dffa74440feb36de5fd80d99e7d49e659e1ecf7cb6b403cc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase0_1.png",
+      "sha256": "38a645827cf40ddcb781837c0dad5c3c387cd6fa2c33a0e3163c40988153421f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase1_0.png",
+      "sha256": "459ad5bbf910b9c31ea2dfe88bf6415721d96b6d82b3c1ad970ecec24b206ded"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase1_1.png",
+      "sha256": "5f1e1e50e02d2eae58f87058382fdc1ae52e0ade4d6c3e07f85187a003c75036"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase2_0.png",
+      "sha256": "ce27ff74d639ed165e12e031605520d6726fd2ae3e06f33d96dbc0ff473e462f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase2_1.png",
+      "sha256": "76bbeca8ac51409bb47afd7e9bae45eb8c93782eb279c8b1b72cb2d73d008d41"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase3_0.png",
+      "sha256": "725d9b1871eb0cda1e87993eda4d43832c443fe3022de961588d0af010539904"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.shut_it__0_phase3_1.png",
+      "sha256": "32ad9b30669997ecabc4e6e840e829b021de25d205a434f37ab6c73dc711d56a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase0_0.png",
+      "sha256": "81cd958e09e543de86cc75d5a3b0bab9ca414a9a66e83f56afee7d78e678623f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase0_1.png",
+      "sha256": "9b1f9c9127a15784a3b9799c8008b78236b7fc7ce6de0cb5bf6cd0150892b4fe"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase1_0.png",
+      "sha256": "19deb69386a12de7b5388951503bb53bcaedec677841308146aec6dc5f47ad4f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase1_1.png",
+      "sha256": "4db54e2c303e146c7ce2cfcbb350d117adf9c100780785796e5989bc72977547"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase2_0.png",
+      "sha256": "42665a99718595ef8f8667c740b9aa88d725023e65a57fbdf4d2f6325a8399dd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase2_1.png",
+      "sha256": "42aa74062d5e9b3eccd993a58608108a54f4beec1044374083aaf69af19a5b68"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase3_0.png",
+      "sha256": "1b4c6882445e1a4f541b7b21c247fec94d4d58c95b191277bb7d0aa89ba7a0e7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.get_stuck_in__0_phase3_1.png",
+      "sha256": "9780d7681132fcc6984809363e673d973c128e3033459f0b04700febb948a00f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase0_0.png",
+      "sha256": "202e2862e77559e34701bf0d35f4098f53d79899b5dabd601cac9159703fdfd6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase0_1.png",
+      "sha256": "f9a8be36cbcf1e6800d5dd29a22d584cb1b2a6229e3a0b2065c6daf472e1a9c3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase1_0.png",
+      "sha256": "cf2fd6315c44f6033458081929dad870cdf5a6a99efb44c313a4d8c2ad148fcf"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase1_1.png",
+      "sha256": "795ce12fb699061ee765e8f4bf5d12cb306cfc41c6d24086608c186af60b035c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase2_0.png",
+      "sha256": "4dabbbf5f1386480c55ff668a91aa31a4fa9934f0e581083acaa378c770e2819"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase2_1.png",
+      "sha256": "a145b89d0b6dd8764933c2ee8f06ef42a3da86b7d3972b31707973386eb74030"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase3_0.png",
+      "sha256": "73bb85bd0ee5c54584b19bfa9e64ba684ee1ff58abf21b144fa218fcd4593794"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.wot_s_yours_is_mine__0_phase3_1.png",
+      "sha256": "ed7208e6ce0503490ccc77c1605509094cfa84eb1e165d89d810e00faee52226"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase0_0.png",
+      "sha256": "0c27fd041b2b11a452b5e75b568ed704f10f29e32b05048651add8f817d742d9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase0_1.png",
+      "sha256": "e93a69ef78436df355c4cbb3e34b7028217c72bbab21114557a574e6aa837159"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase1_0.png",
+      "sha256": "a0b1296a2ded5c61dcfef916d6a3864f3c39036b8afd113db817625611103fdf"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase1_1.png",
+      "sha256": "566511dd51a8e38c92bc08812ca63c4d811595da12fe30fa37cd4e30d90a0fff"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase2_0.png",
+      "sha256": "062c9a67cd8b3fefb3c72b4e45342f2bb50d9553480973468a9e65ad2fa8bf91"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase2_1.png",
+      "sha256": "c92ff1e1f02e0e9b1aa8c8543a0588335e722ea3f9db70efbf9d3988d9a88590"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase3_0.png",
+      "sha256": "6e4a8d96155a38f73a3c25eabc6fb455ad8887aa5a90e72ed2838c900460c6d7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.keep_smashin__0_phase3_1.png",
+      "sha256": "6b72c24306ed28e0b05f7d2d8b69895b8f632078a7f3677c579da1f14b4e3f70"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase0_0.png",
+      "sha256": "5d31d2afa5bb7aec7fe7b0592bf7eae73b0c5f57d9b9e57effa82f64d47491fb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase0_1.png",
+      "sha256": "9fb83aaaa55cce9e66ddfbd534161fa6817e74e383d944c08ff41b887f66f64b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase1_0.png",
+      "sha256": "2a6f49150681d8166e7a860c4f58df1cfd316604e047f791cbf3f7d23ff764e1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase1_1.png",
+      "sha256": "d9f7faaad09e1e81f7d7c3ebcbb2f3c183c92390c3deb2aa559d377166fcf8a8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase2_0.png",
+      "sha256": "d751dc04a247516eb0d56aed849d59078aaec5cc7264c1cca518cfc6f53ba084"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase2_1.png",
+      "sha256": "faa0c5592efa71b796d0c490f1549354b645e4c35fa08af2460ca7ece435b7e4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase3_0.png",
+      "sha256": "1b6138cf54868b3b9a75d737443bc1492e728bb0b165f1d7f8903793edaeca4c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_stomp__0_phase3_1.png",
+      "sha256": "9266d0ae5d580e0b400ef9bbcaf1787109eb689c1d0a8d8389dd3ef11e870a22"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase0_0.png",
+      "sha256": "3da72f974c5c94f2bcf216a71a645215d953b178148b9ea4d2399b75f67eb14a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase0_1.png",
+      "sha256": "3a111fe3fe1c0f85b95fe05cc1c614918b21b9a7b5511e70a455efbd19132784"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase1_0.png",
+      "sha256": "e0aa90f0b974899b5923014da93769a72d82e954ddb65c7670271695c31bcc1f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase1_1.png",
+      "sha256": "6389f26af884fee1988250abf720b47d71574db8536d4b7208b96498dff90dd8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase2_0.png",
+      "sha256": "d99c67b7caab34617e8cf895a106b37fe686fabea2ef758a548f88641ec205aa"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase2_1.png",
+      "sha256": "c656216c29e75c2c4c342afd8453a9d45719c7619747d2960ba61fa73d8113f9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase3_0.png",
+      "sha256": "23b2adb5093345c42bf28ce6d122126f7fcc86bfd1ba330cac602c4f34f3ec27"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.you_watch_me__0_phase3_1.png",
+      "sha256": "87f4f38e43139c43c9c053f614eef60afa8c97d3a3e6934a502e73fd4b820729"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase0_0.png",
+      "sha256": "9f6c74e030d99f3648244af59a7163c22894be5166036defa6b2717b4b4712b3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase0_1.png",
+      "sha256": "07ab8cac324f9574ac839c221db66c167ebf74a03885027b2a8750fb35fe30eb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase1_0.png",
+      "sha256": "e8cf9bdff8821a848956250ab7d4804728724a8304be907b31b2e8e1b9068ed5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase1_1.png",
+      "sha256": "9f18f87408a268c299aa608bbeaf370a6965a614a8ccd9a533d284c54c71f08f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase2_0.png",
+      "sha256": "a0f34e81475eab0261e7e36fce7235425521f4292c7139334d0cfb8c29f168be"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase2_1.png",
+      "sha256": "b60fb3bfd71480a45682716571dbc9248140833b768fe616aac6f10382a485fb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase3_0.png",
+      "sha256": "ff4ba40fa5b1c71ef099b6c5e54c461d1e1fd266cd315e52396afe9cd2e9c926"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_warbrute.boss_s_big_idea__0_phase3_1.png",
+      "sha256": "40584934634dd1ec0ec3b7e1e9d31cec1f0d9816ec87dc3b206cac8fe4fcaa34"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_walk_0.png",
+      "sha256": "6cbe5b7fc1ac3497464c5d23b0668016d8f5c12f8c9251559ebfa592557a8137"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_walk_1.png",
+      "sha256": "aa289c3d4860953da9202d078d62b9dccaed0b769a716ef603c6fc26ccddc37f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_run_0.png",
+      "sha256": "340626dd05dd96cecd1428afbeb17230e692cf7a88be32a17cdc78ecbfe748d6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_run_1.png",
+      "sha256": "cd7d7e8524187a48d8ddb10f0eb7d929e29e65668ac26a6bc3b456efff3a9f1f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_walk_backward_0.png",
+      "sha256": "3503af5a01883a39f556fb7cd0d515004c884ac31e13e0ec655fe483df2af6d6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_walk_backward_1.png",
+      "sha256": "0e0de63c70491e529e5c4c42785d09442bab2eef98f6be3bb719ed72be47da0c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_strafe_left_0.png",
+      "sha256": "94786c173bff1b4a72dfd5e5061dd071de397d0d6c7e1947c735aefe29b0c8ac"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_strafe_left_1.png",
+      "sha256": "f34b329506979cd574d9555fdbe05c932fa85fd4710a3afc55b3967f4ebeb621"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_strafe_right_0.png",
+      "sha256": "f71758577bd735c01d531809091e5893243d0acb40eb8f1fa7e991c8a24f0385"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_locomotion_strafe_right_1.png",
+      "sha256": "e74880b9487f63491ded6175286cb9f8803ca5d833408b55d819e2b469197e41"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_idle_idle_0.png",
+      "sha256": "d63a1f672c9d1909e16d5ab049f568547ac664f92b2b68a49d05af2d9d10957b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_idle_idle_1.png",
+      "sha256": "80f4b7abe18ffcd24fe724b53e9ac6e4b1aef691d3a0c8c02f0e750b7d2159fc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_turn_turn_left_0.png",
+      "sha256": "3bc4bdc22dc436100572421b80be786cff4a809ee6d8727b82c3d19b9017af72"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_turn_turn_left_1.png",
+      "sha256": "ccd0b7c537105466c09a2c09558e7a25b90c06013b5cb283bd6c1d3538d579d9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_turn_turn_right_0.png",
+      "sha256": "d4b543e3eeb56db0c525af1e61a86d15dae8f30568ded059db23bb36bbb6dc89"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_turn_turn_right_1.png",
+      "sha256": "974ba65e5f2ad1c92cd6aebc177d17be0a4dc263df6206fd1522b6e6fe4c060d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_jump_jump_0.png",
+      "sha256": "f8c642ef8d99abaca05c2410c9793a31b42132debf53230d14f52f30501a8756"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_jump_jump_1.png",
+      "sha256": "5149a5a9e06e77403eb4a9ad2840ea5642476fd0776387fcc38bca2896251b88"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_landing_landing_0.png",
+      "sha256": "2b9610b41fe9d4fa1507dbdc8b23d082988a19c32ac91a705171b00d53234714"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_landing_landing_1.png",
+      "sha256": "c3f8cee5f7c9a6613b8cb765de134439ba21a444443f3d446cedcfd640228334"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_reaction_hit_front_0.png",
+      "sha256": "44d985639479766be30957f9229ff11422f59ac06871d083f2f43b4662d78ddb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_reaction_hit_front_1.png",
+      "sha256": "739881fbca207bdaa3ceb80fe78f9ea3aad80a983619d1df7e119f75ddd8c2c8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_reaction_hit_back_0.png",
+      "sha256": "4f3dacf86cc0298abc02f7274049037074ddfd40b8edf71f5a51f1577f863ec2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_reaction_hit_back_1.png",
+      "sha256": "c09291db232c4f7611e5b2b85ecf0d04692e67b2638e2fdf9f3afcb897455686"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_death_death_0.png",
+      "sha256": "c7bf638fcfef2ffc1eda88e43e338e0da9e282a89bd51632d5929eceda5b6cd1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_death_death_1.png",
+      "sha256": "fa618cfa055ef8bf8b39a32973d6a224487cbba4453b253071f4f9b23d07326a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_walk_0.png",
+      "sha256": "9c8b861f779f7ceea11a88badead3c0cfc801b51e127dbb16b62a96ab3a1e10e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_walk_1.png",
+      "sha256": "a2646f4d388215364f6589e1015918abfc0aefe2da9e69509a51f97b5b3eaec2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_run_0.png",
+      "sha256": "ba53b471d2bfb8062902a8a62cf7e9f73c36be7034b33697c8d83bb392974931"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_run_1.png",
+      "sha256": "b87d3078ada664141ea1231e20b3b90f50de53e1b84cb4c74f295a088bd0ef74"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_walk_backward_0.png",
+      "sha256": "fc3f3239f5a9e6187f2dc721ceedb48cff071c57ff3d8ca79be2a930dba622ba"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_walk_backward_1.png",
+      "sha256": "b89167eef0f4ad2c75d18432fb1bc88b08efc771abe43a24d43b5ac3cb1a404f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_strafe_left_0.png",
+      "sha256": "907d1e35904445e7ff18b22b665c00f8fc351ac022b14723e93a1309412bebc9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_strafe_left_1.png",
+      "sha256": "1b942b877bfdfd8123dcadcfcf17d2f41a404f0a94c673b25ba70f317cba8535"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_strafe_right_0.png",
+      "sha256": "484aa13d97deb855a94fc7a866f1d145a3d917ae3c8448489b80c8c088c5860a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_locomotion_strafe_right_1.png",
+      "sha256": "c6480ca21064769f99afaae0ef8e20b7e9eef769399a72d56e258d31cc6d2726"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_idle_idle_0.png",
+      "sha256": "954b0a14bdfd685fe99cf52bb0394e91781c464a3d45e84938247dc26324a376"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_idle_idle_1.png",
+      "sha256": "992a98a23f6b78f646737da59e8342dc352866239c22240a8abb0d024edbff1a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_turn_turn_left_0.png",
+      "sha256": "ffefc7435c3adfd5b3db95296fd96eb6f2a14bf76131f085511b44aec7a05924"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_turn_turn_left_1.png",
+      "sha256": "d206ded6cfa7e1a45d5623b9a010988e90d0947d92e4f156ad8f7770ead3df45"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_turn_turn_right_0.png",
+      "sha256": "039b03675e29751284f7642a926d65f92903f98c99688ff209a7d37a9b6cd886"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_turn_turn_right_1.png",
+      "sha256": "bf5f149b41079ebc309803036924a590bc43466ac33b5bdeb82b1cd255e7dfa0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_jump_jump_0.png",
+      "sha256": "8a2e87330d97daff6be61b189a635d6e10c7e10c5bcb9c81bc15f1cd7e590ddb"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_jump_jump_1.png",
+      "sha256": "2c1fdd9c6d025551abb78c9e9a0c3556d01d38a20bbc821a81eee5d3e86a66df"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_landing_landing_0.png",
+      "sha256": "2b4c4afc92dd58c6f7c83f1e248c1513ead9ca326ebc28c7cfa0b63eace4c98c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_landing_landing_1.png",
+      "sha256": "5eb7089850b138ea81628d5b8820e2fa469cadf03d861a694dbc3d1959c16653"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_reaction_hit_front_0.png",
+      "sha256": "577491428860f73b79c080591cdfae53f3b195ea557e8daf4b4a9fc6ce77fc88"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_reaction_hit_front_1.png",
+      "sha256": "ef5b57068ef881f9fc4f38b0e31195313a7e7d707dfda7e6856c65038fb4c26e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_reaction_hit_back_0.png",
+      "sha256": "b330cf9f71d6d792fb6abf70fc266c59303e96f29c5e3d51e66ba63e55e6d914"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_reaction_hit_back_1.png",
+      "sha256": "f3e1891fa286cf46b68957ff5ec21ca6b8b41e35b51e61f102304a4db5650bf9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_death_death_0.png",
+      "sha256": "f5adde12354f5e9a83cbfec777119c3c03d1707ad50b95d885be52aba74fda98"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_participant_bot_death_death_1.png",
+      "sha256": "24a92aaad1b422211fcf99ceff17ae95877ee3d4c0cf64847f9636b7752efdf9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase0_0.png",
+      "sha256": "3d2aa99e41f3d4fe048e20fa69b56597830e23b947b24e580112727a9cd3296e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase0_1.png",
+      "sha256": "edb9e514d8fe8d535ef1499d4c4fff3272eb6d5a1ee981812818e46bc1ada5f7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase1_0.png",
+      "sha256": "373dc6f088a2ba5065856720a86e5088b7762493ca9966d8502461c9425ff9db"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase1_1.png",
+      "sha256": "62e573c53aeee49e5f40334db6149d0983cfa8db50652cde7bde7de7faf6cdc1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase2_0.png",
+      "sha256": "345b6c674740ae053eca4ab11d94419089ef6640d5f1dd519db9fec0bf035745"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase2_1.png",
+      "sha256": "83428452d9cd3fca464d837d24266b6630e0be938cc905b67819db4aa3cc1023"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase3_0.png",
+      "sha256": "ec4182369a6a9bd0d02b1e830f64f5bd16bd9faad233bdfee2a46b813750e87a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.spark_lash__0_phase3_1.png",
+      "sha256": "29e4aed81040c350eaed281dbfe864b13d016f3f60ccb3cec0fe7a23748cef1c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase0_0.png",
+      "sha256": "0828f703def4c3b46f231884882ea8998c9f4159b4f38bae8fb9a3d1007db335"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase0_1.png",
+      "sha256": "c472d699079848ef6ed7d590c412144157df290f9e088f3e82de46f2f28e3333"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase1_0.png",
+      "sha256": "dca359c273bce02b1716f73d031238494465a437f297281d03e1acfa4e4d4eed"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase1_1.png",
+      "sha256": "27805d12ff7ca44b27fbb0496b3bae36c0f6d1128b9b74ab24148cd86dc9d86c"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase2_0.png",
+      "sha256": "a3422cc6549c07fa469e458ecebcd2d0283e805ed4ecd5bc9ac6781222ecf886"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase2_1.png",
+      "sha256": "9b4e97e6abf813dd84b72cfa4aa42bb59486573855baaa5f71a6aa90fe06d67d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase3_0.png",
+      "sha256": "18e3d150f2ecbcf7933a4e98f85f0fa9d6fb201c53a921efff8e9ac13c60e8fc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.cinder_lance__0_phase3_1.png",
+      "sha256": "d7345935690d7123d483af6b052778c5853f5caa52d915dc129b114b23c77050"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase0_0.png",
+      "sha256": "c8f5a362fe1f0861c0ac1b0ba6622ad0ed41ef91ca290fb3c7726b7be7d791c9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase0_1.png",
+      "sha256": "f75c71a8125aa63dfb9c90145c6bdff08f92ccb29ecb34f2c904b566b828efe4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase1_0.png",
+      "sha256": "10cbd02b876cb45dfb8e59b33f4d585cc7fbc27ed60e9b6f42fa52ed0616a22b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase1_1.png",
+      "sha256": "2b5989eb009076bc2b993c9bea173e60422e6d481024465c681a0f3397407cf5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase2_0.png",
+      "sha256": "f9c2749bb4241944ce87677f996ddb0591c1ce2f136b77e18db64dbf4af4f038"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase2_1.png",
+      "sha256": "b3d60cb7e3e40fcdbc936bb06a5b593e2b69ea2c606e09c864dbb808660d30ec"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase3_0.png",
+      "sha256": "2fa971f84db0d6262c4e26bfc00bc11e6d7a4863cb9296dc662e6dc668b3f34f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.kindle_hex__0_phase3_1.png",
+      "sha256": "f59ece7c08ab46b21c7cb2f6250a0b6920770ea7843b3806a1c41148af960be0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase0_0.png",
+      "sha256": "e3daa8f8aebf3163a09d44fb239b10a1d9b3ee9635afe0b30dcfa7bb410082c1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase0_1.png",
+      "sha256": "5a8a2e11e771b0fd717c3d7202c5f8522d4687b4618920dcb03bcf71a005efa3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase1_0.png",
+      "sha256": "4e68412b5b587b6e98be113adedd807cc814d69f9bde9e1ae2f186f997da4ea0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase1_1.png",
+      "sha256": "0c42180ad248a13ebd192853b56b20deb75a18b7d34f1967d9116b8de0b2f1dd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase2_0.png",
+      "sha256": "9724c4889087fbbb8e319e3a5927e5d0ed74401b014eda52d2e9ae43e63e675a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase2_1.png",
+      "sha256": "1b0ff0bad0fb38424b70014af4c0fbd607e471b8609f98ab4b544f1b9767def4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase3_0.png",
+      "sha256": "b11fd3162aeeedb0354d2bec84efa961c844181aeddec1ea7fd6a10c7a4afb84"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.soot_veil__0_phase3_1.png",
+      "sha256": "a943c7eb1ae51a023504c460f1f24f7a1dd882fc960a141a487b7f7d649ba184"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase0_0.png",
+      "sha256": "d3a5452f2d3a00625e0179a23fd3f7d95922e85c2182905d18f66b6e57a71e35"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase0_1.png",
+      "sha256": "7ded0c06c1d51eb3422ac237da4d5174bc5df30a3d37d42fd3458a53efc7cab1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase1_0.png",
+      "sha256": "a2ddbf89e0ac63474f08796dab4331555e7135931587c68cea9a40339168eb66"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase1_1.png",
+      "sha256": "f09003403070072115e11efdc3ddb5e6a507999f306c86972225e575d0c948db"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase2_0.png",
+      "sha256": "c7cf5b0b34a72b3344c7abf0eaa113001fa68585ef5cbd4381eaff157eab4c44"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase2_1.png",
+      "sha256": "4515a3e2de150bdaa214f4d4a193973f6b5551be5ab221d6154af2af2b60d6f1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase3_0.png",
+      "sha256": "92d3639fcd6cfe24a585d7478cd6ebdd6cdf46ae97b6b475b942682edef206cf"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.flashstep__0_phase3_1.png",
+      "sha256": "6b608c7a5f50a93c65a176d171cd5f6db7e40f6d513b1f0e70842160eebeae5d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase0_0.png",
+      "sha256": "1636a23fe49d67bf4a6f31e30ebdfab3607309cc234f9334c344034dbde2f230"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase0_1.png",
+      "sha256": "da9e3c53d8b3a4e029926645cc73fcf2780912c1bbab056093773eceb271b3e8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase1_0.png",
+      "sha256": "bebfdc99ccb48f87549e0b17771f96cdc2657b8d905a2bbba9ed340c0a4c4f46"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase1_1.png",
+      "sha256": "f13aa6ad97da4674a1aa7998aa1c160fd231c2f3d5df9c6a3f342dfcc11a0930"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase2_0.png",
+      "sha256": "ed57f2f7339f5cf2e19aa17e8170f330a5eae6a5ede7ed76ad29946bb10f251e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase2_1.png",
+      "sha256": "0afb58e2fe692b598e5040e6260d75355fba2a453ddeb33e5c361959280ff949"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase3_0.png",
+      "sha256": "504c87213cb946d18e4ca9b9ccc05b6d080b1c979d2900f79276f1c0475214e1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.pyre_circle__0_phase3_1.png",
+      "sha256": "c84df0a2a7e37dcee5ea4bfbe9ed7bfb95fa05e6c2f5ad428e23301d23fb7748"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase0_0.png",
+      "sha256": "6096034c7abb2d49aea98d74d22a9702c57fa59aa609100ff32f8a04fa60b967"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase0_1.png",
+      "sha256": "84ce57c31e8a61123ce9130923c6a1b7d161b95bbff49cee0225d31a512b1eae"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase1_0.png",
+      "sha256": "eb9e615928bca33cd3b42451991d1f9c6ff28b4cb53c6088ad08e93f6fceddc6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase1_1.png",
+      "sha256": "ea009eec013b33477e5ab146a7b28576f3819615a07655af459ffbea5579ee6d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase2_0.png",
+      "sha256": "cdda9daaf31affeeb125d5fc5d7f53e93761b7552d0c6a27dd922b68e5fb8ca3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase2_1.png",
+      "sha256": "44c5cd01d2f9d856368092f81e570a69ffb16f464f7a095eb35968cecbe3f421"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase3_0.png",
+      "sha256": "0684d1bbb538c41fc195bd0c5eceaadf5016bcc8b3be0e70657c85d3265820e7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.white_cautery__0_phase3_1.png",
+      "sha256": "97d713fe17e7b0b32dec72682b7193ca6ce679d60bf438b0ce4a12dc01362499"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase0_0.png",
+      "sha256": "4385b57c8f44aa475c8af35dbb24cef1d52b3dc4cd9b100cff0b0fcedf857bf8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase0_1.png",
+      "sha256": "de8577856077ca085cda82eb2c407afc8d6d027d8be9b5f362669f5a0b5a971d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase1_0.png",
+      "sha256": "6c4a2a41e309c630d5e191cbd4e2ca812a0f86a54fd73a5fa7605790b41617c1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase1_1.png",
+      "sha256": "17cb2308fb7fb5df1c9c5a3bb11a2219d7ac8c04b45ab9a419254b384d5b5772"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase2_0.png",
+      "sha256": "f05bff4e90f4e683fbb580586d832d530f6b92fcd7c8b04e3e32cd1add3dbd16"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase2_1.png",
+      "sha256": "0e7f064799cae3aa5346f6fdf5e9d7dba76878e7a4cc7a9c6b308727ef93dff0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase3_0.png",
+      "sha256": "9f952f05e3657dc9664198c4776392a3fa345e0313544694172c1653cbe77564"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.furnace_heart__0_phase3_1.png",
+      "sha256": "fbb3b829bd72ab4d0b1708f08284805610330b002ba42a6111040e58bdb40f3e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase0_0.png",
+      "sha256": "5510045300994e2f09da6c28e526d76f272c97762e84aa1ebc202b9c87696b7e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase0_1.png",
+      "sha256": "c9c9d196623594d525e967f8d3cfb88e25d535e5c14ddb4a7962784567720f9f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase1_0.png",
+      "sha256": "42e539fa1188bb4dd3fbc994ebf74a1ff38f5d2477fb25135fc4d6923c61083e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase1_1.png",
+      "sha256": "64ca566db8f5481c838384a85b3787a49e938b383430fb5f05c9a211130d521b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase2_0.png",
+      "sha256": "8a0241a8ad21fa607753da462fec1569058fed877fe6d44b8b5a552df2c59ec9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase2_1.png",
+      "sha256": "e37c1304b4c1ab542a036082213866bed4e372a29ee2c0f1ae605bbecd444c4d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase3_0.png",
+      "sha256": "6c6272ff81abf35ae122a2def2b1d02323202919db60301377868753c1dc077d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.ashen_cataclysm__0_phase3_1.png",
+      "sha256": "8586a2ba69b1e4ac77efb9ed1ca40374e6695c2e1b451ca7a9ee445fa4fc6cfe"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase0_0.png",
+      "sha256": "4d24ef6f78e45154d69a76e2d3617165e098eb7df4bec107432d92815d283edc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase0_1.png",
+      "sha256": "9295aa1debd93ff30bfa68ea81e052c83f1ca4c842f9d407b60e96a9e5119842"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase1_0.png",
+      "sha256": "7436bb040e9123e5dd6e3b82e1856534eab598adeae583628e7de0633bbe8c3d"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase1_1.png",
+      "sha256": "9e94ae0ec984e12780ae6e64d822a69c45427234a3593f1a0cd90f0c4f6c6e62"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase2_0.png",
+      "sha256": "9a24577311d7e77025f29ee53143be39ac923c517c144bcca2c80992abde3367"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase2_1.png",
+      "sha256": "cedbf12f3f9354d7e4f1cfbdd23e847f608151c8711b6882a6089544b89a45e6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase3_0.png",
+      "sha256": "63b39e2f33c53a1545796051e7b1ab2f4a0df4c1ece0483c21fad6f5a8cb8245"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_ember_arcanist.phoenix_collapse__0_phase3_1.png",
+      "sha256": "14976d733e5a22d3eaf0e5b13bdcc7f896cf757903f16882f05997a285e0837b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_walk_0.png",
+      "sha256": "9024a93bb07e1e556bb827c8f4ded12a600ea5b98f31d1c13dd211f4ff5e8051"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_walk_1.png",
+      "sha256": "a87cf4aadabedf207c993acbf1cbad9ae3ecba389aa8cd2c9f53a86262669db8"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_run_0.png",
+      "sha256": "ca6e305c0f552b6ac84ea5b0c65d69c43e51f5788967254d82688661ead5e113"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_run_1.png",
+      "sha256": "3878c91e97534a4000a6c2a40707c7160d52e7f305bb715e74670d6e8417d062"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_walk_backward_0.png",
+      "sha256": "a8a251d759902a2db76116d3498d2dcbd5751bd1af93156d6daed86b9c270850"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_walk_backward_1.png",
+      "sha256": "e1f14498ad3577f76562cb0016f265038d64b82e70583a80b56c39c12c20228f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_strafe_left_0.png",
+      "sha256": "e5f6ceb45f148e834d041c64d4fc2328e9147c4a4b2c1cf667ba53b2233db6ca"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_strafe_left_1.png",
+      "sha256": "24a4f54946f4339b20c1ffbecad5c09d9a8695d4e4064263c491ebc6399c9d4f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_strafe_right_0.png",
+      "sha256": "10ac02f296f3fe5cf994079072dd6d2b85ba0cd38214ae219f69f9478f92f610"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_locomotion_strafe_right_1.png",
+      "sha256": "146331e0abc1442aa17eee1dd2c9dc94a4520ecdb32ca7c152103abaa434cf9e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_idle_idle_0.png",
+      "sha256": "b1a299a7f12f304c1f1ae5d4e06b71c0c02312ecd5fabc11b802df06a0777bf7"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_idle_idle_1.png",
+      "sha256": "9675e181c8b3f2d45d64d4f3e68ef64588c6256e5e5cff10c70c738007a29b28"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_turn_turn_left_0.png",
+      "sha256": "0019d212a76acb9a3671d85d77bbe36be231a709b18cc7c79f81de844a564d32"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_turn_turn_left_1.png",
+      "sha256": "21e0633afd7d6d6db9c6ced3e4621aff6498cb3678a77bd68b1d8c0226632d0a"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_turn_turn_right_0.png",
+      "sha256": "da7016d8e5f9f7b4a56a8cb2f21575acd025d7cdd270ba8f774316dd1179fdda"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_turn_turn_right_1.png",
+      "sha256": "72ea68265d1682d5d2a2508312a7ca241b2959a144b6c5645a0df0f7b8941de2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_jump_jump_0.png",
+      "sha256": "cb60bdace7eeb712b73b313bd5fdaeacca5f5d51faedc252474dafe717050614"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_jump_jump_1.png",
+      "sha256": "6778e47a93267462dc5596512552b23f1425a1cfdcbd77ca4762c245936c3cb3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_landing_landing_0.png",
+      "sha256": "5740fbd96d6fd9ca109129a5b7a2fd82fc00ac0d36863166106cd59907a36672"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_landing_landing_1.png",
+      "sha256": "8ec9bc2dfea43d5a53aa1baf9853ade60730af7e1a2c01acef5d6422018ee3cd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_reaction_hit_front_0.png",
+      "sha256": "ee99a75991a327f17f8b05fd96eeb5aa056f4a2a45ecf264cae0ecd64794d755"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_reaction_hit_front_1.png",
+      "sha256": "d2abf6a17006287afcbb4cf7f0a4ea629b650516d8c1f08a4493ac41a16f0404"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_reaction_hit_back_0.png",
+      "sha256": "ab735036e71aea1f67ca326f553ca549dc949c36d65eee916e965636816be8bc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_reaction_hit_back_1.png",
+      "sha256": "3fe476032978a7ef3035adbbeecde8350ed95d1849c46a6958a304f84bbbea84"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_death_death_0.png",
+      "sha256": "5d53980bbc3936ef02ce5905dcbd1a70b401b8063a36135de0d5ce849e4b69ee"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_death_death_1.png",
+      "sha256": "34d6d2e400828c16b10aa412728d83500a67c7222de87b0d2bd6f6ecfc1a0cfe"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_walk_0.png",
+      "sha256": "67dca5058765b01430a9e9bdd91a34785d4a0b377ae17cf22d9edb5555d70ae6"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_walk_1.png",
+      "sha256": "b25db824add79c3cf0fab57eb97266c4567351263172dc7c1016f8ec38e75a39"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_run_0.png",
+      "sha256": "a2d904cf7aab48155b9e490b48eab62725fc68d48b99d05c3c8bf8885ed4b053"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_run_1.png",
+      "sha256": "41a24bc08ea3011f49c432d42297f49114aa299d8640881edcaedcc754d86022"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_walk_backward_0.png",
+      "sha256": "ef2f3f0427fc6beae5f1515ee8c7c479a65d5b1affa13fa141775a08685850dc"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_walk_backward_1.png",
+      "sha256": "4d394e270158ac3e143960f38e448f8a021e0c0cdf165beda8b3ef68f868627f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_strafe_left_0.png",
+      "sha256": "edf02549fb67bc39c82ee18f6cbe7d6ebe91fc95894fc2a5e19eafc8e9294c02"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_strafe_left_1.png",
+      "sha256": "a879778f236c2af563e51b98385ea297e29974e3eaef66e71acb96680d25a5d2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_strafe_right_0.png",
+      "sha256": "5ffe2625546090ad127b8823c958cbbbeb507da6ab8306bfc7c6b49841583ed9"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_locomotion_strafe_right_1.png",
+      "sha256": "c13ff860f2d0a7b230e9271638e10fb665e85fdf99bd663f6e2e7edb6413e930"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_idle_idle_0.png",
+      "sha256": "65ecc71627fad1981019aae055d002b723fb812de3784ebfd2599035f7f9e926"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_idle_idle_1.png",
+      "sha256": "9f875dc16472fa0d3558a45e6ba3c2b28a34c4b8c285653d00a0e0b66e728cd4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_turn_turn_left_0.png",
+      "sha256": "b2d2d2c534f8e27a6bd4b7220a23b2c3e6cc5b4157eaaddd720e6914fdd4d351"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_turn_turn_left_1.png",
+      "sha256": "ec60772d1df307dbd45c2e5d76767de9a09eb8a4e2dd701714bf0076c46c9ed0"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_turn_turn_right_0.png",
+      "sha256": "9f130b0331619581c954c3d3d1d8e798eda22bc14f3aa0404e8ee6216935c603"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_turn_turn_right_1.png",
+      "sha256": "2041e152139422abbda3a4b4caf016b2d5eb0b1b231b6bbcda95515f66a4204e"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_jump_jump_0.png",
+      "sha256": "4269f3f77fb4e036b85a3d3772b51e7b60a585f68c2241f74cdb64f97b236179"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_jump_jump_1.png",
+      "sha256": "0cd728354339821a9a9eb4a0d63c0b92594ccb8ac5bdc8e41b38128be624a83f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_landing_landing_0.png",
+      "sha256": "77f607a88a79f429ed3b295484ee2f508b576e28c0e4f0be5ac85db138f140f4"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_landing_landing_1.png",
+      "sha256": "16ca1d3db658dae6cae30f65f877b6a76a6e4264c14d94583fa5e685fdae77f2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_reaction_hit_front_0.png",
+      "sha256": "03490795712302ce6058dcf3ed8e3e0e7181e66e15532e8e9feedb7350c10f19"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_reaction_hit_front_1.png",
+      "sha256": "1cda4db9b256661a054f91a9a184684a22e7fb412b7f3b4b59df9c79ef8b1ec3"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_reaction_hit_back_0.png",
+      "sha256": "57165b31a2e989a25ccf8daeaa7ee6a4e71098bb932f1b395f4574553100bff5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_reaction_hit_back_1.png",
+      "sha256": "b7e88f9631563fdc6a4c9e5c1c09d2ca376497a5440094a85e4dc1f570e185fd"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_death_death_0.png",
+      "sha256": "61f3899d00b3b37fd0b543c6a2e6395d0a8ad114d6686339f6a379533245c400"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_participant_bot_death_death_1.png",
+      "sha256": "9a88dc2a67356702bed2f00a8629137e57cff8f9a9bbf301783c5d87ba92351b"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_respawn_idle_0.png",
+      "sha256": "4fcf4667fcae66a66210779dde7e2d7feb0096d2b7c066e6b13d55997b882edf"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_player_respawn_idle_1.png",
+      "sha256": "fdc35a14762f3a0b268a0b039cb9f1faee2ac01d3aa19bb1f636c2c05c3e6540"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_respawn_idle_0.png",
+      "sha256": "57255f744190571f97d202c599f6679fb6b43eb6338501564483235f7be1cfa5"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_sunfire_templar_m_player_respawn_idle_1.png",
+      "sha256": "db046dacfefc5f3e36d39aab4041ce5da4ad90750671f0ea25fd42a24f54bf4f"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_respawn_idle_0.png",
+      "sha256": "fbe4f667e5bd82596ef477429b8c154172801b991c1549ce6730fbed6a9a13e1"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/mire_warbrute_m_player_respawn_idle_1.png",
+      "sha256": "9b4310ec80a3a8c576f1cd708f8bd0fc4b586779855b356e09554aae5595b3fa"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_respawn_idle_0.png",
+      "sha256": "b13ccd3a3660f17e43406d0da162c71075a0564c35a8460d1a426c1709b3a822"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_ember_arcanist_m_player_respawn_idle_1.png",
+      "sha256": "d28648df0b8c14361efe4027ebe0ed998fc6ff9072d62c8f593d846b6fb9bc02"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_dynamic_obstacle_cancellation_penance_step_0.png",
+      "sha256": "413cfd5967115630e0b7d471e0f8a53db29c6601429600400bfb54b24fedcde2"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_dynamic_obstacle_cancellation_penance_step_1.png",
+      "sha256": "122e4a3b4432ba7c7258099e88ec81c5a98236b506f13fb4593b93035743e396"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_interrupted_before_contact_litany_strike_0.png",
+      "sha256": "1c604d421f629fe7e3ff34229251156dd667d95ebd45808303d9f5c68e1aa385"
+    },
+    {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/civic_battle_prelate_m_interrupted_before_contact_litany_strike_1.png",
+      "sha256": "6e3f226f1f7946f41d3fc0514f8758cfce21dd0127a48f2ee61c52570e066af0"
+    }
+  ],
+  "evidence": {
+    "gameplay": {
+      "path": "unreal/AegisWar/Saved/supplied-animation-gameplay.json",
+      "sha256": "1a5a588db84549305eb664d3ec256c3ab4e946a7e47eb9d612bd999d46e860c6"
+    },
+    "technical": {
+      "path": "artifacts/unreal/animation-replacement/technical-verification.json",
+      "sha256": "308f153b2dbdd66d37bcd5d82a2f68abdd9020d1b2c46c8f950305ad21ddad47"
+    },
+    "equipment": {
+      "path": "artifacts/unreal/animation-replacement/equipped-motion-measurements.json",
+      "sha256": "5bd885aeb8b8b5069e74205067b82e60f525487ae6a98855fabb580a5a843115"
+    },
+    "network": {
+      "path": "artifacts/unreal/animation-replacement/network/1790257556864-13848/report.json",
+      "sha256": "fb37b298d4eacd608779cd7e04b8949a1c61df84a65ef2c7c255fadb11e4e49c"
+    },
+    "presentations": {
+      "path": "artifacts/unreal/animation-replacement/presentations.json",
+      "sha256": "730ddfa0371f39b518da5c07a65234c4e42242acf862e00560c9687f276e1dbe"
+    },
+    "captures": {
+      "path": "unreal/AegisWar/Saved/AnimationGameplayCapture/frames.json",
+      "sha256": "c3f13da2d36b9f13743deabb007e88674147b74360845639dda19223afe44f8e"
+    },
+    "removal": {
+      "path": "artifacts/unreal/animation-replacement/removal-verification.json",
+      "sha256": "8efd8969d7c4392325add6983c2b66cf26a0b96cf65310a322cf35dab6867f94"
+    },
+    "registry": {
+      "path": "artifacts/unreal/animation-replacement/native-animation-removal-verification.json",
+      "sha256": "f257e00ba33ad1b144fdd9af5ac96469613ac7e24e3344044d47d8572d74ab31"
+    }
+  }
+}

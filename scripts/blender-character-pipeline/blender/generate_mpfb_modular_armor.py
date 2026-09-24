@@ -37,7 +37,7 @@ RECIPE_PATH = (
     / "free-pilot-armor-sets.json"
 )
 ARMOR_SLOTS = ("head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard")
-REQUIRED_CLIPS = ("idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump")
+REQUIRED_CLIPS = ()  # Body/armor exports contain no animation; native imports own motion.
 MODULE_TRIANGLE_LIMIT = 14_000
 FIXTURE_CAPE_TRIANGLE_LIMIT = 25_000
 MODULE_TRIANGLE_TARGET = 6_500

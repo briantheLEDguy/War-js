@@ -32,6 +32,7 @@ void AWarPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     DOREPLIFETIME(AWarPlayerState, Realm);
     DOREPLIFETIME(AWarPlayerState, CurrentZone);
+    DOREPLIFETIME(AWarPlayerState, bSiegeNormalized);
     DOREPLIFETIME_CONDITION(AWarPlayerState, Inventory, COND_OwnerOnly);
 }
 
@@ -44,7 +45,7 @@ bool AWarPlayerState::GrantCharacterRewards(const FGuid& Transaction, const int3
     const TArray<FWarInventoryItem>& Rewards, FString& Error)
 {
     Error.Reset();
-    if (!HasAuthority() || !Transaction.IsValid() || RewardReceipts.Contains(Transaction)
+    if (bSiegeNormalized || !HasAuthority() || !Transaction.IsValid() || RewardReceipts.Contains(Transaction)
         || RewardReceipts.Num() >= 65536 || Inventory.Revision == MAX_int32)
     {
         Error = TEXT("Reward transaction is unauthorized, duplicated or exceeds session limits.");
@@ -65,8 +66,24 @@ bool AWarPlayerState::GrantCharacterRewards(const FGuid& Transaction, const int3
     return true;
 }
 
+bool AWarPlayerState::SetGmLevelTrusted(const int32 Level, FString& Error)
+{
+    if (bSiegeNormalized) { Error = TEXT("Leave or reset the siege before changing saved character progression."); return false; }
+    Error.Reset();
+    if (!HasAuthority() || Inventory.Revision == MAX_int32)
+    { Error = TEXT("Level change is unauthorized or exceeds session limits."); return false; }
+    FWarCharacterProgression Next;
+    if (!WarProgression::SetGmLevel(Inventory.CharacterProgression, Level, Next, Error)) return false;
+    Inventory.CharacterProgression = Next;
+    ++Inventory.Revision;
+    ApplyProgressionVitals(true);
+    ForceNetUpdate();
+    return true;
+}
+
 bool AWarPlayerState::ChangeEquipment(const int32 ExpectedRevision, const int32 BagSlot, const bool bEquip, FString& Error)
 {
+    if (bSiegeNormalized) { Error = TEXT("Saved equipment cannot change during a normalized siege."); return false; }
     Error.Reset();
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || Inventory.Revision == MAX_int32)
     {
@@ -290,6 +307,7 @@ void AWarPlayerState::InitializeForPawn(AWarCharacter* Avatar)
 
 bool AWarPlayerState::CanPerformInventoryAction() const
 {
+    if (bSiegeNormalized) return false;
     const auto* Avatar = Cast<AWarCharacter>(GetPawn());
     return Avatar && Avatar->IsVisualReady() && !Avatar->IsDead() && Attributes->GetHealth() > 0.f;
 }
@@ -309,9 +327,25 @@ void AWarPlayerState::ApplyProgressionVitals(const bool bRestorePools)
 
 int64 AWarPlayerState::GetEffectiveStrength() const
 {
+    if (bSiegeNormalized) return 100;
     TMap<FName, int32> Equipment;
     for (const auto& Entry : Inventory.Equipment) Equipment.Add(Entry.Slot, Entry.BagSlot);
     int32 Bonus = 0; FString Error;
     if (!WarInventory::StrengthBonus(Inventory.Items, Equipment, Bonus, Error)) return Inventory.CharacterProgression.BaseStrength;
     return int64(Inventory.CharacterProgression.BaseStrength) + Bonus;
+}
+
+void AWarPlayerState::SetSiegeNormalized(bool Enabled)
+{
+    if (!HasAuthority()) return;
+    bSiegeNormalized = Enabled;
+    if (Enabled)
+    {
+        AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetMaxHealthAttribute(), 2000);
+        AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetHealthAttribute(), 2000);
+        AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetMaxManaAttribute(), 1000);
+        AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetManaAttribute(), 1000);
+    }
+    else ApplyProgressionVitals(true);
+    ForceNetUpdate();
 }

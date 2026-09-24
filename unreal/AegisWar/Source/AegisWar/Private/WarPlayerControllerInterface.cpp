@@ -3,6 +3,7 @@
 #include "WarInventoryWidget.h"
 #include "WarQuestLogWidget.h"
 #include "WarWorldEditWidget.h"
+#include "WarAbilityWorkshopWidget.h"
 #include "WarCityServiceWidget.h"
 #include "Misc/ConfigCacheIni.h"
 #include "AudioDevice.h"
@@ -53,7 +54,7 @@ bool AWarPlayerController::CloseAllPanels()
     bool Closed = false;
     // Each panel owns one paired input lock. Close directly even during an entry failure.
     for (UUserWidget* Panel : {static_cast<UUserWidget*>(InterfaceWidget.Get()), static_cast<UUserWidget*>(InventoryWidget.Get()),
-        static_cast<UUserWidget*>(QuestLogWidget.Get()), static_cast<UUserWidget*>(WorldEditWidget.Get()), static_cast<UUserWidget*>(CityServiceWidget.Get())})
+        static_cast<UUserWidget*>(QuestLogWidget.Get()), static_cast<UUserWidget*>(WorldEditWidget.Get()), static_cast<UUserWidget*>(CityServiceWidget.Get()), static_cast<UUserWidget*>(AbilityWorkshopWidget.Get())})
     {
         if (!Panel || !Panel->IsInViewport()) continue;
         Panel->RemoveFromParent();
@@ -100,6 +101,17 @@ void AWarPlayerController::ToggleCharacter()
     else ShowInterface(TEXT("Character"));
 }
 void AWarPlayerController::ToggleGuide() { ShowInterface(TEXT("Guide")); }
+
+void AWarPlayerController::OpenAbilityWorkshop()
+{
+    if (!IsLocalController() || !CanUseGmTools()) return;
+    CloseAllPanels();
+    if (!AbilityWorkshopWidget) AbilityWorkshopWidget=CreateWidget<UWarAbilityWorkshopWidget>(this);
+    if (!AbilityWorkshopWidget) return;
+    AbilityWorkshopWidget->AddToViewport(25);
+    FInputModeGameAndUI Mode; Mode.SetWidgetToFocus(AbilityWorkshopWidget->TakeWidget()); Mode.SetHideCursorDuringCapture(false);
+    SetInputMode(Mode); SetIgnoreMoveInput(true); SetIgnoreLookInput(true); bShowMouseCursor=true;
+}
 
 void AWarPlayerController::SetInterfaceVolume(float Volume)
 {

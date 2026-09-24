@@ -42,7 +42,7 @@ describe('Unreal engine-neutral content archive', () => {
     expect(manifest.abilities.definitions).toEqual(JSON.parse(JSON.stringify(Object.values(CAREER_ABILITY_KITS).flatMap(kit => kit.abilities))));
     expect(manifest.items.definitions).toEqual(JSON.parse(JSON.stringify(Object.values(ITEM_CATALOG))));
     expect(manifest.abilities.progression.filter(entry => !entry.activatable).map(entry => entry.abilityId)).toEqual([
-      'battle_prelate.icon_of_wrath', 'siegewright.deploy_gunlet', 'void_magister.summon_idol',
+      'siegewright.deploy_gunlet', 'void_magister.summon_idol',
     ]);
     expect(manifest.abilities.progression.filter(entry => entry.unlockLevel === 1)).toHaveLength(72);
     expect(Math.max(...manifest.abilities.progression.map(entry => entry.unlockLevel))).toBe(8);

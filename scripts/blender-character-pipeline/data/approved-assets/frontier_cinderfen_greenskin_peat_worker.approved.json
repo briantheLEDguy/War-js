@@ -16,7 +16,7 @@
     "bindPoseId": "frontier_mire_worker_a_v1"
   },
   "hashes": {
-    "modelSha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+    "modelSha256": "83c04f0a1f902cab0539563e0d2164f2f1fd78bfdfb9e40cf7d5a56b06199717",
     "qcSha256": "f8e313a1f75410148d6ef9843a84fb98bdd94ab27283f9be1ae9be7b468eecaa",
     "previews": {
       "front": "98feceb98a89e781d086f0dd1e2bd239e7a66e89dc05bf12bf4093c2f338c663",
@@ -47,7 +47,23 @@
       "pbr_materials",
       "rig_and_motion",
       "export_review"
-    ]
+    ],
+    "sourceAnimationRemoval": {
+      "beforeSha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+      "afterSha256": "83c04f0a1f902cab0539563e0d2164f2f1fd78bfdfb9e40cf7d5a56b06199717",
+      "preservationSha256": "8c7bb857437a339bc23ec18ae2a84507be6c63b4e998fc5c6bea8bed418e2311",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "approvalState": "approved"
 }

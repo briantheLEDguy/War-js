@@ -216,7 +216,7 @@ def provenance_source_paths(authoring_root, validation):
     paths = {record["file"] for lod in validation["lods"].values() for module in lod["modules"].values() for record in module["source_records"]}
     paths.update({"source/CONTRACT.md", "source/FULL_CHARACTER_CONTRACT.md", "source/scene.json",
                   "tools/build_proof.py", "tools/rig_character.py", "tools/bake_atlas.py",
-                  "tools/correct_animation.py", "tools/tessellate_runtime.py",
+                  "tools/tessellate_runtime.py",
                   "tools/validate_runtime.py", "tools/promote_runtime.py"})
     sources = {}
     for relative in sorted(paths):
@@ -280,7 +280,7 @@ def prepare(repo, runtime, validation_path, review_path, node="node", authoring_
     archive_root = Path("authoring/archives/battle-prelate-reference-rebuild") / token
     runtime_report = read_json(Path(runtime) / "runtime_report.json")
     provenance = {"kind": "explicit_reference_mesh_rebuild", "geometrySource": "Literal authored vertices/faces; permitted finishing only",
-                  "rigReuse": "Canonical armature/actions only; no prior body/armor/weapon geometry",
+                  "rigReuse": "Canonical rest armature only; no prior body/armor/weapon geometry",
                   "rigSourceSha256": runtime_report["rig_source_sha256"], "validationReportSha256": validation_hash,
                   "runtimeReportSha256": validation["stage_report_sha256"], "visualReviewSha256": review_hash,
                   "evidenceArchive": archive_root.as_posix(), "authorization": "User requested local game integration when complete; no deployment"}

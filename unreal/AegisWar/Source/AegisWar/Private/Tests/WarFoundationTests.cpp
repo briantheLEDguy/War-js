@@ -125,6 +125,11 @@ bool FWarAdmissionTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Explicit non-shipping development network"), WarValidation::AllowsDevelopmentNetwork(false, true));
     TestFalse(TEXT("Shipping cannot activate development bypass"), WarValidation::AllowsDevelopmentNetwork(true, true));
     TestFalse(TEXT("Shipping stays closed without production authentication"), WarValidation::AllowsDevelopmentNetwork(true, false));
+    TestTrue(TEXT("IPv4 loopback proof"), AWarGameMode::IsLoopbackProofAddress(TEXT("127.0.0.1")));
+    TestTrue(TEXT("IPv6 loopback proof"), AWarGameMode::IsLoopbackProofAddress(TEXT("::1")));
+    TestFalse(TEXT("VPN clients cannot use proof flags"), AWarGameMode::IsLoopbackProofAddress(TEXT("100.64.1.2")));
+    TestFalse(TEXT("LAN clients cannot use proof flags"), AWarGameMode::IsLoopbackProofAddress(TEXT("192.168.1.10")));
+    TestFalse(TEXT("Address prefix spoofing"), AWarGameMode::IsLoopbackProofAddress(TEXT("127.0.0.1.evil.example")));
     return true;
 }
 

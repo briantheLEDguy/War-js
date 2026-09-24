@@ -3,12 +3,6 @@
   "baseBodies": {},
   "characterProfiles": {
     "civic_battle_prelate_f": {
-      "animationPack": {
-        "bindPoseId": "a_pose_v2",
-        "model": "anim_battle_prelate_combat.glb",
-        "sha256": "013512880ace35b2fec6e82382d074c9474c617eff07c397f6aa6bd9b9e50b77",
-        "skeletonId": "humanoid_game_v2"
-      },
       "approvalState": "approved",
       "assetId": "chr.civic.battle_prelate.t1.f",
       "bindPoseId": "a_pose_v2",
@@ -16,7 +10,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "chr_civic_battle_prelate_t1_f.glb",
-      "modelSha256": "507637d1f5195195eea4234b611453f8c2fdb398597cfe1a174cc2eed7d65236",
+      "modelSha256": "4e54da755487708f362ae6b6beb77bc6d2f2f5a00c23602f1c43b5493e81a08f",
       "previews": {
         "front": "reviews/roster-direct/battle_prelate/f/body_front.png"
       },
@@ -30,12 +24,6 @@
       "skeletonId": "humanoid_game_v2"
     },
     "civic_battle_prelate_m": {
-      "animationPack": {
-        "bindPoseId": "a_pose_v2",
-        "model": "anim_battle_prelate_combat.glb",
-        "sha256": "013512880ace35b2fec6e82382d074c9474c617eff07c397f6aa6bd9b9e50b77",
-        "skeletonId": "humanoid_game_v2"
-      },
       "approvalState": "approved",
       "assetId": "chr.civic.battle_prelate.t1.m",
       "bindPoseId": "a_pose_v2",
@@ -43,7 +31,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_civic_battle_prelate_t1_m.glb",
-      "modelSha256": "41cda4dfeff2a89f105c7c699ee36c0d1533c6f1511af77c9b666196a556f380",
+      "modelSha256": "afac14e5617104b5bb8d528608fe3c81b8bb829dcf827c9ccef444cb78cf9620",
       "previews": {
         "back": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_back.png",
         "front": "reviews/battle-prelate-reference-rebuild/9d26a2eb0a6c/lod0_full_front.png",
@@ -57,7 +45,7 @@
         "side": "a91b7f748543d0774ea99415a77dbf9883b9d65f15a39b5e309690d021f68722"
       },
       "qc": "chr_civic_battle_prelate_t1_m.qc.json",
-      "qcSha256": "3710258bd8deefa38c1e21bdb67e68c11d26a0dbe7626e687796d4e83a774f96",
+      "qcSha256": "636ced437e43911c3f4ea1844cda72bd4947a6deb29b19fb92f83efce52aaf03",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -70,7 +58,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_civic_ember_arcanist_t1_m.glb",
-      "modelSha256": "b1e9cf97a2b15eaaf0779d852605b9afd9917565fbea8fb82f5a829880025856",
+      "modelSha256": "b36f2c55183d0c9683144d8ebb5c03eff6000a9f354c2703b596692d1e8148cc",
       "previews": {
         "back": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_back.png",
         "front": "reviews/ember-arcanist-reference-rebuild/98428bc32a58/lod0_full_front.png",
@@ -84,7 +72,7 @@
         "side": "51b79c38cc60a4c606499021469f5ca136ba6ff58e310d7b941d40e0dce700cc"
       },
       "qc": "chr_civic_ember_arcanist_t1_m.qc.json",
-      "qcSha256": "09f2e802133a21ffb5457bfe5398a57705de96a07534c6e06ae82ded2045f18c",
+      "qcSha256": "280037b3a634218720e0af15fdbe3ce4bacfbbb974636dda8f6dc5d7119fdd20",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -97,7 +85,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -119,7 +107,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_captain_m.glb",
-      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "modelSha256": "f4ba060f35277d273d84941010bbdf96ccf5289bf67110d0afbbc4168228dd3d",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
       },
@@ -141,7 +129,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_raider_m.glb",
-      "modelSha256": "29ddae8ad4f77962b3bfa813910b55ba6f5ba148e212c5ff4773d66b7aa157c5",
+      "modelSha256": "f87337d0806d0ad8a162f669ee54b940befa4c3950d6fe3e3318cb59c006d1a6",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/raider_front.png"
       },
@@ -163,7 +151,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_captain_m.glb",
-      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "modelSha256": "f4ba060f35277d273d84941010bbdf96ccf5289bf67110d0afbbc4168228dd3d",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
       },
@@ -185,7 +173,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_captain_m.glb",
-      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "modelSha256": "f4ba060f35277d273d84941010bbdf96ccf5289bf67110d0afbbc4168228dd3d",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
       },
@@ -207,7 +195,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_captain_m.glb",
-      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "modelSha256": "f4ba060f35277d273d84941010bbdf96ccf5289bf67110d0afbbc4168228dd3d",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
       },
@@ -229,7 +217,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_captain_m.glb",
-      "modelSha256": "5917ed885573b3a39a01e2df8735af62caa8b0ac62641a3bae2613f3173a8d03",
+      "modelSha256": "f4ba060f35277d273d84941010bbdf96ccf5289bf67110d0afbbc4168228dd3d",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/captain_front.png"
       },
@@ -251,7 +239,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_captain_m.glb",
-      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "modelSha256": "28e7a500279b74e863e0907d6e54bdd64c8bfc0f9aff8ef946d952dd070283e9",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
       },
@@ -273,7 +261,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_captain_m.glb",
-      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "modelSha256": "28e7a500279b74e863e0907d6e54bdd64c8bfc0f9aff8ef946d952dd070283e9",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
       },
@@ -295,7 +283,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_raider_m.glb",
-      "modelSha256": "1ab256e2977e85305e3015c1587114b5008e7949776c74b825d9f29e2bd7e930",
+      "modelSha256": "160fb51d0b32fb0da3da802cef09021850aaaca5ef43cb673d764d4b84345ebc",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/raider_front.png"
       },
@@ -317,7 +305,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_raider_m.glb",
-      "modelSha256": "1ab256e2977e85305e3015c1587114b5008e7949776c74b825d9f29e2bd7e930",
+      "modelSha256": "160fb51d0b32fb0da3da802cef09021850aaaca5ef43cb673d764d4b84345ebc",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/raider_front.png"
       },
@@ -339,7 +327,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_captain_m.glb",
-      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "modelSha256": "28e7a500279b74e863e0907d6e54bdd64c8bfc0f9aff8ef946d952dd070283e9",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
       },
@@ -361,7 +349,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_guard_m.glb",
-      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "modelSha256": "7ba6e61bfa8fda111987be1ed2d9762668a86167847bb536796075c7fdd8fbb1",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
       },
@@ -383,7 +371,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_captain_m.glb",
-      "modelSha256": "772dfb21f76e887c0843bd5a3d9b6530406deee0fc4e12f8a9062cf19a083ad1",
+      "modelSha256": "28e7a500279b74e863e0907d6e54bdd64c8bfc0f9aff8ef946d952dd070283e9",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/captain_front.png"
       },
@@ -405,7 +393,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "chr_mire_warbrute_t1_f.glb",
-      "modelSha256": "290803a2a6da46513518065119b3b273ceaddc2d202729e61130f24caff3597e",
+      "modelSha256": "a7e4581fb41a018d610646f3973e84b2da3171831c83fa4f5e004e18371e9ae0",
       "previews": {
         "front": "reviews/roster-direct/warbrute/f/body_front.png"
       },
@@ -426,7 +414,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_mire_warbrute_t1_m.glb",
-      "modelSha256": "0d2ec546fd6aeaa1eaf44548dda713e893e93b3f04365af3efa33894c62055a5",
+      "modelSha256": "be05d401a600ffcf5816668e931d9c08609c48aa9b848e86e4bd25767d7b00a1",
       "previews": {
         "front": "reviews/roster-direct/warbrute/m/body_front.png"
       },
@@ -447,7 +435,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -469,7 +457,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_vendor_m.glb",
-      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "modelSha256": "09f816bb7ac85aacc3a472406fefc9686de475c0e4292cd1ecfffebaad8fa35a",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
       },
@@ -491,7 +479,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_trainer_m.glb",
-      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "modelSha256": "b01490f52b1da70dee3bdd15ffa8a6ca931c5b3007c43ca974fdfea488859e9b",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
       },
@@ -513,7 +501,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_city_guard_captain.glb",
-      "modelSha256": "d4c0910ec7b022fe4e571a182f407e1e49e0bbb38f3141576d951b62f3ce3c5b",
+      "modelSha256": "306dd2c454860549fb6676d84d4e9c33486cd28492456ad995e8b71ad78f30c3",
       "previews": {
         "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
       },
@@ -521,7 +509,7 @@
         "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
       },
       "qc": "chr_aegis_city_guard_captain.qc.json",
-      "qcSha256": "cfe186def9f07910d17c09c199c2cdd3d51a81d84c1c50b39be04b1d01f901ec",
+      "qcSha256": "fdd709bccf798d82c9a5b4b2f2a0f066856ef8117716d1516394d84cded852b4",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -534,7 +522,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_city_guard_crossbow.glb",
-      "modelSha256": "4cb42960dc4c930e4bc83d9a89be4f6e3a357e600c9182e628257b6ffc7f6e17",
+      "modelSha256": "49079a8eb330f04a1984fda18bf3b09f900a4a5730a0840e6c3030a76e7913ee",
       "previews": {
         "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
       },
@@ -542,7 +530,7 @@
         "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
       },
       "qc": "chr_aegis_city_guard_crossbow.qc.json",
-      "qcSha256": "680a50214a793f4dbe37d372cb47ee41fad70c411ea4afcf2c73089c6e7ffb17",
+      "qcSha256": "61621704beecb520947ed35bee6826accafd4678d65383a702d6a71425034f5f",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -555,7 +543,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_city_guard_halberd.glb",
-      "modelSha256": "7bfe0657e26bad1a5b2dae200a8535ce824d25b24193b9afd69088a357098d8b",
+      "modelSha256": "50e557a335b4642ae7c937c10d438270c1730c82f7ffb09353a59dbcfdda226c",
       "previews": {
         "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
       },
@@ -563,7 +551,7 @@
         "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
       },
       "qc": "chr_aegis_city_guard_halberd.qc.json",
-      "qcSha256": "b6711cb7710dda02926458999e3247310363915bfd31db9dc31d5dde9ba9d47c",
+      "qcSha256": "fb69cc1eb8adbbe738d9918680ac53cb476a5bb93cca3b2744e29dbb2a96a7d3",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -576,7 +564,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_city_guard_standard.glb",
-      "modelSha256": "2d58fa15806af271a24a512ae779b80fd98ccd7e8c92b921a59586df3ce901fb",
+      "modelSha256": "5871b32edf726223eac83c7cc655da449182194be5ab01975b57963421647bac",
       "previews": {
         "lineup": "reviews/aegis-city-guards/exported_idle_lineup.png"
       },
@@ -584,7 +572,7 @@
         "lineup": "2bc5a6ba1eb10cedc2f8bf35982b43d7a0cb5dbc1156da0b79a5876b8fb9e384"
       },
       "qc": "chr_aegis_city_guard_standard.qc.json",
-      "qcSha256": "714a17a57b43444b5d328833d2c5ff4384568562180a8cfbd36cfc106cf2de4d",
+      "qcSha256": "380f5f444bea254026a1bdb312ea9a637d08fb3e7fefd84d29f2e963f3c2a652",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "humanoid_game_v2"
@@ -597,7 +585,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -619,7 +607,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -641,7 +629,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -663,7 +651,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -685,7 +673,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_vendor_m.glb",
-      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "modelSha256": "09f816bb7ac85aacc3a472406fefc9686de475c0e4292cd1ecfffebaad8fa35a",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
       },
@@ -707,7 +695,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_vendor_m.glb",
-      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "modelSha256": "09f816bb7ac85aacc3a472406fefc9686de475c0e4292cd1ecfffebaad8fa35a",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
       },
@@ -729,7 +717,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_banker_m.glb",
-      "modelSha256": "11d3d55479d0506d8c0f80a724b25263bd22e3146aa5f801fe78b77fd924bcbd",
+      "modelSha256": "fbda7fd0f7acc0fb509fe4a7351141fefa79ea5043e3e30b5cc3805cd0896280",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/banker_front.png"
       },
@@ -751,7 +739,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -773,7 +761,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -795,7 +783,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_trainer_m.glb",
-      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "modelSha256": "b01490f52b1da70dee3bdd15ffa8a6ca931c5b3007c43ca974fdfea488859e9b",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
       },
@@ -817,7 +805,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -839,7 +827,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_banker_m.glb",
-      "modelSha256": "11d3d55479d0506d8c0f80a724b25263bd22e3146aa5f801fe78b77fd924bcbd",
+      "modelSha256": "fbda7fd0f7acc0fb509fe4a7351141fefa79ea5043e3e30b5cc3805cd0896280",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/banker_front.png"
       },
@@ -861,7 +849,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -883,7 +871,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_trainer_m.glb",
-      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "modelSha256": "b01490f52b1da70dee3bdd15ffa8a6ca931c5b3007c43ca974fdfea488859e9b",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
       },
@@ -905,7 +893,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -927,7 +915,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_vendor_m.glb",
-      "modelSha256": "ec87adf1f4536441b9be7c662b84fb622fb15033f39df6ff7efc2e4114155f3c",
+      "modelSha256": "09f816bb7ac85aacc3a472406fefc9686de475c0e4292cd1ecfffebaad8fa35a",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/vendor_front.png"
       },
@@ -949,7 +937,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_banker_m.glb",
-      "modelSha256": "11d3d55479d0506d8c0f80a724b25263bd22e3146aa5f801fe78b77fd924bcbd",
+      "modelSha256": "fbda7fd0f7acc0fb509fe4a7351141fefa79ea5043e3e30b5cc3805cd0896280",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/banker_front.png"
       },
@@ -971,7 +959,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_attendant_lod1.glb",
-      "modelSha256": "ba486f88c365de959f69d013926365ed7422b9ec26b5a7cb74b4217ef291704f",
+      "modelSha256": "5ef8ab9c45cf23c1c5bc59a9e8a390f7019b4e80e6adcb14686bf6b178d041f3",
       "previews": {
         "front": "reviews/aegis-people/attendant_export_three_quarter.png"
       },
@@ -979,7 +967,7 @@
         "front": "1ace7dba4589a147074d6b8d16b5acf168d17fb8e00fe4e5ca2ae35d56b06d42"
       },
       "qc": "chr_aegis_people_attendant_lod1.qc.json",
-      "qcSha256": "66393d16b8eb8654210dcc30a53322d1f74980672ff39ef7051ae97963d0cba9",
+      "qcSha256": "b66ec656f7291659edbdf46c6870706a8c83f87add012929d44b74f869657f47",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -992,7 +980,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_child_lod1.glb",
-      "modelSha256": "04830d6bc12c7bfe246cb3dea125a856c2fc48a67f395edaed6e543f4d51b8c7",
+      "modelSha256": "db113d2eabaafef597d7648639b3f7efdea673a5047e6f8575dbf6b3099ea844",
       "previews": {
         "front": "reviews/aegis-people/child_export_three_quarter.png"
       },
@@ -1000,7 +988,7 @@
         "front": "02208d1a25d59a4c3f55ed4213d117bcd1f80e093cf31b011156544292487394"
       },
       "qc": "chr_aegis_people_child_lod1.qc.json",
-      "qcSha256": "254873fc2b135f65458de7c7bd26f9e19daaabdface3c93fe010a6b81c1b4ac8",
+      "qcSha256": "839f0c053623b42aa36fab3823c5955cec143ace732bdf4459a34de7afd8bb7e",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1013,7 +1001,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_civilian_female_lod1.glb",
-      "modelSha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+      "modelSha256": "db7a61871a8f6e6b5c50ba78ae9b1442a5aaa757217b50b62a7d52da3278dc63",
       "previews": {
         "front": "reviews/aegis-people/civilian_female_export_three_quarter.png"
       },
@@ -1021,7 +1009,7 @@
         "front": "459fe3ee7863090f0b8590d3ebb7152240611acb44b7f48a1a6617979e3f94c4"
       },
       "qc": "chr_aegis_people_civilian_female_lod1.qc.json",
-      "qcSha256": "4e62e28a225ff3d13d1dbd119fc5b1a267da5e1da741d498425713e7139891c6",
+      "qcSha256": "33a021b4d2251fec5597e1c244c57fa63e79cce2788c97ab26f8847c75750190",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1034,7 +1022,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_civilian_female_walk.glb",
-      "modelSha256": "cbe2ed167cde84f1a465e4332bcc25e19492c9acb36e92a0c31e73a61ca19d63",
+      "modelSha256": "a43c194ad24ee715a358113670e6a1d9ce991b9ee24cde222d5cad6dea86554e",
       "previews": {
         "front": "reviews/aegis-civic-locomotion/walking_phase_10.png",
         "side": "reviews/aegis-civic-locomotion/walking_side.png",
@@ -1046,7 +1034,7 @@
         "walk": "c9382938f98e290eb0c097cf5f608fa57da079dff6fd1b85a680bac54dcac5be"
       },
       "qc": "chr_aegis_people_civilian_female_walk.qc.json",
-      "qcSha256": "a0a780679723e51aa172e47ac5de6df41970f1f8e23dcc01674c890099a88083",
+      "qcSha256": "d2333cb0b0ace206a02ecdd6b2bfba4421bba6bae3d7e90c954443dfd1952499",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1059,7 +1047,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_civilian_male_lod1.glb",
-      "modelSha256": "533085dd9800f4c23fa3bff2bf2d426f8d44d2d7f9edae3daec8986b5bd0e3bc",
+      "modelSha256": "f05b37198efb59da191da52dfa9186aaf6fed265c5c27e7d70c9af2170a5e6aa",
       "previews": {
         "front": "reviews/aegis-people/civilian_male_export_three_quarter.png"
       },
@@ -1067,7 +1055,7 @@
         "front": "a3f0f1cafe8296e3140fc6189999bef7965396f2068a4bb593a677753fe29226"
       },
       "qc": "chr_aegis_people_civilian_male_lod1.qc.json",
-      "qcSha256": "174edfcc90af24f81fd3ad4b94ffd369011ea315f4c7c9dfac329aa42fa7c0e8",
+      "qcSha256": "d3a159ba7a4c06fda5d1acd4b1e8fe142f400017f38f5fda0d372df1737210b0",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1080,7 +1068,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_civilian_male_walk.glb",
-      "modelSha256": "d0cb3d64870bb385c9aab497b9df3c4772fb7493c52453e8f24ba77cbc7824f9",
+      "modelSha256": "c83bceff6c775b04a46dcea99263e2bcd9bdd5d17c198322b54b68fb1589eae4",
       "previews": {
         "front": "reviews/aegis-civic-locomotion/walking_phase_10.png",
         "side": "reviews/aegis-civic-locomotion/walking_side.png",
@@ -1092,7 +1080,7 @@
         "walk": "c9382938f98e290eb0c097cf5f608fa57da079dff6fd1b85a680bac54dcac5be"
       },
       "qc": "chr_aegis_people_civilian_male_walk.qc.json",
-      "qcSha256": "7b0070477b2797ea00835c15728637a270dcf1769803c4f9e4e85e3941cffd77",
+      "qcSha256": "b3b8554ea0b633ca5e37b3a47ca70bf60d6408123304907c1ebc9056ddcb0972",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1105,7 +1093,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_courtier_lod1.glb",
-      "modelSha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+      "modelSha256": "005331a2d55fc06d53894bada9e50e6b7b0b93850f8c461295b459b7bdeef4a9",
       "previews": {
         "front": "reviews/aegis-people/courtier_export_three_quarter.png"
       },
@@ -1113,7 +1101,7 @@
         "front": "4b84c8e8df9d854f3f5e74ddf69ee3e6bec60c7d3414dbbc072c98856bf0504e"
       },
       "qc": "chr_aegis_people_courtier_lod1.qc.json",
-      "qcSha256": "8f40965cc92ad4951887b3d510ede5ac00d78ef7709ba3761fb4e459c224aa42",
+      "qcSha256": "5081d8a4e71a4007aaeb0ce6ffd59494e3106d64994a9b279a2258e75148af2e",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1126,7 +1114,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_lady_lod1.glb",
-      "modelSha256": "5e6d864dd619bf2909f4185cbd3e9224e17ad0baed9bbd030015f1ce3c1778c4",
+      "modelSha256": "d7afe0c1ceb6ceef352de9c97d3b6e467195620413b23b86a9ec88ab1d3d2ab9",
       "previews": {
         "front": "reviews/aegis-people/lady_export_three_quarter.png"
       },
@@ -1134,7 +1122,7 @@
         "front": "cf94350fb1d1e455d91330310cb1cbc48aa25f6b72232c08a92bbda9a62207b4"
       },
       "qc": "chr_aegis_people_lady_lod1.qc.json",
-      "qcSha256": "fa6cf4c9c69e12f079018227059c558dbead84465454323feef8fad9afe47aaf",
+      "qcSha256": "a914cb826e6486df3cc283b684514839a8d05d89ad89c035c3ae89293fc1ae21",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1147,7 +1135,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_aegis_people_lord_lod1.glb",
-      "modelSha256": "ffefaa908c343a0dbcb607da0156100d9be342050f1ce5ea3650d101a72f935c",
+      "modelSha256": "1dcef150a3cf61f14c09a718493bfaf9106a151088366e1799753650cde962a0",
       "previews": {
         "front": "reviews/aegis-people/lord_export_three_quarter.png"
       },
@@ -1155,7 +1143,7 @@
         "front": "0e57dbb6616f2588063be9875a19b7c938cc3a3281282b6b8dab62d246bd46db"
       },
       "qc": "chr_aegis_people_lord_lod1.qc.json",
-      "qcSha256": "1be2cffd779c3f340d1e8777d43cb6944e2a6e96a2a838bead345288ba35bf93",
+      "qcSha256": "650276f9d79bf4eb675696fe5a40b00be4feecc6d7aac7fcc32845fcc69f8309",
       "reviewStatus": "approved",
       "runtimeReady": true,
       "skeletonId": "aegis_people_v1"
@@ -1168,7 +1156,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -1190,7 +1178,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -1212,7 +1200,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_trainer_m.glb",
-      "modelSha256": "3325c67a8f27c97c10247139d711d0b68d9fe50ecf6bb2ea6a1dfb6b494ccc0c",
+      "modelSha256": "b01490f52b1da70dee3bdd15ffa8a6ca931c5b3007c43ca974fdfea488859e9b",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/trainer_front.png"
       },
@@ -1234,7 +1222,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_empire_m_guard_m.glb",
-      "modelSha256": "3c0a0145e530cc3fdb8c8adf5396e56a1363aadd794361529dc90cbc133507fc",
+      "modelSha256": "b520512ff014fedecd3e509543fc6526f05bbaa22d8d0f5291cb865aea6ce0c4",
       "previews": {
         "front": "reviews/roster-direct/npc/empire_m/guard_front.png"
       },
@@ -1256,7 +1244,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "frontier_cinderfen_dark_elf_supply_officer_lod0.glb",
-      "modelSha256": "590788e503d30939ea457bd0f0e89a86e31ce2d9c57b4d84f35af009845509cf",
+      "modelSha256": "a0f4bd2682ee472d20e9c72796fe378478020bd2a5bcbdcbb9b7b80b144c9e93",
       "previews": {
         "front": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/review\\frontier_cinderfen_dark_elf_supply_officer_lod0_front_f.png",
         "head": "authoring/blender/cinderfen-supply-officer/releases/frontier_cinderfen_dark_elf_supply_officer/fd4e6fa6555fd764edb2/files/authoring/blender/cinderfen-supply-officer/review\\frontier_cinderfen_dark_elf_supply_officer_lod0_head_f.png"
@@ -1280,7 +1268,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "frontier_cinderfen_greenskin_peat_worker_lod0.glb",
-      "modelSha256": "b64aae36dfeabba7c256c78f7ae112ea8388eb6bcebc675d082f4cfabacd19a9",
+      "modelSha256": "83c04f0a1f902cab0539563e0d2164f2f1fd78bfdfb9e40cf7d5a56b06199717",
       "previews": {
         "front": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663/files/authoring/blender/cinderfen-peat-worker/review\\frontier_cinderfen_greenskin_peat_worker_lod0_front_f.png",
         "head": "authoring/blender/cinderfen-peat-worker/releases/frontier_cinderfen_greenskin_peat_worker/515dd65184a7e3748663/files/authoring/blender/cinderfen-peat-worker/review\\frontier_cinderfen_greenskin_peat_worker_lod0_head_f.png"
@@ -1304,7 +1292,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "frontier_sunmeadow_dwarf_artisan_lod0.glb",
-      "modelSha256": "cf9c2b2e1cfdb7ab22feb998430882b204e9ef2dd23ab51d058b57973d950c75",
+      "modelSha256": "4b94164f7162c0735bf4931c7f6161abb1bc875d29ccc4cf56e30fdb6a433a56",
       "previews": {
         "front": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/8f61c21c52ae8d4e0985/files/authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_front_20260909l.png",
         "head": "authoring/blender/frontier-population/releases/frontier_sunmeadow_dwarf_artisan/8f61c21c52ae8d4e0985/files/authoring/blender/frontier-population/review/frontier_sunmeadow_dwarf_artisan_lod0_head_20260909l.png"
@@ -1328,7 +1316,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "frontier_sunmeadow_empire_farmer_lod0.glb",
-      "modelSha256": "0cea86bf9c67dc5daac6655a8dbdd0d8952d7dc61e72dad62567801773a24903",
+      "modelSha256": "1c0186236e4fd032263f42b64baa0bd4f9bb4324c5d14a963930f6f928960f59",
       "previews": {
         "front": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/review\\frontier_sunmeadow_empire_farmer_lod0_front_f.png",
         "head": "authoring/blender/sunmeadow-farmer/releases/frontier_sunmeadow_empire_farmer/623facce78792ef7cab7/files/authoring/blender/sunmeadow-farmer/review\\frontier_sunmeadow_empire_farmer_lod0_head_f.png"
@@ -1352,7 +1340,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "frontier_sunmeadow_empire_herbalist_lod0.glb",
-      "modelSha256": "59af5a498f94fb87c359e6bf1e3bbc90e16fa73f32a145abc6af65b66767507d",
+      "modelSha256": "42d4d78fd55c8c0640e10fc3ca644cf2e721781b8d0d0dd7346898e7ae9832df",
       "previews": {
         "front": "authoring/blender/sunmeadow-herbalist/releases/frontier_sunmeadow_empire_herbalist/63072b851393b42f4329/files/authoring/blender/sunmeadow-herbalist/review\\frontier_sunmeadow_empire_herbalist_lod0_front_l.png",
         "head": "authoring/blender/sunmeadow-herbalist/releases/frontier_sunmeadow_empire_herbalist/63072b851393b42f4329/files/authoring/blender/sunmeadow-herbalist/review\\frontier_sunmeadow_empire_herbalist_lod0_head_l.png"
@@ -1376,7 +1364,7 @@
       "bodyVariant": "f",
       "lifecycleStatus": "approved",
       "model": "frontier_sunmeadow_high_elf_scout_lod0.glb",
-      "modelSha256": "a0d2983891f6fb3433d875362a29b563b46d846efe6c1875f98c4fd75ff0fdca",
+      "modelSha256": "a15c504c7728afe0ab4b361247c7d8a177a845fbb13ae833834f64374d232c33",
       "previews": {
         "front": "authoring/blender/sunmeadow-scout/releases/frontier_sunmeadow_high_elf_scout/d12b92a97fb9806ee882/files/authoring/blender/sunmeadow-scout/review\\frontier_sunmeadow_high_elf_scout_lod0_front_final.png",
         "head": "authoring/blender/sunmeadow-scout/releases/frontier_sunmeadow_high_elf_scout/d12b92a97fb9806ee882/files/authoring/blender/sunmeadow-scout/review\\frontier_sunmeadow_high_elf_scout_lod0_head_final.png"
@@ -1400,7 +1388,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_guard_m.glb",
-      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "modelSha256": "7ba6e61bfa8fda111987be1ed2d9762668a86167847bb536796075c7fdd8fbb1",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
       },
@@ -1422,7 +1410,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_vendor_m.glb",
-      "modelSha256": "2a02341c61851dfecebcbffc781bbaa4cfba540e2c5fb14e31766df4ae169a25",
+      "modelSha256": "80a39705dd2bc97afaff3dae5c6d91a8572c85297cf536c4c1cc108be54068cc",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/vendor_front.png"
       },
@@ -1444,7 +1432,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_trainer_m.glb",
-      "modelSha256": "1aacdad9d3aea134cda17baa469a897c69dfc8e510fa725bd18301a60d2b65eb",
+      "modelSha256": "125bfb426ae7bb8daf4dc9d8737b74b73b650b3a9ae5bd48e3b84529b7dee359",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/trainer_front.png"
       },
@@ -1466,7 +1454,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_guard_m.glb",
-      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "modelSha256": "7ba6e61bfa8fda111987be1ed2d9762668a86167847bb536796075c7fdd8fbb1",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
       },
@@ -1488,7 +1476,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_ambient_m.glb",
-      "modelSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+      "modelSha256": "dbd660e1b3f2d70c4cfc9f9befac7340c0c7d89d015e416301664871af7e287f",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/ambient_front.png"
       },
@@ -1510,7 +1498,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_guard_m.glb",
-      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "modelSha256": "7ba6e61bfa8fda111987be1ed2d9762668a86167847bb536796075c7fdd8fbb1",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
       },
@@ -1532,7 +1520,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_guard_m.glb",
-      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "modelSha256": "7ba6e61bfa8fda111987be1ed2d9762668a86167847bb536796075c7fdd8fbb1",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
       },
@@ -1554,7 +1542,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_guard_m.glb",
-      "modelSha256": "8fd759873a707e713d9b369268c080cf62590f7ef0a957dabf46515312f079c0",
+      "modelSha256": "7ba6e61bfa8fda111987be1ed2d9762668a86167847bb536796075c7fdd8fbb1",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/guard_front.png"
       },
@@ -1576,7 +1564,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_npc_greenskin_m_ambient_m.glb",
-      "modelSha256": "c3e2d7d48e0e64296662661a4821435e38baf7186cf7ae7b204382332f50efe2",
+      "modelSha256": "dbd660e1b3f2d70c4cfc9f9befac7340c0c7d89d015e416301664871af7e287f",
       "previews": {
         "front": "reviews/roster-direct/npc/greenskin_m/ambient_front.png"
       },
@@ -1598,7 +1586,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_riftspire_chaos_lod1.glb",
-      "modelSha256": "c3ccd8f432c85859b2ed4168bd687b13c05373d8816d26491037ea52c97b018c",
+      "modelSha256": "f33301424febc80dfc4a83a186307c1b5d544726488f35a345bc1f8d70810f23",
       "previews": {
         "front": "authoring/blender/riftspire-city/review/population_chaos-lod0.png"
       },
@@ -1619,7 +1607,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_riftspire_dark_elf_lod1.glb",
-      "modelSha256": "2b92b884e23dd7e33ea6fac161185b5e70d7e4ef5fabbb5e081073311c320b15",
+      "modelSha256": "a8a0e5b2dfb803c8a979d596c4455062144d3657c98bac727cfb7b8960eb2c6c",
       "previews": {
         "front": "authoring/blender/riftspire-city/review/population_dark_elf-lod0.png"
       },
@@ -1640,7 +1628,7 @@
       "bodyVariant": "m",
       "lifecycleStatus": "approved",
       "model": "chr_riftspire_greenskin_lod1.glb",
-      "modelSha256": "071f6bc8c7a7bda2e329852698db3bfbe061d4dc2c3a0aebb2e614cee85dde11",
+      "modelSha256": "090ffeef2b7c6e69c78323eedf8fbbccd3001cab0fb5abd84ebc96c76c97d438",
       "previews": {
         "front": "authoring/blender/riftspire-city/review/population_greenskin-lod0.png"
       },
@@ -5324,20 +5312,6 @@
       "lifecycleStatus": "approved",
       "model": "frontier_battering_ram_lod0.glb",
       "modelSha256": "b5e79265f4cd65759c6c1c0f60c10f21f11ffe095d4d5e5124ffc742ecb905ef",
-      "operatorAnimationPacks": {
-        "left": {
-          "bindPoseId": "a_pose_v2",
-          "model": "frontier_ram_crew_left_animations.glb",
-          "sha256": "f321c11885807db51c8939d397feaf4cb3a84d404cde20f0284c3250397f78a7",
-          "skeletonId": "humanoid_game_v2"
-        },
-        "right": {
-          "bindPoseId": "a_pose_v2",
-          "model": "frontier_ram_crew_right_animations.glb",
-          "sha256": "699c385c4a08d5af326b46b3a2a55a7b33e12fb58960a228482b6094cbea48a4",
-          "skeletonId": "humanoid_game_v2"
-        }
-      },
       "previews": {
         "assembly": "authoring/blender/orvr-frontier/review/frontier_battering_ram_lod0_reimport.png"
       },
@@ -5967,7 +5941,7 @@
       "bodyVariant": "neutral",
       "lifecycleStatus": "approved",
       "model": "frontier_draft_horse_lod0.glb",
-      "modelSha256": "b7ea12441d28281218b9184d54f7653e057379c068066fae33515c0dca356ea7",
+      "modelSha256": "93a8a19303ae67dd38f77f47b93dc3bd038982b742f0eebc6330668cf0ce3c39",
       "previews": {
         "assembly": "authoring/blender/orvr-frontier/review/frontier_draft_horse_lod0_reimport.png"
       },
@@ -6790,7 +6764,7 @@
       "bodyVariant": "neutral",
       "lifecycleStatus": "approved",
       "model": "frontier_sunmeadow_roe_deer_buck_lod0.glb",
-      "modelSha256": "5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76",
+      "modelSha256": "973cc7b910de41cb9dd8e3ee1cb4977406550e9b1e0a31727e479b5730e83914",
       "previews": {
         "assembly": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/review/candidates/buck_differential/lod0_rest_full.png",
         "detail": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/review/candidates/buck_differential/lod0_rest_head_head.png"
@@ -6814,7 +6788,7 @@
       "bodyVariant": "neutral",
       "lifecycleStatus": "approved",
       "model": "frontier_sunmeadow_skylark_lod0.glb",
-      "modelSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+      "modelSha256": "e5b8ca88e866fac9c0d21eaf5e52844da230d8993709d6c136e32ba6f1349cb5",
       "previews": {
         "front": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/review/runtime_lod0_idle_0_quarter.png"
       },
@@ -6913,12 +6887,6 @@
       "skeletonId": "none"
     },
     "frontier_supply_wagon": {
-      "animationPack": {
-        "bindPoseId": "a_pose_v2",
-        "model": "frontier_teamster_animations.glb",
-        "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
-        "skeletonId": "humanoid_game_v2"
-      },
       "approvalState": "approved",
       "assetId": "prop.frontier.supply_wagon",
       "bindPoseId": "none",

@@ -206,7 +206,7 @@ def validate_inputs(profile):
     verified_file(sample_path, verification["sampleEvidenceSha256"])
     clips = conversion["sourceAnimationNames"]
     require(len(clips) == len(set(clips)), "Duplicate source clip names")
-    require(len(clips) == (9 if kind == "characterProfiles" else 0), "Unexpected example clip count")
+    require(not clips if kind == "characterProfiles" else True, "Body/rig imports must not embed character animations")
     require(sorted(clip["name"] for clip in verification["animations"]) == sorted(clips), "Animation evidence is incomplete")
     require(all(clip["status"] == "passed" for clip in verification["animations"]), "Animation verification failed")
     require(verification["fbxGlobalSettings"]["UnitScaleFactor"] == 1, "Expected FBX centimeter units")
@@ -257,7 +257,7 @@ def import_mesh(unreal, context):
     mesh_type = unreal.FBXImportType.FBXIT_SKELETAL_MESH if skeletal else unreal.FBXImportType.FBXIT_STATIC_MESH
     properties = {"automated_import_should_detect_type": False, "mesh_type_to_import": mesh_type,
                   "original_import_type": mesh_type, "import_as_skeletal": skeletal, "import_mesh": True,
-                  "import_animations": skeletal, "create_physics_asset": False,
+                  "import_animations": bool(context["conversion"]["sourceAnimationNames"]), "create_physics_asset": False,
                   "import_materials": False, "import_textures": False}
     for name, value in properties.items():
         options.set_editor_property(name, value)
@@ -611,6 +611,12 @@ def import_profile(unreal, context):
     assets = collect_assets(unreal, context)
     meshes, skeletons, animations = inspect_assets(unreal, context, assets, materials)
     pose_evidence = None
+    if context["conversion"]["kind"] == "characterProfiles":
+        spec = importlib.util.spec_from_file_location("war_pose_parity", Path(__file__).with_name("pose_parity.py"))
+        parity = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(parity)
+        pose_evidence = parity.verify_rest(unreal, unreal.load_asset(skeletons[0]["path"]),
+                                          load_json(context["samples"])["restSource"])
     if animations:
         # Recreated packages retain a loaded path but are not end-loaded until
         # saved. Unreal refuses compression in that state and can evaluate raw

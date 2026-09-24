@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 2,
+  "style": "spell",
+  "sourceFolder": "Spellcast",
+  "locomotion": {
+    "idle": "spell.idle",
+    "combat_idle": "spell.idle",
+    "walk": "spell.walk",
+    "walk_backward": "spell.walk",
+    "run": "spell.run",
+    "strafe_left": "spell.left",
+    "strafe_right": "spell.right",
+    "turn_left": "spell.turn_left",
+    "turn_right": "spell.turn_right",
+    "hit_front": "spell.impact",
+    "hit_back": "spell.impact_back",
+    "jump": "two.jump",
+    "death": "spell.death"
+  }
+}

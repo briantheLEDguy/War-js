@@ -28,4 +28,8 @@ public:
 
     UPROPERTY(Config, EditAnywhere, Category="Development", meta=(AllowedClasses="/Script/AegisWar.WarCharacterVisualDefinition"))
     TSoftObjectPtr<UWarCharacterVisualDefinition> RiftboundDevelopmentVisual;
+
+    /** Explicit admitted profiles, shared by selection and authoritative creation. */
+    UPROPERTY(Config, EditAnywhere, Category="Development")
+    TArray<TSoftObjectPtr<UWarCharacterVisualDefinition>> PlayableRoster;
 };

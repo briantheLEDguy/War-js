@@ -112,26 +112,13 @@ def main():
             shape = obj.shape_key_add(name=f'joint_volume_{index+1:02}')
             shape.slider_min = -1; shape.slider_max = 1
             shape.data.foreach_set('co', (rest+delta).ravel()); keys.append(shape)
-        datablock = obj.data.shape_keys; datablock.animation_data_create()
-        for name, action in actions.items():
-            datablock.animation_data.action = action
-            datablock.animation_data.action_slot = action.slots.new('KEY', datablock.name)
-            for frame, sample_index in timelines[name]:
-                for index, shape in enumerate(keys):
-                    shape.value = coefficients[sample_index, index]
-                    shape.keyframe_insert('value', frame=frame)
-            track = datablock.animation_data.nla_tracks.new()
-            track.name = name
-            strip = track.strips.new(name, int(action.frame_range[0]), action)
-            strip.action_slot = datablock.animation_data.action_slot
-            track.mute = True
-        datablock.animation_data.action = None
+        # Corrective shape geometry is retained; native animation is authored separately.
         for shape in keys: shape.value = 0
         if hashlib.sha256(coordinates(obj).tobytes()).hexdigest() != geometry_hash:
             raise RuntimeError('Corrective authoring changed base anatomy')
         bpy.ops.object.select_all(action='DESELECT'); obj.select_set(True); rig.select_set(True); bpy.context.view_layer.objects.active = obj
         target = output/f'{key}_lod{level}.glb'
-        bpy.ops.export_scene.gltf(filepath=str(target), export_format='GLB', use_selection=True, export_yup=True, export_normals=True, export_tangents=True, export_texcoords=True, export_skins=True, export_animations=True, export_animation_mode='ACTIONS', export_merge_animation='ACTION', export_anim_single_armature=True, export_force_sampling=True, export_frame_range=False, export_vertex_color='NAME', export_vertex_color_name='AnatomicalTint', export_all_vertex_colors=False, export_try_sparse_sk=True, export_morph_normal=True)
+        bpy.ops.export_scene.gltf(filepath=str(target), export_format='GLB', use_selection=True, export_yup=True, export_normals=True, export_tangents=True, export_texcoords=True, export_skins=True, export_animations=False, export_animation_mode='ACTIONS', export_merge_animation='ACTION', export_anim_single_armature=True, export_force_sampling=True, export_frame_range=False, export_vertex_color='NAME', export_vertex_color_name='AnatomicalTint', export_all_vertex_colors=False, export_try_sparse_sk=True, export_morph_normal=True)
         payload, compression = prune_morph_normals(target.read_bytes())
         payload, preserved_normals = restore_static_normals(payload, (ROOT/'runtime'/target.name).read_bytes())
         target.write_bytes(payload)

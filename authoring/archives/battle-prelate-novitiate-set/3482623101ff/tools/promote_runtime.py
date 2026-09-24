@@ -35,7 +35,7 @@ REVIEW_CHECKS = {"reference_design", "material_response", "module_fit", "animati
 REVIEW_VIEWS = {"front", "side", "back", "isometric"}
 AUTHORING_INPUTS = (
     "DESIGN.md", "source/CONTRACT.md", "source/FULL_CHARACTER_CONTRACT.md", "source/scene.json",
-    "tools/build_proof.py", "tools/rig_character.py", "tools/bake_atlas.py", "tools/correct_animation.py",
+    "tools/build_proof.py", "tools/rig_character.py", "tools/bake_atlas.py",
     "tools/tessellate_runtime.py", "tools/validate_runtime.py", "tools/promote_runtime.py",
     "tools/author_novitiate_core.py", "tools/author_novitiate_upper.py", "tools/author_novitiate_limbs.py",
     "tools/refine_novitiate_cloth.py", "tools/refine_novitiate_paint.py", "tools/paint_materials.py",

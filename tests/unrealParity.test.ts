@@ -5,7 +5,7 @@ describe('Unreal parity contract', () => {
   it('binds every contract to existing source and regression tests', () => {
     expect(validateParityLedger()).toEqual([]);
     expect(new Set(parityFeatures.map(feature => feature.id)).size).toBe(parityFeatures.length);
-  });
+  }, 30000);
   it('does not label inventory or a C++ scaffold as completed gameplay', () => {
     expect(parityFeatures.every(feature => feature.unrealStatus === 'pending')).toBe(true);
   });

@@ -16,7 +16,7 @@
     "bindPoseId": "authored_anatomical_rest_v1"
   },
   "hashes": {
-    "modelSha256": "5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76",
+    "modelSha256": "973cc7b910de41cb9dd8e3ee1cb4977406550e9b1e0a31727e479b5730e83914",
     "qcSha256": "2cfab83de330027a56728c2d4e7bc8a2e482272521095cf92caba851d7cd12a5",
     "previews": {
       "assembly": "7049ceea0d36da4dccfb285791cd3e039c7f3177ebc67df1c8e0a8a5e90d8935",
@@ -48,7 +48,18 @@
     "similarityReview": "not_required",
     "author": "Codex Sunmeadow fauna authoring",
     "source": "authoring/blender/sunmeadow-fauna/releases/frontier_sunmeadow_roe_deer_buck/0e10171f0a9ff31aec06/source/anatomy.json",
-    "sourceSha256": "a402541dd1d883a7acdf03c5363063dbb7b505aa03b2e3c83176d002ffc47d0c"
+    "sourceSha256": "a402541dd1d883a7acdf03c5363063dbb7b505aa03b2e3c83176d002ffc47d0c",
+    "sourceAnimationRemoval": {
+      "beforeSha256": "5ef5815a7eba661b2e61eecba12c41b1f3a13cbf1905d2da83540b8db37d0f76",
+      "afterSha256": "973cc7b910de41cb9dd8e3ee1cb4977406550e9b1e0a31727e479b5730e83914",
+      "preservationSha256": "001a860435abb2af7019f9c2b889d9ad26f6938549e484147b0ff06624521cce",
+      "removedClips": [
+        "graze",
+        "idle",
+        "run",
+        "walk"
+      ]
+    }
   },
   "approvalState": "approved"
 }

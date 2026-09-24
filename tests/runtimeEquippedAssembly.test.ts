@@ -14,7 +14,7 @@ import {
 } from "../scripts/blender-character-pipeline/tools/workspace-paths.mjs";
 
 const roots: string[] = [];
-const clips = ["idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump"];
+const clips: string[] = [];
 const slots = ["head", "shoulders", "chest", "hands", "waist", "legs", "feet", "back", "tabard"];
 
 function fixtureRoot(): string {
@@ -66,7 +66,6 @@ function options(root: string) {
     outputPath: path.join(root, "assembled.glb"),
     reviewDir: path.join(root, "reviews"),
     reportPath: path.join(root, "assembled.qc.json"),
-    motionReportPath: path.join(root, "motion.qc.json"),
     timeoutMs: 900_000,
     dryRun: true,
     json: false,
@@ -103,11 +102,11 @@ describe("runtime-equipped assembly wrapper", () => {
     expect(() => validateInputs(resolved)).toThrow(/expected nine Battle Prelate module GLBs/u);
   });
 
-  it("accepts only hash-bound, draft, single-skin, nine-clip round-trip output", () => {
+  it("accepts only hash-bound, draft, single-skin, animation-free round-trip output", () => {
     const resolved = options(fixtureRoot());
     writeMinimalGlb(resolved.outputPath);
     const previews: Record<string, Array<{ view: string; path: string; sha256: string }>> = {};
-    for (const pose of ["bindPose", "idlePose"]) {
+    for (const pose of ["bindPose"]) {
       const poseDir = path.join(resolved.reviewDir, pose);
       mkdirSync(poseDir, { recursive: true });
       previews[pose] = slots.slice(0, 4).map((_, index) => {
@@ -131,18 +130,15 @@ describe("runtime-equipped assembly wrapper", () => {
         boneCount: 56,
         animationClips: clips,
         checks: { singleArmature: true, allModulesBoundToBodyRig: true },
-        glbJsonChecks: { singleSkin: true, nineAnimations: true },
-        idleDeltaAudit: { passed: true },
+        glbJsonChecks: { singleSkin: true, bodyAnimationFree: true },
         bindPose: { previews: previews.bindPose },
-        idlePose: { previews: previews.idlePose },
       },
     };
     writeFileSync(resolved.reportPath, `${JSON.stringify(report)}\n`);
-    writeFileSync(resolved.motionReportPath, `${JSON.stringify({ modelSha256: report.modelSha256, passed: true })}\n`);
     expect(validateOutputs(resolved).actualHash).toBe(report.modelSha256);
 
-    report.roundTrip.idleDeltaAudit.passed = false;
+    report.roundTrip.animationClips = ["idle"];
     writeFileSync(resolved.reportPath, `${JSON.stringify(report)}\n`);
-    expect(() => validateOutputs(resolved)).toThrow(/center\/extent audit failed/u);
+    expect(() => validateOutputs(resolved)).toThrow(/contains embedded animation/u);
   });
 });

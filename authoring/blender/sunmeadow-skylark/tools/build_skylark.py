@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'tools'))
 from skylark_anatomy import anatomy, atlas, bone_records, WING
 from skylark_materials import material
-from quadruped_rig import create_rig, bind_explicit_weights, key_pose_clip
+from quadruped_rig import create_rig, bind_explicit_weights
 
 
 def sha(file):
@@ -86,52 +86,6 @@ def set_matrix(rig, name, desired, matrices):
     matrices[name] = desired
 
 
-def clips(rig):
-    # Matrix assignment otherwise updates quaternion channels on fresh rigs,
-    # leaving the Euler records of the very first action silently at zero.
-    for bone in rig.pose.bones: bone.rotation_mode = 'XYZ'
-    actions = []
-    for clip, duration in [('idle', 4), ('hop', .8), ('fly', .8)]:
-        frames = []
-        last = round(duration*30)
-        for frame in range(last+1):
-            for bone in rig.pose.bones:
-                bone.matrix_basis = Matrix.Identity(4)
-            phase = frame/last
-            wave = math.sin(math.tau*phase)
-            bpy.context.view_layer.update()
-            matrices = {bone.name: bone.matrix.copy() for bone in rig.pose.bones}
-            pelvis = matrices['pelvis'].copy()
-            pelvis.translation.z += .15+.003*math.sin(math.tau*phase*2) if clip == 'fly' else .026*math.sin(math.pi*phase)**2 if clip == 'hop' else 0
-            set_matrix(rig, 'pelvis', pelvis, matrices)
-            bpy.context.view_layer.update()
-            matrices = {bone.name: bone.matrix.copy() for bone in rig.pose.bones}
-            for side, label in [(1, 'L'), (-1, 'R')]:
-                names = ['wing_upper_'+label, 'wing_lower_'+label, 'wing_hand_'+label]
-                start = rig.pose.bones[names[0]].head.copy()
-                fold = [(side*.20, .98, -.05), (-side*.13, -.98, -.12), (side*.035, .99, -.15)]
-                for index, name in enumerate(names):
-                    bone = rig.pose.bones[name]
-                    if clip == 'fly':
-                        flap = Quaternion((0, 1, 0), -side*(.80*wave+.09*index*math.sin(math.tau*phase-.45)))
-                        direction = flap@(bone.bone.tail_local-bone.bone.head_local).normalized()
-                        normal = flap@Vector((0, 0, 1))
-                    else:
-                        direction, normal = Vector(fold[index]).normalized(), Vector((side, 0, 0))
-                    desired = pose_matrix(start, direction, normal)
-                    set_matrix(rig, name, desired, matrices)
-                    start += direction*bone.length
-            # Head glance remains gentle enough for the short feathered neck.
-            rig.pose.bones['head'].rotation_euler.y = .045*wave if clip != 'fly' else 0
-            rig.pose.bones['tail'].rotation_euler.x = .025*wave
-            if clip == 'fly':
-                for label in ['L', 'R']:
-                    rig.pose.bones['thigh_'+label].rotation_euler.x = -.35
-                    rig.pose.bones['tarsus_'+label].rotation_euler.x = .65
-                    rig.pose.bones['foot_'+label].rotation_euler.x = .6
-            frames.append((frame, {bone.name: {'location': list(bone.location), 'rotation_euler': list(bone.rotation_euler), 'scale': list(bone.scale)} for bone in rig.pose.bones}))
-        actions.append(key_pose_clip(rig, clip, frames))
-    return actions
 
 
 def build(levels):
@@ -160,7 +114,7 @@ def build(levels):
         models.append(obj)
         if lod == 0:
             (ROOT/'source/skylark_v2_cage.json').write_text(json.dumps(vars(surface), separators=(',', ':'))+'\n')
-    actions = clips(rig)
+    actions = []
     for lod, obj, record in zip(levels, models, evidence):
         bpy.ops.object.select_all(action='DESELECT')
         obj.select_set(True); rig.select_set(True)
@@ -168,7 +122,7 @@ def build(levels):
         target = ROOT/'runtime'/f'frontier_sunmeadow_skylark_lod{lod}.glb'
         bpy.ops.export_scene.gltf(filepath=str(target), export_format='GLB', use_selection=True, export_yup=True,
             export_normals=True, export_tangents=True, export_texcoords=True, export_skins=True,
-            export_animations=True, export_animation_mode='ACTIONS', export_anim_single_armature=True,
+            export_animations=False, export_animation_mode='ACTIONS', export_anim_single_armature=True,
             export_force_sampling=True, export_frame_range=False)
         record.update(model=target.relative_to(ROOT).as_posix(), modelSha256=sha(target), bytes=target.stat().st_size)
         obj.hide_set(lod != 0); obj.hide_render = lod != 0

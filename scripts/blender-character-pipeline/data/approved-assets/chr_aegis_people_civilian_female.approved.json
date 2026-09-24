@@ -15,8 +15,8 @@
     "bindPoseId": "civic_relaxed_v1"
   },
   "hashes": {
-    "modelSha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
-    "qcSha256": "4e62e28a225ff3d13d1dbd119fc5b1a267da5e1da741d498425713e7139891c6",
+    "modelSha256": "db7a61871a8f6e6b5c50ba78ae9b1442a5aaa757217b50b62a7d52da3278dc63",
+    "qcSha256": "33a021b4d2251fec5597e1c244c57fa63e79cce2788c97ab26f8847c75750190",
     "previews": {
       "front": "459fe3ee7863090f0b8590d3ebb7152240611acb44b7f48a1a6617979e3f94c4"
     }
@@ -53,6 +53,14 @@
         "triangles": 40884,
         "degenerate_uv_tangents": 22813
       }
+    },
+    "sourceAnimationRemoval": {
+      "beforeSha256": "84f9685a55f92cdd31d3f96f9593cf0d82da039a0a298bc389a20954d05aea11",
+      "afterSha256": "db7a61871a8f6e6b5c50ba78ae9b1442a5aaa757217b50b62a7d52da3278dc63",
+      "preservationSha256": "17eb7d76629c99ca68cff89d8c7fc6b7c6ff0f56bd1dd3cc046d985c074cc48a",
+      "removedClips": [
+        "idle"
+      ]
     }
   }
 }

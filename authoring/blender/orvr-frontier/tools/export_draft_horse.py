@@ -53,13 +53,8 @@ def export_lod(level):
         for modifier in mesh.modifiers:
             if modifier.type=='ARMATURE':modifier.show_viewport=True;modifier.show_render=True
         meshes.append(mesh)
-    rig.animation_data_create()
     clip_records=[]
-    for name,start in [('idle',140),('walk',300),('draft_trot',400)]:
-        action=bpy.data.actions[name];track=rig.animation_data.nla_tracks.new();track.name=name
-        strip=track.strips.new(name,start,action);strip.extrapolation='NOTHING';strip.blend_type='REPLACE'
-        if action.slots:strip.action_slot=action.slots[0]
-        clip_records.append({'name':name,'seconds':(action.frame_range[1]-action.frame_range[0])/30,'root_motion':False})
+    if bpy.data.actions: raise ValueError('Horse body source contains retired animation')
     bpy.context.scene.frame_set(0)
     bpy.ops.object.select_all(action='DESELECT');rig.select_set(True)
     for mesh in meshes:mesh.select_set(True)
@@ -67,7 +62,7 @@ def export_lod(level):
         socket=bpy.data.objects[name];socket.select_set(True)
     destination=ROOT/'runtime'/f'{ASSET}_lod{level}.glb'
     bpy.ops.export_scene.gltf(filepath=str(destination),export_format='GLB',use_selection=True,
-        export_apply=False,export_animations=True,export_animation_mode='NLA_TRACKS',export_anim_slide_to_zero=True,
+        export_apply=False,export_animations=False,export_animation_mode='NLA_TRACKS',export_anim_slide_to_zero=True,
         export_frame_range=False,export_tangents=True,export_skins=True,export_def_bones=True)
     master=ROOT/'masters'/f'{ASSET}_lod{level}.blend';bpy.ops.wm.save_as_mainfile(filepath=str(master))
     return {'level':level,'path':str(destination.relative_to(ROOT)),'sha256':build.sha(destination),'bytes':destination.stat().st_size,

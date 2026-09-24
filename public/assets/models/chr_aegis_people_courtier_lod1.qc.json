@@ -1,7 +1,7 @@
 {
   "assetId": "chr.aegis.people.courtier",
   "model": "chr_aegis_people_courtier_lod1.glb",
-  "modelSha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+  "modelSha256": "005331a2d55fc06d53894bada9e50e6b7b0b93850f8c461295b459b7bdeef4a9",
   "triangles": 84965,
   "skeletonId": "aegis_people_v1",
   "bindPoseId": "civic_relaxed_v1",
@@ -11,5 +11,19 @@
   "usage": "stationary NPC",
   "validationErrors": 0,
   "validationWarnings": 0,
-  "review": "reviews/aegis-people/runtime-audit.json"
+  "review": "reviews/aegis-people/runtime-audit.json",
+  "fileSizeBytes": 11390052,
+  "sourceAnimationRemoval": {
+    "beforeSha256": "cd9a646f0d209efbfed949a3249cd280122f29c69d2944494f5113091f9fcea8",
+    "afterSha256": "005331a2d55fc06d53894bada9e50e6b7b0b93850f8c461295b459b7bdeef4a9",
+    "preservationSha256": "bec60b461acd703044110bf8827a341ef6d18e0c8551d78945bf40d6faf5cf41",
+    "removedClips": [
+      "idle"
+    ],
+    "modelContentUnchanged": true,
+    "animationValidation": "Native supplied-set evidence is separate"
+  },
+  "provenance": {
+    "retiredEmbeddedAnimationValidation": {}
+  }
 }

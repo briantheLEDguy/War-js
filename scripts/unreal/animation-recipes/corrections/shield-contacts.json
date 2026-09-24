@@ -1,0 +1,9 @@
+{
+  "profiles": ["civic_sunfire_templar_m", "mire_warbrute_m"],
+  "measurement": "shield-contact-trajectories.json: forward sword crossing, final descending combo strike and extended kick, 30 Hz",
+  "markers": {
+    "shield.slash": {"default": 0.8},
+    "shield.combo": {"default": 2.6},
+    "shield.kick": {"default": 0.5666666666666667}
+  }
+}

@@ -15,6 +15,10 @@ struct AEGISWAR_API FWarCharacterProgression
 };
 namespace WarProgression
 {
+    constexpr int32 MaxGmLevel = 45;
+    // Adjust only level-derived growth; retain other stat offsets and currency.
+    AEGISWAR_API bool SetGmLevel(const FWarCharacterProgression& Current, int32 Level,
+        FWarCharacterProgression& Next, FString& Error);
     AEGISWAR_API int64 XpForLevel(int32 Level);
     AEGISWAR_API bool Award(const FWarCharacterProgression& Current, int32 Xp, int32 Gold,
         FWarCharacterProgression& Next, FString& Error);

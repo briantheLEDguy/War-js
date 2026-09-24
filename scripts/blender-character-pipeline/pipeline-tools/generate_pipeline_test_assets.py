@@ -39,7 +39,7 @@ from modular_character_utils import (  # noqa: E402
 PIPELINE_ROOT = SCRIPT_DIR.parent
 TEST_ROOT = PIPELINE_ROOT / "test-assets"
 POSES = ["neutral", "shoulder_extreme", "elbow_extreme", "hip_extreme", "knee_extreme", "jump", "attack_melee", "cast", "death"]
-CLIPS = ["idle", "walk", "run", "combat_idle", "attack_melee", "attack_ranged", "cast", "death", "jump"]
+CLIPS = []
 
 
 def parse_args() -> argparse.Namespace:
@@ -161,33 +161,6 @@ def create_body() -> bpy.types.Object:
     return body
 
 
-def create_actions(armature: bpy.types.Object) -> None:
-    armature.animation_data_create()
-    for clip in CLIPS:
-        action = bpy.data.actions.new(clip)
-        action.use_fake_user = True
-        armature.animation_data.action = action
-        for frame in (1, 31, 61):
-            for bone in armature.pose.bones:
-                bone.rotation_mode = "XYZ"
-                bone.rotation_euler = (0, 0, 0)
-            phase = math.sin((frame - 1) / 60 * math.tau)
-            if clip in {"walk", "run", "jump"}:
-                armature.pose.bones["thigh_L"].rotation_euler[0] = phase * (0.35 if clip != "run" else 0.5)
-                armature.pose.bones["thigh_R"].rotation_euler[0] = -phase * (0.35 if clip != "run" else 0.5)
-                armature.pose.bones["upper_arm_L"].rotation_euler[0] = -phase * 0.18
-                armature.pose.bones["upper_arm_R"].rotation_euler[0] = phase * 0.18
-            if clip in {"attack_melee", "attack_ranged", "cast"}:
-                armature.pose.bones["upper_arm_R"].rotation_euler[0] = -0.45 + phase * 0.30
-                armature.pose.bones["forearm_R"].rotation_euler[0] = -0.35 + phase * 0.25
-            if clip == "death":
-                armature.pose.bones["hips"].rotation_euler[0] = -0.55 * ((frame - 1) / 60)
-            for bone_name in ("hips", "upper_arm_L", "upper_arm_R", "forearm_R", "thigh_L", "thigh_R"):
-                bone = armature.pose.bones.get(bone_name)
-                if bone:
-                    bone.keyframe_insert(data_path="rotation_euler", frame=frame, group=bone_name)
-        action["clipId"] = clip
-    armature.animation_data.action = None
 
 
 def setup_character() -> tuple[bpy.types.Object, bpy.types.Object, list[bpy.types.Object], dict]:
@@ -197,7 +170,6 @@ def setup_character() -> tuple[bpy.types.Object, bpy.types.Object, list[bpy.type
     armature = create_canonical_armature()
     weights = assign_nearest_bone_weights(body, armature)
     sockets = add_canonical_sockets(armature)
-    create_actions(armature)
     return body, armature, sockets, {"cleanup": cleanup, "weights": weights}
 
 
@@ -280,7 +252,7 @@ def export_glb(path: Path, objects: list[bpy.types.Object]) -> None:
         "filepath": str(path),
         "export_format": "GLB",
         "use_selection": True,
-        "export_animations": True,
+        "export_animations": False,
         "export_skins": True,
         "export_morph": False,
         "export_extras": True,

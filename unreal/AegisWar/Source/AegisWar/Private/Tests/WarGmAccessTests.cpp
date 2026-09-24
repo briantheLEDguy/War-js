@@ -42,7 +42,10 @@ bool FWarLocalGmAccessTest::RunTest(const FString& Parameters)
     UWorld* World = UWorld::CreateWorld(EWorldType::Game, false, TEXT("AegisCapital_Workbench"),
         CreatePackage(TEXT("/Game/Capitals/aegis_capital/AegisCapital_Workbench")), true, ERHIFeatureLevel::Num, &Values);
     if (!TestNotNull(TEXT("Standalone workbench world"), World)) return false;
-    ON_SCOPE_EXIT { World->DestroyWorld(false); };
+    GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);
+    ON_SCOPE_EXIT { GEngine->DestroyWorldContext(World); World->DestroyWorld(false); };
+    // RPC responses are dispatched only after the world has initialized its actors.
+    World->InitializeActorsForPlay(FURL());
     auto* Editor = World->GetSubsystem<UWarWorldEditSubsystem>();
     auto* Player = World->SpawnActor<AWarPlayerController>();
     if (!TestNotNull(TEXT("Workbench subsystem"), Editor) || !TestNotNull(TEXT("Local controller"), Player)) return false;
@@ -62,6 +65,9 @@ bool FWarLocalGmAccessTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Real local workbench access uses the configured default"), Editor->CanUse(Player));
     Player->UnPossess();
     TestFalse(TEXT("Leaving the character revokes access"), Editor->CanUse(Player));
+    Player->ServerGmSetLevel_Implementation(45);
+    TestTrue(TEXT("Level RPC denies unauthorized sessions before accessing progression"),
+        Player->GetWorldEditMessage().Contains(TEXT("GM access requires")));
     return true;
 }
 #endif

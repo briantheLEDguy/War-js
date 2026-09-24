@@ -48,23 +48,16 @@ const CREATURE_SCRIPT = path.join(PIPELINE_ROOT, "blender", "generate_roster_cre
 const CLEARANCE_SCRIPT = path.join(PIPELINE_ROOT, "blender", "audit_equipped_clearance.py");
 const REVIEW_RENDER_SCRIPT = path.join(PIPELINE_ROOT, "blender", "render_model_review.py");
 const CLEARANCE_POLICY = path.join(PIPELINE_ROOT, "data", "armor-clearance-policy.json");
-const ANIMATION_CONTRACT = path.join(PIPELINE_ROOT, "data", "body-families", "canonical-animation-pack.json");
 
-export const REQUIRED_ANIMATION_CLIPS = Object.freeze([
-  "idle",
-  "walk",
-  "run",
-  "combat_idle",
-  "attack_melee",
-  "attack_ranged",
-  "cast",
-  "death",
-  "jump",
-]);
+// Model exports contain only geometry, skin and the rest rig. Native animation
+// coverage is verified by scripts/unreal/animation-pipeline.py.
+export const REQUIRED_ANIMATION_CLIPS = Object.freeze([]);
 
-const CANONICAL_ANIMATION_PROFILE_OVERRIDES = Object.freeze({
-  battle_prelate: "battle_prelate_hammer",
-  warbrute: "unarmed",
+const NATIVE_ANIMATION_STYLES = Object.freeze({
+  battle_prelate: "two",
+  warbrute: "shield",
+  sunfire_templar: "shield",
+  ember_arcanist: "spell",
 });
 
 function runProcess(command, args, { signal, cwd = REPO_ROOT, onOutput = () => {} } = {}) {
@@ -114,7 +107,7 @@ function writeJobJson(directory, name, value) {
 }
 
 export function animationProfileForGroup(group) {
-  return CANONICAL_ANIMATION_PROFILE_OVERRIDES[group.key] ?? "unarmed";
+  return NATIVE_ANIMATION_STYLES[group.key] ?? null;
 }
 
 export function auditAnimationClipNames(actualNames, requiredNames = REQUIRED_ANIMATION_CLIPS) {
@@ -151,83 +144,29 @@ function embeddedAnimationNames(modelPath) {
 }
 
 export function buildAnimationStage(directory, group) {
-  const contract = readJson(ANIMATION_CONTRACT);
   const models = filesRecursively(directory)
     .filter((filePath) => filePath.endsWith(".glb"))
     .filter((filePath) => path.basename(filePath).startsWith("body_") || filePath.endsWith("_equipped_review.glb"))
     .sort();
   const rows = models.map((modelPath) => ({
     model: repoRelative(modelPath),
-    ...auditAnimationClipNames(embeddedAnimationNames(modelPath), contract.clips.map((clip) => clip.name)),
+    ...auditAnimationClipNames(embeddedAnimationNames(modelPath)),
   }));
-  const animationReviewRows = filesRecursively(directory)
-    .filter((filePath) => {
-      const relative = path.relative(directory, filePath).split(path.sep);
-      return path.basename(filePath) === "review-render.json"
-        && relative[0] === "animation-review"
-        && ["m", "f"].includes(relative[1]);
-    })
-    .sort()
-    .map((filePath) => {
-      const manifest = readJson(filePath);
-      const renderedClips = [...new Set((manifest.animationFrames ?? []).map((frame) => frame.clip))].sort();
-      const clipAudit = auditAnimationClipNames(renderedClips, contract.clips.map((clip) => clip.name));
-      return {
-        manifest: repoRelative(filePath),
-        model: manifest.model,
-        animationEvidenceProfile: manifest.animationEvidenceProfile,
-        frameCount: (manifest.animationFrames ?? []).length,
-        ...clipAudit,
-      };
-    });
-  const animationReviewPassed = group.kind !== "playable"
-    || (animationReviewRows.length === 2 && animationReviewRows.every((row) => row.matches));
+  const qcPassed = rows.length > 0 && rows.every((row) => row.matches);
   const report = {
-    schemaVersion: 1,
-    stage: "animation",
-    status: rows.length > 0 && rows.every((row) => row.matches) && animationReviewPassed ? "ready_for_review" : "blocked",
-    animationPackId: contract.animationPackId,
-    animationPackVersion: contract.version,
+    schemaVersion: 2,
+    stage: "body_animation_separation",
+    status: qcPassed ? "ready_for_native_animation" : "blocked",
     animationProfile: animationProfileForGroup(group),
-    skeletonId: contract.skeletonId,
-    bindPoseId: contract.bindPoseId,
-    requiredClips: contract.clips,
+    requiredClips: [],
     rows,
-    animationReviewRows,
-    animationReviewPassed,
-    animationFrameCount: animationReviewRows.reduce((total, row) => total + row.frameCount, 0),
-    qcPassed: rows.length > 0 && rows.every((row) => row.matches) && animationReviewPassed,
+    qcPassed,
     animationApprovalEligible: false,
-    reviewStatus: "pending",
+    nativeGameplayVerified: false,
+    reviewStatus: "pending_native_equipped_review",
   };
   writeJobJson(directory, "animation-stage.qc.json", report);
   return report;
-}
-
-async function renderPlayableAnimationEvidence({ group, directory, blenderPath, signal, onOutput, update }) {
-  const models = filesRecursively(directory)
-    .filter((filePath) => filePath.endsWith("_equipped_review.glb"))
-    .sort();
-  if (models.length !== 2) {
-    throw workflowError("ANIMATION_REVIEW_INPUT_INVALID", `${group.displayName} requires one equipped review GLB per body variant; found ${models.length}.`);
-  }
-  for (const [index, modelPath] of models.entries()) {
-    const variant = path.basename(path.dirname(path.dirname(modelPath)));
-    const outputDir = assertPathWithin(directory, path.join(directory, "animation-review", variant), "animation review directory");
-    update(78 + index * 2, `Rendering ${group.displayName} ${variant} animation evidence`);
-    await runProcess(blenderPath, blenderArgs(REVIEW_RENDER_SCRIPT, [
-      "--model", modelPath,
-      "--output-dir", outputDir,
-      "--review-type", "fully_equipped",
-      "--include-animations",
-      "--animation-evidence-profile", "locomotion_melee_key_phases",
-      "--resolution", "512",
-    ]), { signal, onOutput });
-    const manifestPath = path.join(outputDir, "review-render.json");
-    if (!existsSync(manifestPath)) {
-      throw workflowError("ANIMATION_REVIEW_OUTPUT_MISSING", `Animation review manifest was not produced for ${modelPath}.`);
-    }
-  }
 }
 
 function filesRecursively(directory) {
@@ -284,7 +223,7 @@ function aggregateQc(directory, group, animationStage = null) {
     if (!technicalQcPassed(report)) errors.push(`${repoRelative(filePath)} did not pass technical QC.`);
   }
   if (group.kind !== "creature" && (!animationStage || animationStage.qcPassed !== true)) {
-    errors.push("Animation stage did not pass the required canonical clip audit.");
+    errors.push("Body export contains embedded animation or lacks a verifiable model.");
   }
   const glbs = filesRecursively(directory).filter((filePath) => filePath.endsWith(".glb"));
   if (glbs.length === 0) errors.push("No LOD0 GLB was generated.");
@@ -361,7 +300,6 @@ async function generateHumanoid({ group, directory, blenderPath, revisionSeed, r
       "--output", bodyModel,
       "--review-dir", path.join(variantDir, "body-review"),
       "--save-blend", bodyBlend,
-      "--animation-profile", animationProfileForGroup(group),
     ], { mpfb: true }), { signal, onOutput });
 
     const recipes = group.kind === "playable"
@@ -390,7 +328,7 @@ async function generateHumanoid({ group, directory, blenderPath, revisionSeed, r
         "--model", equippedModel,
         "--report", clearanceReport,
         "--policy", CLEARANCE_POLICY,
-        "--poses", "bind,idle",
+      "--poses", "bind",
       ]), { signal, onOutput });
       const clearance = readJson(clearanceReport);
       if (clearance.passed !== true) {
@@ -400,9 +338,6 @@ async function generateHumanoid({ group, directory, blenderPath, revisionSeed, r
     }
   }
 
-  if (group.kind === "playable") {
-    await renderPlayableAnimationEvidence({ group, directory, blenderPath, signal, onOutput, update });
-  }
 
   let npcRenderByProfile = new Map();
   if (group.kind === "npc") {

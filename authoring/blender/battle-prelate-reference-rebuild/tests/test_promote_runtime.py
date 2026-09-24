@@ -185,7 +185,7 @@ class ProvenanceArchiveTests(unittest.TestCase):
             "sha256": promote.file_hash(self.archive), "bytes": self.archive.stat().st_size}
         for relative in ("source/head.json", "source/CONTRACT.md", "source/FULL_CHARACTER_CONTRACT.md", "source/scene.json",
                          "tools/build_proof.py", "tools/rig_character.py", "tools/bake_atlas.py", "tools/validate_runtime.py",
-                         "tools/promote_runtime.py", "tools/correct_animation.py", "tools/tessellate_runtime.py"):
+                         "tools/promote_runtime.py", "tools/tessellate_runtime.py"):
             path = self.root / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(("fixture source: " + relative).encode())
@@ -193,9 +193,9 @@ class ProvenanceArchiveTests(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
 
-    def test_archive_includes_actual_motion_and_tangent_helper_bytes(self):
+    def test_archive_includes_actual_tangent_helper_bytes(self):
         sources = promote.provenance_source_paths(self.root, self.validation)
-        for relative in ("tools/correct_animation.py", "tools/tessellate_runtime.py"):
+        for relative in ("tools/tessellate_runtime.py",):
             self.assertEqual(sources[relative].read_bytes(), ("fixture source: " + relative).encode())
         self.assertEqual(sources["source/head.json"], self.root / "source/head.json")
 
@@ -218,11 +218,6 @@ class ProvenanceArchiveTests(unittest.TestCase):
     def test_legacy_validation_without_archive_record_blocks_preparation(self):
         del self.validation["evaluated_mesh_archive"]
         with self.assertRaisesRegex(promote.PromotionError, "missing the evaluated mesh archive record"):
-            promote.provenance_source_paths(self.root, self.validation)
-
-    def test_missing_motion_helper_prevents_archive_preparation(self):
-        (self.root / "tools/correct_animation.py").unlink()
-        with self.assertRaisesRegex(promote.PromotionError, "Provenance source is missing: tools/correct_animation.py"):
             promote.provenance_source_paths(self.root, self.validation)
 
     def test_missing_tangent_helper_prevents_archive_preparation(self):

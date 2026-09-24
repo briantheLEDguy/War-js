@@ -1,0 +1,25 @@
+{
+  "sha256": "e62a18657541eec05cec3e23b146821d396f4fba95e246f23f4088b351e789b6",
+  "source_glb_sha256": "6ac6258fe691228b890f02a8f61563970a6039ed21bea6484fef4217d57a1ee9",
+  "geometry_retained": false,
+  "contents": "Canonical rest armature and four socket empties; animation imported separately",
+  "previousSha256": "083f4afb646502759a2e39274c12e3dd5dfb25a449824ce34d9739ee255daeb0",
+  "animationRemoval": {
+    "path": "authoring/blender/ember-arcanist-reference-rebuild/source/humanoid_game_v2_animation_contract.blend",
+    "beforeSha256": "083f4afb646502759a2e39274c12e3dd5dfb25a449824ce34d9739ee255daeb0",
+    "afterSha256": "e62a18657541eec05cec3e23b146821d396f4fba95e246f23f4088b351e789b6",
+    "preservationSha256": "5ecb0013e0c0bc78f9450600c8ec6824e14c518689168bde1c1d6f06d92c9f6e",
+    "removedActions": [
+      "attack_melee",
+      "attack_ranged",
+      "cast",
+      "combat_idle",
+      "death",
+      "idle",
+      "jump",
+      "run",
+      "walk"
+    ],
+    "remainingActions": []
+  }
+}

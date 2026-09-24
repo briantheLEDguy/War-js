@@ -16,7 +16,7 @@
     "bindPoseId": "authored_anatomical_rest_v1"
   },
   "hashes": {
-    "modelSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+    "modelSha256": "e5b8ca88e866fac9c0d21eaf5e52844da230d8993709d6c136e32ba6f1349cb5",
     "qcSha256": "f66176851681cd873ece70f3605d1f96eac342e52fcd4a9b1ca55ae1eb16722a",
     "previews": {
       "front": "c769d131789500c6664b4fa02fc794dc12d5009d363d38d913a9f0b774cba6db"
@@ -43,7 +43,17 @@
     "source": "authoring/blender/sunmeadow-skylark/releases/frontier_sunmeadow_skylark/233a62b4ea350fe7d846/files/authoring/blender/sunmeadow-skylark/masters/frontier_sunmeadow_skylark_v2.blend",
     "sourceSha256": "d0d083572b4a4ac39322cc63f83770d43b8db61578e3134312e8b01a7f0c0550",
     "referencePackId": "sunmeadow_fauna",
-    "similarityReview": "not_required"
+    "similarityReview": "not_required",
+    "sourceAnimationRemoval": {
+      "beforeSha256": "ed2a9b918910e34ce1ca2d699c36a0f11c1d240eaf418a1ceff3364ed898cd6e",
+      "afterSha256": "e5b8ca88e866fac9c0d21eaf5e52844da230d8993709d6c136e32ba6f1349cb5",
+      "preservationSha256": "e76d958f05faecf742043e644850566b4a9a0782256e888931a145c74423bf50",
+      "removedClips": [
+        "fly",
+        "hop",
+        "idle"
+      ]
+    }
   },
   "approvalState": "approved"
 }

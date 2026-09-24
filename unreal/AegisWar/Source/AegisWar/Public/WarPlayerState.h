@@ -42,6 +42,11 @@ public:
     bool GrantCharacterRewards(const FGuid& Transaction, int32 Xp, int32 Gold,
         const TArray<FWarInventoryItem>& Rewards, FString& Error);
     int64 GetEffectiveStrength() const;
+    int32 GetCombatLevel() const { return bSiegeNormalized ? 40 : Inventory.CharacterProgression.Level; }
+    bool IsSiegeNormalized() const { return bSiegeNormalized; }
+    void SetSiegeNormalized(bool bEnabled);
+    // Called by the controller only after development GM authorization; never exposed as an RPC.
+    bool SetGmLevelTrusted(int32 Level, FString& Error);
     // Trusted zone/NPC/kill services only; these methods are deliberately not RPCs.
     bool AcceptCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error);
     bool InteractQuest(const AWarQuestNpc* Npc, FName QuestId, bool bTurnIn, int32 ExpectedRevision, FString& Error);
@@ -75,6 +80,7 @@ public:
     UFUNCTION(Server, Reliable) void ServerGatherResource(AWarResourceNode* Node, int32 ExpectedRevision);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:
+    UPROPERTY(Replicated) bool bSiegeNormalized = false;
     UPROPERTY(Replicated) FName CurrentZone;
     bool CanPerformInventoryAction() const;
     void ApplyProgressionVitals(bool bRestorePools);

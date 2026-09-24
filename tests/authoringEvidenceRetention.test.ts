@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, test } from 'vitest';
 
@@ -53,7 +53,11 @@ describe('evidence retained through repository cleanup', () => {
       const files = readJson(ledger).files as Record<string, { sha256: string }>;
       for (const [relative, evidence] of Object.entries(files)) {
         const file = path.join(directory, relative);
-        expect(digest(file), file).toBe(evidence.sha256);
+        const removal = readJson('migration/animation-removal.json').files.find((row: { path: string }) => row.path === file.replaceAll('\\', '/'));
+        if (removal?.previousSha256.includes(evidence.sha256)) {
+          if (removal.operation === 'removed') expect(existsSync(file), file).toBe(false);
+          else expect(digest(removal.currentPath), file).toBe(removal.currentSha256);
+        } else expect(digest(file), file).toBe(evidence.sha256);
       }
     }
   });

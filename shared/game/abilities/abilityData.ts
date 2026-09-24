@@ -23,7 +23,6 @@ import type {
 } from './types';
 import { DEFAULT_CLASS_NAME, normalizeClassName } from '../../data/careers';
 import { getAbilityIconOverride } from './abilityIconOverrides';
-import { prelateAnimation } from '../animation/battlePrelateProfile';
 
 export const HOTBAR_SLOT_COUNT = 10;
 export const HOTBAR_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'] as const;
@@ -115,7 +114,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Reliquary Smash', 'Overhead area stagger.', 'area', 'holy', 'area', { target: 'self', radius: 3.5, status: stagger('Reliquary Smash', 1.2) }),
       a('Judgment of Ash', 'Line-based holy shock at mid range.', 'strike', 'holy', 'beam', { range: 16 }),
       a('Redemption Surge', 'Spend Zeal for a burst self heal.', 'heal', 'holy', 'self', { careerCost: 35, manaCost: 12 }),
-      a('Icon of Wrath', 'Placed relic that grants lifesteal pressure.', 'summon', 'holy', 'deployable', { target: 'self', radius: 5 }),
+      a('Icon of Wrath', 'Placed relic that grants lifesteal pressure.', 'summon', 'holy', 'deployable', { target: 'self', radius: 5, effects: [{ kind: 'wrath_relic', school: 'holy' }] }),
       a('Last Homily', 'Ultimate sermon that converts damage into healing.', 'ultimate', 'holy', 'area', { target: 'self', radius: 7, spendAllCareer: true, effects: mixedDamageHeal('holy', 28, 44, 28, 46) }),
     ]),
     kit('Stoneguard', 'reactive_oath_tank', resource('grudge', 'Grudge', 100, 20), [
@@ -441,8 +440,8 @@ function defineAbility(
 ): AbilityDefinition {
   const target = seed.target ?? defaultTarget(seed.kind, seed.shape);
   const cooldownSec = seed.cooldownSec ?? defaultCooldown(seed.kind);
-  const genericAnimation = animationFor(seed.kind, seed.shape, seed.school);
-  const animation = career === 'Battle Prelate' ? prelateAnimation(slot, genericAnimation) : genericAnimation;
+  // Native visual definitions own per-profile choreography and contact timing.
+  const animation = animationFor(seed.kind, seed.shape, seed.school);
   const visual = visualFor(career, classFamily, seed, slot);
   const resourceDelta = {
     manaCost: seed.manaCost ?? defaultManaCost(seed.kind),
@@ -1178,6 +1177,8 @@ function currentEffectSummary(seed: AbilitySeed, effects: AbilityEffect[], resou
       const footprint = area ? `enemies within ${seed.radius ?? defaultRadius(seed.shape)} m of ${target === 'self' ? 'you' : 'your target'}`
         : seed.shape === 'cone' ? 'enemies in front of you' : 'your target';
       parts.push(`Deal ${effect.school} damage to ${footprint} in one hit.`);
+    } else if (effect.kind === 'wrath_relic') {
+      parts.push('Place a relic for 10s. Living allied players and participant bots within 5 m and line of sight heal for 10% of hostile health damage they deal. Relics do not stack; replaces your previous relic.');
     } else if (effect.kind === 'heal') {
       parts.push('Restore your health once.');
     } else if (effect.kind === 'movement' && effect.movement) {

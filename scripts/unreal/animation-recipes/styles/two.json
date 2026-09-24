@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 2,
+  "style": "two",
+  "sourceFolder": "Two-handed",
+  "locomotion": {
+    "idle": "two.idle",
+    "combat_idle": "two.idle",
+    "walk": "two.walk",
+    "walk_backward": "two.back",
+    "run": "two.run",
+    "strafe_left": "two.left",
+    "strafe_right": "two.right",
+    "turn_left": "two.turn_left",
+    "turn_right": "two.turn_right",
+    "hit_front": "two.impact",
+    "hit_back": "spell.impact_back",
+    "jump": "two.jump",
+    "death": "two.death"
+  }
+}

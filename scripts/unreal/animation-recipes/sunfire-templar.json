@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "character": "Sunfire Templar",
+  "profileKey": "civic_sunfire_templar_m",
+  "styleTemplate": "styles/shield.json",
+  "output": "artifacts/unreal/animation-replacement",
+  "stages": [
+    {
+      "name": "import",
+      "engine": "unreal",
+      "script": "import-playable-models.py"
+    },
+    {
+      "name": "retarget",
+      "engine": "unreal",
+      "script": "import-animation-replacement.py"
+    },
+    {
+      "name": "fit",
+      "engine": "unreal",
+      "script": "fit-replacement-grips.py"
+    },
+    {
+      "name": "compose",
+      "engine": "unreal",
+      "script": "compose-animation-presentations.py"
+    },
+    {
+      "name": "install",
+      "engine": "unreal",
+      "script": "install-animation-replacement.py"
+    },
+    {
+      "name": "verify",
+      "engine": "unreal",
+      "script": "verify-animation-replacement.py"
+    },
+    {
+      "name": "review",
+      "engine": "unreal-render",
+      "script": "review-animation-replacement.py"
+    }
+  ],
+  "contactCorrections": "corrections/shield-contacts.json"
+}

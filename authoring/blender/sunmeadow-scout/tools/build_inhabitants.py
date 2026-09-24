@@ -19,13 +19,10 @@ from mathutils.bvhtree import BVHTree
 WORK = Path(__file__).resolve().parents[1]
 ROOT = WORK.parents[2]
 sys.path.insert(0, str(ROOT / 'scripts/blender-character-pipeline/blender'))
-from canonical_animation_pack import attach_canonical_animation_pack
 sys.path.insert(0, str(WORK / 'tools'))
 from tailored_clothing import tailor
-from tailored_locomotion import fit_locomotion, refine_sole_contacts
 from scout_details import dress_scout
 from export_tangents import repair_export_tangents
-from apron_clearance import fit_apron_clearance
 from surface_bindings import ClothSurface, bind_detail
 from workwear_finish import sew_work_shirt, finish_apron
 from scout_head import AUTHORING_INPUTS
@@ -426,7 +423,7 @@ def build(kind, recipe):
             while list(ob.modifiers).index(modifier)>index:bpy.ops.object.modifier_move_up(modifier=modifier.name)
     # Retain a recoverable fitted geometry milestone before expensive IK.
     bpy.ops.wm.save_as_mainfile(filepath=str(WORK/'sources/frontier_sunmeadow_high_elf_scout.prefit.blend'))
-    attach_canonical_animation_pack(rig, profile='unarmed')
+    pass  # Motion is supplied by the native character recipe.
     if race in ('dwarf', 'empire', 'high_elf'):
         # Contact fitting reads bones and boot soles. Avoid deforming every
         # embroidered garment for each intermediate IK dependency update.
@@ -434,9 +431,9 @@ def build(kind, recipe):
                for modifier in ob.modifiers if modifier.type=='ARMATURE' and modifier.show_viewport]
         for modifier in muted:modifier.show_viewport=False
         try:
-            fit_locomotion(rig)
-            refine_sole_contacts(rig)
-            if race=='dwarf': fit_apron_clearance(rig)
+            pass  # Motion is supplied by the native character recipe.
+            pass  # Motion is supplied by the native character recipe.
+            pass  # Motion is supplied by the native character recipe.
         finally:
             for modifier in muted:modifier.show_viewport=True
             bpy.context.view_layer.update()
@@ -485,7 +482,7 @@ def build(kind, recipe):
         bpy.ops.wm.save_as_mainfile(filepath=str(final_master))
         filename=f'{key}_lod{lod}.glb'; output=WORK/'runtime'/filename
         staged=output.with_name(output.stem+'.pending.glb')
-        bpy.ops.export_scene.gltf(filepath=str(staged),export_format='GLB',use_selection=True,export_animations=True,export_tangents=True,
+        bpy.ops.export_scene.gltf(filepath=str(staged),export_format='GLB',use_selection=True,export_animations=False,export_tangents=True,
                                   export_animation_mode='ACTIONS',export_skins=True,export_morph=False)
         tangent_repair=repair_export_tangents(staged)
         data=staged.read_bytes(); doc=json.loads(data[20:20+int.from_bytes(data[12:16],'little')])

@@ -25,10 +25,7 @@ for(const asset of inventory.assets){
     assert(check && check.errors===0);assert.equal(check.warnings,lod.validation_warnings);
   }
 }
-const animation=contract.assets.frontier_teamster_animations;
-assert.equal(hash(await bytes('runtime/'+animation.model)),animation.sha256);
-const evidence={inventorySha256:hash(inventoryBytes),contractSha256:hash(contractBytes),contactSheetSha256:inventory.contact_sheet_sha256,
-  animationSha256:animation.sha256};
+const evidence={inventorySha256:hash(inventoryBytes),contractSha256:hash(contractBytes),contactSheetSha256:inventory.contact_sheet_sha256};
 const reviewFile=path.join(work,'review/accepted_review.json');
 if(process.argv.includes('--prepare'))await save(reviewFile,{...evidence,status:'pending',reviewedBy:'',reviewedAt:'',notes:''});
 if(!process.argv.includes('--publish'))process.exit(0);
@@ -41,7 +38,7 @@ for(const asset of inventory.assets){
   const key=asset.asset_id,definition=contract.assets[key],assetId=`prop.frontier.${key.slice(9)}`;
   const lods=asset.lods.map(lod=>({level:lod.level,model:path.basename(lod.model),sha256:lod.sha256,triangles:lod.triangles,bytes:lod.bytes}));
   const primary=lods[0],bp=structuredClone(template),horse=key==='frontier_draft_horse';
-  const pack=key==='frontier_supply_wagon'?{model:animation.model,sha256:animation.sha256,skeletonId:animation.skeletonId,bindPoseId:animation.bindPoseId}:undefined;
+
   bp.assetId=assetId;bp.displayName=definition.builder.displayName;bp.sets=['orvr_frontier_authored_siege'];
   bp.runtime={staticKey:key};
   bp.output={model:primary.model,artifactDir:'authoring/blender/orvr-frontier/runtime'};
@@ -61,14 +58,14 @@ for(const asset of inventory.assets){
     const record=validation.records.find(row=>row.sha256===lod.sha256);
     const qc={assetId,qcPassed:true,modelSha256:lod.sha256,lod:lod.level,lods,validationErrors:record.errors,validationWarnings:record.warnings,
       warningCodes:record.warningCodes,reviewHash,inventorySha256:evidence.inventorySha256,contractSha256:evidence.contractSha256,
-      previewImages:asset.lods.map(item=>'authoring/blender/orvr-frontier/'+item.image),...(pack?{animationPack:pack}:{})};
+      previewImages:asset.lods.map(item=>'authoring/blender/orvr-frontier/'+item.image)};
     const qcBytes=Buffer.from(JSON.stringify(qc,null,2)+'\n');
     await fs.writeFile(path.join(root,'public/assets/models',lod.model),await bytes('runtime/'+lod.model));
     await fs.writeFile(path.join(root,'public/assets/models',lod.model.replace('.glb','.qc.json')),qcBytes);
     if(lod.level===0)qcHash=hash(qcBytes);
   }
   const manifest={schemaVersion:1,assetId,displayName:bp.displayName,category:'prop',model:primary.model,qc:primary.model.replace('.glb','.qc.json'),
-    runtime:{...bp.runtime,...(horse?{skinned:true}:{}),...(pack?{animationPack:pack}:{})},
+    runtime:{...bp.runtime,...(horse?{skinned:true}:{})},
     compatibility:{bodyFamily:horse?'draft_horse':'static_architecture',bodyVariant:'neutral',skeletonId:horse?'draft_horse_rig':'none',bindPoseId:horse?'draft_horse_rest_v1':'none'},
     hashes:{modelSha256:primary.sha256,qcSha256:qcHash,previews:{assembly:asset.lods[0].image_sha256}},
     previews:{assembly:'authoring/blender/orvr-frontier/'+asset.lods[0].image},review:{reviewedBy:review.reviewedBy,reviewedAt:review.reviewedAt,reviewHash},
@@ -77,8 +74,7 @@ for(const asset of inventory.assets){
   await save(path.join(root,'scripts/blender-character-pipeline/data/asset-blueprints',key+'.asset.json'),bp);
   await save(path.join(root,'scripts/blender-character-pipeline/data/approved-assets',key+'.approved.json'),manifest);
   metadata[key]={runtimeReady:true,modelSha256:primary.sha256,label:bp.displayName,group:horse?'Frontier Wildlife':key.includes('kit')?'Frontier Equipment':'Frontier Siege and Supplies',
-    defaultScale:1,colliderSpace:'model',defaultAnimation:horse?'idle':key==='frontier_field_catapult'?'catapult_fire':undefined};
+    defaultScale:1,colliderSpace:'model',defaultAnimation:key==='frontier_field_catapult'?'catapult_fire':undefined};
 }
-await fs.writeFile(path.join(root,'public/assets/models',animation.model),await bytes('runtime/'+animation.model));
 await save(path.join(work,'builder-metadata.json'),{assets:metadata});
-console.log('Published eight reviewed models, 24 LODs, the signed driver animation and GM metadata. Compile the registry separately.');
+console.log('Published eight reviewed models, 24 LODs, GM metadata; character motion is separately imported. Compile the registry separately.');

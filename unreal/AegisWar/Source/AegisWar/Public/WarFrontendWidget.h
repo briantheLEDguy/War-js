@@ -21,6 +21,7 @@ protected:
     virtual void ReleaseSlateResources(bool bReleaseChildren) override;
 private:
     void ShowLogin();
+    void ShowDeveloperAccount();
     void ShowCreation();
     void ShowSelection();
     void AddHeading(const FString& Title, const FString& Subtitle, int32 Step = 0);

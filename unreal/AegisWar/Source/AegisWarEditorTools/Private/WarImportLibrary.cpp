@@ -1,5 +1,6 @@
 #include "WarImportLibrary.h"
 #include "Animation/AnimSequence.h"
+#include "Animation/AnimData/IAnimationDataController.h"
 #include "Factories/FbxAnimSequenceImportData.h"
 #include "Modules/ModuleManager.h"
 #include "Engine/StaticMesh.h"
@@ -245,6 +246,14 @@ FBox UWarImportLibrary::GetSkinnedBounds(USkeletalMeshComponent* Component)
     return Bounds;
 }
 
+bool UWarImportLibrary::FinalizeAnimationSampling(UAnimSequence* Animation)
+{
+    if (!IsValid(Animation)) return false;
+    Animation->WaitOnExistingCompression();
+    Animation->GetController().NotifyPopulated();
+    return PrepareCompressedAnimation(Animation);
+}
+
 bool UWarImportLibrary::PrepareCompressedAnimation(UAnimSequence* Animation)
 {
     if (!IsValid(Animation)) return false;
@@ -260,6 +269,9 @@ void UWarImportLibrary::PreparePreviewFrame(USkeletalMeshComponent* Component)
     if (GShaderCompilingManager) GShaderCompilingManager->FinishAllCompilation();
     if (Component)
     {
+        // Commandlet review loops do not advance the engine frame. Skeletal
+        // evaluation caches must see a new frame for each requested pose.
+        ++GFrameCounter;
         Component->TickAnimation(0.f, false);
         Component->RefreshBoneTransforms();
         Component->UpdateComponentToWorld();

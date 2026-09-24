@@ -36,31 +36,12 @@ def imported(profile):
 
 def visual(profile, race, class_id, realm, body="m", source_profile=None):
     source_profile = source_profile or profile
-    receipt = imported(source_profile)
-    context = imports.validate_inputs(source_profile)
-    registry = imports.load_json(ROOT / "public/assets/models/asset-index.json")
-    require(registry["characterProfiles"][source_profile]["bodyVariant"] == body, "Source body variant does not match playable identity")
-    name = "Visual_" + profile
-    asset = existing_asset(DESTINATION + "/" + name)
-    if not asset:
-        factory = unreal.DataAssetFactory()
-        factory.set_editor_property("data_asset_class", unreal.WarCharacterVisualDefinition)
-        asset = unreal.AssetToolsHelpers.get_asset_tools().create_asset(name, DESTINATION, unreal.WarCharacterVisualDefinition, factory)
-    require(asset is not None, "Could not create a native visual DataAsset")
-    clips = {entry["sourceClipName"]: entry["path"] for entry in receipt["animations"]}
-    properties = {
-        "profile_key": profile, "source_profile_key": source_profile, "race_id": race, "class_id": class_id, "body_variant": body, "realm": realm,
-        "source_model": context["conversion"]["source"], "source_sha256": receipt["sourceSha256"],
-        "complex_authored_model": True, "skeletal_mesh": unreal.load_asset(receipt["meshes"][0]["path"]),
-        "idle_animation": unreal.load_asset(clips["idle"]),
-        "imported_animations": {name: unreal.load_asset(asset_path) for name, asset_path in clips.items()},
-        "mesh_transform": unreal.Transform(location=unreal.Vector(0, 0, -96), rotation=unreal.Rotator(yaw=-90)),
-    }
-    for key, value in properties.items():
-        asset.set_editor_property(key, value)
-    own(asset)
-    unreal.EditorAssetLibrary.set_metadata_tag(asset, "ArtApproval", "pending")
-    unreal.EditorAssetLibrary.set_metadata_tag(asset, "DevelopmentOnly", "true")
+    asset = unreal.load_asset(DESTINATION + "/Visual_" + profile)
+    require(asset is not None, "Install the supplied-set visual before preparing this proof: " + profile)
+    require(str(asset.source_profile_key) == source_profile and str(asset.body_variant) == body,
+            "Installed proof identity differs from the requested character")
+    require(str(asset.animation_style) not in ("", "None") and not asset.validate_for_spawn(realm),
+            "Proof requires a validated replacement animation set")
     return asset
 
 
@@ -144,7 +125,7 @@ def main():
         npc.set_editor_property("npc_id", npc_id)
         npc.set_editor_property("visual", npc_visual)
         npc_mesh = npc.get_editor_property("mesh")
-        npc_mesh.set_skeletal_mesh_asset(unreal.load_asset(imported("npc_frontier_sunmeadow_empire_herbalist")["meshes"][0]["path"]))
+        npc_mesh.set_skeletal_mesh_asset(npc_visual.skeletal_mesh)
         npc_mesh.set_relative_transform(npc_visual.mesh_transform, False, True)
         npc_mappings.append({"zoneId": zone, "npcId": npc_id,
             "profileKey": str(npc_visual.get_editor_property("profile_key")),

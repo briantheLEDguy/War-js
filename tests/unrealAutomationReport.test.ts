@@ -18,9 +18,9 @@ describe('native automation receipt verification', () => {
   it('requires source skinning comparisons for character imports', () => {
     const receipt = { schemaVersion: 1, profileKey: 'character', kind: 'characterProfiles', importSucceeded: true,
       status: 'editor-import-succeeded-unreviewed', conversionSha256: 'current', artApproved: false,
-      unrealApproved: false, unrealVersion: '5.8.2-test', meshes: [{}], animations: [{}] };
+      unrealApproved: false, unrealVersion: '5.8.2-test', meshes: [{}], animations: [] };
     expect(() => validateImportReceipt(receipt, 'character', 'current')).toThrow('skinning');
-    const verified = { ...receipt, materials: [{ skeletalMeshUsage: true }], poseParity: { status: 'passed', toleranceCm: 0.1, clips: [{}, {}] } };
+    const verified = { ...receipt, materials: [{ skeletalMeshUsage: true }], poseParity: { status: 'passed', toleranceCm: 0.1, restBoneCount: 65, clips: [] } };
     expect(() => validateImportReceipt(verified, 'character', 'current')).not.toThrow();
     expect(() => validateImportReceipt({ ...verified, animations: [{}, {}] }, 'character', 'current')).toThrow('skinning');
     for (const materials of [undefined, [], [{}], [{ skeletalMeshUsage: false }], [{ skeletalMeshUsage: true }, null]]) {

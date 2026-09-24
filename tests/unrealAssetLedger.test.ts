@@ -95,7 +95,7 @@ describe('Unreal asset assignment coverage', () => {
       'siege:ram', 'siege:oil', 'siege:catapult', 'siege_crew:aegis:ram:left', 'siege_crew:riftbound:ram:right']) {
       expect(ledger.assignments.find(row => row.id === id), id).toBeDefined();
     }
-    expect(ledger.assignments.find(row => row.id === 'caravan:driver')?.clips).toContain('driver_seated');
+    expect(ledger.assignments.find(row => row.id === 'caravan:driver')?.blockers).toContain('animation_missing:driver_seated');
     expect(ledger.assignments.find(row => row.id === 'caravan:frontier_supply_wagon')?.blockers).not.toContain('animation_pack_invalid_or_incompatible');
     expect(ledger.assignments.find(row => row.id === 'siege_crew:riftbound:ram:right')?.blockers).toContain('ram_operator_rig_not_supported_by_current_runtime');
     const source = readBrowserReference('src/game/HouseInteriorRuntime.ts');
@@ -111,7 +111,7 @@ describe('Unreal asset assignment coverage', () => {
     expect(dwarf.candidates.some(candidate => candidate.profileKey === 'npc_frontier_sunmeadow_dwarf_artisan')).toBe(true);
     expect(dwarf.candidates.every(candidate => candidate.status === 'adaptation_candidate_not_approved')).toBe(true);
     expect(dwarf.candidates.some(candidate => candidate.work.includes('body_variant_adaptation_required'))).toBe(true);
-    expect(ledger.assignments.find(row => row.id === 'playable:mire_warbrute_m')?.status).toBe('candidate');
+    expect(ledger.assignments.find(row => row.id === 'playable:mire_warbrute_m')?.blockers).toContain('animation_missing:idle');
     expect(ledger.assignments.every(row => row.reviewRequirements.includes('unreal_import_and_cook_unverified'))).toBe(true);
     expect(ledger.summary.ready).toBe(0);
     expect(ledger.summary.packagingReady).toBe(false);
@@ -128,15 +128,12 @@ describe('Unreal asset assignment coverage', () => {
 });
 
 describe('binary evidence and primitive classification', () => {
-  test('reads actual authored mesh, rig, and animation evidence and accepts animation-only packs', () => {
+  test('reads preserved model data and verifies retired embedded clips and packs are absent', () => {
     const body = ledger.models['public/assets/models/chr_civic_battle_prelate_t1_m.glb'];
     expect(body).toMatchObject({ exists: true, valid: true, skins: 1, joints: [56] });
     expect(body.triangles).toBeGreaterThan(30_000);
-    expect(body.clips).toEqual(expect.arrayContaining(['idle', 'walk', 'run', 'cast', 'death']));
-    const pack = ledger.models['public/assets/models/anim_battle_prelate_combat.glb'];
-    expect(pack.valid).toBe(true);
-    expect(pack.meshes).toBe(0);
-    expect(pack.clips.length).toBeGreaterThan(0);
+    expect(body.clips).toEqual([]);
+    expect(inspectGlb(root, 'public/assets/models/anim_battle_prelate_combat.glb').exists).toBe(false);
   });
 
   test('rejects missing, corrupt, truncated, and out-of-root evidence paths', () => {

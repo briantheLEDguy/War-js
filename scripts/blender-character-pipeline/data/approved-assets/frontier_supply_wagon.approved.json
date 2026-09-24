@@ -6,13 +6,7 @@
   "model": "frontier_supply_wagon_lod0.glb",
   "qc": "frontier_supply_wagon_lod0.qc.json",
   "runtime": {
-    "staticKey": "frontier_supply_wagon",
-    "animationPack": {
-      "model": "frontier_teamster_animations.glb",
-      "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
-      "skeletonId": "humanoid_game_v2",
-      "bindPoseId": "a_pose_v2"
-    }
+    "staticKey": "frontier_supply_wagon"
   },
   "compatibility": {
     "bodyFamily": "static_architecture",
@@ -48,7 +42,15 @@
     "referencePackId": "original_frontier_siege_v1",
     "similarityReview": "not_required",
     "source": "authoring/blender/orvr-frontier/review/final_inventory.json",
-    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f"
+    "sourceSha256": "cb25939fe35f86a1de9423599063765b5c97d7d9d6e1d9694e78b4a4a020796f",
+    "retiredAnimationBindings": {
+      "animationPack": {
+        "model": "frontier_teamster_animations.glb",
+        "sha256": "d9a459b795ad2950cf99e3b902b3debdd036e9ea3f14e3dc8fa5ffece01908f0",
+        "skeletonId": "humanoid_game_v2",
+        "bindPoseId": "a_pose_v2"
+      }
+    }
   },
   "approvalState": "approved"
 }

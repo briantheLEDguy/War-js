@@ -5,6 +5,7 @@
 #include "WarRuntimeSettings.h"
 #include "WarPlayerState.h"
 #include "WarGameMode.h"
+#include "WarSiegeGameMode.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "GameFramework/Pawn.h"
@@ -68,17 +69,17 @@ void AWarPlayerController::ServerCreateDevelopmentCharacter_Implementation(const
     if (!Content || !Content->IsContentReady() || !State || !Mode)
     { ClientCharacterEntryResult(false, TEXT("Character content is not ready. Check the migration content installation and retry.")); return; }
     UWarCharacterVisualDefinition* Visual = nullptr;
-    for (const auto& Candidate : {Settings->AegisDevelopmentVisual, Settings->RiftboundDevelopmentVisual})
+    for (const auto& Candidate : Settings->PlayableRoster)
     {
         auto* Loaded = Candidate.LoadSynchronous();
         if (Loaded && Loaded->RaceId == Race && Loaded->ClassId == Career && Loaded->BodyVariant == Body) { Visual = Loaded; break; }
     }
     if (!Visual)
-    { ClientCharacterEntryResult(false, TEXT("This race, career and body do not have a configured native model yet. Edit your character or retry after its model is imported. The current Aegis development option is Empire / Battle Prelate / Male.")); return; }
+    { ClientCharacterEntryResult(false, TEXT("This race, career and body are not in the installed playable roster. Choose an installed character and retry.")); return; }
     if (!Visual->ValidateForSpawn(Visual->Realm, Error) || !Content->ValidatePlayableVisual(Visual, Error))
     { ClientCharacterEntryResult(false, Error); return; }
     // The current startup world is the Aegis capital. Never place an enemy-realm draft in it.
-    if (Visual->Realm != EWarRealm::Aegis)
+    if (Visual->Realm != EWarRealm::Aegis && !Cast<AWarSiegeGameMode>(Mode))
     { ClientCharacterEntryResult(false, TEXT("Riftspire Citadel entry is not available yet. Your Riftbound character cannot enter the Aegis capital.")); return; }
     if (State->GetRealm() != EWarRealm::None && State->GetRealm() != Visual->Realm)
     { ClientCharacterEntryResult(false, TEXT("The session realm does not match this character.")); return; }

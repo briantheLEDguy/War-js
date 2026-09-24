@@ -1,10 +1,12 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { BODY_VARIANTS, BODY_VARIANT_DISPLAY, CLASS_RENAMES, CLASSES_BY_RACE, DEFAULT_CLASS_NAME, DESTRUCTION_RACES, ORDER_RACES, RACE_DISPLAY, playerRealmForRace } from '../../shared/data/careers';
 import { PLAYABLE_CHARACTER_PROFILES } from '../../shared/data/playableAssets.generated';
 import { CAREER_ABILITY_KITS, HOTBAR_KEYS, HOTBAR_SLOT_COUNT } from '../../shared/game/abilities/abilityData';
 import { abilityUnlockLevel, FULL_KIT_LEVEL } from '../../shared/game/abilities/abilityProgression';
+import { baselineWorkspace } from '../../shared/game/abilities/workshop/workspace';
 import { ITEM_CATALOG, INVENTORY_CAPACITY, EQUIP_SLOT_ORDER, EQUIP_SLOT_LABELS } from '../../shared/data/items';
 import { CRAFTING_PROFESSIONS, CRAFTING_RECIPES, CULTIVATION_SEEDS, CRAFTING_XP_PER_RANK, CULTIVATION_SLOT_COUNT, createDefaultCraftingState, getEnemyGatheringDefinition, getSalvageOutputs } from '../../shared/data/crafting';
 import { QUESTS } from '../../shared/data/quests';
@@ -61,6 +63,7 @@ async function buildContentData() {
       bodyVariants: BODY_VARIANTS.map(id => ({ id, label: BODY_VARIANT_DISPLAY[id] })),
     },
     abilities: {
+      workshop: baselineWorkspace('0'.repeat(40), '0'.repeat(64)),
       kits, definitions, hotbarKeys: HOTBAR_KEYS, slotCount: HOTBAR_SLOT_COUNT, fullKitLevel: FULL_KIT_LEVEL,
       progression: definitions.map(ability => ({ abilityId: ability.id, unlockLevel: abilityUnlockLevel(ability), activatable: !ability.unavailableReason, unavailableReason: ability.unavailableReason })),
     },
@@ -89,6 +92,7 @@ async function buildContentData() {
 
 type ContentData = Awaited<ReturnType<typeof buildContentData>>;
 export type ContentManifest = ContentData & { source: {
+  repositoryRevision: string;
   campaignVersion: string;
   sha256: string;
   contentSha256: string;
@@ -116,7 +120,8 @@ export async function buildContentManifest(): Promise<ContentManifest> {
   const files = await sourceFiles();
   const manifest = JSON.parse(canonicalJson({
     ...data,
-    source: { campaignVersion: campaignSource.CAMPAIGN_STATIC_VERSION, files, sha256: sha256(canonicalJson(files)), contentSha256: sha256(canonicalJson(data)) },
+    source: { repositoryRevision: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: REPOSITORY_ROOT, encoding: 'utf8', windowsHide: true }).trim(),
+      campaignVersion: campaignSource.CAMPAIGN_STATIC_VERSION, files, sha256: sha256(canonicalJson(files)), contentSha256: sha256(canonicalJson(data)) },
   })) as ContentManifest;
   validateContentManifest(manifest);
   return manifest;

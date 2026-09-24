@@ -6,42 +6,36 @@ import numpy as np
 from mathutils import Vector,Matrix
 from surface_bindings import ClothSurface,bind_detail
 from apron_clearance import _surface,_skin
-from tailored_locomotion import _curves
 
 
 CARRIER_PARTS=('officer_closed_ledger_case','officer_ledger_case_flap','officer_inventory_stylus','officer_stylus_sleeve_binding','officer_case_saddle_stitch')
 
 
 def fit_equipment(make,rig,mount):
-    """Place the rear carrier outside the complete animated clothing envelope."""
+    """Place the rear carrier outside the rest clothing envelope; native motion clearance is separate."""
     center,waist,rotation,leather=mount
     case=bpy.data.objects['officer_closed_ledger_case'];base=_surface(case)
     case_points=(base[0]@np.array(base[3]).T)[:,:3]
     lower=case_points.min(axis=0)-.010;upper=case_points.max(axis=0)+.010
     surfaces=[(name,_surface(bpy.data.objects[name])) for name in ('shirt_continuous_tailored_surface','trousers_continuous_tailored_surface','dark_elf_supply_officer_exposed_anatomy')]
     maximum=-100;worst=None;sample_count=0
-    for action in list(bpy.data.actions):
-        if action.name not in ('idle','walk','run','combat_idle','attack_melee','attack_ranged','cast','death','jump'):continue
-        rig.animation_data.action=action;rig.animation_data.action_slot=action.slots[0]
-        times={float(key.co.x) for bag in _curves(action) for curve in bag.fcurves for key in curve.keyframe_points}
-        keys=sorted(times);times.update((a+b)/2 for a,b in zip(keys,keys[1:]))
-        for frame in sorted(times):
-            for bone in rig.pose.bones:bone.matrix_basis.identity()
-            bpy.context.scene.frame_set(math.floor(frame),subframe=frame%1);bpy.context.view_layer.update()
-            hip=rig.pose.bones['hips']
-            inverse=np.array((rig.matrix_world@hip.matrix@hip.bone.matrix_local.inverted()@rig.matrix_world.inverted()).inverted())
-            for name,surface in surfaces:
-                points=_skin(surface,rig);points=points@inverse[:3,:3].T+inverse[:3,3]
-                triangles=points[np.array(surface[1],dtype=int)]
-                # Triangle AABBs conservatively cover the footprint, including
-                # triangles whose vertices fall just outside a case edge.
-                lo=triangles.min(axis=1);hi=triangles.max(axis=1)
-                mask=(hi[:,0]>=lower[0])&(lo[:,0]<=upper[0])&(hi[:,2]>=lower[2])&(lo[:,2]<=upper[2])
-                if np.any(mask):
-                    posterior=float(triangles[mask,:,1].max())
-                    if posterior>maximum:maximum=posterior;worst={'clip':action.name,'frame':frame,'surface':name,'posterior':posterior}
-            sample_count+=1
-    rig.animation_data.action=None
+    rig.animation_data_clear()
+    for bone in rig.pose.bones: bone.matrix_basis.identity()
+    bpy.context.view_layer.update()
+    hip=rig.pose.bones['hips']
+    inverse=np.array((rig.matrix_world@hip.matrix@hip.bone.matrix_local.inverted()@rig.matrix_world.inverted()).inverted())
+    for name,surface in surfaces:
+        points=_skin(surface,rig);points=points@inverse[:3,:3].T+inverse[:3,3]
+        triangles=points[np.array(surface[1],dtype=int)]
+        # Triangle AABBs conservatively cover the footprint, including
+        # triangles whose vertices fall just outside a case edge.
+        lo=triangles.min(axis=1);hi=triangles.max(axis=1)
+        mask=(hi[:,0]>=lower[0])&(lo[:,0]<=upper[0])&(hi[:,2]>=lower[2])&(lo[:,2]<=upper[2])
+        if np.any(mask):
+            posterior=float(triangles[mask,:,1].max())
+            if posterior>maximum:maximum=posterior;worst={'pose':'rest','surface':name,'posterior':posterior}
+    sample_count=1
+    rig.animation_data_clear()
     for bone in rig.pose.bones:bone.matrix_basis.identity()
     bpy.context.view_layer.update()
     margin=.012;shift=max(0,maximum+margin-float(case_points[:,1].min()))
@@ -51,7 +45,7 @@ def fit_equipment(make,rig,mount):
             obj.data.update()
     fitted=center+Vector((0,shift,0));bpy.context.view_layer.update()
     suspend_case(make,leather,bpy.data.objects['work_belt'],case,fitted,waist,rotation)
-    report={'method':'All nine source actions at keys and midpoints, conservatively clipped triangle AABBs in carrier hip frame',
+    report={'method':'Rest body surface, conservatively clipped triangle AABBs in carrier hip frame',
             'samples':sample_count,'restCenter':list(center),'fittedCenter':list(fitted),'posteriorShift':shift,'minimumClearance':margin,'worstEnvelope':worst}
     (Path(__file__).resolve().parents[1]/'review/carrier-fit.json').write_text(json.dumps(report,separators=(',',':')))
     print('Fitted carrier to animated envelope: '+json.dumps(report),flush=True)

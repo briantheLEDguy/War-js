@@ -15,7 +15,7 @@
     "bindPoseId": "a_pose_v2"
   },
   "hashes": {
-    "modelSha256": "290803a2a6da46513518065119b3b273ceaddc2d202729e61130f24caff3597e",
+    "modelSha256": "a7e4581fb41a018d610646f3973e84b2da3171831c83fa4f5e004e18371e9ae0",
     "qcSha256": "12dbad657f0e7fcb333a72e016c5b194bff36fb73054763b4b5b31751df554c1",
     "previews": {
       "front": "d3abdbf6c2361fbb369176e027dd9ab330cff5e7e4f9a4a8794397a1343dc602"
@@ -29,7 +29,23 @@
     "sourceRevision": 1,
     "sourceRunId": "dark-fantasy-character-pass-v3",
     "bypassApproval": true,
-    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration"
+    "bypassReason": "User-authorized readable dark-fantasy material and calibrated fallback weapon iteration",
+    "sourceAnimationRemoval": {
+      "beforeSha256": "290803a2a6da46513518065119b3b273ceaddc2d202729e61130f24caff3597e",
+      "afterSha256": "a7e4581fb41a018d610646f3973e84b2da3171831c83fa4f5e004e18371e9ae0",
+      "preservationSha256": "eaf14ecb6b26bce33b865546e961cab1e8905d7bdbdecf8c83c223bfb2b3cab4",
+      "removedClips": [
+        "attack_melee",
+        "attack_ranged",
+        "cast",
+        "combat_idle",
+        "death",
+        "idle",
+        "jump",
+        "run",
+        "walk"
+      ]
+    }
   },
   "review": {
     "reviewedBy": "codex-user-authorized-bypass",

@@ -4,6 +4,7 @@
 #include "WarContentSubsystem.h"
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
+#include "WarPlayerState.h"
 #include "Engine/GameInstance.h"
 #include "Widgets/SCompoundWidget.h"
 #include "Widgets/SBoxPanel.h"
@@ -11,6 +12,7 @@
 #include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Input/SEditableTextBox.h"
 #include "Widgets/Input/SSlider.h"
+#include "Widgets/Input/SSpinBox.h"
 #include "Widgets/Layout/SBox.h"
 #include "Widgets/Layout/SScrollBox.h"
 #include "Widgets/Text/STextBlock.h"
@@ -25,6 +27,8 @@ namespace
         void Construct(const FArguments&, AWarPlayerController* Controller)
         {
             Owner=Controller;
+            const auto* State=Controller->GetPlayerState<AWarPlayerState>();
+            SelectedLevel=State ? FMath::Clamp(State->GetInventory().CharacterProgression.Level,1,WarProgression::MaxGmLevel) : 1;
             const auto* Content=Controller->GetGameInstance()->GetSubsystem<UWarContentSubsystem>();
             Catalog=FWarInterfaceCatalog::Parse(Content ? Content->GetInterfaceCatalogSource() : nullptr);
             auto Root=SNew(SVerticalBox);
@@ -47,6 +51,20 @@ namespace
             Utilities->AddSlot().FillWidth(1).Padding(2)[Command(TEXT("Copy coordinates"),[](auto* PC) { PC->CopyGmCoordinates(); })];
             Utilities->AddSlot().FillWidth(1).Padding(2)[Command(TEXT("Return to spawn"),[](auto* PC) { PC->ServerReturnToDevelopmentSpawn(); })];
             Root->AddSlot().AutoHeight()[Utilities];
+            Root->AddSlot().AutoHeight().Padding(0,12,0,4)[SNew(STextBlock).ColorAndOpacity(WarInterfaceStyle::Gold)
+                .Text_Lambda([this] {
+                    const auto* PlayerState=Owner.IsValid() ? Owner->GetPlayerState<AWarPlayerState>() : nullptr;
+                    return FText::FromString(FString::Printf(TEXT("Your level: %d | Set level (1-%d)"),
+                        PlayerState ? PlayerState->GetInventory().CharacterProgression.Level : 1,WarProgression::MaxGmLevel)); })];
+            Root->AddSlot().AutoHeight()[SNew(SHorizontalBox)
+                + SHorizontalBox::Slot().FillWidth(1)[SNew(SSpinBox<int32>).MinValue(1).MaxValue(WarProgression::MaxGmLevel)
+                    .MinSliderValue(1).MaxSliderValue(WarProgression::MaxGmLevel).Delta(1)
+                    .IsEnabled_Lambda([this] { return Owner.IsValid() && Owner->CanUseGmTools(); })
+                    .Value_Lambda([this] { return SelectedLevel; })
+                    .OnValueChanged_Lambda([this](int32 Value) { SelectedLevel=Value; })]
+                + SHorizontalBox::Slot().AutoWidth().Padding(8,0)[Command(TEXT("Set level"),[this](auto* PC) { PC->ServerGmSetLevel(SelectedLevel); })]];
+            Root->AddSlot().AutoHeight().Padding(0,4,0,8)[SNew(STextBlock).AutoWrapText(true).ColorAndOpacity(WarInterfaceStyle::Text)
+                .Text(FText::FromString(TEXT("Updates stats and ability unlocks, resets XP, and restores health and mana for this session.")))];
             Root->AddSlot().AutoHeight().Padding(0,10)[SNew(STextBlock).Text(FText::FromString(TEXT("Go to character (exact name, current world)"))).ColorAndOpacity(WarInterfaceStyle::Gold)];
             Root->AddSlot().AutoHeight()[SNew(SHorizontalBox)
                 + SHorizontalBox::Slot().FillWidth(1)[SNew(SEditableTextBox).HintText(FText::FromString(TEXT("Character name")))
@@ -65,6 +83,7 @@ namespace
                         .OnValueChanged_Lambda([this](float Value) { if (Owner.IsValid()) if (const auto* Character=Cast<AWarCharacter>(Owner->GetPawn())) Owner->ServerSetDevelopmentTraversal(Character->IsDevelopmentFlying(),Value); })]]];
             Root->AddSlot().AutoHeight().Padding(0,8)[Command(TEXT("Toggle performance stats"),[](auto* PC) { PC->ConsoleCommand(TEXT("stat fps"),true); })];
             Root->AddSlot().AutoHeight().Padding(0,8)[Command(TEXT("Open world builder"),[](auto* PC) { PC->ToggleWorldEditor(); })];
+            Root->AddSlot().AutoHeight().Padding(0,8)[Command(TEXT("Open Ability Workshop"),[](auto* PC) { PC->OpenAbilityWorkshop(); })];
             Root->AddSlot().AutoHeight().Padding(0,10)[SNew(STextBlock).ColorAndOpacity(WarInterfaceStyle::Gold).Text(FText::FromString(TEXT("Zone teleport - loaded destinations only")))];
             Root->AddSlot().AutoHeight()[SNew(SSearchBox).HintText(FText::FromString(TEXT("Find a campaign zone")))
                 .OnTextChanged_Lambda([this](const FText& Text) { ZoneQuery=Text.ToString(); RefreshZones(); })];
@@ -75,6 +94,7 @@ namespace
         TWeakObjectPtr<AWarPlayerController> Owner;
         FWarInterfaceCatalog Catalog;
         FString TargetName,ZoneQuery;
+        int32 SelectedLevel=1;
         TSharedPtr<SVerticalBox> ZoneRows;
         void RefreshZones()
         {

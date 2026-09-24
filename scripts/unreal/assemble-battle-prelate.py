@@ -38,19 +38,13 @@ def main():
     for obj in list(bpy.data.objects):
         if obj != rig and obj not in assembly["all_meshes"]:
             bpy.data.objects.remove(obj, do_unlink=True)
-    rig.data.pose_position = "POSE"
-    rig.animation_data.action = None
-    rig.animation_data.use_nla = True
-    for track in rig.animation_data.nla_tracks:
-        track.mute = False
-        for strip in track.strips:
-            strip.mute = False
+    rig.data.pose_position = "REST"
     directory = ROOT / "artifacts/unreal/equipped" / PROFILE
     directory.mkdir(parents=True, exist_ok=True)
     receipt = directory / "assembly.json"
     receipt.unlink(missing_ok=True)
     output = directory / "equipped.glb"
-    bpy.ops.export_scene.gltf(filepath=str(output), export_format="GLB", export_animations=True,
+    bpy.ops.export_scene.gltf(filepath=str(output), export_format="GLB", export_animations=False,
         export_animation_mode="NLA_TRACKS", export_force_sampling=True, export_frame_range=False)
     receipt.write_text(json.dumps({"schemaVersion": 1, "profileKey": PROFILE,
         "modules": modules, "sourceSha256": digest(output), "assemblyToolSha256": digest(Path(__file__)),

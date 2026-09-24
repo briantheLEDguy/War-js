@@ -25,6 +25,7 @@ bool FWarClassAbilityTest::RunTest(const FString& Parameters)
     if (!TestTrue(*Error, WarAbilities::Parse(Manifest, Abilities, Error))) return false;
     TestEqual(TEXT("All original class abilities present"), Abilities.Num(), 240);
     TSet<FName> Careers; int32 Unavailable = 0, Prelate = 0, Starter = 0;
+    TSet<FName> PrelateMotions;
     for (const auto& A : Abilities)
     {
         Careers.Add(A.Career); Unavailable += !A.UnavailableReason.IsEmpty();
@@ -33,19 +34,21 @@ bool FWarClassAbilityTest::RunTest(const FString& Parameters)
         TestTrue(TEXT("Finite nonnegative cost and bounded range"), FMath::IsFinite(A.Mana) && A.Mana >= 0 && A.Range >= 0 && A.Range <= 5000);
         if (A.Career != TEXT("battle_prelate")) continue;
         ++Prelate; Starter += A.UnlockLevel == 1;
-        TestEqual(TEXT("Every Prelate ability has a visible verified hammer gesture"), WarAbilities::Motion(A, TEXT("civic_battle_prelate_m")), FName(TEXT("attack_melee")));
+        const FName Motion = WarAbilities::Motion(A, TEXT("civic_battle_prelate_m"));
+        PrelateMotions.Add(Motion);
+        TestEqual(TEXT("Each Prelate ability has its own explicit presentation"), Motion, A.Id);
         if (A.Slot == 0) { TestEqual(TEXT("Litany builds Zeal"), WarAbilities::ResourceAfter(A, 20), 32.f); TestEqual(TEXT("Starter has no mana cost"), A.Mana, 0.f); }
         if (A.Slot == 3) { TestEqual(TEXT("Penance movement parsed"), A.Effects.Last().Direction, FName(TEXT("toward_target"))); TestEqual(TEXT("Travel in centimeters"), A.Effects.Last().Distance, 1200.f); }
         if (A.Slot == 9) TestEqual(TEXT("Finisher consumes all Zeal"), WarAbilities::ResourceAfter(A, 80), 0.f);
         if (A.Slot == 2) TestEqual(TEXT("Unreviewed Prelate variants retain their own cast role"), WarAbilities::Motion(A, TEXT("civic_battle_prelate_f")), FName(TEXT("cast")));
         if (A.Slot == 0)
         {
-            TestEqual(TEXT("Measured supplied hammer contact"), WarAbilities::ReleaseFraction(A, TEXT("civic_battle_prelate_m")), .8f);
             TestEqual(TEXT("Contact timing is not copied to another character rig"), WarAbilities::ReleaseFraction(A, TEXT("civic_battle_prelate_f")), A.ReleaseFraction);
         }
     }
-    TestEqual(TEXT("All 24 careers"), Careers.Num(), 24); TestEqual(TEXT("Only the three source-unimplemented summons disabled"), Unavailable, 3);
+    TestEqual(TEXT("All 24 careers"), Careers.Num(), 24); TestEqual(TEXT("Only the two unimplemented summons remain disabled"), Unavailable, 2);
     TestEqual(TEXT("Full Prelate kit"), Prelate, 10); TestEqual(TEXT("Progression retains three starters"), Starter, 3);
+    TestEqual(TEXT("Ten explicit Prelate presentation bindings"), PrelateMotions.Num(), 10);
     FWarAbilityEffect Amount; Amount.Minimum = 10; Amount.Maximum = 20; Amount.StatScale = .5; Amount.LevelScale = 2; Amount.ResourceScale = .1f;
     TestEqual(TEXT("Damage combines strength, level and spent resource once"), WarAbilities::Amount(Amount, 10, 3, 20, .5), 28.f);
     const auto Source = Manifest->GetObjectField(TEXT("abilities")); const auto Kit = Source->GetArrayField(TEXT("kits"))[0]->AsObject();

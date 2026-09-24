@@ -7,6 +7,7 @@ import unreal
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from capital_population import ROOT, POPULATION_MAP, OFFICER, official_map, records
 from capital_geography import height
+from native_animation_bindings import installed
 
 assets = unreal.EditorAssetLibrary
 level = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
@@ -49,8 +50,7 @@ for row in records():
         visual = unreal.load_asset('/Game/MigrationProof/Visual_'+profile)
         mesh, idle = visual.skeletal_mesh, visual.idle_animation
     else:
-        receipt = json.loads((ROOT/'artifacts/unreal/converted'/profile/'editor-import.json').read_text())
-        if not receipt['importSucceeded']: raise RuntimeError('Character import is unavailable: '+profile)
+        receipt = installed(profile)
         mesh = unreal.load_asset(receipt['meshes'][0]['path'])
         idle = unreal.load_asset(next(a['path'] for a in receipt['animations'] if a['sourceClipName']=='idle'))
     if not isinstance(mesh, unreal.SkeletalMesh) or not isinstance(idle, unreal.AnimSequence):

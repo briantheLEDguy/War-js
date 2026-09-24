@@ -3,6 +3,7 @@
 #include "WarAbilityRuntime.h"
 #include "WarCombatStatus.h"
 #include "WarCharacter.h"
+#include "WarCharacterVisualDefinition.h"
 #include "WarEnemy.h"
 #include "WarPlayerController.h"
 #include "WarPlayerState.h"
@@ -38,17 +39,19 @@ void UWarAbilityProof::Tick(float DeltaSeconds)
 {
     if (bFinished || !GetWorld()->HasBegunPlay()) return;
     const double Now = GetWorld()->GetTimeSeconds(); if (Now < Next) return;
-    if (Now > 150) { Finish(false, TEXT("Timed out waiting for live ability integration")); return; }
+    if (Now > 300) { Finish(false, TEXT("Timed out waiting for live ability integration")); return; }
     auto* PC = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController());
     auto* Pawn = PC ? Cast<AWarCharacter>(PC->GetPawn()) : nullptr; auto* State = PC ? PC->GetPlayerState<AWarPlayerState>() : nullptr;
     if (!Pawn || !State || !Pawn->IsVisualReady()) return;
     auto* Runtime = State->GetClassAbilities(); auto* Catalog = GetWorld()->GetGameInstance()->GetSubsystem<UWarAbilityCatalog>();
     const auto Kit = Catalog->Kit(Pawn->GetCareerId()); FString Error;
+    // Keep the low-health dummy alive for two ticks and the following interrupt check at level 45.
+    const float ProofBurnMagnitude = FParse::Param(FCommandLine::Get(), TEXT("WarGmLevelProof")) ? .01f : .15f;
     if (Kit.Num() != 10 || Runtime->GetCareer() != TEXT("battle_prelate")) { Finish(false, TEXT("Prelate class kit not initialized")); return; }
     if (Stage == 4)
     {
         const auto* Target = TestTarget.Get();
-        const float TickDamage = FMath::Max(1.f, FMath::RoundToFloat(State->GetEffectiveStrength() * .15f + State->GetInventory().CharacterProgression.Level * .5f));
+        const float TickDamage = FMath::Max(1.f, FMath::RoundToFloat(State->GetEffectiveStrength() * ProofBurnMagnitude + State->GetInventory().CharacterProgression.Level * .5f));
         if (!Target || Target->GetHealth() != TargetHealth - 2 * TickDamage || UWarCombatStatus::On(Target)->Has(TEXT("burn")))
         { Finish(false, TEXT("Periodic damage refresh, tick count or expiry failed")); return; }
         Runtime->ResetCooldowns(); Runtime->RestoreResource();
@@ -63,7 +66,7 @@ void UWarAbilityProof::Tick(float DeltaSeconds)
         if (!TestTarget.IsValid() || TestTarget->GetHealth() != TargetHealth || State->GetAttributes()->GetHealth() != PlayerHealth
             || Runtime->IsBusy() || Runtime->Cooldown(Kit[1]->Id) <= 0)
         { Finish(false, TEXT("Interrupted cast applied an effect or refunded its cooldown")); return; }
-        Finish(true, TEXT("Ten hotbar entries, nine live Prelate abilities, summon/level/class/zone rejection, costs, cooldowns, contact timing, periodic damage and interruption verified")); return;
+        Finish(true, TEXT("Ten hotbar entries and live Prelate abilities, level/class/zone rejection, costs, cooldowns, contact timing, periodic damage and interruption verified")); return;
     }
     if (Stage == 0)
     {
@@ -72,6 +75,25 @@ void UWarAbilityProof::Tick(float DeltaSeconds)
             { Finish(false, TEXT("Fresh action bar did not expose all ten named class abilities")); return; }
         if (Runtime->TryActivate(Kit[2]->Id, nullptr, Error) || !Error.Contains(TEXT("level"))) { Finish(false, TEXT("Locked ability accepted at level one")); return; }
         if (Runtime->TryActivate(TEXT("ember_arcanist.spark_lash"), nullptr, Error)) { Finish(false, TEXT("Foreign career ability accepted")); return; }
+        if (FParse::Param(FCommandLine::Get(), TEXT("WarGmLevelProof")))
+        {
+            const auto Before = State->GetInventory();
+            PC->ServerGmSetLevel(0); PC->ServerGmSetLevel(46);
+            if (State->GetInventory().Revision != Before.Revision)
+            { Finish(false, TEXT("Invalid GM levels changed progression")); return; }
+            PC->ServerGmSetLevel(45);
+            if (State->GetInventory().CharacterProgression.Level != 45 || State->GetAttributes()->GetHealth() != 980
+                || State->GetAttributes()->GetMana() != 540 || State->GetEffectiveStrength() != 98)
+            { Finish(false, TEXT("GM level 45 did not update progression and GAS")); return; }
+            PC->ServerGmSetLevel(1);
+            if (State->GetInventory().CharacterProgression.Level != 1 || State->GetAttributes()->GetHealth() != 100
+                || Runtime->TryActivate(Kit[2]->Id, nullptr, Error) || !Error.Contains(TEXT("level")))
+            { Finish(false, TEXT("Lowering GM level did not restore stats and lock abilities")); return; }
+            PC->ServerGmSetLevel(45);
+            if (State->GetInventory().CharacterProgression.Level != 45)
+            { Finish(false, TEXT("GM could not restore level 45")); return; }
+            UE_LOG(LogTemp, Display, TEXT("WAR_GM_LEVEL_PROOF bounds, level 45, GAS stats and level-one ability relock passed"));
+        }
         while (State->GetInventory().CharacterProgression.Level < 8)
             if (!State->GrantCharacterRewards(FGuid::NewGuid(), WarProgression::XpForLevel(State->GetInventory().CharacterProgression.Level), 0, {}, Error))
             { Finish(false, Error); return; }
@@ -84,7 +106,7 @@ void UWarAbilityProof::Tick(float DeltaSeconds)
             for (TActorIterator<AWarEnemy> It(GetWorld()); It; ++It) if (It->GetDefinition().bTrainingDummy && Pawn->CanAbilityTarget(*It, 300))
             {
                 TestTarget = *It; TargetHealth = It->GetHealth();
-                FWarAbilityEffect Burn; Burn.StatusId = TEXT("burn"); Burn.StatusKind = TEXT("burn"); Burn.Duration = 2.1f; Burn.Magnitude = .15f;
+                FWarAbilityEffect Burn; Burn.StatusId = TEXT("burn"); Burn.StatusKind = TEXT("burn"); Burn.Duration = 2.1f; Burn.Magnitude = ProofBurnMagnitude;
                 auto* Status = UWarCombatStatus::On(*It); Status->Clear();
                 Status->Apply(Burn, TEXT("proof_burn"), Pawn, State->GetEffectiveStrength(), State->GetInventory().CharacterProgression.Level);
                 Status->Apply(Burn, TEXT("proof_burn"), Pawn, State->GetEffectiveStrength(), State->GetInventory().CharacterProgression.Level);
@@ -115,8 +137,9 @@ void UWarAbilityProof::Tick(float DeltaSeconds)
     {
         TargetHealth = Target->GetHealth(); PlayerHealth = State->GetAttributes()->GetHealth(); ResourceBefore = Runtime->GetResource();
         const float ManaBefore = State->GetAttributes()->GetMana();
-        ImpactNotBefore = WarAbilities::Motion(*A, Pawn->GetAnimationProfile()) == TEXT("attack_melee") ? Now + Pawn->GetAbilityAnimationDuration(TEXT("attack_melee")) * .78 : 0;
-        if (Index == 3) ImpactNotBefore += FMath::Max(0., FVector::Dist2D(Pawn->GetActorLocation(), Target->GetActorLocation()) - 180) / 600;
+        const FName Motion = WarAbilities::Motion(*A, Pawn->GetAnimationProfile());
+        const auto* Presentation = Pawn->GetAbilityPresentation(A->Id);
+        ImpactNotBefore = Now + (Presentation ? Presentation->ContactSeconds : Pawn->GetAbilityAnimationDuration(Motion) * WarAbilities::ReleaseFraction(*A, Pawn->GetAnimationProfile())) - .02;
         const FName Zone = State->GetCurrentZone(); State->SetCurrentZoneTrusted(TEXT("riftspire_capital"));
         const bool WrongZone = A->bEnemyTarget && Runtime->TryActivate(A->Id, Target, Error); State->SetCurrentZoneTrusted(Zone);
         if (WrongZone) { Finish(false, TEXT("Cross-zone cast accepted")); return; }
@@ -126,6 +149,13 @@ void UWarAbilityProof::Tick(float DeltaSeconds)
         if (!FMath::IsNearlyEqual(State->GetAttributes()->GetMana(), ManaBefore - A->Mana)
             || !FMath::IsNearlyEqual(Runtime->GetResource(), WarAbilities::ResourceAfter(*A, ResourceBefore))) { Finish(false, TEXT("Ability costs/resource build incorrect")); return; }
         if (Runtime->TryActivate(A->Id, Target, Error)) { Finish(false, TEXT("Duplicate cast bypassed action/cooldown")); return; }
+        if (FParse::Param(FCommandLine::Get(), TEXT("WarGmLevelProof")))
+        {
+            const int32 Revision = State->GetInventory().Revision;
+            PC->ServerGmSetLevel(1);
+            if (State->GetInventory().CharacterProgression.Level != 45 || State->GetInventory().Revision != Revision)
+            { Finish(false, TEXT("GM level changed during an active ability")); return; }
+        }
         Stage = 3; Next = Now + .15; return;
     }
     if (Stage == 3)

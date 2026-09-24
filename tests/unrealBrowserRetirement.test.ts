@@ -8,7 +8,9 @@ import { repoRoot } from '../scripts/unreal/toolchain';
 describe('browser retirement boundary', () => {
   it('preserves the complete pre-retirement gameplay content', async () => {
     const original = JSON.parse(readFileSync(path.join(repoRoot, 'migration/browser-reference.json'), 'utf8'));
-    expect((await buildContentManifest()).source.contentSha256).toBe(original.contentSha256);
+    const revisions = JSON.parse(readFileSync(path.join(repoRoot, 'migration/content-revisions.json'), 'utf8'));
+    expect(revisions.historicalContentSha256).toBe(original.contentSha256);
+    expect((await buildContentManifest()).source.contentSha256).toBe(revisions.currentContentSha256);
   });
   it('has no browser application or deployment entrypoints', () => {
     for (const file of ['src', 'index.html', 'vite.config.ts', '.github/workflows/deploy-pages.yml'])

@@ -164,8 +164,9 @@ non-character manifest. The old playable/NPC character sync commands are
 deliberately retired and exit with an error so they cannot recreate proxy
 bodies or armor. `models:assemble-battle-prelate` performs the zero-cost clean
 body + nine modules + hammer assembly and independently validates its draft GLB,
-hash-bound QC report, bind/idle review sheets, one skin, 56 bones, and nine
-clips.
+hash-bound QC report, rest-pose review sheets, one skin and 56 bones. Character
+GLBs contain no animation; supplied motion is imported and verified separately
+through the native animation pipeline.
 
 Generated artifacts:
 
@@ -255,15 +256,13 @@ run phases plus front/side melee ready, windup, impact, follow-through, and
 recovery frames. Every emitted PNG receives a SHA-256 hash in the completed job
 manifest; the default `midpoint` profile remains available for faster checks.
 
-`models:roster` runs this animation evidence stage automatically for playable
-groups. It writes `animation-stage.qc.json` plus one
-`animation-review/<m|f>/review-render.json` manifest per body variant. The
-stage requires the exact nine clips from `canonical-animation-pack.json`,
-checks embedded clip names in body and equipped GLBs, and requires both
-variant evidence manifests. The technical result may be `ready_for_review`,
-but `animationApprovalEligible` remains false until a human reviews the
-evidence and later LOD gates are satisfied. The current end-to-end pilot is
-limited to Battle Prelate (`battle_prelate_hammer`) and Warbrute (`unarmed`).
+`models:roster` now generates bodies, rigs and equipment without embedded motion.
+The old nine-clip pack and its generators were retired. Native supplied-set
+recipes and gameplay evidence replace the embedded animation stage; see
+[the current animation workflow](../../docs/unreal-animation-import.md).
+The active equipped development roster is Battle Prelate, Sunfire Templar,
+Warbrute and Ember Arcanist. Model approval remains separate from motion and
+native gameplay acceptance.
 
 ## Blender Entry Points
 

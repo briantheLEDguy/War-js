@@ -30,6 +30,7 @@ public:
     virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
     virtual bool PreGameplayEffectExecute(FGameplayEffectModCallbackData& Data) override;
 private:
+    float HealthBeforeEffect = 0;
     UFUNCTION() void OnRep_Health(const FGameplayAttributeData& Previous);
     UFUNCTION() void OnRep_MaxHealth(const FGameplayAttributeData& Previous);
     UFUNCTION() void OnRep_Mana(const FGameplayAttributeData& Previous);
