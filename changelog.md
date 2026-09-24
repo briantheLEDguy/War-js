@@ -1,3 +1,9 @@
+## 2026-09-24 - Remove obsolete model storage
+
+- Delete superseded models, Blender version backups, model-job previews, extensionless recovery payloads and stale native build copies. Remove nine inactive, merged worktrees after retaining unique non-model work and historical evidence.
+- Keep current approved source dependencies, equipped characters, rigs, environment animation, purchased kit sources and immutable Git history. Add junction-safe removal checks and hash-bound deletion provenance.
+- Revalidate current assets and refresh the supplied-animation coverage receipt after cleanup. See `docs/model-storage-cleanup-2026-09-24.md` for measured storage savings and retained data.
+
 ## 2026-09-24 - Character arrival content repair
 
 - Fix development staging leaving the world visual catalog on an older gameplay fingerprint, which invalidated capital training targets and timed out every character entry.

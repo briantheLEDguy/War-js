@@ -13,6 +13,13 @@ def evidence(path):
     return dict(path=path.relative_to(ROOT).as_posix(), sha256=hashlib.sha256(path.read_bytes()).hexdigest())
 
 
+def published_capture_matches(previous, receipts, images):
+    """An identical deterministic rerun may update only the gameplay file's mtime."""
+    return (previous.get('gameplayVerified') is True
+            and all(previous.get('evidence',{}).get(key)==value for key,value in receipts.items())
+            and previous.get('gameplayImages')==images)
+
+
 def build_coverage(scenarios, presentations):
     clips={key:[] for key in CLIPS}
     abilities={}
@@ -67,8 +74,8 @@ def main():
     clips,abilities=build_coverage(gameplay['scenarios'],presentations)
     capture_path=gameplay_path.parent/'AnimationGameplayCapture/frames.json'
     captures=read(capture_path)
-    if not captures['gameplayPassed'] or capture_path.stat().st_mtime<gameplay_path.stat().st_mtime:
-        raise ValueError('Gameplay captures are missing, failed or predate the final gameplay run')
+    if not captures['gameplayPassed']:
+        raise ValueError('Gameplay captures are missing or failed')
     captured={(row['profile'],row['role']) for row in captures['frames']}
     for key,rows in clips.items():
         if not any((row['profile'],row['role']) in captured for row in rows):
@@ -81,6 +88,13 @@ def main():
     for frame in captures['frames']:
         if Path(frame['file']).name!=frame['file']: raise ValueError('Invalid capture filename')
         images.append(evidence(capture_path.parent/frame['file']))
+    if capture_path.stat().st_mtime<gameplay_path.stat().st_mtime:
+        published_path=ROOT/'migration/supplied-animation-coverage.json'
+        previous=read(published_path) if published_path.exists() else {}
+        receipts=dict(gameplay=evidence(gameplay_path),captures=evidence(capture_path),
+                      presentations=evidence(OUT/'presentations.json'))
+        if not published_capture_matches(previous,receipts,images):
+            raise ValueError('Gameplay captures predate changed or unpublished gameplay evidence')
     removal_path=OUT/'removal-verification.json'
     registry_path=OUT/'native-animation-removal-verification.json'
     if not read(removal_path)['passed'] or not read(registry_path)['passed']:

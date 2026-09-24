@@ -97,6 +97,11 @@ obsolete native sequences/graphs, duplicate imports, backups and obsolete
 generators are deleted. The standalone `AnimationImport/Spell Cast.fbx` is
 deleted. Environmental door/gate/mechanism animation and Git history remain.
 
+The [storage cleanup](model-storage-cleanup-2026-09-24.md) additionally removes
+obsolete model iterations and inactive checkouts. The removal check scans
+extensionless recovery objects and Blender version backups without following
+junctions. Current approved authoring releases remain required inputs.
+
 ```powershell
 python scripts/unreal/publish-animation-removal.py
 python scripts/unreal/verify-animation-removal.py

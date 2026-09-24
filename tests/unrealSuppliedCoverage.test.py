@@ -1,5 +1,6 @@
 """Coverage cannot be satisfied by imports, previews or only one executor type."""
 import importlib.util
+import copy
 from pathlib import Path
 import sys
 import unittest
@@ -11,6 +12,17 @@ report=importlib.util.module_from_spec(spec); spec.loader.exec_module(report)
 
 
 class CoverageTest(unittest.TestCase):
+    def test_identical_rerun_can_reuse_hash_bound_captures(self):
+        receipts={key:dict(path=key,sha256='verified-'+key) for key in ('gameplay','captures','presentations')}
+        images=[dict(path='frame.png',sha256='verified-frame')]
+        previous=dict(gameplayVerified=True,evidence=copy.deepcopy(receipts),gameplayImages=copy.deepcopy(images))
+        self.assertTrue(report.published_capture_matches(previous,receipts,images))
+        for key in receipts:
+            changed=copy.deepcopy(receipts); changed[key]['sha256']='changed'
+            self.assertFalse(report.published_capture_matches(previous,changed,images))
+        self.assertFalse(report.published_capture_matches(previous,receipts,[dict(path='frame.png',sha256='changed')]))
+        self.assertFalse(report.published_capture_matches({},receipts,images))
+
     def fixture(self):
         scenarios=[]; presentations={}
         for profile,(career,style) in report.PROFILES.items():

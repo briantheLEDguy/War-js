@@ -15,7 +15,17 @@ def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def main():
     renames={relative(row['from']):relative(row['to']) for row in json.loads((OUT/'rest-rig-renames.json').read_text())}
-    records={}
+    manifest=ROOT/'migration/animation-removal.json'
+    # Keep textual evidence after later cleanup removes track-stripped backups.
+    # HEAD now contains the replacement, so it is no longer the old source hash.
+    records={row['path']:row for row in json.loads(manifest.read_text())['files']} if manifest.exists() else {}
+    for entry in records.values():
+        current=entry.get('currentPath')
+        if current and not (ROOT/current).exists():
+            previous=entry.pop('currentSha256',None)
+            if previous and previous not in entry['previousSha256']: entry['previousSha256'].append(previous)
+            entry.pop('currentPath',None)
+            entry['operation']='removed'
     sources=('source-track-removal.json','blend-track-removal.json','morph-track-removal.json','fbx-track-removal.json',
              'generator-separation.json','obsolete-file-removal-plan.json','obsolete-animation-binaries.json',
              'obsolete-generator-plan.json','obsolete-generator-copies.json','obsolete-review-map-files.json')
@@ -30,7 +40,8 @@ def main():
                     raise RuntimeError('Model changed since verified track removal: '+key)
                 entry.update(operation='tracks_removed' if 'preservationSha256' in row else 'body_tool_separated',currentPath=target,currentSha256=digest(path))
                 if row.get('preservationSha256'): entry['preservationSha256']=row['preservationSha256']
-            elif row.get('afterSha256'): entry['previousSha256'].append(row['afterSha256'])
+            elif row.get('afterSha256') and row['afterSha256'] not in entry['previousSha256']:
+                entry['previousSha256'].append(row['afterSha256'])
             for field in ('removedClips','removedActions'):
                 if field in row: entry[field]=row[field]
     # Bind modified source-ledger helpers to their immutable Git version. This
@@ -53,7 +64,7 @@ def main():
                 if path.suffix not in ('.py','.dat'): raise RuntimeError('Missing model preservation receipt: '+key)
                 entry=records.setdefault(key,dict(path=key,previousSha256=[],operation='body_tool_separated',currentPath=target,currentSha256=digest(ROOT/target)))
             entry['previousSha256'].append(evidence['sha256'])
-    result=dict(schemaVersion=1,scope='Character animation replacement; model data and environmental animation retained',
+    result=dict(schemaVersion=1,scope='Character animation replacement; current model data and environmental animation retained, obsolete copies removed',
                 files=sorted(records.values(),key=lambda row:row['path']),nativeRemovalEvidence='artifacts/unreal/animation-replacement/native-animation-removal.json')
     (ROOT/'migration/animation-removal.json').write_text(json.dumps(result,indent=2)+'\n')
     print('WAR_ANIMATION_REMOVAL_PROVENANCE='+str(len(records)))

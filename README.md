@@ -62,6 +62,12 @@ reference/backend process; it has not been connected to native production play.
 Each persistent datum must have one trusted owner at a future cutover. Do not
 silently discard campaign, inventory, economy or runtime GM requirements.
 
+The [model storage cleanup](docs/model-storage-cleanup-2026-09-24.md) removes
+obsolete model iterations, recovery payloads and nine inactive checkouts. Current
+authoring sources and imported runtime assets remain separate required inputs.
+Run `python scripts/unreal/verify-animation-removal.py` to check retired paths,
+Blender version backups, hidden recovery models and embedded character tracks.
+
 ## Setup and verification
 
 Choose **Quit Game** below **Graphics** on the login screen to close the game

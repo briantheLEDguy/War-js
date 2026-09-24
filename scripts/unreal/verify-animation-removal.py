@@ -6,10 +6,12 @@ import sys
 sys.path.insert(0,str(Path(__file__).parent))
 from animation_replacement import ROOT,OUT,SOURCE,CLIPS
 from strip_character_tracks import decode
+from storage_inventory import regular_files, retired_storage_failures
 
 failures=[]; checked=0; environment=[]
-for folder in ('public/assets/models','authoring','artifacts'):
-    for path in (ROOT/folder).rglob('*.glb'):
+for folder in ('public/assets/models','authoring','artifacts','tmp','blends'):
+    for path in regular_files(ROOT/folder):
+        if path.suffix.lower()!='.glb': continue
         document,_=decode(path.read_bytes()); checked+=1
         if document.get('animations'):
             if document.get('skins'):
@@ -19,6 +21,9 @@ expected={Path(name).as_posix() for name in CLIPS.values()}
 actual={p.relative_to(SOURCE).as_posix() for p in SOURCE.rglob('*.fbx')}
 if expected!=actual: failures.append('Supplied FBX inventory differs: '+str(expected^actual))
 provenance=json.loads((ROOT/'migration/animation-removal.json').read_text())
+storage_manifest=ROOT/'migration/model-storage-removal.json'
+if storage_manifest.exists():
+    failures.extend(retired_storage_failures(ROOT,json.loads(storage_manifest.read_text())))
 for row in provenance['files']:
     if row['operation']=='removed':
         if (ROOT/row['path']).exists(): failures.append('Retired payload remains: '+row['path'])
@@ -48,6 +53,8 @@ report=dict(passed=not failures,checkedGlbs=checked,suppliedFbxCount=len(actual)
             strippedCharacterBlendBackups=sum(Path(row['path']).suffix!='.blend' for row in blend_receipts),
             retainedAuthoringMechanisms=retained_authoring,
             nativeRegistryEvidence='artifacts/unreal/animation-replacement/native-animation-removal-verification.json')
+if storage_manifest.exists():
+    report['storageRemovalManifestSha256']=hashlib.sha256(storage_manifest.read_bytes()).hexdigest()
 (OUT/'removal-verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:v for k,v in report.items() if k not in ('retainedEnvironmentalAnimations','retainedAuthoringMechanisms')}))
 if failures: raise SystemExit(1)

@@ -35,6 +35,13 @@ stow and clearance corrections live beside the reusable animation recipes.
   populated maps were checked. The standalone `Spell Cast.fbx` is deleted.
   Textual provenance remains in `migration/animation-removal.json`.
 
+The subsequent [storage cleanup](model-storage-cleanup-2026-09-24.md) deleted
+obsolete copies, including the stripped backups and inactive worktrees. The
+final scan covers 1,787 retained GLBs, all 44 supplied FBXs, and extensionless
+recovery objects. The three original `blends/` model sources also contain no
+Actions. Current models, native sequence packages and gameplay captures retain
+their verified hashes; the coverage manifest binds the refreshed removal receipt.
+
 The contact review replaced generic strike fractions with measured hammer,
 sword, cleaver and kick events. Stow transitions now carry equipment in the
 hands before attachment to the back. Matched lighting/camera renders compare
