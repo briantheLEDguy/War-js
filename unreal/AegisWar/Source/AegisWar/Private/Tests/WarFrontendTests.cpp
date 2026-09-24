@@ -108,6 +108,10 @@ bool FWarFrontendTest::RunTest(const FString& Parameters)
     const auto Entry = Frontend->TakeWidget();
     TArray<TSharedRef<SButton>> Buttons;
     EntryButtons(Entry, Buttons);
+    TestTrue(TEXT("Login offers an enabled quit action before authentication"),
+        Buttons.ContainsByPredicate([](const auto& Button) {
+            return ButtonLabel(Button) == TEXT("Quit Game") && Button->IsEnabled();
+        }));
     TestTrue(TEXT("Login exposes a primary local entry action"), !Buttons.IsEmpty()
         && ButtonLabel(Buttons[0]) == TEXT("Local development login"));
     const auto Click = [this, &Entry](const FString& Label) {
@@ -133,6 +137,10 @@ bool FWarFrontendTest::RunTest(const FString& Parameters)
         Buttons.Reset(); EntryButtons(Entry, Buttons);
         TestTrue(TEXT("Leaving account tools returns to usable local login"), !Buttons.IsEmpty()
             && ButtonLabel(Buttons[0]) == TEXT("Local development login"));
+        TestTrue(TEXT("Returning to login retains the quit action"),
+            Buttons.ContainsByPredicate([](const auto& Button) {
+                return ButtonLabel(Button) == TEXT("Quit Game") && Button->IsEnabled();
+            }));
     }
     World->DestroyWorld(false); GEngine->DestroyWorldContext(World);
     return true;

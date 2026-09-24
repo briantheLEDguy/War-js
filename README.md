@@ -64,11 +64,19 @@ silently discard campaign, inventory, economy or runtime GM requirements.
 
 ## Setup and verification
 
+Choose **Quit Game** below **Graphics** on the login screen to close the game
+without signing in.
+
 Choose **Local development login** on the entry screen for session character
 testing; it does not require the optional developer-account companion. Once in
 game, open **Escape > GM Tools > Set level** and choose
 **1-45**. This updates stats and ability unlocks, resets current XP, and restores
 health/mana for the session. See [GM controls](docs/unreal-gm-workbench.md).
+
+`npm run unreal:stage` keeps installed world visual bindings synchronized with
+gameplay exports after verifying unchanged source maps, models and native packages.
+Changed or already stale bindings stop staging for review. Restart the play session
+after staging; see [character-entry diagnostics](docs/unreal-character-entry.md).
 
 Install Node 22.19+ and run `npm ci`. Install exact Unreal 5.8.2 and its supported
 C++ toolchain, then set `UNREAL_ENGINE_ROOT` if outside the standard Windows path.

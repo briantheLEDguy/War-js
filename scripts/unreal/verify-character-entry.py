@@ -3,16 +3,25 @@
 Exercise the ordinary capital login RPC in a fresh standalone PIE session without
 saving maps or creating a persistent character. The JSON receipt is authoritative;
 editor process exit alone is not evidence of success.
+WAR_ENTRY_CAREER selects battle_prelate (default), sunfire_templar or ember_arcanist.
 """
 import configparser
 import json
+import os
 import time
 from pathlib import Path
 
 import unreal
 
 ROOT = Path(__file__).resolve().parents[2]
-OUTPUT = ROOT / 'artifacts/unreal/character-entry/runtime.json'
+CAREER = os.environ.get('WAR_ENTRY_CAREER', 'battle_prelate')
+PROFILES = {'battle_prelate': 'civic_battle_prelate_m',
+            'sunfire_templar': 'civic_sunfire_templar_m',
+            'ember_arcanist': 'civic_ember_arcanist_m'}
+if CAREER not in PROFILES:
+    raise ValueError('Entry verification requires an installed Aegis career')
+OUTPUT = ROOT / 'artifacts/unreal/character-entry' / (
+    'runtime-' + CAREER + '.json' if 'WAR_ENTRY_CAREER' in os.environ else 'runtime.json')
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 OUTPUT.write_text(json.dumps({'passed': False, 'status': 'running'}))
 config = configparser.ConfigParser(strict=False)
@@ -31,7 +40,8 @@ state = {'started': time.monotonic(), 'submitted': False, 'possessed_at': None}
 
 def finish(passed, detail, **evidence):
     OUTPUT.write_text(json.dumps({'passed': passed, 'detail': detail, 'map': map_path,
-                                 'lightPriorities': lights, 'graphicalAcceptance': False, **evidence}, indent=2))
+                                 'career': CAREER, 'lightPriorities': lights,
+                                 'graphicalAcceptance': False, **evidence}, indent=2))
     unreal.unregister_slate_post_tick_callback(handle)
     levels.editor_request_end_play()
     unreal.EditorPythonScripting.set_keep_python_script_alive(False)
@@ -53,7 +63,7 @@ def tick(_delta):
                 finish(False, 'A pawn was present before character submission')
                 return
             player.call_method('ServerCreateDevelopmentCharacter',
-                               args=('Entry Check', 'empire', 'battle_prelate', 'm'))
+                               args=('Entry Check', 'empire', CAREER, 'm'))
             state['submitted'] = True
             return
         pawn = player.get_controlled_pawn()
@@ -71,14 +81,14 @@ def tick(_delta):
             return
         mesh = pawn.get_component_by_class(unreal.SkeletalMeshComponent).get_editor_property('skeletal_mesh_asset')
         location = pawn.get_actor_location()
-        expected=unreal.load_asset('/Game/MigrationProof/Visual_civic_battle_prelate_m')
+        expected=unreal.load_asset('/Game/MigrationProof/Visual_' + PROFILES[CAREER])
         if not mesh or not expected or mesh!=expected.skeletal_mesh:
-            finish(False, 'The equipped two-handed Prelate mesh was not installed')
+            finish(False, 'The selected equipped character mesh was not installed')
             return
         if location.z < state['initial_z'] - 150:
             finish(False, 'The character fell through the arrival floor')
             return
-        finish(True, 'Ordinary entry possessed the equipped Prelate and closed login',
+        finish(True, 'Ordinary entry possessed the selected equipped character and closed login',
                mesh=mesh.get_path_name(), pawn=pawn.get_path_name(),
                location=[location.x, location.y, location.z])
     except Exception as error:

@@ -1,6 +1,7 @@
 #include "WarFrontendWidget.h"
 #include "WarDevelopmentAccount.h"
 #include "Engine/GameInstance.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "WarGraphicsWidget.h"
 #include "WarMenuFrame.h"
 #include "WarPlayerController.h"
@@ -164,6 +165,9 @@ void UWarFrontendWidget::ShowLogin()
     AddButton(TEXT("Developer account"), [this]() { ShowDeveloperAccount(); }, false);
 #endif
     AddButton(TEXT("Graphics"), [this] { UWarGraphicsWidget::Open(GetOwningPlayer(), this, true); }, false);
+    AddButton(TEXT("Quit Game"), [this] {
+        UKismetSystemLibrary::QuitGame(this, GetOwningPlayer(), EQuitPreference::Quit, false);
+    }, false);
 }
 
 void UWarFrontendWidget::ShowDeveloperAccount()

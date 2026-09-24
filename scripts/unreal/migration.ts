@@ -4,6 +4,7 @@ import { buildContentManifest, canonicalJson } from './export-content';
 import { buildAssetLedger } from './asset-ledger';
 import { parityFeatures, validateParityLedger } from './feature-parity';
 import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, repoRoot, type ToolchainReport } from './toolchain';
+import { stageDevelopmentContent } from './stage-content';
 
 export interface ReadinessInput {
   assets: { assignmentCount: number; ready: number; packagingReady: boolean; blocked: number };
@@ -54,10 +55,7 @@ export async function runMigration(args: string[]): Promise<number> {
   await writeFile(path.join(output, 'feature-parity.json'), canonicalJson({ schemaVersion: 1, features: parityFeatures }));
   await writeFile(path.join(output, 'readiness.json'), canonicalJson(readiness));
   if (options.has('--stage-development')) {
-    const staging = path.join(repoRoot, 'unreal/AegisWar/Content/Migration');
-    await mkdir(staging, { recursive: true });
-    await writeFile(path.join(staging, 'content.json'), canonicalJson(content));
-    await writeFile(path.join(staging, 'DEVELOPMENT_ONLY.txt'), 'Unverified migration data. This is not release approval or a complete Unreal world.\n');
+    await stageDevelopmentContent(content, repoRoot);
   }
   console.log(JSON.stringify({ content: readiness.content, assets: assets.summary,
     featureContracts: readiness.featureContracts, readyForRelease: readiness.readyForRelease,

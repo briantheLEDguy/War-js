@@ -1,3 +1,14 @@
+## 2026-09-24 - Character arrival content repair
+
+- Fix development staging leaving the world visual catalog on an older gameplay fingerprint, which invalidated capital training targets and timed out every character entry.
+- Preserve reviewed bindings across unrelated gameplay changes only after checking unchanged maps, source models and native mesh/material packages. Reject stale baselines or changed assets before replacing live catalogs.
+- Add staging regression tests and extend the ordinary entry runtime check to installed Sunfire Templar and Ember Arcanist characters as well as Battle Prelate.
+
+## 2026-09-24 - Login screen quit option
+
+- Add **Quit Game** below Graphics on the native login screen using Unreal's standard quit action, available without signing in.
+- Add native UI regression coverage for initial login and returning from account tools.
+
 ## 2026-09-24 - Native ability workshop and conditional runtime
 
 - Connect personal local GM deployment to the running native catalog at a simulation-tick boundary. Save immutable versions with confirmed activation, rollback, interrupted-deployment recovery and automatic restoration on the next authorized GM launch. Validate every changed assignment against configured admitted presentations; keep shared/Shipping gates closed.

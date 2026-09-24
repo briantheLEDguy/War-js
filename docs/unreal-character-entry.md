@@ -23,8 +23,8 @@ session-only and are not saved to disk.
 
 `WarPlayerControllerFrontend.cpp` validates creation on authority, matches the
 exact race/career/body against configured native visuals and checks provenance
-through `WarContentSubsystem`. Empire / Battle Prelate / Male uses the recovered
-body, armor and hammer assembly to enter the configured Aegis capital. Playable
+through `WarContentSubsystem`. Installed male Empire Battle Prelate, Sunfire
+Templar and Ember Arcanist profiles enter the configured Aegis capital. Playable
 visuals reject NPC/different-profile source substitutions. See
 `docs/unreal-battle-prelate-recovery.md`. Other selections return recoverable errors. Riftbound
 entry remains blocked until its capital flow exists. The controller retains the
@@ -80,3 +80,38 @@ equipped `PrelateTwoHanded` mesh, removed the frontend, and retained the charact
 on the floor at approximately (-11800, 0, 101.15) cm. The same fresh-map check read
 back sun priority 1 and fill priority 0. This headless check verifies entry and
 saved settings; it is not visual animation or lighting approval.
+
+September 24 arrival-content repair: a gameplay export changed `content.json`'s
+source fingerprint without updating the reviewed `world-visuals.json` catalog.
+The three Aegis training targets consequently failed validation, and zone readiness
+blocked every installed Aegis character with the generic arrival timeout.
+
+`scripts/unreal/stage-content.ts`, called by `npm run unreal:stage`, now carries
+the existing reviewed bindings forward only when their source maps are unchanged
+and every recorded source-model and native-package hash still matches. It preserves
+binding identity, mesh, ordered materials, collision and development-only status.
+Changed assets or a catalog already stale against the installed manifest stop
+staging before either live catalog is replaced; they require explicit review.
+No runtime readiness or missing-model gate is relaxed. Restart the play session
+after repairing/staging content because the subsystem loads catalogs at startup.
+
+For an arrival timeout, inspect `Saved/Logs` for `Arrival readiness timeout` and
+`WAR_ENEMY_CONTENT_BLOCKED`; repeated entry attempts cannot repair an invalid catalog.
+The local repair preserved 26 bindings, checked 36 native packages and matched
+all four bound map sources against the authored world-plan receipt. Its evidence
+is in `artifacts/unreal/character-entry/catalog-repair.json`, with the original
+catalog retained beside it.
+
+Set `WAR_ENTRY_CAREER` to `battle_prelate`, `sunfire_templar` or `ember_arcanist`
+before running `verify-character-entry.py` in a fresh headless editor. Each run
+writes `artifacts/unreal/character-entry/runtime-<career>.json`, verifies the exact
+equipped mesh, possession, frontend removal and a stable arrival floor. Without
+the variable it retains the original Battle Prelate check and `runtime.json` path.
+
+Windows verification for this repair: all three career entry receipts passed in
+Unreal 5.8.2 with the expected equipped mesh and arrival at (-11800, 0, 101.15) cm.
+The installed native foundation suite passed 54 tests; `npm test` passed 649,
+including the 12 new staging cases. The Unreal tooling subset passed 124 tests;
+all three typechecks, migration audit, world and model validation passed.
+The release check still fails on the existing four acceptance blockers. These
+headless checks establish local entry, not graphical, Steam or platform acceptance.
