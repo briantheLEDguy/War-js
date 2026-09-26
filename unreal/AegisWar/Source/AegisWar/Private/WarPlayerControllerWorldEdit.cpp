@@ -9,6 +9,8 @@
 void AWarPlayerController::PickWorldEditorObject()
 {
     if (!WorldEditWidget || !WorldEditWidget->IsInViewport()) return;
+    if (WorldEditWidget->IsPointerOverPanel()) return;
+    if (WorldEditWidget->HasPlacement()) { WorldEditWidget->CommitPlacement(); return; }
     const auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
     FVector Origin, Direction;
     if (!Editor || !Editor->CanUse(this) || !DeprojectMousePositionToWorld(Origin, Direction)) return;
@@ -25,14 +27,13 @@ void AWarPlayerController::ToggleWorldEditor()
     if (WorldEditWidget && WorldEditWidget->IsInViewport())
     {
         WorldEditWidget->RemoveFromParent(); SetInputMode(FInputModeGameOnly());
-        SetIgnoreLookInput(false); SetIgnoreMoveInput(false); bShowMouseCursor = false; return;
+        bShowMouseCursor = false; return;
     }
     auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
     FString Error;
     if (!Editor || !Editor->Open(this, Error)) { WorldEditMessage = Error; return; }
-    CloseInterface();
-    if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
-    if (QuestLogWidget && QuestLogWidget->IsInViewport()) ToggleQuestLog();
+    CloseAllPanels();
+    if (IsEditingUi()) SetEditingUi(false);
     if (!WorldEditWidget)
     {
         WorldEditWidget = CreateWidget<UWarWorldEditWidget>(this, UWarWorldEditWidget::StaticClass());
@@ -41,8 +42,11 @@ void AWarPlayerController::ToggleWorldEditor()
     if (!WorldEditWidget) return;
     WorldEditWidget->AddToViewport(10);
     WorldEditWidget->SetPositionInViewport(FVector2D(24, 24));
-    SetInputMode(FInputModeGameAndUI()); SetIgnoreLookInput(true); SetIgnoreMoveInput(true); bShowMouseCursor = true;
-    WorldEditMessage = TEXT("Editing a development draft. Save before leaving the map.");
+    FInputModeGameAndUI Input; Input.SetHideCursorDuringCapture(false);
+    SetInputMode(Input); bShowMouseCursor = true;
+    WorldEditMessage = Editor->GetPublicationLoadError().IsEmpty()
+        ? TEXT("Editing a development draft. Save for recovery or publish to keep it live on the next launch.")
+        : TEXT("Published world could not load: ") + Editor->GetPublicationLoadError();
 }
 
 void AWarPlayerController::ServerEditWorldObject_Implementation(FName Id, FTransform Transform, bool bObjectHidden, int32 ExpectedRevision)
@@ -76,7 +80,7 @@ void AWarPlayerController::ServerSetDevelopmentTraversal_Implementation(bool bFl
 {
     auto* WarPawn = Cast<AWarCharacter>(GetPawn()); FString Error;
     const bool bSuccess = WarPawn && WarPawn->SetDevelopmentTraversal(bFlying, SpeedMultiplier, Error);
-    ClientWorldEditResult(bSuccess ? (bFlying ? TEXT("Flight enabled. Close the panel; E moves up and Q moves down.") : TEXT("Walking enabled."))
+    ClientWorldEditResult(bSuccess ? (bFlying ? TEXT("Flight enabled. E moves up and Q moves down, including while building.") : TEXT("Walking enabled."))
         : TEXT("Traversal rejected: ") + (Error.IsEmpty() ? FString(TEXT("Character unavailable.")) : Error));
 }
 
@@ -126,4 +130,26 @@ void AWarPlayerController::ServerCreateWorldRow_Implementation(FName Id, int32 C
     if (bSuccess) ClientWorldObjectCreated(Created);
     ClientWorldEditResult(bSuccess ? TEXT("Row placed. Undo removes the entire row; save the draft to keep it.")
         : TEXT("Row rejected: ")+(Error.IsEmpty() ? FString(TEXT("GM access unavailable.")) : Error));
+}
+
+bool AWarPlayerController::IsWorldEditorOpen() const
+{ return WorldEditWidget && WorldEditWidget->IsInViewport(); }
+
+void AWarPlayerController::ServerPlaceWorldObjectAtPointer_Implementation(FName TemplateId, FVector Origin,
+    FVector Direction, double Grid, double Angle, int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+    FString Error; FTransform Transform; FName Id;
+    const bool Success = Editor && Editor->ResolvePlacement(this, TemplateId, Origin, Direction, Grid, Angle, Transform, Error)
+        && Editor->Create(this, TemplateId, Transform, ExpectedRevision, Id, Error);
+    if (Success) ClientWorldObjectCreated(Id);
+    ClientWorldEditResult(Success ? TEXT("Model placed. Save the draft or publish to this local game.") : Error);
+}
+
+void AWarPlayerController::ServerPublishWorldDraft_Implementation(int32 ExpectedRevision)
+{
+    auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FString Error;
+    const bool Success = Editor && Editor->Publish(this, ExpectedRevision, Error);
+    ClientWorldEditResult(Success ? TEXT("Published to this local game. Restored automatically on your next local GM launch.")
+        : TEXT("Publish failed: ") + (Error.IsEmpty() ? FString(TEXT("GM access unavailable.")) : Error));
 }

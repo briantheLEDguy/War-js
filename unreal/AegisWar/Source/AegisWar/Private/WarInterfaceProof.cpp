@@ -104,6 +104,7 @@ void UWarInterfaceProof::Tick(float DeltaTime)
         return;
     }
     const auto Check = [this](bool Good, const FString& Detail) { if (!Good) Finish(false, Detail); return Good; };
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarBuilderProof"))) { TickWorldBuilder(Now); return; }
     if (FParse::Param(FCommandLine::Get(),TEXT("WarWorkshopProof")))
     {
         FString Run; FGuid Id; if (!FParse::Value(FCommandLine::Get(),TEXT("WarWorkshopRun="),Run) || !FGuid::Parse(Run,Id)) { Finish(false,TEXT("Isolated workshop proof ID required")); return; }
@@ -160,7 +161,7 @@ void UWarInterfaceProof::Tick(float DeltaTime)
             }
             if (PC->IsEditingUi()) PC->SetEditingUi(false);
             if (Page == TEXT("World builder")) PC->ToggleWorldEditor(); else PC->ShowInterface(Page);
-            if (!Check((PC->IsInterfaceOpen() || Page==TEXT("World builder")) && PC->IsMoveInputIgnored() && PC->IsLookInputIgnored() && PC->bShowMouseCursor,
+            if (!Check((PC->IsInterfaceOpen() || Page==TEXT("World builder")) && PC->IsMoveInputIgnored() == (Page != TEXT("World builder")) && PC->IsLookInputIgnored() == (Page != TEXT("World builder")) && PC->bShowMouseCursor,
                 TEXT("Opening a page did not capture input"))) return;
         }
         else

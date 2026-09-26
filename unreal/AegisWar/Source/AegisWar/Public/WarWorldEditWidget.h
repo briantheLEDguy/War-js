@@ -11,17 +11,32 @@ class AEGISWAR_API UWarWorldEditWidget : public UUserWidget
 {
     GENERATED_BODY()
 public:
-    void SelectObject(FName Id) { Selected = Id; }
+    UWarWorldEditWidget(const FObjectInitializer& Initializer);
+    void SelectObject(FName Id) { CancelPlacement(); Selected = Id; }
+    void PlaceTemplate(FName TemplateId);
+    void CancelPlacement();
+    bool HasPlacement() const { return !PlacementTemplate.IsNone(); }
+    void CommitPlacement();
+    bool IsPointerOverPanel() const;
     void ExpandRepeatedConstruction();
 protected:
     virtual TSharedRef<SWidget> RebuildWidget() override;
     virtual void NativeTick(const FGeometry& Geometry, float DeltaTime) override;
     virtual void ReleaseSlateResources(bool bReleaseChildren) override;
+    virtual void NativeConstruct() override;
+    virtual void NativeDestruct() override;
 private:
+    friend class UWarInterfaceProof;
     void RefreshRows();
     void RefreshCatalog();
     void SelectNearest();
-    void PlaceTemplate(FName TemplateId);
+    void UpdatePlacement();
+    FName PlacementTemplate;
+    UPROPERTY(Transient) TObjectPtr<class AStaticMeshActor> PreviewActor;
+    UPROPERTY() TObjectPtr<class UMaterialInterface> PreviewMaterial;
+    bool bPreviewValid = false;
+    bool bThrottleDisabled = false;
+    bool bTextInputLocked = false;
     void SnapSelected();
     void SetSelectedComponent(int32 Field, double Value);
     void EditSelected(FVector Offset, double Yaw = 0, double Scale = 1, bool bToggleHidden = false);

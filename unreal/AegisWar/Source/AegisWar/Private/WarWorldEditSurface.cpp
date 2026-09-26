@@ -7,6 +7,32 @@
 #include "GameFramework/Pawn.h"
 #include "Engine/World.h"
 
+UStaticMesh* UWarWorldEditSubsystem::GetTemplateMesh(FName Id) const
+{
+    const auto* Template = Templates.Find(Id);
+    return Template ? Template->Mesh.LoadSynchronous() : nullptr;
+}
+
+bool UWarWorldEditSubsystem::ResolvePlacement(APlayerController* Controller, FName TemplateId,
+    FVector Origin, FVector Direction, double Grid, double Angle, FTransform& Transform, FString& Error)
+{
+    if (!Ready(Controller, Error)) return false;
+    const auto* Original = History.GetBaselineObjects().FindByPredicate([TemplateId](const auto& Row) { return Row.Id == TemplateId; });
+    const auto* Mesh = GetTemplateMesh(TemplateId);
+    if (!Original || !Mesh) { Error = TEXT("Required authored model is unavailable."); return false; }
+    if (Origin.ContainsNaN() || Direction.ContainsNaN() || !Direction.IsNormalized()
+        || !FMath::IsFinite(Angle) || Angle < 0 || Angle > 360)
+    { Error = TEXT("Invalid placement ray or angle."); return false; }
+    FHitResult Hit; FCollisionQueryParams Query(SCENE_QUERY_STAT(WarBuilderPreview), true);
+    Query.AddIgnoredActor(Controller->GetPawn());
+    if (!GetWorld()->LineTraceSingleByChannel(Hit, Origin, Origin + Direction * 100000, ECC_Visibility, Query))
+    { Error = TEXT("Point at a ground or wall surface to place the model."); return false; }
+    const auto Placement = WarWorldEditPlacement::AtContact(
+        WarWorldEditPlacement::SnapTransform(Original->Transform, 0, Angle), Mesh->GetBoundingBox(), Hit.ImpactPoint, Hit.ImpactNormal, Grid);
+    if (!Placement.IsSet()) { Error = TEXT("The model cannot fit within supported world bounds."); return false; }
+    Transform = Placement.GetValue(); return true;
+}
+
 bool UWarWorldEditSubsystem::CreateRow(APlayerController* Controller, const FName Id, const int32 Count,
     const bool bAlongY, const double Gap, const double Grid, const int32 Revision, FName& CreatedId, FString& Error)
 {

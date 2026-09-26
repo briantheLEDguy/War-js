@@ -1,4 +1,5 @@
 #include "WarWorldEditPlacement.h"
+#include "WarWorldEditBounds.h"
 
 TOptional<double> WarWorldEditPlacement::ComponentValue(const FTransform& Transform, const int32 Field)
 {
@@ -14,8 +15,8 @@ bool WarWorldEditPlacement::SetComponent(FTransform& Transform, const int32 Fiel
     if (Field < 0 || Field > 8 || !FMath::IsFinite(Value)) return false;
     if (Field < 3)
     {
-        if (FMath::Abs(Value) > 1000) return false;
         FVector Position = Transform.GetLocation(); Position[Field] = Value * 100;
+        if (!WarWorldEditBounds::NearTemplate(Position, Transform.GetLocation())) return false;
         Transform.SetLocation(Position);
     }
     else if (Field >= 6)
@@ -78,13 +79,13 @@ TOptional<FTransform> WarWorldEditPlacement::AtSurface(const FTransform& Basis, 
     const FBox Oriented = LocalBounds.TransformBy(Result);
     const FVector Centre = Oriented.GetCenter();
     Result.SetLocation(Surface - FVector(Centre.X, Centre.Y, Oriented.Min.Z));
-    if (Result.ContainsNaN() || Result.GetLocation().GetAbsMax() > 100000) return {};
+    if (Result.ContainsNaN() || !WarWorldEditBounds::NearTemplate(Result.GetLocation(), Basis.GetLocation())) return {};
     return Result;
 }
 
 TOptional<FVector> WarWorldEditPlacement::RowStep(const FTransform& Basis, const FBox& LocalBounds, const bool bAlongY, const double Gap)
 {
-    if (!FMath::IsFinite(Gap) || Gap < 0 || Gap > 10000 || !AtSurface(Basis,LocalBounds,FVector::ZeroVector).IsSet()) return {};
+    if (!FMath::IsFinite(Gap) || Gap < 0 || Gap > 10000 || !AtSurface(Basis,LocalBounds,Basis.GetLocation()).IsSet()) return {};
     FVector Direction = Basis.GetRotation().RotateVector(bAlongY ? FVector::RightVector : FVector::ForwardVector);
     Direction.Z = 0;
     if (!Direction.Normalize()) return {};
@@ -98,4 +99,28 @@ TOptional<FVector> WarWorldEditPlacement::RowStep(const FTransform& Basis, const
     }
     if (Span < .01) return {};
     return Direction*(Span+Gap);
+}
+
+TOptional<FTransform> WarWorldEditPlacement::AtContact(const FTransform& Basis, const FBox& Bounds,
+    FVector Surface, FVector Normal, double Grid)
+{
+    if (!AtSurface(Basis, Bounds, Surface).IsSet() || Normal.ContainsNaN() || !Normal.IsNormalized()
+        || !FMath::IsFinite(Grid) || Grid < 0 || Grid > 10000) return {};
+    // Snap along the contact plane, never away from the supporting wall/ground.
+    if (Grid > 0)
+    {
+        FVector U, V; Normal.FindBestAxisVectors(U, V);
+        Surface += U * (Snap(FVector::DotProduct(Surface, U), Grid) - FVector::DotProduct(Surface, U))
+            + V * (Snap(FVector::DotProduct(Surface, V), Grid) - FVector::DotProduct(Surface, V));
+    }
+    FTransform Result = Basis; Result.SetLocation(FVector::ZeroVector);
+    double Support = 0;
+    for (int32 Axis = 0; Axis < 3; ++Axis)
+    {
+        FVector Local = FVector::ZeroVector; Local[Axis] = Bounds.GetExtent()[Axis];
+        Support += FMath::Abs(FVector::DotProduct(Result.TransformVector(Local), Normal));
+    }
+    Result.SetLocation(Surface + Normal * Support - Result.TransformVector(Bounds.GetCenter()));
+    if (Result.ContainsNaN() || !WarWorldEditBounds::NearTemplate(Result.GetLocation(), Basis.GetLocation())) return {};
+    return Result;
 }

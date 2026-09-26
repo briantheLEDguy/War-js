@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'node:fs';
 import path from 'node:path';
 import { officialCapitalMap } from './capital-map';
+import { capitalExpansionCounts } from './capital-scene-counts';
 import { randomUUID } from 'node:crypto';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
@@ -13,6 +14,9 @@ if (packagedClient && !existsSync(packagedClient)) throw new Error('Packaged Win
 const nativeSaved = packagedRoot ? path.join(packagedRoot, 'AegisWar/Saved') : path.join(repoRoot, 'unreal/AegisWar/Saved');
 const receipt = JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/licensed-kits/capital-kit-build.json'), 'utf8'));
 const officialMap = officialCapitalMap();
+const expanded = capitalExpansionCounts(repoRoot, officialMap);
+const expectedObjects = expanded?.objects ?? receipt.placements.length;
+const expectedModels = expanded?.models ?? new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size;
 if (receipt.map !== '/Game/Capitals/crownward/AegisCapital_Workbench' || receipt.placements.length < 1)
   throw new Error('Build Crownward before testing it.');
 const engine = inspectToolchain(defaultEngineRoot());
@@ -31,16 +35,16 @@ for (const reload of args.has('--castle-traversal') ? [false] : [false, true]) {
     ...(args.has('--surface-placement') ? ['-WarSurfacePlacementProof'] : []),
     ...(args.has('--construction-row') ? ['-WarConstructionRowProof'] : []),
     ...(args.has('--castle-traversal') ? ['-WarCastleTraversalProof'] : []),
-    `-WarCapitalExpectedModels=${new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size}`,
-    `-WarCapitalExpectedObjects=${receipt.placements.length}`, `-abslog=${path.join(output, id + '.log')}`,
+    `-WarCapitalExpectedModels=${expectedModels}`,
+    `-WarCapitalExpectedObjects=${expectedObjects}`, `-abslog=${path.join(output, id + '.log')}`,
     ...(reload ? ['-WarCapitalReloadProof'] : [])]);
   const result = path.join(nativeSaved, 'CapitalProof', id, 'report.json');
   if (code !== 0 || !existsSync(result)) throw new Error(`Crownward proof failed: ${output}`);
   const report = JSON.parse(readFileSync(result, 'utf8').replace(/^\uFEFF/, ''));
-  if (!report.passed || report.editableObjects !== receipt.placements.length + (args.has('--castle-traversal') ? 0 : args.has('--construction-row') ? 3 : 1) || report.fullCapitalAcceptance !== false
+  if (!report.passed || report.editableObjects !== expectedObjects + (args.has('--castle-traversal') ? 0 : args.has('--construction-row') ? 3 : 1) || report.fullCapitalAcceptance !== false
     || !report.catalogSearchVerified || (args.has('--castle-traversal') ? !report.castleTraversalVerified || report.castleRoutesWalked !== 12
       : args.has('--construction-row') ? !report.constructionRowVerified : args.has('--surface-placement')
-      ? !report.surfacePlacementVerified || (!reload && report.surfaceModelsVerified !== new Set(receipt.placements.map((row: { mesh: string }) => row.mesh)).size)
+      ? !report.surfacePlacementVerified || (!reload && report.surfaceModelsVerified !== expectedModels)
       : !reload && (!report.developmentTraversalVerified || !report.capitalGameplayIntegrationVerified || report.capitalResourcesVerified !== 6)))
     throw new Error(`Crownward runtime checks failed: ${output}`);
   if (args.has('--rendered')) {

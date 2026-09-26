@@ -444,7 +444,7 @@ void AWarCharacter::UpdateMovementInput()
         || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Left"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Right")))
         || !FMath::IsNearlyZero(ForwardAxis) || !FMath::IsNearlyZero(RightAxis);
     const auto Intent = MovementInput.Resolve(ForwardAxis, RightAxis, bManualKey,
-        PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit"))),
+        !PC->IsWorldEditorOpen() && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit"))),
         bAllowed, bDead || GetCharacterMovement()->MovementMode == MOVE_Flying);
     if (!bAllowed) { ForwardAxis = 0; RightAxis = 0; return; }
     const FRotationMatrix Basis(FRotator(0.f, PC->GetControlRotation().Yaw, 0.f));
@@ -456,13 +456,13 @@ void AWarCharacter::UpdateMovementInput()
 void AWarCharacter::LookYaw(const FInputActionValue& Value)
 {
     const auto* PC = Cast<AWarPlayerController>(Controller);
-    if (PC && (PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit")))))
+    if (PC && ((!PC->IsWorldEditorOpen() && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike")))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit")))))
         ApplyCameraOrbit(Value.Get<float>(), 0.0);
 }
 void AWarCharacter::LookPitch(const FInputActionValue& Value)
 {
     const auto* PC = Cast<AWarPlayerController>(Controller);
-    if (PC && (PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit")))))
+    if (PC && ((!PC->IsWorldEditorOpen() && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike")))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit")))))
         ApplyCameraOrbit(0.0, -Value.Get<float>());
 }
 void AWarCharacter::Zoom(const FInputActionValue& Value)

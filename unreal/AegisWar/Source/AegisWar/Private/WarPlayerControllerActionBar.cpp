@@ -1,4 +1,5 @@
 #include "WarPlayerController.h"
+#include "WarWorldEditSubsystem.h"
 #include "WarAbilityRuntime.h"
 #include "WarAbilityCatalog.h"
 #include "WarActionBarWidget.h"
@@ -19,7 +20,17 @@ void AWarPlayerController::PlayerTick(float DeltaTime)
     if (!IsLocalController() || !GetLocalPlayer()) return;
     if (bEditingUi && IsMoveInputIgnored()) { bEditingUi = false; SaveActionBars(); }
     const auto* LocalCharacter = Cast<AWarCharacter>(GetPawn());
-    const bool bVisible = LocalCharacter && LocalCharacter->IsVisualReady() && !IsMoveInputIgnored()
+    if (!bWorldPublicationRestored && LocalCharacter && LocalCharacter->IsVisualReady())
+    {
+        auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+        if (Editor && Editor->CanUse(this))
+        {
+            bWorldPublicationRestored = true;
+            FString Error;
+            if (!Editor->Open(this, Error)) WorldEditMessage = TEXT("Published world could not load: ") + Error;
+        }
+    }
+    const bool bVisible = !IsWorldEditorOpen() && LocalCharacter && LocalCharacter->IsVisualReady() && !IsMoveInputIgnored()
         && LastEntryFailure.IsEmpty() && !bCharacterEntryPending;
     if (bVisible && !ActionBarWidget)
     {
@@ -155,7 +166,7 @@ FString AWarPlayerController::GetCombatTargetLabel() const
 
 void AWarPlayerController::ToggleActionCursor()
 {
-    if (bEditingUi || IsMoveInputIgnored() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
+    if (IsWorldEditorOpen() || bEditingUi || IsMoveInputIgnored() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
     bShowMouseCursor = !bShowMouseCursor;
     if (bShowMouseCursor) { FInputModeGameAndUI Mode; Mode.SetHideCursorDuringCapture(false); SetInputMode(Mode); }
     else SetInputMode(FInputModeGameOnly());
@@ -230,7 +241,7 @@ FString AWarPlayerController::GetActionMessage() const
 
 void AWarPlayerController::ActivateActionSlot(int32 Slot)
 {
-    if (!HasActionSlot(Slot) || bEditingUi || IsMoveInputIgnored() || !LastEntryFailure.IsEmpty()) return;
+    if (IsWorldEditorOpen() || !HasActionSlot(Slot) || bEditingUi || IsMoveInputIgnored() || !LastEntryFailure.IsEmpty()) return;
     const auto View = GetActionSlotView(Slot);
     if (!View.bAvailable) { ActionMessage = View.Detail; ActionMessageUntil = GetWorld()->GetTimeSeconds() + 4; return; }
     const FName Action = GetActionSlot(Slot);

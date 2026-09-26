@@ -1,6 +1,8 @@
 #include "WarWorldEditWidget.h"
 #include "WarUiArtwork.h"
 #include "WarWorldEditSubsystem.h"
+#include "WarDevelopmentAccount.h"
+#include "Engine/GameInstance.h"
 #include "WarWorldEditPlacement.h"
 #include "WarWorldEditCatalog.h"
 #include "WarInterfaceStyle.h"
@@ -12,6 +14,10 @@
 #include "Blueprint/WidgetLayoutLibrary.h"
 #include "GameFramework/Pawn.h"
 #include "DrawDebugHelpers.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Application/ThrottleManager.h"
+#include "UObject/ConstructorHelpers.h"
 #include "Widgets/Layout/SBorder.h"
 #include "Widgets/Layout/SBox.h"
 #include "Widgets/Layout/SScrollBox.h"
@@ -23,15 +29,22 @@
 #include "Widgets/Text/STextBlock.h"
 #include "Styling/CoreStyle.h"
 
+UWarWorldEditWidget::UWarWorldEditWidget(const FObjectInitializer& Initializer) : Super(Initializer)
+{
+    // A hard reference retains the preview material in cooked builds.
+    static ConstructorHelpers::FObjectFinder<UMaterialInterface> Material(TEXT("/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial"));
+    PreviewMaterial = Material.Object;
+}
+
 TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
 {
     const TWeakObjectPtr<UWarWorldEditWidget> Weak(this);
     auto Body = SNew(SVerticalBox);
     Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 24)).Text(FText::FromString(TEXT("City Builder")))];
-    Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).Text(FText::FromString(TEXT("Development draft — click a building to select")))];
+    Body->AddSlot().AutoHeight().Padding(0, 8)[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).AutoWrapText(true).Text(FText::FromString(TEXT("WASD move / right-drag orbit / click to place or select")))];
     auto Commands = SNew(SHorizontalBox);
     const auto Button = [](const FString& Label, TFunction<FReply()> Action) -> TSharedRef<SWidget> {
-        return SNew(SButton).ButtonStyle(&WarInterfaceStyle::Button()).OnClicked_Lambda(MoveTemp(Action))[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Label))];
+        return SNew(SButton).IsFocusable(false).ButtonStyle(&WarInterfaceStyle::Button()).OnClicked_Lambda(MoveTemp(Action))[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Label))];
     };
     Commands->AddSlot().AutoWidth()[Button(TEXT("Close"), [Weak] { if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer())) P->ToggleWorldEditor(); return FReply::Handled(); })];
     Commands->AddSlot().AutoWidth()[Button(TEXT("Select nearest"), [Weak] { if (Weak.IsValid()) Weak->SelectNearest(); return FReply::Handled(); })];
@@ -41,6 +54,35 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
                 if (auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>()) P->ServerWorldEditHistory(bRedo, E->GetHistory().GetRevision());
             return FReply::Handled(); })];
     Body->AddSlot().AutoHeight().Padding(0, 8)[Commands];
+    Body->AddSlot().AutoHeight()[Button(TEXT("Publish draft to local game"), [Weak] {
+        if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
+            if (auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
+                P->ServerPublishWorldDraft(E->GetHistory().GetRevision());
+        return FReply::Handled(); })];
+    Body->AddSlot().AutoHeight()[SNew(STextBlock).AutoWrapText(true).Text(FText::FromString(
+        TEXT("Local publishing persists this layout across launches.")))];
+    auto Remote = SNew(SVerticalBox);
+    Remote->AddSlot().AutoHeight()[Button(TEXT("Developer sign-in"), [Weak] {
+        if (Weak.IsValid()) if (auto* A = Weak->GetGameInstance()->GetSubsystem<UWarDevelopmentAccount>()) A->BeginLogin();
+        return FReply::Handled(); })];
+    Remote->AddSlot().AutoHeight()[SNew(STextBlock).AutoWrapText(true).Text_Lambda([Weak] {
+        const auto* A = Weak.IsValid() ? Weak->GetGameInstance()->GetSubsystem<UWarDevelopmentAccount>() : nullptr;
+        return A ? FText::FromString(A->GetStatus()) : FText::GetEmpty(); })];
+    for (const bool bPublish : { false, true })
+        Remote->AddSlot().AutoHeight()[Button(bPublish ? TEXT("Publish remote / retry") : TEXT("Sync: pull remote (back up local)"), [Weak, bPublish] {
+            if (Weak.IsValid()) if (auto* E = Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>())
+            { Weak->CancelPlacement(); E->SyncRemote(Weak->GetOwningPlayer(), bPublish); }
+            return FReply::Handled(); })];
+    Remote->AddSlot().AutoHeight()[SNew(STextBlock).AutoWrapText(true).Text_Lambda([Weak] {
+        const auto* E = Weak.IsValid() ? Weak->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>() : nullptr;
+        return E ? FText::FromString(E->GetRemoteStatus()) : FText::GetEmpty(); })];
+    Body->AddSlot().AutoHeight()[SNew(SExpandableArea).InitiallyCollapsed(true).AllowAnimatedTransition(false)
+        .AreaTitle(FText::FromString(TEXT("Remote world sync"))).BodyContent()[Remote]];
+    Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).AutoWrapText(true).Text_Lambda([Weak] {
+        const auto* P = Weak.IsValid() ? Cast<AWarPlayerController>(Weak->GetOwningPlayer()) : nullptr;
+        return P ? FText::FromString(P->GetWorldEditMessage()) : FText::GetEmpty(); })];
+    Body->AddSlot().AutoHeight()[Button(TEXT("Cancel placement"), [Weak] {
+        if (Weak.IsValid()) Weak->CancelPlacement(); return FReply::Handled(); })];
     auto Travel = SNew(SHorizontalBox);
     Travel->AddSlot().FillWidth(1)[Button(TEXT("Fly / walk"), [Weak] {
         if (Weak.IsValid()) if (auto* P = Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
@@ -114,7 +156,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
         .Label()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular",14)).Text(FText::FromString(TEXT("Gap m")))]
         .Value_Lambda([Weak]() -> TOptional<double> { return Weak.IsValid() ? Weak->RowGapMeters : 0; })
         .OnValueChanged_Lambda([Weak](double Value) { if (Weak.IsValid() && FMath::IsFinite(Value)) Weak->RowGapMeters=FMath::Clamp(Value,0.,100.); })];
-    RowOptions->AddSlot().AutoWidth()[SNew(SButton).OnClicked_Lambda([Weak] {
+    RowOptions->AddSlot().AutoWidth()[SNew(SButton).IsFocusable(false).OnClicked_Lambda([Weak] {
         if (Weak.IsValid()) Weak->bRowAlongY=!Weak->bRowAlongY; return FReply::Handled(); })
         [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular",15)).Text_Lambda([Weak] { return FText::FromString(Weak.IsValid() && Weak->bRowAlongY ? TEXT("Local Y") : TEXT("Local X")); })]];
     Repeated->AddSlot().AutoHeight()[RowOptions];
@@ -181,7 +223,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
     Extra->AddSlot().FillWidth(1)[Button(TEXT("Measure"),[Weak] {
         if (Weak.IsValid()) if (auto* P=Cast<AWarPlayerController>(Weak->GetOwningPlayer())) P->MeasureWorldObject(Weak->Selected);
         return FReply::Handled(); })];
-    Extra->AddSlot().FillWidth(1)[SNew(SButton).ButtonStyle(&WarInterfaceStyle::Button())
+    Extra->AddSlot().FillWidth(1)[SNew(SButton).IsFocusable(false).ButtonStyle(&WarInterfaceStyle::Button())
         .Text_Lambda([Weak] { return FText::FromString(Weak.IsValid() && Weak->ResetConfirmationRevision!=INDEX_NONE ? TEXT("Confirm reset") : TEXT("Reset to authored")); })
         .OnClicked_Lambda([Weak] {
             if (Weak.IsValid()) if (auto* P=Cast<AWarPlayerController>(Weak->GetOwningPlayer()))
@@ -192,9 +234,7 @@ TSharedRef<SWidget> UWarWorldEditWidget::RebuildWidget()
                 }
             return FReply::Handled(); })];
     Body->AddSlot().AutoHeight().Padding(0,6)[Extra];
-    Body->AddSlot().AutoHeight()[SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 16)).AutoWrapText(true).Text_Lambda([Weak] {
-        const auto* P = Weak.IsValid() ? Cast<AWarPlayerController>(Weak->GetOwningPlayer()) : nullptr;
-        return P ? FText::FromString(P->GetWorldEditMessage()) : FText::GetEmpty(); })];
+
     RefreshCatalog(); RefreshRows();
     if (Selected.IsNone()) SelectNearest();
     return SNew(SBox).WidthOverride(560)[SNew(SWarArtWindow)[SNew(SScrollBox)+SScrollBox::Slot()[Body]]];
@@ -212,8 +252,8 @@ void UWarWorldEditWidget::RefreshRows()
     for (const auto& Row : E->GetHistory().GetObjects())
     {
         if (!Search.IsEmpty() && !Row.Id.ToString().Contains(Search)) continue;
-        Rows->AddSlot().AutoHeight().Padding(0, 2)[SNew(SButton)
-            .OnClicked_Lambda([Weak = TWeakObjectPtr<UWarWorldEditWidget>(this), Id = Row.Id] { if (Weak.IsValid()) Weak->Selected = Id; return FReply::Handled(); })
+        Rows->AddSlot().AutoHeight().Padding(0, 2)[SNew(SButton).IsFocusable(false)
+            .OnClicked_Lambda([Weak = TWeakObjectPtr<UWarWorldEditWidget>(this), Id = Row.Id] { if (Weak.IsValid()) Weak->SelectObject(Id); return FReply::Handled(); })
             [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).Text(FText::FromString(Row.Id.ToString() + (Row.bHidden ? TEXT(" (hidden)") : TEXT(""))))]];
     }
 }
@@ -228,7 +268,7 @@ void UWarWorldEditWidget::RefreshCatalog()
     CatalogTotal = Entries.Num(); CatalogMatches = Filtered.Num();
     const TWeakObjectPtr<UWarWorldEditWidget> Weak(this);
     for (const auto& Entry : Filtered)
-        CatalogRows->AddSlot().AutoHeight().Padding(0, 2)[SNew(SButton)
+        CatalogRows->AddSlot().AutoHeight().Padding(0, 2)[SNew(SButton).IsFocusable(false)
             .OnClicked_Lambda([Weak, Id = Entry.TemplateId] { if (Weak.IsValid()) Weak->PlaceTemplate(Id); return FReply::Handled(); })
             [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Regular", 17)).AutoWrapText(true).Text(FText::FromString(Entry.Label))]];
     if (Filtered.IsEmpty()) CatalogRows->AddSlot().AutoHeight()[SNew(STextBlock)
@@ -237,6 +277,7 @@ void UWarWorldEditWidget::RefreshCatalog()
 
 void UWarWorldEditWidget::SelectNearest()
 {
+    CancelPlacement();
     const auto* Pawn = GetOwningPlayerPawn(); const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
     if (!Pawn || !E) return;
     double Best = TNumericLimits<double>::Max();
@@ -249,12 +290,31 @@ void UWarWorldEditWidget::SelectNearest()
 
 void UWarWorldEditWidget::PlaceTemplate(const FName TemplateId)
 {
+    CancelPlacement();
+    Selected = NAME_None;
+    auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
     auto* P = Cast<AWarPlayerController>(GetOwningPlayer());
-    const auto* Pawn = GetOwningPlayerPawn();
-    const auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
-    if (!P || !Pawn || !E) return;
-    P->ServerPlaceWorldObject(TemplateId, GridCentimeters(), GridCentimeters() > 0 ? AngleDegrees() : 0,
-        E->GetHistory().GetRevision());
+    UStaticMesh* Mesh = E ? E->GetTemplateMesh(TemplateId) : nullptr;
+    auto* Material = PreviewMaterial.Get();
+    if (!P || !E || !E->CanUse(P) || !Mesh || !Material)
+    { if (P) P->ClientWorldEditResult(TEXT("Required model or preview material unavailable. Nothing placed.")); return; }
+    FActorSpawnParameters Params; Params.ObjectFlags |= RF_Transient;
+    PreviewActor = GetWorld()->SpawnActor<AStaticMeshActor>(Params);
+    if (!PreviewActor) return;
+    PreviewActor->SetReplicates(false); PreviewActor->SetActorEnableCollision(false);
+    auto* Component = PreviewActor->GetStaticMeshComponent();
+    Component->SetMobility(EComponentMobility::Movable); Component->SetStaticMesh(Mesh);
+    Component->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    Component->SetCanEverAffectNavigation(false); Component->SetCastShadow(false);
+    Component->bAffectDynamicIndirectLighting = false; Component->bAffectDistanceFieldLighting = false;
+    auto* Green = UMaterialInstanceDynamic::Create(Material, PreviewActor);
+    Green->SetVectorParameterValue(TEXT("Color"), FLinearColor(0.02f, 0.8f, 0.05f, 1.f));
+    for (int32 Index = 0; Index < Component->GetNumMaterials(); ++Index) Component->SetMaterial(Index, Green);
+    PlacementTemplate = TemplateId;
+    FSlateApplication::Get().SetUserFocusToGameViewport(0);
+    P->ClientWorldEditResult(TEXT("Move the pointer onto ground or a wall. Green model previews placement; click to place. Cancel placement to select buildings."));
+    UpdatePlacement();
+
 }
 
 double UWarWorldEditWidget::GridCentimeters() const
@@ -282,7 +342,7 @@ void UWarWorldEditWidget::SetSelectedComponent(const int32 Field, const double V
     FTransform Transform = Row->Transform;
     if (WarWorldEditPlacement::SetComponent(Transform, Field, Value))
         P->ServerEditWorldObject(Selected, Transform, Row->bHidden, E->GetHistory().GetRevision());
-    else P->ClientWorldEditResult(TEXT("Use position within +/-1000 m, rotation within +/-360 degrees, and scale from 0.05 to 20."));
+    else P->ClientWorldEditResult(TEXT("Keep the position within the building's editing bounds, rotation within +/-360 degrees, and scale from 0.05 to 20."));
 }
 
 void UWarWorldEditWidget::EditSelected(const FVector Offset, const double Yaw, const double Scale, const bool bToggleHidden)
@@ -300,6 +360,14 @@ void UWarWorldEditWidget::EditSelected(const FVector Offset, const double Yaw, c
 void UWarWorldEditWidget::NativeTick(const FGeometry& Geometry, const float DeltaTime)
 {
     Super::NativeTick(Geometry, DeltaTime);
+    UpdatePlacement();
+    const auto Focus = FSlateApplication::Get().GetUserFocusedWidget(0);
+    const bool bTextFocus = Focus && Focus->GetTypeAsString().Contains(TEXT("EditableText"));
+    if (bTextFocus != bTextInputLocked)
+    {
+        if (auto* P = GetOwningPlayer()) P->SetIgnoreMoveInput(bTextFocus);
+        bTextInputLocked = bTextFocus;
+    }
     if (const auto* P = GetOwningPlayer())
     {
         int32 ViewportWidth = 0, ViewportHeight = 0; P->GetViewportSize(ViewportWidth, ViewportHeight);
@@ -319,3 +387,50 @@ void UWarWorldEditWidget::NativeTick(const FGeometry& Geometry, const float Delt
 
 void UWarWorldEditWidget::ReleaseSlateResources(const bool bReleaseChildren)
 { Super::ReleaseSlateResources(bReleaseChildren); Rows.Reset(); CatalogRows.Reset(); RepeatedSection.Reset(); DisplayedRevision = INDEX_NONE; LastPanelHeight = 0; }
+
+bool UWarWorldEditWidget::IsPointerOverPanel() const
+{ return GetCachedGeometry().IsUnderLocation(FSlateApplication::Get().GetCursorPos()); }
+
+void UWarWorldEditWidget::UpdatePlacement()
+{
+    if (!PreviewActor || PlacementTemplate.IsNone()) return;
+    auto* P = GetOwningPlayer(); auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
+    FVector Origin, Direction; FTransform Transform; FString Error;
+    bPreviewValid = P && E && !IsPointerOverPanel() && P->DeprojectMousePositionToWorld(Origin, Direction)
+        && E->ResolvePlacement(P, PlacementTemplate, Origin, Direction, GridCentimeters(),
+            GridCentimeters() > 0 ? AngleDegrees() : 0, Transform, Error);
+    PreviewActor->SetActorHiddenInGame(!bPreviewValid);
+    if (bPreviewValid) PreviewActor->SetActorTransform(Transform);
+}
+
+void UWarWorldEditWidget::CommitPlacement()
+{
+    UpdatePlacement();
+    auto* P = Cast<AWarPlayerController>(GetOwningPlayer());
+    auto* E = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>(); FVector Origin, Direction;
+    if (!bPreviewValid || !P || !E || !P->DeprojectMousePositionToWorld(Origin, Direction)) return;
+    // Resolve the contact again on the authority; never trust a preview transform as an edit.
+    P->ServerPlaceWorldObjectAtPointer(PlacementTemplate, Origin, Direction, GridCentimeters(),
+        GridCentimeters() > 0 ? AngleDegrees() : 0, E->GetHistory().GetRevision());
+}
+
+void UWarWorldEditWidget::CancelPlacement()
+{
+    if (PreviewActor) PreviewActor->Destroy();
+    PreviewActor = nullptr; PlacementTemplate = NAME_None; bPreviewValid = false;
+}
+
+void UWarWorldEditWidget::NativeConstruct()
+{
+    Super::NativeConstruct();
+    // Interactive world tools must keep full scene updates while Slate controls have focus.
+    if (!bThrottleDisabled) { FSlateThrottleManager::Get().DisableThrottle(true); bThrottleDisabled = true; }
+}
+
+void UWarWorldEditWidget::NativeDestruct()
+{
+    CancelPlacement();
+    if (bTextInputLocked) { if (auto* P = GetOwningPlayer()) P->SetIgnoreMoveInput(false); bTextInputLocked = false; }
+    if (bThrottleDisabled) { FSlateThrottleManager::Get().DisableThrottle(false); bThrottleDisabled = false; }
+    Super::NativeDestruct();
+}

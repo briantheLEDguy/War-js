@@ -5,9 +5,9 @@ import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPat
 
 export const requiredNativeTests = [
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
-  'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary',
+  'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary', 'WorldSync',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
-  'CharacterFrontend', 'ClassAbilityCatalog', 'ClassCombatStatus', 'AbilityConditions', 'AbilityConditionValidation', 'AbilityConditionConformance', 'AbilityWorkshopDocument', 'AbilityDeploymentJournal', 'IconOfWrath', 'SuppliedAnimationGameplay',
+  'CharacterFrontend', 'FrontendPresentation', 'ClassAbilityCatalog', 'ClassCombatStatus', 'AbilityConditions', 'AbilityConditionValidation', 'AbilityConditionConformance', 'AbilityWorkshopDocument', 'AbilityDeploymentJournal', 'IconOfWrath', 'SuppliedAnimationGameplay',
   'InventoryRewardParity', 'InventoryAuthority', 'CraftingCatalogAndRules', 'SalvageParity', 'CultivationTransactions', 'CraftingStationInteraction', 'ResourceGatheringTransactions', 'CharacterProgressionParity', 'ExpeditionQuestParity',
   'InterfaceRules', 'LocalGmAccess', 'QuestMarkerVisibility', 'CameraControls', 'MovementInput', 'WorldEditHistory', 'WorldEditCatalog', 'WorldEditStreaming', 'ZonePortal', 'ZoneStreaming', 'ZoneRespawn', 'ZoneAtmosphere',
 ].map(name => `AegisWar.Foundation.${name}`);

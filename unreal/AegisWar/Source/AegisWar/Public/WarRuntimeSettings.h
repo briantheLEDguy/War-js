@@ -6,12 +6,17 @@
 
 class UWarCharacterVisualDefinition;
 class UWarNpcEquipmentCatalog;
+class UWarFrontendPresentationDefinition;
 
 UCLASS(Config=Game, DefaultConfig, meta=(DisplayName="Aegis War migration"))
 class AEGISWAR_API UWarRuntimeSettings : public UDeveloperSettings
 {
     GENERATED_BODY()
 public:
+    UPROPERTY(Config, EditAnywhere, Category="Frontend")
+    TSoftObjectPtr<UWarFrontendPresentationDefinition> FrontendPresentation = TSoftObjectPtr<UWarFrontendPresentationDefinition>(
+        FSoftObjectPath(TEXT("/Game/UI/Frontend/CapitalPresentation.CapitalPresentation")));
+
     UPROPERTY(Config, EditAnywhere, Category="Content")
     FString ContentManifestRelativePath = TEXT("Migration/content.json");
 

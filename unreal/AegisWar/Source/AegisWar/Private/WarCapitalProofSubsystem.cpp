@@ -285,7 +285,7 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
         && ExpectedObjects > 0 && ExpectedObjects <= 10000, TEXT("Missing expected authored object count."))) return;
     if (!Check(!Editor->CanUse(nullptr), TEXT("Unauthenticated workbench access allowed."))) return;
     Player->ToggleWorldEditor();
-    if (!Check(Editor->GetHistory().GetObjects().Num() == ExpectedObjects && Player->IsMoveInputIgnored() && Player->IsLookInputIgnored(),
+    if (!Check(Editor->GetHistory().GetObjects().Num() == ExpectedObjects && !Player->IsMoveInputIgnored() && !Player->IsLookInputIgnored(),
         FString::Printf(TEXT("GM panel did not open: %s; map=%s net=%d"), *Player->GetWorldEditMessage(),
             *GetWorld()->GetMapName(), static_cast<int32>(GetWorld()->GetNetMode())))) return;
     int32 ExpectedModels = 0;

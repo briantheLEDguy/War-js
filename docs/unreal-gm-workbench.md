@@ -1,5 +1,11 @@
 # Native capital GM workbench
 
+**City Builder > Remote world sync** adds developer sign-in, a backed-up/undoable
+remote pull, and revision-checked owner publication. See
+[connection setup and recovery](unreal-world-sync.md). These are development
+authoring snapshots; the gateway needs configuration/deployment, and an active
+shared server does not yet consume these publications.
+
 **Escape > GM Tools > Ability Workshop** opens the native class spreadsheet and
 structured ability composer under the same authorized local GM gate. Filter
 headers, select class assignments and preview numeric overrides; structural
@@ -66,8 +72,8 @@ the list. A miss retains the existing selection. This currently selects by
 authored collision rather than exact visible mesh triangles.
 
 Selected geometry has an intentional cyan editor guide. Hidden buildings also
-stop blocking movement. Attached collision follows transform edits. Inventory,
-quest and builder panels share modal input handling and restore movement/camera
+stop blocking movement. Attached collision follows transform edits. Inventory and
+quest panels share modal input handling and restore movement/camera
 input when closed.
 
 The model catalog and placed-object list have separate search fields. Model
@@ -80,7 +86,7 @@ the integrated Crownward map has 14 kit models. Searching does not admit missing
 or unreviewed additional kit assets.
 
 The development panel also exposes **Fly / walk**, **Arrival**, and speed controls
-from 0.25x to 6x. Close the panel to fly with normal horizontal movement and
+from 0.25x to 6x. Fly with the panel open using normal horizontal movement and
 `E` up / `Q` down. Flight bypasses collision for city inspection. Returning to
 walking inside blocking geometry is rejected; move into clear space first.
 Arrival returns to an unobstructed capital spawn. Traversal settings belong to
@@ -131,15 +137,25 @@ magnitudes preserve imported mirrored axes. Invalid values leave the world
 unchanged and show a range message. These fields bypass grid snapping so exact
 values remain exact; attached collision follows every accepted edit.
 
-The house buttons place an authored model about 20 meters in front of the
-character, on the first blocking surface below that point. Use the transform
-controls to adjust the result; overlapping placements are currently allowed.
+Choosing a catalog model starts a green preview; it does not create a draft
+object yet. Move the pointer onto ground or a wall and click to place. The
+oriented model bounds touch the support plane, retaining authored rotation and
+mirrored scale. Grid snapping operates along the contact plane, so it cannot
+pull the preview away from a wall. No support means no preview or placement.
+**Cancel placement** returns to building selection. Closing or replacing the
+panel destroys the preview. Missing models/materials report an error.
+
+WASD movement, jumping, flight and right-drag camera orbit remain available with
+the panel open. Text entry temporarily blocks movement. Left clicks place/select
+without rotating the camera or attacking. The builder exempts its lifetime from
+Slate interaction throttling and does not change world exposure or lighting.
+
 Creation copies the trusted model and its authored collision, never a primitive
 fallback. Undo removes the created actor, and redo reconstructs it. Up to 1,000
 new objects may be retained in a draft. Version-two drafts store template IDs;
 version-one edit-only drafts remain readable. A fresh game process reconstructs
 created objects when loading the draft. Failed model resolution leaves the
-current document unchanged.
+current document unchanged. Overlapping placements are currently allowed.
 
 Drafts are written to `unreal/AegisWar/Saved/WorldEdit/aegis_capital-draft.json`.
 Use **Save draft** before leaving Play, then **Load draft** in the next session.
@@ -147,6 +163,19 @@ Loading is undoable. An existing draft must be loaded before it can be overwritt
 The save checks for external changes, uses a writer lock and replaces through a
 temporary file. This is local development persistence, not shared publication.
 The original imported map packages are not modified by runtime editing.
+
+**Publish draft to local game**, at the top of the panel, persists the current
+in-session layout independently of draft recovery. The publication is restored
+automatically after character readiness in subsequent authorized local GM
+launches, without opening the builder or loading a draft. Publications use a
+map-specific `*-live.json` file beside the draft, retain the validated authored
+baseline/model identities, and reject stale revisions or a file changed by
+another process. Save your work as a draft and restart to resolve an external
+publication conflict. An incompatible or unreadable publication reports an
+error and cannot be overwritten by publishing. Current edits are visible in the
+local session before publication; publication makes that layout the next-launch
+default. Production/remote GM authority and shared-server publication remain
+closed.
 
 Each request carries the expected revision. Invalid identities, stale requests,
 non-finite/unbounded transforms, zero scale and changes to model handedness are
@@ -180,8 +209,23 @@ transform and blocking collision.
 
 The live workflow passed on Windows, and its readable UI, authored character,
 terrain and buildings were inspected after correcting playable daylight exposure.
-Native foundation tests include world-edit transactions and draft compatibility.
+Native foundation tests include world-edit transactions, draft compatibility,
+oriented ground/wall/slope contact and publication file conflicts. Run
+`npm run unreal:builder-proof` for before/open/preview screenshots, nonmodal
+movement, catalog selection without mutation, preview cleanup, click placement,
+the actual publish button and restoration in a second game process. Its unique
+`Saved/WorldEditProof/` directory isolates it from user drafts/publications.
 Full capital/world acceptance remains false.
+
+Verified on 2026-09-25: 649 repository tests, 124 Unreal tooling tests and 54
+native foundation tests passed, along with all three TypeScript checks, the
+migration audit, world/model validation and Windows Editor/Game builds. The
+rendered builder and automatic fresh-process publication restore passed in
+`artifacts/unreal/world-builder/6bfe4accc4ff4c8f94305f271e9f975e/`.
+Before/open captures retained the sampled world region's mean RGB within 0.003
+levels out of 255; the green model preview was visually inspected. These captures
+do not establish the cause of an unavailable original screenshot. The release
+check still rejects outstanding native/model/Steam/platform acceptance gates.
 
 The Windows Development package also includes the capital when built with
 `npm run unreal:package-proof -- --include-capital`. Run its acceptance with

@@ -58,8 +58,8 @@ bool AWarPlayerController::CloseAllPanels()
     {
         if (!Panel || !Panel->IsInViewport()) continue;
         Panel->RemoveFromParent();
-        SetIgnoreMoveInput(false);
-        SetIgnoreLookInput(false);
+        if (Panel != WorldEditWidget.Get())
+        { SetIgnoreMoveInput(false); SetIgnoreLookInput(false); }
         Closed = true;
     }
     if (Closed) { SetInputMode(FInputModeGameOnly()); bShowMouseCursor = false; }

@@ -58,7 +58,8 @@ export function developmentHandler(service: DevelopmentService, internal?: { key
           const [,kind,id] = path.split('/'); result = await service.read(member, kind, id);
         } else if (request.method === 'POST' && path === '/operations') {
           const body = await readBody(request); result = await service.userOperation(member, body.requestId, body.action, body.body);
-        } else if (request.method === 'POST' && path === '/join') result = await service.issue(member, await readBody(request));
+        } else if (request.method === 'POST' && path === '/world-sync') result = await service.worldSync(member, await readBody(request));
+        else if (request.method === 'POST' && path === '/join') result = await service.issue(member, await readBody(request));
         else throw new DevelopmentError(404, 'Unknown route.');
       }
       response.end(JSON.stringify({ data: result }));

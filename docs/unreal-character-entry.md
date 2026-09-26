@@ -5,18 +5,19 @@ Ordinary `WarGameMode` startup opens `WarFrontendWidget` through the owning
 remains the editor/game default; its map bytes are unchanged.
 
 Screens provide Steam sign-in status, development character setup, and a review
-with name, race, career, body, realm and intended capital. All six races, 24
-original careers and both bodies are listed. Names accept 3-24 characters with
+with name, race, career, body, realm and intended capital. The current installed
+roster exposes male Empire Battle Prelate, Sunfire Templar and Ember Arcanist,
+and male Greenskin Warbrute. Names accept 3-24 characters with
 at least three letters, plus spaces, apostrophes and hyphens. Changing race resets
 the career to that race's first valid career.
 
-The shared Slate presentation uses a gold-framed midnight panel, ivory headings,
-three entry-step indicators and distinct primary/secondary controls. Persistent
-styles own field and button brushes, including hover, pressed and focus states.
-A downscaling frame and scrollable content keep the form within smaller windows.
+The Slate presentation uses a translucent midnight panel on the left, ivory
+headings, three entry-step indicators and distinct primary/secondary controls.
+Persistent styles own field and button brushes, including hover, pressed and
+focus states. A scaling frame and scrollable content keep smaller windows usable.
 
-Steam authentication, persistent account characters, multiple character slots
-and rendered character previews remain unimplemented. The Steam button reports
+Steam authentication, persistent account characters and multiple character slots
+remain unimplemented. The Steam button reports
 the unavailable service; it does not fabricate a login. Development setup is
 non-Shipping standalone only, not an offline product mode. Drafts are explicitly
 session-only and are not saved to disk.
@@ -115,3 +116,80 @@ including the 12 new staging cases. The Unreal tooling subset passed 124 tests;
 all three typechecks, migration audit, world and model validation passed.
 The release check still fails on the existing four acceptance blockers. These
 headless checks establish local entry, not graphical, Steam or platform acceptance.
+
+## Cinematic frontend
+
+The login, developer-account, creation and review pages use the supplied
+`aegislogo.png`, `button.png` and `window.png` from `unreal/AegisWar/graphics-new`.
+Run `scripts/unreal/import-frontend-artwork.py` with the Unreal Python commandlet
+to generate private textures/materials under `/Game/UI/Frontend/Artwork` (covered
+by the existing frontend cook directory). Original PNG bytes are preserved.
+UI materials crop transparent margins and render the art in bronze, removing
+its original blue tones. Inputs, dropdown selection, buttons and the translucent
+portrait backing use matching warm colors. The importer rejects unexpected
+canvas dimensions and assets it does not own. Its hash receipt is written to
+`artifacts/unreal/frontend/artwork.json`; the frontend proof requires all three
+artwork resources to be installed.
+
+Artwork verification: Windows Editor build, 58 native tests (including installed
+UI material/texture checks), 660 shared tests, 126 Unreal tooling tests, all three
+typechecks, migration audit, world and model validation passed. Rendered login
+and creation screens were inspected for the logo, bronze ornamentation, readable
+labels and retained portrait backing. All three supplied PNG hashes still match
+the import receipt. This is development UI evidence, not release acceptance.
+
+`WarFrontendWidget` owns the Slate layout and a `WarFrontendPresentation` object.
+The presentation owns two `FPreviewScene` city worlds and a separate character
+world. These worlds have no physics, navigation, audio, campaign actors, player
+pawns or replicated authority. Capital scenery is grouped into instanced static
+meshes; the source actor classes and their behaviors are never copied.
+
+The private `/Game/UI/Frontend/CapitalPresentation` data asset contains two camera
+views per capital, source-derived geometry/material references and presentation
+lighting. Views alternate Aegis/Riftspire with 18-second holds and 3-second
+crossfades. Captures are capped at 30 Hz and 1600×900 per city; only transitions
+need both city captures. The portrait target is 800×1000. Camera transforms and
+explicit exposure prevent gameplay camera state from affecting the menu.
+
+Initial login shows cities alone. Setup reveals the selected draft using the
+same playable definition and provenance checks as authoritative entry. Its
+approved idle, materials, weapon/shield grips and caster stowed bindings are
+retained. Previewing never creates a gameplay character or authorizes entry.
+Drag the portrait to rotate; focused portraits also accept Left/Right and Home.
+The portrait has a rounded translucent dark backdrop and faint gold border to
+separate its silhouette from the city without hiding the background completely.
+Reduced motion freezes the current city composition and character pose. Settings
+and the draft last for this frontend session; account persistence is unchanged.
+
+Selections cancel older loads and invalidate stale callbacks. Missing character
+content clears the old preview and displays a retryable error. Missing capital
+content exposes retry without replacing it with primitive geometry. Hidden or
+minimized frontends stop captures; removing the frontend releases preview worlds,
+targets and asynchronous handles. Scene packages and material adaptations remain
+private under ignored native Content paths, preserving existing license gates.
+
+After `npm run unreal:build -- --target Editor`, run
+`scripts/unreal/build-frontend-presentation.py` through UnrealEditor-Cmd using
+`-run=pythonscript -script=<absolute-script-path> -unattended -nop4 -nullrhi`.
+Close other project Editor/proof processes before asset generation. The script
+uses the installed world partition manifest and current capital map, saves only
+owned frontend assets, checks source package hashes, and writes its receipt to
+`artifacts/unreal/frontend/build.json`. Rebuild the snapshot after city edits.
+Material adaptations enable instancing on private copies, preserving originals.
+
+`AegisWar.Foundation.FrontendPresentation` covers camera validation, transition
+timing, reduced motion, selection invalidation and resource release.
+`npm run unreal:frontend-proof` follows ordinary no-pawn startup offscreen,
+exercises the four installed profiles and produces screenshots plus timing and
+process-memory evidence under `artifacts/unreal/frontend/`. Pass
+`-- --width 1280 --height 720` or `-- --width 2560 --height 1080` for layout checks.
+Proof success is behavioral evidence; inspect the rendered images separately.
+This work does not establish packaged, Steam, Linux/macOS or full-roster approval.
+
+Windows verification on 2026-09-25: the Editor build and all 56 native foundation
+tests passed, including `FrontendPresentation` and `CharacterFrontend`. The
+frontend proof passed at 1280x720, 1920x1080 and 2560x1080, with rendered portraits inspected
+for equipment framing and the translucent backdrop. The source-package check
+confirmed all 408 recorded packages were unchanged. Shared tests, Unreal tooling
+tests, typechecks, migration audit, world and model validation also passed; the
+release check still correctly fails on the four outstanding acceptance gates.

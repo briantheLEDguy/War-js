@@ -100,6 +100,9 @@ public:
     void ToggleQuestLog();
     void ToggleWorldEditor();
     void PickWorldEditorObject();
+    bool IsWorldEditorOpen() const;
+    UFUNCTION(Server, Reliable) void ServerPublishWorldDraft(int32 ExpectedRevision);
+    UFUNCTION(Server, Reliable) void ServerPlaceWorldObjectAtPointer(FName TemplateId, FVector Origin, FVector Direction, double Grid, double Angle, int32 ExpectedRevision);
     UFUNCTION(Server, Reliable) void ServerSetDevelopmentTraversal(bool bFlying, float SpeedMultiplier);
     UFUNCTION(Server, Reliable) void ServerReturnToDevelopmentSpawn();
     UFUNCTION(Server, Reliable) void ServerEditWorldObject(FName Id, FTransform Transform, bool bObjectHidden, int32 ExpectedRevision);
@@ -148,6 +151,7 @@ private:
     UPROPERTY(Transient) TObjectPtr<UWarAbilityWorkshopWidget> AbilityWorkshopWidget;
     UPROPERTY(Transient) TObjectPtr<UWarCityServiceWidget> CityServiceWidget;
     FString WorldEditMessage;
+    bool bWorldPublicationRestored = false;
     UPROPERTY(Transient) TObjectPtr<UWarEntryStatusWidget> EntryStatus;
     UPROPERTY(Transient) FText LastEntryFailure;
     // The controller survives pawn death; zoom, orbit and preferences must survive it too.

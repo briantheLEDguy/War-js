@@ -1,5 +1,11 @@
 # Retained campaign and persistence infrastructure
 
+Development authoring uses authenticated `POST /world-sync` through the separate
+guest gateway. Owner publications use revision checks, immutable history and
+transactional retries; approved developers can pull. See
+[native world sync](../docs/unreal-world-sync.md) for the unapplied migration,
+client configuration, diagnostics and remaining hosted/runtime acceptance.
+
 The browser client is retired. This Node authority remains available for backend
 development and regression testing; native production gameplay is not wired to it.
 Run `npm run server:dev` for loopback-only development authentication or configure

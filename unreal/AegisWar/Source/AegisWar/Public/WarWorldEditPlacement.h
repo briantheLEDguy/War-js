@@ -8,6 +8,8 @@ namespace WarWorldEditPlacement
     AEGISWAR_API FTransform SnapTransform(const FTransform& Transform, double GridCentimeters, double AngleDegrees);
     // Anchor the transformed mesh bounds centre in XY and its lowest point in Z.
     AEGISWAR_API TOptional<FTransform> AtSurface(const FTransform& Basis, const FBox& LocalBounds, FVector Surface);
+    // Project the oriented bounds onto the support normal, including walls and slopes.
+    AEGISWAR_API TOptional<FTransform> AtContact(const FTransform& Basis, const FBox& LocalBounds, FVector Surface, FVector Normal, double Grid);
     AEGISWAR_API TOptional<FVector> RowStep(const FTransform& Basis, const FBox& LocalBounds, bool bAlongY, double Gap);
     // Fields: XYZ metres, pitch/yaw/roll degrees, XYZ scale magnitudes.
     AEGISWAR_API TOptional<double> ComponentValue(const FTransform& Transform, int32 Field);

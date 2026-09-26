@@ -135,7 +135,7 @@ void UWarDevelopmentAccount::GatewayRequest(const FString& Method,const FString&
 #else
     const FString Gateway=FPlatformMisc::GetEnvironmentVariable(TEXT("AEGIS_DEV_GATEWAY_URL"));
     if (!bApproved || AccessToken.IsEmpty() || !Gateway.StartsWith(TEXT("https://")) || Gateway.Contains(TEXT("?")) || Gateway.Contains(TEXT("#"))
-        || Path.Contains(TEXT("..")) || Path.Contains(TEXT("\r")) || Path.Contains(TEXT("\n")) || !(Path==TEXT("operations") || Path.StartsWith(TEXT("abilities/"))) || Body.Len()>8000000)
+        || Path.Contains(TEXT("..")) || Path.Contains(TEXT("\r")) || Path.Contains(TEXT("\n")) || !(Path==TEXT("operations") || Path==TEXT("world-sync") || Path.StartsWith(TEXT("abilities/"))) || FTCHARToUTF8(*Body).Length()>9000000)
     { Complete(403,TEXT("Approved development sign-in and an HTTPS gateway are required.")); return; }
     const uint64 Generation=LoginGeneration; TWeakObjectPtr<UWarDevelopmentAccount> Weak(this);
     auto Request=FHttpModule::Get().CreateRequest(); Request->SetURL(Gateway/Path); Request->SetVerb(Method);

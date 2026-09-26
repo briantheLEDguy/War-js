@@ -1,3 +1,39 @@
+## 2026-09-25 - Thematic login artwork
+
+- Use the supplied Aegis logo, ornate button and window artwork across login, developer-account, creation and character review screens.
+- Render original artwork through bronze UI materials and use warm field, selection and preview colors without blue menu elements; preserve source PNGs and the translucent portrait backing.
+- Add a repeatable private artwork importer and require installed artwork in the native frontend proof.
+
+## 2026-09-25 - Capital neighborhood expansion
+
+- Add 120 buildings per capital, 33 Aegis and 36 Riftspire compositions, district wall/roof/trim palettes, and 24 furnished open-entry interiors with 14 usable upper floors.
+- Replace 60 repetitive Aegis houses with 12 full-scale modular compositions; preserve owner edits and admit only exact untouched legacy draft baselines.
+- Add fingerprinted, backed-up, repeatable authoring passes using selected installed kit dependencies, static GM templates, conventional LODs and 38 attached shadowless interior lights. Purchased originals and generated native content remain private.
+- Correct upstairs furniture clearance and four Riftspire room/cliff intersections. Verify all 24 interiors with the actual player, GM undo/redo and reload, 12 castle routes, capital services/resources and two-client zone isolation.
+- Pass repository/native checks and record rendered before/after views and local performance samples. License/distribution, full native gameplay, packaged platforms and production Steam acceptance remain open; strict release checking stays blocked.
+
+## 2026-09-25 - Development world sync
+
+- Add native snapshot pull/publish controls, recovery before sync, undoable imports, stale-response rejection and explicit runtime-deployment status.
+- Add owner-only revision-checked remote publication, immutable history, transactional retries and approved-developer reads. Preserve shared/Shipping GM denial.
+- Configure the development public client key locally and add dev:check diagnostics; keep server secrets out of client settings.
+- Add native, HTTP, PostgreSQL and transport regressions. Hosted migration, gateway connection, owner login and active-server deployment remain unverified; no live publication performed.
+
+## 2026-09-25 - Cinematic native frontend
+
+- Replace the centered entry form with a compact left panel over live capital views, slow camera movement and three-second crossfades between Bastion of Aegis and Riftspire Citadel.
+- Add exact equipped character previews with imported idle motion, drag/keyboard rotation, reset view, reduced motion, asynchronous selection and recoverable missing-content feedback.
+- Isolate presentation worlds from campaign actors and authority. Generate private city snapshots and instancing-compatible material adaptations without rewriting source maps or purchased assets.
+- Add frontend transition/content/lifetime tests and an offscreen rendered proof. Steam, persistent accounts and platform release acceptance remain gated.
+
+## 2026-09-25 - Native world builder cleanup
+
+- Keep movement and right-drag camera orbit active while building; retain movement blocking during text entry and keep placement clicks out of combat/camera controls.
+- Prevent Slate interaction throttling for the builder's lifetime so scene rendering continues during UI interaction.
+- Replace immediate catalog placement with a green preview of the selected model, pointer contact on ground/walls, surface-plane grid snapping, cancellation and authority-validated click placement. Preview actors do not collide, cast shadows, affect navigation or replicate.
+- Add visible local-game publication with revision checks, atomic file replacement, concurrent-writer protection, map-specific storage and automatic restoration on subsequent authorized launches. Shared/Shipping publication remains closed.
+- Add native contact/storage regressions and an isolated rendered builder workflow with fresh-process publication restoration.
+
 ## 2026-09-24 - Remove obsolete model storage
 
 - Delete superseded models, Blender version backups, model-job previews, extensionless recovery payloads and stale native build copies. Remove nine inactive, merged worktrees after retaining unique non-model work and historical evidence.

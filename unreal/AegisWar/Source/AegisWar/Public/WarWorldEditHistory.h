@@ -21,6 +21,7 @@ class AEGISWAR_API FWarWorldEditHistory
 {
 public:
     bool Initialize(const TArray<FWarWorldEditObject>& Objects, FString& Error);
+    bool AllowBaselineReplacement(const FWarWorldEditObject& Previous, const FString& ReviewedCurrentSource, FString& Error);
     bool Edit(FName Id, const FTransform& Transform, bool bHidden, int32 ExpectedRevision, FString& Error);
     bool Create(FName Id, FName TemplateId, const FTransform& Transform, int32 ExpectedRevision, FString& Error);
     bool CreateBatch(const TArray<FWarWorldEditCreation>& Additions, int32 ExpectedRevision, FString& Error);
@@ -38,6 +39,7 @@ private:
     bool CheckRevision(int32 Expected, FString& Error) const;
     void Commit(TArray<FWarWorldEditObject> Objects);
     TArray<FWarWorldEditObject> Baseline, Current;
+    TMap<FName, FWarWorldEditObject> PreviousBaselines;
     TArray<TArray<FWarWorldEditObject>> Past, Future;
     int32 Revision = 0;
     int32 LoadedBaselineAdditions = 0;

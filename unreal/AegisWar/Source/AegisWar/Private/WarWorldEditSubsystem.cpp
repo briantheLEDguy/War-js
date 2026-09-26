@@ -1,5 +1,7 @@
 #include "WarWorldEditSubsystem.h"
+#include "WarCapitalReplacements.h"
 #include "WarWorldEditMap.h"
+#include "WarWorldEditStorage.h"
 #include "WarGmRules.h"
 #include "WarRuntimeSettings.h"
 #include "Misc/ConfigCacheIni.h"
@@ -27,7 +29,8 @@ namespace
     FString DraftPath(const UWorld* World)
     {
         const bool bPortalProof = FParse::Param(FCommandLine::Get(), TEXT("WarPortalProof"));
-        if (bPortalProof || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")))
+        if (bPortalProof || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")) || FParse::Param(FCommandLine::Get(), TEXT("WarBuilderProof"))
+            || FParse::Param(FCommandLine::Get(), TEXT("WarExpansionProof")))
         {
             static const FString ProofId = [] {
                 FString Requested; FGuid Guid;
@@ -120,11 +123,23 @@ bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
         CandidateTemplates.Add(Id, MoveTemp(Template));
     }
     if (!History.Initialize(Objects, Error)) return false;
+    if (!WarCapitalReplacements::RegisterReviewed(History,Error)) return false;
     Actors = MoveTemp(Candidates); Templates = MoveTemp(CandidateTemplates);
     for (const auto& Pair : Templates) BaselineLevels.Add(Pair.Key, Pair.Value.LevelPackage);
     LevelAddedHandle = FWorldDelegates::LevelAddedToWorld.AddUObject(this, &ThisClass::LevelAdded);
     LevelRemovedHandle = FWorldDelegates::LevelRemovedFromWorld.AddUObject(this, &ThisClass::LevelRemoved);
-    bInitialized = true; return true;
+    bInitialized = true;
+    FString Published;
+    if (!WarWorldEditStorage::Read(GetPublicationLocation(), Published, Error))
+    { PublicationLoadError = Error; return false; }
+    if (!Published.IsEmpty())
+    {
+        auto Next = History;
+        if (!Next.ImportDraft(Published, History.GetRevision(), Error) || !ApplyHistory(MoveTemp(Next), Error))
+        { PublicationLoadError = Error; return false; }
+    }
+    LastPublishedContents = Published;
+    return true;
 }
 
 AActor* UWarWorldEditSubsystem::GetObjectActor(const FName Id) const
@@ -133,6 +148,27 @@ AActor* UWarWorldEditSubsystem::GetObjectActor(const FName Id) const
 }
 
 FString UWarWorldEditSubsystem::GetDraftLocation() const { return DraftPath(GetWorld()); }
+
+FString UWarWorldEditSubsystem::GetPublicationLocation() const
+{
+    // Distinct authored maps (including siege) cannot overwrite each other's live layouts.
+    const FString Map = UWorld::RemovePIEPrefix(GetWorld()->GetOutermost()->GetName());
+    return FPaths::Combine(FPaths::GetPath(DraftPath(GetWorld())),
+        FString::Printf(TEXT("%s-%08x-live.json"), *FPaths::GetBaseFilename(Map), FCrc::StrCrc32(*Map)));
+}
+
+bool UWarWorldEditSubsystem::Publish(APlayerController* Controller, int32 Revision, FString& Error)
+{
+    if (!Ready(Controller, Error)) return false;
+    if (Revision != History.GetRevision()) { Error = TEXT("Draft changed; refresh before publishing."); return false; }
+    if (!PublicationLoadError.IsEmpty()) { Error = PublicationLoadError; return false; }
+    const FString Json = History.ExportDraft();
+    auto Validate = History;
+    if (!Validate.ImportDraft(Json, Revision, Error)) return false;
+    if (!WarWorldEditStorage::Publish(GetPublicationLocation(), LastPublishedContents, Json, Error)) return false;
+    LastPublishedContents = Json;
+    return true;
+}
 
 FName UWarWorldEditSubsystem::PickObject(const APlayerController* Controller, const FVector Origin, const FVector Direction) const
 {

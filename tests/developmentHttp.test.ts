@@ -17,6 +17,16 @@ afterEach(async () => { await Promise.all(servers.splice(0).map(server => new Pr
 }))); });
 
 describe('development HTTP boundaries', () => {
+  it('authenticates world sync and never trusts a supplied actor identity', async () => {
+    const member={user_id:randomUUID(),github_id:'123',status:'approved',role:'owner',generation:1};
+    const service={identity:vi.fn(async()=>member),worldSync:vi.fn(async()=>({revision:1,runtimeApplied:false}))};
+    const url=await listen(developmentHandler(service as unknown as DevelopmentService));
+    const body={action:'read',map:'/Game/War/Capital',actorId:randomUUID()};
+    expect((await fetch(`${url}/world-sync`,{method:'POST',body:JSON.stringify(body)})).status).toBe(401);
+    const result=await fetch(`${url}/world-sync`,{method:'POST',headers:{Authorization:'Bearer verified'},body:JSON.stringify(body)});
+    expect(result.status).toBe(200);
+    expect(service.worldSync).toHaveBeenCalledExactlyOnceWith(member,body);
+  });
   it('verifies the token and uses the verified member, never a supplied identity', async () => {
     const member = { user_id:randomUUID(), status:'pending', role:'developer', generation:0 };
     const service = { admissionOpen:false, identity:vi.fn(async (token:string) => {

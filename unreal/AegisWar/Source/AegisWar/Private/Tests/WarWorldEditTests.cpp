@@ -3,6 +3,10 @@
 #include "WarWorldEditHistory.h"
 #include "WarWorldEditPlacement.h"
 #include "WarWorldEditMap.h"
+#include "WarWorldEditStorage.h"
+#include "Misc/Paths.h"
+#include "Misc/FileHelper.h"
+#include "HAL/FileManager.h"
 #include <limits>
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonReader.h"
@@ -55,6 +59,42 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
         && FMath::IsNearlyEqual(CrossStep->Size(),900.,.001) && RowStep.IsSet()
         && FMath::IsNearlyZero(FVector::DotProduct(*RowStep,*CrossStep),.001));
     TestFalse(TEXT("Negative row gaps cannot overlap pieces"), WarWorldEditPlacement::RowStep(RowBasis,OffsetBounds,false,-1).IsSet());
+    // Every oriented corner must lie outside the contact plane; at least one touches it.
+    for (const FVector Normal : { FVector::UpVector, FVector::ForwardVector, FVector(1, 2, 3).GetSafeNormal() })
+    {
+        const FTransform Basis(FRotator(25, 40, -15), FVector::ZeroVector, FVector(2, -3, .5));
+        const auto Placement = WarWorldEditPlacement::AtContact(Basis, OffsetBounds, Contact, Normal, 50);
+        TestTrue(TEXT("Ground, wall and slope contacts resolve"), Placement.IsSet());
+        if (!Placement.IsSet()) continue;
+        double Minimum = TNumericLimits<double>::Max();
+        for (int32 Corner = 0; Corner < 8; ++Corner)
+        {
+            const FVector Local((Corner & 1) ? OffsetBounds.Max.X : OffsetBounds.Min.X,
+                (Corner & 2) ? OffsetBounds.Max.Y : OffsetBounds.Min.Y, (Corner & 4) ? OffsetBounds.Max.Z : OffsetBounds.Min.Z);
+            Minimum = FMath::Min(Minimum, FVector::DotProduct(Placement->TransformPosition(Local) - Contact, Normal));
+        }
+        TestTrue(TEXT("Snapped oriented mesh touches support without penetrating it"), FMath::IsNearlyZero(Minimum, .001));
+        TestTrue(TEXT("Contact retains authored orientation and mirrored axes"),
+            Placement->GetRotation().Equals(Basis.GetRotation()) && Placement->GetScale3D().Equals(Basis.GetScale3D()));
+    }
+    TestFalse(TEXT("Zero contact normal rejected"), WarWorldEditPlacement::AtContact(GridInput, OffsetBounds, Contact, FVector::ZeroVector, 0).IsSet());
+    TestFalse(TEXT("Invalid contact grid rejected"), WarWorldEditPlacement::AtContact(GridInput, OffsetBounds, Contact, FVector::UpVector, -1).IsSet());
+    FString StorageError, Contents;
+    const FString LivePath = FPaths::ProjectSavedDir() / TEXT("Automation/WorldBuilder") / FGuid::NewGuid().ToString(EGuidFormats::Digits) / TEXT("live.json");
+    TestTrue(TEXT("First local publication succeeds"), WarWorldEditStorage::Publish(LivePath, TEXT(""), TEXT("first"), StorageError));
+    TestTrue(TEXT("Publication survives reread"), WarWorldEditStorage::Read(LivePath, Contents, StorageError) && Contents == TEXT("first"));
+    TestFalse(TEXT("Concurrent publisher cannot overwrite unseen version"), WarWorldEditStorage::Publish(LivePath, TEXT(""), TEXT("second"), StorageError));
+    TestTrue(TEXT("Conflict retains previous publication"), WarWorldEditStorage::Read(LivePath, Contents, StorageError) && Contents == TEXT("first"));
+    TestTrue(TEXT("Observed publication can be replaced"), WarWorldEditStorage::Publish(LivePath, TEXT("first"), TEXT("second"), StorageError));
+    FFileHelper::SaveStringToFile(TEXT("locked"), *(LivePath + TEXT(".lock")));
+    TestFalse(TEXT("Writer lock rejects simultaneous publication"), WarWorldEditStorage::Publish(LivePath, TEXT("second"), TEXT("third"), StorageError));
+    IFileManager::Get().Delete(*(LivePath + TEXT(".lock")));
+    IFileManager::Get().Delete(*LivePath);
+    TestFalse(TEXT("External deletion is a conflict"), WarWorldEditStorage::Publish(LivePath, TEXT("second"), TEXT("third"), StorageError));
+    FFileHelper::SaveStringToFile(TEXT(""), *LivePath);
+    TestFalse(TEXT("Empty publication is corruption, not a fresh world"), WarWorldEditStorage::Read(LivePath, Contents, StorageError));
+    IFileManager::Get().Delete(*LivePath);
+    IFileManager::Get().DeleteDirectory(*FPaths::GetPath(LivePath));
     FWarWorldEditHistory History; FString Error;
     FTransform Exact = GridInput;
     TestTrue(TEXT("Exact position accepts metres"), WarWorldEditPlacement::SetComponent(Exact, 0, -12.345));

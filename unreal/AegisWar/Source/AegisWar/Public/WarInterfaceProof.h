@@ -15,6 +15,10 @@ public:
     virtual TStatId GetStatId() const override;
 private:
     void Finish(bool Passed, const FString& Detail);
+    void TickWorldBuilder(double Now);
+    FVector BuilderStart;
+    FName BuilderTemplate;
+    int32 BuilderObjectCount = 0;
     int32 Step = 0;
     double NextStep = 0;
     bool bFinished = false;

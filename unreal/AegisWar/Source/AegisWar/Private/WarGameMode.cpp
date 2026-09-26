@@ -105,6 +105,7 @@ void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* New
         || FParse::Param(FCommandLine::Get(), TEXT("WarTrainingDummyProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarAbilityProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarExpansionProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarInterfaceProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarCityPopulationProof")));
     if (!bProofEntry)

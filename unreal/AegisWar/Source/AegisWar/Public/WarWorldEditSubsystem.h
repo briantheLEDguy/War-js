@@ -25,10 +25,18 @@ public:
     bool Duplicate(APlayerController* Controller, FName Id, int32 Revision, FName& CreatedId, FString& Error);
     bool SaveDraft(APlayerController* Controller, int32 Revision, FString& Error);
     bool LoadDraft(APlayerController* Controller, int32 Revision, FString& Error);
+    bool Publish(APlayerController* Controller, int32 Revision, FString& Error);
+    void SyncRemote(APlayerController* Controller, bool bPublish);
+    FString GetRemoteStatus() const { return RemoteStatus; }
+    class UStaticMesh* GetTemplateMesh(FName Id) const;
+    bool ResolvePlacement(APlayerController* Controller, FName TemplateId, FVector Origin, FVector Direction,
+        double Grid, double Angle, FTransform& Transform, FString& Error);
     const FWarWorldEditHistory& GetHistory() const { return History; }
     AActor* GetObjectActor(FName Id) const;
     FName PickObject(const APlayerController* Controller, FVector Origin, FVector Direction) const;
     FString GetDraftLocation() const;
+    FString GetPublicationLocation() const;
+    const FString& GetPublicationLoadError() const { return PublicationLoadError; }
 private:
     friend class FWarWorldEditStreamingTest;
     bool Ready(APlayerController* Controller, FString& Error);
@@ -61,4 +69,10 @@ private:
     TMap<FName, TWeakObjectPtr<AActor>> Actors;
     FString LastDiskContents;
     bool bObservedDisk = false;
+    FString LastPublishedContents;
+    FString PublicationLoadError;
+    bool bRemoteBusy = false;
+    int32 RemoteRevision = INDEX_NONE;
+    FString RemoteScope, PendingRemoteRequest;
+    FString RemoteStatus = TEXT("Remote world: not synced. Developer sign-in and a configured gateway are required.");
 };

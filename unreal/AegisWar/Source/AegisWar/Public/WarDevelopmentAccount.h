@@ -14,6 +14,7 @@ public:
     void Logout();
     FString GetStatus() const { return Status; }
     bool IsApproved() const { return bApproved; }
+    FString GetAccountId() const { return AccountId; }
     static bool IsAllowedLoginUrl(const FString& Url);
     /** Credentials remain private; only bounded authenticated gateway requests leave this subsystem. */
     void GatewayRequest(const FString& Method,const FString& Path,const FString& Body,TFunction<void(int32,const FString&)> Complete);

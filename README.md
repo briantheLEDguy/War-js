@@ -1,5 +1,23 @@
 # AegisWar
 
+The GM City Builder includes [Remote world sync](docs/unreal-world-sync.md):
+authenticated snapshot publishing and pulls with recovery, undo and revision
+conflict checks. `npm run dev:check` diagnoses the connection. Local Auth is
+configured, but the gateway address, owner login and hosted sync deployment are
+still outstanding; this does not deploy an active game server.
+
+The native [cinematic frontend](docs/unreal-character-entry.md#cinematic-frontend)
+uses live, isolated capital views and equipped character previews. Build its
+private presentation assets with `scripts/unreal/build-frontend-presentation.py`
+through Unreal's Python commandlet after an Editor build. Run
+`npm run unreal:frontend-proof` for offscreen login, selection and transition
+evidence; `-- --width 1280 --height 720` and `-- --width 2560 --height 1080`
+exercise small and ultrawide layouts. Source city maps are never rewritten.
+Import the owner's login logo, button and window PNGs from `graphics-new` with
+`scripts/unreal/import-frontend-artwork.py` through the same Python commandlet.
+Private UI materials apply bronze coloring and transparent-margin cropping;
+the supplied files remain unchanged.
+
 The [Bastion siege runtime](docs/unreal-city-siege.md) adds three-stage rules,
 population scaling, bot squads and local GM controls. Its isolated capital map
 has stage blockades, objective props and navigation through all 17 required
@@ -40,6 +58,16 @@ casting transitions and Icon of Wrath. See the
 proofs, deletion receipts and visual/release acceptance gates.
 The [Windows verification record](docs/unreal-animation-verification-2026-09-24.md)
 links the passing gameplay, multiplayer, capture and removal evidence.
+
+The native world builder (**G**) keeps movement and right-drag camera orbit active.
+Choose a model to preview it in green, point at ground or a wall, then click to
+place it. **Cancel placement** returns to selection. **Publish draft to local
+game** persists the current layout and restores it on the next authorized local
+GM launch; **Save draft / Load draft** remain separate recovery controls. Remote
+authoring snapshots have their own sync controls; active shared-world deployment
+remains unavailable. See [builder controls](docs/unreal-gm-workbench.md).
+Run `npm run unreal:builder-proof` for the isolated rendered placement/publication
+check and fresh-process restoration.
 
 ## Architecture
 
@@ -133,6 +161,7 @@ only. No collaborator receives host login, filesystem, desktop or LAN access.
   [world buildout](docs/unreal-world-buildout.md), [runtime GM tools](docs/unreal-gm-workbench.md)
 - [Supplied animation handling](docs/unreal-animation-import.md)
 - [Purchased modular kit review](docs/unreal-modular-kits.md)
+- [Capital expansion authoring and verification](docs/unreal-capital-expansion.md)
 
 Browser source and retired tests remain in the tagged Git history. Recovery
 snapshots and unfinished asset-worktree candidates remain private under ignored

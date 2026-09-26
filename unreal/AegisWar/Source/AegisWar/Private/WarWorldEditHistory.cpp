@@ -1,4 +1,5 @@
 #include "WarWorldEditHistory.h"
+#include "WarWorldEditBounds.h"
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
@@ -9,7 +10,7 @@ namespace
     bool ValidTransform(const FTransform& Transform)
     {
         if (Transform.ContainsNaN() || !Transform.GetRotation().IsNormalized()
-            || Transform.GetLocation().GetAbsMax() > 100000) return false;
+            || !WarWorldEditBounds::InWorld(Transform.GetLocation())) return false;
         const FVector Scale = Transform.GetScale3D().GetAbs();
         return Scale.GetMin() >= 0.05 && Scale.GetMax() <= 20;
     }
@@ -55,7 +56,18 @@ bool FWarWorldEditHistory::Initialize(const TArray<FWarWorldEditObject>& Objects
     }
     Baseline = Objects;
     Baseline.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
-    Current = Baseline; Past.Reset(); Future.Reset(); Revision = 0; LoadedBaselineAdditions = 0; return true;
+    Current = Baseline; PreviousBaselines.Reset(); Past.Reset(); Future.Reset(); Revision = 0; LoadedBaselineAdditions = 0; return true;
+}
+
+bool FWarWorldEditHistory::AllowBaselineReplacement(const FWarWorldEditObject& Previous,
+    const FString& ReviewedCurrentSource, FString& Error)
+{
+    const auto* Original=Baseline.FindByPredicate([&](const auto& Row) { return Row.Id==Previous.Id; });
+    if (!Original || Original->SourceIdentity!=ReviewedCurrentSource || Previous.SourceIdentity.IsEmpty()
+        || Previous.SourceIdentity.Len()>512 || !Previous.TemplateId.IsNone() || !ValidTransform(Previous.Transform)
+        || PreviousBaselines.Contains(Previous.Id))
+    { Error=TEXT("Invalid reviewed building replacement."); return false; }
+    PreviousBaselines.Add(Previous.Id,Previous); return true;
 }
 
 const FWarWorldEditObject* FWarWorldEditHistory::Find(const FName Id) const
@@ -90,7 +102,8 @@ bool FWarWorldEditHistory::Validate(const TArray<FWarWorldEditObject>& Objects, 
             { Error = TEXT("Invalid created-object identity."); return false; }
             Original = Baseline.FindByPredicate([&](const auto& Value) { return Value.Id == Row.TemplateId; });
         }
-        if (!Original || Ids.Contains(Row.Id) || !ValidTransform(Row.Transform) || Row.SourceIdentity != Original->SourceIdentity)
+        if (!Original || Ids.Contains(Row.Id) || !ValidTransform(Row.Transform) || Row.SourceIdentity != Original->SourceIdentity
+            || !WarWorldEditBounds::NearTemplate(Row.Transform.GetLocation(), Original->Transform.GetLocation()))
         { Error = TEXT("Invalid world object or transform."); return false; }
         if (const auto* Existing = Find(Row.Id); Existing && Existing->TemplateId != Row.TemplateId)
         { Error = TEXT("A live object's model template cannot be replaced by a draft."); return false; }
@@ -181,6 +194,7 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
         || Objects->Num() > SavedObjects->Num() + 1000 || (Version == 1 && Objects->Num() != SavedObjects->Num()))
     { Error = TEXT("Draft has an invalid authored baseline."); return false; }
     TSet<FName> SavedIds;
+    TSet<FName> ReplacedIds;
     TArray<FWarWorldEditObject> ExpectedBase;
     for (const auto& Value : *SavedObjects)
     {
@@ -190,7 +204,12 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
         { Error = TEXT("Draft has an invalid authored identity."); return false; }
         const auto* Original = Baseline.FindByPredicate([&](const auto& Row) { return Row.Id == FName(*Id); });
         if (!Original) { Error = FString::Printf(TEXT("Authored object %s was removed. Resolve the draft conflict before loading."), *Id); return false; }
-        ExpectedBase.Add(*Original); SavedIds.Add(Original->Id);
+        FString SavedSource;
+        const auto* Previous=PreviousBaselines.Find(Original->Id);
+        if (Previous && (*Object)->TryGetStringField(TEXT("sourceIdentity"),SavedSource) && SavedSource==Previous->SourceIdentity)
+        { ExpectedBase.Add(*Previous); ReplacedIds.Add(Original->Id); }
+        else ExpectedBase.Add(*Original);
+        SavedIds.Add(Original->Id);
     }
     ExpectedBase.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
     // Older drafts embedded a pretty-printed baseline; accept both exact formats.
@@ -220,6 +239,17 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
         { Error = TEXT("Draft edits an authored object outside its original baseline."); return false; }
         if (!TemplateId.IsEmpty() && !SavedIds.Contains(FName(*TemplateId)))
         { Error = TEXT("Draft uses a model template outside its original baseline."); return false; }
+        if (ReplacedIds.Contains(FName(*TemplateId)))
+        { Error=TEXT("A created building uses a replaced template. Resolve that draft conflict before loading."); return false; }
+        if (ReplacedIds.Contains(FName(*Id)))
+        {
+            const auto& Previous=PreviousBaselines.FindChecked(FName(*Id));
+            const auto& Row=Next.Last();
+            if (Row.SourceIdentity!=Previous.SourceIdentity || Row.bHidden!=Previous.bHidden
+                || !Row.TemplateId.IsNone() || !Row.Transform.Equals(Previous.Transform,.0001))
+            { Error=TEXT("A replaced building has owner edits. The draft was preserved; resolve the conflict before loading."); return false; }
+            Next.Last()=*Baseline.FindByPredicate([&](const auto& Value) { return Value.Id==Row.Id; });
+        }
     }
     for (const auto& Original : Baseline) if (!SavedIds.Contains(Original.Id)) Next.Add(Original);
     if (!Validate(Next, Error)) return false;

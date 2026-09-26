@@ -1,6 +1,7 @@
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { AbilityWorkshopError, prepareAbilityOperation } from './ability-workshop';
+import { validateWorldSync } from './world-sync';
 
 export class DevelopmentError extends Error {
   constructor(readonly status: number, message: string) { super(message); }
@@ -96,6 +97,14 @@ export class DevelopmentService {
     const { data, error } = await query.limit(100);
     if (error) throw new DevelopmentError(503, 'Could not load development data.');
     return data;
+  }
+  async worldSync(member: Member, input: unknown): Promise<unknown> {
+    const envelope = record(input);
+    let body: Record<string, unknown>;
+    try { body = validateWorldSync(envelope); }
+    catch (error) { throw new DevelopmentError(400, error instanceof Error ? error.message : 'Invalid world document.'); }
+    return this.rpc('dev_world_sync', { p_actor: member.user_id,
+      p_request: body.action === 'publish' ? uuid(envelope.requestId) : null, p_body: body });
   }
   async issue(member: Member, input: unknown): Promise<unknown> {
     if (!this.admissionOpen) throw new DevelopmentError(503, 'Remote development admission remains closed pending acceptance.');
