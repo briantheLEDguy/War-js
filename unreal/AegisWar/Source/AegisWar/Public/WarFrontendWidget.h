@@ -45,6 +45,7 @@ private:
     bool bHasDraft = false;
     void ShowLogin();
     void ShowDeveloperAccount();
+    void ShowScenario();
     void ShowCreation();
     void ShowSelection();
     void AddHeading(const FString& Title, const FString& Subtitle, int32 Step = 0);

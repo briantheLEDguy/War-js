@@ -1,10 +1,12 @@
 #include "WarSiegeBattlefield.h"
+#include "WarSiegeEquipment.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarContentSubsystem.h"
 #include "WarAbilityCatalog.h"
 #include "Components/SceneComponent.h"
 #include "NavigationSystem.h"
 #include "NavigationPath.h"
+#include "NavigationData.h"
 #include "Engine/GameInstance.h"
 #include "EngineUtils.h"
 #include "Components/StaticMeshComponent.h"
@@ -17,16 +19,21 @@ FVector AWarSiegeBattlefield::Objective(int32 Stage, int32 Step) const
     const int32 Index = Stage == 0 ? Step : Stage == 1 ? 4 + Step : 7;
     return Objectives.IsValidIndex(Index) ? Objectives[Index] : FVector::ZeroVector;
 }
-bool AWarSiegeBattlefield::Validate(FString& Error) const
+bool AWarSiegeBattlefield::Validate(FString& Error, EWarSiegeScenario Scenario) const
 {
+    const bool LowerOnly = Scenario == EWarSiegeScenario::LowerCity;
     auto Fail = [&Error](const FString& Why) { Error = Why; return false; };
     if (DefinitionVersion != 1 || Capital != TEXT("aegis_capital")) return Fail(TEXT("Unsupported siege definition or capital."));
     if (Objectives.Num() != 8 || OptionalObjectives.Num() != 3 || TeamSpawns.Num() != 6)
         return Fail(TEXT("Siege requires eight objective anchors, three optional anchors and six team spawns."));
     if (StageGates.Num() != 2 || GateMechanisms.Num() != 2 || WarEffortProps.Num() != 3)
         return Fail(TEXT("Bind two visible stage gates, two gate mechanisms and three war-effort props in the isolated siege map."));
-    TArray<TObjectPtr<AActor>> Props = StageGates; Props.Append(GateMechanisms); Props.Append(WarEffortProps);
+    TArray<TObjectPtr<AActor>> Props;
+    if (LowerOnly) { Props.Add(StageGates[0]); Props.Add(WarEffortProps[0]); }
+    else { Props = StageGates; Props.Append(GateMechanisms); Props.Append(WarEffortProps); }
     TSet<AActor*> Seen;
+    if (AttackerStandards.Num() != 11) return Fail(TEXT("Bind eleven authored attacker ownership standards."));
+    Props.Append(AttackerStandards);
     for (const auto& Pointer : Props)
     {
         AActor* Prop = Pointer.Get();
@@ -42,7 +49,15 @@ bool AWarSiegeBattlefield::Validate(FString& Error) const
             || Class == TEXT("WarResourceNode") || Class == TEXT("WarCraftingStation") || Class == TEXT("WarZonePortal"))
             return Fail(TEXT("The siege map still contains campaign gameplay actors; isolate its content before launch."));
     }
-    if (!bTraversalReviewed || !bEquippedRosterReviewed) return Fail(TEXT("Siege traversal and equipped roster review are outstanding."));
+    if (!IsScenarioReviewed(Scenario)) return Fail(TEXT("Siege traversal and equipped roster review are outstanding."));
+    if (EquipmentSpawns.Num()!=2) return Fail(TEXT("Author two clear convoy staging positions."));
+    if (EquipmentDefinitions.Num()!=2) return Fail(TEXT("Bind the reviewed battering ram and field catapult."));
+    for (int32 I=0;I<EquipmentDefinitions.Num();++I)
+    {
+        const auto* Definition=EquipmentDefinitions[I].LoadSynchronous();
+        if (!Definition || !Definition->Validate(Error) || Definition->bBatteringRam!=(I==0))
+            return Fail(TEXT("Required siege equipment is unavailable: ")+Error);
+    }
     if (!FMath::IsFinite(ObjectiveRadius) || ObjectiveRadius < 200 || ObjectiveRadius > 1000
         || !FMath::IsFinite(ReferenceDamagePerSecond) || ReferenceDamagePerSecond <= 0)
         return Fail(TEXT("Invalid siege radius or reference damage."));
@@ -70,7 +85,7 @@ bool AWarSiegeBattlefield::Validate(FString& Error) const
     }
     for (const auto& Team : Roles) for (bool Present : Team) if (!Present) return Fail(TEXT("Both realms need approved tank, healer and damage roster entries."));
     const TSoftObjectPtr<UWarCharacterVisualDefinition> Visuals[] = { CrewVisual, GuardVisual, CommanderVisual };
-    for (int32 I = 0; I < 3; ++I)
+    for (int32 I = 0; I < (LowerOnly ? 2 : 3); ++I)
     {
         auto* Visual = Visuals[I].LoadSynchronous();
         if (!Visual || !Visual->ValidateForSpawn(I == 0 ? EWarRealm::Riftbound : EWarRealm::Aegis, Error)
@@ -79,7 +94,16 @@ bool AWarSiegeBattlefield::Validate(FString& Error) const
     }
     auto* Nav = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
     if (!Nav) return Fail(TEXT("Siege navigation is not built."));
-    TArray<FVector> Points = Objectives; Points.Append(OptionalObjectives); Points.Append(TeamSpawns);
+    auto* ConvoyNav=WarSiegeEquipment::Navigation(GetWorld());
+    if (!ConvoyNav) return Fail(TEXT("Build siege equipment navigation before launching the convoy."));
+    for (int32 Step=1;Step<=3;++Step)
+    {
+        auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(),Objective(0,Step-1),EquipmentDestination(Step),ConvoyNav);
+        if (!Path || !Path->IsValid() || Path->IsPartial()) return Fail(TEXT("A siege equipment route is disconnected."));
+    }
+    TArray<FVector> Points;
+    if (LowerOnly) { for (int32 I = 0; I < 4; ++I) Points.Add(Objectives[I]); Points.Add(OptionalObjectives[0]); Points.Add(TeamSpawns[0]); Points.Add(TeamSpawns[1]); }
+    else { Points = Objectives; Points.Append(OptionalObjectives); Points.Append(TeamSpawns); }
     for (const auto& P : Points)
     {
         FNavLocation Projected;
@@ -91,7 +115,7 @@ bool AWarSiegeBattlefield::Validate(FString& Error) const
         auto* Path = UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(), Objectives[0], Projected.Location);
         if (!Path || !Path->IsValid() || Path->IsPartial()) return Fail(TEXT("Siege route is disconnected."));
     }
-    for (int32 Stage = 0; Stage < 3; ++Stage)
+    for (int32 Stage = 0; Stage < (LowerOnly ? 1 : 3); ++Stage)
     {
         if (FVector::Dist(TeamSpawns[Stage * 2], TeamSpawns[Stage * 2 + 1]) < 3000)
             return Fail(TEXT("Siege opposing spawns must be separated by at least 30 metres."));
@@ -107,12 +131,42 @@ bool AWarSiegeBattlefield::Validate(FString& Error) const
     }
     Error.Reset(); return true;
 }
+bool AWarSiegeBattlefield::IsScenarioReviewed(EWarSiegeScenario Scenario) const
+{
+    return (bTraversalReviewed && bEquippedRosterReviewed)
+        || (!UE_BUILD_SHIPPING && Scenario == EWarSiegeScenario::LowerCity && bLowerCityReviewed);
+}
+FVector AWarSiegeBattlefield::EquipmentDestination(int32 Step) const
+{
+    FVector Result=Objective(0,Step);
+    if (Step==3 && StageGates.IsValidIndex(0) && IsValid(StageGates[0]))
+    {
+        FVector Center,Extent; StageGates[0]->GetActorBounds(false,Center,Extent);
+        // The reviewed lower-city gate faces down the +X approach. The retained
+        // ram's striking head reaches 332 cm forward at its authored contact.
+        Result.X=Center.X-Extent.X-332; Result.Y=Center.Y;
+    }
+    return Result;
+}
 void AWarSiegeBattlefield::ApplyMilestones(const FWarSiegeState& State)
 {
     if (!HasAuthority()) return;
+    const uint16 Claims = WarSiege::ClaimedObjectives(State);
+    if (Claims != ClaimedObjectives) { ClaimedObjectives = Claims; OnRep_Ownership(); }
     OpenGates = State.Phase == EWarSiegePhase::Waiting ? 0 : State.Stage >= 2 ? 3 : State.Stage == 1 ? 1 : 0;
     if (State.Phase == EWarSiegePhase::Transition) OpenGates |= 1 << State.Stage;
+    if (State.Scenario == EWarSiegeScenario::LowerCity && State.Phase == EWarSiegePhase::Finished && State.bAttackersWon) OpenGates |= 1;
     OnRep_Gates(); ForceNetUpdate();
+}
+void AWarSiegeBattlefield::BeginPlay()
+{ Super::BeginPlay(); OnRep_Ownership(); OnRep_Gates(); }
+void AWarSiegeBattlefield::OnRep_Ownership()
+{
+    for (int32 I = 0; I < AttackerStandards.Num(); ++I) if (IsValid(AttackerStandards[I]))
+    {
+        AttackerStandards[I]->SetActorHiddenInGame((ClaimedObjectives & (1 << I)) == 0);
+        AttackerStandards[I]->SetActorEnableCollision(false);
+    }
 }
 void AWarSiegeBattlefield::OnRep_Gates()
 {
@@ -120,7 +174,7 @@ void AWarSiegeBattlefield::OnRep_Gates()
     { const bool Open = (OpenGates & (1 << I)) != 0; StageGates[I]->SetActorHiddenInGame(Open); StageGates[I]->SetActorEnableCollision(!Open); }
 }
 void AWarSiegeBattlefield::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(AWarSiegeBattlefield, OpenGates); }
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(AWarSiegeBattlefield, OpenGates); DOREPLIFETIME(AWarSiegeBattlefield, ClaimedObjectives); }
 void AWarSiegeGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
@@ -129,4 +183,8 @@ void AWarSiegeGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(AWarSiegeGameState, OptionalLocation); DOREPLIFETIME(AWarSiegeGameState, HazardLocation);
     DOREPLIFETIME(AWarSiegeGameState, HazardUntil); DOREPLIFETIME(AWarSiegeGameState, CommanderAction);
     DOREPLIFETIME(AWarSiegeGameState, RosterLabels);
+    DOREPLIFETIME(AWarSiegeGameState, bDevelopmentLobby); DOREPLIFETIME(AWarSiegeGameState, bQueuedScenario); DOREPLIFETIME(AWarSiegeGameState, bContentReady);
+    DOREPLIFETIME(AWarSiegeGameState, RoundId); DOREPLIFETIME(AWarSiegeGameState, ReadyPlayers);
+    DOREPLIFETIME(AWarSiegeGameState, CrewHealth); DOREPLIFETIME(AWarSiegeGameState, CrewMaxHealth);
+    DOREPLIFETIME(AWarSiegeGameState, bContested); DOREPLIFETIME(AWarSiegeGameState, Deaths);
 }

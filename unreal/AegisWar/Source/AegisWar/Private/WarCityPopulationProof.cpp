@@ -80,6 +80,7 @@ void UWarCityPopulationProof::Tick(float DeltaTime)
     TSet<FName> Ids;TArray<AWarCityNpc*> Merchants;int32 Teachers=0;
     for (TActorIterator<AWarCityNpc> It(GetWorld());It;++It)
     {
+        if (!It->GetOutermost()->GetName().Contains(TEXT("/crownward/Population/"))) continue;
         auto* Mesh=It->GetSkeletalMeshComponent();
         if (!Check(!Ids.Contains(It->NpcId) && !It->NpcId.IsNone() && Mesh && Mesh->GetSkeletalMeshAsset()
             && Mesh->AnimationData.AnimToPlay && Mesh->AnimationData.bSavedLooping && Mesh->AnimationData.bSavedPlaying,
@@ -98,7 +99,11 @@ void UWarCityPopulationProof::Tick(float DeltaTime)
         if (It->GetService()==TEXT("class_teacher") || It->GetService()==TEXT("craft_teacher")) ++Teachers;
     }
     int32 Mara=0;for(TActorIterator<AWarQuestNpc> It(GetWorld());It;++It) if(It->NpcId==TEXT("quest-1"))++Mara;
-    if (!Check(Ids.Num()==17 && Mara==1 && Merchants.Num()==2 && Teachers==2,TEXT("Expected 17 new people, Mara once, two merchants and two teachers")))return;
+    const TArray<FName> ImportedIds = {TEXT("gateward_scout"),TEXT("crownwatch_archer"),TEXT("bellfound_scholar"),
+        TEXT("cinderbank_watch"),TEXT("lantern_porter"),TEXT("gateward_resident")};
+    const int32 ImportedCount = ImportedIds.FilterByPredicate([&Ids](FName Id){return Ids.Contains(Id);}).Num();
+    if (!Check((ImportedCount==0 || ImportedCount==6) && Ids.Num()==17+ImportedCount && Mara==1 && Merchants.Num()==2 && Teachers==2,
+        TEXT("Expected complete capital population, Mara once, two merchants and two teachers")))return;
     FString Error;
     if (!Check(State->GrantCharacterRewards(FGuid::NewGuid(),0,500,{},Error),Error))return;
     for(auto* Merchant:Merchants)
@@ -132,5 +137,5 @@ void UWarCityPopulationProof::Tick(float DeltaTime)
         && Crafts.Contains(TEXT("Scavenging")) && Crafts.Contains(TEXT("station:")),TEXT("Teaching catalog guidance missing")))return;
     auto* Merchant=Merchants[0];Pawn->TeleportTo(Merchant->GetActorLocation()+FVector(200,0,110),FRotator::ZeroRotator);
     Controller->OpenCityService(Merchant);
-    Finish(true,TEXT("18 identities, advancing idle playback, assigned materials, grounded placements, six buy/sell pairs, duplicate/stale/distance/hidden/catalog rejection and teacher catalog guidance passed."));
+    Finish(true,FString::Printf(TEXT("%d identities, advancing idle playback, assigned materials, grounded placements, six buy/sell pairs, duplicate/stale/distance/hidden/catalog rejection and teacher catalog guidance passed."),Ids.Num()+Mara));
 }

@@ -1,0 +1,664 @@
+{
+  "schemaVersion": 1,
+  "models": [
+    {
+      "key": "paladin",
+      "profile": "npc_import_paladin",
+      "source": "unreal/AegisWar/modelImport/good/Paladin J Nordstrom.fbx",
+      "sha256": "745037e7de28424ff277040355883d7df83433143e115c83993c319a3c075929",
+      "alignment": "good",
+      "species": "empire",
+      "style": "shield",
+      "role": "Citadel guard",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield"
+    },
+    {
+      "key": "paladin_prop",
+      "profile": "npc_import_paladin_prop",
+      "source": "unreal/AegisWar/modelImport/good/Paladin WProp J Nordstrom.fbx",
+      "sha256": "b41652dc55d730295fd754d18e1ffb32b66effadc0b056c89cbea2d96a1276f8",
+      "alignment": "good",
+      "species": "empire",
+      "style": "shield",
+      "role": "Equipped citadel guard",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "embedded-review"
+    },
+    {
+      "key": "knight",
+      "profile": "npc_import_knight",
+      "source": "unreal/AegisWar/modelImport/good/Knight D Pelegrini.fbx",
+      "sha256": "e923e194749939bce66a7fb1280bde40f6f002d6ffa0bbf59131dceed43877d9",
+      "alignment": "good",
+      "species": "empire",
+      "style": "shield",
+      "role": "Military officer",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield"
+    },
+    {
+      "key": "peasant",
+      "profile": "npc_import_peasant",
+      "source": "unreal/AegisWar/modelImport/good/Peasant Man.fbx",
+      "sha256": "bfed33f4f82a2cb85ed139b67e315933919e5ad5c6fb3dc6e2b2c39cabeca59b",
+      "alignment": "good",
+      "species": "empire",
+      "style": "spell",
+      "role": "Townspeople and workers",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none"
+    },
+    {
+      "key": "arissa",
+      "profile": "npc_import_arissa",
+      "source": "unreal/AegisWar/modelImport/good/Arissa.fbx",
+      "sha256": "a6495ca55f982245a46ebf3d0f5f6672cae76e113f4e669af3a52d5272e7256b",
+      "alignment": "good",
+      "species": "empire",
+      "style": "spell",
+      "role": "Workshop courier",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none"
+    },
+    {
+      "key": "scholar",
+      "profile": "npc_import_scholar",
+      "source": "unreal/AegisWar/modelImport/good/Ch40_nonPBR.fbx",
+      "sha256": "ff41aedc0c54ac4cb30109af9a73d96610f2de262607955254bb51b786745df2",
+      "alignment": "good",
+      "species": "visitor",
+      "style": "spell",
+      "role": "Visiting arcane scholar",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none"
+    },
+    {
+      "key": "scout",
+      "profile": "npc_import_scout",
+      "source": "unreal/AegisWar/modelImport/good/Erika Archer.fbx",
+      "sha256": "ed55020edc5b3ffe388106015d57025e86b94a659ed9d575925016b0090d445d",
+      "alignment": "good",
+      "species": "empire",
+      "style": "spell",
+      "role": "Off-duty scout",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none",
+      "materialOverrides": {
+        "Akai_MAT": {
+          "metallic": 0,
+          "roughness": 0.7,
+          "reason": "Legacy Phong reflection converted into metallic cloth/skin; use dielectric diffuse response with original embedded color map."
+        }
+      }
+    },
+    {
+      "key": "archer",
+      "profile": "npc_import_archer",
+      "source": "unreal/AegisWar/modelImport/good/Erika Archer With Bow Arrow.fbx",
+      "sha256": "799c4415ce7bc87c40a686b24e79e079bf2809e49e2060998ca92870859cb23a",
+      "alignment": "good",
+      "species": "empire",
+      "style": "spell",
+      "role": "Archer sentry",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "embedded-review",
+      "materialOverrides": {
+        "Akai_MAT1": {
+          "metallic": 0,
+          "roughness": 0.7,
+          "reason": "Legacy Phong reflection converted into metallic cloth/skin; use dielectric diffuse response with original embedded color map."
+        }
+      }
+    },
+    {
+      "key": "demon",
+      "profile": "npc_import_demon",
+      "source": "unreal/AegisWar/modelImport/evil/Demon T Wiezzorek.fbx",
+      "sha256": "9a3f112a7b5c39fd26642e097fe090bef9fe7a0be5658e788ddc5ea98fc9867e",
+      "alignment": "evil",
+      "species": "daemon",
+      "style": "spell",
+      "role": "Crown emissary",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none"
+    },
+    {
+      "key": "oathguard",
+      "profile": "npc_import_oathguard",
+      "source": "unreal/AegisWar/modelImport/evil/Ganfaul M Aure.fbx",
+      "sha256": "002af0cc66a3bdf5ed7a84cd0c9df3d81852bf97e60c92dcf11c80b18280611e",
+      "alignment": "evil",
+      "species": "chaos",
+      "style": "shield",
+      "role": "Crown oathguard",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield"
+    },
+    {
+      "key": "goblin",
+      "profile": "npc_import_goblin",
+      "source": "unreal/AegisWar/modelImport/evil/goblin_d_shareyko.fbx",
+      "sha256": "a8c175536ea3fafa57477fd678102838997c7f9b9493133e34325a38605e1982",
+      "alignment": "evil",
+      "species": "greenskin",
+      "style": "spell",
+      "role": "Market scavenger",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none"
+    },
+    {
+      "key": "ritualist",
+      "profile": "npc_import_ritualist",
+      "source": "unreal/AegisWar/modelImport/evil/Nightshade J Friedrich.fbx",
+      "sha256": "cccfbf12341c37abdd112b2de1b0336b4ffceb646b3b7784d46bc83dac884221",
+      "alignment": "evil",
+      "species": "undead",
+      "style": "spell",
+      "role": "Shrine attendant",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none"
+    },
+    {
+      "key": "retainer",
+      "profile": "npc_import_retainer",
+      "source": "unreal/AegisWar/modelImport/evil/Vampire A Lusth.fbx",
+      "sha256": "da1112ff368989a0f9e51e0fcce1c9d5b10f699702cfabdcbf35dceeb382582e",
+      "alignment": "evil",
+      "species": "undead",
+      "style": "spell",
+      "role": "Court retainer",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "none",
+      "materialOverrides": {
+        "Vampire_MAT1": {
+          "metallic": 0,
+          "roughness": 0.7,
+          "reason": "Legacy Phong reflection converted into metallic cloth/skin; use dielectric diffuse response with original embedded color map."
+        },
+        "Vampire_MAT_Transparent": {
+          "metallic": 0,
+          "roughness": 0.7,
+          "reason": "Legacy Phong reflection converted into metallic cloth/skin; use dielectric diffuse response with original embedded color map."
+        }
+      }
+    },
+    {
+      "key": "guard02",
+      "profile": "npc_import_guard02",
+      "source": "unreal/AegisWar/modelImport/neutralNPC/Castle Guard 02.fbx",
+      "sha256": "2b5bb56a2b68cbdfddca368f08cec3db2a7be966a8c5894cafb188e3a076b09e",
+      "alignment": "neutralNPC",
+      "species": "empire",
+      "style": "shield",
+      "role": "Gate and outpost sentry",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield"
+    },
+    {
+      "key": "guard01",
+      "profile": "npc_import_guard01",
+      "source": "unreal/AegisWar/modelImport/neutralNPC/castle_guard_01.fbx",
+      "sha256": "2bcac977051dcfa46a88591b8f9251f1c0689750e619a8b158a30139910679bc",
+      "alignment": "neutralNPC",
+      "species": "empire",
+      "style": "shield",
+      "role": "District watch and deserter",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield"
+    },
+    {
+      "key": "brute",
+      "profile": "npc_import_brute",
+      "source": "unreal/AegisWar/modelImport/neutralNPC/Brute.fbx",
+      "sha256": "fd6832076191c8177b7e5778a92a7aba6f81c5ce1587c50204808f1e522b3860",
+      "alignment": "neutralNPC",
+      "species": "empire",
+      "style": "shield",
+      "role": "Porter and bruiser",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield"
+    },
+    {
+      "key": "cultist",
+      "profile": "npc_import_cultist",
+      "source": "unreal/AegisWar/modelImport/neutralNPC/Ch05_nonPBR.fbx",
+      "sha256": "a857576b79caa4a1a676119d0ae021635a1d19312c0bd45a704ee7bf308ce09a",
+      "alignment": "neutralNPC",
+      "species": "corrupted_humanoid",
+      "style": "shield",
+      "role": "Warrens resident and cultist",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield"
+    },
+    {
+      "key": "maw",
+      "profile": "npc_import_maw",
+      "source": "unreal/AegisWar/modelImport/neutralNPC/Maw J Laygo.fbx",
+      "sha256": "e697e36f96f775335a3d8d5ea525017c1a980863077082d62b494408800d074b",
+      "alignment": "neutralNPC",
+      "species": "monstrous_humanoid",
+      "style": "shield",
+      "role": "Enforcer and camp leader",
+      "review": "source-inspected-native-pending",
+      "distributionRights": "unverified-owner-supplied",
+      "equipment": "sword-shield",
+      "materialOverrides": {
+        "MAW_MAT": {
+          "metallic": 0,
+          "roughness": 0.7,
+          "reason": "Legacy Phong reflection converted into metallic cloth/skin; use dielectric diffuse response with original embedded color map."
+        }
+      }
+    }
+  ],
+  "capitalReplacements": [
+    {
+      "id": "aegis_capital_portal_guard",
+      "zone": "aegis_capital",
+      "model": "guard02"
+    },
+    {
+      "id": "gateward_shopper_01",
+      "zone": "aegis_capital",
+      "model": "peasant"
+    },
+    {
+      "id": "cinderbank_assistant",
+      "zone": "aegis_capital",
+      "model": "peasant"
+    },
+    {
+      "id": "cinderbank_worker_01",
+      "zone": "aegis_capital",
+      "model": "peasant"
+    },
+    {
+      "id": "cinderbank_worker_02",
+      "zone": "aegis_capital",
+      "model": "arissa"
+    },
+    {
+      "id": "lantern_worker_01",
+      "zone": "aegis_capital",
+      "model": "peasant"
+    },
+    {
+      "id": "lantern_worker_02",
+      "zone": "aegis_capital",
+      "model": "peasant"
+    },
+    {
+      "id": "bellfound_scribe",
+      "zone": "aegis_capital",
+      "model": "peasant"
+    },
+    {
+      "id": "aegis_capital_marshal",
+      "zone": "aegis_capital",
+      "model": "knight"
+    },
+    {
+      "id": "crownwatch_guard_01",
+      "zone": "aegis_capital",
+      "model": "paladin"
+    },
+    {
+      "id": "crownwatch_guard_02",
+      "zone": "aegis_capital",
+      "model": "paladin_prop"
+    }
+  ],
+  "capitalAdditions": [
+    {
+      "id": "gateward_scout",
+      "name": "Gateward scout",
+      "zone": "aegis_capital",
+      "district": "gateward",
+      "role": "resident",
+      "model": "scout",
+      "x": -16,
+      "z": -103,
+      "yaw": 0
+    },
+    {
+      "id": "crownwatch_archer",
+      "name": "Crownwatch archer",
+      "zone": "aegis_capital",
+      "district": "crownwatch",
+      "role": "guard",
+      "model": "archer",
+      "x": 16,
+      "z": 141,
+      "yaw": 90
+    },
+    {
+      "id": "bellfound_scholar",
+      "name": "Visiting arcane scholar",
+      "zone": "aegis_capital",
+      "district": "bellfound",
+      "role": "resident",
+      "model": "scholar",
+      "x": -33,
+      "z": 54,
+      "yaw": 60
+    },
+    {
+      "id": "cinderbank_watch",
+      "name": "District watch",
+      "zone": "aegis_capital",
+      "district": "cinderbank",
+      "role": "guard",
+      "model": "guard01",
+      "x": -72,
+      "z": -48,
+      "yaw": 0
+    },
+    {
+      "id": "lantern_porter",
+      "name": "Quay laborer",
+      "zone": "aegis_capital",
+      "district": "lantern_quays",
+      "role": "resident",
+      "model": "brute",
+      "x": 105,
+      "z": -44,
+      "yaw": 60
+    },
+    {
+      "id": "gateward_resident",
+      "name": "Market resident",
+      "zone": "aegis_capital",
+      "district": "gateward",
+      "role": "resident",
+      "model": "peasant",
+      "x": 5,
+      "z": -113,
+      "yaw": 180
+    },
+    {
+      "id": "riftspire_import_crown_emissary",
+      "name": "Crown emissary",
+      "zone": "riftspire_capital",
+      "district": "crown",
+      "role": "resident",
+      "model": "demon",
+      "x": -8,
+      "z": -372,
+      "y": -105,
+      "yaw": 0
+    },
+    {
+      "id": "riftspire_import_crown_oathguard_01",
+      "name": "Crown oathguard",
+      "zone": "riftspire_capital",
+      "district": "crown",
+      "role": "guard",
+      "model": "oathguard",
+      "x": -12,
+      "z": -368,
+      "y": -105,
+      "yaw": 0
+    },
+    {
+      "id": "riftspire_import_crown_oathguard_02",
+      "name": "Crown oathguard",
+      "zone": "riftspire_capital",
+      "district": "crown",
+      "role": "guard",
+      "model": "oathguard",
+      "x": 12,
+      "z": -368,
+      "y": -105,
+      "yaw": 0
+    },
+    {
+      "id": "riftspire_import_market_scavenger",
+      "name": "Blackvein scavenger",
+      "zone": "riftspire_capital",
+      "district": "market",
+      "role": "resident",
+      "model": "goblin",
+      "x": 360,
+      "z": 6,
+      "y": -50,
+      "yaw": 0
+    },
+    {
+      "id": "riftspire_import_shrine_attendant",
+      "name": "Last Ember attendant",
+      "zone": "riftspire_capital",
+      "district": "commons",
+      "role": "resident",
+      "model": "ritualist",
+      "x": -4,
+      "z": 8,
+      "y": -130,
+      "yaw": 0
+    },
+    {
+      "id": "riftspire_import_crown_retainer",
+      "name": "Court retainer",
+      "zone": "riftspire_capital",
+      "district": "crown",
+      "role": "resident",
+      "model": "retainer",
+      "x": 8,
+      "z": -372,
+      "y": -105,
+      "yaw": 0
+    },
+    {
+      "id": "riftspire_import_warrens_resident",
+      "name": "Hollowwall resident",
+      "zone": "riftspire_capital",
+      "district": "warrens",
+      "role": "resident",
+      "model": "cultist",
+      "x": -265,
+      "z": 5,
+      "y": -175,
+      "yaw": 0
+    },
+    {
+      "id": "riftspire_import_works_enforcer",
+      "name": "Drowned Works enforcer",
+      "zone": "riftspire_capital",
+      "district": "works",
+      "role": "guard",
+      "model": "maw",
+      "x": 6,
+      "z": 205,
+      "y": -245,
+      "yaw": 0
+    }
+  ],
+  "camps": [
+    {
+      "id": "supply_outpost",
+      "zone": "sunmeadow_march",
+      "allegiance": "friendly",
+      "realm": "aegis",
+      "members": [
+        {
+          "id": "sunmeadow_march_import_supply_outpost_1",
+          "name": "Supply sentry",
+          "zone": "sunmeadow_march",
+          "model": "guard02",
+          "role": "guard",
+          "x": -395,
+          "z": -300,
+          "yaw": 0
+        },
+        {
+          "id": "sunmeadow_march_import_supply_outpost_2",
+          "name": "Supply sentry",
+          "zone": "sunmeadow_march",
+          "model": "guard02",
+          "role": "guard",
+          "x": -391,
+          "z": -300,
+          "yaw": 180
+        },
+        {
+          "id": "sunmeadow_march_import_supply_outpost_3",
+          "name": "Supply porter",
+          "zone": "sunmeadow_march",
+          "model": "brute",
+          "role": "resident",
+          "x": -395,
+          "z": -296,
+          "yaw": 0
+        }
+      ]
+    },
+    {
+      "id": "deserter_camp",
+      "zone": "brightfen_approach",
+      "allegiance": "hostile",
+      "realm": "none",
+      "members": [
+        {
+          "id": "brightfen_approach_import_deserter_camp_1",
+          "name": "Fenway deserter",
+          "zone": "brightfen_approach",
+          "model": "guard01",
+          "role": "enemy",
+          "x": -190,
+          "z": -145,
+          "yaw": 0
+        },
+        {
+          "id": "brightfen_approach_import_deserter_camp_2",
+          "name": "Fenway deserter",
+          "zone": "brightfen_approach",
+          "model": "guard01",
+          "role": "enemy",
+          "x": -186,
+          "z": -145,
+          "yaw": 180
+        },
+        {
+          "id": "brightfen_approach_import_deserter_camp_3",
+          "name": "Fenway bruiser",
+          "zone": "brightfen_approach",
+          "model": "brute",
+          "role": "enemy",
+          "x": -190,
+          "z": -141,
+          "yaw": 0
+        }
+      ]
+    },
+    {
+      "id": "work_crew",
+      "zone": "cinderfen_outskirts",
+      "allegiance": "friendly",
+      "realm": "riftbound",
+      "members": [
+        {
+          "id": "cinderfen_outskirts_import_work_crew_1",
+          "name": "Chainwake laborer",
+          "zone": "cinderfen_outskirts",
+          "model": "brute",
+          "role": "resident",
+          "x": 395,
+          "z": -310,
+          "yaw": 0
+        },
+        {
+          "id": "cinderfen_outskirts_import_work_crew_2",
+          "name": "Chainwake laborer",
+          "zone": "cinderfen_outskirts",
+          "model": "brute",
+          "role": "resident",
+          "x": 399,
+          "z": -310,
+          "yaw": 180
+        },
+        {
+          "id": "cinderfen_outskirts_import_work_crew_3",
+          "name": "Work crew enforcer",
+          "zone": "cinderfen_outskirts",
+          "model": "maw",
+          "role": "guard",
+          "x": 395,
+          "z": -306,
+          "yaw": 0
+        }
+      ]
+    },
+    {
+      "id": "cultist_camp",
+      "zone": "ashen_steppe",
+      "allegiance": "hostile",
+      "realm": "none",
+      "members": [
+        {
+          "id": "ashen_steppe_import_cultist_camp_1",
+          "name": "Ashen oathbreaker",
+          "zone": "ashen_steppe",
+          "model": "cultist",
+          "role": "enemy",
+          "x": 170,
+          "z": -140,
+          "yaw": 0
+        },
+        {
+          "id": "ashen_steppe_import_cultist_camp_2",
+          "name": "Ashen oathbreaker",
+          "zone": "ashen_steppe",
+          "model": "cultist",
+          "role": "enemy",
+          "x": 174,
+          "z": -140,
+          "yaw": 180
+        },
+        {
+          "id": "ashen_steppe_import_cultist_camp_3",
+          "name": "Ashen oathbreaker",
+          "zone": "ashen_steppe",
+          "model": "cultist",
+          "role": "enemy",
+          "x": 170,
+          "z": -136,
+          "yaw": 0
+        },
+        {
+          "id": "ashen_steppe_import_cultist_camp_4",
+          "name": "Ashen enforcer",
+          "zone": "ashen_steppe",
+          "model": "maw",
+          "role": "enemy",
+          "x": 174,
+          "z": -136,
+          "yaw": 180
+        }
+      ]
+    }
+  ],
+  "acceptance": {
+    "nativeVisual": false,
+    "equippedMotion": false,
+    "placement": false,
+    "gameplay": false,
+    "release": false
+  }
+}

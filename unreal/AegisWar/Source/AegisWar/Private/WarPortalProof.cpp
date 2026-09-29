@@ -2,12 +2,15 @@
 #include "WarZonePortal.h"
 #include "WarCharacter.h"
 #include "WarPlayerState.h"
+#include "WarPlayerController.h"
 #include "WarZoneAnchor.h"
 #include "WarZoneStreamingSubsystem.h"
 #include "WarResourceNode.h"
 #include "WarWorldEditSubsystem.h"
 #include "Components/CapsuleComponent.h"
 #include "Engine/World.h"
+#include "Engine/LevelStreaming.h"
+#include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
 #include "Misc/CommandLine.h"
@@ -61,6 +64,15 @@ void UWarPortalProof::Tick(float DeltaTime)
     TArray<FName> Routes;
     for (TActorIterator<AWarZonePortal> It(GetWorld()); It; ++It) if (It->bDestinationBuilt) Routes.Add(It->RouteId);
     Routes.Sort(FNameLexicalLess());
+    // Diagnostic ordering still exercises every route exactly once; no skips or
+    // synthetic route counts are allowed in the acceptance report.
+    FString PriorityRoute;
+    if (FParse::Value(FCommandLine::Get(), TEXT("WarPortalPriorityRoute="), PriorityRoute))
+    {
+        const int32 Index = Routes.IndexOfByKey(FName(*PriorityRoute));
+        if (Index == INDEX_NONE || Routes.Num() < 2) { Finish(false, TEXT("Unknown priority route")); return; }
+        Routes.Swap(1, Index);
+    }
     int32 Expected = 70;
     FParse::Value(FCommandLine::Get(),TEXT("WarPortalProofRoutes="),Expected);
     if (Routes.Num()!=Expected) { Finish(false,TEXT("Unexpected directed route count")); return; }
@@ -68,10 +80,21 @@ void UWarPortalProof::Tick(float DeltaTime)
     if (!bGmUnloadedVerified && Streaming && State->GetCurrentZone() != TEXT("aegis_capital")
         && !Streaming->IsZoneReady(TEXT("aegis_capital")))
     {
-        if (Editor->GetObjectActor(GmObjectId) || Editor->GetHistory().ExportDraft() != GmSnapshot)
-        { Finish(false, TEXT("Capital unload retained a GM actor or changed its draft")); return; }
-        bGmUnloadedVerified = true;
-        UE_LOG(LogTemp, Display, TEXT("WAR_GM_CAPITAL_UNLOADED_HISTORY_PASSED"));
+        // Admission becomes false as unloading starts, before actors are removed.
+        // Assert actor retirement only after the engine actually releases every layer.
+        const auto* Capital = AWarZoneAnchor::FindById(GetWorld(), TEXT("aegis_capital"));
+        bool bUnloaded = Capital && !Capital->ContentLevels.IsEmpty();
+        if (Capital) for (FName Package : Capital->ContentLevels)
+            if (const auto* Level = UGameplayStatics::GetStreamingLevel(GetWorld(), Package))
+                bUnloaded &= !Level->IsLevelLoaded() && !Level->IsLevelVisible();
+            else bUnloaded = false;
+        if (bUnloaded)
+        {
+            if (Editor->GetObjectActor(GmObjectId) || Editor->GetHistory().ExportDraft() != GmSnapshot)
+            { Finish(false, TEXT("Capital unload retained a GM actor or changed its draft")); return; }
+            bGmUnloadedVerified = true;
+            UE_LOG(LogTemp, Display, TEXT("WAR_GM_CAPITAL_UNLOADED_HISTORY_PASSED"));
+        }
     }
     if (Streaming && StreamingChecks < 2)
     {
@@ -206,7 +229,11 @@ void UWarPortalProof::Tick(float DeltaTime)
         }
         if (FVector::Dist2D(Character->GetActorLocation(), Portal->ArrivalLocation) > 200
             || TravelPawn.Get() != Character || State->GetInventory().Revision != TravelRevision)
-        { Finish(false, TEXT("Traversal failed: ") + Portal->RouteId.ToString()); return; }
+        {
+            const auto* Player = Cast<AWarPlayerController>(PC);
+            Finish(false, TEXT("Traversal failed: ") + Portal->RouteId.ToString() + TEXT(" ")
+                + (Player ? Player->GetZoneTravelStatus() : FString())); return;
+        }
         const auto* Zone = AWarZoneAnchor::FindAt(GetWorld(), Character->GetActorLocation());
         if (!Zone || Zone->ZoneId != State->GetCurrentZone())
         { Finish(false, TEXT("Zone state did not follow travel")); return; }
@@ -279,8 +306,14 @@ void UWarPortalProof::Tick(float DeltaTime)
     }
     else
     {
-        // Restoring the trigger around the player must use the real overlap entry point.
+        // Reproduce capsule contact OUTSIDE the center-admission radius, followed
+        // by movement farther inside without a second BeginOverlap event.
+        Character->SetActorLocation(Portal->GetActorLocation() + FVector(Portal->Radius + 20, 0, 0), false);
         Portal->SetActorEnableCollision(true);
+        if (Streaming && Streaming->HasPending(Character))
+        { Finish(false, TEXT("Capsule edge incorrectly admitted before center entry")); return; }
+        Character->SetActorLocation(Portal->GetActorLocation(), false);
+        Portal->Tick(0.1f);
         bTraversed = FVector::Dist2D(Character->GetActorLocation(), Portal->ArrivalLocation) <= 200;
     }
     const bool bPending = Streaming && Streaming->HasPending(Character);

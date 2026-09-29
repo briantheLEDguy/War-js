@@ -25,6 +25,9 @@ bool FWarActionBarTest::RunTest(const FString& Parameters)
     auto& Context = GEngine->CreateNewWorldContext(EWorldType::Game); Context.SetCurrentWorld(World);
     auto* PC = World->SpawnActor<AWarPlayerController>();
     PC->LoadControlKeys();
+    TestEqual(TEXT("Tab cycles enemies by default"), PC->GetControlKey(TEXT("CycleTarget")), EKeys::Tab);
+    TestEqual(TEXT("Middle mouse targets nearest enemy"), PC->GetControlKey(TEXT("NearestEnemy")), EKeys::MiddleMouseButton);
+    TestFalse(TEXT("Retired cursor toggle has no binding"), PC->GetControlKey(TEXT("ActionCursor")).IsValid());
     TestEqual(TEXT("Default bar has ten slots"), PC->GetActionBars()[0].Buttons, 10);
     TestEqual(TEXT("First slot binding"), PC->GetControlKey(WarActionBar::Binding(0)), EKeys::One);
     TestEqual(TEXT("Tenth slot binding"), PC->GetControlKey(WarActionBar::Binding(9)), EKeys::Zero);

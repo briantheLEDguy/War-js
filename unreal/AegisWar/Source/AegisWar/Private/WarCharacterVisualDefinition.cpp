@@ -65,7 +65,8 @@ bool UWarCharacterVisualDefinition::ValidateForSpawn(const EWarRealm ExpectedRea
             FName(TEXT("turn_left")), FName(TEXT("turn_right")), FName(TEXT("hit_front")), FName(TEXT("hit_back")), FName(TEXT("landing"))})
             if (!ImportedAnimations.Contains(Required)) return Reject(TEXT("Native animation states are incomplete."));
         const bool bPlayable = ProfileKey == TEXT("civic_battle_prelate_m") || ProfileKey == TEXT("civic_sunfire_templar_m")
-            || ProfileKey == TEXT("civic_ember_arcanist_m") || ProfileKey == TEXT("mire_warbrute_m");
+            || ProfileKey == TEXT("civic_ember_arcanist_m") || ProfileKey == TEXT("mire_warbrute_m")
+            || ProfileKey == TEXT("riven_ruin_oracle_m") || ProfileKey == TEXT("riven_void_magister_m");
         if (bPlayable && AbilityPresentations.IsEmpty()) return Reject(TEXT("Playable profile requires explicit ability presentations."));
         if (bPlayable && !WeaponMesh.LoadSynchronous()) return Reject(TEXT("Playable profile requires its authored weapon."));
         if (bPlayable && AnimationStyle == TEXT("shield") && !ShieldMesh.LoadSynchronous()) return Reject(TEXT("Sword-and-shield profile requires its authored shield."));

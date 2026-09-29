@@ -8,4 +8,5 @@ class AEGISWAR_API AWarSiegeHud : public AWarQuestHud
     GENERATED_BODY()
 public:
     virtual void DrawHUD() override;
+    virtual void NotifyHitBoxClick(FName BoxName) override;
 };

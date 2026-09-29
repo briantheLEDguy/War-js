@@ -31,6 +31,10 @@ public:
     float Cooldown(FName Id) const;
     bool IsBusy() const { return Now() < BusyUntil; }
     FName GetCastingAbility() const { return Casting; }
+    const FString& GetPublicCastLabel() const { return PublicCastLabel; }
+    double GetPublicCastStart() const { return PublicCastStart; }
+    double GetPublicCastEnd() const { return PublicCastEnd; }
+    bool IsPublicCastInterruptible() const { return PublicCastEnd > Now(); }
     FName GetActionState() const;
     const TArray<FWarRuleTrace>& GetConditionTraces() const { return ConditionTraces; }
     void RecordConditions(const TArray<FWarRuleTrace>& Traces);
@@ -44,6 +48,8 @@ public:
     FString GetMessage() const { return Now() < MessageUntil ? LastMessage : FString(); }
     void RestoreResource();
     void ResetCooldowns();
+    TSharedPtr<class FJsonObject> CaptureScenarioState() const;
+    void RestoreScenarioState(const TSharedPtr<class FJsonObject>& State);
     void Interrupt() { Cancel(); }
 private:
     UWarAbilityCatalog* Catalog() const;
@@ -52,6 +58,10 @@ private:
     void BeginMotion(const FWarAbilityDefinition& Ability);
     void Resolve(const FWarAbilityDefinition& Ability);
     void Cancel();
+    void PublishCast(const FWarAbilityDefinition& Ability);
+    UPROPERTY(Replicated) FString PublicCastLabel;
+    UPROPERTY(Replicated) double PublicCastStart = 0;
+    UPROPERTY(Replicated) double PublicCastEnd = 0;
     UPROPERTY(Replicated) FName Career;
     UPROPERTY(Replicated) float Resource = 0;
     UPROPERTY(Replicated) double GcdUntil = 0;

@@ -543,7 +543,7 @@ void UWarCapitalProofSubsystem::Tick(const float DeltaTime)
         TEXT("Older draft removed newly imported capital content."))) return;
     Player->ServerWorldEditHistory(false, Editor->GetHistory().GetRevision());
     Player->ToggleInventory(); Player->ToggleWorldEditor(); Player->ToggleQuestLog(); Player->ToggleWorldEditor(); Player->ToggleWorldEditor();
-    if (!Check(!Player->IsMoveInputIgnored() && !Player->IsLookInputIgnored() && !Player->bShowMouseCursor,
+    if (!Check(!Player->IsMoveInputIgnored() && !Player->IsLookInputIgnored() && Player->bShowMouseCursor,
         TEXT("GM panel transitions left movement/camera blocked."))) return;
     FlightPosition = Character->GetActorLocation();
     Player->ServerSetDevelopmentTraversal(true, 2.f);

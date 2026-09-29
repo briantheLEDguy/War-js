@@ -10,6 +10,7 @@
 #include "Engine/World.h"
 #include "Engine/Brush.h"
 #include "Engine/BlockingVolume.h"
+#include "Components/SphereComponent.h"
 #include <limits>
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarZoneStreamingTest, "AegisWar.Foundation.ZoneStreaming",
@@ -58,6 +59,24 @@ bool FWarZonePortalTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Remote activation rejected"), Enter(true,true,true,true,true,901,900,3,0));
     TestFalse(TEXT("Immediate return prevented"), Enter(true,true,true,true,true,0,900,2.99,3));
     TestFalse(TEXT("Invalid location rejected"), Enter(true,true,true,true,true,std::numeric_limits<double>::quiet_NaN(),900,3,0));
+    const auto Values = UWorld::InitializationValues().AllowAudioPlayback(false).RequiresHitProxies(false)
+        .CreatePhysicsScene(false).CreateNavigation(false).CreateAISystem(false).ShouldSimulatePhysics(false).SetTransactional(false);
+    UWorld* World = UWorld::CreateWorld(EWorldType::Editor, false, NAME_None, nullptr, true, ERHIFeatureLevel::Num, &Values);
+    if (!TestNotNull(TEXT("Portal range fixture"), World)) return false;
+    auto* Portal = World->SpawnActor<AWarZonePortal>();
+    auto* Player = World->SpawnActor<AWarZonePortal>();
+    auto* Sphere = Cast<USphereComponent>(Portal->GetRootComponent());
+    TestNotNull(TEXT("Portal trigger"), Sphere);
+    Player->SetActorLocation(FVector(930,0,0));
+    TestFalse(TEXT("Initial capsule contact is outside center admission"), Portal->IsWithinEntryRange(Player));
+    Player->SetActorLocation(FVector(899,0,0));
+    TestTrue(TEXT("Continued walking enters without a second BeginOverlap"), Portal->IsWithinEntryRange(Player));
+    TestTrue(TEXT("Portal continues checking admission after initial contact"), Portal->PrimaryActorTick.bCanEverTick);
+    TestFalse(TEXT("A missing pawn is never eligible"), Portal->IsWithinEntryRange(nullptr));
+    Portal->SetActorScale3D(FVector(2));
+    Player->SetActorLocation(FVector(1799,0,0));
+    TestTrue(TEXT("Interaction uses actual scaled trigger range"), Portal->IsWithinEntryRange(Player));
+    World->DestroyWorld(false);
     TestTrue(TEXT("Zone bounds include the authored boundary at any floor"), AWarZoneAnchor::ContainsPoint(FVector(200000,0,0),60000,FVector(260000,-60000,-5000)));
     TestFalse(TEXT("Neighbouring zones do not leak into the local map"), AWarZoneAnchor::ContainsPoint(FVector(200000,0,0),60000,FVector(260001,0,0)));
     TestFalse(TEXT("Invalid zone extent rejected"), AWarZoneAnchor::ContainsPoint(FVector::ZeroVector,-1,FVector::ZeroVector));

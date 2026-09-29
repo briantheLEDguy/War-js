@@ -39,3 +39,10 @@ def official_map():
 
 def records():
     return [dict(zip(('id','name','district','role','profile','x','z','yaw'), row)) for row in POPULATION]
+
+
+def planned_records(zone=None):
+    """Reviewed import candidates for both capitals; legacy builds remain unchanged until admission."""
+    from imported_population import population_records
+    rows = population_records(records())
+    return [row for row in rows if zone is None or row['zone'] == zone]

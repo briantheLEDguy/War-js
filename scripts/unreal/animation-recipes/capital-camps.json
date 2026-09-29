@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 2,
+  "character": "Imported capital and camp inhabitants",
+  "animationSet": "capital-camps",
+  "output": "artifacts/unreal/imported-population",
+  "arguments": ["-NoTextureStreaming"],
+  "stages": [
+    {
+      "name": "prepare",
+      "engine": "blender",
+      "script": "prepare-imported-population.py"
+    },
+    {
+      "name": "import",
+      "engine": "unreal",
+      "script": "import-playable-models.py"
+    },
+    {
+      "name": "retarget",
+      "engine": "unreal",
+      "script": "import-animation-replacement.py"
+    },
+    {
+      "name": "compose",
+      "engine": "unreal",
+      "script": "compose-animation-presentations.py"
+    },
+    {
+      "name": "install",
+      "engine": "unreal",
+      "script": "install-imported-population.py"
+    },
+    {
+      "name": "verify",
+      "engine": "unreal",
+      "script": "verify-imported-population.py"
+    },
+    {
+      "name": "review",
+      "engine": "unreal-render",
+      "script": "review-imported-population.py"
+    },
+    {
+      "name": "survey",
+      "engine": "unreal",
+      "script": "place-imported-population.py"
+    },
+    {
+      "name": "preview",
+      "engine": "unreal-render",
+      "script": "review-placed-population.py"
+    }
+  ]
+}

@@ -42,6 +42,12 @@ bool FWarAbilityConditionalTest::RunTest(const FString& Parameters)
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarAbilityConditionalValidationTest,"AegisWar.Foundation.AbilityConditionValidation",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FWarAbilityConditionalValidationTest::RunTest(const FString& Parameters)
 {
+    const FString IdolJson=TEXT(R"({"id":"idol","kind":"warp_idol","recipient":"caster","amount":{"min":0,"max":18}})");
+    TSharedPtr<FJsonObject> Idol; FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(IdolJson),Idol);
+    FWarAbilityEffect IdolEffect; FString IdolError;
+    TestFalse(TEXT("Workshop cannot author a zero-damage idol"),WarAbilityConditions::ParseEffect(Idol,IdolEffect,IdolError));
+    Idol->GetObjectField(TEXT("amount"))->SetNumberField(TEXT("min"),12);
+    TestTrue(TEXT("Workshop accepts a positive idol pulse"),WarAbilityConditions::ParseEffect(Idol,IdolEffect,IdolError));
     const FString Json=TEXT(R"({"conditions":[{"id":"bonus","event":"application","condition":{"kind":"all","children":[{"kind":"hot","subject":"recipient","source":"self"}]},"actions":[{"kind":"percent","effectId":"heal","value":0.25}]}]})");
     TSharedPtr<FJsonObject> Row; FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json),Row);
     FWarAbilityDefinition A; A.Id=TEXT("custom.heal"); A.Shape=TEXT("area"); FWarAbilityEffect Effect; Effect.Id=TEXT("heal"); Effect.Kind=TEXT("heal"); A.Effects.Add(Effect);

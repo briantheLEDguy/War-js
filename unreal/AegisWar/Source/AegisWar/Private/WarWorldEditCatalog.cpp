@@ -14,6 +14,7 @@ TArray<FWarWorldEditCatalogEntry> WarWorldEditCatalog::Build(const TArray<FWarWo
         if (MeshPath.IsEmpty()) continue;
         const FString Label = FPaths::GetBaseFilename(MeshPath).Replace(TEXT("aegis_house_"), TEXT("House "))
             .Replace(TEXT("aegis_rowhouse_"), TEXT("Rowhouse ")).Replace(TEXT("aegis_wall"), TEXT("Capital wall"))
+            .Replace(TEXT("SM_city_block_"), TEXT("Dutch house ")).Replace(TEXT("SM_dutch_paving_"), TEXT("Dutch paving "))
             .Replace(TEXT("SM_MH_02_"), TEXT("Town kit ")).Replace(TEXT("_"), TEXT(" "));
         Models.Add(Row.SourceIdentity, { Row.Id, Label, Row.SourceIdentity });
     }

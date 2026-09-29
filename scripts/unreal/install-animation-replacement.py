@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import unreal
 sys.path.insert(0,str(Path(__file__).parent))
-from animation_replacement import ROOT, OUT, PROFILES
+from animation_replacement import ROOT, OUT, PROFILES, ANIMATION_SET, visual_path
 
 library=unreal.EditorAssetLibrary
 sets=json.loads((OUT/"presentations.json").read_text())["profiles"]
@@ -13,7 +13,7 @@ bodies=json.loads((OUT/"bodies.json").read_text())["profiles"]
 registry_path=ROOT/"unreal/AegisWar/Content/Migration/visual-imports.json"
 registry=json.loads(registry_path.read_text())
 entries={e["profileKey"]:e for e in registry["entries"]}
-removed={row['path']:row for row in json.loads((OUT/'source-track-removal.json').read_text())}
+removed={row['path']:row for row in json.loads((OUT/'source-track-removal.json').read_text())} if ANIMATION_SET == 'supplied-four' else {}
 for entry in entries.values():
     row=removed.get(entry['sourceModel'])
     if row and entry['sourceSha256']==row['beforeSha256']:
@@ -22,12 +22,12 @@ for entry in entries.values():
         entry['sourceSha256']=row['afterSha256']
 template=unreal.load_asset("/Game/MigrationProof/Visual_civic_battle_prelate_m")
 for profile,(career,_) in PROFILES.items():
-    path="/Game/MigrationProof/Visual_"+profile
+    path=visual_path(profile)
     visual=unreal.load_asset(path) if library.does_asset_exist(path) else library.duplicate_asset(template.get_path_name(),path)
     if not visual: raise RuntimeError("Could not create playable profile: "+profile)
     visual.set_editor_properties(dict(profile_key=profile,source_profile_key=profile,class_id=career,
-        race_id="greenskin" if profile.startswith("mire_") else "empire",body_variant="m",
-        realm=unreal.WarRealm.RIFTBOUND if profile.startswith("mire_") else unreal.WarRealm.AEGIS))
+        race_id="greenskin" if profile.startswith("mire_") else "chaos" if profile.startswith("riven_") else "empire",body_variant="m",
+        realm=unreal.WarRealm.RIFTBOUND if profile.startswith(("mire_", "riven_")) else unreal.WarRealm.AEGIS))
     body=bodies[profile]
     entries[profile]=dict(profileKey=profile,sourceModel=body["source"],sourceSha256=body["sourceSha256"],
         skeletalMeshPath=body["mesh"],animationPaths=[],artApproval=False,developmentOnly=True)
@@ -36,8 +36,11 @@ assets=unreal.AssetRegistryHelpers.get_asset_registry().get_assets_by_class(unre
 installed=[]
 for data in assets:
     visual=data.get_asset()
+    staging=visual.get_path_name().startswith('/Game/Characters/SiegeStaging/')
+    if (ANIMATION_SET == 'siege-casters') != staging: continue
     source=str(visual.source_profile_key)
     if source in ("None",""): source=str(visual.profile_key)
+    if ANIMATION_SET == 'siege-casters' and source not in PROFILES: continue
     if source not in sets:
         raise RuntimeError("Active visual has an unaudited source rig: "+visual.get_path_name()+" -> "+source)
     entry=sets[source]; binding=entries[source]
@@ -78,7 +81,8 @@ for data in assets:
     binding["skeletalMeshPath"]=entry["mesh"]
     installed.append(dict(visual=visual.get_path_name(),source=source,bindings=len(animations),abilities=len(presentations)))
 registry["entries"]=list(entries.values())
-registry_path.write_text(json.dumps(registry,indent=2)+"\n")
+publication_path=OUT/'staged-visual-imports.json' if ANIMATION_SET == 'siege-casters' else registry_path
+publication_path.write_text(json.dumps(registry,indent=2)+"\n")
 (OUT/"installed.json").write_text(json.dumps(dict(schemaVersion=1,visuals=installed,nativeSpawnValidation=True,
     gameplayVerified=False,artApproval=False),indent=2)+"\n")
 unreal.log("WAR_REPLACEMENT_INSTALLED="+str(len(installed)))

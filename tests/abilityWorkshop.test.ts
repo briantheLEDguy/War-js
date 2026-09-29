@@ -66,6 +66,22 @@ describe('ability workshop condition semantics', () => {
 });
 
 describe('ability workshop catalog and edits', () => {
+  it('admits the caster-owned idol and rejects arbitrary deployable authoring', () => {
+    const data = workspace();
+    const idol = data.abilities.find(a => a.id === 'void_magister.summon_idol')!;
+    expect(idol.unavailableReason).toBeUndefined();
+    expect(idol.effects[0]).toMatchObject({ kind: 'warp_idol', recipient: 'caster', amount: { min: 12, max: 18 } });
+    expect(validateWorkspace(data)).toEqual([]);
+    idol.effects[0].recipient = 'enemies';
+    expect(validateWorkspace(data).some(i => i.message.includes('Idol execution'))).toBe(true);
+    idol.effects[0].recipient = 'caster';
+    const copy = structuredClone(idol); copy.id = 'custom.idol'; data.abilities.push(copy);
+    expect(validateWorkspace(data).some(i => i.message.includes('Idol execution'))).toBe(true);
+    data.abilities.pop(); idol.effects[0].amount!.min = 0;
+    expect(validateWorkspace(data).some(i => i.message.includes('positive'))).toBe(true);
+    idol.effects[0].amount!.min = 12; idol.effects[0].amount!.max = NaN;
+    expect(validateWorkspace(data).some(i => i.path.endsWith('/amount'))).toBe(true);
+  });
   it('migrates all 24 class kits without changing the original abilities', () => {
     const data = workspace();
     expect(data.abilities).toHaveLength(240); expect(data.assignments).toHaveLength(240);

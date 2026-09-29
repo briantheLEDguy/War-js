@@ -30,6 +30,11 @@ def main():
     if recipe["schemaVersion"] != 2 or args.from_stage not in names:
         parser.error("Unsupported recipe or starting stage")
     environment=os.environ.copy()
+    animation_set=recipe.get('animationSet','supplied-four')
+    if animation_set not in ('supplied-four','siege-casters','siege-equipment','capital-camps'):
+        parser.error('Unknown animation set')
+    environment['WAR_ANIMATION_SET']=animation_set
+    os.environ['WAR_ANIMATION_SET']=animation_set
     if 'profileKey' in recipe:
         from animation_replacement import PROFILES, locomotion
         style_file=(TOOLS/'animation-recipes'/recipe['styleTemplate']).resolve()
@@ -43,6 +48,8 @@ def main():
     output = (ROOT / recipe["output"]).resolve()
     output.relative_to(ROOT / "artifacts")
     output.mkdir(parents=True, exist_ok=True)
+    if animation_set == 'capital-camps' and (output/'placement.json').exists() and args.from_stage in ('prepare','import','retarget','compose','install'):
+        parser.error('Published population assets require a new reviewed revision; use --from-stage survey to verify an unchanged placement.')
     for stage in recipe["stages"][names.index(args.from_stage):]:
         if stage["name"] in ("review", "preview") and not args.review:
             continue

@@ -7,9 +7,12 @@ import { defaultEngineRoot, inspectToolchain, projectPath, repoRoot } from './to
 
 const engine = inspectToolchain(defaultEngineRoot());
 if (engine.blockers.length || !engine.editorCommand) throw new Error(engine.blockers.join('\n'));
-const receipt = JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/world-portals/build.json'), 'utf8'));
+const candidateIndex = process.argv.indexOf('--candidate');
+if (candidateIndex >= 0 && !process.argv[candidateIndex + 1]) throw new Error('--candidate requires a saved campaign receipt.');
+const candidate = candidateIndex >= 0 ? JSON.parse(readFileSync(path.resolve(process.argv[candidateIndex + 1]), 'utf8')) : undefined;
+const receipt = candidate?.build ?? JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/world-portals/build.json'), 'utf8'));
 if (!receipt.partitionManifest) throw new Error('Attach the partitioned world first.');
-const manifest = JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/world-portals', receipt.partitionManifest), 'utf8'));
+const manifest = candidate?.manifest ?? JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/world-portals', receipt.partitionManifest), 'utf8'));
 const packages = [...new Set<string>([receipt.map, receipt.layer, ...Object.keys(manifest.packageHashes)])];
 function fingerprints() {
   return Object.fromEntries(packages.map(asset => {

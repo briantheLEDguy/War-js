@@ -1,5 +1,10 @@
 # FinalAppearance capital population
 
+The [supplied-model population increment](unreal-imported-population.md) defines
+replacement appearances and additions for both capitals, plus four world camps.
+`capital_population.planned_records()` exposes those candidates; the historical
+population below remains the baseline until native admission.
+
 The official capital loads `/Game/Capitals/crownward/Population/AegisCapital_Population`
 as an Always Loaded sublevel. It contains 17 new native `WarCityNpc` actors and
 eight purchased-kit furnishings. Existing quest NPC Mara Vell remains in the

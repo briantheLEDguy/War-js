@@ -10,6 +10,8 @@ namespace WarWorldEditMap
             || Package == TEXT("/Game/Capitals/Siege/AegisCapital_Siege")
             || Package == TEXT("/Game/Capitals/kit_pilot/AegisCapital_Workbench")
             || Package == TEXT("/Game/Capitals/crownward/AegisCapital_Workbench")
-            || (SelectedMap.StartsWith(TEXT("/Game/Capitals/crownward/")) && Package == SelectedMap);
+            || (SelectedMap.StartsWith(TEXT("/Game/Capitals/crownward/")) && Package == SelectedMap)
+            || (SelectedMap.StartsWith(TEXT("/Game/WorldRebuild/DutchBastion_"))
+                && SelectedMap.EndsWith(TEXT("/Bastion_Campaign_v3")) && Package == SelectedMap);
     }
 }

@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { mkdirSync, existsSync, readFileSync, copyFileSync } from 'node:fs';
 import path from 'node:path';
+import { refreshFrontend } from './frontend-content';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
 const args = parseArguments(process.argv.slice(2), [], ['--width', '--height']);
@@ -10,6 +11,7 @@ if (![[1280, 720], [1920, 1080], [2560, 1080]].some(([w, h]) => w === width && h
 }
 const engine = inspectToolchain(defaultEngineRoot());
 if (!engine.editorCommand || engine.blockers.length) throw new Error(engine.blockers.join('\n'));
+refreshFrontend(engine);
 const run = randomUUID();
 const output = path.join(repoRoot, 'artifacts/unreal/frontend', `${width}x${height}-${run}`);
 const receipt = path.join(repoRoot, 'unreal/AegisWar/Saved/FrontendProof', run.replaceAll('-', ''));

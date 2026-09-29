@@ -49,7 +49,7 @@ export type AbilityShape =
 
 export type AbilityTargetKind = 'enemy' | 'self';
 
-export type AbilityEffectKind = 'damage' | 'heal' | 'status' | 'player_status' | 'cleanse' | 'movement' | 'wrath_relic';
+export type AbilityEffectKind = 'damage' | 'heal' | 'status' | 'player_status' | 'cleanse' | 'movement' | 'wrath_relic' | 'warp_idol';
 
 export type PlayerUtilityStatusKind = 'guard' | 'shield' | 'empower' | 'haste';
 export type PlayerHarmfulStatusKind = 'slow' | 'root' | 'stagger' | 'debuff';

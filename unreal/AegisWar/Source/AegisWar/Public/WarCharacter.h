@@ -43,6 +43,7 @@ public:
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     virtual void Tick(float DeltaSeconds) override;
 
+    UWarCharacterVisualDefinition* GetVisualDefinition() const { return VisualDefinition; }
     bool SetVisualDefinition(UWarCharacterVisualDefinition* Definition, FString& OutError);
     bool IsDead() const { return bDead; }
     bool IsVisualReady() const { return bVisualReady; }

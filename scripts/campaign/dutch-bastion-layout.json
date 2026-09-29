@@ -1,0 +1,1984 @@
+{
+  "schemaVersion": 1,
+  "zone": "aegis_capital",
+  "revision": "dutch-blocks-v2",
+  "status": "staged",
+  "boundary": [
+    [
+      -139.5,
+      -139.5
+    ],
+    [
+      55,
+      -139.5
+    ],
+    [
+      61,
+      -137
+    ],
+    [
+      80,
+      -137
+    ],
+    [
+      139,
+      -132
+    ],
+    [
+      139.5,
+      -105
+    ],
+    [
+      139.5,
+      105
+    ],
+    [
+      117,
+      123
+    ],
+    [
+      77,
+      124
+    ],
+    [
+      59,
+      113
+    ],
+    [
+      28,
+      113
+    ],
+    [
+      9,
+      113
+    ],
+    [
+      0,
+      119
+    ],
+    [
+      -51,
+      120
+    ],
+    [
+      -99,
+      120
+    ],
+    [
+      -132,
+      103
+    ],
+    [
+      -139.5,
+      66
+    ]
+  ],
+  "retainPaths": [
+    "aegis_city_citadel_ascent",
+    "aegis_city_citadel_west_flank",
+    "aegis_city_citadel_east_flank",
+    "aegis_city_west_approach",
+    "aegis_city_east_approach",
+    "aegis_city_west_bridge",
+    "aegis_city_craft_bridge",
+    "aegis_city_south_bridge"
+  ],
+  "streets": [
+    {
+      "id": "gateward_procession",
+      "width": 8,
+      "points": [
+        [
+          0,
+          -158
+        ],
+        [
+          0,
+          -137
+        ],
+        [
+          -6,
+          -116
+        ],
+        [
+          -13,
+          -96
+        ],
+        [
+          -7,
+          -77
+        ],
+        [
+          0,
+          -65
+        ],
+        [
+          5,
+          -37
+        ],
+        [
+          0,
+          -10
+        ],
+        [
+          0,
+          28
+        ],
+        [
+          0,
+          48
+        ],
+        [
+          -48,
+          58
+        ],
+        [
+          -52,
+          77
+        ],
+        [
+          7,
+          86
+        ],
+        [
+          12,
+          101
+        ],
+        [
+          -12,
+          111
+        ],
+        [
+          0,
+          119
+        ]
+      ]
+    },
+    {
+      "id": "sable_market",
+      "width": 5,
+      "points": [
+        [
+          -6,
+          -116
+        ],
+        [
+          -30,
+          -122
+        ],
+        [
+          -52,
+          -108
+        ],
+        [
+          -59,
+          -90
+        ],
+        [
+          -48,
+          -73
+        ],
+        [
+          0,
+          -65
+        ],
+        [
+          26,
+          -73
+        ],
+        [
+          38,
+          -92
+        ],
+        [
+          42,
+          -116
+        ],
+        [
+          17,
+          -125
+        ],
+        [
+          -6,
+          -116
+        ]
+      ]
+    },
+    {
+      "id": "cinder_crescent",
+      "width": 4.5,
+      "points": [
+        [
+          -48,
+          -73
+        ],
+        [
+          -67,
+          -83
+        ],
+        [
+          -87,
+          -77
+        ],
+        [
+          -108,
+          -68
+        ],
+        [
+          -120,
+          -50
+        ],
+        [
+          -114,
+          -28
+        ],
+        [
+          -96,
+          -14
+        ]
+      ]
+    },
+    {
+      "id": "reedmakers_way",
+      "width": 4,
+      "points": [
+        [
+          -52,
+          -108
+        ],
+        [
+          -79,
+          -118
+        ],
+        [
+          -108,
+          -122
+        ],
+        [
+          -128,
+          -107
+        ],
+        [
+          -133,
+          -81
+        ],
+        [
+          -120,
+          -50
+        ]
+      ]
+    },
+    {
+      "id": "emberside_lane",
+      "width": 4,
+      "points": [
+        [
+          -67,
+          -83
+        ],
+        [
+          -76,
+          -62
+        ],
+        [
+          -76,
+          -48
+        ],
+        [
+          -87,
+          -48
+        ],
+        [
+          -84,
+          -30
+        ],
+        [
+          -83,
+          -20
+        ],
+        [
+          -65,
+          -14
+        ]
+      ]
+    },
+    {
+      "id": "copper_cut",
+      "width": 3,
+      "points": [
+        [
+          -87,
+          -77
+        ],
+        [
+          -111,
+          -76
+        ],
+        [
+          -112,
+          -95
+        ],
+        [
+          -110,
+          -102
+        ],
+        [
+          -108,
+          -122
+        ]
+      ]
+    },
+    {
+      "id": "south_court",
+      "width": 3.5,
+      "points": [
+        [
+          -30,
+          -122
+        ],
+        [
+          -39,
+          -124
+        ],
+        [
+          -40,
+          -132
+        ],
+        [
+          -38,
+          -139
+        ]
+      ]
+    },
+    {
+      "id": "tally_street",
+      "width": 4.5,
+      "points": [
+        [
+          -48,
+          -73
+        ],
+        [
+          -44,
+          -51
+        ],
+        [
+          -30,
+          -35
+        ],
+        [
+          5,
+          -37
+        ],
+        [
+          29,
+          -30
+        ],
+        [
+          43,
+          -39
+        ],
+        [
+          32,
+          -61
+        ],
+        [
+          26,
+          -73
+        ]
+      ]
+    },
+    {
+      "id": "weavers_link",
+      "width": 3,
+      "points": [
+        [
+          -84,
+          -30
+        ],
+        [
+          -82,
+          -37
+        ],
+        [
+          -63,
+          -37
+        ],
+        [
+          -44,
+          -51
+        ]
+      ]
+    },
+    {
+      "id": "west_canal_walk",
+      "width": 4,
+      "points": [
+        [
+          -137,
+          14
+        ],
+        [
+          -117,
+          14
+        ],
+        [
+          -111,
+          2
+        ],
+        [
+          -95,
+          1
+        ],
+        [
+          -77,
+          0
+        ],
+        [
+          -65,
+          2
+        ],
+        [
+          -42,
+          2
+        ],
+        [
+          -26,
+          2
+        ],
+        [
+          -26,
+          17
+        ],
+        [
+          0,
+          17
+        ]
+      ]
+    },
+    {
+      "id": "lantern_bank",
+      "width": 4,
+      "points": [
+        [
+          60,
+          0
+        ],
+        [
+          59,
+          -31
+        ],
+        [
+          50,
+          -38
+        ],
+        [
+          46.5,
+          -43
+        ],
+        [
+          46,
+          -53
+        ],
+        [
+          48,
+          -61
+        ],
+        [
+          61,
+          -66
+        ],
+        [
+          60,
+          -94
+        ],
+        [
+          57,
+          -124
+        ],
+        [
+          55,
+          -138
+        ]
+      ]
+    },
+    {
+      "id": "lantern_merchants",
+      "width": 5,
+      "points": [
+        [
+          95,
+          0
+        ],
+        [
+          103,
+          -18
+        ],
+        [
+          125,
+          -38
+        ],
+        [
+          130,
+          -58
+        ],
+        [
+          127,
+          -79
+        ],
+        [
+          118,
+          -111
+        ],
+        [
+          101,
+          -124
+        ],
+        [
+          80,
+          -119
+        ]
+      ]
+    },
+    {
+      "id": "lockkeeper_walk",
+      "width": 3.5,
+      "points": [
+        [
+          80,
+          -119
+        ],
+        [
+          81,
+          -94
+        ],
+        [
+          89,
+          -82
+        ],
+        [
+          116,
+          -82
+        ],
+        [
+          119,
+          -65
+        ],
+        [
+          116,
+          -48
+        ],
+        [
+          97,
+          -43
+        ],
+        [
+          81,
+          -37
+        ],
+        [
+          84,
+          -13
+        ],
+        [
+          95,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "sailmakers_cut",
+      "width": 3,
+      "points": [
+        [
+          81,
+          -34
+        ],
+        [
+          81,
+          -40
+        ],
+        [
+          102,
+          -40
+        ],
+        [
+          115,
+          -43
+        ],
+        [
+          125,
+          -38
+        ]
+      ]
+    },
+    {
+      "id": "east_coffee_lane",
+      "width": 3,
+      "points": [
+        [
+          127,
+          -79
+        ],
+        [
+          116,
+          -86
+        ],
+        [
+          101,
+          -83
+        ],
+        [
+          81,
+          -94
+        ]
+      ]
+    },
+    {
+      "id": "bellfound_arc",
+      "width": 5,
+      "points": [
+        [
+          -117,
+          40
+        ],
+        [
+          -102,
+          48
+        ],
+        [
+          -90,
+          58
+        ],
+        [
+          -80,
+          54
+        ],
+        [
+          -65,
+          33
+        ],
+        [
+          -45,
+          49
+        ],
+        [
+          -28,
+          55
+        ],
+        [
+          0,
+          48
+        ]
+      ]
+    },
+    {
+      "id": "bellfound_cloister",
+      "width": 4,
+      "points": [
+        [
+          -107,
+          65
+        ],
+        [
+          -96,
+          81
+        ],
+        [
+          -78,
+          92
+        ],
+        [
+          -54,
+          96
+        ],
+        [
+          -28,
+          103
+        ],
+        [
+          -12,
+          111
+        ]
+      ]
+    },
+    {
+      "id": "vigil_passage",
+      "width": 3,
+      "points": [
+        [
+          -78,
+          92
+        ],
+        [
+          -68,
+          80
+        ],
+        [
+          -52,
+          77
+        ]
+      ]
+    },
+    {
+      "id": "crownwatch_merchant_rise",
+      "width": 5,
+      "points": [
+        [
+          0,
+          48
+        ],
+        [
+          27,
+          55
+        ],
+        [
+          46,
+          76
+        ],
+        [
+          73,
+          87
+        ],
+        [
+          105,
+          79
+        ],
+        [
+          122,
+          57
+        ],
+        [
+          118,
+          32
+        ],
+        [
+          119,
+          -9
+        ]
+      ]
+    },
+    {
+      "id": "crownwatch_high_street",
+      "width": 4,
+      "points": [
+        [
+          9,
+          113
+        ],
+        [
+          28,
+          113
+        ],
+        [
+          59,
+          113
+        ],
+        [
+          79,
+          114
+        ],
+        [
+          94,
+          123
+        ],
+        [
+          119,
+          103
+        ],
+        [
+          105,
+          79
+        ]
+      ]
+    },
+    {
+      "id": "bellmakers_cut",
+      "width": 3,
+      "points": [
+        [
+          27,
+          55
+        ],
+        [
+          24,
+          73
+        ],
+        [
+          30,
+          91
+        ],
+        [
+          28,
+          113
+        ]
+      ]
+    },
+    {
+      "id": "wardens_lane",
+      "width": 4,
+      "points": [
+        [
+          73,
+          87
+        ],
+        [
+          63,
+          98
+        ],
+        [
+          59,
+          113
+        ]
+      ]
+    },
+    {
+      "id": "east_canal_walk",
+      "width": 4,
+      "points": [
+        [
+          0,
+          39
+        ],
+        [
+          28,
+          39
+        ],
+        [
+          45,
+          36
+        ],
+        [
+          78,
+          33
+        ],
+        [
+          90,
+          45
+        ],
+        [
+          105,
+          48
+        ],
+        [
+          118,
+          43
+        ]
+      ]
+    },
+    {
+      "id": "sealmakers_alley",
+      "width": 2.8,
+      "points": [
+        [
+          30,
+          91
+        ],
+        [
+          47,
+          92
+        ],
+        [
+          63,
+          98
+        ]
+      ]
+    }
+  ],
+  "intentionalSpaces": [
+    {
+      "id": "south_lock_walk",
+      "region": "city_block_bbda89e2cdb9",
+      "kind": "canal_walk",
+      "name": "South Lock Walk"
+    },
+    {
+      "id": "lockkeepers_turn",
+      "region": "city_block_5e8f01c76041",
+      "kind": "square",
+      "name": "Lockkeeper's Turn"
+    },
+    {
+      "id": "basin_lane_junction",
+      "region": "city_block_db52e2a94a30",
+      "kind": "junction_paving",
+      "name": "Basin Lane Junction"
+    },
+    {
+      "id": "basin_quay",
+      "region": "city_block_ba4cce0b1491",
+      "kind": "canal_walk",
+      "name": "Basin Quay"
+    },
+    {
+      "id": "sailmakers_yard",
+      "region": "city_block_27acdf0f9028",
+      "kind": "square",
+      "name": "Sailmakers Yard"
+    },
+    {
+      "id": "south_canal_walk",
+      "region": "city_block_b7d3b9e112ac",
+      "kind": "canal_walk",
+      "name": "South Canal Walk"
+    },
+    {
+      "id": "craft_quay",
+      "region": "city_block_dde2ace175a6",
+      "kind": "canal_walk",
+      "name": "Craft Quay"
+    },
+    {
+      "id": "bellfound_quay",
+      "region": "city_block_ed893ba119f3",
+      "kind": "canal_walk",
+      "name": "Bellfound Quay"
+    },
+    {
+      "id": "vigil_court_junction",
+      "region": "city_block_bce2e1f3135b",
+      "kind": "junction_paving",
+      "name": "Vigil Court Junction"
+    },
+    {
+      "id": "high_lantern_terrace",
+      "region": "city_block_4e8d06626220",
+      "kind": "square",
+      "name": "High Lantern Terrace"
+    }
+  ],
+  "publicVenues": {
+    "gateward": [
+      "The Sable Lantern",
+      "Copper Kettle Coffeehouse",
+      "Three Seals Exchange"
+    ],
+    "cinderbank": [
+      "The Copper Heron",
+      "Embercup Coffeehouse",
+      "The Reed and Rivet"
+    ],
+    "lantern_quays": [
+      "The Lockkeeper",
+      "Quaylight Coffeehouse",
+      "The Sail and Ledger"
+    ],
+    "bellfound": [
+      "The Bronze Bell",
+      "Vigil Cup Coffeehouse",
+      "The Ink and Seal"
+    ],
+    "crownwatch": [
+      "The Wardens Rest",
+      "High Lantern Coffeehouse",
+      "The Oathbound Clothier"
+    ]
+  },
+  "acceptance": {
+    "visual": false,
+    "traversal": false,
+    "live": false
+  },
+  "protectedSites": [
+    {
+      "id": "retained_playerstart_0",
+      "actor": "PlayerStart_0",
+      "layer": "authored",
+      "stateSignature": "0cbb4f762feac42346a6a9229f6cb372df72a3732980689a727135e82f4c9129",
+      "kind": "service_access",
+      "name": "Aegis authored arrival",
+      "polygon": [
+        [
+          -3.3,
+          -120.9
+        ],
+        [
+          3.3,
+          -120.9
+        ],
+        [
+          3.3,
+          -113.1
+        ],
+        [
+          -3.3,
+          -113.1
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_273",
+      "actor": "StaticMeshActor_273",
+      "layer": "authored",
+      "stateSignature": "ff8f2e2dceb187c1ef5e776065cbf7ddf6a9e2f27dd9ab70fe279435cb5d5e30",
+      "kind": "existing_interior",
+      "name": "Gateward aegis interior 00 home",
+      "polygon": [
+        [
+          -22.11549026489258,
+          -139.23098052978514
+        ],
+        [
+          -5.884509735107422,
+          -139.23098052978514
+        ],
+        [
+          -5.884509735107422,
+          -128.76901947021486
+        ],
+        [
+          -22.11549026489258,
+          -128.76901947021486
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_274",
+      "actor": "StaticMeshActor_274",
+      "layer": "authored",
+      "stateSignature": "cfbf303cd4470b84d376bb76995acbc6940f6962781fd6f87e7812e5752b6736",
+      "kind": "existing_interior",
+      "name": "Cinderbank aegis interior 01 home",
+      "polygon": [
+        [
+          -94.11549026489257,
+          -62.73098052978516
+        ],
+        [
+          -77.88450973510743,
+          -62.73098052978516
+        ],
+        [
+          -77.88450973510743,
+          -49.26901947021484
+        ],
+        [
+          -94.11549026489257,
+          -49.26901947021484
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_275",
+      "actor": "StaticMeshActor_275",
+      "layer": "authored",
+      "stateSignature": "2861166b037b9ed4645a68be66019a319e8452f8b8f33441d68e9f053d9f35cf",
+      "kind": "existing_interior",
+      "name": "Lantern Quays aegis interior 02 home",
+      "polygon": [
+        [
+          84.38450988769532,
+          -37.23098052978516
+        ],
+        [
+          103.61549011230468,
+          -37.23098052978516
+        ],
+        [
+          103.61549011230468,
+          -26.769019470214843
+        ],
+        [
+          84.38450988769532,
+          -26.769019470214843
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_277",
+      "actor": "StaticMeshActor_277",
+      "layer": "authored",
+      "stateSignature": "ba62c33113aa2ad87ae7eaae85059084e478fc542ff42b30df90c1aaf1b38495",
+      "kind": "existing_interior",
+      "name": "Lantern Quays aegis interior 04 shop",
+      "polygon": [
+        [
+          97.88450973510743,
+          -67.23098022460937
+        ],
+        [
+          114.11549026489257,
+          -67.23098022460937
+        ],
+        [
+          114.11549026489257,
+          -50.769019775390625
+        ],
+        [
+          97.88450973510743,
+          -50.769019775390625
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_278",
+      "actor": "StaticMeshActor_278",
+      "layer": "authored",
+      "stateSignature": "326c1f98efc850f927596607a38ece3c1e6f2a64757ea5716cc139cce78bd5cc",
+      "kind": "existing_interior",
+      "name": "Gateward aegis interior 05 shop",
+      "polygon": [
+        [
+          -35.73098052978516,
+          -143.61549011230468
+        ],
+        [
+          -22.26901947021484,
+          -143.61549011230468
+        ],
+        [
+          -22.26901947021484,
+          -124.38450988769532
+        ],
+        [
+          -35.73098052978516,
+          -124.38450988769532
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_279",
+      "actor": "StaticMeshActor_279",
+      "layer": "authored",
+      "stateSignature": "c09b11e2095769323e63125dbbfebd81ccc13049b799d929b369bd0695be3289",
+      "kind": "existing_interior",
+      "name": "Cinderbank aegis interior 06 workshop",
+      "polygon": [
+        [
+          -80.61549011230468,
+          -35.73098052978516
+        ],
+        [
+          -61.384509887695316,
+          -35.73098052978516
+        ],
+        [
+          -61.384509887695316,
+          -22.269019470214843
+        ],
+        [
+          -80.61549011230468,
+          -22.269019470214843
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_280",
+      "actor": "StaticMeshActor_280",
+      "layer": "authored",
+      "stateSignature": "81fa71ddd64745c6260eea3924ba152493f16bc59ec99bbaf41b0df2bdffcbac",
+      "kind": "existing_interior",
+      "name": "Lantern Quays aegis interior 07 workshop",
+      "polygon": [
+        [
+          49.88450973510742,
+          -58.230980224609375
+        ],
+        [
+          66.11549026489257,
+          -58.230980224609375
+        ],
+        [
+          66.11549026489257,
+          -41.769019775390625
+        ],
+        [
+          49.88450973510742,
+          -41.769019775390625
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_282",
+      "actor": "StaticMeshActor_282",
+      "layer": "authored",
+      "stateSignature": "ee3c531fda45e6d50846984caf2a37b50c300437b751eeec42d1f77e810a6e16",
+      "kind": "existing_interior",
+      "name": "Cinderbank aegis interior 09 inn",
+      "polygon": [
+        [
+          -110.61549011230468,
+          -94.23098022460937
+        ],
+        [
+          -91.38450988769532,
+          -94.23098022460937
+        ],
+        [
+          -91.38450988769532,
+          -77.76901977539063
+        ],
+        [
+          -110.61549011230468,
+          -77.76901977539063
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_283",
+      "actor": "StaticMeshActor_283",
+      "layer": "authored",
+      "stateSignature": "1eaaeca2866dc0fdb37484fd1f184b611b08de7a70c24658545582891dbd3f10",
+      "kind": "existing_interior",
+      "name": "Gateward aegis interior 10 guild",
+      "polygon": [
+        [
+          -44.73098052978516,
+          -94.11549026489257
+        ],
+        [
+          -31.269019470214843,
+          -94.11549026489257
+        ],
+        [
+          -31.269019470214843,
+          -77.88450973510743
+        ],
+        [
+          -44.73098052978516,
+          -77.88450973510743
+        ]
+      ]
+    },
+    {
+      "id": "retained_staticmeshactor_284",
+      "actor": "StaticMeshActor_284",
+      "layer": "authored",
+      "stateSignature": "d718cfbef1e1331a6afe5381775a817369f234a6bda18f84340b4d2ad3e2dc33",
+      "kind": "existing_interior",
+      "name": "Cinderbank aegis interior 11 civic",
+      "polygon": [
+        [
+          -94.11549026489257,
+          -109.23098022460937
+        ],
+        [
+          -77.88450973510743,
+          -109.23098022460937
+        ],
+        [
+          -77.88450973510743,
+          -92.76901977539063
+        ],
+        [
+          -94.11549026489257,
+          -92.76901977539063
+        ]
+      ]
+    },
+    {
+      "id": "retained_warquestnpc_0",
+      "actor": "WarQuestNpc_0",
+      "layer": "authored",
+      "stateSignature": "9afef3a9ac1c2735499c9bcf6e969d37af1565651f6a26cd266c15d2435a9a81",
+      "kind": "service_access",
+      "name": "Mara Vell - Brightfen dispatch",
+      "polygon": [
+        [
+          10.932820358276366,
+          -93.93985013961792
+        ],
+        [
+          17.067179718017577,
+          -93.93985013961792
+        ],
+        [
+          17.067179718017577,
+          -87.93985013961792
+        ],
+        [
+          10.932820358276366,
+          -87.93985013961792
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcraftingstation_0",
+      "actor": "WarCraftingStation_0",
+      "layer": "authored",
+      "stateSignature": "efc776f7cf690abfda685645dd1c683e4f24b39d158e6b1e68196846aac4c1f3",
+      "kind": "service_access",
+      "name": "Apothecary Table part 0",
+      "polygon": [
+        [
+          -93.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -87.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -87.97959539413452,
+          -35.71592430114746
+        ],
+        [
+          -93.97959539413452,
+          -35.71592430114746
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcraftingstation_1",
+      "actor": "WarCraftingStation_1",
+      "layer": "authored",
+      "stateSignature": "addcaa731c5940723a99fd43e42a6f4727173ae7a4c14dfda65190515d49f078",
+      "kind": "service_access",
+      "name": "Talisman Workbench part 0",
+      "polygon": [
+        [
+          -84.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -78.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -78.97959539413452,
+          -35.71592430114746
+        ],
+        [
+          -84.97959539413452,
+          -35.71592430114746
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcraftingstation_2",
+      "actor": "WarCraftingStation_2",
+      "layer": "authored",
+      "stateSignature": "e719b6d9d036d6889514c12cb8f35d89f8e43f968a9513be30ee03e20d4ae1d9",
+      "kind": "service_access",
+      "name": "Cultivation Plots part 0",
+      "polygon": [
+        [
+          -75.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -69.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -69.97959539413452,
+          -35.71592430114746
+        ],
+        [
+          -75.97959539413452,
+          -35.71592430114746
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcraftingstation_3",
+      "actor": "WarCraftingStation_3",
+      "layer": "authored",
+      "stateSignature": "b8c19fefa73566a4f57c6037c5dbabe58281466a7c9d9bb026e6871d8532b5fa",
+      "kind": "service_access",
+      "name": "Salvage Bench part 0",
+      "polygon": [
+        [
+          -66.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -60.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -60.97959539413452,
+          -35.71592430114746
+        ],
+        [
+          -66.97959539413452,
+          -35.71592430114746
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcraftingstation_4",
+      "actor": "WarCraftingStation_4",
+      "layer": "authored",
+      "stateSignature": "6e662c7b0394db637d6600de409084fbfd286082dfab0fe20688e6433b172193",
+      "kind": "service_access",
+      "name": "Campaign Supply Table part 0",
+      "polygon": [
+        [
+          -57.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -51.97959539413452,
+          -42.1250076675415
+        ],
+        [
+          -51.97959539413452,
+          -35.71592430114746
+        ],
+        [
+          -57.97959539413452,
+          -35.71592430114746
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_0",
+      "actor": "WarCityNpc_0",
+      "layer": "population",
+      "stateSignature": "7c97949bf087abb431db1dd37aa8a757162aa8463bc54451736c5dba3ba550ec",
+      "kind": "service_access",
+      "name": "Elira Dawnmarch - quartermaster",
+      "polygon": [
+        [
+          8.932820281982423,
+          -115.06014986038208
+        ],
+        [
+          15.067179641723634,
+          -115.06014986038208
+        ],
+        [
+          15.067179641723634,
+          -109.06014986038208
+        ],
+        [
+          8.932820281982423,
+          -109.06014986038208
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_1",
+      "actor": "WarCityNpc_1",
+      "layer": "population",
+      "stateSignature": "ee25474e660d0e333c0b868b60601068ac64738e68a2903fbecb7ecbec859d7b",
+      "kind": "service_access",
+      "name": "Tovin Greyford - guard",
+      "polygon": [
+        [
+          -15.067179641723634,
+          -101.28369211597544
+        ],
+        [
+          -8.339336323401255,
+          -101.28369211597544
+        ],
+        [
+          -8.339336323401255,
+          -94.54804557891276
+        ],
+        [
+          -15.067179641723634,
+          -94.54804557891276
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_2",
+      "actor": "WarCityNpc_2",
+      "layer": "population",
+      "stateSignature": "f7fe9b8a5e1ce8fffae8aabdcac02057aa5ebad0139b63ef638721389e737141",
+      "kind": "service_access",
+      "name": "Market shopper - resident",
+      "polygon": [
+        [
+          5.895223444392583,
+          -111.9477554915581
+        ],
+        [
+          12.218339253971676,
+          -111.9477554915581
+        ],
+        [
+          12.218339253971676,
+          -105.85554814503041
+        ],
+        [
+          5.895223444392583,
+          -105.85554814503041
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_3",
+      "actor": "WarCityNpc_3",
+      "layer": "population",
+      "stateSignature": "9549c07c4fe5b221f0b04113b45ebd9e74e1bf250016aa6cad91629000acdfc9",
+      "kind": "service_access",
+      "name": "Market shopper - resident",
+      "polygon": [
+        [
+          3.835677309933529,
+          -113.0834608956514
+        ],
+        [
+          10.104172763611896,
+          -113.0834608956514
+        ],
+        [
+          10.104172763611896,
+          -107.02072168045157
+        ],
+        [
+          3.835677309933529,
+          -107.02072168045157
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_4",
+      "actor": "WarCityNpc_4",
+      "layer": "population",
+      "stateSignature": "0ffd1c24d43145425e6f2cb63eb41c2112383c2c2d70cf63a091bff81d315b2d",
+      "kind": "service_access",
+      "name": "Serra Brightfield - craft_teacher",
+      "polygon": [
+        [
+          -90.06717964172363,
+          -43.93985013961792
+        ],
+        [
+          -83.93282028198242,
+          -43.93985013961792
+        ],
+        [
+          -83.93282028198242,
+          -37.93985013961792
+        ],
+        [
+          -90.06717964172363,
+          -37.93985013961792
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_5",
+      "actor": "WarCityNpc_5",
+      "layer": "population",
+      "stateSignature": "be107fdf47acd26ba8bca27d7d0c05bb0425bcebc06b58c9c927d8a7a256a8ba",
+      "kind": "service_access",
+      "name": "Smith assistant - resident",
+      "polygon": [
+        [
+          -67.88643730163574,
+          -45.09974822998047
+        ],
+        [
+          -61.88643730163574,
+          -45.09974822998047
+        ],
+        [
+          -61.88643730163574,
+          -38.90025177001953
+        ],
+        [
+          -67.88643730163574,
+          -38.90025177001953
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_6",
+      "actor": "WarCityNpc_6",
+      "layer": "population",
+      "stateSignature": "8a2db570b1e3e87de81ee3b3456bd9d7460010f2135a9cd76922d5bc7bc86889",
+      "kind": "service_access",
+      "name": "Foundry worker - resident",
+      "polygon": [
+        [
+          -82.94775549155808,
+          -47.10477655560741
+        ],
+        [
+          -76.8555481450304,
+          -47.10477655560741
+        ],
+        [
+          -76.8555481450304,
+          -40.78166074602833
+        ],
+        [
+          -82.94775549155808,
+          -40.78166074602833
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_7",
+      "actor": "WarCityNpc_7",
+      "layer": "population",
+      "stateSignature": "174eba1e27f80835d30bd5b967aa3350d751ce9900fef10806a840c98b52a65b",
+      "kind": "service_access",
+      "name": "Workshop courier - resident",
+      "polygon": [
+        [
+          -81.08346093379838,
+          -46.164322623993975
+        ],
+        [
+          -75.02072171859852,
+          -46.164322623993975
+        ],
+        [
+          -75.02072171859852,
+          -39.895827170315606
+        ],
+        [
+          -81.08346093379838,
+          -39.895827170315606
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_8",
+      "actor": "WarCityNpc_8",
+      "layer": "population",
+      "stateSignature": "a8662d073145fd7222daaffc18059f94589cac0ce7197f0e00676ef2c78d2f7f",
+      "kind": "service_access",
+      "name": "Neris Reed - supplies",
+      "polygon": [
+        [
+          104.93282028198242,
+          -40.06014986038208
+        ],
+        [
+          111.06717964172363,
+          -40.06014986038208
+        ],
+        [
+          111.06717964172363,
+          -34.06014986038208
+        ],
+        [
+          104.93282028198242,
+          -34.06014986038208
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_9",
+      "actor": "WarCityNpc_9",
+      "layer": "population",
+      "stateSignature": "2126fa0174752a7f63605ed395e2e4f62de165f22b927eb9a7b5ceca966223f8",
+      "kind": "service_access",
+      "name": "Quay porter - resident",
+      "polygon": [
+        [
+          97.89522344439258,
+          -43.947755491558084
+        ],
+        [
+          104.21833925397168,
+          -43.947755491558084
+        ],
+        [
+          104.21833925397168,
+          -37.8555481450304
+        ],
+        [
+          97.89522344439258,
+          -37.8555481450304
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_10",
+      "actor": "WarCityNpc_10",
+      "layer": "population",
+      "stateSignature": "fa6f7c584ca0b5fa50576086d33f27b7b0786b89ca4295d51b168329101da622",
+      "kind": "service_access",
+      "name": "Quay factor - resident",
+      "polygon": [
+        [
+          95.78166074602832,
+          -43.144451854969596
+        ],
+        [
+          102.10477655560742,
+          -43.144451854969596
+        ],
+        [
+          102.10477655560742,
+          -37.05224450844191
+        ],
+        [
+          95.78166074602832,
+          -37.05224450844191
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_11",
+      "actor": "WarCityNpc_11",
+      "layer": "population",
+      "stateSignature": "c9fa46884ef4c512a56a2b00a930202b8aa3c7f9863c1e6309ea1a7a35899234",
+      "kind": "service_access",
+      "name": "Alden Voss - class_teacher",
+      "polygon": [
+        [
+          -32.09974822998047,
+          53.113562698364255
+        ],
+        [
+          -25.90025177001953,
+          53.113562698364255
+        ],
+        [
+          -25.90025177001953,
+          59.113562698364255
+        ],
+        [
+          -32.09974822998047,
+          59.113562698364255
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_12",
+      "actor": "WarCityNpc_12",
+      "layer": "population",
+      "stateSignature": "a8b402d5295a973ead1087b0596860cb699894864f0f3f770668916b8e0f4a2f",
+      "kind": "service_access",
+      "name": "Mira Stonewake - vault_keeper",
+      "polygon": [
+        [
+          -24.067179718017577,
+          52.93985013961792
+        ],
+        [
+          -17.932820358276366,
+          52.93985013961792
+        ],
+        [
+          -17.932820358276366,
+          58.93985013961792
+        ],
+        [
+          -24.067179718017577,
+          58.93985013961792
+        ]
+      ]
+    },
+    {
+      "id": "retained_warcitynpc_13",
+      "actor": "WarCityNpc_13",
+      "layer": "population",
+      "stateSignature": "cc543f0fa63612209084734a2e7ceacd1785ebe1e0d98ffa3e59f340e4c3a0b1",
+      "kind": "service_access",
+      "name": "Court scribe - resident",
+      "polygon": [
+        [
+          -29.893285970350572,
+          49.87801809715214
+        ],
+        [
+          -23.893285970350572,
+          49.87801809715214
+        ],
+        [
+          -23.893285970350572,
+          56.19966336358984
+        ],
+        [
+          -29.893285970350572,
+          56.19966336358984
+        ]
+      ]
+    }
+  ],
+  "gatheringAreas": [
+    {
+      "id": "gateward_exchange",
+      "name": "Gateward Exchange",
+      "purpose": "combat_market",
+      "polygon": [
+        [
+          -25,
+          -126
+        ],
+        [
+          26,
+          -126
+        ],
+        [
+          26,
+          -92
+        ],
+        [
+          -25,
+          -92
+        ]
+      ]
+    },
+    {
+      "id": "cinderbank_workyard",
+      "name": "Cinderbank Workyard",
+      "purpose": "crafting_ambiance",
+      "polygon": [
+        [
+          -97,
+          -47
+        ],
+        [
+          -48,
+          -47
+        ],
+        [
+          -48,
+          -31
+        ],
+        [
+          -97,
+          -31
+        ]
+      ]
+    },
+    {
+      "id": "lantern_muster",
+      "name": "Lantern Muster",
+      "purpose": "combat_waterfront",
+      "polygon": [
+        [
+          104,
+          -25
+        ],
+        [
+          135,
+          -25
+        ],
+        [
+          135,
+          -3
+        ],
+        [
+          104,
+          -3
+        ]
+      ]
+    },
+    {
+      "id": "bellfound_forum",
+      "name": "Bellfound Forum",
+      "purpose": "civic_gathering",
+      "polygon": [
+        [
+          -44,
+          49
+        ],
+        [
+          -13,
+          49
+        ],
+        [
+          -13,
+          62
+        ],
+        [
+          -44,
+          62
+        ]
+      ]
+    },
+    {
+      "id": "crownwatch_vigil",
+      "name": "Crownwatch Vigil",
+      "purpose": "guarded_ambiance",
+      "polygon": [
+        [
+          70,
+          99
+        ],
+        [
+          101,
+          99
+        ],
+        [
+          101,
+          113
+        ],
+        [
+          70,
+          113
+        ]
+      ]
+    }
+  ],
+  "retainedNativeEndpoints": {
+    "aegis_city_citadel_ascent": {
+      "points": [
+        [
+          0,
+          119
+        ],
+        [
+          0,
+          136
+        ],
+        [
+          0,
+          152
+        ],
+        [
+          0,
+          174
+        ],
+        [
+          0,
+          176
+        ]
+      ],
+      "reason": "Enter the existing native great hall at z=173; the historical browser path continued through its rear wall."
+    },
+    "aegis_city_citadel_west_flank": {
+      "points": [
+        [
+          -51,
+          120
+        ],
+        [
+          -62,
+          130
+        ],
+        [
+          -62,
+          150
+        ],
+        [
+          -62,
+          164
+        ],
+        [
+          -42,
+          164
+        ]
+      ],
+      "reason": "Retain the exterior approach and overlook; the native curtain has no side gate at x=-36."
+    },
+    "aegis_city_citadel_east_flank": {
+      "points": [
+        [
+          59,
+          113
+        ],
+        [
+          62,
+          130
+        ],
+        [
+          62,
+          150
+        ],
+        [
+          62,
+          164
+        ],
+        [
+          42,
+          164
+        ]
+      ],
+      "reason": "Retain the exterior approach and overlook; the native curtain has no side gate at x=36."
+    }
+  }
+}

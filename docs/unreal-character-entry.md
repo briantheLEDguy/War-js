@@ -168,14 +168,30 @@ minimized frontends stop captures; removing the frontend releases preview worlds
 targets and asynchronous handles. Scene packages and material adaptations remain
 private under ignored native Content paths, preserving existing license gates.
 
-After `npm run unreal:build -- --target Editor`, run
-`scripts/unreal/build-frontend-presentation.py` through UnrealEditor-Cmd using
-`-run=pythonscript -script=<absolute-script-path> -unattended -nop4 -nullrhi`.
-Close other project Editor/proof processes before asset generation. The script
-uses the installed world partition manifest and current capital map, saves only
-owned frontend assets, checks source package hashes, and writes its receipt to
-`artifacts/unreal/frontend/build.json`. Rebuild the snapshot after city edits.
+`npm run unreal:build -- --target Editor` refreshes stale frontend content after
+compilation when a private world is installed. `npm run unreal:frontend-proof`
+also refreshes before capturing evidence. After saving city edits, close the
+Editor/game and run `npm run unreal:frontend-refresh` before reopening the game.
+Use `-- --check` for a read-only freshness check. Unsaved edits and live server
+state are not reflected in these saved scenery snapshots.
+
+`frontend_sources.py` resolves the manifest named by the active world build,
+requires its map to match `GameDefaultMap`, and selects every layer for both
+capitals, including architecture and population. The Aegis persistent shell is
+also retained; extraction filters actors by owning package to avoid duplicates.
+`frontend-content.ts` checks recipe/routing, source-package and output hashes,
+then invokes `build-frontend-presentation.py` only when stale. The builder saves
+only owned frontend assets, checks that source packages/routing stayed unchanged,
+and records schema-2 evidence in `artifacts/unreal/frontend/build.json`.
 Material adaptations enable instancing on private copies, preserving originals.
+
+The 2026-09-29 refresh includes 10,060 Aegis and 7,594 Riftspire scenery instances,
+including the active Dutch Bastion geometry. Source package hashes remained
+unchanged. The 1920x1080 frontend proof passed and both capital screenshots were
+inspected at `artifacts/unreal/frontend/1920x1080-1153ae8e-b103-4042-a096-6f507e0b440c/`.
+All 704 repository tests (including 139 Unreal tooling tests and six Python
+snapshot regression cases), typechecks, migration audit and world/model
+validation passed. The release check retains its four independent blockers.
 
 `AegisWar.Foundation.FrontendPresentation` covers camera validation, transition
 timing, reduced motion, selection invalidation and resource release.

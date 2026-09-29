@@ -1,4 +1,5 @@
 #include "WarFrontendWidget.h"
+#include "WarScenarioSession.h"
 #include "WarFrontendPresentation.h"
 #include "Engine/TextureRenderTarget2D.h"
 #include "Materials/MaterialInstanceDynamic.h"
@@ -336,6 +337,27 @@ void UWarFrontendWidget::ShowLogin()
     AddButton(TEXT("Graphics"), [this] { UWarGraphicsWidget::Open(GetOwningPlayer(), this, true); }, false);
     AddButton(TEXT("Quit Game"), [this] {
         UKismetSystemLibrary::QuitGame(this, GetOwningPlayer(), EQuitPreference::Quit, false);
+    }, false);
+    if (const auto* Session=GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarScenarioSession>() : nullptr)
+        ShowError(Session->GetStatus());
+}
+
+void UWarFrontendWidget::ShowScenario()
+{
+    AddHeading(TEXT("Scenario"), TEXT("BREACH THE LOWER CITY\n6v6 siege · Level 40\n\nCapture supplies, escort the engineers and breach the gate — or hold the city until time runs out. Choose a side, then select your class. Bots fill the other slots."));
+    const auto Start=[this](EWarRealm Realm) {
+        if (auto* Session=GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarScenarioSession>() : nullptr) Session->Start(Realm);
+    };
+    AddButton(TEXT("Defend as Aegis"), [Start] { Start(EWarRealm::Aegis); });
+    AddButton(TEXT("Attack as Riftbound"), [Start] { Start(EWarRealm::Riftbound); });
+    Panel->AddSlot().AutoHeight().Padding(0,8)[SNew(STextBlock).AutoWrapText(true).ColorAndOpacity(Ivory)
+        .Text_Lambda([this] {
+            const auto* Session=GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarScenarioSession>() : nullptr;
+            return FText::FromString(Session ? Session->GetStatus() : TEXT("Scenario session unavailable."));
+        })];
+    AddButton(TEXT("Back to main menu"), [this] {
+        if (auto* Session=GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarScenarioSession>() : nullptr) Session->Cancel();
+        ShowLogin();
     }, false);
 }
 

@@ -125,7 +125,7 @@ void UWarNetworkProofSubsystem::Finish(const bool bPassed, const FString& Detail
             Controller->ToggleInventory();
             Controller->ToggleQuestLog();
             Controller->ToggleQuestLog();
-            bInputRestored = bBlocked && !Controller->IsMoveInputIgnored() && !Controller->IsLookInputIgnored() && !Controller->bShowMouseCursor;
+            bInputRestored = bBlocked && !Controller->IsMoveInputIgnored() && !Controller->IsLookInputIgnored() && Controller->bShowMouseCursor;
             if (auto* Character = Cast<AWarCharacter>(Controller->GetPawn()))
             {
                 const double Distance = Character->GetCameraDistance();

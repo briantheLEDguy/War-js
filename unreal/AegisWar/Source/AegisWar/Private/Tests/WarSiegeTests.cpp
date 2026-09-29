@@ -92,6 +92,47 @@ bool FWarSiegeBotRulesTest::RunTest(const FString& Parameters)
     return true;
 }
 
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarLowerCityRoundsTest, "AegisWar.Foundation.LowerCityRounds",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FWarLowerCityRoundsTest::RunTest(const FString& Parameters)
+{
+    FWarSiegeState State;
+    TestFalse(TEXT("Lower city capacity is deliberately fixed"), WarSiege::Start(State, 12, EWarSiegeScenario::LowerCity));
+    TestFalse(TEXT("Unknown scenario rejected"), WarSiege::Start(State, 6, EWarSiegeScenario(255)));
+    for (int32 Round = 0; Round < 3; ++Round)
+    {
+        TestTrue(TEXT("Finished round can restart"), WarSiege::Start(State, 6, EWarSiegeScenario::LowerCity));
+        TestEqual(TEXT("Milestones reset"), State.MilestoneSeconds.Num(), 0);
+        TestEqual(TEXT("Contested time resets"), State.ContestedSeconds, 0.);
+        FWarSiegePresence Presence; Presence.Attackers = 6; Presence.Defenders = 1;
+        WarSiege::Tick(State, Presence, 5);
+        TestTrue(TEXT("Actual contested duration recorded"), FMath::IsNearlyEqual(State.ContestedSeconds, 5., .001));
+        TestEqual(TEXT("Contest prevents progress"), State.Progress, 0.f);
+        Presence.Defenders = 0;
+        for (int32 Objective = 0; Objective < 4; ++Objective) WarSiege::Tick(State, Presence, 100);
+        TestEqual(TEXT("Breach finishes this scenario immediately"), State.Phase, EWarSiegePhase::Finished);
+        TestTrue(TEXT("Attackers won"), State.bAttackersWon);
+        TestEqual(TEXT("No courtyard transition"), State.Stage, 0);
+        TestEqual(TEXT("Four timed milestones"), State.MilestoneSeconds.Num(), 4);
+        TestFalse(TEXT("Sabotage is optional"), State.bOptionalComplete);
+        WarSiege::Tick(State, Presence, 500);
+        TestEqual(TEXT("One result per round"), State.ResultCount, 1);
+    }
+    WarSiege::Start(State, 6, EWarSiegeScenario::LowerCity);
+    WarSiege::Tick(State, {}, WarSiege::StageSeconds + 1);
+    TestFalse(TEXT("Defenders win at timeout"), State.bAttackersWon);
+    TestEqual(TEXT("Timeout finishes round"), State.Phase, EWarSiegePhase::Finished);
+    WarSiege::Start(State, 6, EWarSiegeScenario::LowerCity);
+    State.Objective = 3; State.Remaining = .5;
+    FWarSiegePresence Presence; Presence.Attackers = 1; Presence.Defenders = 1;
+    WarSiege::Tick(State, Presence, 1);
+    TestTrue(TEXT("Final breach can enter overtime"), State.bOvertime);
+    Presence.Defenders = 0;
+    WarSiege::Tick(State, Presence, 95);
+    TestTrue(TEXT("Breach can win during bounded overtime"), State.bAttackersWon);
+    return true;
+}
+
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarSiegeAuthorityTest, "AegisWar.Foundation.SiegeAuthorityAndNormalization",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
 bool FWarSiegeAuthorityTest::RunTest(const FString& Parameters)
@@ -104,7 +145,14 @@ bool FWarSiegeAuthorityTest::RunTest(const FString& Parameters)
     auto* Mode = World->SpawnActor<AWarSiegeGameMode>(); FString Error;
     TestFalse(TEXT("Unauthenticated launch rejected"), Mode->Launch(nullptr,6,1,Error));
     TestFalse(TEXT("Unauthenticated reset rejected"), Mode->ResetSiege(nullptr,Error));
+    TestFalse(TEXT("Readiness cannot grant development access"), Mode->SetReady(nullptr,0,true,Error));
+    TestFalse(TEXT("Class choice cannot grant development access"), Mode->SelectRole(nullptr,0,EWarSiegeRole::Tank,Error));
     auto* Battlefield = World->SpawnActor<AWarSiegeBattlefield>();
+    TestFalse(TEXT("Lower city starts unreviewed"),Battlefield->IsScenarioReviewed(EWarSiegeScenario::LowerCity));
+    Battlefield->bLowerCityReviewed = true;
+    TestTrue(TEXT("Local lower-city review admits its own scenario"),Battlefield->IsScenarioReviewed(EWarSiegeScenario::LowerCity));
+    TestFalse(TEXT("Lower-city review cannot admit the full siege"),Battlefield->IsScenarioReviewed(EWarSiegeScenario::FullSiege));
+    Battlefield->bLowerCityReviewed = false;
     auto* Outer = World->SpawnActor<AActor>();
     auto* Inner = World->SpawnActor<AActor>();
     Battlefield->StageGates = {Outer, Inner};
@@ -116,6 +164,13 @@ bool FWarSiegeAuthorityTest::RunTest(const FString& Parameters)
     Battlefield->ApplyMilestones(Siege);
     TestFalse(TEXT("Lower city victory opens outer blockade"), Outer->GetActorEnableCollision());
     TestTrue(TEXT("Inner blockade stays closed"), Inner->GetActorEnableCollision());
+    Siege.Scenario = EWarSiegeScenario::LowerCity; Siege.Phase = EWarSiegePhase::Finished; Siege.bAttackersWon = true;
+    Battlefield->ApplyMilestones(Siege);
+    TestFalse(TEXT("Lower-only victory opens breached gate"), Outer->GetActorEnableCollision());
+    TestTrue(TEXT("Lower-only victory keeps inner stage closed"), Inner->GetActorEnableCollision());
+    Siege.bAttackersWon = false; Battlefield->ApplyMilestones(Siege);
+    TestTrue(TEXT("Defender result keeps the gate closed"), Outer->GetActorEnableCollision());
+    Siege.Scenario = EWarSiegeScenario::FullSiege; Siege.Phase = EWarSiegePhase::Transition;
     Siege.Stage = 1;
     Battlefield->ApplyMilestones(Siege);
     TestFalse(TEXT("Courtyard victory opens inner blockade"), Inner->GetActorEnableCollision());
@@ -127,6 +182,8 @@ bool FWarSiegeAuthorityTest::RunTest(const FString& Parameters)
     const auto Before = State->GetInventory();
     State->SetSiegeNormalized(true);
     TestEqual(TEXT("Normalized combat level"), State->GetCombatLevel(),40);
+    State->UseScenarioEarnedAbilities();
+    TestEqual(TEXT("Queued characters retain earned unlock levels in gameplay and HUD"),State->GetAbilityUnlockLevel(),Before.CharacterProgression.Level);
     TestEqual(TEXT("Normalized strength"), State->GetEffectiveStrength(),int64(100));
     TestEqual(TEXT("Saved level unchanged"), State->GetInventory().CharacterProgression.Level,Before.CharacterProgression.Level);
     TestEqual(TEXT("Saved inventory revision unchanged"), State->GetInventory().Revision,Before.Revision);

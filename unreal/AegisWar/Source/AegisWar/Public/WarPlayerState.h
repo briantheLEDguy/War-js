@@ -32,6 +32,11 @@ public:
     void SetCurrentZoneTrusted(FName Zone);
     void SetDevelopmentRealm(EWarRealm InRealm);
     void InitializeForPawn(AWarCharacter* Avatar);
+    void RestoreScenarioInventory(const FWarInventorySnapshot& Snapshot);
+    bool IsScenarioTransferPending() const { return bScenarioTransferPending; }
+    void SetScenarioTransferPending(bool Pending);
+    TSharedPtr<class FJsonObject> CaptureScenarioState() const;
+    void RestoreScenarioState(const TSharedPtr<class FJsonObject>& State);
     const FWarInventorySnapshot& GetInventory() const { return Inventory; }
     // Trusted server API only. Receipts live for this PlayerState session, not across reconnects.
     bool GrantRewards(const FGuid& Transaction, const TArray<FWarInventoryItem>& Rewards, FString& Error);
@@ -43,6 +48,8 @@ public:
         const TArray<FWarInventoryItem>& Rewards, FString& Error);
     int64 GetEffectiveStrength() const;
     int32 GetCombatLevel() const { return bSiegeNormalized ? 40 : Inventory.CharacterProgression.Level; }
+    int32 GetAbilityUnlockLevel() const { return bScenarioEarnedAbilities ? Inventory.CharacterProgression.Level : GetCombatLevel(); }
+    void UseScenarioEarnedAbilities() { if (HasAuthority()) bScenarioEarnedAbilities=true; }
     bool IsSiegeNormalized() const { return bSiegeNormalized; }
     void SetSiegeNormalized(bool bEnabled);
     // Called by the controller only after development GM authorization; never exposed as an RPC.
@@ -80,7 +87,9 @@ public:
     UFUNCTION(Server, Reliable) void ServerGatherResource(AWarResourceNode* Node, int32 ExpectedRevision);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:
+    bool bScenarioTransferPending = false;
     UPROPERTY(Replicated) bool bSiegeNormalized = false;
+    UPROPERTY(Replicated) bool bScenarioEarnedAbilities = false;
     UPROPERTY(Replicated) FName CurrentZone;
     bool CanPerformInventoryAction() const;
     void ApplyProgressionVitals(bool bRestorePools);

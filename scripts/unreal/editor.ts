@@ -6,10 +6,11 @@ import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPat
 export const requiredNativeTests = [
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary', 'WorldSync',
-  'PlayerStateAbilityOwnership', 'SpawnFailureReporting',
-  'CharacterFrontend', 'FrontendPresentation', 'ClassAbilityCatalog', 'ClassCombatStatus', 'AbilityConditions', 'AbilityConditionValidation', 'AbilityConditionConformance', 'AbilityWorkshopDocument', 'AbilityDeploymentJournal', 'IconOfWrath', 'SuppliedAnimationGameplay',
+  'PlayerStateAbilityOwnership', 'SpawnFailureReporting', 'ImportedPopulation',
+  'SiegeRules', 'SiegeBotRules', 'SiegeAuthorityAndNormalization', 'SiegeSpawnClearance', 'SiegeOwnership', 'LowerCityRounds', 'CombatFeedback',
+  'CharacterFrontend', 'FrontendPresentation', 'ClassAbilityCatalog', 'ClassCombatStatus', 'AbilityConditions', 'AbilityConditionValidation', 'AbilityConditionConformance', 'AbilityWorkshopDocument', 'AbilityDeploymentJournal', 'IconOfWrath', 'WarpIdol', 'SiegeCasterGameplay', 'SuppliedAnimationGameplay',
   'InventoryRewardParity', 'InventoryAuthority', 'CraftingCatalogAndRules', 'SalvageParity', 'CultivationTransactions', 'CraftingStationInteraction', 'ResourceGatheringTransactions', 'CharacterProgressionParity', 'ExpeditionQuestParity',
-  'InterfaceRules', 'LocalGmAccess', 'QuestMarkerVisibility', 'CameraControls', 'MovementInput', 'WorldEditHistory', 'WorldEditCatalog', 'WorldEditStreaming', 'ZonePortal', 'ZoneStreaming', 'ZoneRespawn', 'ZoneAtmosphere',
+  'InterfaceRules', 'TargetSelection', 'TargetReticle', 'LocalGmAccess', 'QuestMarkerVisibility', 'CameraControls', 'MovementInput', 'WorldEditHistory', 'WorldEditCatalog', 'WorldEditStreaming', 'ZonePortal', 'ZoneStreaming', 'ZoneRespawn', 'ZoneAtmosphere',
 ].map(name => `AegisWar.Foundation.${name}`);
 
 export function validateAutomationReport(report: unknown): number {

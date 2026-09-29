@@ -1,5 +1,6 @@
 #include "WarPlayerController.h"
 #include "WarFrontendWidget.h"
+#include "WarScenarioSession.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarContentSubsystem.h"
 #include "WarRuntimeSettings.h"
@@ -32,8 +33,8 @@ void AWarPlayerController::ClientCharacterEntryResult_Implementation(bool bAccep
     if (FrontendWidget) FrontendWidget->RemoveFromParent();
     LastEntryFailure = FText::GetEmpty();
     ResetIgnoreMoveInput(); ResetIgnoreLookInput();
-    if (IsLocalController() && GetLocalPlayer()) SetInputMode(FInputModeGameOnly());
-    bShowMouseCursor = false;
+    if (IsLocalController() && GetLocalPlayer()) RestoreGameplayInput();
+    bShowMouseCursor = true;
 }
 
 void AWarPlayerController::BeginCharacterEntry(UWarCharacterVisualDefinition* Visual)
@@ -49,6 +50,7 @@ void AWarPlayerController::CompleteCharacterEntry()
 {
     if (!HasAuthority() || !bCharacterEntryPending || !IsValid(GetPawn()) || GetPawn()->GetController() != this) return;
     bCharacterEntryPending = false;
+    if (GetGameInstance()) GetGameInstance()->GetSubsystem<UWarScenarioSession>()->CompleteReturn(this);
     ClientCharacterEntryResult(true, FString());
 }
 
@@ -57,6 +59,8 @@ void AWarPlayerController::ServerCreateDevelopmentCharacter_Implementation(const
     // This is a local editor/development fixture, never a production authentication bypass.
     if (UE_BUILD_SHIPPING || GetNetMode() != NM_Standalone)
     { ClientCharacterEntryResult(false, TEXT("Character creation requires a local Development session. Online accounts are not connected yet.")); return; }
+    if (GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioSession>()->IsRunning())
+    { ClientCharacterEntryResult(false,TEXT("Reconnect or restore your scenario character before creating another character."));return; }
     if (bCharacterEntryPending) return;
     // Repeated submission after possession resumes the existing session.
     if (GetPawn()) { ClientCharacterEntryResult(true, FString()); return; }
@@ -78,9 +82,6 @@ void AWarPlayerController::ServerCreateDevelopmentCharacter_Implementation(const
     { ClientCharacterEntryResult(false, TEXT("This race, career and body are not in the installed playable roster. Choose an installed character and retry.")); return; }
     if (!Visual->ValidateForSpawn(Visual->Realm, Error) || !Content->ValidatePlayableVisual(Visual, Error))
     { ClientCharacterEntryResult(false, Error); return; }
-    // The current startup world is the Aegis capital. Never place an enemy-realm draft in it.
-    if (Visual->Realm != EWarRealm::Aegis && !Cast<AWarSiegeGameMode>(Mode))
-    { ClientCharacterEntryResult(false, TEXT("Riftspire Citadel entry is not available yet. Your Riftbound character cannot enter the Aegis capital.")); return; }
     if (State->GetRealm() != EWarRealm::None && State->GetRealm() != Visual->Realm)
     { ClientCharacterEntryResult(false, TEXT("The session realm does not match this character.")); return; }
     State->SetDevelopmentRealm(Visual->Realm);

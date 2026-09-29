@@ -38,12 +38,14 @@ export function validateWorkspace(input: unknown): ValidationIssue[] {
   }
   const validateEffect = (effect: unknown, path: string, ability: WorkshopAbility): effect is WorkshopEffect => {
     if (!object(effect) || !identity(effect.id) || !choice(effect.recipient, ['caster', 'target', 'allies', 'enemies'])
-      || !choice(effect.kind, ['damage', 'heal', 'status', 'player_status', 'cleanse', 'movement', 'wrath_relic'])) { error(path, 'Invalid effect identity, kind, or recipient.'); return false; }
+      || !choice(effect.kind, ['damage', 'heal', 'status', 'player_status', 'cleanse', 'movement', 'wrath_relic', 'warp_idol'])) { error(path, 'Invalid effect identity, kind, or recipient.'); return false; }
     if (effect.kind === 'wrath_relic' && ability.id !== 'battle_prelate.icon_of_wrath') error(path, 'Relic execution is reserved for the admitted existing ability.');
-    if (['damage', 'heal'].includes(effect.kind)) {
+    if (effect.kind === 'warp_idol' && (ability.id !== 'void_magister.summon_idol' || effect.recipient !== 'caster')) error(path, 'Idol execution is reserved for Summon Idol on its caster.');
+    if (['damage', 'heal', 'warp_idol'].includes(effect.kind)) {
       if (!object(effect.amount) || !finite(effect.amount.min) || !finite(effect.amount.max, effect.amount.min)) error(`${path}/amount`, 'Minimum and maximum amounts must be finite and ordered.');
       else for (const key of ['statScale', 'resourceScale', 'levelScale']) if (effect.amount[key] !== undefined && !finite(effect.amount[key], 0, 1000)) error(`${path}/amount/${key}`, 'Scaling must be between 0 and 1000.');
     }
+    if (effect.kind === 'warp_idol' && object(effect.amount) && effect.amount.min <= 0) error(`${path}/amount`, 'Idol pulse damage must be positive.');
     if (effect.periodic !== undefined && (!['damage', 'heal'].includes(effect.kind) || !object(effect.periodic)
       || !finite(effect.periodic.durationSec, .1, 60) || !finite(effect.periodic.intervalSec, .1, effect.periodic.durationSec))) error(`${path}/periodic`, 'Periodic damage/healing requires duration <=60 s and interval >=0.1 s within duration.');
     if (effect.kind === 'status' || effect.kind === 'player_status') {
@@ -113,7 +115,7 @@ export function validateWorkspace(input: unknown): ValidationIssue[] {
           if (!validateEffect(action.effect, actionPath, ability)) continue;
           if (effectIds.has(action.effect.id)) error(actionPath, 'Bonus effect identities must be unique within the ability.');
           effectIds.add(action.effect.id);
-          if (['movement', 'cleanse', 'wrath_relic'].includes(action.effect.kind)) error(actionPath, 'Conditional actions support damage, healing, and statuses.');
+          if (['movement', 'cleanse', 'wrath_relic', 'warp_idol'].includes(action.effect.kind)) error(actionPath, 'Conditional actions support damage, healing, and statuses.');
           if (rule.event === 'tick' && (action.effect.periodic || ['burn', 'bleed'].includes(action.effect.status?.kind ?? ''))) error(actionPath, 'Tick rules cannot create periodic schedulers.');
         } else if (action.kind === 'flat' || action.kind === 'percent') {
           const effect = ability.effects.find(value => value.id === action.effectId);

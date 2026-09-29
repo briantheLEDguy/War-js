@@ -14,6 +14,7 @@ import {
   getCareerAbilityKit,
 } from '../shared/game/abilities/abilityData';
 import type { AbilityDefinition } from '../shared/game/abilities/types';
+import { campaignAbilityRules } from '../server/abilityCatalog';
 import {
   ABILITY_ICON_OVERRIDES,
   abilityIconOverrideKey,
@@ -23,6 +24,15 @@ const playableClasses = [...ORDER_RACES, ...DESTRUCTION_RACES]
   .flatMap((race) => CLASSES_BY_RACE[race]);
 
 describe('ability catalog', () => {
+  test('keeps native actor summons unavailable to the retained Node simulator', () => {
+    for (const id of ['void_magister.summon_idol', 'battle_prelate.icon_of_wrath']) {
+      const native = Object.values(CAREER_ABILITY_KITS).flatMap(k => k.abilities).find(a => a.id === id)!;
+      expect(native.unavailableReason).toBeUndefined();
+      const retained = campaignAbilityRules().find(a => a.id === id)!;
+      expect(retained.unavailableReason).toBeTruthy();
+      expect(retained.effects).toEqual([]);
+    }
+  });
   test('has a complete ten-slot kit for every playable class', () => {
     expect(playableClasses).toHaveLength(24);
 
@@ -137,7 +147,7 @@ function expectTargetingValid(ability: AbilityDefinition): void {
 
 function expectEffectsValid(ability: AbilityDefinition): void {
   for (const effect of ability.effects) {
-    expect(['damage', 'heal', 'status', 'player_status', 'cleanse', 'movement', 'wrath_relic']).toContain(effect.kind);
+    expect(['damage', 'heal', 'status', 'player_status', 'cleanse', 'movement', 'wrath_relic', 'warp_idol']).toContain(effect.kind);
     if (effect.kind === 'damage' || effect.kind === 'heal') {
       expect(effect.school).toBeDefined();
       expect(effect.amount?.min).toBeGreaterThan(0);

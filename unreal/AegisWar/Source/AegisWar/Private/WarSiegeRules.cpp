@@ -8,10 +8,19 @@ float WarSiege::ParticipationRate(int32 N, bool Escort)
 { return N <= 0 ? 0.f : FMath::Min(Escort ? 1.5f : 2.5f, 1.f + .25f * (N - 1)); }
 int32 WarSiege::FinalObjective(int32 Stage) { return Stage == 0 ? 3 : Stage == 1 ? 2 : 0; }
 bool WarSiege::IsEscort(const FWarSiegeState& S) { return S.Stage == 0 && (S.Objective == 1 || S.Objective == 2); }
-bool WarSiege::Start(FWarSiegeState& S, int32 Capacity)
+uint16 WarSiege::ClaimedObjectives(const FWarSiegeState& S)
 {
-    if (!ValidCapacity(Capacity) || S.Phase == EWarSiegePhase::Active || S.Phase == EWarSiegePhase::Transition) return false;
-    S = {}; S.Capacity = Capacity; S.Phase = EWarSiegePhase::Active; return true;
+    if (S.Phase == EWarSiegePhase::Waiting) return 0;
+    // Milestones survive a defender victory and reset only when a new round starts.
+    const int32 Count = FMath::Clamp(S.MilestoneSeconds.Num() + (S.Stage == 2 && S.bAttackersWon ? 1 : 0), 0, 8);
+    return uint16(((1u << Count) - 1) | ((S.OptionalClaims & 7u) << 8));
+}
+bool WarSiege::Start(FWarSiegeState& S, int32 Capacity, EWarSiegeScenario Scenario)
+{
+    if (!ValidCapacity(Capacity) || (Scenario != EWarSiegeScenario::FullSiege && Scenario != EWarSiegeScenario::LowerCity)
+        || (Scenario == EWarSiegeScenario::LowerCity && Capacity != 6)
+        || S.Phase == EWarSiegePhase::Active || S.Phase == EWarSiegePhase::Transition) return false;
+    S = {}; S.Capacity = Capacity; S.Scenario = Scenario; S.Phase = EWarSiegePhase::Active; return true;
 }
 namespace
 {
@@ -34,20 +43,24 @@ void WarSiege::Tick(FWarSiegeState& S, const FWarSiegePresence& P, double Delta)
     while (Delta > 0 && S.Phase != EWarSiegePhase::Finished && S.Phase != EWarSiegePhase::Waiting)
     {
         const double Dt = FMath::Min(Delta, .05); Delta -= Dt;
+        S.Elapsed += Dt;
         if (S.Phase == EWarSiegePhase::Transition)
         {
             S.Remaining -= Dt;
             if (S.Remaining <= 1.e-6)
-            { const int32 Next = S.Stage + 1, N = S.Capacity; S = {}; S.Stage = Next; S.Capacity = N; S.Phase = EWarSiegePhase::Active; return; }
+            { ++S.Stage; S.Objective = 0; S.Progress = S.OptionalProgress = 0; S.bOptionalComplete = S.bOvertime = false;
+              S.Absence = S.OptionalAbsence = S.OvertimeAbsence = 0; S.Remaining = StageSeconds; S.Phase = EWarSiegePhase::Active; return; }
             // Do not apply the previous stage's presence to the next stage.
             continue;
         }
         const bool Activity = S.Objective == FinalObjective(S.Stage)
             && (S.Stage == 2 ? P.bRecentCommanderDamage : P.Attackers > 0 && P.bCrewAlive);
+        if (P.Attackers > 0 && P.Defenders > 0) S.ContestedSeconds += Dt;
         if (!S.bOptionalComplete)
         {
             Capture(S.OptionalProgress, S.OptionalAbsence, P.OptionalAttackers, P.OptionalDefenders, Dt, false);
             S.bOptionalComplete = S.OptionalProgress >= 1;
+            if (S.bOptionalComplete) S.OptionalClaims |= 1 << S.Stage;
         }
         if (S.Stage < 2)
         {
@@ -56,8 +69,12 @@ void WarSiege::Tick(FWarSiegeState& S, const FWarSiegePresence& P, double Delta)
             if (IsEscort(S) && !P.bEscortAtCheckpoint) S.Progress = FMath::Min(S.Progress, .99f);
             if (S.Progress >= 1)
             {
+                S.MilestoneSeconds.Add(S.Elapsed);
                 if (S.Objective == FinalObjective(S.Stage))
-                { S.Phase = EWarSiegePhase::Transition; S.Remaining = TransitionSeconds; S.bOvertime = false; }
+                {
+                    if (S.Scenario == EWarSiegeScenario::LowerCity) Finish(S, true);
+                    else { S.Phase = EWarSiegePhase::Transition; S.Remaining = TransitionSeconds; S.bOvertime = false; }
+                }
                 else { ++S.Objective; S.Progress = 0; S.Absence = 0; }
                 return;
             }

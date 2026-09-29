@@ -94,6 +94,7 @@ for profile,entry in retarget["profiles"].items():
         if not library.save_loaded_asset(asset,False): raise RuntimeError("Save failed: "+name)
         return asset.get_path_name()
     bindings={role:entry["clips"][key]["animation"] for role,key in movement.items()}
+    if 'spell.idle' in entry['clips']: bindings['civilian_idle']=entry['clips']['spell.idle']['animation']
     if style=="shield":
         bindings["idle"]=bindings["combat_idle"]=write("shield_ready",[idle]*31,idle_key)
     if style=="spell":

@@ -15,6 +15,7 @@ class AEGISWAR_API AWarSiegeCharacter : public AWarCharacter
     GENERATED_BODY()
 public:
     UPROPERTY(Replicated) EWarSiegeUnit Unit = EWarSiegeUnit::Participant;
+    UPROPERTY(Replicated) TObjectPtr<class AWarSiegeEquipment> Equipment;
     float CrewMoveSpeed = 100;
     virtual void Tick(float Delta) override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
@@ -25,12 +26,16 @@ class AEGISWAR_API AWarSiegeBotController : public AAIController
 {
     GENERATED_BODY()
 public:
-    AWarSiegeBotController();
+    AWarSiegeBotController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
     virtual void Tick(float Delta) override;
     EWarSiegeRole CombatRole = EWarSiegeRole::Damage;
     EWarSiegeUnit Unit = EWarSiegeUnit::Participant;
     TWeakObjectPtr<AController> Leader;
     UPROPERTY() TObjectPtr<UWarCharacterVisualDefinition> Visual;
+    bool bOptionalTask = false;
+    FVector PreviousLocation = FVector::ZeroVector;
+    FVector LastMoveGoal = FVector::ZeroVector;
+    double StalledSeconds = 0;
 private:
     bool bRecovering = false;
     EWarSiegeDecision LastDecision = EWarSiegeDecision::Follow;
@@ -42,6 +47,11 @@ class AEGISWAR_API AWarSiegeGameMode : public AWarGameMode
     GENERATED_BODY()
 public:
     AWarSiegeGameMode();
+    virtual void BeginPlay() override;
+    virtual void PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage) override;
+    virtual void PreLoginAsync(const FString& Options,const FString& Address,const FUniqueNetIdRepl& UniqueId,const FOnPreLoginCompleteDelegate& OnComplete) override;
+    virtual APlayerController* Login(UPlayer* NewPlayer,ENetRole InRemoteRole,const FString& Portal,const FString& Options,const FUniqueNetIdRepl& UniqueId,FString& ErrorMessage) override;
+    virtual void Logout(AController* Exiting) override;
     virtual void Tick(float Delta) override;
     virtual void HandleStartingNewPlayer_Implementation(APlayerController* Player) override;
     virtual APawn* SpawnDefaultPawnAtTransform_Implementation(AController* Player, const FTransform& Transform) override;
@@ -49,6 +59,11 @@ public:
     virtual void RespawnAfterDeath(AWarCharacter* Character) override;
     bool Launch(class AWarPlayerController* Gm, int32 Capacity, int32 Seed, FString& Error);
     bool ResetSiege(class AWarPlayerController* Gm, FString& Error);
+    bool IsDevelopmentPlaytest() const;
+    bool IsMenuScenario() const;
+    bool SetReady(class AWarPlayerController* Player, int32 ExpectedRound, bool bReady, FString& Error);
+    bool SelectRole(class AWarPlayerController* Player, int32 ExpectedRound, EWarSiegeRole CombatRole, FString& Error);
+    UWarCharacterVisualDefinition* SelectedVisual(AController* Player) const;
     bool IsProtected(const AActor* Actor) const;
     bool IsParticipant(const AWarCharacter* Pawn) const;
     FVector TaskLocation() const;
@@ -57,6 +72,14 @@ public:
     UPROPERTY() TObjectPtr<AWarSiegeBattlefield> Battlefield;
 private:
     bool Authorized(class AWarPlayerController* Gm, FString& Error) const;
+    bool StartRound(int32 Capacity, int32 Seed, EWarSiegeScenario Scenario, FString& Error);
+    bool FindBattlefield(FString& Error);
+    void UpdateLobby();
+    void EndRound();
+    void ClearRoundEffects();
+    TMap<TWeakObjectPtr<AController>, TWeakObjectPtr<UWarCharacterVisualDefinition>> Selections;
+    double NextLobbyCheck = 0;
+    int32 DevelopmentJoins = 0;
     void Wave();
     void AssignSquads();
     void StageStarted();
@@ -67,6 +90,11 @@ private:
     void Publish();
     void FailMatch(const FString& Error);
     TWeakObjectPtr<AWarSiegeBotController> Crew, Commander;
+    UPROPERTY() TArray<TObjectPtr<class AWarSiegeEquipment>> Convoy;
+    bool PrepareConvoy();
+    bool ValidateEquipmentStaging(FString& Error);
+    bool ConvoyAlive() const;
+    void DriveConvoy(const FWarSiegePresence& Presence, float Delta);
     TArray<TWeakObjectPtr<AWarSiegeBotController>> Units;
     double CrewAt = 0, ReinforcementAt = 0, CommanderDamageAt = -100, CommanderEngagedAt = 0;
     double CommanderActionAt = 0, CommanderReleaseAt = 0;

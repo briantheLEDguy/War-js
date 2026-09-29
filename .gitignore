@@ -28,6 +28,8 @@ unreal/AegisWar/Content/Imported/
 unreal/AegisWar/Content/MigrationProof/
 unreal/AegisWar/Content/Capitals/
 unreal/AegisWar/Content/WorldRebuild/
+unreal/AegisWar/modelImport/
+unreal/AegisWar/Content/Characters/PopulationImports/
 # Purchased kit source packages remain local/private; never publish raw assets.
 unreal/AegisWar/Content/LicensedKits/
 # House kit keeps publisher package paths to preserve material dependencies.

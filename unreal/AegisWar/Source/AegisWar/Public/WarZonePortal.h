@@ -16,6 +16,8 @@ class AEGISWAR_API AWarZonePortal : public AActor
 public:
     AWarZonePortal();
     virtual void OnConstruction(const FTransform& Transform) override;
+    virtual void Tick(float DeltaSeconds) override;
+    bool IsWithinEntryRange(const AActor* Actor) const;
     UPROPERTY(EditAnywhere, Category="Portal") FName RouteId;
     UPROPERTY(EditAnywhere, Category="Portal") FName DestinationRouteId;
     UPROPERTY(EditAnywhere, Category="Portal") FText DestinationLabel;
@@ -30,6 +32,8 @@ private:
     UPROPERTY(VisibleAnywhere) TObjectPtr<USphereComponent> Trigger;
     UPROPERTY(VisibleAnywhere) TObjectPtr<UTextRenderComponent> Label;
     TMap<TWeakObjectPtr<AWarCharacter>, double> AllowedAfter;
+    TSet<TWeakObjectPtr<AWarCharacter>> AttemptedInside;
+    void AttemptEntry(AWarCharacter* Character);
     UFUNCTION() void Enter(UPrimitiveComponent* Component, AActor* Other, UPrimitiveComponent* OtherComponent,
         int32 BodyIndex, bool bSweep, const FHitResult& Hit);
 };

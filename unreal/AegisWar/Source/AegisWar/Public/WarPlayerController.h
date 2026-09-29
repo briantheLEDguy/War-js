@@ -4,6 +4,7 @@
 #include "GameFramework/PlayerController.h"
 #include "WarCameraRules.h"
 #include "WarActionBarRules.h"
+#include "WarCombatFeedback.h"
 #include "WarPlayerController.generated.h"
 
 class UWarInterfaceWidget;
@@ -15,14 +16,29 @@ class UWarWorldEditWidget;
 class UWarAbilityWorkshopWidget;
 class UWarCityServiceWidget;
 class AWarCityNpc;
+class AWarZonePortal;
 class UWarFrontendWidget;
 class UWarCharacterVisualDefinition;
+class UWarSiegeLobbyWidget;
 
 UCLASS()
 class AEGISWAR_API AWarPlayerController : public APlayerController
 {
     GENERATED_BODY()
 public:
+    AWarPlayerController();
+    FString ScenarioCharacterId;
+    UFUNCTION(Server, Reliable) void ServerPrepareScenario();
+    UFUNCTION(Server, Reliable) void ServerScenarioDepart(const FString& Ticket);
+    UFUNCTION(Client, Reliable) void ClientScenarioRegistered(const FString& Url,const FString& Token,const FString& Id);
+    UFUNCTION(Client, Reliable) void ClientScenarioConnectionStatus(bool Pending,const FString& Message);
+    UFUNCTION(Client, Reliable) void ClientScenarioTravel(const FString& Endpoint,const FString& Ticket);
+    UFUNCTION(Server, Reliable) void ServerSiegeSquadOrder(int32 Round, uint8 Order);
+    UFUNCTION(Client, Reliable) void ClientSiegeSquadState(uint8 Order, int32 Count);
+    uint8 SiegeSquadOrder = 0;
+    int32 SiegeSquadCount = 0;
+    FVector SiegeHoldPosition = FVector::ZeroVector;
+    void RestoreGameplayInput();
     UFUNCTION(Client, Reliable) void ClientOpenFrontend();
     UFUNCTION(Client, Reliable) void ClientCharacterEntryResult(bool bAccepted, const FString& Error);
     UFUNCTION(Server, Reliable) void ServerCreateDevelopmentCharacter(const FString& Name, FName Race, FName Career, FName Body);
@@ -33,6 +49,7 @@ public:
     void CompleteCharacterEntry();
     UFUNCTION(Client, Reliable) void ClientEntryRejected(const FText& Reason);
     UFUNCTION(Client, Reliable) void ClientZoneTravelStatus(const FString& Message);
+    UFUNCTION(Server, Reliable) void ServerEnterPortal(AWarZonePortal* Portal);
     const FString& GetZoneTravelStatus() const { return ZoneTravelStatus; }
     void RecordEntryFailure(const FText& Reason);
     const FText& GetEntryFailure() const { return LastEntryFailure; }
@@ -48,11 +65,17 @@ public:
     TArray<FName> GetAvailableActions() const;
     FString GetClassAbilityStatus() const;
     void CycleCombatTarget();
-    void ToggleActionCursor();
+    void TargetNearestEnemy();
+    void SelectCombatTargetUnderCursor();
+    bool SelectCombatTarget(AActor* Target);
+    bool IsEnemyCombatTarget(const AActor* Target) const;
     AActor* GetCombatTarget() const;
     bool IsCombatTarget(const AActor* Target) const;
     FString GetCombatTargetLabel() const;
     FString GetActionMessage() const;
+    void SendCombatNotice(FName Kind, const FString& Label, float Amount);
+    UFUNCTION(Client, Unreliable) void ClientCombatNotice(uint32 Serial, FName Kind, const FString& Label, float Amount);
+    const TArray<FWarCombatNotice>& GetCombatNotices() const { return CombatNotices; }
     const TArray<FWarActionBarLayout>& GetActionBars();
     int32 AddActionBar(int32 Buttons);
     void RemoveActionBar(int32 Id);
@@ -77,6 +100,9 @@ public:
     UFUNCTION(Exec) void WarSiegeReset();
     UFUNCTION(Server, Reliable) void ServerGmSiegeStart(int32 Capacity, int32 Seed);
     UFUNCTION(Server, Reliable) void ServerGmSiegeReset();
+    UFUNCTION(Server, Reliable) void ServerSiegeReady(int32 ExpectedRound, bool bReady);
+    UFUNCTION(Server, Reliable) void ServerSiegeSelectRole(int32 ExpectedRound, uint8 CombatRole);
+    void TickSiegeLobby();
     UFUNCTION(Server, Reliable) void ServerGmSetLevel(int32 Level);
     UFUNCTION(Server, Reliable) void ServerGmResetCooldowns();
     UFUNCTION(Server, Reliable) void ServerGmGoToCharacter(const FString& Name);
@@ -128,6 +154,13 @@ public:
         if (!bCameraInitialized) { LocalCameraState.Yaw = Yaw; bCameraInitialized = true; }
     }
 private:
+    TArray<AActor*> GetEnemyTargets() const;
+    uint32 NextCombatSerial = 0, LastCombatSerial = 0;
+    double CombatNoticeWindow = 0;
+    int32 CombatNoticeCount = 0;
+    TArray<FWarCombatNotice> CombatNotices;
+    UPROPERTY(Transient) TObjectPtr<UWarSiegeLobbyWidget> SiegeLobbyWidget;
+    bool bSiegeLobbyInput = false;
     UPROPERTY(Transient) TObjectPtr<UWarActionBarWidget> ActionBarWidget;
     TMap<int32, FName> ActionSlots;
     FName ActionSlotCareer;

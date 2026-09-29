@@ -12,11 +12,27 @@
 #include "WarResourceNode.h"
 #include "WarPlayerState.h"
 #include "WarCharacter.h"
+#include "WarZonePortal.h"
 #include "WarNetworkProofSubsystem.h"
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
 #include "Components/InputComponent.h"
 #include "InputCoreTypes.h"
+
+AWarPlayerController::AWarPlayerController()
+{
+    bShowMouseCursor = true;
+}
+
+void AWarPlayerController::RestoreGameplayInput()
+{
+    bShowMouseCursor = true;
+    if (!IsLocalController() || !GetLocalPlayer()) return;
+    FInputModeGameAndUI Mode;
+    Mode.SetHideCursorDuringCapture(false);
+    Mode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
+    SetInputMode(Mode);
+}
 
 void AWarPlayerController::ServerDevelopmentProofReady_Implementation()
 {
@@ -71,8 +87,8 @@ void AWarPlayerController::ToggleInventory()
     if (InventoryWidget && InventoryWidget->IsInViewport())
     {
         InventoryWidget->RemoveFromParent();
-        SetInputMode(FInputModeGameOnly());
-        bShowMouseCursor = false;
+        RestoreGameplayInput();
+        bShowMouseCursor = true;
         SetIgnoreLookInput(false);
         SetIgnoreMoveInput(false);
         return;
@@ -83,7 +99,7 @@ void AWarPlayerController::ToggleInventory()
     InventoryWidget->AddToViewport(10);
     InventoryWidget->SetPositionInViewport(FVector2D(32, 32));
     InventoryWidget->SetDesiredSizeInViewport(FVector2D(540, 650));
-    SetInputMode(FInputModeGameAndUI());
+    SetInputMode(FInputModeGameAndUI().SetHideCursorDuringCapture(false));
     SetIgnoreLookInput(true);
     SetIgnoreMoveInput(true);
     bShowMouseCursor = true;
@@ -114,10 +130,10 @@ void AWarPlayerController::ToggleQuestLog()
     if (QuestLogWidget && QuestLogWidget->IsInViewport())
     {
         QuestLogWidget->RemoveFromParent();
-        SetInputMode(FInputModeGameOnly());
+        RestoreGameplayInput();
         SetIgnoreLookInput(false);
         SetIgnoreMoveInput(false);
-        bShowMouseCursor = false;
+        bShowMouseCursor = true;
         return;
     }
     if (InventoryWidget && InventoryWidget->IsInViewport()) ToggleInventory();
@@ -127,7 +143,7 @@ void AWarPlayerController::ToggleQuestLog()
     QuestLogWidget->AddToViewport(10);
     QuestLogWidget->SetPositionInViewport(FVector2D(32, 32));
     QuestLogWidget->SetDesiredSizeInViewport(FVector2D(540, 650));
-    SetInputMode(FInputModeGameAndUI());
+    SetInputMode(FInputModeGameAndUI().SetHideCursorDuringCapture(false));
     SetIgnoreLookInput(true);
     SetIgnoreMoveInput(true);
     bShowMouseCursor = true;
@@ -167,6 +183,13 @@ void AWarPlayerController::ClientEntryRejected_Implementation(const FText& Reaso
     }
     SetInputMode(FInputModeUIOnly());
     bShowMouseCursor = true;
+}
+
+void AWarPlayerController::ServerEnterPortal_Implementation(AWarZonePortal* Portal)
+{
+    FString Error;
+    if (!IsValid(Portal) || Portal->GetWorld() != GetWorld()) return;
+    if (!Portal->TryTraverse(Cast<AWarCharacter>(GetPawn()), Error)) ClientZoneTravelStatus(Error);
 }
 
 void AWarPlayerController::InteractWithWorld()
@@ -214,6 +237,15 @@ void AWarPlayerController::InteractWithWorld()
         const double Candidate = FVector::DistSquared2D(GetPawn()->GetActorLocation(), It->GetActorLocation());
         if (Candidate < Distance) { Distance = Candidate; Nearest = *It; }
     }
-    if (Nearest) State->ServerGatherResource(Nearest, State->GetInventory().Revision);
+    AWarZonePortal* Portal = nullptr;
+    double PortalDistance = TNumericLimits<double>::Max();
+    for (TActorIterator<AWarZonePortal> It(GetWorld()); It; ++It)
+    {
+        if (!It->IsWithinEntryRange(GetPawn())) continue;
+        const double Candidate = FVector::DistSquared(GetPawn()->GetActorLocation(), It->GetActorLocation());
+        if (Candidate < PortalDistance) { PortalDistance = Candidate; Portal = *It; }
+    }
+    if (Portal) ServerEnterPortal(Portal);
+    else if (Nearest) State->ServerGatherResource(Nearest, State->GetInventory().Revision);
     else InteractWithStation();
 }

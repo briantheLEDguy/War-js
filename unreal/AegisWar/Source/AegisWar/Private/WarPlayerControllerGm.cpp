@@ -21,6 +21,9 @@ namespace
 {
     bool Authorized(AWarPlayerController* PC, FString& Error)
     {
+        if (const auto* State = PC ? PC->GetPlayerState<AWarPlayerState>() : nullptr;
+            State && State->IsScenarioTransferPending())
+        { Error = TEXT("Scenario departure is in progress."); return false; }
         const auto* Editor = PC && PC->GetWorld() ? PC->GetWorld()->GetSubsystem<UWarWorldEditSubsystem>() : nullptr;
         if (!PC || !PC->HasAuthority() || !Editor || !Editor->CanUse(PC))
         { Error = TEXT("GM access requires an authorized development session. Remote and production privileges are not enabled."); return false; }

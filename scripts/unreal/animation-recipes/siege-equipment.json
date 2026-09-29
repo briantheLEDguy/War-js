@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 2,
+  "character": "Greenskin siege engineers and retained siege engines",
+  "animationSet": "siege-equipment",
+  "output": "artifacts/unreal/siege/equipment",
+  "stages": [
+    {"name":"prepare","engine":"blender","script":"prepare-siege-equipment.py"},
+    {"name":"import","engine":"unreal","script":"import-siege-equipment.py"},
+    {"name":"review","engine":"unreal-render","script":"review-siege-equipment.py"}
+  ]
+}

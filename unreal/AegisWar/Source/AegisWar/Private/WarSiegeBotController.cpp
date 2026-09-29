@@ -1,12 +1,18 @@
 #include "WarSiegeGameMode.h"
 #include "WarPlayerState.h"
+#include "WarPlayerController.h"
 #include "WarAttributeSet.h"
 #include "WarAbilityRuntime.h"
 #include "WarAbilityCatalog.h"
+#include "WarWarpIdol.h"
+#include "WarCombatStatus.h"
+#include "WarSiegeNavigation.h"
 #include "Engine/GameInstance.h"
 #include "EngineUtils.h"
+#include "Navigation/CrowdFollowingComponent.h"
 
-AWarSiegeBotController::AWarSiegeBotController()
+AWarSiegeBotController::AWarSiegeBotController(const FObjectInitializer& ObjectInitializer)
+    : Super(ObjectInitializer.SetDefaultSubobjectClass<UCrowdFollowingComponent>(TEXT("PathFollowingComponent")))
 { bWantsPlayerState = true; PrimaryActorTick.bCanEverTick = true; PrimaryActorTick.TickInterval = .25f; }
 void AWarSiegeBotController::Tick(float Delta)
 {
@@ -17,10 +23,16 @@ void AWarSiegeBotController::Tick(float Delta)
     auto* GS = Mode->SiegeState();
     if (GS->Siege.Phase != EWarSiegePhase::Active || Unit == EWarSiegeUnit::Crew || Unit == EWarSiegeUnit::Commander)
     { if (Unit != EWarSiegeUnit::Crew) StopMovement(); return; }
-    FVector Task = Mode->TaskLocation();
-    const auto* Human = Leader.IsValid() ? Cast<AWarCharacter>(Leader->GetPawn()) : nullptr;
-    const bool HasLeader = Human && !Human->IsDead();
-    const FVector Leash = HasLeader ? Human->GetActorLocation() : Task;
+    FVector Task=Mode->TaskLocation();
+    const auto* Commander=Cast<AWarPlayerController>(Leader.Get());
+    const auto* Human=Commander ? Cast<AWarCharacter>(Commander->GetPawn()) : nullptr;
+    const bool HasLeader=Human && !Human->IsDead();
+    const uint8 Order=HasLeader ? Commander->SiegeSquadOrder : 1;
+    const bool Optional=Order==3 && !GS->Siege.bOptionalComplete;
+    if (Optional) Task=GS->OptionalLocation;
+    else if (Order==0 && HasLeader) Task=Human->GetActorLocation();
+    else if (Order==2 && HasLeader) Task=Commander->SiegeHoldPosition;
+    const FVector Leash=Task;
     AWarCharacter* Enemy = nullptr; AWarCharacter* Injured = BotPawn;
     float LowestHealth = PS->GetAttributes()->GetHealth() / PS->GetAttributes()->GetMaxHealth();
     double Nearest = DBL_MAX; bool PlayerEnemy = false;
@@ -44,7 +56,7 @@ void AWarSiegeBotController::Tick(float Delta)
     const bool Hazard = GS->HazardUntil > GetWorld()->GetTimeSeconds()
         && FVector::Dist2D(BotPawn->GetActorLocation(), GS->HazardLocation) < 600;
     const auto Decision = WarSiege::Decide(Hazard, bRecovering, Hp, Enemy != nullptr,
-        FVector::Dist2D(BotPawn->GetActorLocation(), Task) < 1800, HasLeader);
+        false, HasLeader && Order==0);
     bRecovering = Decision == EWarSiegeDecision::Recover;
     if (Decision != LastDecision)
     { UE_LOG(LogTemp, Verbose, TEXT("WAR_SIEGE_BOT %s decision=%d"), *PS->GetPlayerName(), int32(Decision)); LastDecision = Decision; }
@@ -80,8 +92,16 @@ void AWarSiegeBotController::Tick(float Delta)
     {
         SetFocus(Enemy);
         bool Activated = false;
+        if (BotPawn->GetCareerId() == TEXT("void_magister") && Nearest < FMath::Square(1000.f))
+        {
+            const bool HasIdol = AWarWarpIdol::HasFor(BotPawn);
+            if (!HasIdol) Activated = Runtime->TryActivate(TEXT("void_magister.summon_idol"), BotPawn, Error);
+            else if (const auto* Status = UWarCombatStatus::On(BotPawn); Status && !Status->Has(TEXT("empower")))
+                Activated = Runtime->TryActivate(TEXT("void_magister.feed_the_idol"), BotPawn, Error);
+        }
         for (const auto* A : Kit)
         {
+            if (Activated) break;
             bool Offensive = false; for (const auto& E : A->Effects) Offensive |= E.Kind == TEXT("damage") || E.Kind == TEXT("status");
             if (Offensive && Runtime->TryActivate(A->Id, Enemy, Error)) { Activated = true; break; }
         }
@@ -97,8 +117,41 @@ void AWarSiegeBotController::Tick(float Delta)
     }
     ClearFocus(EAIFocusPriority::Gameplay);
     if (Unit == EWarSiegeUnit::Emplacement) { StopMovement(); return; }
+    if (StalledSeconds<0)
+    {
+        StalledSeconds=FMath::Min(0.,StalledSeconds+Delta);
+        if (GetMoveStatus()==EPathFollowingStatus::Moving && StalledSeconds<0) return;
+        StalledSeconds=0;
+    }
     // Offset squad members without pulling them outside objective participation radius.
     const float Angle = float(GetUniqueID() % 6) * PI / 3;
-    const FVector Offset(FMath::Cos(Angle) * 250, FMath::Sin(Angle) * 250, 0);
-    MoveToLocation((Decision == EWarSiegeDecision::Follow && HasLeader ? Human->GetActorLocation() : Task) + Offset, 100);
+    const FVector Offset(FMath::Cos(Angle) * 400, FMath::Sin(Angle) * 400, 0);
+    const FVector Goal=Task;
+    if (FVector::DistSquared(BotPawn->GetActorLocation(), PreviousLocation) < 25 && FVector::Dist2D(BotPawn->GetActorLocation(), Goal) > 650)
+        StalledSeconds += Delta;
+    else StalledSeconds = 0;
+    PreviousLocation = BotPawn->GetActorLocation();
+    if (StalledSeconds >= 5)
+    {
+        StopMovement(); StalledSeconds = 0;
+        UE_LOG(LogTemp, Warning, TEXT("WAR_SIEGE_ROUTE_STALL bot=%s position=%s goal=%s"), *PS->GetPlayerName(),*BotPawn->GetActorLocation().ToString(),*Goal.ToString());
+        FVector Detour;
+        const FVector Toward=(Goal-BotPawn->GetActorLocation()).GetSafeNormal2D();
+        const float Sign=(FMath::FloorToInt(GetWorld()->GetTimeSeconds()/5)+GetUniqueID())%2 ? 1.f : -1.f;
+        if (WarSiegeNavigation::Approach(BotPawn,BotPawn->GetActorLocation(),FVector(-Toward.Y,Toward.X,0)*400*Sign,900,Detour)
+            && MoveToLocation(Detour,50,false)!=EPathFollowingRequestResult::Failed)
+        { LastMoveGoal=Detour;StalledSeconds=-3;return; }
+    }
+    FVector Destination;
+    if (WarSiegeNavigation::Approach(BotPawn,Goal,Offset,Order==0 ? 600.f : Mode->Battlefield->ObjectiveRadius,Destination))
+    {
+        // Do not restart a valid path every AI tick; that starves crowd movement.
+        if (GetMoveStatus()!=EPathFollowingStatus::Moving || FVector::DistSquared(Destination,LastMoveGoal)>FMath::Square(150.f))
+        {
+            const auto Result=MoveToLocation(Destination,70,false);
+            LastMoveGoal=Destination;
+            if (Result==EPathFollowingRequestResult::Failed) UE_LOG(LogTemp,Warning,TEXT("WAR_SIEGE_MOVE_FAILED %s"),*PS->GetPlayerName());
+        }
+    }
+    else StopMovement();
 }

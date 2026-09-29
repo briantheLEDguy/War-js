@@ -49,7 +49,7 @@ void WarAbilityExecution::Apply(const FWarAbilityEffect& Effect, float Amount, A
         if (auto* Status=UWarCombatStatus::On(Recipient)) Status->ApplyPeriodic(Effect,Amount,Caster,SelectedTarget,Ability,Strength,Level,bBonus);
     }
     else if (Effect.Kind==TEXT("damage")) UWarCombatStatus::Damage(Recipient,Caster,Amount,Range,bRequireSight);
-    else if (Effect.Kind==TEXT("heal")) UWarCombatStatus::Heal(Cast<AWarCharacter>(Recipient),Amount);
+    else if (Effect.Kind==TEXT("heal")) UWarCombatStatus::Heal(Cast<AWarCharacter>(Recipient),Amount,Caster);
     else if (Effect.Kind==TEXT("cleanse")) { if (auto* Status=UWarCombatStatus::On(Recipient)) Status->Cleanse(Effect.Cleanse); }
     else if (Effect.Kind==TEXT("status") || Effect.Kind==TEXT("player_status"))
     { if (auto* Status=UWarCombatStatus::On(Recipient)) Status->Apply(Effect,Ability->Id,Caster,Strength,Level,Ability->Version,Amount); }

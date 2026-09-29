@@ -6571,6 +6571,51 @@
       "attackDamage": 14,
       "moveSpeed": 3.85,
       "assetKey": "creature_glassriver_snapper"
+    },
+    {
+      "id": "brightfen_approach_import_deserter_camp_1",
+      "name": "Fenway deserter",
+      "x": -190,
+      "z": -145,
+      "characterProfileKey": "npc_import_guard01",
+      "level": 3,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 13,
+      "moveSpeed": 3.25
+    },
+    {
+      "id": "brightfen_approach_import_deserter_camp_2",
+      "name": "Fenway deserter",
+      "x": -186,
+      "z": -145,
+      "characterProfileKey": "npc_import_guard01",
+      "level": 3,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 13,
+      "moveSpeed": 3.25
+    },
+    {
+      "id": "brightfen_approach_import_deserter_camp_3",
+      "name": "Fenway bruiser",
+      "x": -190,
+      "z": -141,
+      "characterProfileKey": "npc_import_brute",
+      "level": 3,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 13,
+      "moveSpeed": 3.25
     }
   ],
   "resourceNodes": [
@@ -14301,5 +14346,5 @@
       }
     ]
   },
-  "staticMapHash": "38f87733d241705a"
+  "staticMapHash": "77feb823cfbbea92"
 }

@@ -54,7 +54,7 @@ public:
     FString Description() const;
     static UWarCombatStatus* On(const AActor* Actor);
     static bool Damage(AActor* Target, AWarCharacter* Source, float Amount, float Range, bool bRequireSight = true);
-    static void Heal(AWarCharacter* Target, float Amount);
+    static void Heal(AWarCharacter* Target, float Amount, AWarCharacter* Source = nullptr);
 private:
     double Now() const;
     float Strongest(FName Kind) const;

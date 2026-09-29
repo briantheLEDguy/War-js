@@ -1,4 +1,7 @@
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEquipment.h"
+#include "WarScenarioInstance.h"
+#include "Engine/GameInstance.h"
 #include "WarPlayerController.h"
 #include "WarPlayerState.h"
 #include "WarAttributeSet.h"
@@ -11,6 +14,7 @@
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "WarSiegeHud.h"
+#include "WarSiegeNavigation.h"
 #include "AbilitySystemComponent.h"
 #include "EngineUtils.h"
 #include "Net/UnrealNetwork.h"
@@ -18,7 +22,7 @@
 #include "NavigationSystem.h"
 
 void AWarSiegeCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(AWarSiegeCharacter, Unit); }
+{ Super::GetLifetimeReplicatedProps(OutLifetimeProps); DOREPLIFETIME(AWarSiegeCharacter, Unit); DOREPLIFETIME(AWarSiegeCharacter, Equipment); }
 void AWarSiegeCharacter::Tick(float Delta)
 { Super::Tick(Delta); if (Unit == EWarSiegeUnit::Crew) GetCharacterMovement()->MaxWalkSpeed = CrewMoveSpeed; }
 AWarSiegeGameMode::AWarSiegeGameMode()
@@ -41,16 +45,25 @@ bool AWarSiegeGameMode::Authorized(AWarPlayerController* Gm, FString& Error) con
 bool AWarSiegeGameMode::Launch(AWarPlayerController* Gm, int32 Capacity, int32 Seed, FString& Error)
 {
     if (!Authorized(Gm, Error)) return false;
-    auto* GS = SiegeState();
-    if (!GS || !WarSiege::ValidCapacity(Capacity) || GS->Siege.Phase == EWarSiegePhase::Active || GS->Siege.Phase == EWarSiegePhase::Transition)
-    { Error = TEXT("Choose 6, 12 or 18 slots and reset the previous siege before launching."); return false; }
+    return StartRound(Capacity, Seed, EWarSiegeScenario::FullSiege, Error);
+}
+bool AWarSiegeGameMode::FindBattlefield(FString& Error)
+{
     Battlefield = nullptr;
     for (TActorIterator<AWarSiegeBattlefield> It(GetWorld()); It; ++It)
     {
-        if (Battlefield) { Error = TEXT("The siege map contains duplicate battlefield definitions."); return false; }
+        if (Battlefield) { Error = TEXT("The siege map contains duplicate battlefield definitions."); Battlefield = nullptr; return false; }
         Battlefield = *It;
     }
-    if (!Battlefield || !Battlefield->Validate(Error))
+    if (!Battlefield) { Error = TEXT("Open an authored siege map with a validated battlefield definition."); return false; }
+    return true;
+}
+bool AWarSiegeGameMode::StartRound(int32 Capacity, int32 Seed, EWarSiegeScenario Scenario, FString& Error)
+{
+    auto* GS = SiegeState();
+    if (!GS || !WarSiege::ValidCapacity(Capacity) || GS->Siege.Phase == EWarSiegePhase::Active || GS->Siege.Phase == EWarSiegePhase::Transition)
+    { Error = TEXT("Choose 6, 12 or 18 slots and reset the previous siege before launching."); return false; }
+    if (!FindBattlefield(Error) || !Battlefield->Validate(Error, Scenario))
     { if (!Battlefield) Error = TEXT("Open an authored siege map with a validated battlefield definition."); GS->Status = Error; return false; }
     int32 HumanCounts[2] = {};
     for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
@@ -60,8 +73,10 @@ bool AWarSiegeGameMode::Launch(AWarPlayerController* Gm, int32 Capacity, int32 S
     }
     if (HumanCounts[0] > Capacity || HumanCounts[1] > Capacity)
     { Error = TEXT("Connected realm population exceeds the selected capacity."); return false; }
-    ClearUnits(true); Random.Initialize(Seed); StartedStage = -1;
-    WarSiege::Start(GS->Siege, Capacity); GS->NextWaveAt = GetWorld()->GetTimeSeconds();
+    ClearRoundEffects(); ClearUnits(true); Random.Initialize(Seed); StartedStage = -1;
+    if (!WarSiege::Start(GS->Siege, Capacity, Scenario)) { Error = TEXT("Unsupported siege scenario or capacity."); return false; }
+    ++GS->RoundId; GS->ReadyPlayers.Reset(); GS->Deaths = 0; GS->bContested = false;
+    GS->NextWaveAt = GetWorld()->GetTimeSeconds();
     StageStarted();
     if (GS->Siege.Phase == EWarSiegePhase::Waiting) { Error = GS->Status; return false; }
     Wave();
@@ -73,6 +88,7 @@ bool AWarSiegeGameMode::Launch(AWarPlayerController* Gm, int32 Capacity, int32 S
 bool AWarSiegeGameMode::ResetSiege(AWarPlayerController* Gm, FString& Error)
 {
     if (!Authorized(Gm, Error)) return false;
+    ClearRoundEffects();
     ClearUnits(true); StartedStage = -1;
     auto* GS = SiegeState(); GS->Siege = {}; GS->Status = TEXT("Siege reset; awaiting GM launch."); GS->RosterLabels.Reset();
     GS->HazardUntil = 0; GS->CommanderAction.Reset();
@@ -83,35 +99,73 @@ bool AWarSiegeGameMode::ResetSiege(AWarPlayerController* Gm, FString& Error)
 }
 void AWarSiegeGameMode::FailMatch(const FString& Error)
 {
+    ClearRoundEffects();
     ClearUnits(true); auto* GS = SiegeState(); GS->Siege.Phase = EWarSiegePhase::Waiting; GS->Status = Error;
+    if (Battlefield) Battlefield->ApplyMilestones(GS->Siege);
     GS->HazardUntil = 0; GS->CommanderAction.Reset(); GS->RosterLabels.Reset();
+    GS->ReadyPlayers.Reset(); GS->bContentReady = false;
     for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
         if (auto* PS = It->Get()->GetPlayerState<AWarPlayerState>()) PS->SetSiegeNormalized(false);
     GS->ForceNetUpdate(); UE_LOG(LogTemp, Error, TEXT("WAR_SIEGE_BLOCKED %s"), *Error);
 }
 void AWarSiegeGameMode::HandleStartingNewPlayer_Implementation(APlayerController* Player)
 {
+    if (GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->IsEnabled())
+    {
+        if (auto* PS=Player->GetPlayerState<AWarPlayerState>()) SiegeState()->ReadyPlayers.AddUnique(PS->GetPlayerId());
+        if (SiegeState()->Siege.Phase==EWarSiegePhase::Active) Wave();
+        return;
+    }
+    if (IsDevelopmentPlaytest())
+    {
+        auto* PS = Player->GetPlayerState<AWarPlayerState>();
+        if (!PS) return;
+        int32 Aegis = 0, Riftbound = 0;
+        for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+            if (It->Get() != Player) if (const auto* Other = It->Get()->GetPlayerState<AWarPlayerState>())
+            { Aegis += Other->GetRealm() == EWarRealm::Aegis; Riftbound += Other->GetRealm() == EWarRealm::Riftbound; }
+        EWarRealm AssignedRealm=Aegis <= Riftbound ? EWarRealm::Aegis : EWarRealm::Riftbound;
+        if (IsMenuScenario())
+        {
+            int32 Realm=0; FParse::Value(FCommandLine::Get(),TEXT("WarScenarioRealm="),Realm);
+            // The owned server chooses the realm; a client URL cannot grant a role.
+            AssignedRealm=Realm==int32(EWarRealm::Riftbound) ? EWarRealm::Riftbound : EWarRealm::Aegis;
+        }
+        // Realm is immutable after its initial trusted assignment.
+        PS->SetDevelopmentRealm(AssignedRealm);
+        PS->SetCurrentZoneTrusted(TEXT("aegis_capital"));
+        PS->SetPlayerName(FString::Printf(TEXT("Siege tester %d"), ++DevelopmentJoins));
+        UE_LOG(LogTemp, Display, TEXT("WAR_SIEGE_JOIN realm=%d player=%d"), int32(PS->GetRealm()), PS->GetPlayerId());
+        FString Error;
+        if (!Battlefield) FindBattlefield(Error);
+        if (Battlefield) for (const auto& Entry : Battlefield->Roster)
+            if (Entry.Realm == PS->GetRealm() && Entry.CombatRole == EWarSiegeRole::Tank)
+            { if (auto* Visual = Entry.Visual.LoadSynchronous()) Selections.Add(Player, Visual); break; }
+        return;
+    }
     // Existing frontend performs realm/character validation. Admission restrictions remain inherited.
     Super::HandleStartingNewPlayer_Implementation(Player);
 }
 APawn* AWarSiegeGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* Player, const FTransform& Transform)
 {
     auto* Bot = Cast<AWarSiegeBotController>(Player);
-    if (!Bot) return Super::SpawnDefaultPawnAtTransform_Implementation(Player, Transform);
+    auto* Visual = Bot ? Bot->Visual.Get() : SelectedVisual(Player);
+    if (!Bot && !IsDevelopmentPlaytest()) return Super::SpawnDefaultPawnAtTransform_Implementation(Player, Transform);
     FString Error;
-    auto* PS = Bot->GetPlayerState<AWarPlayerState>();
-    if (!PS || !Bot->Visual || !Bot->Visual->ValidateForSpawn(PS->GetRealm(), Error)) return nullptr;
+    auto* PS = Player->GetPlayerState<AWarPlayerState>();
+    if (!PS || !Visual || !Visual->ValidateForSpawn(PS->GetRealm(), Error)) return nullptr;
     auto* Pawn = GetWorld()->SpawnActorDeferred<AWarSiegeCharacter>(AWarSiegeCharacter::StaticClass(), Transform,
         Player, nullptr, ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding);
     if (!Pawn) return nullptr;
-    Pawn->Unit = Bot->Unit;
-    if (!Pawn->SetVisualDefinition(Bot->Visual, Error)) { Pawn->Destroy(); return nullptr; }
+    Pawn->Unit = Bot ? Bot->Unit : EWarSiegeUnit::Participant;
+    if (!Pawn->SetVisualDefinition(Visual, Error)) { Pawn->Destroy(); return nullptr; }
     Pawn->FinishSpawning(Transform); return Pawn;
 }
 void AWarSiegeGameMode::RestartPlayer(AController* Player)
 {
     if (!Player) return;
     const auto* GS = SiegeState();
+    if (IsDevelopmentPlaytest() && (!GS || GS->Siege.Phase == EWarSiegePhase::Waiting || GS->Siege.Phase == EWarSiegePhase::Finished)) return;
     if (!Battlefield || !GS || GS->Siege.Phase == EWarSiegePhase::Waiting) { Super::RestartPlayer(Player); return; }
     // Only Wave admits humans during a siege; frontend entry cannot bypass slot limits.
     if (!Cast<AWarSiegeBotController>(Player)) return;
@@ -119,9 +173,8 @@ void AWarSiegeGameMode::RestartPlayer(AController* Player)
 AWarSiegeBotController* AWarSiegeGameMode::SpawnUnit(EWarRealm Realm, EWarSiegeRole CombatRole, EWarSiegeUnit Unit,
     UWarCharacterVisualDefinition* Visual, const FVector& Position)
 {
-    auto* Navigation = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
-    FNavLocation Ground;
-    if (!Navigation || !Navigation->ProjectPointToNavigation(Position, Ground, FVector(150,150,500))) return nullptr;
+    FVector Center;
+    if (!WarSiegeNavigation::SpawnCenter(GetWorld(),Position,Center)) return nullptr;
     auto* Controller = GetWorld()->SpawnActor<AWarSiegeBotController>();
     if (!Controller) return nullptr;
     auto* PS = Controller->GetPlayerState<AWarPlayerState>();
@@ -130,7 +183,7 @@ AWarSiegeBotController* AWarSiegeGameMode::SpawnUnit(EWarRealm Realm, EWarSiegeR
     PS->SetDevelopmentRealm(Realm); PS->SetCurrentZoneTrusted(TEXT("aegis_capital"));
     PS->SetPlayerName(Unit == EWarSiegeUnit::Participant ? FString::Printf(TEXT("[Bot] %s %d"), *Visual->ClassId.ToString(), Units.Num() + 1)
         : Unit == EWarSiegeUnit::Commander ? TEXT("Bastion Commander") : Unit == EWarSiegeUnit::Crew ? TEXT("Riftbound Breach Engineer") : TEXT("Bastion Garrison"));
-    RestartPlayerAtTransform(Controller, FTransform(FRotator::ZeroRotator, Ground.Location + FVector(0,0,100)));
+    RestartPlayerAtTransform(Controller, FTransform(FRotator::ZeroRotator, Center));
     if (!Controller->GetPawn()) { if (PS) PS->Destroy(); Controller->Destroy(); return nullptr; }
     PS->SetSiegeNormalized(true);
     float Hp = 2000;
@@ -143,6 +196,7 @@ AWarSiegeBotController* AWarSiegeGameMode::SpawnUnit(EWarRealm Realm, EWarSiegeR
 }
 void AWarSiegeGameMode::ClearUnits(bool Participants)
 {
+    for (const auto& Vehicle:Convoy) if (IsValid(Vehicle)) Vehicle->Destroy(); Convoy.Reset();
     for (auto& Weak : Units) if (auto* Bot = Weak.Get(); Bot && (Participants || Bot->Unit != EWarSiegeUnit::Participant))
     {
         if (Bot->GetPawn()) Bot->GetPawn()->Destroy();
@@ -155,8 +209,10 @@ void AWarSiegeGameMode::RespawnAfterDeath(AWarCharacter* Character)
 {
     if (!Character || !HasAuthority()) return;
     if (!SiegeState() || SiegeState()->Siege.Phase == EWarSiegePhase::Waiting) { Super::RespawnAfterDeath(Character); return; }
+    if (SiegeState()->Siege.Phase == EWarSiegePhase::Finished) return;
     auto* Controller = Character->GetController();
     if (!Controller) return;
+    ++SiegeState()->Deaths;
     if (auto* Bot = Cast<AWarSiegeBotController>(Controller))
     {
         if (Bot->Unit == EWarSiegeUnit::Crew)
@@ -189,18 +245,23 @@ bool AWarSiegeGameMode::IsProtected(const AActor* Actor) const
 FVector AWarSiegeGameMode::TaskLocation() const
 {
     const auto& S = SiegeState()->Siege;
+    if (S.Stage==0 && S.Objective>0 && Convoy.Num()>0 && IsValid(Convoy[0])
+        && (WarSiege::IsEscort(S) || FVector::Dist2D(Convoy[0]->GetActorLocation(),Battlefield->Objective(0,3))>100))
+        return Convoy[0]->GetActorLocation();
     if (WarSiege::IsEscort(S) && Crew.IsValid() && Crew->GetPawn()) return Crew->GetPawn()->GetActorLocation();
     return Battlefield ? Battlefield->Objective(S.Stage, S.Objective) : FVector::ZeroVector;
 }
 void AWarSiegeGameMode::Wave()
 {
     auto* GS = SiegeState(); if (!Battlefield || GS->Siege.Phase != EWarSiegePhase::Active) return;
+    if (GS->Siege.Stage==0 && (!PrepareConvoy() || !ConvoyAlive())) return;
     Units.RemoveAll([](const auto& U) { return !U.IsValid(); });
     for (EWarRealm Realm : { EWarRealm::Aegis, EWarRealm::Riftbound })
     {
         TArray<APlayerController*> Humans; TArray<AWarSiegeBotController*> Bots;
         for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
-            if (auto* PS = It->Get()->GetPlayerState<AWarPlayerState>(); PS && PS->GetRealm() == Realm) Humans.Add(It->Get());
+            if (auto* PS = It->Get()->GetPlayerState<AWarPlayerState>(); PS && PS->GetRealm() == Realm
+                && (!GetGameInstance() || GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->Owns(Cast<AWarPlayerController>(It->Get())))) Humans.Add(It->Get());
         for (const auto& Weak : Units) if (auto* B = Weak.Get(); B && B->Unit == EWarSiegeUnit::Participant
             && B->GetPlayerState<AWarPlayerState>()->GetRealm() == Realm) Bots.Add(B);
         const int32 Admitted = FMath::Min(Humans.Num(), GS->Siege.Capacity);
@@ -215,11 +276,18 @@ void AWarSiegeGameMode::Wave()
             auto* PC = Humans[I]; auto* PS = PC->GetPlayerState<AWarPlayerState>();
             PS->SetCurrentZoneTrusted(TEXT("aegis_capital"));
             const bool Respawning = !PC->GetPawn();
-            if (Respawning) RestartPlayerAtTransform(PC, FTransform(FRotator::ZeroRotator, Spawn + FVector((I % 6) * 110, (I / 6) * 110, 100)));
+            if (Respawning)
+            {
+                FVector Center;
+                if (!WarSiegeNavigation::SpawnCenter(GetWorld(),Spawn,Center))
+                { UE_LOG(LogTemp,Warning,TEXT("WAR_SIEGE_SPAWN_WAIT player=%d; protected spawn is occupied"),PS->GetPlayerId()); continue; }
+                RestartPlayerAtTransform(PC, FTransform(FRotator::ZeroRotator,Center));
+            }
+            if (!PC->GetPawn()) { FailMatch(TEXT("Participant spawn failed; check the selected visual and spawn clearance.")); return; }
             if (PC->GetPawn() && (Respawning || !PS->IsSiegeNormalized())) PS->SetSiegeNormalized(true);
         }
         int32 Tanks = 0, Healers = 0;
-        for (auto* PC : Humans) if (auto* Pawn = Cast<AWarCharacter>(PC->GetPawn()))
+        for (int32 I = 0; I < Admitted; ++I) if (auto* Pawn = Cast<AWarCharacter>(Humans[I]->GetPawn()))
             for (const auto& E : Battlefield->Roster) if (E.Realm == Realm && E.Visual.LoadSynchronous()->ClassId == Pawn->GetCareerId())
             { Tanks += E.CombatRole == EWarSiegeRole::Tank; Healers += E.CombatRole == EWarSiegeRole::Healer; break; }
         for (auto* B : Bots) { Tanks += B->CombatRole == EWarSiegeRole::Tank; Healers += B->CombatRole == EWarSiegeRole::Healer; }
@@ -228,29 +296,44 @@ void AWarSiegeGameMode::Wave()
             const auto CombatRole = WarSiege::MissingRole(GS->Siege.Capacity, Tanks, Healers);
             TArray<const FWarSiegeRosterEntry*> Choices;
             for (const auto& E : Battlefield->Roster) if (E.Realm == Realm && E.CombatRole == CombatRole) Choices.Add(&E);
-            if (Choices.IsEmpty()) break;
+            if (Choices.IsEmpty()) { FailMatch(TEXT("The roster no longer covers a required combat role.")); return; }
             const auto* E = Choices[Random.RandRange(0, Choices.Num() - 1)];
-            if (SpawnUnit(Realm, CombatRole, EWarSiegeUnit::Participant, E->Visual.LoadSynchronous(), Spawn + FVector((I % 6) * 110, (I / 6) * 110, 0)))
+            if (SpawnUnit(Realm, CombatRole, EWarSiegeUnit::Participant, E->Visual.LoadSynchronous(), Spawn))
             { Tanks += CombatRole == EWarSiegeRole::Tank; Healers += CombatRole == EWarSiegeRole::Healer; }
             else { FailMatch(TEXT("Bot spawn failed; check model and spawn clearance, then relaunch.")); return; }
         }
+        if (GS->bQueuedScenario) UE_LOG(LogTemp,Display,TEXT("WAR_SCENARIO_TEAM realm=%d humans=%d bots=%d"),
+            int32(Realm),Admitted,GS->Siege.Capacity-Admitted);
     }
     AssignSquads(); GS->NextWaveAt = GetWorld()->GetTimeSeconds() + WarSiege::WaveSeconds;
 }
 void AWarSiegeGameMode::AssignSquads()
 {
-    TMap<AController*, int32> Counts;
-    for (auto& Weak : Units) if (auto* B = Weak.Get(); B && B->Unit == EWarSiegeUnit::Participant)
+    TMap<AController*,int32> Counts;
+    TArray<AWarPlayerController*> Humans;
+    for (auto It=GetWorld()->GetPlayerControllerIterator();It;++It)
+        if (auto* PC=Cast<AWarPlayerController>(It->Get()); PC && PC->GetPlayerState<AWarPlayerState>()
+            && (!GetGameInstance() || GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->Owns(PC))) Humans.Add(PC);
+    for (const auto& Weak:Units) if (auto* B=Weak.Get(); B && B->Unit==EWarSiegeUnit::Participant)
     {
-        B->Leader.Reset();
-        for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
-        {
-            auto* PC = It->Get(); auto* PS = PC->GetPlayerState<AWarPlayerState>();
-            if (!PC->GetPawn() || !PS || PS->GetRealm() != B->GetPlayerState<AWarPlayerState>()->GetRealm() || Counts.FindRef(PC) >= 5) continue;
-            if (!B->Leader.IsValid() || Counts.FindRef(PC) < Counts.FindRef(B->Leader.Get())) B->Leader = PC;
-        }
+        B->bOptionalTask=false;
+        auto* PC=Cast<AWarPlayerController>(B->Leader.Get());
+        if (!Humans.Contains(PC) || PC->GetPlayerState<AWarPlayerState>()->GetRealm()!=B->GetPlayerState<AWarPlayerState>()->GetRealm()) B->Leader.Reset();
+        else ++Counts.FindOrAdd(PC);
+    }
+    for (const auto& Weak:Units) if (auto* B=Weak.Get(); B && B->Unit==EWarSiegeUnit::Participant && !B->Leader.IsValid())
+    {
+        for (auto* PC:Humans) if (PC->GetPlayerState<AWarPlayerState>()->GetRealm()==B->GetPlayerState<AWarPlayerState>()->GetRealm()
+            && (!B->Leader.IsValid() || Counts.FindRef(PC)<Counts.FindRef(B->Leader.Get()))) B->Leader=PC;
         if (B->Leader.IsValid()) ++Counts.FindOrAdd(B->Leader.Get());
     }
+    // Rebalance only when a new player arrives or a permanent departure changes seats.
+    for (auto* PC:Humans) for (const auto& Weak:Units)
+        if (auto* B=Weak.Get(); B && B->Unit==EWarSiegeUnit::Participant && B->Leader.IsValid()
+            && B->GetPlayerState<AWarPlayerState>()->GetRealm()==PC->GetPlayerState<AWarPlayerState>()->GetRealm()
+            && Counts.FindRef(B->Leader.Get())>Counts.FindRef(PC)+1)
+        { --Counts.FindOrAdd(B->Leader.Get()); B->Leader=PC; ++Counts.FindOrAdd(PC); }
+    for (auto* PC:Humans) { PC->SiegeSquadCount=Counts.FindRef(PC); PC->ClientSiegeSquadState(PC->SiegeSquadOrder,PC->SiegeSquadCount); }
 }
 void AWarSiegeGameMode::StageStarted()
 {
@@ -271,6 +354,7 @@ void AWarSiegeGameMode::StageStarted()
         Commander = SpawnUnit(EWarRealm::Aegis, EWarSiegeRole::Tank, EWarSiegeUnit::Commander, Battlefield->CommanderVisual.LoadSynchronous(), Battlefield->Objective(2,0));
         if (!Commander.IsValid()) { FailMatch(TEXT("Commander spawn failed; repair model or spawn clearance and relaunch.")); return; }
     }
+    if (StartedStage == 0 && !PrepareConvoy()) return;
     if (StartedStage == 0)
         if (!SpawnUnit(EWarRealm::Aegis, EWarSiegeRole::Damage, EWarSiegeUnit::Emplacement, Battlefield->GuardVisual.LoadSynchronous(), Battlefield->OptionalObjectives[0]))
         { FailMatch(TEXT("Emplacement crew spawn failed; repair content and relaunch.")); return; }
@@ -281,13 +365,14 @@ void AWarSiegeGameMode::Encounters(float Delta)
 {
     auto* GS = SiegeState(); auto& S = GS->Siege; const double Now = GetWorld()->GetTimeSeconds();
     const bool NeedCrew = S.Stage < 2 && (WarSiege::IsEscort(S) || S.Objective == WarSiege::FinalObjective(S.Stage));
-    if (NeedCrew && !Crew.IsValid() && Now >= CrewAt)
+    if (S.Stage==0 && !PrepareConvoy()) return;
+    if (NeedCrew && S.Stage!=0 && !Crew.IsValid() && Now >= CrewAt)
     {
         Crew = SpawnUnit(EWarRealm::Riftbound, EWarSiegeRole::Damage, EWarSiegeUnit::Crew, Battlefield->CrewVisual.LoadSynchronous(),
             Battlefield->Objective(S.Stage, S.Stage == 0 ? S.Objective - 1 : S.Objective));
         if (!Crew.IsValid()) { FailMatch(TEXT("Breach crew spawn failed; repair content and relaunch.")); return; }
     }
-    if (NeedCrew && !WarSiege::IsEscort(S) && Crew.IsValid()) Crew->MoveToLocation(Battlefield->Objective(S.Stage, S.Objective), 100);
+    if (NeedCrew && S.Stage!=0 && !WarSiege::IsEscort(S) && Crew.IsValid()) Crew->MoveToLocation(Battlefield->Objective(S.Stage, S.Objective), 100);
     int32 LivingGuards = 0;
     for (const auto& Weak : Units) if (auto* B = Weak.Get(); B && (B->Unit == EWarSiegeUnit::Guard || B->Unit == EWarSiegeUnit::Emplacement)) ++LivingGuards;
     const int32 WaveSize = WarSiege::Reinforcements(S.Capacity, S.bOptionalComplete && S.Stage > 0);
@@ -354,7 +439,14 @@ void AWarSiegeGameMode::Encounters(float Delta)
 }
 void AWarSiegeGameMode::Tick(float Delta)
 {
-    Super::Tick(Delta); auto* GS = SiegeState(); if (!GS || !Battlefield) return;
+    if (IsMenuScenario())
+    {
+        uint32 Parent=0; FParse::Value(FCommandLine::Get(),TEXT("WarScenarioParentPid="),Parent);
+        if (Parent && !FPlatformProcess::IsApplicationRunning(Parent)) { FPlatformMisc::RequestExit(false); return; }
+    }
+    Super::Tick(Delta); auto* GS = SiegeState(); if (!GS) return;
+    if (IsDevelopmentPlaytest() && (GS->Siege.Phase == EWarSiegePhase::Waiting || (!GS->bQueuedScenario && GS->Siege.Phase == EWarSiegePhase::Finished))) UpdateLobby();
+    if (!Battlefield) return;
     if (GS->Siege.Phase != EWarSiegePhase::Active && GS->Siege.Phase != EWarSiegePhase::Transition) return;
     if (GS->Siege.Phase == EWarSiegePhase::Active && GS->Siege.Stage != StartedStage) StageStarted();
     FWarSiegePresence P;
@@ -378,16 +470,24 @@ void AWarSiegeGameMode::Tick(float Delta)
                 return !GetWorld()->LineTraceSingleByChannel(Hit, It->GetActorLocation(), Location + FVector(0,0,100), ECC_Visibility, Query)
                     || (Target && Hit.GetActor() == Target);
             };
-            if (Within(TaskLocation(), Crew.IsValid() ? Crew->GetPawn() : nullptr)) { if (Attacker) ++P.Attackers; else ++P.Defenders; }
+            const AActor* Escort=Convoy.IsEmpty() ? static_cast<AActor*>(Crew.IsValid() ? Crew->GetPawn() : nullptr) : Convoy[0].Get();
+            if (Within(TaskLocation(), Escort)) { if (Attacker) ++P.Attackers; else ++P.Defenders; }
             if (Within(Battlefield->OptionalObjectives[GS->Siege.Stage], Battlefield->WarEffortProps[GS->Siege.Stage]))
             { if (Attacker) ++P.OptionalAttackers; else ++P.OptionalDefenders; }
         }
-        P.bCrewAlive = Crew.IsValid() && Crew->GetPawn();
-        if (P.bCrewAlive && !WarSiege::IsEscort(GS->Siege))
+        const auto* CrewCharacter = Crew.IsValid() ? Cast<AWarCharacter>(Crew->GetPawn()) : nullptr;
+        P.bCrewAlive = GS->Siege.Stage==0 ? ConvoyAlive() : CrewCharacter && !CrewCharacter->IsDead() && CrewCharacter->IsVisualReady();
+        if (P.bCrewAlive && GS->Siege.Stage!=0 && !WarSiege::IsEscort(GS->Siege))
             P.bCrewAlive = FVector::Dist2D(Crew->GetPawn()->GetActorLocation(), TaskLocation()) <= Battlefield->ObjectiveRadius;
         if (GS->Siege.Stage == 0)
             for (const auto& Weak : Units) if (auto* B = Weak.Get(); B && B->Unit == EWarSiegeUnit::Emplacement) P.OptionalAttackers = 0;
-        if (WarSiege::IsEscort(GS->Siege) && P.bCrewAlive)
+        if (GS->Siege.Stage==0 && GS->Siege.Objective>0)
+        {
+            DriveConvoy(P,Delta);
+            P.bEscortAtCheckpoint=Convoy.Num()==2 && FVector::Dist2D(Convoy[0]->GetActorLocation(),Battlefield->EquipmentDestination(GS->Siege.Objective))<(GS->Siege.Objective==3 ? 5 : 100);
+            if (!WarSiege::IsEscort(GS->Siege)) P.bCrewAlive &= P.bEscortAtCheckpoint;
+        }
+        else if (WarSiege::IsEscort(GS->Siege) && P.bCrewAlive)
         {
             auto* CrewPawn = Cast<AWarSiegeCharacter>(Crew->GetPawn());
             const FVector End = Battlefield->Objective(0, GS->Siege.Objective);
@@ -401,21 +501,35 @@ void AWarSiegeGameMode::Tick(float Delta)
         P.bRecentCommanderDamage = GetWorld()->GetTimeSeconds() - CommanderDamageAt < 10;
     }
     const auto Before = GS->Siege;
+    GS->bContested = P.Attackers > 0 && P.Defenders > 0;
+    const auto* CrewState = Crew.IsValid() ? Crew->GetPlayerState<AWarPlayerState>() : nullptr;
+    GS->CrewHealth = CrewState ? CrewState->GetAttributes()->GetHealth() : 0;
+    GS->CrewMaxHealth = CrewState ? CrewState->GetAttributes()->GetMaxHealth() : 0;
+    if (GS->Siege.Stage==0)
+    {
+        GS->CrewHealth=GS->CrewMaxHealth=0;
+        for (const auto& Vehicle:Convoy) if (IsValid(Vehicle)) for (const auto& Engineer:Vehicle->Engineers)
+            if (IsValid(Engineer)) if (const auto* PS=Engineer->GetPlayerState<AWarPlayerState>())
+            { GS->CrewHealth+=PS->GetAttributes()->GetHealth(); GS->CrewMaxHealth+=PS->GetAttributes()->GetMaxHealth(); }
+        if (!Convoy.IsEmpty()) GS->CrewMaxHealth=Battlefield->ReferenceDamagePerSecond*40*WarSiege::HealthScale(GS->Siege.Capacity);
+    }
     WarSiege::Tick(GS->Siege, P, Delta);
     Battlefield->ApplyMilestones(GS->Siege);
     if (Before.Objective != GS->Siege.Objective || Before.Phase != GS->Siege.Phase || Before.bOptionalComplete != GS->Siege.bOptionalComplete)
         UE_LOG(LogTemp, Display, TEXT("WAR_SIEGE_PROGRESS stage=%d objective=%d phase=%d optional=%d attackers=%d defenders=%d"), GS->Siege.Stage, GS->Siege.Objective, int32(GS->Siege.Phase), GS->Siege.bOptionalComplete, P.Attackers, P.Defenders);
     if (Before.Phase != EWarSiegePhase::Finished && GS->Siege.Phase == EWarSiegePhase::Finished)
-    { UE_LOG(LogTemp, Display, TEXT("WAR_SIEGE_RESULT attackersWon=%d"), GS->Siege.bAttackersWon); ClearUnits(false); }
+    { UE_LOG(LogTemp, Display, TEXT("WAR_SIEGE_RESULT round=%d attackersWon=%d elapsed=%.1f contested=%.1f deaths=%d"), GS->RoundId, GS->Siege.bAttackersWon, GS->Siege.Elapsed, GS->Siege.ContestedSeconds, GS->Deaths); EndRound(); }
     Publish();
 }
 void AWarSiegeGameMode::Publish()
 {
     auto* GS = SiegeState(); const auto& S = GS->Siege;
-    const TCHAR* Labels[] = {TEXT("Secure supplies"), TEXT("Escort crew to checkpoint one"), TEXT("Escort crew to checkpoint two"), TEXT("Protect the gate breach"), TEXT("Disable first gate defense"), TEXT("Disable second gate defense"), TEXT("Hold gate controls and protect engineers"), TEXT("Defeat the Bastion commander")};
+    const TCHAR* Labels[] = {TEXT("Secure supplies"), TEXT("Escort siege convoy to checkpoint one"), TEXT("Escort siege convoy to checkpoint two"), TEXT("Protect the battering ram at the gate"), TEXT("Disable first gate defense"), TEXT("Disable second gate defense"), TEXT("Hold gate controls and protect engineers"), TEXT("Defeat the Bastion commander")};
     GS->Status = S.Phase == EWarSiegePhase::Finished ? (S.bAttackersWon ? TEXT("Riftbound victory") : TEXT("Aegis victory"))
         : S.Phase == EWarSiegePhase::Transition ? TEXT("Regroup for the next stage") : Labels[S.Stage == 0 ? S.Objective : S.Stage == 1 ? 4 + S.Objective : 7];
     GS->ObjectiveLocation = TaskLocation(); GS->OptionalLocation = Battlefield->OptionalObjectives[S.Stage];
+    if (S.Phase==EWarSiegePhase::Active && S.Stage==0 && S.Objective>0 && !ConvoyAlive() && CrewAt>GetWorld()->GetTimeSeconds())
+        GS->Status=FString::Printf(TEXT("Convoy stopped — engineers return in %.0fs"),CrewAt-GetWorld()->GetTimeSeconds());
     GS->RosterLabels.Reset();
     for (TActorIterator<AWarCharacter> It(GetWorld()); It; ++It)
         if (IsParticipant(*It)) GS->RosterLabels.Add(It->GetPlayerState<AWarPlayerState>()->GetPlayerName());

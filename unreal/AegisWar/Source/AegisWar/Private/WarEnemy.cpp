@@ -1,4 +1,5 @@
 #include "WarEnemy.h"
+#include "WarCombatFeedback.h"
 #include "WarWrathRelic.h"
 #include "WarCombatStatus.h"
 #include "WarNpcEquipment.h"
@@ -159,6 +160,7 @@ bool AWarEnemy::ReceiveAbilityDamage(AWarCharacter* Attacker, float Damage, floa
     else if (!Definition.bTrainingDummy) Target = Attacker;
     const float HealthLost = Health - Remaining;
     Health = Remaining; Life.Health = Remaining; OnRep_Health(); ForceNetUpdate();
+    WarCombatFeedback::Emit(Attacker, this, TEXT("Hit"), HealthLost);
     if (!Definition.bTrainingDummy) AWarWrathRelic::HostileHealthDamage(Attacker, HealthLost);
     return true;
 }

@@ -20,6 +20,7 @@ import { integrateCinderfen } from './cinderfen-integration.mjs';
 import { composeCinderfenEcology } from './cinderfen-ecology.mjs';
 import { integrateRegionalAssets } from './regional-asset-integration.mjs';
 import { compactCityElevation } from './compact-city-elevation.mjs';
+import { applyImportedCamps } from './imported-population.mjs';
 
 const root = process.cwd();
 const mapsDir = path.join(root, 'public', 'assets', 'maps');
@@ -111,6 +112,7 @@ for (const zone of zones) {
   // Draft vegetation exclusions support authoring; no runtime system reads them.
   if (zone.orvrLayout) delete zone.orvrLayout.biome.placements;
   if (zone.cityElevation) zone.cityElevation = compactCityElevation(zone.cityElevation);
+  applyImportedCamps(zone);
   const hash = hashZone(zone);
   zone.staticMapHash = hash;
   mapHashes[zone.id] = hash;

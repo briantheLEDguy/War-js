@@ -32,6 +32,11 @@ bool FWarWorldEditCatalogTest::RunTest(const FString& Parameters)
     const auto Kit = WarWorldEditCatalog::Filter(WarWorldEditCatalog::Build(Baseline), TEXT("town floor"));
     TestEqual(TEXT("Purchased modular pieces have searchable player-facing labels"), Kit.Num(), 1);
     if (Kit.Num() == 1) TestEqual(TEXT("Kit label"), Kit[0].Label, FString(TEXT("Town kit Stone Floor 01")));
+    Baseline.Add({ TEXT("dutch_house"), FTransform::Identity, false,
+        TEXT("/Game/WorldRebuild/DutchBastion_review/Meshes/SM_city_block_abc_parcel_004.SM_city_block_abc_parcel_004:reviewed-source") });
+    const auto Dutch = WarWorldEditCatalog::Filter(WarWorldEditCatalog::Build(Baseline), TEXT("Dutch house"));
+    TestEqual(TEXT("Fitted city houses enter the existing GM catalog"), Dutch.Num(), 1);
+    if (Dutch.Num() == 1) TestEqual(TEXT("Dutch template retains its stable identity"), Dutch[0].TemplateId, FName(TEXT("dutch_house")));
     return true;
 }
 #endif

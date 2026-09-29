@@ -1,6 +1,7 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "Misc/AutomationTest.h"
 #include "WarFrontendWidget.h"
+#include "WarScenarioSession.h"
 #include "WarGameMode.h"
 #include "WarPlayerController.h"
 #include "WarCharacterVisualDefinition.h"
@@ -121,6 +122,8 @@ bool FWarFrontendTest::RunTest(const FString& Parameters)
             if (ButtonLabel(Button) == Label) { Button->SimulateClick(); return true; }
         AddError(TEXT("Missing entry button: ") + Label); return false;
     };
+    TestFalse(TEXT("Login cannot launch a private scenario server"),UWarScenarioSession::CanStart(false,NM_Standalone,EWarRealm::Aegis));
+    TestFalse(TEXT("Scenario entry belongs inside the game"),Buttons.ContainsByPredicate([](const auto& Button) { return ButtonLabel(Button)==TEXT("Scenario"); }));
     if (Click(TEXT("Local development login")))
     {
         Buttons.Reset(); EntryButtons(Entry, Buttons);

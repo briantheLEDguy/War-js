@@ -29,6 +29,7 @@ void AWarQuestHud::DrawHUD()
     if (!Canvas || !GEngine || !Controller || !Controller->IsLocalController() || !State || !Character
         || !Character->IsVisualReady() || !Content || !Content->IsContentReady()) return;
     // Canvas HUD reads replicated state; it never invents local combat or quest progress.
+    DrawCombatFeedback();
     const float HudScale = FMath::Clamp(Canvas->SizeY / 900.f, 0.65f, 1.5f);
     if (!bArtworkLoaded)
     {
@@ -42,7 +43,9 @@ void AWarQuestHud::DrawHUD()
     else DrawRect(FLinearColor(.015f,.022f,.035f,.9f),Left,FrameTop,FrameWidth,FrameHeight);
     UFont* HudFont = GEngine->GetSmallFont();
     const auto& Progress = State->GetInventory().CharacterProgression;
-    DrawText(FString::Printf(TEXT("%s  |  Level %d"), *State->GetPlayerName(), Progress.Level), FLinearColor::White, Left, Top, HudFont, HudScale);
+    DrawText(FString::Printf(TEXT("%s  |  %s %d"), *State->GetPlayerName(),
+        State->IsSiegeNormalized() ? TEXT("Siege level") : TEXT("Level"), State->GetCombatLevel()),
+        FLinearColor::White, Left, Top, HudFont, HudScale);
     const auto Bar = [&](const FString& Label, float Value, float Maximum, float Y, FLinearColor Colour) {
         const float Height = FrameHeight*.1f;
         DrawRect(Colour, BarLeft, Y, HudWidth * (Maximum > 0 ? FMath::Clamp(Value / Maximum, 0.f, 1.f) : 0.f), Height);
@@ -62,7 +65,7 @@ void AWarQuestHud::DrawHUD()
     const auto KeyLabel=[Controller](const TCHAR* Action) { const auto* PC=Cast<AWarPlayerController>(Controller); return PC ? PC->GetControlKey(FName(Action)).GetDisplayName().ToString() : FString(TEXT("?")); };
     DrawText(FString::Printf(TEXT("[Esc] Menu   [%s] Map   [%s] Character   [%s] Inventory   [%s] Quests   [F1] Guide"), *KeyLabel(TEXT("Map")), *KeyLabel(TEXT("Character")), *KeyLabel(TEXT("Inventory")), *KeyLabel(TEXT("Quests"))),
         FLinearColor(0.92f, 0.84f, 0.64f), Left, Footer, HudFont, HudScale);
-    DrawText(Character->IsDead() ? TEXT("Defeated - waiting for respawn") : FString::Printf(TEXT("[%s] Interact   |   [%s] Target   |   [%s] Action cursor   |   [Esc] UI Settings"),*KeyLabel(TEXT("Interact")),*KeyLabel(TEXT("CycleTarget")),*KeyLabel(TEXT("ActionCursor"))),
+    DrawText(Character->IsDead() ? TEXT("Defeated - waiting for respawn") : FString::Printf(TEXT("[%s] Interact   |   [%s] Next enemy   |   [%s] Nearest enemy   |   [Esc] UI Settings"),*KeyLabel(TEXT("Interact")),*KeyLabel(TEXT("CycleTarget")),*KeyLabel(TEXT("NearestEnemy"))),
         FLinearColor::White, Left, Footer + 25 * HudScale, HudFont, HudScale);
     const float MapFrame = 220 * HudScale, MapSize = MapFrame*.70f;
     const FVector2D MapFrameOrigin(Canvas->SizeX-MapFrame-12*HudScale,12*HudScale);

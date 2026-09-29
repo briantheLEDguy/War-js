@@ -137,7 +137,7 @@ void UWarInterfaceProof::TickWorldBuilder(double Now)
         if (!Check(ClickBuilderButton(Widget->TakeWidget(), TEXT("Publish draft to local game"))
             && PC->GetWorldEditMessage().StartsWith(TEXT("Published to this local game.")), TEXT("Publish button failed: ") + PC->GetWorldEditMessage())) return;
         PC->ToggleWorldEditor();
-        if (!Check(!PC->IsMoveInputIgnored() && !PC->IsLookInputIgnored() && !PC->bShowMouseCursor
+        if (!Check(!PC->IsMoveInputIgnored() && !PC->IsLookInputIgnored() && PC->bShowMouseCursor
             && !Widget->bThrottleDisabled, TEXT("Builder close leaked input or rendering state"))) return;
     }
     else if (Step == 7)

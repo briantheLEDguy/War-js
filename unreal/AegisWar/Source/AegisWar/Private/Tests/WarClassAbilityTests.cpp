@@ -46,7 +46,7 @@ bool FWarClassAbilityTest::RunTest(const FString& Parameters)
             TestEqual(TEXT("Contact timing is not copied to another character rig"), WarAbilities::ReleaseFraction(A, TEXT("civic_battle_prelate_f")), A.ReleaseFraction);
         }
     }
-    TestEqual(TEXT("All 24 careers"), Careers.Num(), 24); TestEqual(TEXT("Only the two unimplemented summons remain disabled"), Unavailable, 2);
+    TestEqual(TEXT("All 24 careers"), Careers.Num(), 24); TestEqual(TEXT("Only Deploy Gunlet remains disabled"), Unavailable, 1);
     TestEqual(TEXT("Full Prelate kit"), Prelate, 10); TestEqual(TEXT("Progression retains three starters"), Starter, 3);
     TestEqual(TEXT("Ten explicit Prelate presentation bindings"), PrelateMotions.Num(), 10);
     FWarAbilityEffect Amount; Amount.Minimum = 10; Amount.Maximum = 20; Amount.StatScale = .5; Amount.LevelScale = 2; Amount.ResourceScale = .1f;

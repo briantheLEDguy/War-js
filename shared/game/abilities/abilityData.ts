@@ -238,7 +238,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Apotheosis of Change', 'Ultimate fused mutation state.', 'ultimate', 'chaos', 'area', { target: 'self', radius: 5, spendAllCareer: true }),
     ]),
     kit('Void Magister', 'occult_artillery', resource('warp_charge', 'Warp Charge', 100, 0), [
-      a('Summon Idol', 'Deploy the current idol form.', 'summon', 'chaos', 'deployable', { target: 'self' }),
+      a('Summon Idol', 'Place a stationary Warp Idol.', 'summon', 'chaos', 'deployable', { target: 'self', effects: [{ kind: 'warp_idol', school: 'chaos', amount: { min: 12, max: 18, statScale: .2, levelScale: .5 } }] }),
       a('Warp Bolt', 'Basic ranged nuke.', 'builder', 'chaos', 'projectile'),
       a('Entropic Field', 'Slow and damage field centered on the idol.', 'area', 'chaos', 'area', { range: 20, radius: 4, status: slow('Entropic Field', 3, 0.35) }),
       a('Rift Pull', 'Draw enemies toward the idol.', 'control', 'chaos', 'area', { range: 20, radius: 4, status: root('Rift Pull', 1.2) }),
@@ -1177,6 +1177,8 @@ function currentEffectSummary(seed: AbilitySeed, effects: AbilityEffect[], resou
       const footprint = area ? `enemies within ${seed.radius ?? defaultRadius(seed.shape)} m of ${target === 'self' ? 'you' : 'your target'}`
         : seed.shape === 'cone' ? 'enemies in front of you' : 'your target';
       parts.push(`Deal ${effect.school} damage to ${footprint} in one hit.`);
+    } else if (effect.kind === 'warp_idol') {
+      parts.push('Place one stationary idol for 30s. Every 2s it strikes the nearest visible hostile within 12m. Stay within 20m; Feed the Idol strengthens its attacks.');
     } else if (effect.kind === 'wrath_relic') {
       parts.push('Place a relic for 10s. Living allied players and participant bots within 5 m and line of sight heal for 10% of hostile health damage they deal. Relics do not stack; replaces your previous relic.');
     } else if (effect.kind === 'heal') {

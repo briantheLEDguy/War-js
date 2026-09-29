@@ -1,4 +1,5 @@
 #include "WarInterfaceWidget.h"
+#include "WarScenarioSession.h"
 #include "WarAbilityCatalog.h"
 #include "WarCharacter.h"
 #include "WarGraphicsWidget.h"
@@ -35,7 +36,12 @@
 #include "Framework/Application/SlateApplication.h"
 #include "Styling/CoreStyle.h"
 
-void UWarInterfaceWidget::ShowPage(FName Page) { PendingBinding=NAME_None; CurrentPage = Page; if (Body) Refresh(); }
+void UWarInterfaceWidget::ShowPage(FName Page)
+{
+    PendingBinding=NAME_None;CurrentPage=Page;
+    if (Page==TEXT("Scenario")) if (auto* PC=Cast<AWarPlayerController>(GetOwningPlayer())) GetGameInstance()->GetSubsystem<UWarScenarioSession>()->Connect(PC);
+    if (Body) Refresh();
+}
 
 TSharedRef<SWidget> UWarInterfaceWidget::RebuildWidget()
 {
@@ -159,6 +165,7 @@ void UWarInterfaceWidget::Refresh()
         AddButton(TEXT("Local map [")+KeyLabel(TEXT("Map"))+TEXT("]"), [this] { ShowPage(TEXT("Map")); });
         AddButton(TEXT("Character [")+KeyLabel(TEXT("Character"))+TEXT("]"), [this] { ShowPage(TEXT("Character")); });
         AddButton(TEXT("Options"), [this] { ShowPage(TEXT("Options")); });
+        AddButton(TEXT("Scenario"), [this] { ShowPage(TEXT("Scenario")); });
         AddButton(TEXT("UI Settings & action bars"), [this] { ShowPage(TEXT("UI Settings")); });
         AddButton(TEXT("Clean Map"), [this] { ShowPage(TEXT("Clean Map")); });
         AddButton(TEXT("Campaign map"), [this] { ShowPage(TEXT("Campaign")); });
@@ -167,6 +174,7 @@ void UWarInterfaceWidget::Refresh()
         AddButton(TEXT("Exit to Login..."), [this] { ShowPage(TEXT("Exit to Login")); });
         AddButton(TEXT("Quit game..."), [this] { ShowPage(TEXT("Quit")); });
     }
+    else if (CurrentPage == TEXT("Scenario")) ScenarioPage();
     else if (CurrentPage == TEXT("Quit"))
     {
         AddText(TEXT("Leave this session and close the game? Save any GM draft before leaving."));
@@ -311,7 +319,9 @@ void UWarInterfaceWidget::Refresh()
     {
         AddText(TEXT("Leave this session and return to character entry? Current native development characters and progression are session-only. Save your GM draft before leaving."));
         AddButton(TEXT("Return to login"), [PC] {
-            if (PC->GetWorld()->GetNetMode() == NM_Standalone)
+            auto* Session=PC->GetGameInstance()->GetSubsystem<UWarScenarioSession>();
+            if (Session && Session->IsRunning()) Session->Leave();
+            else if (PC->GetWorld()->GetNetMode() == NM_Standalone)
                 UGameplayStatics::OpenLevel(PC,FName(*UWorld::RemovePIEPrefix(PC->GetWorld()->GetOutermost()->GetName())));
             else PC->ClientReturnToMainMenuWithTextReason(FText::FromString(TEXT("You left the session.")));
         });

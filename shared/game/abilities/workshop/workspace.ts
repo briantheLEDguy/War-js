@@ -17,7 +17,7 @@ export function baselineWorkspace(buildId: string, contentId: string, id = 'base
     for (const legacy of kit.abilities) {
       const { career: _career, classFamily: _family, slot, key: _key, ...base } = structuredClone(legacy);
       const effects: WorkshopEffect[] = base.effects.map((effect, index) => ({ ...effect, id: `effect_${index + 1}`,
-        recipient: ['heal', 'player_status', 'cleanse', 'movement', 'wrath_relic'].includes(effect.kind) ? 'caster' : 'target' }));
+        recipient: ['heal', 'player_status', 'cleanse', 'movement', 'wrath_relic', 'warp_idol'].includes(effect.kind) ? 'caster' : 'target' }));
       result.abilities.push({ ...base, effects, conditions: [], archived: false, legacyTargeting: true,
         timing: { mode: 'cast', castSec: legacy.animation.contactSec ?? legacy.animation.durationSec * .4 } });
       result.assignments.push({ id: `${career}:${legacy.id}`, classId: career, abilityId: legacy.id,

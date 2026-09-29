@@ -1,4 +1,5 @@
 #include "WarCombatStatus.h"
+#include "WarCombatFeedback.h"
 #include "WarCharacter.h"
 #include "WarEnemy.h"
 #include "WarPlayerState.h"
@@ -40,9 +41,11 @@ float UWarCombatStatus::ReceiveDamage(float Damage)
         if (S.Modifier == TEXT("damage_taken")) Vulnerability = FMath::Max(Vulnerability, S.Magnitude);
         if (S.Kind == TEXT("shield") && (!Shield || S.Shield > Shield->Shield)) Shield = &S;
     }
+    const float VulnerableDamage = FMath::Max(0.f, FMath::RoundToFloat(Damage * (1 + FMath::Clamp(Vulnerability, 0.f, 1.f))));
     Damage = FMath::Max(0.f, FMath::RoundToFloat(Damage * (1 + FMath::Clamp(Vulnerability, 0.f, 1.f))
         * (1 - FMath::Min(.75f, Strongest(TEXT("guard"))))));
     if (Shield) { const float Absorbed = FMath::Min(Damage, Shield->Shield); Shield->Shield -= Absorbed; Damage -= Absorbed; }
+    if (VulnerableDamage > Damage) WarCombatFeedback::Emit(nullptr, GetOwner(), TEXT("Guarded"), VulnerableDamage - Damage);
     return Damage;
 }
 void UWarCombatStatus::Apply(const FWarAbilityEffect& Effect, FName AbilityId, AWarCharacter* Source, float Strength, int32 Level, const FString& Version,float AuthoredAmount)
@@ -121,11 +124,13 @@ bool UWarCombatStatus::Damage(AActor* Target, AWarCharacter* Source, float Amoun
     if (!Spec.IsValid()) return false;
     Spec.Data->SetSetByCallerMagnitude(FName(TEXT("WarEnemyDamage")), -Amount); ASC->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get()); return true;
 }
-void UWarCombatStatus::Heal(AWarCharacter* Target, float Amount)
+void UWarCombatStatus::Heal(AWarCharacter* Target, float Amount, AWarCharacter* Source)
 {
     if (!IsValid(Target) || !Target->HasAuthority() || Target->IsDead() || !FMath::IsFinite(Amount) || Amount <= 0) return;
     auto* ASC = Target->GetAbilitySystemComponent(); if (!ASC) return;
-    auto Spec = ASC->MakeOutgoingSpec(UWarEnemyDamageEffect::StaticClass(), 1, ASC->MakeEffectContext());
+    auto Context = ASC->MakeEffectContext();
+    if (Source) Context.AddInstigator(Source, Source);
+    auto Spec = ASC->MakeOutgoingSpec(UWarEnemyDamageEffect::StaticClass(), 1, Context);
     if (Spec.IsValid()) { Spec.Data->SetSetByCallerMagnitude(FName(TEXT("WarEnemyDamage")), Amount); ASC->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get()); }
 }
 void UWarCombatStatus::TickComponent(float Delta, ELevelTick TickType, FActorComponentTickFunction* Function)

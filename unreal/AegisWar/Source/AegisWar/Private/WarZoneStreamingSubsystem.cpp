@@ -119,6 +119,9 @@ void UWarZoneStreamingSubsystem::Cancel(AWarCharacter* Character)
 
 bool UWarZoneStreamingSubsystem::QueueGmZone(AWarPlayerController* Player, FName Destination, FString& Error)
 {
+    if (const auto* State = Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr;
+        State && State->IsScenarioTransferPending())
+    { Error = TEXT("Scenario departure is in progress."); return false; }
     auto* Character = Player ? Cast<AWarCharacter>(Player->GetPawn()) : nullptr;
     if (!Player || !Player->CanUseGmTools() || !Character || Character->IsDead() || !Character->IsVisualReady())
     { Error = TEXT("GM travel is unavailable."); return false; }
@@ -216,7 +219,9 @@ void UWarZoneStreamingSubsystem::Tick(float DeltaTime)
         const FPending Row = Pending[Index];
         auto* Portal = Row.Portal.Get(); auto* Character = Row.Character.Get(); auto* Player = Row.Player.Get();
         auto* GmPlayer = Row.bGm ? Cast<AWarPlayerController>(Player) : nullptr;
-        const bool bValidRequest = Row.bGm ? GmPlayer && GmPlayer->CanUseGmTools() : Portal != nullptr;
+        const auto* State = Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr;
+        const bool bValidRequest = !(State && State->IsScenarioTransferPending())
+            && (Row.bGm ? GmPlayer && GmPlayer->CanUseGmTools() : Portal != nullptr);
         const FVector Source = Row.bGm ? Row.SourcePosition : Portal ? Portal->GetActorLocation() : FVector::ZeroVector;
         const double Radius = Row.bGm ? 250.0 : Portal ? Portal->Radius * Portal->GetActorScale3D().GetAbsMax() : 0.0;
         if (!bValidRequest || !Character || !Player || !CanContinue(Player->GetPawn() == Character,
@@ -224,7 +229,15 @@ void UWarZoneStreamingSubsystem::Tick(float DeltaTime)
             Radius, GetWorld()->GetTimeSeconds(), Row.Deadline))
         {
             Pending.RemoveAt(Index);
-            if (auto* PC = Cast<AWarPlayerController>(Player)) PC->ClientZoneTravelStatus(TEXT("Portal loading cancelled. Move into the portal to retry."));
+            FString Status = TEXT("Portal loading cancelled. Move into the portal to retry.");
+            if (bValidRequest && Character && Player && GetWorld()->GetTimeSeconds() >= Row.Deadline)
+            {
+                FString Reason;
+                IsZoneReady(Row.Destination, Player, &Reason);
+                Status = TEXT("Portal loading timed out. Use Interact to retry. ") + Reason;
+                UE_LOG(LogTemp, Warning, TEXT("Portal destination %s timed out: %s"), *Row.Destination.ToString(), *Reason);
+            }
+            if (auto* PC = Cast<AWarPlayerController>(Player)) PC->ClientZoneTravelStatus(Status);
             continue;
         }
         if (!IsZoneReady(Row.Destination, Player)) continue;

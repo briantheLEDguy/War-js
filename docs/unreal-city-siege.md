@@ -1,12 +1,183 @@
 # Bastion of Aegis siege
 
-This increment adds native siege rules, replicated state, a development game
-mode, bots, encounter logic and a HUD. **It is not a verified playable siege.**
-The isolated map now includes bound blockades, objective props and checked
-navigation. Complete equipped rosters, encounter visuals, traversal review and
-multiplayer acceptance remain outstanding. No release gate is approved.
+The isolated lower-city development scenario has native rules, replicated state,
+six equipped class choices, bots, encounter logic and preparation/combat/results
+UI. Its content is admitted for local development. Full three-stage siege,
+Steam, three-platform and release acceptance remain outstanding.
 
 ## Scenario and balance
+
+### Lower-city development round
+
+The separate `LowerCity` scenario ends immediately on the outer gate breach;
+the original `FullSiege` scenario still advances through all three stages.
+Lower-city development rounds use six slots per realm, the existing 14-minute
+timer and bounded overtime. Results include elapsed time, objective completion
+timestamps, contested time and deaths. No persistent rewards are awarded.
+
+**Main game entry:** start `npm run scenario:host`, enter a character normally,
+then open **Escape → Scenario**. Ready and queue alone or with a same-realm party.
+Accept the offer to enter a separate 6v6 match with your current character; bots
+fill unused seats. Leaving or completing the match restores campaign state and
+return position. Scenario is no longer available from the login screen.
+
+`WarScenarioSession` connects to the shared Node coordinator; it no longer starts
+private servers. `WarScenarioInstance` validates single-use character tickets.
+See [queue setup, recovery and verification](unreal-scenario-queues.md) for the
+current implementation and development network restrictions. The older direct
+lobby and two-client launchers remain isolated verification fixtures.
+
+`npm run unreal:scenario-menu-proof` exercises current character entry, queue,
+acceptance, instance travel, squad movement and return. `-- --party` adds an
+invited same-realm party, and `-- --instances` checks simultaneous matches.
+Receipts remain under `Saved/ScenarioMenuProof/` and
+`artifacts/unreal/scenario-menu/`. The following older receipts describe the
+previous login shortcut and do not establish acceptance of the new queue flow.
+
+Menu integration verified on Windows on 2026-09-26: the Editor build and all 63
+native tests passed (`artifacts/unreal/editor/test-1790447158180-26104`). The
+rendered proof selected both realms, readied into live 6v6 rounds, used the field
+menu's Leave scenario action, returned to entry and cleaned up both owned
+servers. Its eleven screenshots were generated; the main menu, selection,
+lobby, gameplay, leave panel and returned menu were visually inspected. Receipt:
+`Saved/ScenarioMenuProof/f3c71c7d7e394b91ac419ad0700f73bb/report.json`.
+The 668 general and 132 Unreal-tool tests, all three typechecks, migration audit
+and world/model validation also passed. Release checking still reports four
+outstanding acceptance categories.
+
+After closing the Editor and building the Editor target, run
+`npm run unreal:siege-playtest`. The launcher starts an Editor dedicated server
+bound to `127.0.0.1` and two rendered clients, admitting Aegis first and Riftbound
+second. Each player chooses tank/healer/damage and presses Ready. The server
+revalidates content and requires both humans to be ready; bots fill empty slots.
+After a result, Ready for rematch retains selections and resets round state.
+Closing a client or interrupting the launcher cleans up its own processes.
+`-- --width 2560 --height 1080` changes client dimensions; `-- --dry-run` launches
+nothing. `-- --smoke` checks headless two-client admission and reports content
+blockers; it cannot certify gameplay or visuals.
+
+For the separate two-client fixture on this prepared Windows checkout:
+
+1. Close Unreal Editor, then run `npm run unreal:siege-playtest` from the repository.
+2. Choose a class and press **Ready in each of the two windows**. The first window
+   is Aegis; the second is Riftbound. Bots fill the remaining ten participant slots.
+   Use Alt+Tab to switch clients if their windows overlap.
+3. Move with WASD, hold the right mouse button to look, jump with Space, select nearby combatants
+   with Tab and use abilities with 1–0. V enables the action-bar cursor. Current
+   saved bindings take precedence; Escape opens settings. Target an ally to heal.
+4. Riftbound captures supplies, escorts the engineers through two checkpoints,
+   then breaches the outer gate. Aegis contests those objectives until timeout.
+   Deaths return on twenty-second waves. The result screen supports class changes
+   and **Ready for rematch**. Close either game window to end the local session.
+
+This uses the already built Editor target and private Content in this checkout.
+A fresh source clone also needs the reviewed native Content; missing models are
+reported instead of replaced. It does not require the account gateway or Steam.
+
+`-- --automated` runs two rendered offscreen clients through three normal-timed
+rounds and two rematches, selecting damage, tank and healer in order. Allow up to
+55 minutes. In round two, the Aegis driver prioritizes defending the optional
+emplacement; the other rounds prioritize the main objective. `WarSiegePlaytestProof` exists only with explicit development test
+flags: the server supplies navigation hints; clients use normal movement and
+ability RPCs. It never changes health, capture rules, timers or results. Reports
+require real movement/actions and three replicated results. Screenshots and
+client receipts are under `Saved/SiegePlaytestProof/<run>/`; launcher logs and
+the combined receipt are under `artifacts/unreal/siege/playtests/<run>/`.
+The server's `state.json` updates every ten seconds with objective and actor
+movement/health diagnostics; each client refreshes a live capture every minute.
+Automated completion does not claim a human playtest or balance approval.
+
+`WarSiegeSession` owns this development lifecycle. Client ready and class-choice
+requests include the observed round ID and cannot launch an active round, grant
+GM privileges or supply results. Existing remote/Shipping admission denials stay
+in force. `WarSiegeLobbyWidget` owns preparation/result input; `WarSiegeHud`
+displays live objectives. New native tests cover lower-only wins, timeout,
+overtime, repeated rules rounds, gate state and unauthorized lobby requests.
+
+Local roster: Sunfire Templar/Battle Prelate/Ember Arcanist against
+Warbrute/Ruin Oracle/Void Magister. Caster adaptations use retained Chaos sources
+and use separately owned native assets. Summon Idol creates an authored, replicated
+native deployable: one idol per owner, 30-second lifetime, one nearest-hostile
+pulse every two seconds within 12 metres, and a 20-metre owner leash. Placement
+checks ground, line of sight and actual model bounds before spending resources.
+Feed the Idol modifies live pulse damage through the existing empower status.
+Death, disconnect, zone changes and round reset remove it. Missing native content
+fails recoverably. The retained Node simulator still explicitly rejects this
+native actor ability; it does not simulate a fake pet.
+
+Verified on Windows on 2026-09-26: the rebuilt Editor target and all 63 native
+foundation tests passed (`artifacts/unreal/editor/test-1790443074107-8944`).
+`SiegeSpawnClearance` covers occupied positions, adjacent clear positions, floor
+clearance and static obstructions. `WarpIdol` covers targeting, placement, empowerment and
+lifecycle; `SiegeCasterGameplay` executes both complete ten-ability kits for
+player and bot controllers, including actual Hover Disc travel and idol pulses. The
+earlier loopback smoke run admitted both clients and correctly refused launch
+before traversal and equipped-roster review. The launcher also
+requires each client to construct its replicated preparation UI before reporting
+startup results; networking admission alone is insufficient.
+
+The rendered two-client run completed three normal-timed rounds and two rematches:
+
+| Classes | Result | Duration | Milestones | Deaths |
+| --- | --- | --- | --- | --- |
+| Ember Arcanist / Void Magister | Aegis held | 840.1 seconds | 1 of 4 | 67 |
+| Sunfire Templar / Warbrute | Riftbound breached | 546.3 seconds | 4 of 4 | 19 |
+| Battle Prelate / Ruin Oracle | Aegis held | 840.0 seconds | 1 of 4 | 28 |
+
+Both clients received identical results, moved through normal input and issued
+433/683 ability requests. The launcher validated both receipts and exited
+successfully, cleaning up all three owned Unreal processes. No runtime match
+blocks or spawn failures occurred. Receipt:
+`artifacts/unreal/siege/playtests/1790443165008-17348/automated.json`.
+The 720p preparation, combat and result captures were inspected. This verifies
+the local network round lifecycle and both endings; human balance acceptance
+remains separate.
+
+The final HUD build also passed a short rendered 2560×1080 check. The objective
+panel follows the radar's scale and world labels cannot paint over its text.
+Closing the owned Aegis test client caused the launcher to stop the matching
+server and Riftbound client. This deliberately interrupted visual/cleanup check
+is separate from the completed three-round receipt above. Captures:
+`Saved/SiegePlaytestProof/93614b3618214b27a54d0637ed6e439f/`.
+The same final build passed the default 1280×720 visual and cleanup check in
+`Saved/SiegePlaytestProof/21a3b094aec445aab34e4deffb70045d/`. The consolidated
+local receipt is `artifacts/unreal/siege/local-playtest-verification.json`.
+
+The six class entries are bound in the isolated map using
+`scripts/unreal/stage-siege-roster.py`. That script refuses to overwrite a
+different roster or a reviewed battlefield. It never sets either review flag.
+Both caster imports passed structural pose checks, with 160 native equipped
+review frames covering movement, preparation, contact and recovery. Intersecting
+hanging cloth was removed in favor of the fitted source armor. Explicit source
+adaptations supply a Riftbound breach engineer, equipped Aegis garrison and
+hammer-equipped commander. Their staging and 25-frame native review receipts
+live under `artifacts/unreal/siege/`. All 185 equipped frames were reviewed for
+local development. `admit-lower-city.py` verifies that evidence, publishes the two
+exact caster bindings and sets only `bLowerCityReviewed`. Both original full-siege
+review flags remain false. The original source profiles and campaign maps remain
+intact; no global release gate changed.
+
+`WarSiegeNavigation` selects reachable approach positions with actual walkable
+floor and capsule clearance. Siege bots use Unreal crowd following and wider
+objective spacing; route-stall recovery never teleports actors. Run
+`npm run unreal:siege-traversal-proof` after an Editor build to exercise twelve
+visible, colliding siege characters: jump/landing, all four lower-city objectives,
+sabotage and both directions between team spawns. The isolated loopback fixture
+uses the same controller and approach selection as gameplay. It fails on stalls,
+partial paths, missing visuals or disabled collision, and saves per-character
+movement evidence. Passing this focused route check does not set review flags or
+certify combat, later siege stages, network behavior or three-round acceptance.
+
+The 2026-09-26 run passed all seven routes for all twelve characters, with actual
+jump/landing, capsule collision and movement throughout. Receipt:
+`artifacts/unreal/siege/traversal/1790436547282-3992/report.json`. Earlier failed
+runs exposed tight crowd spacing and prop clearance issues; the final run uses
+the same corrected crowd controller and slope-aware approach checks as bots.
+
+Repository verification also passed: 668 general tests, 132 Unreal-tool tests,
+seven Python animation checks, all three typechecks, world/model validation and
+the migration audit. The updated launcher has five passing focused tests.
+Release-check remains blocked by the four outstanding acceptance categories.
 
 Riftbound attacks; Aegis defends. Fixed capacities are 6, 12 or 18 per realm,
 including bots. Encounter NPCs never occupy slots or contribute capture weight.
@@ -30,10 +201,14 @@ after ten seconds without activity. Commander activity requires recent damage.
 - Capture takes 90 seconds alone. Rate is `min(2.5, 1 + .25 * (count - 1))`.
   One defender pauses it; ten seconds without attackers starts 5%/second decay.
   Completed milestones persist. Escort speed caps at 1.5x, pauses when contested
-  and requires the physical crew to arrive. Dead crews return after 30 seconds
-  at the last checkpoint, resetting unfinished work.
+  and requires the physical convoy to arrive. Dead lower-city engineers return
+  after 30 seconds at the stopped equipment, resetting unfinished work. Equipment
+  stays in place; completed checkpoints and ownership remain claimed.
 - Twenty-second respawn waves replace bots with arriving humans and backfill
-  departures. Capacity never changes midmatch.
+  departures. Respawns search nearby walkable, capsule-clear positions, including
+  occupancy by other characters. Participant positions stay inside the protected
+  spawn area; a temporarily full area defers human respawn to the next wave.
+  Capacity never changes midmatch.
 - Temporary combat normalization uses level 40, strength 100, health 2000 and
   mana 1000. Persistent rewards, equipment changes, consumables and saved GM
   level changes are blocked while normalized. Reset restores ordinary attributes.
@@ -124,9 +299,74 @@ checks. It does not establish complete balanced rosters for both realms or
 commander/crew/garrison readiness. See `unreal-animation-import.md` for the
 per-profile motion, equipment and gameplay verification.
 
-Still required: complete approved class/NPC equipment; finished gate and defense
-presentation; route/arena and crowd-flow review; native 6v6/12v12/18v18 play; network
+Beyond the local lower-city scope, still required: full approved class/NPC
+equipment; finished gate and defense presentation; later-stage route/arena and
+crowd-flow review; full-siege 6v6/12v12/18v18 play; network
 join/reconnect/slot handoff/late-replication tests; spawn-protection and healer
 playtests; commander balance; richer emplacement presentation; Steam and three
 platforms. Normalized stats are not approved visual equipment loadouts for all
 classes. Long-term bots, rewards and campaign outcome integration remain deferred.
+
+## Siege equipment and ownership
+
+`WarSiegeEquipment` replicates the battering ram and field catapult, their
+engineer bindings, travelled distance and ram strike time. Two Greenskin
+engineers push each engine. Authored wheel motion follows actual travel; the ram
+uses its retained strike and suspension tracks at the outer gate. Vehicles use
+navigation paths, ground sampling and a swept collision hull. Missing models or
+unreviewed equipment produce a recoverable content error.
+
+`WarSiegeConvoy` integrates the engines into the existing lower-city escort.
+Attacker presence moves them at the ordinary participation rate. A defender,
+missing escort, dead engineer or obstruction stops movement. The support engine
+follows the ram, which waits if they become separated. Four engineers share the
+previous 2,000-health crew budget in 6v6; replacements return to their engine after
+30 seconds. The catapult is an escorted support engine; this change does not add
+a player-operated artillery attack.
+
+The convoy uses its own `SiegeConvoy` navigation agent (280 cm radius, 330 cm
+height). The `Default` pedestrian dimensions now match character capsules at 42/192 cm. Run
+`scripts/unreal/build-siege-navigation.py` through the Unreal Python commandlet
+after changing the route or navigation settings; it builds both meshes in the
+isolated Scenario map. Missing convoy navigation blocks Scenario admission.
+The catapult follows the ram's travelled path through turns, and ground alignment
+samples the full rotated chassis footprint before sweeping for obstacles.
+
+`WarSiegeBattlefield` replicates completed main and optional claims independently
+of gate visibility. Eleven authored Riftbound war standards mark attacker control;
+partial or contested progress does not raise a standard. Claims persist through
+stage changes and results, and clear for a new round.
+
+Run `python scripts/unreal/animation-pipeline.py siege-equipment --review` to
+prepare/import private models and fit the retained supplied walk to the Greenskin
+rig. Per-engine grip and posture corrections live in
+`animation-recipes/corrections/engineer-push.json`; they do not change other
+characters or restart procedural animation studies. Review the native frames,
+record their hashes in the private `review/acceptance.json`, then run
+`install-siege-equipment.py` through Unreal's Python commandlet. Installation
+backs up the isolated map and preserves unrelated content. Generated Content
+packages and review artifacts remain private.
+
+`npm run unreal:siege-equipment-proof` exercises the actual equipment actors and
+four engineers along both checkpoints and the breach approach, including missing
+escort and crew-death stops. `SiegeOwnership` covers partial capture, contesting,
+physical checkpoint requirements, results, rematch reset and optional ownership.
+`npm run unreal:siege-equipment-network-proof` adds a rendered network client,
+checks four replicated engineers and four completed ownership standards, and saves
+convoy, checkpoint, ramp and gate captures under the equipment artifacts directory.
+It also checks that repeated escort commands allow the ram strike to advance.
+The native test also checks that slope alignment preserves steering yaw and keeps
+all four chassis support points on a plane with both uphill and sideways grades.
+These checks do not grant Steam, full three-stage or cross-platform acceptance.
+
+The 2026-09-27 equipment network run passed:
+`artifacts/unreal/siege/equipment/network/1790520059901-26644/`.
+The ram travelled 260.16 m and the catapult 259.43 m through both checkpoints,
+the ramp and the gate approach. The connected rendered client retained all four
+engineers and showed four claimed standards. Server checks verified missing-escort
+and crew-death stops, plus strike continuity at the gate. All 67 native tests and
+136 Unreal-tool tests passed; the general suite passed 672 tests. The asset review
+contains 20 equipped/mechanical frames and does not approve other character rigs.
+The final Scenario menu run also passed for both realms, Ready-to-combat entry,
+return to the menu and owned-server cleanup:
+`Saved/ScenarioMenuProof/115f4514eb53429ab853f44c9f9d9dbb/report.json`.

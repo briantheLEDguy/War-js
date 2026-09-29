@@ -1,4 +1,7 @@
-import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, runEngineCommand } from './toolchain';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
+import { refreshFrontend } from './frontend-content';
 
 export function buildArguments(target: string, platform: string, configuration: string): string[] {
   if (!['Editor', 'Client', 'Server', 'Game'].includes(target)) throw new Error(`Invalid target: ${target}`);
@@ -18,6 +21,10 @@ if (isMain(import.meta.url)) {
     else {
       if (report.blockers.length || !report.buildCommand) throw new Error(report.blockers.join('\n'));
       process.exitCode = runEngineCommand(report.buildCommand, invocation);
+      // A fresh checkout has no private world yet; installed worlds must refresh
+      // their scenery snapshot after the Editor module is available.
+      if (process.exitCode === 0 && (args.get('--target') ?? 'Editor') === 'Editor'
+          && existsSync(path.join(repoRoot, 'artifacts/unreal/world-portals/build.json'))) refreshFrontend(report);
     }
   } catch (error) { console.error(error instanceof Error ? error.message : error); process.exitCode = 1; }
 }

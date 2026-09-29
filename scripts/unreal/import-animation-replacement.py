@@ -9,7 +9,7 @@ import sys
 import unreal
 
 sys.path.insert(0, str(Path(__file__).parent))
-from animation_replacement import ROOT, SOURCE, OUT, CLIPS, PROFILES, RECIPES, CHAINS, locomotion, selected
+from animation_replacement import ROOT, SOURCE, OUT, CLIPS, PROFILES, RECIPES, CHAINS, locomotion, selected, ANIMATION_SET
 
 OUT.mkdir(parents=True, exist_ok=True)
 inventory = json.loads((OUT / "sources.json").read_text())["clips"]
@@ -80,7 +80,12 @@ def rig(path, mesh, is_source):
     for chain in controller.get_retarget_chains(): controller.remove_retarget_chain(chain.chain_name)
     controller.set_retarget_root("Hips" if is_source else "hips")
     controller.set_root_motion_bone("Hips" if is_source else "root")
+    component = unreal.new_object(unreal.SkeletalMeshComponent)
+    component.set_skeletal_mesh_asset(mesh)
     for name,start,end,target_start,target_end in CHAINS:
+        if ANIMATION_SET == 'capital-camps' and not is_source and not all(component.does_socket_exist(b) for b in (target_start,target_end)):
+            if 'Thumb' in name or any(f in name for f in ('Index','Middle','Ring','Pinky')): continue
+            raise RuntimeError('Required anatomical chain is absent: '+name)
         controller.add_retarget_chain(name, start if is_source else target_start, end if is_source else target_end, "None")
     save(asset)
     return asset
@@ -119,6 +124,7 @@ for profile,path in targets.items():
         for _,sources,*_ in RECIPES[career]: keys.update(sources)
     else:
         keys = set(locomotion("spell").values()) | {"shield.slash", "spell.bolt", "spell.focus"}
+    if ANIMATION_SET == 'capital-camps': keys.update(('shield.slash','spell.bolt','spell.focus','spell.idle'))
     keys = sorted(keys)
     inputs = unreal.IKRetargetBatchOperationInputs()
     inputs.set_editor_properties(dict(assets_to_retarget=[library.find_asset_data(sequences[k].get_path_name()) for k in keys],

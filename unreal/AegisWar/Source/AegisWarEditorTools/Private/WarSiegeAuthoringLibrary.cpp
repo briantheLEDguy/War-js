@@ -39,7 +39,8 @@ bool UWarSiegeAuthoringLibrary::BuildNavigation(UWorld* World, FVector Center, F
     const auto Streams = World->GetStreamingLevels();
     for (ULevelStreaming* Stream : Streams)
     {
-        if (!Stream || Stream->GetWorldAssetPackageName() == TEXT("/Game/Capitals/Siege/AegisCityGeometry")) continue;
+        if (!Stream || Stream->GetWorldAssetPackageName() == TEXT("/Game/Capitals/Siege/AegisCityGeometry")
+            || Stream->GetWorldAssetPackageName().StartsWith(TEXT("/Game/Capitals/Siege/Scenery_"))) continue;
         if (auto* Level = Stream->GetLoadedLevel())
         {
             if (!EditorLevelUtils::RemoveLevelFromWorld(Level)) return false;

@@ -1,6 +1,8 @@
 #include "WarGameMode.h"
 #include "AegisWar.h"
 #include "WarCharacter.h"
+#include "WarScenarioSession.h"
+#include "WarScenarioInstance.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarContentSubsystem.h"
 #include "WarPlayerState.h"
@@ -15,6 +17,7 @@
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/PlayerStart.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "TimerManager.h"
@@ -47,7 +50,7 @@ void AWarGameMode::PreLogin(const FString& Options, const FString& Address,
     // An online subsystem ID alone is not proof of Steam ownership or backend session authorization.
     if (!IsDevelopmentSession())
         ErrorMessage = TEXT("Production admission is unavailable. Development servers require -WarDevelopmentNetworking in a non-Shipping build.");
-    else if (!IsLoopbackProofAddress(Address))
+    else if (!IsLoopbackProofAddress(Address) && (!GetGameInstance() || !GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->AllowsLan()))
         ErrorMessage = TEXT("Remote admission is closed. Development proof flags authorize loopback tests only.");
 }
 
@@ -93,6 +96,7 @@ UWarCharacterVisualDefinition* AWarGameMode::ResolveVisual(AController* Controll
 
 void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer)
 {
+    if (auto* PC=Cast<AWarPlayerController>(NewPlayer); PC && GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioSession>()->RestorePending(PC)) return;
     // Automated acceptance fixtures opt into direct entry; ordinary launches start at login.
     const bool bProofEntry = !UE_BUILD_SHIPPING && (
         FParse::Param(FCommandLine::Get(), TEXT("WarNetworkProof"))
@@ -106,6 +110,7 @@ void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* New
         || FParse::Param(FCommandLine::Get(), TEXT("WarAbilityProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarExpansionProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarDutchBastionProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarInterfaceProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarCityPopulationProof")));
     if (!bProofEntry)
@@ -248,6 +253,11 @@ bool AWarGameMode::ShouldSpawnAtStartSpot(AController* Player)
 
 AActor* AWarGameMode::ChoosePlayerStart_Implementation(AController* Player)
 {
+#if !UE_BUILD_SHIPPING
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarDutchBastionProof")) && IsDevelopmentSession())
+        for (TActorIterator<APlayerStart> It(GetWorld()); It; ++It)
+            if (It->ActorHasTag(TEXT("WarDutchProofStart"))) return *It;
+#endif
     if (auto* State = Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr; State && State->GetRealm() != EWarRealm::None)
     {
         const FName Zone = State->GetCurrentZone().IsNone()

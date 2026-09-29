@@ -7,9 +7,10 @@ import importlib.util
 import json
 from pathlib import Path
 import unreal
+import sys
+sys.path.insert(0,str(Path(__file__).parent))
+from animation_replacement import ROOT, OUT
 
-ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/"artifacts/unreal/animation-replacement"
 spec=importlib.util.spec_from_file_location("model_import",Path(__file__).with_name("import-models.py"))
 model_import=importlib.util.module_from_spec(spec); spec.loader.exec_module(model_import)
 manifest=json.loads((OUT/"model-sources.json").read_text())
@@ -23,7 +24,7 @@ def import_one(name,record,skeletal):
     gltf,images=model_import.read_glb(source)
     if gltf.get("animations"): raise RuntimeError("Body/rig sources must contain no animation tracks")
     destination="/Game/Characters/Models/"+name+"/"+record["sourceSha256"][:12]
-    if name=="IconOfWrath": destination="/Game/Characters/Equipment"
+    if name in {"IconOfWrath", "WarpIdol"}: destination="/Game/Characters/Equipment"
     context=dict(profile=name,directory=source.parent,gltf=gltf,images=images,destination=destination,
         conversion=dict(kind="characterProfiles" if skeletal else "staticProps",sourceSha256=record["sourceSha256"]))
     path=destination+"/"+name
@@ -66,7 +67,7 @@ def import_one(name,record,skeletal):
 
 result={}
 for profile,record in manifest["profiles"].items():
-    skeletal=profile!="IconOfWrath"
+    skeletal=profile not in {"IconOfWrath", "WarpIdol"}
     entry=import_one(profile,record,skeletal)
     for slot in ("weapon","shield"):
         if slot in record: entry[slot]=import_one(Path(record[slot]["source"]).stem,record[slot],False)

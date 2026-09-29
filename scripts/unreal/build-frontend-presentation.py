@@ -7,8 +7,12 @@ import hashlib
 import json
 import struct
 import zlib
+import sys
 from pathlib import Path
 import unreal
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from frontend_sources import digest, package_file, source_plan
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTENT = ROOT / 'unreal/AegisWar/Content'
@@ -20,8 +24,7 @@ assets = unreal.EditorAssetLibrary
 tools = unreal.AssetToolsHelpers.get_asset_tools()
 levels = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
 actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
-manifest = json.loads((ROOT / 'artifacts/unreal/world-portals/zone-manifest.json').read_text())
-build = json.loads((ROOT / 'artifacts/unreal/world-portals/build.json').read_text())
+plan = source_plan(ROOT)
 sources = {}
 material_copies = {}
 
@@ -71,13 +74,7 @@ def owned(name, cls, factory):
 
 
 def fingerprint(package):
-    relative = package.split('.')[0].removeprefix('/Game/')
-    for suffix in ('.umap', '.uasset'):
-        file = CONTENT / (relative + suffix)
-        if file.is_file():
-            sources[package.split('.')[0]] = hashlib.sha256(file.read_bytes()).hexdigest()
-            return
-    raise RuntimeError('Missing native package: ' + package)
+    sources[package.split('.')[0]] = digest(package_file(ROOT, package))
 
 
 def placements(zone, maps):
@@ -193,8 +190,8 @@ def character_material():
 
 cities, counts = [], []
 for zone_id, label in [('aegis_capital', 'Bastion of Aegis'), ('riftspire_capital', 'Riftspire Citadel')]:
-    zone = next(row for row in manifest['zones'] if row['id'] == zone_id)
-    maps = ([build['map']] if zone_id == 'aegis_capital' else []) + [zone['levels'][key] for key in ('generated', 'authored')]
+    zone = next(row for row in plan['cities'] if row['id'] == zone_id)
+    maps = zone['maps']
     rows, skipped = placements(zone, maps)
     city = unreal.WarFrontendCity()
     city.set_editor_property('zone_id', zone_id)
@@ -226,7 +223,14 @@ for package, expected in sources.items():
     fingerprint(package)
     if sources[package] != expected:
         raise RuntimeError('Source package changed during snapshot: ' + package)
-(OUTPUT / 'build.json').write_text(json.dumps({'schemaVersion': 1, 'asset': definition.get_path_name(),
+if source_plan(ROOT) != plan:
+    raise RuntimeError('Capital routing changed during snapshot; retry the refresh.')
+outputs = {package: digest(package_file(ROOT, package)) for package in assets.list_assets(FOLDER, recursive=True)
+           if assets.get_metadata_tag(assets.load_asset(package), 'WarFrontendOwner') == OWNER}
+# Normalize object paths so freshness checks use package identities consistently.
+outputs = {package.split('.')[0]: value for package, value in outputs.items()}
+(OUTPUT / 'build.json').write_text(json.dumps({'schemaVersion': 2, 'asset': definition.get_path_name(),
+    'sourcePlan': plan, 'outputPackages': outputs,
     'cities': counts, 'sourcePackages': sources, 'sourceMapsModified': False, 'visualApproved': False,
     'licenseApprovalChanged': False}, indent=2) + '\n')
 unreal.log('WAR_FRONTEND_BUILT ' + json.dumps(counts))

@@ -84,7 +84,11 @@ TStatId UWarInterfaceProof::GetStatId() const { RETURN_QUICK_DECLARE_CYCLE_STAT(
 void UWarInterfaceProof::Finish(bool Passed, const FString& Detail)
 {
     bFinished = true;
-    const auto Folder = FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("InterfaceProof"));
+    FString Folder = FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("InterfaceProof"));
+    FString Run; FGuid Id;
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarTargetingProof"))
+        && FParse::Value(FCommandLine::Get(), TEXT("WarTargetingRun="), Run) && FGuid::Parse(Run, Id))
+        Folder /= Id.ToString(EGuidFormats::Digits);
     IFileManager::Get().MakeDirectory(*Folder, true);
     const FString Report = FString::Printf(TEXT("{\"passed\":%s,\"detail\":\"%s\",\"fullUiParity\":false}"), Passed ? TEXT("true") : TEXT("false"), *Detail);
     FFileHelper::SaveStringToFile(Report, *FPaths::Combine(Folder, TEXT("report.json")));
@@ -104,6 +108,7 @@ void UWarInterfaceProof::Tick(float DeltaTime)
         return;
     }
     const auto Check = [this](bool Good, const FString& Detail) { if (!Good) Finish(false, Detail); return Good; };
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarTargetingProof"))) { TickTargeting(Now); return; }
     if (FParse::Param(FCommandLine::Get(), TEXT("WarBuilderProof"))) { TickWorldBuilder(Now); return; }
     if (FParse::Param(FCommandLine::Get(),TEXT("WarWorkshopProof")))
     {
@@ -174,7 +179,7 @@ void UWarInterfaceProof::Tick(float DeltaTime)
     else if (Step == Pages.Num()*2)
     {
         PC->ToggleMenu();
-        if (!Check(!PC->IsInterfaceOpen() && !PC->IsMoveInputIgnored() && !PC->IsLookInputIgnored() && !PC->bShowMouseCursor,
+        if (!Check(!PC->IsInterfaceOpen() && !PC->IsMoveInputIgnored() && !PC->IsLookInputIgnored() && PC->bShowMouseCursor,
             TEXT("Repeated page transitions leaked input locks"))) return;
         PC->ToggleMap(); PC->ToggleMap();
         if (!Check(!PC->IsInterfaceOpen() && !PC->IsMoveInputIgnored(), TEXT("Map toggle did not close"))) return;

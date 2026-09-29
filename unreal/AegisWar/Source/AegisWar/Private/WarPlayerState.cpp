@@ -33,6 +33,7 @@ void AWarPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(AWarPlayerState, Realm);
     DOREPLIFETIME(AWarPlayerState, CurrentZone);
     DOREPLIFETIME(AWarPlayerState, bSiegeNormalized);
+    DOREPLIFETIME(AWarPlayerState, bScenarioEarnedAbilities);
     DOREPLIFETIME_CONDITION(AWarPlayerState, Inventory, COND_OwnerOnly);
 }
 
@@ -45,7 +46,7 @@ bool AWarPlayerState::GrantCharacterRewards(const FGuid& Transaction, const int3
     const TArray<FWarInventoryItem>& Rewards, FString& Error)
 {
     Error.Reset();
-    if (bSiegeNormalized || !HasAuthority() || !Transaction.IsValid() || RewardReceipts.Contains(Transaction)
+    if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || !Transaction.IsValid() || RewardReceipts.Contains(Transaction)
         || RewardReceipts.Num() >= 65536 || Inventory.Revision == MAX_int32)
     {
         Error = TEXT("Reward transaction is unauthorized, duplicated or exceeds session limits.");
@@ -68,7 +69,7 @@ bool AWarPlayerState::GrantCharacterRewards(const FGuid& Transaction, const int3
 
 bool AWarPlayerState::SetGmLevelTrusted(const int32 Level, FString& Error)
 {
-    if (bSiegeNormalized) { Error = TEXT("Leave or reset the siege before changing saved character progression."); return false; }
+    if (bScenarioTransferPending || bSiegeNormalized) { Error = TEXT("Leave or reset the siege before changing saved character progression."); return false; }
     Error.Reset();
     if (!HasAuthority() || Inventory.Revision == MAX_int32)
     { Error = TEXT("Level change is unauthorized or exceeds session limits."); return false; }
@@ -307,7 +308,7 @@ void AWarPlayerState::InitializeForPawn(AWarCharacter* Avatar)
 
 bool AWarPlayerState::CanPerformInventoryAction() const
 {
-    if (bSiegeNormalized) return false;
+    if (bScenarioTransferPending || bSiegeNormalized) return false;
     const auto* Avatar = Cast<AWarCharacter>(GetPawn());
     return Avatar && Avatar->IsVisualReady() && !Avatar->IsDead() && Attributes->GetHealth() > 0.f;
 }
@@ -348,4 +349,18 @@ void AWarPlayerState::SetSiegeNormalized(bool Enabled)
     }
     else ApplyProgressionVitals(true);
     ForceNetUpdate();
+}
+
+void AWarPlayerState::RestoreScenarioInventory(const FWarInventorySnapshot& Snapshot)
+{
+    if (!HasAuthority()) return;
+    Inventory=Snapshot;ForceNetUpdate();
+}
+
+void AWarPlayerState::SetScenarioTransferPending(bool Pending)
+{
+    if (!HasAuthority()) return;
+    bScenarioTransferPending=Pending;
+    if (Pending) ClassAbilities->Interrupt();
+    ClassAbilities->SetComponentTickEnabled(!Pending);
 }

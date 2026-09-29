@@ -20,6 +20,9 @@ protected:
     virtual FReply NativeOnPreviewMouseButtonDown(const FGeometry& Geometry, const FPointerEvent& Event) override;
 private:
     void Refresh();
+    void ScenarioPage();
+    virtual void NativeTick(const FGeometry& Geometry,float Delta) override;
+    FString LastScenarioView;
     void AddText(const FString& Text, int32 Size = 16);
     void AddButton(const FString& Text, TFunction<void()> Action);
     FName PendingBinding;

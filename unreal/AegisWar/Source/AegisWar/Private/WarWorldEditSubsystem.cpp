@@ -30,7 +30,8 @@ namespace
     {
         const bool bPortalProof = FParse::Param(FCommandLine::Get(), TEXT("WarPortalProof"));
         if (bPortalProof || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")) || FParse::Param(FCommandLine::Get(), TEXT("WarBuilderProof"))
-            || FParse::Param(FCommandLine::Get(), TEXT("WarExpansionProof")))
+            || FParse::Param(FCommandLine::Get(), TEXT("WarExpansionProof"))
+            || FParse::Param(FCommandLine::Get(), TEXT("WarDutchBastionProof")))
         {
             static const FString ProofId = [] {
                 FString Requested; FGuid Guid;
@@ -39,6 +40,11 @@ namespace
                     ? Guid.ToString(EGuidFormats::Digits) : FGuid::NewGuid().ToString(EGuidFormats::Digits);
             }();
             return FPaths::Combine(FPaths::ProjectSavedDir(), bPortalProof ? TEXT("WorldEditPortalProof") : TEXT("WorldEditProof"), ProofId, TEXT("draft.json"));
+        }
+        if (World && World->GetOutermost()->GetName().StartsWith(TEXT("/Game/WorldRebuild/DutchBastion_")))
+        {
+            const FString Revision=FPaths::GetCleanFilename(FPaths::GetPath(World->GetOutermost()->GetName()));
+            return FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("WorldEdit"),Revision,TEXT("draft.json"));
         }
         const bool bCrownward = World && World->GetOutermost()->GetName().Contains(TEXT("/crownward/"));
         return FPaths::Combine(FPaths::ProjectSavedDir(), bCrownward

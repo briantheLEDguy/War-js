@@ -57,6 +57,7 @@ export function integrateRegionalInhabitants(zone, assets) {
   const cast = REGIONAL_INHABITANTS[zone.id];
   if (!cast || !zone.orvrLayout) return zone;
   const prefix = `${zone.id}_inhabitant_`;
+  const existingOrder = new Map((zone.npcs ?? []).map((npc, index) => [npc.id, index]));
   zone.npcs = (zone.npcs ?? []).filter(npc => !npc.id.startsWith(prefix));
   zone.orvrLayout.populationAssignments = zone.orvrLayout.populationAssignments.filter(npc => !npc.entityId.startsWith(prefix));
   for (const civilian of cast) {
@@ -67,5 +68,7 @@ export function integrateRegionalInhabitants(zone, assets) {
     zone.orvrLayout.populationAssignments.push({ entityId: id, race: civilian.race, role: 'ambient',
       desiredProfileKey: civilian.profile, status: 'approved' });
   }
+  // Updating a regional resident must not reorder independently authored camp inhabitants.
+  zone.npcs.sort((a, b) => (existingOrder.get(a.id) ?? Infinity) - (existingOrder.get(b.id) ?? Infinity));
   return zone;
 }

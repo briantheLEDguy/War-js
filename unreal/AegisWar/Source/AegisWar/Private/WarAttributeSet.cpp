@@ -4,6 +4,7 @@
 #include "WarSiegeGameMode.h"
 #include "WarWrathRelic.h"
 #include "WarPlayerState.h"
+#include "WarCombatFeedback.h"
 #include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
 
@@ -28,6 +29,7 @@ void UWarAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, f
 bool UWarAttributeSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData& Data)
 {
     if (!Super::PreGameplayEffectExecute(Data)) return false;
+    if (const auto* State=Cast<AWarPlayerState>(GetOwningActor()); State && State->IsScenarioTransferPending()) return false;
     if (Data.EvaluatedData.Attribute == GetHealthAttribute()) HealthBeforeEffect = GetHealth();
     if (auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Siege && Data.EvaluatedData.Attribute == GetHealthAttribute())
     {
@@ -53,6 +55,9 @@ void UWarAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbac
         const float HealthLost = FMath::Max(0.f, HealthBeforeEffect - GetHealth());
         auto* Dealer = Cast<AWarCharacter>(Data.EffectSpec.GetContext().GetInstigator());
         const auto* Victim = Cast<AWarCharacter>(GetOwningAbilitySystemComponent()->GetAvatarActor());
+        if (HealthLost > 0) WarCombatFeedback::Emit(Dealer, GetOwningAbilitySystemComponent()->GetAvatarActor(), TEXT("Hit"), HealthLost);
+        const float Healed = FMath::Max(0.f, GetHealth() - HealthBeforeEffect);
+        if (Healed > 0) WarCombatFeedback::Emit(Dealer, GetOwningAbilitySystemComponent()->GetAvatarActor(), TEXT("Heal"), Healed);
         const auto* DealerState = Dealer ? Dealer->GetPlayerState<AWarPlayerState>() : nullptr;
         const auto* VictimState = Victim ? Victim->GetPlayerState<AWarPlayerState>() : nullptr;
         if (Data.EvaluatedData.Magnitude < 0 && DealerState && VictimState && DealerState->GetRealm() != EWarRealm::None

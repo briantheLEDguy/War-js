@@ -6,7 +6,7 @@ from pathlib import Path
 import sys
 import unreal
 sys.path.insert(0,str(Path(__file__).parent))
-from animation_replacement import ROOT, OUT, SOURCE, CLIPS, PROFILES, RECIPES, coverage, selected
+from animation_replacement import ROOT, OUT, SOURCE, CLIPS, PROFILES, RECIPES, coverage, selected, visual_path
 
 sets=json.loads((OUT/'presentations.json').read_text())['profiles']
 sources=json.loads((OUT/'sources.json').read_text())['clips']
@@ -19,10 +19,10 @@ def check(condition,detail):
 for key,uses in coverage().items():
     check(hashlib.sha256((SOURCE/CLIPS[key]).read_bytes()).hexdigest()==sources[key]['sha256'],'Source changed: '+key)
     report['coverage'][key]=dict(source=CLIPS[key],sha256=sources[key]['sha256'],reachableBindings=uses,gameplayEvidence=None)
-check(sum(len(r) for r in RECIPES.values())==40,'Expected forty ability recipes')
+check(sum(len(r) for r in RECIPES.values())==10*len(PROFILES),'Expected ten ability recipes per selected class')
 for profile,entry in sets.items():
     mesh=unreal.load_asset(entry['mesh'])
-    visual=unreal.load_asset('/Game/MigrationProof/Visual_'+profile) if profile in PROFILES else None
+    visual=unreal.load_asset(visual_path(profile)) if profile in PROFILES else None
     check(bool(mesh),profile+': missing mesh')
     if visual: check(not visual.validate_for_spawn(visual.realm),profile+': native spawn validation failed')
     options=[]

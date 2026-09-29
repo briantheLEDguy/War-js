@@ -109,7 +109,7 @@ void AWarPlayerController::SetEditingUi(bool bEditing)
 {
     if (bEditing) CloseAllPanels();
     bEditingUi = bEditing;
-    bShowMouseCursor = bEditing;
+    bShowMouseCursor = true;
     if (bEditing) { FInputModeGameAndUI Mode; Mode.SetHideCursorDuringCapture(false); SetInputMode(Mode); }
-    else { SaveActionBars(); SetInputMode(FInputModeGameOnly()); ShowInterface(TEXT("UI Settings")); }
+    else { SaveActionBars(); RestoreGameplayInput(); ShowInterface(TEXT("UI Settings")); }
 }

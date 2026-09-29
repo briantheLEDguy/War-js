@@ -21,6 +21,45 @@ state falls back to an old character clip.
 
 ## Pipeline and ownership
 
+The two additional siege casters have a separate `siege-casters` recipe:
+`python scripts/unreal/animation-pipeline.py siege-casters --review`. Close the
+Editor before its Unreal stages. Preparation adapts retained Chaos geometry,
+keeps fitted armor and fits retained staff geometry to each source
+rig. Private outputs live in `artifacts/unreal/siege/animation`; native
+visuals live under `/Game/Characters/SiegeStaging/`. The install stage writes a
+staged import registry rather than activating these classes. Publication is a
+separate reviewed step described below. The default four-profile pipeline and its historical
+coverage receipts stay separate.
+
+On 2026-09-26 both staged profiles completed native import, retargeting,
+composition, installation and structural checks with no reported structural
+failures. The 160 review frames include locomotion and ability preparation,
+contact and recovery from two views. The hanging tabard and its trim are removed
+as complete, measured mesh islands because they intersected the supplied casting
+and locomotion poses. No replacement skirt panels are added. Fitted crimson and
+purple armor preserve the source silhouette; character-specific staff stow
+offsets keep free-handed casting clear. All 160 equipped frames were inspected
+after the rebuild, followed by all 25 encounter frames. This review admits these
+assets for the local lower-city test; global art/release acceptance stays open.
+
+The same preparation imports `WarpIdol` from the retained Riftspire altar,
+preserving its authored silhouette and materials at a portable 90 cm width.
+`stage-siege-encounters.py` binds explicit crew, garrison and commander adaptations
+in the isolated siege map, with source hashes and ownership guards.
+`review-siege-encounters.py` renders their native equipment in idle, walk, basic
+attack and death poses, plus the idol (25 frames). These scripts never publish
+the staged caster registry or set battlefield review flags.
+
+`admit-lower-city.py` verifies the hashes in the explicit development review,
+native behavior results, twelve-character traversal, structural checks and all
+six roster bindings. It publishes only the two exact caster bindings, preserves
+other imports, and sets the separate `bLowerCityReviewed` flag on the isolated
+map. It refuses conflicting bindings and full-siege review changes. On failure
+to save the map it restores the registry. The 2026-09-26 admission receipt is
+`artifacts/unreal/siege/local-admission.json`; the 185-frame review is
+`artifacts/unreal/siege/development-review.json`. Draft roster/encounter staging
+refuses to overwrite the admitted battlefield. Generated packages remain private.
+
 ```powershell
 python scripts/unreal/animation-pipeline.py supplied-four --review
 python scripts/unreal/animation-pipeline.py supplied-four --from-stage verify

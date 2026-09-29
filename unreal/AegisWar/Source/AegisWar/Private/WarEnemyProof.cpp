@@ -49,17 +49,23 @@ void UWarEnemyProof::Tick(float DeltaSeconds)
     { if (Now > 90) Finish(false, TEXT("Player unavailable")); return; }
     if (Deadline > 0 && Now > Deadline) { Finish(false, TEXT("Stage timed out")); return; }
     FString Error;
-    const FName Sun(TEXT("sunmeadow_march")), Other(TEXT("cinderfen_outskirts")), Id(TEXT("sunmeadow_march_west_raider_1"));
+    FString ProofZone(TEXT("sunmeadow_march")), ProofId(TEXT("sunmeadow_march_west_raider_1"));
+    int32 ExpectedCount=3, ExpectedAttachments=1;
+    FParse::Value(FCommandLine::Get(),TEXT("WarEnemyProofZone="),ProofZone);
+    FParse::Value(FCommandLine::Get(),TEXT("WarEnemyProofId="),ProofId);
+    FParse::Value(FCommandLine::Get(),TEXT("WarEnemyProofCount="),ExpectedCount);
+    FParse::Value(FCommandLine::Get(),TEXT("WarEnemyProofAttachments="),ExpectedAttachments);
+    const FName Sun(*ProofZone), Other(TEXT("cinderfen_outskirts")), Id(*ProofId);
     AWarEnemy* Enemy = nullptr; int32 Count = 0;
     for (TActorIterator<AWarEnemy> It(GetWorld()); It; ++It)
         if (It->ZoneId == Sun) { ++Count; if (It->EnemyId == Id) Enemy = *It; }
-    const auto HasOneWeapon = [](AWarEnemy* Actor) {
+    const auto HasEquipment = [ExpectedAttachments](AWarEnemy* Actor) {
         if (!Actor) return false;
         TInlineComponentArray<UStaticMeshComponent*> Components; Actor->GetComponents(Components);
         int32 WeaponCount = 0;
         for (const auto* Component : Components)
             if (UWarNpcEquipmentLibrary::IsGeneratedAttachment(Component) && Component->GetStaticMesh()) ++WeaponCount;
-        return WeaponCount == 1;
+        return WeaponCount == ExpectedAttachments;
     };
     const auto Place = [&](FVector Point) {
         FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(WarEnemyProofFloor), false, Pawn);
@@ -76,8 +82,8 @@ void UWarEnemyProof::Tick(float DeltaSeconds)
     if (Stage == 1)
     {
         if (State->GetCurrentZone() != Sun || !Streaming->IsZoneReady(Sun)) return;
-        if (!Enemy || Count != 3 || !Enemy->IsContentReady()) { Finish(false, TEXT("Three exact raiders not loaded")); return; }
-        if (!HasOneWeapon(Enemy)) { Finish(false, TEXT("Raider weapon missing or duplicated")); return; }
+        if (!Enemy || Count != ExpectedCount || !Enemy->IsContentReady()) { Finish(false, TEXT("Exact source encounter not loaded")); return; }
+        if (!HasEquipment(Enemy)) { Finish(false, TEXT("Raider equipment missing or duplicated")); return; }
         Home = Enemy->GetHome();
         if (!Place(Home + FVector(0,-1200,0))) { Finish(false, TEXT("Could not reach source encounter")); return; }
         const float Before = State->GetAttributes()->GetMana();
@@ -85,8 +91,9 @@ void UWarEnemyProof::Tick(float DeltaSeconds)
         if (State->GetAttributes()->GetMana() != Before || Enemy->GetHealth() != 150)
         { Finish(false, TEXT("Out of range strike mutated combat state")); return; }
         // High proof vitals let damage observation run without replacing the tested pawn.
-        State->GetAbilitySystemComponent()->SetNumericAttributeBase(UWarAttributeSet::GetMaxHealthAttribute(), 1000);
-        State->GetAbilitySystemComponent()->SetNumericAttributeBase(UWarAttributeSet::GetHealthAttribute(), 1000);
+        const float ProofHealth=ProofId.Contains(TEXT("_import_"))?5000.f:1000.f;
+        State->GetAbilitySystemComponent()->SetNumericAttributeBase(UWarAttributeSet::GetMaxHealthAttribute(), ProofHealth);
+        State->GetAbilitySystemComponent()->SetNumericAttributeBase(UWarAttributeSet::GetHealthAttribute(), ProofHealth);
         Stage = 2; Deadline = Now + 20; return;
     }
     if (Stage == 2)
@@ -161,7 +168,7 @@ void UWarEnemyProof::Tick(float DeltaSeconds)
         {
             for (TActorIterator<AWarZonePortal> It(GetWorld()); It; ++It)
             {
-                if (!It->DestinationRouteId.ToString().StartsWith(TEXT("sunmeadow_march_to_"))) continue;
+                if (!It->DestinationRouteId.ToString().StartsWith(ProofZone+TEXT("_to_"))) continue;
                 FHitResult Hit; FCollisionQueryParams Query(SCENE_QUERY_STAT(WarEnemyReturnDiagnostic), false, Pawn);
                 const bool Found = GetWorld()->LineTraceSingleByChannel(Hit, It->ArrivalLocation + FVector(0,0,5000),
                     It->ArrivalLocation - FVector(0,0,5000), ECC_WorldStatic, Query);
@@ -181,7 +188,7 @@ void UWarEnemyProof::Tick(float DeltaSeconds)
         if (Now < DeathAt + 14.9 && (!Enemy->IsDead() || Life.Event != DeathEvent))
         { Finish(false, TEXT("Reload bypassed respawn cooldown")); return; }
         if (Enemy->IsDead()) return;
-        if (!HasOneWeapon(Enemy)) { Finish(false, TEXT("Reload/respawn lost or duplicated equipment")); return; }
+        if (!HasEquipment(Enemy)) { Finish(false, TEXT("Reload/respawn lost or duplicated equipment")); return; }
         if (Life.Event == DeathEvent || Enemy->GetHealth() != 150 || FVector::Dist2D(Enemy->GetActorLocation(), Home) > 5)
         { Finish(false, TEXT("Respawn did not begin a new life at home")); return; }
         Finish(true, TEXT("range, zone, chase, leash, cooldown, damage, atomic reward, duplicate death, unload/reload and respawn passed"));

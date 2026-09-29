@@ -2,12 +2,14 @@
 #include "WarAbilityRuntime.h"
 #include "WarCombatStatus.h"
 #include "WarWrathRelic.h"
+#include "WarWarpIdol.h"
 #include "AegisWar.h"
 #include "WarAttributeSet.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarAnimationInstance.h"
 #include "WarGameMode.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEquipment.h"
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
 #include "WarStrikeAbility.h"
@@ -41,6 +43,8 @@ AWarCharacter::AWarCharacter()
     PrimaryActorTick.bCanEverTick = true;
     bUseControllerRotationYaw = false;
     GetCapsuleComponent()->InitCapsuleSize(42.f, 96.f);
+    GetCharacterMovement()->NavAgentProps.AgentRadius=42.f;
+    GetCharacterMovement()->NavAgentProps.AgentHeight=192.f;
     GetCapsuleComponent()->SetHiddenInGame(true);
     GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
     GetCharacterMovement()->bOrientRotationToMovement = false;
@@ -216,6 +220,12 @@ void AWarCharacter::UpdateNativeAnimation(float Delta)
 {
     auto* Instance = Cast<UWarAnimationInstance>(GetMesh()->GetAnimInstance());
     if (!Instance) return;
+    if (!bDead) if (const auto* Engineer=Cast<AWarSiegeCharacter>(this); Engineer && Engineer->Equipment)
+    {
+        UAnimSequence* Clip=nullptr; float Time=0;
+        if (Engineer->Equipment->CrewAnimation(Clip,Time))
+        { Instance->Select(Clip,TEXT("siege_push"),Time); return; }
+    }
     const double Now = AnimationTime();
     const bool bFalling = GetCharacterMovement()->IsFalling();
     if (bWasFalling && !bFalling && !IsActionPlaying()) LandingUntil = Now + GetAbilityAnimationDuration(TEXT("landing"));
@@ -516,18 +526,9 @@ void AWarCharacter::StartJump() { if (Controller && !Controller->IsMoveInputIgno
 void AWarCharacter::RequestStrike()
 {
     if (bDead || !bVisualReady) return;
-    const APlayerController* PC = Cast<APlayerController>(Controller);
+    auto* PC = Cast<AWarPlayerController>(Controller);
     if (!PC || PC->IsMoveInputIgnored()) return;
-    if (PC->bShowMouseCursor) return;
-    FVector Origin;
-    FRotator Direction;
-    PC->GetPlayerViewPoint(Origin, Direction);
-    FHitResult Hit;
-    FCollisionQueryParams Params(SCENE_QUERY_STAT(WarSelectTarget), false, this);
-    if (GetWorld()->LineTraceSingleByChannel(Hit, Origin, Origin + Direction.Vector() * 5000.f, ECC_Visibility, Params))
-    {
-        RequestTargetStrike(Hit.GetActor());
-    }
+    PC->SelectCombatTargetUnderCursor();
 }
 
 void AWarCharacter::RequestTargetStrike(AActor* Target)
@@ -551,6 +552,7 @@ void AWarCharacter::ServerRequestStrike_Implementation(AActor* Target)
 
 bool AWarCharacter::CanStrikeTarget(const AActor* Actor) const
 {
+    if (const auto* State=GetPlayerState<AWarPlayerState>(); State && State->IsScenarioTransferPending()) return false;
     if (const auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Siege && (Siege->IsProtected(this) || Siege->IsProtected(Actor))) return false;
     if (!HasAuthority() || !bVisualReady || bDead || !GetAbilitySystemComponent() || GetCharacterMovement()->IsFalling()) return false;
     if (const auto* Enemy = Cast<AWarEnemy>(Actor)) return Enemy->CanReceiveStrike(this);
@@ -574,6 +576,7 @@ void AWarCharacter::HandleDeath()
     Motion.Role=TEXT("death"); Motion.Start=AnimationTime(); Motion.Duration=GetAbilityAnimationDuration(TEXT("death"));
     Motion.bLoop=false; Motion.bStowEquipment=false; ++Motion.Serial; ForceNetUpdate();
     AWarWrathRelic::RemoveFor(this);
+    AWarWarpIdol::RemoveFor(this);
     OnRep_Dead();
     if (AWarGameMode* Mode = GetWorld()->GetAuthGameMode<AWarGameMode>()) Mode->RespawnAfterDeath(this);
 }
@@ -590,6 +593,7 @@ void AWarCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
     if (EquipmentPoseHandle.IsValid()) GetMesh()->UnregisterOnBoneTransformsFinalizedDelegate(EquipmentPoseHandle);
     EquipmentPoseHandle.Reset();
     AWarWrathRelic::RemoveFor(this);
+    AWarWarpIdol::RemoveFor(this);
     if (InputSubsystem.IsValid() && MappingContext) InputSubsystem->RemoveMappingContext(MappingContext);
     if (UAbilitySystemComponent* ASC = GetAbilitySystemComponent())
     {

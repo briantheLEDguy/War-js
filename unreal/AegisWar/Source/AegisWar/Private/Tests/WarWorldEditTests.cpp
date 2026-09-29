@@ -21,6 +21,11 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Selected owner city supports the GM workbench"), WarWorldEditMap::IsSupported(FinalMap, FinalMap));
     TestFalse(TEXT("Unselected preview is not a workbench"), WarWorldEditMap::IsSupported(TEXT("/Game/Capitals/crownward/Other/City"), FinalMap));
     TestFalse(TEXT("Arbitrary configured maps cannot become workbenches"), WarWorldEditMap::IsSupported(TEXT("/Game/Other"), TEXT("/Game/Other")));
+    const FString Campaign = TEXT("/Game/WorldRebuild/DutchBastion_61bc85751eac/Bastion_Campaign_v3");
+    TestTrue(TEXT("Selected migrated campaign retains local GM travel verification"), WarWorldEditMap::IsSupported(Campaign, Campaign));
+    TestFalse(TEXT("Unselected migrated campaign cannot gain workbench access"), WarWorldEditMap::IsSupported(Campaign, FinalMap));
+    const FString Preview = TEXT("/Game/WorldRebuild/DutchBastion_61bc85751eac/Preview");
+    TestFalse(TEXT("City previews do not become campaign workbenches"), WarWorldEditMap::IsSupported(Preview, Preview));
     TestTrue(TEXT("Legacy authored proof remains available"), WarWorldEditMap::IsSupported(TEXT("/Game/Capitals/aegis_capital/AegisCapital_Workbench"), FinalMap));
     const FTransform GridInput(FRotator(12, 44, -8), FVector(125, -175, 73.2), FVector(2, -3, 4));
     const auto Snapped = WarWorldEditPlacement::SnapTransform(GridInput, 50, 90);

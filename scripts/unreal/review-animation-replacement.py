@@ -3,8 +3,10 @@ import json
 from pathlib import Path
 import time
 import unreal
-ROOT=Path(__file__).resolve().parents[2]
-OUT=ROOT/"artifacts/unreal/animation-replacement/review"
+import sys
+sys.path.insert(0,str(Path(__file__).parent))
+from animation_replacement import ROOT, OUT as ANIMATION_OUTPUT, ANIMATION_SET, visual_path
+OUT=ANIMATION_OUTPUT/"review"
 OUT.mkdir(exist_ok=True)
 definitions=json.loads((OUT.parent/"presentations.json").read_text())["profiles"]
 editor=unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
@@ -40,13 +42,21 @@ for part in (weapon,shield): part.static_mesh_component.set_mobility(unreal.Comp
 frames=[]
 for profile,entry in definitions.items():
     if not entry["presentations"]: continue
-    visual=unreal.load_asset("/Game/MigrationProof/Visual_"+profile)
+    visual=unreal.load_asset(visual_path(profile))
     body.set_skeletal_mesh_asset(visual.skeletal_mesh)
     weapon.static_mesh_component.set_static_mesh(visual.weapon_mesh)
     shield.static_mesh_component.set_static_mesh(visual.shield_mesh)
     samples=[("idle",0,1. if entry["style"]=="spell" else 0.,"")]
+    if ANIMATION_SET == 'siege-casters':
+        for role in ('walk','run','walk_backward','strafe_left','strafe_right','jump','landing','hit_front','death'):
+            sequence=unreal.load_asset(entry['bindings'][role])
+            samples.append((role,unreal.AnimationLibrary.get_sequence_length(sequence)*.5,1.,'motion'))
     for ability,recipe in entry["presentations"].items():
         samples.extend((role,recipe["contactSeconds"],1. if recipe["stowEquipment"] else 0.,"") for role in recipe["variantRoles"])
+        if ANIMATION_SET == 'siege-casters':
+            samples.extend((role,seconds,1. if recipe['stowEquipment'] else 0.,phase)
+                for role in recipe['variantRoles'] for seconds,phase in
+                ((recipe['contactSeconds']*.35,'preparation'),(recipe['duration']-.1,'recovery')))
         if recipe['stowEquipment'] and entry['style']!='spell':
             samples.extend((role,seconds,.5,phase) for role in recipe['variantRoles']
                 for seconds,phase in ((.15,'stowing'),(recipe['duration']-.15,'retrieving')))

@@ -80,8 +80,9 @@ bool WarAbilities::Parse(const TSharedPtr<const FJsonObject>& Manifest, TArray<F
                 const auto Movement = Object(E, TEXT("movement"));
                 Effect.Direction = FName(*String(Movement, TEXT("mode"))); Effect.Distance = Number(Movement, TEXT("distance")) * 100;
                 for (const auto& Kind : Array(Object(E, TEXT("cleanse")), TEXT("kinds"))) Effect.Cleanse.Add(FName(*Kind->AsString()));
-                if (!TArray<FName>{TEXT("damage"), TEXT("heal"), TEXT("status"), TEXT("player_status"), TEXT("movement"), TEXT("cleanse"), TEXT("wrath_relic")}.Contains(Effect.Kind)
-                    || (Effect.Kind == TEXT("wrath_relic") && A.Id != TEXT("battle_prelate.icon_of_wrath")))
+                if (!TArray<FName>{TEXT("damage"), TEXT("heal"), TEXT("status"), TEXT("player_status"), TEXT("movement"), TEXT("cleanse"), TEXT("wrath_relic"),TEXT("warp_idol")}.Contains(Effect.Kind)
+                    || (Effect.Kind == TEXT("wrath_relic") && A.Id != TEXT("battle_prelate.icon_of_wrath"))
+                    || (Effect.Kind == TEXT("warp_idol") && (A.Id != TEXT("void_magister.summon_idol") || (Effect.Recipient != NAME_None && Effect.Recipient != TEXT("caster")) || !Effect.bHasAmount || !FMath::IsFinite(Effect.Minimum) || !FMath::IsFinite(Effect.Maximum) || Effect.Minimum <= 0 || Effect.Maximum < Effect.Minimum)))
                 { Error = TEXT("Unsupported ability effect: ") + Id; Out.Reset(); return false; }
                 A.Effects.Add(Effect);
             }
@@ -109,7 +110,9 @@ FName WarAbilities::Motion(const FWarAbilityDefinition& A, FName Profile)
     if ((A.Career == TEXT("battle_prelate") && Profile == TEXT("civic_battle_prelate_m"))
         || (A.Career == TEXT("sunfire_templar") && Profile == TEXT("civic_sunfire_templar_m"))
         || (A.Career == TEXT("warbrute") && Profile == TEXT("mire_warbrute_m"))
-        || (A.Career == TEXT("ember_arcanist") && Profile == TEXT("civic_ember_arcanist_m"))) return A.Id;
+        || (A.Career == TEXT("ember_arcanist") && Profile == TEXT("civic_ember_arcanist_m"))
+        || (A.Career == TEXT("ruin_oracle") && Profile == TEXT("riven_ruin_oracle_m"))
+        || (A.Career == TEXT("void_magister") && Profile == TEXT("riven_void_magister_m"))) return A.Id;
     return A.Shape == TEXT("melee") || A.Shape == TEXT("dash") ? TEXT("attack_melee")
         : A.School == TEXT("physical") ? TEXT("attack_ranged") : TEXT("cast");
 }

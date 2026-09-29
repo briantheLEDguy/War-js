@@ -96,14 +96,15 @@ bool WarAbilityConditions::ParseEffect(const TSharedPtr<const FJsonObject>& J, F
     E.PeriodicDuration=Num(Periodic,TEXT("durationSec")); E.Interval=Num(Periodic,TEXT("intervalSec"),1);
     const TArray<TSharedPtr<FJsonValue>>* Kinds; const auto Cleanse=Obj(J,TEXT("cleanse"));
     if (Cleanse && Cleanse->TryGetArrayField(TEXT("kinds"),Kinds)) for (const auto& Value : *Kinds) E.Cleanse.Add(FName(*Value->AsString()));
-    if (E.Id.IsNone() || !OneOf(E.Kind,{TEXT("damage"),TEXT("heal"),TEXT("status"),TEXT("player_status"),TEXT("movement"),TEXT("cleanse"),TEXT("wrath_relic")})
+    if (E.Id.IsNone() || !OneOf(E.Kind,{TEXT("damage"),TEXT("heal"),TEXT("status"),TEXT("player_status"),TEXT("movement"),TEXT("cleanse"),TEXT("wrath_relic"),TEXT("warp_idol")})
         || !OneOf(E.Recipient,{TEXT("caster"),TEXT("target"),TEXT("allies"),TEXT("enemies")})) { Error=TEXT("Invalid effect identity, recipient, or kind."); return false; }
     for (float Value : {E.Minimum,E.Maximum,E.StatScale,E.LevelScale,E.ResourceScale,E.Duration,E.Magnitude,E.Distance,E.PeriodicDuration,E.Interval})
         if (!FMath::IsFinite(Value) || Value<0 || Value>1000000) { Error=TEXT("Effect values must be finite and bounded."); return false; }
     if (E.Minimum>E.Maximum || E.Duration>60 || E.Distance>1200 || (Periodic && (!OneOf(E.Kind,{TEXT("damage"),TEXT("heal")}) || E.PeriodicDuration<.1f || E.PeriodicDuration>60 || E.Interval<.1f || E.Interval>E.PeriodicDuration)))
     { Error=TEXT("Invalid effect amount, duration, movement, or periodic interval."); return false; }
-    if (OneOf(E.Kind,{TEXT("damage"),TEXT("heal")}) && (!Amount || !Amount->HasTypedField<EJson::Number>(TEXT("min")) || !Amount->HasTypedField<EJson::Number>(TEXT("max"))))
-    { Error=TEXT("Damage/healing requires a numeric minimum and maximum."); return false; }
+    if (OneOf(E.Kind,{TEXT("damage"),TEXT("heal"),TEXT("warp_idol")}) && (!Amount || !Amount->HasTypedField<EJson::Number>(TEXT("min")) || !Amount->HasTypedField<EJson::Number>(TEXT("max"))))
+    { Error=TEXT("Damage, healing and idol pulses require a numeric minimum and maximum."); return false; }
+    if (E.Kind==TEXT("warp_idol") && E.Minimum<=0) { Error=TEXT("Idol pulse damage must be positive."); return false; }
     if (E.StatScale>1000 || E.LevelScale>1000 || E.ResourceScale>1000) { Error=TEXT("Scaling exceeds 1000."); return false; }
     if (OneOf(E.Kind,{TEXT("status"),TEXT("player_status")}))
     {

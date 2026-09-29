@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "character": "Porter and bruiser",
+  "animationSet": "capital-camps",
+  "output": "artifacts/unreal/imported-population",
+  "stages": [
+    {
+      "name": "retarget",
+      "engine": "unreal",
+      "script": "import-animation-replacement.py"
+    },
+    {
+      "name": "compose",
+      "engine": "unreal",
+      "script": "compose-animation-presentations.py"
+    },
+    {
+      "name": "install",
+      "engine": "unreal",
+      "script": "install-imported-population.py"
+    },
+    {
+      "name": "verify",
+      "engine": "unreal",
+      "script": "verify-imported-population.py"
+    },
+    {
+      "name": "review",
+      "engine": "unreal-render",
+      "script": "review-imported-population.py"
+    }
+  ],
+  "profileKey": "npc_import_brute",
+  "styleTemplate": "styles/shield.json",
+  "arguments": [
+    "-NoTextureStreaming"
+  ]
+}

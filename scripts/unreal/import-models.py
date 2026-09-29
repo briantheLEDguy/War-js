@@ -296,7 +296,7 @@ def import_mesh(unreal, context):
 
 def emissive_color(material):
     extensions = material.get("extensions", {})
-    require(isinstance(extensions, dict) and set(extensions).issubset({"KHR_materials_emissive_strength"}),
+    require(isinstance(extensions, dict) and set(extensions).issubset({"KHR_materials_emissive_strength", "KHR_materials_specular"}),
             "Unsupported material extension")
     extension = extensions.get("KHR_materials_emissive_strength", {})
     require(isinstance(extension, dict) and set(extension).issubset({"emissiveStrength"}),
@@ -311,6 +311,19 @@ def emissive_color(material):
     return [value * strength for value in factor]
 
 
+def specular_factor(material):
+    """Unreal scalar specular covers achromatic dielectric F0; reject unsupported tint/maps."""
+    extension = material.get('extensions', {}).get('KHR_materials_specular', {})
+    require(isinstance(extension, dict) and set(extension).issubset({'specularFactor', 'specularColorFactor'}),
+            'Textured specular needs an explicit material adaptation')
+    color = extension.get('specularColorFactor', [1, 1, 1])
+    factor = extension.get('specularFactor', 1)
+    require(isinstance(color, list) and len(color) == 3 and all(isinstance(v, (int, float)) and math.isfinite(v) for v in color)
+            and color[0] == color[1] == color[2] and isinstance(factor, (int, float)) and math.isfinite(factor)
+            and 0 <= factor <= 1 and 0 <= color[0] <= 2, 'Unsupported colored or out-of-range specular')
+    return color[0] * factor * .5
+
+
 def texture_roles(gltf):
     roles = {}
     for material in gltf.get("materials", []):
@@ -319,6 +332,7 @@ def texture_roles(gltf):
                                        "extensions", "emissiveFactor", "emissiveTexture"}),
                 f"Unsupported material properties: {material['name']}")
         emissive_color(material)
+        specular_factor(material)
         require(material.get("alphaMode", "OPAQUE") in ("OPAQUE", "MASK", "BLEND"), "Unsupported alpha mode")
         pbr = material.get("pbrMetallicRoughness", {})
         require(set(pbr).issubset({"baseColorFactor", "baseColorTexture", "metallicFactor", "roughnessFactor", "metallicRoughnessTexture"}),
@@ -456,6 +470,7 @@ def create_materials(unreal, context, textures):
             roughness = product(packed, "G", roughness)
         output(metallic, unreal.MaterialProperty.MP_METALLIC)
         output(roughness, unreal.MaterialProperty.MP_ROUGHNESS)
+        output(scalar(specular_factor(source)), unreal.MaterialProperty.MP_SPECULAR)
         if "occlusionTexture" in source:
             info = source["occlusionTexture"]
             occlusion = node(unreal.MaterialExpressionLinearInterpolate)

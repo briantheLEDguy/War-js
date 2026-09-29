@@ -73807,6 +73807,33 @@
       "x": 468,
       "z": -291,
       "rotY": -1.5707963267948966
+    },
+    {
+      "id": "cinderfen_outskirts_import_work_crew_1",
+      "name": "Chainwake laborer",
+      "x": 395,
+      "z": -310,
+      "characterProfileKey": "npc_import_brute",
+      "role": "ambient",
+      "rotY": 0
+    },
+    {
+      "id": "cinderfen_outskirts_import_work_crew_2",
+      "name": "Chainwake laborer",
+      "x": 399,
+      "z": -310,
+      "characterProfileKey": "npc_import_brute",
+      "role": "ambient",
+      "rotY": 3.141592653589793
+    },
+    {
+      "id": "cinderfen_outskirts_import_work_crew_3",
+      "name": "Work crew enforcer",
+      "x": 395,
+      "z": -306,
+      "characterProfileKey": "npc_import_maw",
+      "role": "guard",
+      "rotY": 0
     }
   ],
   "craftingStations": [
@@ -82904,5 +82931,5 @@
       "note": "Measured original Cinderfen modules; pierced gatehouses, connected corners and courtyard stairs. Shared passage identities preserve campaign gates."
     }
   },
-  "staticMapHash": "3ccc4a1c2ee89312"
+  "staticMapHash": "958704749242bfb8"
 }

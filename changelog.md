@@ -1,3 +1,103 @@
+## 2026-09-29 - Visible portal installation tooling
+
+- Add two bright, local, shadow-free fill lights per entrance so portal frame details remain visible in daylight; preserve global zone lighting.
+- Raise every destination label above the portal spire and align its text plane with the portal approach; verify all saved label positions and orientations.
+- Add a realm-based installer for both authored portal mesh parts at all 70 entrances, with routing backup, tagged replacement and preservation of traversal data.
+- Add saved-world checks for mesh coverage, visibility, material bindings and nonblocking visuals, plus native zone captures. Install both variants at all 70 entrances after the editor lock is released, with separate daylight glow materials. Art acceptance remains outstanding.
+
+## 2026-09-29 - Portal verification and native material drafts
+
+- Verify all 70 directed routes, 20 resource sites, streaming failure/cancellation, respawn and GM draft/undo history in the attached local campaign. Keep Steam/network and visual acceptance outstanding.
+- Report the destination readiness reason on portal loading timeout, with an Interact retry instruction.
+- Bake metallic base color through its shader input, validate both textured GLBs, and import separate structure/effects candidates into private packages. Reference fidelity, native appearance, collision and placement remain unapproved.
+
+## 2026-09-29 - Portal entry and reference-model candidates
+
+- Recheck authority-side portal entry after initial capsule contact, which occurs before the pawn centre reaches the permitted radius. Attempt once per visit and retain destination, streaming and landing safeguards.
+- Add the existing Interact binding as a server-validated portal retry, with regression coverage for centre admission and scaled range.
+- Extend the native traversal proof to exercise continued entry after first contact; retain local GM fixture eligibility for the selected migrated campaign without admitting previews or shared-server privileges.
+- Add a read-only portal survey and editable Aegis/Riftbound Blender candidates based on the supplied sheets. Art fidelity, native materials/effects, collision and placement remain unfinished; these models are not installed or approved.
+
+## 2026-09-29 - Bastion floor and corner overlap fixes
+
+- Separate stone foundations from timber floors and recess floor edges inside masonry to eliminate coincident visible faces.
+- Clip finished facade triangles to disjoint corner envelopes, preserving shared structural walls and texture coordinates.
+- Clip superseded road triangles out of public rooms while retaining approach and bridge collision surfaces; audit all 1,058 house meshes and 3,135 floor plates.
+- Activate revision `d105951f4aab` after 199 native review captures, 139 passed capsule routes, 3,000 clean ground samples and two-client streaming. Preserve source hashes, GM drafts and concurrent portal-review metadata; retain independent release gates. See docs/unreal-dutch-bastion.md for performance and test evidence.
+
+## 2026-09-29 - Current capital lobby scenery
+
+- Build lobby scenery from every active Aegis and Riftspire layer, including Dutch Bastion architecture, instead of the old generated/authored-only snapshot.
+- Detect changed routing, saved scenery, generation recipes and overwritten or missing frontend assets; refresh stale snapshots after Editor builds and before frontend proofs.
+- Add `unreal:frontend-refresh` with a read-only `--check` mode and regression coverage for changed layers, placements, origins and missing assets. Saved source maps remain unchanged; live server edits still require publication and a snapshot refresh.
+
+## 2026-09-28 - Citywide Dutch Bastion revision
+
+- Extend the five-district layout to 42 closed blocks, 1,058 fitted houses, 40 streets/access links and fifteen furnished public venues.
+- Reserve five district gathering/combat spaces, preserve canal bridges, services and the citadel, and record every owned replacement and scenery relocation.
+- Add continuous graded paving, fitted foundations, shared-boundary corners, horizontal brick courses and matched Dutch roof/gable profiles.
+- Add isolated campaign-shell candidates, guarded activation, a portable architecture ledger, GM catalog labels and native route/performance diagnostics.
+- Activate revision 61bc85751eac after 100 native views, 139 passed capsule routes, 3,000 ground samples and exact-campaign two-client streaming. Whole-city P95 frame time is 8.27 ms versus 6.77 ms; memory and draw-call costs are documented. Full migration release acceptance remains independently blocked. See docs/unreal-dutch-bastion.md.
+
+## 2026-09-28 - In-game scenario queues and safe city siege
+
+- Move Scenario from login into the main game menu, with same-realm parties, readiness, timed queues and acceptance, 6v6 bot fill and one dedicated server per match.
+- Carry the current character into normalized combat while retaining earned ability unlocks; restore campaign inventory, vitals, cooldowns and validated return positions afterward. Enable ordinary Riftspire entry.
+- Add authenticated development identities, single-use admission with explicit campaign possession release, 120-second reconnect reservations, temporary bot substitution, atomic recovery journals and coordinator restart recovery.
+- Spawn the ram, catapult and four engineers before participants; validate complete hulls, sweep movement and turning, delay occupied crew replacement, and recover unexpected overlaps without damage or forced death.
+- Add player-owned Follow, Attack, Hold and optional-objective orders; correct pedestrian navigation and blocked-path recovery. Refresh the private siege environment from current capital scenery and rebuild both navigation agents.
+- Verify both realms, same-realm party travel and independent orders, two simultaneous instances, reconnect bot substitution, restart recovery, and the rendered convoy route with ownership standards. Keep Steam, external LAN and platform release gates closed; see docs/unreal-scenario-queues.md for evidence and limitations.
+
+## 2026-09-27 - Imported capital and PvE population staging
+
+- Fix silent Scenario connection failures: show progress and actionable errors in the Scenario panel, allow retry after starting the shared host, and coalesce duplicate connection attempts. Add a rendered missing/stopped-host retry regression.
+- Assign all 18 supplied models to capital roles, preserve named services, and define six additional Bastion residents and eight Riftspire inhabitants.
+- Add two friendly and two hostile starter-zone camps with six inhabitants and seven ordinary melee enemies, preserving existing objectives and wildlife.
+- Add private body preparation, per-character supplied-animation recipes, native visual/equipment staging, pose checks, review renders and guarded placement surveying.
+- Preserve equipped source props, separate the Brute axe from its civilian body, support achromatic specular materials, and keep raw imports private. Native placement and gameplay acceptance remain separately gated.
+
+- Native activation is pending explicit approval to reconcile changed Sunmeadow and Cinderfen generated packages; no live population layers were saved.
+
+## 2026-09-27 - Engineer-pushed siege equipment and objective ownership
+
+- Add retained battering ram and field catapult models to the lower-city Scenario escort, with four damageable Greenskin engineers and equipment-specific pushing poses.
+- Drive wheel motion from real travel, animate the ram at the gate, and stop the convoy for missing escort, defenders, dead crew or blocked clearance.
+- Raise authored Riftbound standards at completed main and optional objectives; retain claims through results and reset them for rematches.
+- Add equipment-width navigation, terrain alignment and path-following support vehicles; replicate all four engineers with the convoy.
+- Verify a rendered network route of about 260 metres, crew and escort stops, ram strike continuity, objective banners, 67 native tests and 136 Unreal-tool tests.
+- Add a private asset recipe, exact grip corrections and focused ownership regression coverage. Production acceptance gates remain closed.
+
+## 2026-09-26 - Persistent cursor and target selection
+
+- Keep the cursor visible through gameplay, camera dragging, panel closure, character entry and siege transitions; retire the V cursor toggle.
+- Left-click selects friendly or enemy combatants; middle-click selects the nearest visible enemy and Tab cycles enemies only. Preserve custom bindings and server-side action validation.
+- Surround selected characters with clear, dark-outlined corner reticles: blue for allies and red for enemies. Match the target health frame colors.
+- Add native selection and reticle regression tests and update input-restoration proofs.
+- Verified the Windows Editor build, all 65 native tests, 668 general tests, 132 Unreal tooling tests, type checks and content audits. Inspected both rendered reticle colors; release gates remain closed.
+
+## 2026-09-26 - Scenario menu integration
+
+- Add Scenario to the main frontend and Escape menu, with Aegis defense and Riftbound attack choices.
+- Enter the lower-city lobby in the current game window; one player readies up and bots fill the remaining eleven slots. Preserve the separate two-client test fixture.
+- Own local dedicated-server startup, loopback port allocation, cancellation, connection recovery and cleanup. Leave scenario returns to the main menu; production and remote admission remain closed.
+- Add native menu/admission regression coverage and a rendered menu-to-match-to-menu proof for both realms.
+- Verify both realm choices through rendered menu, lobby, live match and return-to-menu flows; pass 63 native, 668 general and 132 tooling tests, with release gates unchanged.
+
+## 2026-09-26 - Local lower-city siege and combat readability
+
+- Add a lower-city-only 6v6 scenario with breach/timeout results, timed milestones and contested-duration tracking while retaining full-siege defaults.
+- Add server-owned loopback readiness, class selection, results/rematches, round cleanup and a two-client launcher. Keep remote admission and shared GM privileges closed.
+- Assign bot damage squads to optional sabotage, use crowd following and physically clear objective approaches, and prevent dead engineers from advancing objectives. Stall diagnostics distinguish waiting near a leader from failing to reach a goal.
+- Fix occupied-point respawn failures with walkable, capsule-clear nearby placement inside the protected spawn area; defer human respawns when the area is temporarily full. Add a native collision regression test.
+- Add target health/cast presentation and bounded, deduplicated server feedback for damage, effective healing, mitigation and interrupted casts.
+- Improve lobby contrast and focus, show realm-specific class names, move objectives below the radar, label normalized level 40 and keep resource/action messages clear of the ability bar. Target cycling explicitly includes allies.
+- Implement native Summon Idol with an authored Riftspire altar adaptation, bounded lifetime/range, live Feed the Idol empowerment, authoritative placement and owner/round cleanup. Client availability no longer rejects server-only placement checks. Keep the ability unavailable in the retained Node simulator.
+- Add isolated Chaos caster adaptations and supplied-animation recipes while preserving the established four-character coverage history. Remove intersecting hanging cloth, retain fitted armor and correct character-specific staff stow.
+- Review all 160 caster and 25 encounter/idol frames for local development. Admit the exact two caster bindings and six-class lower-city roster through hash-checked evidence; leave both full-siege review flags and global release approval closed.
+- Add twelve-character jump/route verification and native tests for both complete caster kits, idol behavior, client preflight, workshop restrictions, lower-city results and admission boundaries.
+- Add opt-in rendered three-round network automation with normal movement, ability requests, class-changing rematches, screenshots and server movement/health diagnostics. Reports do not claim human playtesting or release approval.
+- Verified three normal-timed two-client rounds and two rematches across all six classes, including both defender hold and attacker gate-breach endings; 63 native tests passed.
+
 ## 2026-09-25 - Thematic login artwork
 
 - Use the supplied Aegis logo, ornate button and window artwork across login, developer-account, creation and character review screens.

@@ -1,5 +1,58 @@
 # AegisWar
 
+[Portal travel and model candidates](docs/unreal-portal-models.md) covers the
+capsule-entry fix, Interact retry, saved-world survey and reference-based Blender
+authoring. Both model variants are installed at all 70 local campaign entrances;
+reference-fidelity, sculpted collision and release acceptance remain unfinished.
+The same guide documents the portal-visual installer and saved-world verifier;
+the campaign must be closed in Unreal before its routing map can be updated.
+
+The [Dutch Bastion revision](docs/unreal-dutch-bastion.md) rebuilds all five
+districts with adjoining gabled brick houses, winding streets, enclosed courts,
+fifteen public venues and deliberate gathering/combat spaces. Shared wall planes
+replace isolated-house spacing. Guarded native revisions preserve services,
+other zones and GM drafts. Revision `d105951f4aab` is active in the default game
+and editor campaign, correcting overlapping floors and exterior corner trim.
+Native review includes 157 city views, 42 supplemental corner views and 139 passed capsule routes.
+Commands, measured performance costs and independent release gates are in the
+revision notes.
+
+The [imported population workflow](docs/unreal-imported-population.md) assigns 18
+supplied character models to both capitals and four starter-zone PvE camps.
+Its shared assignment ledger, private native animation recipes and guarded
+placement survey preserve existing services. Native material, equipped-motion
+and placement review are required before activating new appearances.
+
+Native gameplay keeps the cursor visible: click allies or enemies to select,
+**middle-click** selects the nearest visible enemy, and **Tab** cycles enemies.
+Selected characters have bold blue (friendly) or red (enemy) corner reticles.
+Camera dragging and clickable action bars remain available. See the
+[control and targeting notes](docs/unreal-interface.md#configurable-action-bars-and-edit-ui).
+
+The [lower-city siege playtest](docs/unreal-city-siege.md#lower-city-development-round)
+adds a loopback server/two-client launcher, preparation and rematch UI, separate
+lower-city victory rules, player squad orders and combat feedback. This work
+includes native Summon Idol, fitted caster armor, authored encounter models and
+crowd-aware objective navigation. The six-class roster and encounter assets are
+admitted for local lower-city development after equipped-frame and traversal
+review. Start `npm run scenario:host`, launch the main game and enter your
+character. Keep the host running while playing. If the Scenario panel reports a
+connection failure, start the host and select **Connect / retry** in that panel.
+Open **Escape → Scenario**, ready your party, queue and accept the
+match. Your existing realm, class and equipment carry into a separate 6v6
+instance. **Leave scenario and return** restores your campaign character and
+position. The shared coordinator owns instance allocation and recovery; see
+[scenario queue setup](docs/unreal-scenario-queues.md).
+The lower-city escort includes an authored battering ram and field catapult,
+pushed by four Greenskin engineers. Claimed objectives raise Riftbound standards.
+Equipment models, fitted push poses and ownership bindings are maintained through
+the [siege equipment recipe and route proof](docs/unreal-city-siege.md#siege-equipment-and-ownership).
+For the separate two-client fixture, run `npm run unreal:siege-playtest` and press
+**Ready in both windows**.
+`-- --automated` runs three normal-timed network rounds and rematches;
+`-- --dry-run` inspects the launcher without starting Unreal. Full three-stage
+siege, Steam and release acceptance remain separate and unapproved.
+
 The GM City Builder includes [Remote world sync](docs/unreal-world-sync.md):
 authenticated snapshot publishing and pulls with recovery, undo and revision
 conflict checks. `npm run dev:check` diagnoses the connection. Local Auth is
@@ -7,9 +60,12 @@ configured, but the gateway address, owner login and hosted sync deployment are
 still outstanding; this does not deploy an active game server.
 
 The native [cinematic frontend](docs/unreal-character-entry.md#cinematic-frontend)
-uses live, isolated capital views and equipped character previews. Build its
-private presentation assets with `scripts/unreal/build-frontend-presentation.py`
-through Unreal's Python commandlet after an Editor build. Run
+renders isolated capital snapshots and equipped character previews. Editor builds
+and frontend proofs refresh stale private snapshots from every active capital
+layer, including architecture and population. After saving city edits, close the
+Editor/game and run `npm run unreal:frontend-refresh` before reopening; use
+`-- --check` to check freshness without rebuilding. This tracks saved native
+content, not unsaved edits or live server state. Run
 `npm run unreal:frontend-proof` for offscreen login, selection and transition
 evidence; `-- --width 1280 --height 720` and `-- --width 2560 --height 1080`
 exercise small and ultrawide layouts. Source city maps are never rewritten.
@@ -21,8 +77,8 @@ the supplied files remain unchanged.
 The [Bastion siege runtime](docs/unreal-city-siege.md) adds three-stage rules,
 population scaling, bot squads and local GM controls. Its isolated capital map
 has stage blockades, objective props and navigation through all 17 required
-anchors. Complete equipped rosters and native multiplayer playtest evidence
-remain outstanding; it is not yet a verified playable siege.
+anchors. The lower-city test uses a separate development admission flag; the
+courtyard, commander and larger-population siege remain unapproved.
 
 Native Unreal Engine **5.8.2** fantasy RPG: Aegis Accord versus Riftbound Host.
 The browser application is retired. Node/TypeScript remains for shared content,
@@ -168,3 +224,5 @@ snapshots and unfinished asset-worktree candidates remain private under ignored
 `artifacts/retirement-recovery/`; keep the original worktrees until their remaining
 local material is reviewed. These same-disk snapshots do not protect against disk
 loss and should be copied to encrypted off-device storage.
+
+Scenario queue architecture, local-host setup and acceptance guidance: [In-game scenario queues](docs/unreal-scenario-queues.md).

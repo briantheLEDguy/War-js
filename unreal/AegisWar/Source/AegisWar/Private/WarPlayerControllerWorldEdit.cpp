@@ -26,8 +26,8 @@ void AWarPlayerController::ToggleWorldEditor()
     if (!IsLocalController() || !GetLocalPlayer() || !LastEntryFailure.IsEmpty()) return;
     if (WorldEditWidget && WorldEditWidget->IsInViewport())
     {
-        WorldEditWidget->RemoveFromParent(); SetInputMode(FInputModeGameOnly());
-        bShowMouseCursor = false; return;
+        WorldEditWidget->RemoveFromParent(); RestoreGameplayInput();
+        bShowMouseCursor = true; return;
     }
     auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
     FString Error;

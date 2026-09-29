@@ -18,6 +18,7 @@ void AWarPlayerController::PlayerTick(float DeltaTime)
 {
     Super::PlayerTick(DeltaTime);
     if (!IsLocalController() || !GetLocalPlayer()) return;
+    TickSiegeLobby();
     if (bEditingUi && IsMoveInputIgnored()) { bEditingUi = false; SaveActionBars(); }
     const auto* LocalCharacter = Cast<AWarCharacter>(GetPawn());
     if (!bWorldPublicationRestored && LocalCharacter && LocalCharacter->IsVisualReady())
@@ -43,7 +44,7 @@ void AWarPlayerController::PlayerTick(float DeltaTime)
 void AWarPlayerController::BindActionBarKeys()
 {
     InputComponent->BindKey(GetControlKey(TEXT("CycleTarget")), IE_Pressed, this, &AWarPlayerController::CycleCombatTarget);
-    InputComponent->BindKey(GetControlKey(TEXT("ActionCursor")), IE_Pressed, this, &AWarPlayerController::ToggleActionCursor);
+    InputComponent->BindKey(GetControlKey(TEXT("NearestEnemy")), IE_Pressed, this, &AWarPlayerController::TargetNearestEnemy);
     for (const auto& Bar : GetActionBars()) for (int32 Button = 0; Button < Bar.Buttons; ++Button)
     {
         const int32 Slot = Bar.Slot(Button);
@@ -137,24 +138,60 @@ AActor* AWarPlayerController::GetCombatTarget() const
     return IsCombatTarget(CombatTarget.Get()) ? CombatTarget.Get() : nullptr;
 }
 
-void AWarPlayerController::CycleCombatTarget()
+bool AWarPlayerController::IsEnemyCombatTarget(const AActor* Target) const
 {
-    if (IsMoveInputIgnored() || !GetPawn()) return;
+    if (!IsCombatTarget(Target)) return false;
+    if (Cast<AWarEnemy>(Target)) return true;
+    const auto* Other = CastChecked<AWarCharacter>(Target)->GetPlayerState<AWarPlayerState>();
+    return Other->GetRealm() != GetPlayerState<AWarPlayerState>()->GetRealm();
+}
+
+TArray<AActor*> AWarPlayerController::GetEnemyTargets() const
+{
     TArray<AActor*> Targets;
+    if (!GetPawn()) return Targets;
     for (TActorIterator<APawn> It(GetWorld()); It; ++It)
-        if (IsCombatTarget(*It) && LineOfSightTo(*It)) Targets.Add(*It);
+        if (IsEnemyCombatTarget(*It) && LineOfSightTo(*It)) Targets.Add(*It);
     Targets.Sort([this](const AActor& A, const AActor& B) {
         const double DA = FVector::DistSquared(A.GetActorLocation(), GetPawn()->GetActorLocation());
         const double DB = FVector::DistSquared(B.GetActorLocation(), GetPawn()->GetActorLocation());
         return DA == DB ? A.GetUniqueID() < B.GetUniqueID() : DA < DB;
     });
+    return Targets;
+}
+
+void AWarPlayerController::CycleCombatTarget()
+{
+    if (IsMoveInputIgnored() || IsWorldEditorOpen() || bEditingUi || !GetPawn()) return;
+    const auto Targets = GetEnemyTargets();
     CombatTarget = Targets.IsEmpty() ? nullptr : Targets[(Targets.IndexOfByKey(GetCombatTarget()) + 1) % Targets.Num()];
+}
+
+void AWarPlayerController::TargetNearestEnemy()
+{
+    if (IsMoveInputIgnored() || IsWorldEditorOpen() || bEditingUi || !GetPawn()) return;
+    const auto Targets = GetEnemyTargets();
+    CombatTarget = Targets.IsEmpty() ? nullptr : Targets[0];
+}
+
+bool AWarPlayerController::SelectCombatTarget(AActor* Target)
+{
+    if (IsMoveInputIgnored() || IsWorldEditorOpen() || bEditingUi || !IsCombatTarget(Target) || !LineOfSightTo(Target)) return false;
+    CombatTarget = Target;
+    return true;
+}
+
+void AWarPlayerController::SelectCombatTargetUnderCursor()
+{
+    if (IsMoveInputIgnored() || IsWorldEditorOpen() || bEditingUi) return;
+    FHitResult Hit;
+    if (GetHitResultUnderCursor(ECC_Visibility, false, Hit)) SelectCombatTarget(Hit.GetActor());
 }
 
 FString AWarPlayerController::GetCombatTargetLabel() const
 {
     const auto* Target = GetCombatTarget();
-    if (!Target) return TEXT("No target - ") + GetControlKey(TEXT("CycleTarget")).GetDisplayName().ToString() + TEXT(" selects a nearby combatant");
+    if (!Target) return TEXT("Click an ally or enemy | ") + GetControlKey(TEXT("CycleTarget")).GetDisplayName().ToString() + TEXT(" cycles enemies");
     FString Name; float Health = 0, Max = 0;
     if (const auto* Enemy = Cast<AWarEnemy>(Target))
     { Name = Enemy->GetDefinition().Name; Health = Enemy->GetHealth(); Max = Enemy->GetDefinition().MaxHealth; }
@@ -162,14 +199,6 @@ FString AWarPlayerController::GetCombatTargetLabel() const
         if (const auto* State = TargetPlayer->GetPlayerState<AWarPlayerState>())
         { Name = State->GetPlayerName(); if (const auto* Stats = State->GetAttributes()) { Health = Stats->GetHealth(); Max = Stats->GetMaxHealth(); } }
     return FString::Printf(TEXT("%s   %.0f / %.0f HP   |   %.1f m"), *Name, Health, Max, FVector::Distance(Target->GetActorLocation(), GetPawn()->GetActorLocation()) / 100);
-}
-
-void AWarPlayerController::ToggleActionCursor()
-{
-    if (IsWorldEditorOpen() || bEditingUi || IsMoveInputIgnored() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
-    bShowMouseCursor = !bShowMouseCursor;
-    if (bShowMouseCursor) { FInputModeGameAndUI Mode; Mode.SetHideCursorDuringCapture(false); SetInputMode(Mode); }
-    else SetInputMode(FInputModeGameOnly());
 }
 
 FWarActionSlotView AWarPlayerController::GetActionSlotView(int32 Slot)
@@ -194,8 +223,11 @@ FWarActionSlotView AWarPlayerController::GetActionSlotView(int32 Slot)
         View.bAvailable = Runtime->CanActivate(*Ability, GetCombatTarget(), Reason, false);
         if (!Reason.IsEmpty()) View.Detail += TEXT("\n") + Reason;
         View.Footer = !Ability->UnavailableReason.IsEmpty() ? TEXT("Unavailable")
-            : State->GetCombatLevel() < Ability->UnlockLevel ? FString::Printf(TEXT("Level %d"), Ability->UnlockLevel)
+            : State->GetAbilityUnlockLevel() < Ability->UnlockLevel ? FString::Printf(TEXT("Level %d"), Ability->UnlockLevel)
             : FString::Printf(TEXT("%.0f mana"), Ability->Mana);
+        if (!View.bAvailable && View.Cooldown <= 0 && !Reason.IsEmpty()
+            && Ability->UnavailableReason.IsEmpty() && State->GetAbilityUnlockLevel() >= Ability->UnlockLevel)
+            View.Footer = Ability->bEnemyTarget && !GetCombatTarget() ? TEXT("No target") : TEXT("Not ready");
     }
     else if (Action == TEXT("strike"))
     {

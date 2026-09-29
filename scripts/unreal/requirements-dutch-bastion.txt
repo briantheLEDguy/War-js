@@ -1,0 +1,2 @@
+# Offline planning only; native/runtime scripts use the standard library.
+shapely==2.1.2

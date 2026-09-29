@@ -119,17 +119,27 @@ TSharedRef<SWidget> UWarActionBarWidget::RebuildWidget()
         })[SNew(SScaleBox).Stretch(EStretch::ScaleToFit)
             [SNew(SBox).WidthOverride(WarAbilityBarLayout::Size(Bar.Buttons).X).HeightOverride(WarAbilityBarLayout::Size(Bar.Buttons).Y)[Column]]];
     }
-    Root->AddSlot().Anchors(FAnchors(0.5f, 0)).Alignment(FVector2D(0.5, 0)).Offset(FMargin(0, 12, 620, 90))
+    Root->AddSlot().Anchors(FAnchors(0.5f, 0)).Alignment(FVector2D(0.5, 0)).Offset_Lambda([Weak,WeakRoot] {
+        if (!Weak.IsValid() || !WeakRoot.IsValid()) return FMargin(0);
+        const FVector2D View=WeakRoot.Pin()->GetCachedGeometry().GetLocalSize();
+        double Top=View.Y-320;
+        // Use the same logical geometry as the primary bar, including viewport DPI.
+        for (const auto& Bar:Weak->GetActionBars()) if (Bar.Id==0)
+        { Top=Bar.Position.Y*FMath::Max(0.,View.Y-BarSize(View,Bar.Buttons).Y)-80; break; }
+        return FMargin(0,FMath::Max(8.,Top),FMath::Min(620.,View.X-24),80);
+    })
+        [SNew(SBorder).BorderImage(FCoreStyle::Get().GetBrush("WhiteBrush"))
+            .BorderBackgroundColor(FLinearColor(.018f,.014f,.01f,.9f)).Padding(8)
         [SNew(SVerticalBox)
             + SVerticalBox::Slot().AutoHeight()[SNew(STextBlock).Justification(ETextJustify::Center).ColorAndOpacity(WarInterfaceStyle::Gold)
+                .Font(FCoreStyle::GetDefaultFontStyle("Bold",16))
                 .Text_Lambda([Weak] { return FText::FromString(Weak.IsValid() ? Weak->GetClassAbilityStatus() : FString()); })]
-            + SVerticalBox::Slot().AutoHeight()[SNew(STextBlock).Justification(ETextJustify::Center).ColorAndOpacity(WarInterfaceStyle::Gold)
-                .Text_Lambda([Weak] { return FText::FromString(Weak.IsValid() ? Weak->GetCombatTargetLabel() : FString()); })]
             + SVerticalBox::Slot().AutoHeight()[SNew(STextBlock).Justification(ETextJustify::Center).AutoWrapText(true)
+                .Font(FCoreStyle::GetDefaultFontStyle("Regular",14)).ColorAndOpacity(WarInterfaceStyle::Text)
                 .Text_Lambda([Weak] { return FText::FromString(Weak.IsValid() ? Weak->GetActionMessage() : FString()); })]
             + SVerticalBox::Slot().AutoHeight()[SNew(SButton).IsFocusable(false).HAlign(HAlign_Center)
                 .Visibility_Lambda([Weak] { return Weak.IsValid() && Weak->IsEditingUi() ? EVisibility::Visible : EVisibility::Collapsed; })
                 .OnClicked_Lambda([Weak] { if (Weak.IsValid()) Weak->SetEditingUi(false); return FReply::Handled(); })
-                [SNew(STextBlock).Text(FText::FromString(TEXT("DONE - SAVE UI LAYOUT")))]]];
+                [SNew(STextBlock).Text(FText::FromString(TEXT("DONE - SAVE UI LAYOUT")))]]]];
     return Root;
 }

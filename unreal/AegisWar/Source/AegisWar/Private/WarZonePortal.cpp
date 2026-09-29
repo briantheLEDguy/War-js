@@ -15,6 +15,8 @@
 AWarZonePortal::AWarZonePortal()
 {
     bReplicates = true;
+    PrimaryActorTick.bCanEverTick = true;
+    PrimaryActorTick.TickInterval = 0.1f;
     Trigger = CreateDefaultSubobject<USphereComponent>(TEXT("PortalTrigger"));
     SetRootComponent(Trigger);
     Trigger->SetCollisionProfileName(TEXT("Trigger"));
@@ -51,8 +53,41 @@ double AWarZonePortal::CapsuleGroundOffset(double HalfHeight, double CapsuleRadi
     return HalfHeight + CapsuleRadius * (1.0 / FMath::Clamp(NormalZ, 0.7, 1.0) - 1.0) + 5.0;
 }
 
+bool AWarZonePortal::IsWithinEntryRange(const AActor* Actor) const
+{
+    return IsValid(Actor) && FVector::DistSquared(Actor->GetActorLocation(), GetActorLocation())
+        <= FMath::Square(Trigger->GetScaledSphereRadius());
+}
+
+void AWarZonePortal::AttemptEntry(AWarCharacter* Character)
+{
+    if (!HasAuthority() || !IsWithinEntryRange(Character) || AttemptedInside.Contains(Character)) return;
+    if (!Character->GetController() || !Character->IsVisualReady() || Character->IsDead()) return;
+    AttemptedInside.Add(Character);
+    FString Error;
+    if (!TryTraverse(Character, Error))
+        if (auto* Player = Cast<AWarPlayerController>(Character->GetController())) Player->ClientZoneTravelStatus(Error);
+}
+
+void AWarZonePortal::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    if (!HasAuthority() || !GetActorEnableCollision()) return;
+    for (auto It = AttemptedInside.CreateIterator(); It; ++It)
+        if (!IsWithinEntryRange(It->Get())) It.RemoveCurrent();
+    for (auto It = AllowedAfter.CreateIterator(); It; ++It)
+        if (!It.Key().IsValid() || It.Value() < GetWorld()->GetTimeSeconds()) It.RemoveCurrent();
+    // Capsule contact precedes center entry. BeginOverlap alone misses walking farther
+    // into the sphere; player polling also covers levels loaded around an existing pawn.
+    for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+        if (auto* Player = It->Get()) AttemptEntry(Cast<AWarCharacter>(Player->GetPawn()));
+}
+
 bool AWarZonePortal::TryTraverse(AWarCharacter* Character, FString& Error)
 {
+    if (const auto* State = Character ? Character->GetPlayerState<AWarPlayerState>() : nullptr;
+        State && State->IsScenarioTransferPending())
+    { Error = TEXT("Scenario departure is in progress."); return false; }
     const auto* Mode = GetWorld()->GetAuthGameMode<AWarGameMode>();
     const double Now = GetWorld()->GetTimeSeconds();
     if (!Character || !Character->GetController() || !CanEnter(HasAuthority(), Mode && Mode->IsDevelopmentSession(),
@@ -114,14 +149,5 @@ bool AWarZonePortal::TryTraverse(AWarCharacter* Character, FString& Error)
 void AWarZonePortal::Enter(UPrimitiveComponent* Component, AActor* Other, UPrimitiveComponent* OtherComponent,
     int32 BodyIndex, bool bSweep, const FHitResult& Hit)
 {
-    if (!HasAuthority()) return;
-    for (auto It = AllowedAfter.CreateIterator(); It; ++It)
-        if (!It.Key().IsValid() || It.Value() < GetWorld()->GetTimeSeconds()) It.RemoveCurrent();
-    FString Error;
-    if (auto* Character = Cast<AWarCharacter>(Other))
-        if (!TryTraverse(Character, Error))
-        {
-            if (auto* Player = Cast<AWarPlayerController>(Character->GetController())) Player->ClientZoneTravelStatus(Error);
-            UE_LOG(LogTemp, Verbose, TEXT("Portal %s: %s"), *RouteId.ToString(), *Error);
-        }
+    AttemptEntry(Cast<AWarCharacter>(Other));
 }

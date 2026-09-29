@@ -6546,6 +6546,66 @@
       "attackDamage": 14,
       "moveSpeed": 3.85,
       "assetKey": "creature_rift_hound"
+    },
+    {
+      "id": "ashen_steppe_import_cultist_camp_1",
+      "name": "Ashen oathbreaker",
+      "x": 170,
+      "z": -140,
+      "characterProfileKey": "npc_import_cultist",
+      "level": 3,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 13,
+      "moveSpeed": 3.25
+    },
+    {
+      "id": "ashen_steppe_import_cultist_camp_2",
+      "name": "Ashen oathbreaker",
+      "x": 174,
+      "z": -140,
+      "characterProfileKey": "npc_import_cultist",
+      "level": 3,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 13,
+      "moveSpeed": 3.25
+    },
+    {
+      "id": "ashen_steppe_import_cultist_camp_3",
+      "name": "Ashen oathbreaker",
+      "x": 170,
+      "z": -136,
+      "characterProfileKey": "npc_import_cultist",
+      "level": 3,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 13,
+      "moveSpeed": 3.25
+    },
+    {
+      "id": "ashen_steppe_import_cultist_camp_4",
+      "name": "Ashen enforcer",
+      "x": 174,
+      "z": -136,
+      "characterProfileKey": "npc_import_maw",
+      "level": 3,
+      "maxHealth": 150,
+      "archetype": "raider",
+      "aggroRange": 15,
+      "attackRange": 2.8,
+      "preferredRange": 2.2,
+      "attackDamage": 13,
+      "moveSpeed": 3.25
     }
   ],
   "resourceNodes": [
@@ -14233,5 +14293,5 @@
       }
     ]
   },
-  "staticMapHash": "a59203802adc4e31"
+  "staticMapHash": "3cef84038a3cf77b"
 }

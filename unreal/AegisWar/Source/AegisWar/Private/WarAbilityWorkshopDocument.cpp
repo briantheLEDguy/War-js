@@ -206,7 +206,7 @@ bool FWarAbilityWorkshopDocument::Compile(const TSharedPtr<const FJsonObject>& W
         if (Array(A,TEXT("effects")).Num()>32) return Fail(TEXT("At most 32 effects per ability."));
         for (const auto& Entry : Array(A,TEXT("effects")))
         { FWarAbilityEffect E; if (!WarAbilityConditions::ParseEffect(Entry->AsObject(),E,Error)) return false; if (Effects.Contains(E.Id)) return Fail(TEXT("Duplicate effect identity.")); Effects.Add(E.Id);
-          if (E.Kind==TEXT("wrath_relic") && Id!=TEXT("battle_prelate.icon_of_wrath")) return Fail(TEXT("New relic authoring is not admitted.")); Reference.Effects.Add(E); }
+          if (E.Kind==TEXT("wrath_relic") && Id!=TEXT("battle_prelate.icon_of_wrath")) return Fail(TEXT("New relic authoring is not admitted.")); if (E.Kind==TEXT("warp_idol") && (Id!=TEXT("void_magister.summon_idol") || E.Recipient!=TEXT("caster"))) return Fail(TEXT("Idol execution is reserved for Summon Idol on its caster.")); Reference.Effects.Add(E); }
         const auto Target=Object(A,TEXT("targeting"));
         if (!Target || Number(Target,TEXT("range"),-1)<0 || Number(Target,TEXT("range"))>200 || Number(Target,TEXT("radius"))>100)
             return Fail(TEXT("Target range/radius exceeds admitted limits."));

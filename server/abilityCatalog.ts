@@ -5,8 +5,8 @@ import type { AbilityEffect, AbilityEffectKind } from '../shared/game/abilities/
 export function campaignAbilityRules(): AbilityRule[] {
   return Object.values(CAREER_ABILITY_KITS).flatMap(kit => kit.abilities.map(ability => ({
     id: ability.id, cooldownSeconds: ability.cooldownSec, range: ability.targeting.range,
-    // The retained Node simulator cannot execute native relic actors; deployables remain unavailable below.
-    targeting: ability.targeting, effects: ability.effects.filter((effect): effect is AbilityEffect & { kind: Exclude<AbilityEffectKind, 'wrath_relic'> } => effect.kind !== 'wrath_relic'), resource: ability.resource, gcdSeconds: ability.gcdSec,
+    // Native actor deployables remain unavailable in the retained Node simulator.
+    targeting: ability.targeting, effects: ability.effects.filter((effect): effect is AbilityEffect & { kind: Exclude<AbilityEffectKind, 'wrath_relic' | 'warp_idol'> } => effect.kind !== 'wrath_relic' && effect.kind !== 'warp_idol'), resource: ability.resource, gcdSeconds: ability.gcdSec,
     impactDelaySeconds: ability.animation.contactSec ?? (() => {
       const window = ability.animation.notifyWindows.find(entry => entry.name === 'release')
         ?? ability.animation.notifyWindows.find(entry => entry.name === 'active') ?? ability.animation.notifyWindows[0];

@@ -4,6 +4,26 @@ The controller-owned UMG/Slate shell uses shared charcoal/gold styling and serve
 
 ## Controls and options
 
+Combat feedback includes a centered target frame with public
+health and server-timed cast progress, and moves class/action messages above the
+bars to separate them from siege objectives. Casts advertise interruptibility
+through the existing stagger behavior; this is not a guarantee that every
+interrupt skill is currently usable. Action cells use short availability labels;
+their tooltips retain the full server-validation reason. Client deployable
+availability remains advisory; the server alone validates placement.
+
+Combat notices come from authoritative health/status outcomes and go only to
+involved player controllers. They expire after three seconds, retain at most six
+rows, reject duplicated/out-of-order serials and cap transmission at twenty per
+second per controller. Healing reports effective health restored; mitigation is
+labelled Guarded rather than inventing a block roll. Cast display exposes no
+private resource or cooldown data. The rebuilt Editor and 63 native foundation
+tests pass, including combat-notice bounds and deduplication. The siege lobby has
+an opaque dark surface, readable realm-specific class buttons and keyboard focus.
+Live objectives sit below the radar, leaving the center clear. The full roster
+appears in preparation/results, and siege vitals explicitly show normalized
+level 40. See the siege playtest document for current multiplayer evidence.
+
 Defaults: Escape menu/resume, M map, C character, I inventory/crafting, L quests, H/F1 guide, F2 GM tools, G builder, E interaction. Options > Keyboard & mouse bindings changes native actions and saves immediately. Escape and F1 remain reserved; conflicts are rejected. Click an action, then press a key or mouse button. Wheel zoom is fixed. Guide controls describe defaults.
 
 Camera look/zoom sensitivity, inversion and volume save immediately. The shared [Graphics page](unreal-graphics-settings.md) is available from character entry and Options. It adds display modes and supported resolutions alongside quality, view distance, render scale, VSync and frame cap, with draft editing, timed confirmation, rollback and startup recovery. Touch controls and automatic dynamic resolution remain unfinished. Panels do not pause the world. One gameplay panel owns input capture; entry errors retain their separate input block.
@@ -68,9 +88,15 @@ Open Escape > UI Settings (also under Options). Add any number of bars and selec
 
 Edit UI closes the menu and shows gold drag handles. Drag bars and click Done or press Escape to save and return to UI Settings. Normalized positions keep bars within the viewport after resolution changes. Bars can overlap by choice. Resizing preserves assignments and keys for hidden buttons; those keys remain reserved but hidden buttons do not execute. Removal releases the keys. There is no fixed application bar-count limit.
 
-Tab cycles visible nearby hostile NPC/player targets; V enables cursor interaction with bars. Actions and target state remain subject to server validation. Basic strike reads its real GAS cooldown and mana/range requirements; potion shortcuts find a matching item in bag-slot order and use the existing revision-checked inventory RPC. Class kits, resources, global cooldowns and effects are now connected; see [native abilities](unreal-abilities.md). Multiple target frames and chat/social remain outside this migration.
+The cursor stays visible during gameplay, camera dragging, and panel transitions; the old V cursor toggle is retired. Left-click selects a friendly or hostile combatant under the pointer. Tab cycles only visible nearby enemies (NPCs and opposing-realm players); middle-click always selects the nearest visible enemy. Both enemy shortcuts clear selection when no eligible enemy exists. Custom key bindings remain supported.
 
-Implementation: WarActionBarWidget builds the bar buttons and drag handles; WarPlayerControllerActionBar handles targeting and activation; WarPlayerControllerUiLayout owns stable bar IDs and layout persistence in AegisWar.ActionBar and action assignments in AegisWar.ClassActionBar.<career>; WarPlayerControllerControls saves individual keys in AegisWar.Controls. WarActionBarTests uses a disposable config to cover creation, resizing, reload, conflicts, removal and unavailable actions. The opt-in interface proof includes UI Settings, Edit UI and the live HUD.
+Selected characters have open corner brackets around their projected body bounds: blue for allies, red for enemies, with a dark outline for contrast. Brackets track the model without covering it, stay readable at different distances, and disappear when the target becomes invalid, occluded or offscreen. The health frame uses the same faction colors.
+
+Actions and target state remain subject to server validation. Basic strike reads its real GAS cooldown and mana/range requirements; potion shortcuts find a matching item in bag-slot order and use the existing revision-checked inventory RPC. Class kits, resources, global cooldowns and effects are now connected; see [native abilities](unreal-abilities.md). Multiple target frames and chat/social remain outside this migration.
+
+Implementation: WarActionBarWidget builds the bar buttons and drag handles; WarPlayerControllerActionBar handles targeting and activation; WarPlayerControllerUiLayout owns stable bar IDs and layout persistence in AegisWar.ActionBar and action assignments in AegisWar.ClassActionBar.<career>; WarPlayerControllerControls saves individual keys in AegisWar.Controls. Run `npx tsx scripts/unreal/targeting-proof.ts` after an Editor build to capture both reticle colors and verify pointer selection and panel closure in an isolated development fixture. WarTargetingTests covers enemy cycling, nearest selection, ally selection, modal/visibility/range/zone exclusions and reticle geometry/colors. WarActionBarTests uses a disposable config to cover creation, resizing, reload, conflicts, removal and unavailable actions. The opt-in interface proof includes UI Settings, Edit UI and the live HUD.
+
+Targeting verification (2026-09-26): the standard Windows Editor build and all 65 native tests passed, along with 668 general tests, 132 tooling tests, all three type checks and the required content audits. The isolated rendered fixture verified nearest-enemy selection, ally selection under the pointer, enemy-only cycling and cursor restoration after panel closure. Both 1920 x 1080 reticle captures were visually inspected in `artifacts/unreal/targeting/ea91aa8c-fc22-4aa8-93cd-ebdc4bf2f819/`. Release checking remains blocked as required.
 
 Action-bar verification (2026-09-22): Windows Editor and Game builds passed; 39 native automation groups, 94 tooling tests, the required migration audit and tooling typecheck passed. The full rendered proof passed with 10-, 5- and 1-button bars using a separate preferences file. Real Slate pointer routing verified movement, saved position and mouse release, then restored the fixture position. Final UI Settings/Edit UI/HUD screenshots were inspected and copied to artifacts/unreal/action-bars/. Add -WarActionBarProof to the normal proof flags for a focused drag check. That historical proof predates the class-ability integration; three-platform/Steam release acceptance remains unfinished.
 
@@ -81,3 +107,14 @@ The six PNGs in `unreal/AegisWar/graphics-new/` are copied unchanged to `Content
 `WarQuestHud` loads `healthbar.png` and `minimap.png` once into retained textures. Replicated health, mana and XP fill the three tracks; the radar retains its live service and player markers. Inventory, quest log, city services and world builder use `window.png` with fixed corners and expandable rails/interior. The earlier `menuback.png` remains on entry and main menus. No supplied images are regenerated or destructively cropped. Native `UiArtwork` automation checks all six runtime PNGs decode at their expected UV source dimensions and match the supplied bytes. `AbilityArtworkLayout` verifies equal square interiors, adjoining rails, contained ornaments and viewport fit for 1-10 buttons.
 
 Artwork verification (2026-09-22): Windows Editor and Game builds passed, together with 43 native automation groups, 97 tooling tests, tooling typecheck and migration audit. The final full rendered interface proof passed, including Slate bar drag/save/release. HUD, Edit UI and tall builder screenshots were inspected and saved under `artifacts/unreal/ui-art/`. All six runtime PNG hashes match their supplied originals. These checks do not establish packaged, Steam or three-platform acceptance; full UI parity remains false.
+
+## Scenario menu
+
+The main frontend and Escape field menu include **Scenario**. Select Aegis
+defense or Riftbound attack to enter the lower-city 6v6 lobby in the current
+window, choose a class and press Ready. Bots fill the other eleven slots.
+Leave scenario returns to the main menu and closes the owned local server.
+Entering from a development campaign leaves that session; its selection page
+explains the session-only character limitation. See
+[the siege guide](unreal-city-siege.md#lower-city-development-round) for launch,
+cleanup and verification details. Production Steam admission remains gated.

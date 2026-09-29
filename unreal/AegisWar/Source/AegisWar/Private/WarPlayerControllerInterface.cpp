@@ -1,5 +1,8 @@
 #include "WarPlayerController.h"
 #include "WarInterfaceWidget.h"
+#include "WarScenarioSession.h"
+#include "WarFrontendWidget.h"
+#include "Engine/GameInstance.h"
 #include "WarInventoryWidget.h"
 #include "WarQuestLogWidget.h"
 #include "WarWorldEditWidget.h"
@@ -13,6 +16,7 @@ void AWarPlayerController::BeginPlay()
 {
     Super::BeginPlay();
     if (!IsLocalController()) return;
+    RestoreGameplayInput();
     float Look = 1, Zoom = 1;
     bool InvertX = false, InvertY = false;
     GConfig->GetFloat(TEXT("AegisWar.Interface"), TEXT("LookSensitivity"), Look, GGameUserSettingsIni);
@@ -43,10 +47,10 @@ void AWarPlayerController::CloseInterface()
 {
     if (!IsInterfaceOpen()) return;
     InterfaceWidget->RemoveFromParent();
-    SetInputMode(FInputModeGameOnly());
+    RestoreGameplayInput();
     SetIgnoreMoveInput(false);
     SetIgnoreLookInput(false);
-    bShowMouseCursor = false;
+    bShowMouseCursor = true;
 }
 
 bool AWarPlayerController::CloseAllPanels()
@@ -62,13 +66,15 @@ bool AWarPlayerController::CloseAllPanels()
         { SetIgnoreMoveInput(false); SetIgnoreLookInput(false); }
         Closed = true;
     }
-    if (Closed) { SetInputMode(FInputModeGameOnly()); bShowMouseCursor = false; }
+    if (Closed) { RestoreGameplayInput(); bShowMouseCursor = true; }
     return Closed;
 }
 
 void AWarPlayerController::ShowInterface(FName Page)
 {
-    if (!IsLocalController() || !GetLocalPlayer() || !GetPawn() || !LastEntryFailure.IsEmpty()) return;
+    const bool Recovering=Page==TEXT("Scenario") && GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioSession>()->IsRunning();
+    if (!IsLocalController() || !GetLocalPlayer() || (!Recovering && (!GetPawn() || !LastEntryFailure.IsEmpty()))) return;
+    if (Recovering && FrontendWidget) FrontendWidget->RemoveFromParent();
     if (IsInterfaceOpen()) { InterfaceWidget->ShowPage(Page); return; }
     CloseAllPanels();
     if (!InterfaceWidget) InterfaceWidget = CreateWidget<UWarInterfaceWidget>(this);

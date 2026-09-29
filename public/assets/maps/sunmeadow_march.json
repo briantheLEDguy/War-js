@@ -25597,6 +25597,33 @@
       "x": -374,
       "z": -317,
       "rotY": 1.5707963267948966
+    },
+    {
+      "id": "sunmeadow_march_import_supply_outpost_1",
+      "name": "Supply sentry",
+      "x": -395,
+      "z": -300,
+      "characterProfileKey": "npc_import_guard02",
+      "role": "guard",
+      "rotY": 0
+    },
+    {
+      "id": "sunmeadow_march_import_supply_outpost_2",
+      "name": "Supply sentry",
+      "x": -391,
+      "z": -300,
+      "characterProfileKey": "npc_import_guard02",
+      "role": "guard",
+      "rotY": 3.141592653589793
+    },
+    {
+      "id": "sunmeadow_march_import_supply_outpost_3",
+      "name": "Supply porter",
+      "x": -395,
+      "z": -296,
+      "characterProfileKey": "npc_import_brute",
+      "role": "ambient",
+      "rotY": 0
     }
   ],
   "craftingStations": [
@@ -34689,5 +34716,5 @@
       }
     ]
   },
-  "staticMapHash": "3f90fd236f8c09b8"
+  "staticMapHash": "54fa461c0247f75b"
 }

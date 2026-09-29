@@ -16,6 +16,9 @@ public:
 private:
     void Finish(bool Passed, const FString& Detail);
     void TickWorldBuilder(double Now);
+    void TickTargeting(double Now);
+    TWeakObjectPtr<AActor> FriendlyTarget;
+    TWeakObjectPtr<AActor> EnemyTarget;
     FVector BuilderStart;
     FName BuilderTemplate;
     int32 BuilderObjectCount = 0;

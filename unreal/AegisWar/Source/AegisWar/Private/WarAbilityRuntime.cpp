@@ -5,7 +5,9 @@
 #include "WarAttributeSet.h"
 #include "WarSiegeGameMode.h"
 #include "WarCombatStatus.h"
+#include "WarCombatFeedback.h"
 #include "WarWrathRelic.h"
+#include "WarWarpIdol.h"
 #include "WarAbilityExecution.h"
 #include "AbilitySystemComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -41,6 +43,9 @@ void UWarAbilityRuntime::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, BusyUntil, COND_OwnerOnly);
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, Cooldowns, COND_OwnerOnly);
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, Casting, COND_OwnerOnly);
+    DOREPLIFETIME(UWarAbilityRuntime, PublicCastLabel);
+    DOREPLIFETIME(UWarAbilityRuntime, PublicCastStart);
+    DOREPLIFETIME(UWarAbilityRuntime, PublicCastEnd);
 }
 double UWarAbilityRuntime::Now() const
 { const auto* State = GetWorld()->GetGameState(); return State ? State->GetServerWorldTimeSeconds() : GetWorld()->GetTimeSeconds(); }
@@ -68,10 +73,10 @@ bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Tar
 {
     Error.Reset(); const auto* Pawn = Avatar(); const auto* State = Cast<AWarPlayerState>(GetOwner());
     const auto Fail = [&Error](const FString& Message) { Error = Message; return false; };
-    if (!Pawn || !State || !Pawn->IsVisualReady() || Pawn->IsDead() || Pawn->IsDevelopmentFlying()) return Fail(TEXT("Character is not ready for combat."));
+    if (!Pawn || !State || State->IsScenarioTransferPending() || !Pawn->IsVisualReady() || Pawn->IsDead() || Pawn->IsDevelopmentFlying()) return Fail(TEXT("Character is not ready for combat."));
     if (A.Career != Career || Career != Pawn->GetCareerId()) return Fail(TEXT("This ability belongs to another class."));
     if (!A.UnavailableReason.IsEmpty()) return Fail(A.UnavailableReason);
-    if (State->GetCombatLevel() < A.UnlockLevel) return Fail(FString::Printf(TEXT("Unlocks at level %d."), A.UnlockLevel));
+    if (State->GetAbilityUnlockLevel() < A.UnlockLevel) return Fail(FString::Printf(TEXT("Unlocks at level %d."), A.UnlockLevel));
     if (Cooldown(A.Id) > 0 || IsBusy() || Pawn->IsActionPlaying()) return Fail(TEXT("Wait for the current action or cooldown."));
     const auto* Status = UWarCombatStatus::On(Pawn);
     TArray<FName> Cleanses;
@@ -85,8 +90,11 @@ bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Tar
         && A.Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("heal"); })
         && !SiegeAlly(Pawn, Cast<AWarCharacter>(Target), 2000)) return Fail(TEXT("Select a living allied siege participant within 20 metres and line of sight."));
     if (Pawn->GetCharacterMovement()->IsFalling()) return Fail(TEXT("Land before starting this action."));
-    if (A.Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("wrath_relic"); }))
+    // Placement needs the authoritative collision world; client availability is advisory.
+    if (Pawn->HasAuthority() && A.Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("wrath_relic"); }))
     { FVector Position; if (!AWarWrathRelic::Placement(Pawn, Position, Error)) return false; }
+    if (Pawn->HasAuthority() && A.Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("warp_idol"); }))
+    { FVector Position; if (!AWarWarpIdol::Placement(Pawn, Position, Error)) return false; }
     const FName PresentationId=WarAbilities::Motion(A,Pawn->GetAnimationProfile());
     if (const auto* Recipe=Pawn->GetAbilityPresentation(PresentationId))
     { for (FName Role : Recipe->VariantRoles) if (Pawn->GetAbilityAnimationDuration(Role)<=0) return Fail(TEXT("Required presentation animation is missing.")); }
@@ -204,6 +212,7 @@ void UWarAbilityRuntime::BeginMotion(const FWarAbilityDefinition& A)
         if (Presentation->Movement == TEXT("leap")) Pawn->GetCharacterMovement()->SetMovementMode(MOVE_Flying);
         Pawn->BeginAbilityPresentation(WarAbilities::Motion(A,Pawn->GetAnimationProfile()));
         if (A.TimingMode==TEXT("channel")) { ChannelUntil=ReleaseAt+A.ChannelSeconds; NextChannelTick=ReleaseAt; BusyUntil=FMath::Max(BusyUntil,ChannelUntil); }
+        PublishCast(A);
         return;
     }
     const FName Motion = WarAbilities::Motion(A, Pawn->GetAnimationProfile());
@@ -213,6 +222,7 @@ void UWarAbilityRuntime::BeginMotion(const FWarAbilityDefinition& A)
     if (A.bAuthoredTiming || !A.bLegacyTargeting) { ReleaseAt=Now()+(A.TimingMode==TEXT("instant") ? 0 : A.CastSeconds); BusyUntil=FMath::Max(BusyUntil,ReleaseAt); }
     Pawn->MulticastPlayAbilityMotion(Motion, Duration, Motion == TEXT("combat_idle"));
     if (A.TimingMode==TEXT("channel")) { ChannelUntil=ReleaseAt+A.ChannelSeconds; NextChannelTick=ReleaseAt; BusyUntil=FMath::Max(BusyUntil,ChannelUntil); }
+    PublishCast(A);
 }
 void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
 {
@@ -300,6 +310,7 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
         for (const auto& Apply : Applications)
         {
             if (Apply.Effect.Kind==TEXT("wrath_relic")) { FString Error; AWarWrathRelic::Place(Pawn,Error); }
+            else if (Apply.Effect.Kind==TEXT("warp_idol")) { FString Error; if (!AWarWarpIdol::Place(Pawn,Apply.Amount,Error)) ClientResult(Error); }
             else WarAbilityExecution::Apply(Apply.Effect,Apply.Amount,Pawn,Apply.Recipient,PendingTarget.Get(),Activation,Strength,Level,Apply.bBonus);
         }
         return;
@@ -310,12 +321,14 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
         const float Value = WarAbilities::Amount(E, Strength, Level, Spent, FMath::FRand());
         if (E.Kind == TEXT("wrath_relic"))
         { FString Error; if (!AWarWrathRelic::Place(Pawn, Error)) ClientResult(Error); }
+        else if (E.Kind == TEXT("warp_idol"))
+        { FString Error; if (!AWarWarpIdol::Place(Pawn, Value, Error)) ClientResult(Error); }
         else if (E.Kind == TEXT("heal"))
         {
             auto* Ally = Cast<AWarCharacter>(PendingTarget.Get());
             if (!A.bEnemyTarget && Ally && Ally != Pawn && Pawn->GetPlayerState<AWarPlayerState>()->IsSiegeNormalized())
-            { if (SiegeAlly(Pawn, Ally, 2000)) UWarCombatStatus::Heal(Ally, Value); }
-            else UWarCombatStatus::Heal(Pawn, Value);
+            { if (SiegeAlly(Pawn, Ally, 2000)) UWarCombatStatus::Heal(Ally, Value, Pawn); }
+            else UWarCombatStatus::Heal(Pawn, Value, Pawn);
         }
         else if (E.Kind == TEXT("player_status")) { if (auto* Status = UWarCombatStatus::On(Pawn)) Status->Apply(E, A.Id, Pawn, Strength, Level); }
         else if (E.Kind == TEXT("damage") || E.Kind == TEXT("status")) for (AActor* Target : Targets)
@@ -325,6 +338,13 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
         }
     }
 }
+void UWarAbilityRuntime::PublishCast(const FWarAbilityDefinition& Ability)
+{
+    PublicCastLabel = Ability.Name;
+    PublicCastStart = Now();
+    PublicCastEnd = FMath::Max(ReleaseAt, ChannelUntil);
+    GetOwner()->ForceNetUpdate();
+}
 void UWarAbilityRuntime::Cancel()
 {
     if (auto* Pawn = PendingPawn.Get(); Pawn && !Pawn->IsDead() && !Pawn->IsDevelopmentFlying()
@@ -332,6 +352,7 @@ void UWarAbilityRuntime::Cancel()
         Pawn->GetCharacterMovement()->SetMovementMode(MOVE_Falling);
     if (PendingPawn.IsValid()) PendingPawn->MulticastPlayAbilityMotion(TEXT("combat_idle"), 0, true);
     Casting = NAME_None; PendingPawn.Reset(); PendingTarget.Reset(); BusyUntil = 0; MoveUntil = 0; ReleaseAt = 0;
+    PublicCastLabel.Reset(); PublicCastStart = PublicCastEnd = 0;
     Activation.Reset(); ActivationPresentation.Reset(); CastConditions={}; ApplicationConditions.Reset(); ChannelBaselines.Reset(); ChannelUntil=0; NextChannelTick=0;
 }
 void UWarAbilityRuntime::TickComponent(float Delta, ELevelTick TickType, FActorComponentTickFunction* Function)
@@ -343,7 +364,13 @@ void UWarAbilityRuntime::TickComponent(float Delta, ELevelTick TickType, FActorC
     const auto* Status = UWarCombatStatus::On(Pawn);
     if (!A || !Pawn || Pawn != Avatar() || Pawn->IsDead() || State->GetCurrentZone() != PendingZone
         || (Status && (Status->Has(TEXT("stagger")) || (A->bBlockedBySilence && Status->Has(TEXT("silence"))) || (MoveUntil > Now() && Status->Has(TEXT("root"))))))
-    { Cancel(); return; }
+    {
+        if (A && Pawn && !Pawn->IsDead() && Status && PublicCastEnd > Now())
+            for (const auto& Effect : Status->GetActive())
+                if (Effect.Expires > Now() && (Effect.Kind == TEXT("stagger") || (A->bBlockedBySilence && Effect.Kind == TEXT("silence"))))
+                { WarCombatFeedback::Emit(Effect.Source, Pawn, TEXT("Interrupt"), 0); break; }
+        Cancel(); return;
+    }
     if (const auto* Recipe = ActivationPresentation.IsSet() ? &ActivationPresentation.GetValue() : nullptr; Recipe && Recipe->Movement == TEXT("leap"))
     {
         if (Status && Status->Has(TEXT("root"))) { Cancel(); return; }

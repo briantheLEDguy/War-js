@@ -11,6 +11,7 @@ class AEGISWAR_API AWarQuestHud : public AHUD
 public:
     virtual void DrawHUD() override;
 private:
+    void DrawCombatFeedback();
     UPROPERTY(Transient) TObjectPtr<class UTexture2D> VitalsArtwork;
     UPROPERTY(Transient) TObjectPtr<class UTexture2D> MinimapArtwork;
     bool bArtworkLoaded = false;

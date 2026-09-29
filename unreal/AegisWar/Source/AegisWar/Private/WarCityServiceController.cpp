@@ -9,8 +9,8 @@ void AWarPlayerController::CloseCityService()
 {
     if (!CityServiceWidget || !CityServiceWidget->IsInViewport()) return;
     CityServiceWidget->RemoveFromParent();
-    SetInputMode(FInputModeGameOnly());
-    SetIgnoreLookInput(false); SetIgnoreMoveInput(false); bShowMouseCursor=false;
+    RestoreGameplayInput();
+    SetIgnoreLookInput(false); SetIgnoreMoveInput(false); bShowMouseCursor=true;
 }
 void AWarPlayerController::OpenCityService(AWarCityNpc* Npc)
 {
@@ -26,6 +26,6 @@ void AWarPlayerController::OpenCityService(AWarCityNpc* Npc)
     CityServiceWidget->SetPositionInViewport(FVector2D(32,32));
     CityServiceWidget->SetDesiredSizeInViewport(FVector2D(620,650));
     CityServiceWidget->SetNpc(Npc);
-    SetInputMode(FInputModeGameAndUI());
+    SetInputMode(FInputModeGameAndUI().SetHideCursorDuringCapture(false));
     SetIgnoreLookInput(true); SetIgnoreMoveInput(true); bShowMouseCursor=true;
 }
