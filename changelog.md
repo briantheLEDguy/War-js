@@ -1,3 +1,9 @@
+## 2026-09-29 - Branch consolidation
+
+- Consolidate outstanding native gameplay, scenario queues, siege equipment, imported population, city, animation, frontend, targeting and portal source work into the default branch.
+- Integrate the remaining source-branch histories and move Blender MCP configuration to .mcp.json. Preserve the approved browser retirement when resolving legacy chat-file conflicts.
+- Keep generated gh-pages deployment history separate and leave private native Content and licensed packages outside public Git.
+
 ## 2026-09-29 - Visible portal installation tooling
 
 - Add two bright, local, shadow-free fill lights per entrance so portal frame details remain visible in daylight; preserve global zone lighting.

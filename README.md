@@ -140,6 +140,7 @@ check and fresh-process restoration.
 | `public/assets/`, `authoring/` | Retained source maps, models, textures and provenance; the path does not imply a website |
 | `migration/` | Native policies, frozen reference fixtures, retirement and content manifests |
 | `tests/` | Retained shared/backend/database/tooling tests and native Python tooling checks |
+| `.mcp.json` | Project-local Blender character MCP configuration; uses the retained authoring server |
 
 Unreal owns native live gameplay. The retained Node authority is a separate
 reference/backend process; it has not been connected to native production play.
