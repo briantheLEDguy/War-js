@@ -283,6 +283,10 @@ export interface AbilityDefinition {
   unavailableReason?: string;
   cooldownSec: number;
   gcdSec: number;
+  /** Explicit gameplay policy; never inferred from animation duration. */
+  movementPolicy?: 'free' | 'stationary';
+  /** Baseline preparation tuning. Explicit workshop timing takes precedence. */
+  preparationScale?: number;
   tags: string[];
   resource: AbilityResourceDelta;
   animation: AbilityAnimation;

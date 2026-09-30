@@ -41,6 +41,8 @@ void UWarAbilityRuntime::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, Resource, COND_OwnerOnly);
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, GcdUntil, COND_OwnerOnly);
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, BusyUntil, COND_OwnerOnly);
+    DOREPLIFETIME_CONDITION(UWarAbilityRuntime, bMovementCancelable, COND_OwnerOnly);
+    DOREPLIFETIME_CONDITION(UWarAbilityRuntime, bTravelActive, COND_OwnerOnly);
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, Cooldowns, COND_OwnerOnly);
     DOREPLIFETIME_CONDITION(UWarAbilityRuntime, Casting, COND_OwnerOnly);
     DOREPLIFETIME(UWarAbilityRuntime, PublicCastLabel);
@@ -56,7 +58,7 @@ AWarCharacter* UWarAbilityRuntime::Avatar() const
 void UWarAbilityRuntime::InitializeCharacter(AWarCharacter* Pawn)
 {
     if (!GetOwner()->HasAuthority() || !Pawn) return;
-    Cancel();
+    Interrupt(); Projectiles.Reset(); bMovementIntent=false;
     if (Career != Pawn->GetCareerId())
     {
         Career = Pawn->GetCareerId(); Cooldowns.Reset(); GcdUntil = 0;
@@ -69,6 +71,76 @@ float UWarAbilityRuntime::Cooldown(FName Id) const
     const auto* Entry = Cooldowns.FindByPredicate([Id](const auto& C) { return C.Id == Id; });
     return FMath::Max(0., FMath::Max(GcdUntil, Entry ? Entry->Until : 0.) - Now());
 }
+bool UWarAbilityRuntime::OwnsMovement() const
+{
+    return bTravelActive && IsBusy();
+}
+double UWarAbilityRuntime::ReadyIn(FName Id) const
+{
+    double Result=FMath::Max<double>(Cooldown(Id),BusyUntil-Now());
+    if (Id==TEXT("strike")) if (const auto* Pawn=Avatar()) if (const auto* ASC=Pawn->GetAbilitySystemComponent())
+    {
+        const auto Query=FGameplayEffectQuery::MakeQuery_MatchAnyOwningTags(FGameplayTagContainer(FGameplayTag::RequestGameplayTag(TEXT("War.Cooldown.DevelopmentStrike"))));
+        for (float Remaining : ASC->GetActiveEffectsTimeRemaining(Query)) Result=FMath::Max(Result,static_cast<double>(Remaining));
+    }
+    return Result;
+}
+void UWarAbilityRuntime::UpdateMovementIntent(bool bMoving, bool bJump)
+{
+    if (bMovementIntent==bMoving && !bJump) return;
+    if (!GetOwner()->HasAuthority())
+    {
+        bMovementIntent=bMoving;
+        if ((bMoving || bJump) && bMovementCancelable) if (auto* Pawn=Avatar()) Pawn->SuppressAbilityMotion();
+        ServerMovementIntent(bMoving,bJump); return;
+    }
+    ServerMovementIntent_Implementation(bMoving,bJump);
+}
+void UWarAbilityRuntime::ServerMovementIntent_Implementation(bool bMoving, bool bJump)
+{
+    bMovementIntent=bMoving;
+    if (!bMoving && !bJump) return;
+    QueuedAbility=NAME_None;
+    if (Activation && bMovementCancelable && !OwnsMovement()) Cancel(true);
+}
+void UWarAbilityRuntime::Interrupt()
+{
+    ++ActionSerial; bBasicPending=false; QueuedAbility=NAME_None; Cancel();
+}
+uint32 UWarAbilityRuntime::BeginBasicAttack(float ContactSeconds)
+{
+    if (!GetOwner()->HasAuthority()) return ActionSerial;
+    if (Activation) Cancel(false,false);
+    BusyUntil=Now()+FMath::Max(.01f,ContactSeconds); GcdUntil=FMath::Max(GcdUntil,Now()+1.0);
+    QueuedAbility=NAME_None; bBasicPending=true; return ++ActionSerial;
+}
+void UWarAbilityRuntime::FinishBasicAttack(uint32 Serial)
+{
+    if (Serial!=ActionSerial) return;
+    bBasicPending=false; BusyUntil=0; ProcessQueue();
+}
+bool UWarAbilityRuntime::QueueAbility(FName Id,AActor* Target,const FString& Version,const FVector& Ground)
+{
+    if (!GetOwner()->HasAuthority() || !Catalog() || (Id!=TEXT("strike") && !Catalog()->Find(Id,Career))) return false;
+    const double Delay=ReadyIn(Id);
+    if (Delay<=0 || Delay>.2 || Ground.ContainsNaN()) return false;
+    QueuedAbility=Id; QueuedTarget=Target; QueuedVersion=Version; QueuedGround=Ground;
+    QueuedPawn=Avatar(); QueuedZone=CastChecked<AWarPlayerState>(GetOwner())->GetCurrentZone(); QueueExpires=Now()+.3;
+    return true;
+}
+void UWarAbilityRuntime::ProcessQueue()
+{
+    if (QueuedAbility.IsNone()) return;
+    const auto* State=Cast<AWarPlayerState>(GetOwner());
+    if (Now()>QueueExpires || !Avatar() || Avatar()!=QueuedPawn || Avatar()->IsDead() || !State
+        || State->GetCurrentZone()!=QueuedZone || !Catalog() || Catalog()->GetVersion()!=QueuedVersion)
+    { QueuedAbility=NAME_None; return; }
+    if (ReadyIn(QueuedAbility)>0 || bBasicPending) return;
+    const FName Id=QueuedAbility; QueuedAbility=NAME_None;
+    if (Id==TEXT("strike")) { Avatar()->ExecuteQueuedStrike(QueuedTarget.Get()); return; }
+    const auto* A=Catalog()->Find(Id,Career); FString Error;
+    if (!TryActivate(Id,QueuedTarget.Get(),Error,A && A->TargetKind==TEXT("ground") ? &QueuedGround : nullptr)) ClientResult(Error);
+}
 bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Target, FString& Error, bool bCheckMovement) const
 {
     Error.Reset(); const auto* Pawn = Avatar(); const auto* State = Cast<AWarPlayerState>(GetOwner());
@@ -77,7 +149,8 @@ bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Tar
     if (A.Career != Career || Career != Pawn->GetCareerId()) return Fail(TEXT("This ability belongs to another class."));
     if (!A.UnavailableReason.IsEmpty()) return Fail(A.UnavailableReason);
     if (State->GetAbilityUnlockLevel() < A.UnlockLevel) return Fail(FString::Printf(TEXT("Unlocks at level %d."), A.UnlockLevel));
-    if (Cooldown(A.Id) > 0 || IsBusy() || Pawn->IsActionPlaying()) return Fail(TEXT("Wait for the current action or cooldown."));
+    if (Cooldown(A.Id) > 0 || IsBusy()) return Fail(TEXT("Wait for the current action or cooldown."));
+    if (A.RequiresStationary() && (bMovementIntent || !Pawn->GetCharacterMovement()->GetCurrentAcceleration().IsNearlyZero())) return Fail(TEXT("Stop moving before casting."));
     const auto* Status = UWarCombatStatus::On(Pawn);
     TArray<FName> Cleanses;
     for (const auto& E : A.Effects) Cleanses.Append(E.Cleanse);
@@ -89,7 +162,7 @@ bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Tar
     if (State->IsSiegeNormalized() && !A.bEnemyTarget && Target && Target != Pawn
         && A.Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("heal"); })
         && !SiegeAlly(Pawn, Cast<AWarCharacter>(Target), 2000)) return Fail(TEXT("Select a living allied siege participant within 20 metres and line of sight."));
-    if (Pawn->GetCharacterMovement()->IsFalling()) return Fail(TEXT("Land before starting this action."));
+    if (Pawn->GetCharacterMovement()->IsFalling() && (A.RequiresStationary() || A.Effects.ContainsByPredicate([](const auto& E){return E.Kind==TEXT("movement") || E.Kind==TEXT("wrath_relic") || E.Kind==TEXT("warp_idol");}))) return Fail(TEXT("Land before starting this action."));
     // Placement needs the authoritative collision world; client availability is advisory.
     if (Pawn->HasAuthority() && A.Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("wrath_relic"); }))
     { FVector Position; if (!AWarWrathRelic::Placement(Pawn, Position, Error)) return false; }
@@ -155,9 +228,13 @@ bool UWarAbilityRuntime::MovementDestination(const FWarAbilityDefinition& A, AAc
 bool UWarAbilityRuntime::TryActivate(FName Id, AActor* Target, FString& Error, const FVector* Ground)
 {
     if (!GetOwner()->HasAuthority()) { Error = TEXT("Only the server can activate abilities."); return false; }
+    // A request can arrive on the release frame before the component tick.
+    if (Activation && !IsBusy()) { QueuedAbility=NAME_None; TickComponent(0,LEVELTICK_All,nullptr); }
     const auto* A = Catalog() ? Catalog()->Find(Id,Career) : nullptr;
     if (!A) { Error = TEXT("Unknown class ability."); return false; }
     if (!CanActivate(*A, Target, Error)) return false;
+    if (Activation) Cancel(false,false);
+    ++ActionSerial; QueuedAbility=NAME_None; bEffectCommitted=false;
     if (A->TargetKind==TEXT("ground"))
     {
         if (!Ground || Ground->ContainsNaN() || FVector::DistSquared(Avatar()->GetActorLocation(),*Ground)>FMath::Square(A->Range))
@@ -178,7 +255,9 @@ bool UWarAbilityRuntime::TryActivate(FName Id, AActor* Target, FString& Error, c
     if (const auto* Recipe=Pawn->GetAbilityPresentation(WarAbilities::Motion(*A,Pawn->GetAnimationProfile()))) ActivationPresentation=*Recipe;
     CastConditions=WarAbilityConditions::Evaluate(A->Conditions,TEXT("cast_start"),WarAbilityExecution::Capture(Pawn,Target,Target ? Target : Pawn,Now()));
     RecordConditions(CastConditions.Traces);
-    Spent = A->bSpendAll ? Resource : A->Cost; Resource = WarAbilities::ResourceAfter(*A, Resource);
+    Spent = A->bSpendAll ? Resource : A->Cost;
+    const float Before=Resource; Resource=WarAbilities::ResourceAfter(*A,Resource); ResourceDelta=Resource-Before; ManaPaid=A->Mana;
+    bMovementCancelable=A->RequiresStationary();
     State->GetAbilitySystemComponent()->ApplyModToAttribute(UWarAttributeSet::GetManaAttribute(), EGameplayModOp::Additive, -A->Mana);
     Cooldowns.RemoveAll([&](const auto& C) { return C.Until <= Now() || C.Id == Id; });
     FWarAbilityCooldown Cool; Cool.Id = Id; Cool.Until = Now() + A->Cooldown; Cooldowns.Add(Cool); GcdUntil = Now() + A->Gcd;
@@ -186,12 +265,14 @@ bool UWarAbilityRuntime::TryActivate(FName Id, AActor* Target, FString& Error, c
     Casting = Id; bReleased = false; Strength = State->GetEffectiveStrength(); Level = State->GetCombatLevel();
     if (A->bEnemyTarget && IsValid(Target)) Pawn->SetActorRotation((Target->GetActorLocation() - Pawn->GetActorLocation()).GetSafeNormal2D().Rotation());
     Origin = Pawn->GetActorLocation(); Facing = Pawn->GetActorForwardVector();
-    for (const auto& E : A->Effects) if (E.Kind == TEXT("cleanse") && (E.Recipient.IsNone() || E.Recipient==TEXT("caster"))) if (auto* Status = UWarCombatStatus::On(Pawn)) Status->Cleanse(E.Cleanse);
+    for (const auto& E : A->Effects) if (E.Kind == TEXT("cleanse") && (E.Recipient.IsNone() || E.Recipient==TEXT("caster"))) if (auto* Status = UWarCombatStatus::On(Pawn)) { bEffectCommitted=true; Status->Cleanse(E.Cleanse); }
     MoveStart = Origin; MoveEnd = End; MoveAt = Now();
     double Travel = 0; for (int32 Point = 1; Point < MovePath.Num(); ++Point) Travel += FVector::Distance(MovePath[Point - 1], MovePath[Point]);
     MoveUntil = Travel > 1 ? Now() + Travel / 600 : 0;
     const auto* Presentation = ActivationPresentation.IsSet() ? &ActivationPresentation.GetValue() : nullptr;
     bMotionDuringTravel = Presentation && Travel > 1 && (Presentation->Movement == TEXT("slide") || Presentation->Movement == TEXT("charge"));
+    bTravelActive=Travel>1 || (Presentation && Presentation->Movement==TEXT("leap"));
+    if (bTravelActive) bEffectCommitted=true;
     if (bMotionDuringTravel)
     {
         BeginMotion(*A); MoveAt = Now()+.15; MoveUntil = Now()+FMath::Max(.2f, Presentation->ContactSeconds*.9f);
@@ -210,8 +291,13 @@ void UWarAbilityRuntime::BeginMotion(const FWarAbilityDefinition& A)
         BusyUntil = Now()+Presentation->Duration; ReleaseAt = Now()+Presentation->ContactSeconds;
         if (A.bAuthoredTiming || !A.bLegacyTargeting) { ReleaseAt=Now()+(A.TimingMode==TEXT("instant") ? 0 : A.CastSeconds); BusyUntil=FMath::Max(BusyUntil,ReleaseAt); }
         if (Presentation->Movement == TEXT("leap")) Pawn->GetCharacterMovement()->SetMovementMode(MOVE_Flying);
+        const float OriginalContact=Presentation->ContactSeconds;
+        const bool bTravel=Presentation->Movement==TEXT("leap") || bMotionDuringTravel;
+        if (!A.bAuthoredTiming && A.bLegacyTargeting) ReleaseAt=Now()+OriginalContact*(bTravel ? 1.f : A.PreparationScale);
+        if (!bTravel) BusyUntil=ReleaseAt;
         Pawn->BeginAbilityPresentation(WarAbilities::Motion(A,Pawn->GetAnimationProfile()));
-        if (A.TimingMode==TEXT("channel")) { ChannelUntil=ReleaseAt+A.ChannelSeconds; NextChannelTick=ReleaseAt; BusyUntil=FMath::Max(BusyUntil,ChannelUntil); }
+        Pawn->SetAbilityPlaybackRate(!bTravel && ReleaseAt>Now() ? OriginalContact/(ReleaseAt-Now()) : 1.f,bTravel,!bTravel && ReleaseAt<=Now() ? OriginalContact : 0.f);
+        if (A.TimingMode==TEXT("channel")) { ChannelUntil=ReleaseAt+A.ChannelSeconds; NextChannelTick=ReleaseAt; BusyUntil=FMath::Max(BusyUntil,ChannelUntil); Pawn->HoldAbilityPresentation(ReleaseAt-Now(),A.ChannelSeconds,OriginalContact); }
         PublishCast(A);
         return;
     }
@@ -220,26 +306,47 @@ void UWarAbilityRuntime::BeginMotion(const FWarAbilityDefinition& A)
     Origin = Pawn->GetActorLocation(); Facing = Pawn->GetActorForwardVector();
     BusyUntil = Now() + Duration; ReleaseAt = Now() + Duration * WarAbilities::ReleaseFraction(A, Pawn->GetAnimationProfile());
     if (A.bAuthoredTiming || !A.bLegacyTargeting) { ReleaseAt=Now()+(A.TimingMode==TEXT("instant") ? 0 : A.CastSeconds); BusyUntil=FMath::Max(BusyUntil,ReleaseAt); }
+    const float OriginalContact=Duration*WarAbilities::ReleaseFraction(A,Pawn->GetAnimationProfile());
+    if (!A.bAuthoredTiming && A.bLegacyTargeting) ReleaseAt=Now()+OriginalContact*A.PreparationScale;
+    BusyUntil=ReleaseAt;
     Pawn->MulticastPlayAbilityMotion(Motion, Duration, Motion == TEXT("combat_idle"));
-    if (A.TimingMode==TEXT("channel")) { ChannelUntil=ReleaseAt+A.ChannelSeconds; NextChannelTick=ReleaseAt; BusyUntil=FMath::Max(BusyUntil,ChannelUntil); }
+    Pawn->SetAbilityPlaybackRate(ReleaseAt>Now() ? OriginalContact/(ReleaseAt-Now()) : 1.f,false,ReleaseAt<=Now() ? OriginalContact : 0.f);
+    if (A.TimingMode==TEXT("channel")) { ChannelUntil=ReleaseAt+A.ChannelSeconds; NextChannelTick=ReleaseAt; BusyUntil=FMath::Max(BusyUntil,ChannelUntil); Pawn->HoldAbilityPresentation(ReleaseAt-Now(),A.ChannelSeconds,OriginalContact); }
     PublishCast(A);
+}
+FWarAbilityImpact UWarAbilityRuntime::CaptureImpact() const
+{
+    FWarAbilityImpact Result;
+    Result.Definition=Activation; Result.Pawn=PendingPawn; Result.Target=PendingTarget; Result.Zone=PendingZone;
+    Result.Origin=PendingPawn.IsValid() ? PendingPawn->GetActorLocation() : Origin;
+    Result.Facing=PendingPawn.IsValid() ? PendingPawn->GetActorForwardVector() : Facing;
+    Result.Ground=GroundPoint; Result.Spent=Spent; Result.Strength=Strength; Result.Level=Level; Result.bReleased=bReleased;
+    Result.CastConditions=CastConditions; Result.ApplicationConditions=ApplicationConditions; Result.ChannelBaselines=ChannelBaselines;
+    return Result;
 }
 void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
 {
-    auto* Pawn = PendingPawn.Get(); if (!Pawn) return;
+    auto Impact=CaptureImpact(); const uint32 Serial=ActionSerial;
+    ResolveImpact(Impact);
+    if (ActionSerial==Serial && Activation) { ApplicationConditions=MoveTemp(Impact.ApplicationConditions); ChannelBaselines=MoveTemp(Impact.ChannelBaselines); }
+}
+void UWarAbilityRuntime::ResolveImpact(FWarAbilityImpact& Impact)
+{
+    const auto& A=*Impact.Definition;
+    auto* Pawn = Impact.Pawn.Get(); if (!Pawn) return;
     TArray<AActor*> Targets;
     if (A.Shape == TEXT("area") || A.Shape == TEXT("cone") || A.Shape == TEXT("deployable"))
     {
-        const FVector Center = A.TargetKind==TEXT("ground") ? GroundPoint : A.bEnemyTarget && PendingTarget.IsValid() ? PendingTarget->GetActorLocation() : Origin;
+        const FVector Center = A.TargetKind==TEXT("ground") ? Impact.Ground : A.bEnemyTarget && Impact.Target.IsValid() ? Impact.Target->GetActorLocation() : Impact.Origin;
         for (TActorIterator<APawn> It(GetWorld()); It; ++It)
         {
             const bool bCone = A.Shape == TEXT("cone"); const float Radius = bCone ? A.Range : FMath::Max(100.f, A.Radius);
             if (FVector::DistSquared(Center, It->GetActorLocation()) > FMath::Square(Radius)) continue;
-            if (bCone && FVector::DotProduct(Facing, (It->GetActorLocation() - Origin).GetSafeNormal2D()) < .707106f) continue;
+            if (bCone && FVector::DotProduct(Impact.Facing, (It->GetActorLocation() - Impact.Origin).GetSafeNormal2D()) < .707106f) continue;
             if (Pawn->CanAbilityTarget(*It, A.Range + A.Radius + 100)) Targets.Add(*It);
         }
     }
-    else if (Pawn->CanAbilityTarget(PendingTarget.Get(), (A.Shape == TEXT("dash") ? WarValidation::StrikeRangeCm : A.Range) + 25)) Targets.Add(PendingTarget.Get());
+    else if (Pawn->CanAbilityTarget(Impact.Target.Get(), (A.Shape == TEXT("dash") ? WarValidation::StrikeRangeCm : A.Range) + 25)) Targets.Add(Impact.Target.Get());
     Targets.Sort([](const AActor& Left,const AActor& Right) { return Left.GetUniqueID()<Right.GetUniqueID(); });
     if (Targets.Num()>A.MaxTargets) Targets.SetNum(A.MaxTargets);
     if (!A.Conditions.IsEmpty() || A.Effects.ContainsByPredicate([](const auto& E) { return E.PeriodicDuration>0 || !E.Recipient.IsNone(); }))
@@ -253,28 +360,28 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
             if (E.Recipient==TEXT("caster") || (E.Recipient.IsNone() && Beneficial)) Result.Add(Pawn);
             else if (E.Recipient==TEXT("allies"))
             {
-                const FVector Center=A.TargetKind==TEXT("ground") ? GroundPoint : PendingTarget.IsValid() ? PendingTarget->GetActorLocation() : Origin;
+                const FVector Center=A.TargetKind==TEXT("ground") ? Impact.Ground : Impact.Target.IsValid() ? Impact.Target->GetActorLocation() : Impact.Origin;
                 for (TActorIterator<AWarCharacter> It(GetWorld()); It; ++It)
                     if (FVector::DistSquared(Center,It->GetActorLocation())<=FMath::Square(FMath::Max(100.f,A.Radius)) && WarAbilityExecution::Allied(Pawn,*It,A.Range+A.Radius+100)) Result.Add(*It);
             }
             else if (Beneficial)
-            { if (A.TargetKind==TEXT("self")) Result.Add(Pawn); else if (PendingTarget.IsValid()) Result.Add(PendingTarget.Get()); }
+            { if (A.TargetKind==TEXT("self")) Result.Add(Pawn); else if (Impact.Target.IsValid()) Result.Add(Impact.Target.Get()); }
             else Result=Targets;
-            if (A.bLegacyTargeting && E.Kind==TEXT("heal") && !A.bEnemyTarget && PendingTarget.IsValid() && Pawn->GetPlayerState<AWarPlayerState>()->IsSiegeNormalized())
-            { Result.Reset(); if (SiegeAlly(Pawn,Cast<AWarCharacter>(PendingTarget.Get()),2000)) Result.Add(PendingTarget.Get()); }
+            if (A.bLegacyTargeting && E.Kind==TEXT("heal") && !A.bEnemyTarget && Impact.Target.IsValid() && Pawn->GetPlayerState<AWarPlayerState>()->IsSiegeNormalized())
+            { Result.Reset(); if (SiegeAlly(Pawn,Cast<AWarCharacter>(Impact.Target.Get()),2000)) Result.Add(Impact.Target.Get()); }
             Result.Sort([](const AActor& Left,const AActor& Right) { return Left.GetUniqueID()<Right.GetUniqueID(); });
             if (Result.Num()>A.MaxTargets) Result.SetNum(A.MaxTargets); return Result;
         };
         TSet<AActor*> Relevant;
         for (const auto& E : A.Effects) for (auto* Recipient : Recipients(E)) Relevant.Add(Recipient);
         // Conditional-only bonuses still get a recipient even for a movement/utility base ability.
-        if (Relevant.IsEmpty()) Relevant.Add(PendingTarget.IsValid() ? PendingTarget.Get() : Pawn);
+        if (Relevant.IsEmpty()) Relevant.Add(Impact.Target.IsValid() ? Impact.Target.Get() : Pawn);
         for (auto* Recipient : Relevant)
         {
-            const auto Context=WarAbilityExecution::Capture(Pawn,PendingTarget.Get(),Recipient,Now());
+            const auto Context=WarAbilityExecution::Capture(Pawn,Impact.Target.Get(),Recipient,Now());
             const TWeakObjectPtr<AActor> Key(Recipient);
-            if (const auto* Cached=ApplicationConditions.Find(Key)) Evaluations.Add(Recipient,*Cached);
-            else { auto Evaluation=WarAbilityConditions::Evaluate(A.Conditions,TEXT("application"),Context); RecordConditions(Evaluation.Traces); ApplicationConditions.Add(Key,Evaluation); Evaluations.Add(Recipient,MoveTemp(Evaluation)); }
+            if (const auto* Cached=Impact.ApplicationConditions.Find(Key)) Evaluations.Add(Recipient,*Cached);
+            else { auto Evaluation=WarAbilityConditions::Evaluate(A.Conditions,TEXT("application"),Context); RecordConditions(Evaluation.Traces); Impact.ApplicationConditions.Add(Key,Evaluation); Evaluations.Add(Recipient,MoveTemp(Evaluation)); }
             if (A.TimingMode==TEXT("channel"))
             { auto Tick=WarAbilityConditions::Evaluate(A.Conditions,TEXT("tick"),Context); RecordConditions(Tick.Traces); TickEvaluations.Add(Recipient,MoveTemp(Tick)); }
         }
@@ -282,8 +389,8 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
         {
             const FString BaselineKey=Recipient->GetPathName()+TEXT(":")+E.Id.ToString();
             float Baseline;
-            if (const float* Cached=ChannelBaselines.Find(BaselineKey)) Baseline=*Cached;
-            else { Baseline=WarAbilityConditions::Amount(WarAbilities::RawAmount(E,Strength,Level,Spent,FMath::FRand()),E.Id,{CastConditions,Evaluations.FindChecked(Recipient)}); ChannelBaselines.Add(BaselineKey,Baseline); }
+            if (const float* Cached=Impact.ChannelBaselines.Find(BaselineKey)) Baseline=*Cached;
+            else { Baseline=WarAbilityConditions::Amount(WarAbilities::RawAmount(E,Impact.Strength,Impact.Level,Impact.Spent,FMath::FRand()),E.Id,{Impact.CastConditions,Evaluations.FindChecked(Recipient)}); Impact.ChannelBaselines.Add(BaselineKey,Baseline); }
             float Value=Baseline;
             if (const auto* Tick=TickEvaluations.Find(Recipient)) Value=WarAbilityConditions::Amount(Baseline,E.Id,{*Tick});
             if (E.Kind==TEXT("damage")) if (const auto* Status=UWarCombatStatus::On(Pawn)) Value*=Status->OutgoingScale();
@@ -293,7 +400,7 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
         for (auto* Recipient : Relevant)
         {
             TArray<FWarAbilityEffect> Effects;
-            if (!bReleased) { Effects=CastConditions.BonusEffects; Effects.Append(Evaluations.FindChecked(Recipient).BonusEffects); }
+            if (!Impact.bReleased) { Effects=Impact.CastConditions.BonusEffects; Effects.Append(Evaluations.FindChecked(Recipient).BonusEffects); }
             if (const auto* Tick=TickEvaluations.Find(Recipient)) Effects.Append(Tick->BonusEffects);
             for (const auto& E : Effects)
             {
@@ -302,7 +409,7 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
                 if (E.Recipient==TEXT("allies") && !WarAbilityExecution::Allied(Pawn,Actual,A.Range+A.Radius+100)) continue;
                 if (E.Recipient==TEXT("enemies") && !Pawn->CanAbilityTarget(Actual,A.Range+A.Radius+100)) continue;
                 const FString Key=Actual->GetPathName()+TEXT(":")+E.Id.ToString(); if (Bonuses.Contains(Key)) continue; Bonuses.Add(Key);
-                float Value=WarAbilityConditions::Amount(WarAbilities::RawAmount(E,Strength,Level,Spent,FMath::FRand()),E.Id,{});
+                float Value=WarAbilityConditions::Amount(WarAbilities::RawAmount(E,Impact.Strength,Impact.Level,Impact.Spent,FMath::FRand()),E.Id,{});
                 if (E.Kind==TEXT("damage")) if (const auto* Status=UWarCombatStatus::On(Pawn)) Value*=Status->OutgoingScale();
                 Applications.Add({Actual,E,Value,true});
             }
@@ -311,30 +418,30 @@ void UWarAbilityRuntime::Resolve(const FWarAbilityDefinition& A)
         {
             if (Apply.Effect.Kind==TEXT("wrath_relic")) { FString Error; AWarWrathRelic::Place(Pawn,Error); }
             else if (Apply.Effect.Kind==TEXT("warp_idol")) { FString Error; if (!AWarWarpIdol::Place(Pawn,Apply.Amount,Error)) ClientResult(Error); }
-            else WarAbilityExecution::Apply(Apply.Effect,Apply.Amount,Pawn,Apply.Recipient,PendingTarget.Get(),Activation,Strength,Level,Apply.bBonus);
+            else WarAbilityExecution::Apply(Apply.Effect,Apply.Amount,Pawn,Apply.Recipient,Impact.Target.Get(),Impact.Definition,Impact.Strength,Impact.Level,Apply.bBonus);
         }
         return;
     }
     const auto* SourceStatus = UWarCombatStatus::On(Pawn); const float Scale = SourceStatus ? SourceStatus->OutgoingScale() : 1;
     for (const auto& E : A.Effects)
     {
-        const float Value = WarAbilities::Amount(E, Strength, Level, Spent, FMath::FRand());
+        const float Value = WarAbilities::Amount(E, Impact.Strength, Impact.Level, Impact.Spent, FMath::FRand());
         if (E.Kind == TEXT("wrath_relic"))
         { FString Error; if (!AWarWrathRelic::Place(Pawn, Error)) ClientResult(Error); }
         else if (E.Kind == TEXT("warp_idol"))
         { FString Error; if (!AWarWarpIdol::Place(Pawn, Value, Error)) ClientResult(Error); }
         else if (E.Kind == TEXT("heal"))
         {
-            auto* Ally = Cast<AWarCharacter>(PendingTarget.Get());
+            auto* Ally = Cast<AWarCharacter>(Impact.Target.Get());
             if (!A.bEnemyTarget && Ally && Ally != Pawn && Pawn->GetPlayerState<AWarPlayerState>()->IsSiegeNormalized())
             { if (SiegeAlly(Pawn, Ally, 2000)) UWarCombatStatus::Heal(Ally, Value, Pawn); }
             else UWarCombatStatus::Heal(Pawn, Value, Pawn);
         }
-        else if (E.Kind == TEXT("player_status")) { if (auto* Status = UWarCombatStatus::On(Pawn)) Status->Apply(E, A.Id, Pawn, Strength, Level); }
+        else if (E.Kind == TEXT("player_status")) { if (auto* Status = UWarCombatStatus::On(Pawn)) Status->Apply(E, A.Id, Pawn, Impact.Strength, Impact.Level); }
         else if (E.Kind == TEXT("damage") || E.Kind == TEXT("status")) for (AActor* Target : Targets)
         {
             if (E.Kind == TEXT("damage")) UWarCombatStatus::Damage(Target, Pawn, Value * Scale, A.Range + A.Radius + 100);
-            else if (Pawn->CanAbilityTarget(Target, A.Range + A.Radius + 100)) if (auto* Status = UWarCombatStatus::On(Target)) Status->Apply(E, A.Id, Pawn, Strength, Level);
+            else if (Pawn->CanAbilityTarget(Target, A.Range + A.Radius + 100)) if (auto* Status = UWarCombatStatus::On(Target)) Status->Apply(E, A.Id, Pawn, Impact.Strength, Impact.Level);
         }
     }
 }
@@ -345,12 +452,20 @@ void UWarAbilityRuntime::PublishCast(const FWarAbilityDefinition& Ability)
     PublicCastEnd = FMath::Max(ReleaseAt, ChannelUntil);
     GetOwner()->ForceNetUpdate();
 }
-void UWarAbilityRuntime::Cancel()
+void UWarAbilityRuntime::Cancel(bool bMovement, bool bStopPresentation)
 {
+    if (bMovement && Activation && !bEffectCommitted)
+    {
+        Resource=FMath::Clamp(Resource-ResourceDelta,0.f,Activation->ResourceMax);
+        if (auto* State=Cast<AWarPlayerState>(GetOwner()))
+            State->GetAbilitySystemComponent()->ApplyModToAttribute(UWarAttributeSet::GetManaAttribute(),EGameplayModOp::Additive,ManaPaid);
+        Cooldowns.RemoveAll([&](const auto& Entry){return Entry.Id==Casting;});
+    }
+    ResourceDelta=ManaPaid=0; bEffectCommitted=false; bMovementCancelable=false; bTravelActive=false;
     if (auto* Pawn = PendingPawn.Get(); Pawn && !Pawn->IsDead() && !Pawn->IsDevelopmentFlying()
         && Pawn->GetCharacterMovement()->MovementMode == MOVE_Flying)
         Pawn->GetCharacterMovement()->SetMovementMode(MOVE_Falling);
-    if (PendingPawn.IsValid()) PendingPawn->MulticastPlayAbilityMotion(TEXT("combat_idle"), 0, true);
+    if (bStopPresentation && PendingPawn.IsValid()) PendingPawn->MulticastPlayAbilityMotion(TEXT("combat_idle"), 0, true);
     Casting = NAME_None; PendingPawn.Reset(); PendingTarget.Reset(); BusyUntil = 0; MoveUntil = 0; ReleaseAt = 0;
     PublicCastLabel.Reset(); PublicCastStart = PublicCastEnd = 0;
     Activation.Reset(); ActivationPresentation.Reset(); CastConditions={}; ApplicationConditions.Reset(); ChannelBaselines.Reset(); ChannelUntil=0; NextChannelTick=0;
@@ -358,7 +473,20 @@ void UWarAbilityRuntime::Cancel()
 void UWarAbilityRuntime::TickComponent(float Delta, ELevelTick TickType, FActorComponentTickFunction* Function)
 {
     Super::TickComponent(Delta, TickType, Function); if (!GetOwner()->HasAuthority()) return;
-    SynchronizeCatalog(); if (Casting.IsNone()) return;
+    SynchronizeCatalog();
+    for (int32 I=Projectiles.Num()-1;I>=0;--I) if (Now()>=Projectiles[I].Arrives)
+    {
+        auto Impact=MoveTemp(Projectiles[I]); Projectiles.RemoveAt(I);
+        const auto* State=Cast<AWarPlayerState>(GetOwner());
+        if (Impact.Pawn.IsValid() && Impact.Pawn.Get()==Avatar() && !Impact.Pawn->IsDead() && State && State->GetCurrentZone()==Impact.Zone)
+            ResolveImpact(Impact);
+    }
+    if (bBasicPending)
+    {
+        const auto* BasicPawn=Avatar(); const auto* BasicStatus=UWarCombatStatus::On(BasicPawn);
+        if (!BasicPawn || BasicPawn->IsDead() || (BasicStatus && BasicStatus->Has(TEXT("stagger")))) { Interrupt(); return; }
+    }
+    if (Casting.IsNone()) { ProcessQueue(); return; }
     const auto Snapshot=Activation;
     auto* Pawn = PendingPawn.Get(); auto* State = Cast<AWarPlayerState>(GetOwner()); const auto* A = Snapshot.Get();
     const auto* Status = UWarCombatStatus::On(Pawn);
@@ -371,6 +499,8 @@ void UWarAbilityRuntime::TickComponent(float Delta, ELevelTick TickType, FActorC
                 { WarCombatFeedback::Emit(Effect.Source, Pawn, TEXT("Interrupt"), 0); break; }
         Cancel(); return;
     }
+    if (bMovementCancelable && !OwnsMovement() && (bMovementIntent || !Pawn->GetCharacterMovement()->GetCurrentAcceleration().IsNearlyZero()))
+    { QueuedAbility=NAME_None; Cancel(true); return; }
     if (const auto* Recipe = ActivationPresentation.IsSet() ? &ActivationPresentation.GetValue() : nullptr; Recipe && Recipe->Movement == TEXT("leap"))
     {
         if (Status && Status->Has(TEXT("root"))) { Cancel(); return; }
@@ -398,34 +528,43 @@ void UWarAbilityRuntime::TickComponent(float Delta, ELevelTick TickType, FActorC
         if (Hit.bBlockingHit) { Cancel(); return; }
         if (Alpha >= 1)
         {
-            MoveUntil = 0; Origin = Pawn->GetActorLocation(); Facing = Pawn->GetActorForwardVector();
+            MoveUntil = 0; bTravelActive=false; Origin = Pawn->GetActorLocation(); Facing = Pawn->GetActorForwardVector();
             if (!bMotionDuringTravel) BeginMotion(*A);
         }
         if (!bMotionDuringTravel || MoveUntil > 0) return;
     }
     if (!bReleased && Now() >= ReleaseAt)
     {
-        // Projectiles keep their catalog flight time; melee applies at the equipped clip contact.
-        if (ReleaseAt > 0 && A->ProjectileSpeed > 0 && PendingTarget.IsValid())
-        { ReleaseAt = -Now() - FMath::Min(.8, FVector::Distance(Pawn->GetActorLocation(), PendingTarget->GetActorLocation()) / A->ProjectileSpeed); BusyUntil = FMath::Max(BusyUntil, -ReleaseAt); }
-        else if (ReleaseAt >= 0 || Now() >= -ReleaseAt) { Resolve(*A); if (!Activation) return; bReleased = true; NextChannelTick=Now()+A->TickInterval; }
+        bEffectCommitted=true;
+        if (A->ProjectileSpeed>0 && PendingTarget.IsValid() && A->TimingMode!=TEXT("channel"))
+        {
+            auto Impact=CaptureImpact();
+            Impact.Arrives=Now()+FMath::Min(.8,FVector::Distance(Pawn->GetActorLocation(),PendingTarget->GetActorLocation())/A->ProjectileSpeed);
+            Projectiles.Add(MoveTemp(Impact));
+        }
+        else { Resolve(*A); if (!Activation) return; }
+        bReleased=true; NextChannelTick=Now()+A->TickInterval;
+        if (A->TimingMode!=TEXT("channel")) bMovementCancelable=false;
     }
     if (A->TimingMode==TEXT("channel") && bReleased && NextChannelTick>0)
     {
-        if (Now()>=NextChannelTick && NextChannelTick<ChannelUntil) { Resolve(*A); if (!Activation) return; NextChannelTick+=A->TickInterval; }
+        while (Now()>=NextChannelTick && NextChannelTick<ChannelUntil)
+        { Resolve(*A); if (!Activation) return; NextChannelTick+=A->TickInterval; }
     }
-    if (bReleased && Now() >= BusyUntil) Cancel();
+    if (bReleased && Now() >= BusyUntil) { Cancel(false,false); ProcessQueue(); }
 }
 void UWarAbilityRuntime::ServerActivate_Implementation(FName Id, AActor* Target)
 {
-    if (Now() < NextRequest) return; NextRequest = Now() + .1;
     if (Catalog() && Catalog()->GetVersion()!=TEXT("baseline")) { ClientResult(TEXT("Refresh the ability catalog before casting.")); return; }
+    if (QueueAbility(Id,Target,TEXT("baseline"),FVector::ZeroVector)) return;
+    if (Now()<NextRequest) return; NextRequest=Now()+.1;
     FString Error; if (!TryActivate(Id, Target, Error)) ClientResult(Error);
 }
 void UWarAbilityRuntime::ServerActivateVersioned_Implementation(FName Id,AActor* Target,const FString& Version,FVector Ground)
 {
-    if (Now()<NextRequest) return; NextRequest=Now()+.1;
     if (!Catalog() || Version!=Catalog()->GetVersion()) { ClientResult(TEXT("Ability catalog changed. Waiting for the current revision before the next cast.")); return; }
+    if (QueueAbility(Id,Target,Version,Ground)) return;
+    if (Now()<NextRequest) return; NextRequest=Now()+.1;
     const auto* A=Catalog()->Find(Id,Career); FString Error;
     if (!TryActivate(Id,Target,Error,A && A->TargetKind==TEXT("ground") ? &Ground : nullptr)) ClientResult(Error);
 }

@@ -47,6 +47,9 @@ struct FWarAbilityDefinition
     bool bEnemyTarget = false, bSpendAll = false, bBlockedBySilence = false;
     bool bLegacyTargeting = true;
     bool bAuthoredTiming = false;
+    bool bCancelOnMovement = false;
+    float PreparationScale = 1;
+    bool RequiresStationary() const { return bCancelOnMovement && (TimingMode!=TEXT("instant") || (!bAuthoredTiming && bLegacyTargeting)); }
     float Range = 0, Radius = 0, ProjectileSpeed = 0, Cooldown = 0, Gcd = 0;
     float Mana = 0, Build = 0, Cost = 0, MinimumResource = 0, ResourceMax = 100, ResourceInitial = 0;
     float ReleaseFraction = .4f;

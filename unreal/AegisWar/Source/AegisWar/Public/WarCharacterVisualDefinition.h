@@ -48,6 +48,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") FName AnimationStyle;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") float BasicContactSeconds = .5f;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") TMap<FName, float> LocomotionSpeeds;
+    /** Authored per rig; pelvis and legs always remain owned by locomotion while moving. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") FName CombatUpperBodyBone = TEXT("spine");
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Equipment") TSoftObjectPtr<UStaticMesh> WeaponMesh;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Equipment") TSoftObjectPtr<UStaticMesh> ShieldMesh;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Equipment") FTransform WeaponGrip;

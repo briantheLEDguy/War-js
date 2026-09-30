@@ -12,6 +12,9 @@ struct FWarCombatNotice
 
 namespace WarCombatFeedback
 {
+    constexpr int32 ImpactSampleRate = 22050;
+    /** Production PCM also used by native audio verification and review exports. */
+    AEGISWAR_API TArray<int16> ImpactSamples(uint32 Serial, bool bCritical);
     AEGISWAR_API bool Valid(FName Kind, float Amount);
     AEGISWAR_API bool Append(TArray<FWarCombatNotice>& Notices, uint32& LastSerial, uint32 Serial,
         FName Kind, const FString& Label, float Amount, double Now);

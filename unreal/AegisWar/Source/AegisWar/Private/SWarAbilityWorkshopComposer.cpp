@@ -162,8 +162,9 @@ void SWarAbilityWorkshop::BuildInspector()
     else if (Section==TEXT("Costs & Timing"))
     {
         const auto T=Object(A,TEXT("timing")),R=Object(A,TEXT("resource"));
-        Inspector->AddSlot().AutoHeight()[Choice(Text(T,TEXT("mode")),{{TEXT("instant"),TEXT("Instant")},{TEXT("cast"),TEXT("Cast")},{TEXT("channel"),TEXT("Channel")}},[this,T](FString V) { T->SetStringField(TEXT("mode"),V); if (V==TEXT("channel")) { T->SetNumberField(TEXT("channelSec"),3); T->SetNumberField(TEXT("intervalSec"),1); } MarkComposer(true); })];
-        for (const TCHAR* K:{TEXT("castSec"),TEXT("channelSec"),TEXT("intervalSec")}) Inspector->AddSlot().AutoHeight()[NumericField(FString(K)+TEXT(" (s)"),Number(T,K),[this,T,K](double V) { T->SetNumberField(K,V); MarkComposer(); })];
+        Inspector->AddSlot().AutoHeight()[Choice(Text(T,TEXT("mode")),{{TEXT("instant"),TEXT("Instant")},{TEXT("cast"),TEXT("Cast")},{TEXT("channel"),TEXT("Channel")}},[this,T,A](FString V) { A->SetBoolField(TEXT("authoredTiming"),true); T->SetStringField(TEXT("mode"),V); if (V==TEXT("channel")) { T->SetNumberField(TEXT("channelSec"),3); T->SetNumberField(TEXT("intervalSec"),1); } MarkComposer(true); })];
+        Inspector->AddSlot().AutoHeight()[Choice(Text(A,TEXT("movementPolicy")),{{TEXT("free"),TEXT("Attack while moving")},{TEXT("stationary"),TEXT("Movement cancels cast")}},[this,A](FString V) { A->SetStringField(TEXT("movementPolicy"),V); MarkComposer(); })];
+        for (const TCHAR* K:{TEXT("castSec"),TEXT("channelSec"),TEXT("intervalSec")}) Inspector->AddSlot().AutoHeight()[NumericField(FString(K)+TEXT(" (s)"),Number(T,K),[this,T,K,A](double V) { T->SetNumberField(K,V); A->SetBoolField(TEXT("authoredTiming"),true); MarkComposer(); })];
         for (const TCHAR* K:{TEXT("cooldownSec"),TEXT("gcdSec")}) Inspector->AddSlot().AutoHeight()[NumericField(FString(K)+TEXT(" (s)"),Number(A,K),[this,A,K](double V) { A->SetNumberField(K,V); MarkComposer(); })];
         for (const TCHAR* K:{TEXT("manaCost"),TEXT("careerCost"),TEXT("careerBuild"),TEXT("minCareer")}) Inspector->AddSlot().AutoHeight()[NumericField(K,Number(R,K),[this,R,K](double V) { R->SetNumberField(K,V); MarkComposer(); })];
     }

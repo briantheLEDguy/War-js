@@ -22,7 +22,7 @@
 class FWarAnimationGameplayCapture
 {
 public:
-    explicit FWarAnimationGameplayCapture(UWorld* InWorld):World(InWorld)
+    explicit FWarAnimationGameplayCapture(UWorld* InWorld,const FString& OutputFolder=TEXT("AnimationGameplayCapture")):World(InWorld)
     {
         if (!FParse::Param(FCommandLine::Get(),TEXT("WarCaptureSuppliedAnimation"))) return;
         auto* Floor=World->SpawnActor<AStaticMeshActor>(FVector(0,0,-1),FRotator::ZeroRotator);
@@ -50,7 +50,7 @@ public:
         Settings.bOverride_AutoExposureMethod=true; Settings.AutoExposureMethod=AEM_Manual;
         Settings.bOverride_AutoExposureBias=true; Settings.AutoExposureBias=1.5f;
         Settings.bOverride_AutoExposureApplyPhysicalCameraExposure=true; Settings.AutoExposureApplyPhysicalCameraExposure=true;
-        Directory=FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("AnimationGameplayCapture"));
+        Directory=FPaths::Combine(FPaths::ProjectSavedDir(),OutputFolder);
         IFileManager::Get().MakeDirectory(*Directory,true);
     }
     bool Enabled() const { return Capture!=nullptr; }

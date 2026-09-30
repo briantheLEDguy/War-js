@@ -1,5 +1,12 @@
 # Supplied animation replacement
 
+Combat now layers locomotion below each visual's `CombatUpperBodyBone` and
+replicates playback-rate/contact offsets and channel holds. Existing source
+FBXs, rig units and grip corrections remain owned by these recipes. See
+[fluid combat](unreal-combat-fluidity.md) for timing rules and the six-profile
+equipped movement capture check; stationary review alone does not approve
+moving weapon clearance.
+
 The active source contract is all **44 FBXs** in `AnimationImport/Two-handed`,
 `swordandshield` and `Spellcast`. `animation_replacement.py` records exact names,
 style templates, four character recipes and forty ability presentations. FBXs and

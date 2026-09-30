@@ -215,6 +215,8 @@ void UWarInterfaceWidget::Refresh()
         };
         Slider(TEXT("Look sensitivity (0.25 - 3.0)"), TAttribute<float>::CreateLambda([PC] { return (PC->GetLocalCameraState().LookSensitivity - 0.25) / 2.75; }),
             [PC](float V) { auto& C = PC->GetLocalCameraState(); C.SetPreferences(0.25 + V * 2.75, C.ZoomSensitivity, C.bInvertX, C.bInvertY); PC->SaveInterfacePreferences(); });
+        Slider(TEXT("Combat camera shake (0 = off, 0.25 = light)"),TAttribute<float>::CreateLambda([PC] { return PC->GetCombatShakeIntensity(); }),
+            [PC](float V) { PC->SetCombatShakeIntensity(V); PC->SaveInterfacePreferences(); });
         Slider(TEXT("Zoom sensitivity (0.25 - 3.0)"), TAttribute<float>::CreateLambda([PC] { return (PC->GetLocalCameraState().ZoomSensitivity - 0.25) / 2.75; }),
             [PC](float V) { auto& C = PC->GetLocalCameraState(); C.SetPreferences(C.LookSensitivity, 0.25 + V * 2.75, C.bInvertX, C.bInvertY); PC->SaveInterfacePreferences(); });
         for (bool X : {true, false}) Body->AddSlot().AutoHeight().Padding(0, 0, 0, 12)

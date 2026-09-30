@@ -89,6 +89,16 @@ bool WarAbilities::Parse(const TSharedPtr<const FJsonObject>& Manifest, TArray<F
             if (!WarAbilityConditions::ParseRules(Row,A.Conditions,Error)) { Out.Reset(); return false; }
             const auto Timing=Object(Row,TEXT("timing")); A.TimingMode=FName(*String(Timing,TEXT("mode")));
             A.CastSeconds=Number(Timing,TEXT("castSec")); A.ChannelSeconds=Number(Timing,TEXT("channelSec")); A.TickInterval=Number(Timing,TEXT("intervalSec"),1);
+            const FString MovementPolicy=String(Row,TEXT("movementPolicy"));
+            if (!MovementPolicy.IsEmpty() && MovementPolicy!=TEXT("free") && MovementPolicy!=TEXT("stationary"))
+            { Error=TEXT("Invalid movement policy: ")+Id; Out.Reset(); return false; }
+            A.bCancelOnMovement=MovementPolicy==TEXT("stationary") || (MovementPolicy.IsEmpty()
+                && A.Shape!=TEXT("melee") && A.Shape!=TEXT("dash") && A.School!=TEXT("physical") && A.School!=TEXT("engineer") && A.School!=TEXT("poison")
+                && !A.Effects.ContainsByPredicate([](const auto& E){return E.Kind==TEXT("movement");}));
+            if (A.TimingMode==TEXT("channel")) A.bCancelOnMovement=true;
+            A.PreparationScale=Number(Row,TEXT("preparationScale"),1);
+            if (!FMath::IsFinite(A.PreparationScale) || A.PreparationScale<.1f || A.PreparationScale>1)
+            { Error=TEXT("Invalid preparation scale: ")+Id; Out.Reset(); return false; }
             const auto Presentations=Object(Row,TEXT("presentations"));
             if (Presentations) for (const auto& Entry : Presentations->Values) A.Presentations.Add(FName(*Entry.Key),FName(*Entry.Value->AsString()));
             const FString Identity=A.Career.ToString()+TEXT(":")+Id;

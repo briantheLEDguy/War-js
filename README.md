@@ -1,5 +1,12 @@
 # AegisWar
 
+[Fluid combat](docs/unreal-combat-fluidity.md) separates gameplay timing from
+animation recovery: movement cancels stationary spells, melee continues while
+moving, and baseline combat uses a 1-second shared cooldown. The guide covers
+GM timing compatibility, cancellation/refunds, equipped locomotion, impact
+feedback, combat-only staging and native/network verification. It also documents
+full-cycle equipped captures and production impact-audio review exports.
+
 [Portal travel and model candidates](docs/unreal-portal-models.md) covers the
 capsule-entry fix, Interact retry, saved-world survey and reference-based Blender
 authoring. Both model variants are installed at all 70 local campaign entrances;

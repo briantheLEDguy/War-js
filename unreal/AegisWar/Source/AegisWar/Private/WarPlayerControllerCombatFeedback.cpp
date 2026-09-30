@@ -1,5 +1,18 @@
 #include "WarPlayerController.h"
 #include "Engine/World.h"
+#include "WarImpactCameraModifier.h"
+#include "Camera/PlayerCameraManager.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundWaveProcedural.h"
+#include "Components/AudioComponent.h"
+#include "TimerManager.h"
+
+void AWarPlayerController::SetCombatShakeIntensity(float Value)
+{
+    CombatShakeIntensity=FMath::IsFinite(Value) ? FMath::Clamp(Value,0.f,1.f) : .25f;
+    if (CombatShakeIntensity==0 && PlayerCameraManager)
+        if (auto* Modifier=Cast<UWarImpactCameraModifier>(PlayerCameraManager->FindCameraModifierByClass(UWarImpactCameraModifier::StaticClass()))) Modifier->Stop();
+}
 
 void AWarPlayerController::SendCombatNotice(FName Kind, const FString& Label, float Amount)
 {
@@ -11,5 +24,26 @@ void AWarPlayerController::SendCombatNotice(FName Kind, const FString& Label, fl
 }
 void AWarPlayerController::ClientCombatNotice_Implementation(uint32 Serial, FName Kind, const FString& Label, float Amount)
 {
-    WarCombatFeedback::Append(CombatNotices, LastCombatSerial, Serial, Kind, Label, Amount, GetWorld()->GetTimeSeconds());
+    const double Time=GetWorld()->GetTimeSeconds();
+    if (!WarCombatFeedback::Append(CombatNotices,LastCombatSerial,Serial,Kind,Label,Amount,Time)) return;
+    if (Kind!=TEXT("Hit") && Kind!=TEXT("CriticalHit")) return;
+    const bool bCritical=Kind==TEXT("CriticalHit");
+    if (PlayerCameraManager && CombatShakeIntensity>0)
+    {
+        auto* Modifier=Cast<UWarImpactCameraModifier>(PlayerCameraManager->FindCameraModifierByClass(UWarImpactCameraModifier::StaticClass()));
+        if (!Modifier) Modifier=Cast<UWarImpactCameraModifier>(PlayerCameraManager->AddNewCameraModifier(UWarImpactCameraModifier::StaticClass()));
+        if (Modifier) Modifier->Pulse(CombatShakeIntensity*(bCritical ? 1.f : .7f));
+    }
+    if (Time<NextImpactSound || GetInterfaceVolume()<=0 || GetNetMode()==NM_DedicatedServer) return;
+    NextImpactSound=Time+.06;
+    // Original synthesized impact: no external sound pack or licensed asset dependency.
+    auto* Sound=NewObject<USoundWaveProcedural>(this);
+    Sound->SetSampleRate(WarCombatFeedback::ImpactSampleRate); Sound->NumChannels=1; Sound->Duration=.18f; Sound->bLooping=false;
+    const TArray<int16> Samples=WarCombatFeedback::ImpactSamples(Serial,bCritical);
+    Sound->QueueAudio(reinterpret_cast<const uint8*>(Samples.GetData()),Samples.Num()*sizeof(int16));
+    if (auto* Audio=UGameplayStatics::SpawnSound2D(this,Sound,bCritical ? .8f : .55f))
+    {
+        FTimerHandle StopSound; const TWeakObjectPtr<UAudioComponent> WeakAudio(Audio);
+        GetWorldTimerManager().SetTimer(StopSound,[WeakAudio] { if (WeakAudio.IsValid()) WeakAudio->Stop(); },.22f,false);
+    }
 }

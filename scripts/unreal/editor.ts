@@ -5,7 +5,7 @@ import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPat
 
 export const requiredNativeTests = [
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
-  'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary', 'WorldSync',
+  'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary', 'WorldSync', 'CombatFluidity', 'CombatLocomotion',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting', 'ImportedPopulation',
   'SiegeRules', 'SiegeBotRules', 'SiegeAuthorityAndNormalization', 'SiegeSpawnClearance', 'SiegeOwnership', 'LowerCityRounds', 'CombatFeedback',
   'CharacterFrontend', 'FrontendPresentation', 'ClassAbilityCatalog', 'ClassCombatStatus', 'AbilityConditions', 'AbilityConditionValidation', 'AbilityConditionConformance', 'AbilityWorkshopDocument', 'AbilityDeploymentJournal', 'IconOfWrath', 'WarpIdol', 'SiegeCasterGameplay', 'SuppliedAnimationGameplay',

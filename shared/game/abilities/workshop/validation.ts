@@ -59,6 +59,8 @@ export function validateWorkspace(input: unknown): ValidationIssue[] {
     return true;
   };
   const validateAbility = (ability: WorkshopAbility, path: string) => {
+    if (ability.movementPolicy !== undefined && !choice(ability.movementPolicy, ['free', 'stationary'])) error(`${path}/movementPolicy`, 'Choose free movement or stationary casting.');
+    if (ability.preparationScale !== undefined && !finite(ability.preparationScale, .1, 1)) error(`${path}/preparationScale`, 'Invalid baseline preparation scale.');
     if (typeof ability.name !== 'string' || !ability.name.trim() || ability.name.length > 100 || typeof ability.summary !== 'string' || ability.summary.length > 4000
       || typeof ability.archived !== 'boolean' || !finite(ability.cooldownSec, 0, 3600) || !finite(ability.gcdSec, 0, 60)) error(path, 'Invalid name, description, archive state, or cooldown.');
     const target = ability.targeting;

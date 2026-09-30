@@ -42,8 +42,8 @@ void UWarStrikeAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
     AWarCharacter* Attacker = ActorInfo ? Cast<AWarCharacter>(ActorInfo->AvatarActor.Get()) : nullptr;
     AActor* Target = Attacker ? Attacker->GetRequestedStrikeTarget() : nullptr;
     // Revalidate immediately before cost and cooldown; the client never supplies damage, resource or range.
-    if (!Attacker || !Attacker->HasAuthority() || !Attacker->CanStrikeTarget(Target) || Attacker->IsActionPlaying()
-        || (Attacker->GetPlayerState<AWarPlayerState>() && Attacker->GetPlayerState<AWarPlayerState>()->GetClassAbilities()->IsBusy())
+    if (!Attacker || !Attacker->HasAuthority() || !Attacker->CanStrikeTarget(Target)
+        || (Attacker->GetPlayerState<AWarPlayerState>() && (Attacker->GetPlayerState<AWarPlayerState>()->GetClassAbilities()->IsBusy() || Attacker->GetPlayerState<AWarPlayerState>()->GetClassAbilities()->Cooldown(NAME_None)>0))
         || !CommitAbility(Handle, ActorInfo, ActivationInfo))
     {
         EndAbility(Handle, ActorInfo, ActivationInfo, true, true);
@@ -51,12 +51,14 @@ void UWarStrikeAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
     }
     const float Duration = Attacker->GetAbilityAnimationDuration(TEXT("attack_melee"));
     const TWeakObjectPtr<AActor> WeakTarget(Target);
-    const int32 ActionSerial = Attacker->GetReplicatedMotion().Serial + 1;
+    auto* Runtime=Attacker->GetPlayerState<AWarPlayerState>()->GetClassAbilities();
+    const uint32 ActionSerial=Runtime->BeginBasicAttack(Attacker->GetBasicAttackContact());
     FTimerHandle Impact;
-    Attacker->GetWorldTimerManager().SetTimer(Impact, FTimerDelegate::CreateWeakLambda(Attacker, [Attacker, WeakTarget, ActionSerial] {
+    Attacker->GetWorldTimerManager().SetTimer(Impact, FTimerDelegate::CreateWeakLambda(Attacker, [Attacker, WeakTarget, ActionSerial, Runtime] {
         const auto* Status = UWarCombatStatus::On(Attacker);
-        if (Attacker->IsDead() || Attacker->GetReplicatedMotion().Serial != ActionSerial || (Status && Status->Has(TEXT("stagger")))) return;
-        UWarCombatStatus::Damage(WeakTarget.Get(), Attacker, WarValidation::StrikeDamage * (Status ? Status->OutgoingScale() : 1), WarValidation::StrikeRangeCm);
+        if (!Attacker->IsDead() && Runtime->GetActionSerial()==ActionSerial && Attacker->CanStrikeTarget(WeakTarget.Get()) && !(Status && Status->Has(TEXT("stagger"))))
+            UWarCombatStatus::Damage(WeakTarget.Get(), Attacker, WarValidation::StrikeDamage * (Status ? Status->OutgoingScale() : 1), WarValidation::StrikeRangeCm);
+        Runtime->FinishBasicAttack(ActionSerial);
     }), FMath::Max(.01f, Attacker->GetBasicAttackContact()), false);
     Attacker->MulticastPlayAbilityMotion(TEXT("attack_melee"), Duration, false);
     EndAbility(Handle, ActorInfo, ActivationInfo, true, false);

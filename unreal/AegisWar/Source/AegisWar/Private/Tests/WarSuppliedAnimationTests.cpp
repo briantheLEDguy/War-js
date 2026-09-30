@@ -111,14 +111,14 @@ bool FWarSuppliedAnimationTest::RunTest(const FString& Parameters)
                 { AddError(Error); continue; }
                 const auto Motion=Pawn->GetReplicatedMotion(); Variants.Add(Motion.Role);
                 TestTrue(TEXT("Server selects an authored variant"),Recipe->VariantRoles.Contains(Motion.Role));
-                TestEqual(TEXT("Replicated duration is authoritative"),Motion.Duration,Recipe->Duration);
+                TestEqual(TEXT("Replicated duration is authoritative"),Motion.Duration,Recipe->Duration/Motion.PlayRate);
                 const float Before=Health(Target); const float OwnBefore=Health(Pawn);
                 const FVector Hand=Pawn->GetMesh()->GetBoneLocation(TEXT("hand_R")); float HandTravel=0;
                 const float CapsuleStart=Pawn->GetActorLocation().Z; float CapsuleRise=0;
                 float MaximumPosePhaseError=0; int32 EvaluatedFrames=0;
                 const auto* EquippedVisual=LoadObject<UWarCharacterVisualDefinition>(nullptr,*(TEXT("/Game/MigrationProof/Visual_")+Profile));
                 TInlineComponentArray<UStaticMeshComponent*> Equipped(Pawn); float GripLag=0;
-                TArray<float> CaptureTimes={.3f,Recipe->ContactSeconds-.05f,Recipe->ContactSeconds+.05f,Recipe->Duration-.2f};
+                TArray<float> CaptureTimes={.3f,Recipe->ContactSeconds/Motion.PlayRate-.05f,Recipe->ContactSeconds/Motion.PlayRate+.05f,Motion.Duration-.2f};
                 CaptureTimes.Sort(); int32 Captured=0;
                 while (World->GetTimeSeconds()<Motion.Start+Recipe->Duration+.85)
                 {
@@ -128,7 +128,7 @@ bool FWarSuppliedAnimationTest::RunTest(const FString& Parameters)
                     {
                         ++EvaluatedFrames;
                         MaximumPosePhaseError=FMath::Max(MaximumPosePhaseError,static_cast<float>(FMath::Abs(
-                            EvaluatedAnimation->EvaluatedTime-(EvaluatedAnimation->EvaluatedServerTime-Motion.Start))));
+                            EvaluatedAnimation->EvaluatedTime-(EvaluatedAnimation->EvaluatedServerTime-Motion.Start)*Motion.PlayRate)));
                     }
                     CapsuleRise=FMath::Max(CapsuleRise,static_cast<float>(Pawn->GetActorLocation().Z-CapsuleStart));
                     HandTravel=FMath::Max(HandTravel,static_cast<float>(FVector::Dist(Hand,Pawn->GetMesh()->GetBoneLocation(TEXT("hand_R")))));
@@ -141,7 +141,7 @@ bool FWarSuppliedAnimationTest::RunTest(const FString& Parameters)
                             const FName ExpectedState(*(Motion.Role.ToString()+FString::Printf(TEXT(":%d"),Motion.Serial)));
                             const float Age=Animation->EvaluatedState==ExpectedState ? Animation->EvaluatedTime
                                 : static_cast<float>(World->GetTimeSeconds()-Motion.Start);
-                            const float Stow=Recipe->bStowEquipment ? FMath::Clamp(FMath::Min(Age/.3f,(Motion.Duration-Age)/.3f),0.f,1.f) : 0;
+                            const float Stow=Recipe->bStowEquipment ? FMath::Clamp(FMath::Min(Age/.3f,(Motion.Duration*Motion.PlayRate-Age)/.3f),0.f,1.f) : 0;
                             const bool bStored=Pawn->IsActionPlaying() && Stow>=1-KINDA_SMALL_NUMBER;
                             const FTransform Relative=bStored ? (bWeapon ? EquippedVisual->WeaponStowed : EquippedVisual->ShieldStowed)
                                 : (bWeapon ? EquippedVisual->WeaponGrip : EquippedVisual->ShieldGrip);
@@ -154,7 +154,7 @@ bool FWarSuppliedAnimationTest::RunTest(const FString& Parameters)
                         }
                     if (Capture.Enabled() && !bBot && Captured<CaptureTimes.Num() && World->GetTimeSeconds()>=Motion.Start+CaptureTimes[Captured])
                         Capture.Frame(Pawn,Motion.Role.ToString()+FString::Printf(TEXT("_phase%d"),Captured++));
-                    if (World->GetTimeSeconds()<Motion.Start+Recipe->ContactSeconds-.035)
+                    if (World->GetTimeSeconds()<Motion.Start+Recipe->ContactSeconds/Motion.PlayRate-.035)
                     { TestEqual(TEXT("No hostile effect before authored contact"),Health(Target),Before); TestEqual(TEXT("No heal before authored contact"),Health(Pawn),OwnBefore); }
                 }
                 TestFalse(TEXT("Action completes its recovery"),Runtime->IsBusy());

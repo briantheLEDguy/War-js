@@ -121,6 +121,8 @@ public:
     void BindControlKeys();
     float GetInterfaceVolume() const { return InterfaceVolume; }
     void SetInterfaceVolume(float Volume);
+    float GetCombatShakeIntensity() const { return CombatShakeIntensity; }
+    void SetCombatShakeIntensity(float Value);
     virtual void UpdateRotation(float DeltaTime) override;
     void ToggleInventory();
     void ToggleQuestLog();
@@ -189,5 +191,7 @@ private:
     UPROPERTY(Transient) FText LastEntryFailure;
     // The controller survives pawn death; zoom, orbit and preferences must survive it too.
     FWarCameraState LocalCameraState;
+    float CombatShakeIntensity = .25f;
+    double NextImpactSound = 0;
     bool bCameraInitialized = false;
 };

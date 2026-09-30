@@ -25,6 +25,8 @@ void AWarPlayerController::BeginPlay()
     GConfig->GetBool(TEXT("AegisWar.Interface"), TEXT("InvertY"), InvertY, GGameUserSettingsIni);
     GConfig->GetFloat(TEXT("AegisWar.Interface"), TEXT("MasterVolume"), InterfaceVolume, GGameUserSettingsIni);
     SetInterfaceVolume(InterfaceVolume);
+    GConfig->GetFloat(TEXT("AegisWar.Interface"),TEXT("CombatShakeIntensity"),CombatShakeIntensity,GGameUserSettingsIni);
+    SetCombatShakeIntensity(CombatShakeIntensity);
     LocalCameraState.SetPreferences(Look, Zoom, InvertX, InvertY);
 }
 
@@ -35,6 +37,7 @@ void AWarPlayerController::SaveInterfacePreferences()
     GConfig->SetBool(TEXT("AegisWar.Interface"), TEXT("InvertX"), LocalCameraState.bInvertX, GGameUserSettingsIni);
     GConfig->SetBool(TEXT("AegisWar.Interface"), TEXT("InvertY"), LocalCameraState.bInvertY, GGameUserSettingsIni);
     GConfig->SetFloat(TEXT("AegisWar.Interface"), TEXT("MasterVolume"), InterfaceVolume, GGameUserSettingsIni);
+    GConfig->SetFloat(TEXT("AegisWar.Interface"),TEXT("CombatShakeIntensity"),CombatShakeIntensity,GGameUserSettingsIni);
     GConfig->Flush(false, GGameUserSettingsIni);
 }
 

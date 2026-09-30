@@ -24,6 +24,9 @@ namespace
             Current = Animation->Current; Previous = Animation->Previous;
             CurrentTime = Animation->CurrentTime; PreviousTime = Animation->PreviousTime; Blend = Animation->Blend;
             State = Animation->State;
+            Locomotion=Animation->Locomotion; LocomotionTime=Animation->LocomotionTime;
+            LocomotionWeight=Animation->LocomotionWeight; UpperBodyBone=Animation->UpperBodyBone;
+            PreviousLocomotion=Animation->PreviousLocomotion; PreviousLocomotionTime=Animation->PreviousLocomotionTime; LocomotionBlend=Animation->LocomotionBlend;
             const auto* World=Instance->GetWorld();
             const auto* GameState=World ? World->GetGameState() : nullptr;
             SampledServerTime=GameState ? GameState->GetServerWorldTimeSeconds() : World ? World->GetTimeSeconds() : -1;
@@ -52,11 +55,35 @@ namespace
                 Previous->GetAnimationPose(OldPose, FAnimExtractContext(PreviousTime, false));
                 FAnimationRuntime::BlendTwoPosesTogetherInPlace(CurrentPose, OldPose, Blend);
             }
+            if (Locomotion && LocomotionWeight>0)
+            {
+                FPoseContext Legs(Output); Legs.ResetToRefPose(); FAnimationPoseData LegPose(Legs);
+                Locomotion->GetAnimationPose(LegPose,FAnimExtractContext(LocomotionTime,false));
+                if (PreviousLocomotion && LocomotionBlend<1)
+                {
+                    FPoseContext OldLegs(Output); OldLegs.ResetToRefPose(); FAnimationPoseData OldLegPose(OldLegs);
+                    PreviousLocomotion->GetAnimationPose(OldLegPose,FAnimExtractContext(PreviousLocomotionTime,false));
+                    FAnimationRuntime::BlendTwoPosesTogetherInPlace(LegPose,OldLegPose,LocomotionBlend);
+                }
+                const auto& Bones=Output.Pose.GetBoneContainer(); const auto& RefBones=Bones.GetReferenceSkeleton();
+                const int32 Spine=RefBones.FindBoneIndex(UpperBodyBone);
+                if (Spine!=INDEX_NONE) for (const FCompactPoseBoneIndex Index : Output.Pose.ForEachBoneIndex())
+                {
+                    int32 Bone=Bones.MakeMeshPoseIndex(Index).GetInt();
+                    while (Bone!=INDEX_NONE && Bone!=Spine) Bone=RefBones.GetParentIndex(Bone);
+                    if (Bone!=Spine) Output.Pose[Index].BlendWith(Legs.Pose[Index],LocomotionWeight);
+                }
+            }
             return true;
         }
     private:
         UAnimSequence* Current = nullptr;
         UAnimSequence* Previous = nullptr;
+        UAnimSequence* Locomotion = nullptr;
+        UAnimSequence* PreviousLocomotion = nullptr;
+        FName UpperBodyBone;
+        float LocomotionTime = 0, LocomotionWeight = 0;
+        float PreviousLocomotionTime = 0, LocomotionBlend = 1;
         float CurrentTime = 0, PreviousTime = 0, Blend = 1;
         double SampledServerTime = -1;
         FName State;
@@ -66,6 +93,17 @@ void UWarAnimationInstance::PreparePose(float DeltaSeconds)
 {
     if (auto* Character=Cast<AWarCharacter>(TryGetPawnOwner()); Character && Character->IsVisualReady())
         Character->UpdateNativeAnimation(DeltaSeconds);
+}
+void UWarAnimationInstance::SelectLocomotion(UAnimSequence* Sequence,float DeltaSeconds,float Rate)
+{
+    if (Locomotion!=Sequence)
+    {
+        PreviousLocomotion=Locomotion; PreviousLocomotionTime=LocomotionTime;
+        Locomotion=Sequence; LocomotionTime=0; LocomotionBlend=PreviousLocomotion ? 0 : 1;
+    }
+    LocomotionBlend=FMath::Min(1.f,LocomotionBlend+DeltaSeconds/.14f);
+    if (Locomotion) LocomotionTime=FMath::Fmod(LocomotionTime+DeltaSeconds*Rate,FMath::Max(.001f,Locomotion->GetPlayLength()));
+    if (PreviousLocomotion) PreviousLocomotionTime=FMath::Fmod(PreviousLocomotionTime+DeltaSeconds*Rate,FMath::Max(.001f,PreviousLocomotion->GetPlayLength()));
 }
 void UWarAnimationInstance::Select(UAnimSequence* Sequence, FName NewState, float Time, float BlendSeconds)
 {

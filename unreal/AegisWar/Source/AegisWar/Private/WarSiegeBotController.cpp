@@ -10,6 +10,7 @@
 #include "Engine/GameInstance.h"
 #include "EngineUtils.h"
 #include "Navigation/CrowdFollowingComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 AWarSiegeBotController::AWarSiegeBotController(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer.SetDefaultSubobjectClass<UCrowdFollowingComponent>(TEXT("PathFollowingComponent")))
@@ -63,6 +64,12 @@ void AWarSiegeBotController::Tick(float Delta)
     auto* Catalog = GetGameInstance()->GetSubsystem<UWarAbilityCatalog>();
     auto* Runtime = PS->GetClassAbilities(); FString Error;
     const auto Kit = Catalog ? Catalog->Kit(BotPawn->GetCareerId()) : TArray<const FWarAbilityDefinition*>();
+    const auto TryCombatAbility=[&](FName Id,AActor* Aim) {
+        const auto* A=Catalog ? Catalog->Find(Id,BotPawn->GetCareerId()) : nullptr;
+        if (A && A->RequiresStationary() && Runtime->ReadyIn(Id)<=0 && (!A->bEnemyTarget || BotPawn->CanAbilityTarget(Aim,A->Range)))
+        { StopMovement(); BotPawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false); }
+        return Runtime->TryActivate(Id,Aim,Error);
+    };
     if (Decision == EWarSiegeDecision::Evade)
     {
         ClearFocus(EAIFocusPriority::Gameplay);
@@ -77,8 +84,9 @@ void AWarSiegeBotController::Tick(float Delta)
         for (const auto& E : A->Effects)
         { Heal |= E.Kind == TEXT("heal"); Defense |= E.Kind == TEXT("player_status") && (E.StatusKind == TEXT("shield") || E.StatusKind == TEXT("guard")); }
         if ((Heal && ((CombatRole == EWarSiegeRole::Healer && LowestHealth < .85f) || Hp < .6f)) || (Defense && Hp < .6f))
-            if (Runtime->TryActivate(A->Id, Heal && CombatRole == EWarSiegeRole::Healer ? Injured : BotPawn, Error)) break;
+            if (TryCombatAbility(A->Id, Heal && CombatRole == EWarSiegeRole::Healer ? Injured : BotPawn)) break;
     }
+    if (Runtime->IsStationaryCast() || Runtime->OwnsMovement()) { StopMovement(); return; }
     if (Decision == EWarSiegeDecision::Recover)
     {
         FVector Help = HasLeader ? Human->GetActorLocation() : Mode->Battlefield->TeamSpawns[GS->Siege.Stage * 2 + (PS->GetRealm() == EWarRealm::Aegis ? 0 : 1)];
@@ -95,17 +103,17 @@ void AWarSiegeBotController::Tick(float Delta)
         if (BotPawn->GetCareerId() == TEXT("void_magister") && Nearest < FMath::Square(1000.f))
         {
             const bool HasIdol = AWarWarpIdol::HasFor(BotPawn);
-            if (!HasIdol) Activated = Runtime->TryActivate(TEXT("void_magister.summon_idol"), BotPawn, Error);
+            if (!HasIdol) Activated = TryCombatAbility(TEXT("void_magister.summon_idol"), BotPawn);
             else if (const auto* Status = UWarCombatStatus::On(BotPawn); Status && !Status->Has(TEXT("empower")))
-                Activated = Runtime->TryActivate(TEXT("void_magister.feed_the_idol"), BotPawn, Error);
+                Activated = TryCombatAbility(TEXT("void_magister.feed_the_idol"), BotPawn);
         }
         for (const auto* A : Kit)
         {
             if (Activated) break;
             bool Offensive = false; for (const auto& E : A->Effects) Offensive |= E.Kind == TEXT("damage") || E.Kind == TEXT("status");
-            if (Offensive && Runtime->TryActivate(A->Id, Enemy, Error)) { Activated = true; break; }
+            if (Offensive && TryCombatAbility(A->Id, Enemy)) { Activated = true; break; }
         }
-        if (Activated || Runtime->IsBusy() || BotPawn->IsActionPlaying()) StopMovement();
+        if (Runtime->IsStationaryCast() || Runtime->OwnsMovement()) StopMovement();
         else
         {
             BotPawn->RequestTargetStrike(Enemy);

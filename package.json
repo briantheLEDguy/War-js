@@ -58,6 +58,8 @@
     "unreal:scenario-menu-proof": "tsx scripts/unreal/scenario-menu-proof.ts",
     "unreal:import": "tsx scripts/unreal/editor.ts --mode import",
     "unreal:network-proof": "tsx scripts/unreal/network-proof.ts",
+    "unreal:stage-combat": "tsx scripts/unreal/stage-combat-content.ts",
+    "unreal:combat-network-proof": "tsx scripts/unreal/combat-network-proof.ts",
     "unreal:animation-network-proof": "tsx scripts/unreal/animation-network-proof.ts",
     "unreal:siege-playtest": "tsx scripts/unreal/siege-playtest.ts",
     "unreal:siege-traversal-proof": "tsx scripts/unreal/siege-traversal-proof.ts",

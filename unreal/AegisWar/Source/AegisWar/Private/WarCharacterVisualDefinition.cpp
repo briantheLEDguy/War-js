@@ -58,6 +58,8 @@ bool UWarCharacterVisualDefinition::ValidateForSpawn(const EWarRealm ExpectedRea
     }
     if (!AnimationStyle.IsNone())
     {
+        if (Mesh->GetRefSkeleton().FindBoneIndex(CombatUpperBodyBone)==INDEX_NONE)
+            return Reject(TEXT("Character combat locomotion requires its authored upper-body split bone."));
         const UAnimSequence* Basic = ImportedAnimations.FindRef(TEXT("attack_melee")).LoadSynchronous();
         if (!Basic || !FMath::IsFinite(BasicContactSeconds) || BasicContactSeconds <= 0 || BasicContactSeconds >= Basic->GetPlayLength())
             return Reject(TEXT("Basic attack requires an authored contact inside its recovery duration."));

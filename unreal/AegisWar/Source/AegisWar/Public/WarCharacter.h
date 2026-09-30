@@ -23,6 +23,12 @@ struct FWarReplicatedMotion
     UPROPERTY() FName Role;
     UPROPERTY() double Start = 0;
     UPROPERTY() float Duration = 0;
+    UPROPERTY() float PlayRate = 1;
+    UPROPERTY() float StartOffset = 0;
+    UPROPERTY() float HoldStart = 0;
+    UPROPERTY() float HoldDuration = 0;
+    UPROPERTY() float HoldPose = 0;
+    UPROPERTY() bool bFullBody = false;
     UPROPERTY() bool bLoop = false;
     UPROPERTY() bool bStowEquipment = false;
     UPROPERTY() int32 Serial = 0;
@@ -57,6 +63,9 @@ public:
     void ReactToHit(const AActor* Source, float HealthLost);
     const FWarReplicatedMotion& GetReplicatedMotion() const { return Motion; }
     bool IsActionPlaying() const;
+    void SuppressAbilityMotion() { SuppressedMotionSerial = Motion.Serial; }
+    void SetAbilityPlaybackRate(float Rate, bool bFullBody = false, float StartOffset = 0);
+    void HoldAbilityPresentation(float Start, float Duration, float Pose);
     UFUNCTION(NetMulticast, Reliable) void MulticastPlayAbilityMotion(FName MotionRole, float Duration, bool bLoop);
     FName GetPlayingAnimation() const { return PlayingAnimation; }
     bool CanStrikeTarget(const AActor* Target) const;
@@ -71,6 +80,8 @@ public:
     double GetCameraDistance() const;
     UFUNCTION(BlueprintCallable, Category="Movement") void ToggleAutoRun();
     bool IsAutoRunning() const { return MovementInput.bAutoRun; }
+    void RefreshCombatMovementIntent() { UpdateMovementInput(); }
+    void ExecuteQueuedStrike(AActor* Target) { if (HasAuthority()) ServerRequestStrike(Target); }
     bool SetDevelopmentTraversal(bool bFlying, float SpeedMultiplier, FString& Error);
     bool ReturnToDevelopmentSpawn(FString& Error);
     bool IsDevelopmentFlying() const { return bDevelopmentFlying && !bDead; }
@@ -97,6 +108,7 @@ private:
     void UpdateEquipmentPresentation();
     void UpdateReleasedEquipment(float Elapsed);
     double AnimationTime() const;
+    float MotionSampleTime(double Age) const;
     void InitializeAbilityActor();
     void MoveForward(const FInputActionValue& Value);
     void MoveRight(const FInputActionValue& Value);
@@ -125,6 +137,7 @@ private:
     TWeakObjectPtr<UEnhancedInputLocalPlayerSubsystem> InputSubsystem;
     double NextStrikeRequestTime = 0.0;
     bool bVisualReady = false;
+    int32 SuppressedMotionSerial = INDEX_NONE;
     FName PlayingAnimation;
     double ActionAnimationUntil = 0.0;
     double LocomotionStart = 0, TurnUntil = 0, LandingUntil = 0;

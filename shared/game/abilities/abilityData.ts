@@ -65,6 +65,7 @@ interface AbilitySeed {
   minCareer?: number;
   status?: AbilityStatusPayload;
   effects?: AbilityEffect[];
+  movementPolicy?: 'free' | 'stationary';
 }
 
 export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.fromEntries(
@@ -102,7 +103,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Rallying Rebuke', 'Taunt that lowers enemy damage output.', 'control', 'holy', 'melee', { status: debuff('Rebuked', 5) }),
       a('Banner Rush', 'Shield-led engage and charge.', 'mobility', 'physical', 'dash', { range: 12 }),
       a('Radiant Counter', 'Riposte that briefly blinds.', 'strike', 'holy', 'melee', { status: slow('Blinded', 2, 0.25) }),
-      a('Heavenrend Sweep', 'Wide cleave that spends Valor.', 'spender', 'holy', 'cone', { careerCost: 35, range: 6 }),
+      a('Heavenrend Sweep', 'Wide cleave that spends Valor.', 'spender', 'holy', 'cone', { careerCost: 35, range: 6, movementPolicy: 'free' }),
       a('Daybreak Standard', 'Ultimate banner zone with radiant pulses.', 'ultimate', 'holy', 'area', { target: 'self', radius: 7, spendAllCareer: true }),
     ]),
     kit('Battle Prelate', 'melee_healer', resource('zeal', 'Zeal', 100, 20), [
@@ -111,7 +112,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a("Martyr's Ward", 'Targeted ward for self or ally.', 'defense', 'holy', 'self', { manaCost: 14 }),
       a('Penance Step', 'Short gap-close with a slowing strike.', 'mobility', 'holy', 'dash', { status: slow('Penance', 2.5, 0.4) }),
       a('Hymn of Resolve', 'Chant aura that rewards allies for striking.', 'buff', 'holy', 'self'),
-      a('Reliquary Smash', 'Overhead area stagger.', 'area', 'holy', 'area', { target: 'self', radius: 3.5, status: stagger('Reliquary Smash', 1.2) }),
+      a('Reliquary Smash', 'Overhead area stagger.', 'area', 'holy', 'area', { target: 'self', radius: 3.5, status: stagger('Reliquary Smash', 1.2), movementPolicy: 'free' }),
       a('Judgment of Ash', 'Line-based holy shock at mid range.', 'strike', 'holy', 'beam', { range: 16 }),
       a('Redemption Surge', 'Spend Zeal for a burst self heal.', 'heal', 'holy', 'self', { careerCost: 35, manaCost: 12 }),
       a('Icon of Wrath', 'Placed relic that grants lifesteal pressure.', 'summon', 'holy', 'deployable', { target: 'self', radius: 5, effects: [{ kind: 'wrath_relic', school: 'holy' }] }),
@@ -169,13 +170,13 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Opening Form', 'Entry strike that starts the stance chain.', 'builder', 'arcane', 'melee', { careerBuild: 1 }),
       a('Rising Form', 'Advancing cut that improves the chain.', 'builder', 'arcane', 'dash', { careerBuild: 1 }),
       a('Perfect Form', 'Finisher slash after proper sequencing.', 'spender', 'arcane', 'melee', { careerCost: 2 }),
-      a('Warding Arc', 'Parry cone versus frontal attacks.', 'defense', 'arcane', 'cone', { range: 5 }),
+      a('Warding Arc', 'Parry cone versus frontal attacks.', 'defense', 'arcane', 'cone', { range: 5, movementPolicy: 'free' }),
       a('Moonstep', 'Elegant sidestep that improves the next form.', 'mobility', 'arcane', 'self', { careerBuild: 1 }),
       a('Enchanted Edge', 'Magic-imbued blade stance.', 'buff', 'arcane', 'self'),
-      a('Spiral Guard', 'Circular peel attack.', 'area', 'arcane', 'area', { target: 'self', radius: 3.5 }),
+      a('Spiral Guard', 'Circular peel attack.', 'area', 'arcane', 'area', { target: 'self', radius: 3.5, movementPolicy: 'free' }),
       a('Mindward', 'Party anti-magic buffer.', 'defense', 'arcane', 'self'),
       a('Aether Crossing', 'Dash-through slash to reposition.', 'mobility', 'arcane', 'dash', { range: 12 }),
-      a('Sevenfold Kata', 'Ultimate rapid Perfect Form recital.', 'ultimate', 'arcane', 'area', { target: 'self', radius: 5, spendAllCareer: true }),
+      a('Sevenfold Kata', 'Ultimate rapid Perfect Form recital.', 'ultimate', 'arcane', 'area', { target: 'self', radius: 5, spendAllCareer: true, movementPolicy: 'free' }),
     ]),
     kit('Pride Warden', 'bonded_beast_hunter', resource('pack_fury', 'Pack Fury', 100, 20), [
       a("Hunter's Mark", 'Identify prey for companion pressure.', 'builder', 'physical', 'projectile', { status: mark("Hunter's Mark", 7) }),
@@ -209,7 +210,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Mist Walk', 'Camouflage reposition tool.', 'defense', 'shadow', 'self'),
       a('Eye Pierce', 'Interrupting silence shot.', 'control', 'physical', 'projectile', { range: 24, status: silence('Eye Pierce', 2) }),
       a('Waylay Trap', 'Ground snare trap.', 'control', 'physical', 'area', { target: 'self', radius: 4, status: root('Waylay Trap', 1.8) }),
-      a('Moonshot', 'Arcing reveal arrow.', 'strike', 'arcane', 'projectile', { range: 30 }),
+      a('Moonshot', 'Arcing reveal arrow.', 'strike', 'arcane', 'projectile', { range: 30, movementPolicy: 'free' }),
       a('Vengeance Mark', 'Target takes bonus pressure after stance changes.', 'builder', 'shadow', 'projectile', { status: mark('Vengeance Mark', 7) }),
       a('Eclipse Hunt', 'Ultimate aimed shot, dash, and finisher chain.', 'ultimate', 'shadow', 'projectile', { spendAllCareer: true, range: 28 }),
     ]),
@@ -217,7 +218,7 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
       a('Aura of Dread', 'Passive enemy offense reduction nearby.', 'stance', 'chaos', 'self'),
       a('Aura of Ruin', 'Nearby armor and resistance debuff field.', 'stance', 'chaos', 'self'),
       a('Aura of Dominion', 'Team control-resistance aura.', 'stance', 'chaos', 'self'),
-      a('Hexbrand Cleave', 'Melee cleave that spreads curse tags.', 'builder', 'chaos', 'cone', { range: 5, status: debuff('Hexbrand', 6) }),
+      a('Hexbrand Cleave', 'Melee cleave that spreads curse tags.', 'builder', 'chaos', 'cone', { range: 5, status: debuff('Hexbrand', 6), movementPolicy: 'free' }),
       a('Black Bastion', 'Heavy defensive shield stance.', 'defense', 'chaos', 'self'),
       a("Tyrant's Advance", 'Unstoppable march forward.', 'mobility', 'chaos', 'dash', { target: 'self' }),
       a('Sunder Faith', 'Anti-caster taunt and silence.', 'control', 'chaos', 'melee', { status: silence('Sunder Faith', 2) }),
@@ -347,15 +348,15 @@ export const CAREER_ABILITY_KITS: Record<string, CareerAbilityKit> = Object.from
     ]),
     kit('Crimson Acolyte', 'siphon_healer', resource('essence', 'Essence', 100, 30), [
       a('Siphon Cut', 'Melee builder for Essence.', 'builder', 'poison', 'melee'),
-      a('Blood Rite', 'Targeted heal that spends Essence.', 'heal', 'poison', 'self', { careerCost: 25 }),
+      a('Blood Rite', 'Targeted heal that spends Essence.', 'heal', 'poison', 'self', { careerCost: 25, movementPolicy: 'stationary' }),
       a('Pain Mirror', 'Mark causing suffering to feed you.', 'builder', 'shadow', 'projectile', { status: mark('Pain Mirror', 6), effects: mixedDamageHeal('shadow', 10, 18, 8, 14) }),
-      a('Razor Prayer', 'Aura granting lifesteal nearby.', 'buff', 'poison', 'self'),
+      a('Razor Prayer', 'Aura granting lifesteal nearby.', 'buff', 'poison', 'self', { movementPolicy: 'stationary' }),
       a('Cruel Embrace', 'Pull target inward.', 'control', 'shadow', 'projectile', { range: 14, status: root('Cruel Embrace', 1.3) }),
       a('Scarlet Step', 'Rush slash and reposition.', 'mobility', 'poison', 'dash', { range: 12 }),
       a('Borrowed Vigor', 'Steal stats from foe for team gain.', 'control', 'shadow', 'melee', { status: debuff('Borrowed Vigor', 5) }),
       a('Covenant of Knives', 'Spinning AoE lifetap.', 'area', 'poison', 'area', { target: 'self', radius: 4, effects: mixedDamageHeal('poison', 16, 28, 14, 26) }),
       a('Dark Communion', 'Group heal over time at Essence cost.', 'heal', 'shadow', 'self', { careerCost: 30 }),
-      a('Feast of the Shrine', 'Ultimate altar state converting damage into healing.', 'ultimate', 'poison', 'deployable', { target: 'self', radius: 7, spendAllCareer: true, effects: mixedDamageHeal('poison', 22, 38, 32, 52) }),
+      a('Feast of the Shrine', 'Ultimate altar state converting damage into healing.', 'ultimate', 'poison', 'deployable', { target: 'self', radius: 7, spendAllCareer: true, effects: mixedDamageHeal('poison', 22, 38, 32, 52), movementPolicy: 'stationary' }),
     ]),
   ].map((entry) => [entry.career, entry]),
 );
@@ -456,6 +457,11 @@ function defineAbility(
   ];
   const unavailableReason = effects.length === 0 && !(resourceDelta.careerBuild > 0)
     ? `${seed.name} is unavailable: persistent summons are not implemented.` : undefined;
+  // Damage school alone cannot distinguish magical weapon cleaves from ritual spells.
+  const movementPolicy = seed.movementPolicy ?? (seed.kind === 'mobility' || seed.shape === 'melee' || seed.shape === 'dash'
+    || ['physical', 'engineer', 'poison'].includes(seed.school) || seed.kind === 'stance' ? 'free' : 'stationary');
+  const preparationScale = movementPolicy === 'stationary' && seed.kind !== 'ultimate'
+    && !effects.some(effect => effect.kind === 'movement') ? 0.8 : 1;
 
   return {
     id: `${slug(career)}.${slug(seed.name)}`,
@@ -468,7 +474,9 @@ function defineAbility(
     summary: unavailableReason ?? currentEffectSummary(seed, effects, res, resourceDelta.careerBuild),
     unavailableReason,
     cooldownSec,
-    gcdSec: seed.kind === 'stance' ? 0.5 : 1.2,
+    gcdSec: seed.kind === 'stance' ? 0.5 : 1.0,
+    movementPolicy,
+    preparationScale,
     tags: tagsFor(seed, target),
     resource: resourceDelta,
     animation,

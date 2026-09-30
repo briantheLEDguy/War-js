@@ -101,6 +101,7 @@ void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* New
     const bool bProofEntry = !UE_BUILD_SHIPPING && (
         FParse::Param(FCommandLine::Get(), TEXT("WarNetworkProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarAnimationNetworkProof"))
+        || FParse::Param(FCommandLine::Get(), TEXT("WarCombatNetworkProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarWorkshopCombatProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarWorkshopDeploymentProof"))
         || FParse::Param(FCommandLine::Get(), TEXT("WarZoneNetworkProof"))

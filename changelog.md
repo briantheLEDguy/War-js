@@ -1,3 +1,15 @@
+## 2026-09-30 - Fluid combat
+
+- Extend native combat verification through direction changes, attack restart, jumping and recovery on six profiles; export timed review previews and production impact samples, and verify camera-shake bounds/off and isolated preference persistence.
+
+- Remove animation-based movement/jump locks and recovery gates; retain genuine crowd control and authored travel.
+- Add explicit stationary-cast policy, movement/jump cancellation, isolated pre-release refunds, independent projectiles and a 200 ms ability buffer.
+- Tune baseline shared cooldown to 1 second and ordinary spell preparation to 80%, preserving explicit GM timings and damage/healing values.
+- Blend equipped attacks with locomotion using each rig's upper-body split; synchronize playback/contact and channel holds.
+- Replace damage-threshold interruptions with cosmetic feedback; add synthesized impact audio, hit markers, explicit critical-outcome feedback and configurable camera shake.
+- Add native movement/refund/channel/projectile tests, equipped captures, delayed loopback verification and guarded combat-only staging with backups. Platform, Steam and release acceptance remain separate.
+
+
 ## 2026-09-29 - Branch consolidation
 
 - Consolidate outstanding native gameplay, scenario queues, siege equipment, imported population, city, animation, frontend, targeting and portal source work into the default branch.

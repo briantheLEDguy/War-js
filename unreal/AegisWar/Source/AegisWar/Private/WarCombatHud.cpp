@@ -79,13 +79,22 @@ void AWarQuestHud::DrawCombatFeedback()
     for (const auto& Notice : PC->GetCombatNotices())
     {
         if (Notice.Expires <= GetWorld()->GetTimeSeconds()) continue;
+        const bool bCritical=Notice.Kind==TEXT("CriticalHit");
+        const float Age=GetWorld()->GetTimeSeconds()-(Notice.Expires-3);
+        if ((Notice.Kind==TEXT("Hit") || bCritical) && Age<.18f)
+        {
+            const float Size=(bCritical ? 15.f : 10.f)*Scale, Gap=5.f*Scale;
+            const FLinearColor Flash(1,bCritical ? .55f : .85f,.25f,1-Age/.18f);
+            for (int32 SX : {-1,1}) for (int32 SY : {-1,1})
+                DrawLine(Canvas->SizeX*.5f+SX*Gap,Canvas->SizeY*.5f+SY*Gap,Canvas->SizeX*.5f+SX*Size,Canvas->SizeY*.5f+SY*Size,Flash,bCritical ? 3.f : 2.f);
+        }
         const FLinearColor Color = Notice.Kind == TEXT("Heal") ? FLinearColor(.4f,1,.5f)
             : Notice.Kind == TEXT("Interrupt") ? FLinearColor(1,.8f,.2f)
             : Notice.Kind == TEXT("Guarded") ? FLinearColor(.65f,.8f,1) : FLinearColor::White;
         const FString Text = Notice.Kind == TEXT("Interrupt") ? TEXT("INTERRUPT — ") + Notice.Label
             : FString::Printf(TEXT("%s %.0f — %s"), *Notice.Kind.ToString(), Notice.Amount, *Notice.Label);
         DrawRect(FLinearColor(.018f,.014f,.01f,.9f),Canvas->SizeX-356*Scale,NoticeY-2*Scale,350*Scale,22*Scale);
-        DrawText(Text.Left(48), Color, Canvas->SizeX - 350 * Scale, NoticeY, GEngine->GetSmallFont(), Scale);
+        DrawText(Text.Left(48), bCritical ? FLinearColor(1,.65f,.15f) : Color, Canvas->SizeX - 350 * Scale, NoticeY, GEngine->GetSmallFont(), Scale*(bCritical ? 1.15f : 1.f));
         NoticeY += 22 * Scale;
     }
 }

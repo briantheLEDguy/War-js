@@ -275,7 +275,9 @@ void AWarPlayerController::ActivateActionSlot(int32 Slot)
 {
     if (IsWorldEditorOpen() || !HasActionSlot(Slot) || bEditingUi || IsMoveInputIgnored() || !LastEntryFailure.IsEmpty()) return;
     const auto View = GetActionSlotView(Slot);
-    if (!View.bAvailable) { ActionMessage = View.Detail; ActionMessageUntil = GetWorld()->GetTimeSeconds() + 4; return; }
+    const auto* ActionState=GetPlayerState<AWarPlayerState>();
+    const double Ready=ActionState ? ActionState->GetClassAbilities()->ReadyIn(GetActionSlot(Slot)) : 1;
+    if (!View.bAvailable && (Ready<=0 || Ready>.2)) { ActionMessage = View.Detail; ActionMessageUntil = GetWorld()->GetTimeSeconds() + 4; return; }
     const FName Action = GetActionSlot(Slot);
     const auto* Catalog = GetGameInstance()->GetSubsystem<UWarAbilityCatalog>();
     const auto* LocalPawn=Cast<AWarCharacter>(GetPawn());
@@ -284,7 +286,12 @@ void AWarPlayerController::ActivateActionSlot(int32 Slot)
         FVector Ground=FVector::ZeroVector;
         if (Catalog->Find(Action,LocalPawn->GetCareerId())->TargetKind==TEXT("ground"))
         { FHitResult Hit; if (!GetHitResultUnderCursor(ECC_Visibility,false,Hit)) { ActionMessage=TEXT("Point at a loaded ground surface."); ActionMessageUntil=GetWorld()->GetTimeSeconds()+4; return; } Ground=Hit.ImpactPoint; }
-        if (auto* State=GetPlayerState<AWarPlayerState>()) State->GetClassAbilities()->ServerActivateVersioned(Action,GetCombatTarget(),Catalog->GetVersion(),Ground); return;
+        if (auto* State=GetPlayerState<AWarPlayerState>())
+        {
+            if (auto* Self=Cast<AWarCharacter>(GetPawn())) Self->RefreshCombatMovementIntent();
+            State->GetClassAbilities()->ServerActivateVersioned(Action,GetCombatTarget(),Catalog->GetVersion(),Ground);
+        }
+        return;
     }
     if (Action == TEXT("strike"))
     { if (auto* Self = Cast<AWarCharacter>(GetPawn())) Self->RequestTargetStrike(GetCombatTarget()); return; }

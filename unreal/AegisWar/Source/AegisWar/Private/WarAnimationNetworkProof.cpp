@@ -105,7 +105,7 @@ void UWarAnimationNetworkProof::Tick(float Delta)
             const auto& Motion=Pawn->GetReplicatedMotion(); const FString Key=Pawn->GetAnimationProfile().ToString()+TEXT(":")+Motion.Role.ToString(); Seen.Add(Key);
             if (Samples.IsEmpty()) UE_LOG(LogTemp,Display,TEXT("WAR_SUPPLIED_ANIMATION_STARTED"));
             auto Row=MakeShared<FJsonObject>(); Row->SetStringField(TEXT("key"),Key); Row->SetNumberField(TEXT("serial"),Motion.Serial);
-            Row->SetNumberField(TEXT("start"),Motion.Start); Row->SetNumberField(TEXT("duration"),Motion.Duration); Samples.Add(MakeShared<FJsonValueObject>(Row));
+            Row->SetNumberField(TEXT("start"),Motion.Start); Row->SetNumberField(TEXT("duration"),Motion.Duration); Row->SetNumberField(TEXT("playRate"),Motion.PlayRate); Samples.Add(MakeShared<FJsonValueObject>(Row));
             bEmitted=true;
             Next[Index]=Now+Motion.Duration+1; ++Indices[Index];
         }
@@ -126,7 +126,7 @@ void UWarAnimationNetworkProof::Tick(float Delta)
         if (!Animation || Animation->EvaluatedState!=ExpectedState) continue;
         const double EvaluatedAge=Animation->EvaluatedServerTime-Motion.Start;
         const double PoseLag=Age-EvaluatedAge;
-        if (PoseLag<-.001 || PoseLag>Delta+.05 || FMath::Abs(Animation->EvaluatedTime-EvaluatedAge)>.12)
+        if (PoseLag<-.001 || PoseLag>Delta+.05 || FMath::Abs(Animation->EvaluatedTime-EvaluatedAge*Motion.PlayRate)>.12)
         {
             Finish(false,FString::Printf(TEXT("Client pose phase mismatch: %s age=%.6f sampledAge=%.6f evaluated=%.6f selected=%.6f tick=%.6f"),
                 *Motion.Role.ToString(),Age,EvaluatedAge,Animation->EvaluatedTime,Animation->CurrentTime,Delta)); return;
@@ -136,7 +136,7 @@ void UWarAnimationNetworkProof::Tick(float Delta)
         { bJoinedDuringAction|=Age>.5; InitialProfiles.Add(Pawn->GetAnimationProfile()); }
         if (Seen.Contains(Key)) continue; Seen.Add(Key);
         auto Row=MakeShared<FJsonObject>(); Row->SetStringField(TEXT("key"),Key); Row->SetNumberField(TEXT("serial"),Motion.Serial);
-        Row->SetNumberField(TEXT("start"),Motion.Start); Row->SetNumberField(TEXT("duration"),Motion.Duration);
+        Row->SetNumberField(TEXT("start"),Motion.Start); Row->SetNumberField(TEXT("duration"),Motion.Duration); Row->SetNumberField(TEXT("playRate"),Motion.PlayRate);
         Row->SetNumberField(TEXT("age"),EvaluatedAge); Row->SetNumberField(TEXT("evaluatedTime"),Animation->EvaluatedTime);
         Row->SetNumberField(TEXT("poseLag"),PoseLag); Row->SetNumberField(TEXT("frameDelta"),Delta); Samples.Add(MakeShared<FJsonValueObject>(Row));
     }

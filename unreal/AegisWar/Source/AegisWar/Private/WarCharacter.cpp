@@ -23,6 +23,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/GameStateBase.h"
 #include "Engine/LocalPlayer.h"
+#include "Engine/GameInstance.h"
 #include "Engine/StaticMesh.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
@@ -137,7 +138,7 @@ float AWarCharacter::GetBasicAttackContact() const
 { return VisualDefinition ? VisualDefinition->BasicContactSeconds : 0; }
 double AWarCharacter::AnimationTime() const
 { const auto* State = GetWorld()->GetGameState(); return State ? State->GetServerWorldTimeSeconds() : GetWorld()->GetTimeSeconds(); }
-bool AWarCharacter::IsActionPlaying() const { return AnimationTime() < Motion.Start + Motion.Duration; }
+bool AWarCharacter::IsActionPlaying() const { return Motion.Serial != SuppressedMotionSerial && AnimationTime() < Motion.Start + Motion.Duration; }
 const FWarAbilityPresentation* AWarCharacter::GetAbilityPresentation(FName Ability) const
 { return VisualDefinition ? VisualDefinition->AbilityPresentations.Find(Ability) : nullptr; }
 FName AWarCharacter::BeginAbilityPresentation(FName Ability)
@@ -155,21 +156,42 @@ void AWarCharacter::MulticastPlayAbilityMotion_Implementation(FName MotionRole, 
 {
     if (!HasAuthority() || bDead || !bVisualReady) return;
     Motion.Role = MotionRole; Motion.Start = AnimationTime(); Motion.Duration = FMath::Max(0.f, Duration);
-    Motion.bLoop = bLoop; Motion.bStowEquipment = false; ++Motion.Serial; ForceNetUpdate();
+    Motion.bLoop = bLoop; Motion.bStowEquipment = false; Motion.PlayRate=1; Motion.bFullBody=false;
+    Motion.StartOffset=Motion.HoldStart=Motion.HoldDuration=Motion.HoldPose=0; ++Motion.Serial; ForceNetUpdate();
     ActionAnimationUntil = GetWorld()->GetTimeSeconds() + Duration;
-    if (GetCharacterMovement()->IsMovingOnGround()) GetCharacterMovement()->StopMovementImmediately();
     if (GetNetMode() != NM_DedicatedServer && VisualDefinition->AnimationStyle.IsNone()) { PlayingAnimation = NAME_None; PlayImportedAnimation(MotionRole, bLoop); }
+}
+void AWarCharacter::SetAbilityPlaybackRate(float Rate, bool bFullBody, float StartOffset)
+{
+    if (!HasAuthority() || !FMath::IsFinite(Rate) || Rate<=0) return;
+    Motion.StartOffset=FMath::Max(0.f,StartOffset);
+    Motion.Duration=FMath::Max(0.f,Motion.Duration*Motion.PlayRate-Motion.StartOffset)/Rate; Motion.PlayRate=Rate; Motion.bFullBody=bFullBody;
+    ActionAnimationUntil=GetWorld()->GetTimeSeconds()+Motion.Duration; ForceNetUpdate();
+}
+void AWarCharacter::HoldAbilityPresentation(float Start,float Duration,float Pose)
+{
+    if (!HasAuthority()) return;
+    Motion.HoldStart=FMath::Max(0.f,Start); Motion.HoldDuration=FMath::Max(0.f,Duration); Motion.HoldPose=FMath::Max(0.f,Pose);
+    Motion.Duration+=Motion.HoldDuration; ActionAnimationUntil=GetWorld()->GetTimeSeconds()+Motion.Duration; ForceNetUpdate();
+}
+float AWarCharacter::MotionSampleTime(double Age) const
+{
+    Age=FMath::Max(0.,Age);
+    if (Motion.HoldDuration>0 && Age>=Motion.HoldStart)
+    {
+        if (Age<Motion.HoldStart+Motion.HoldDuration) return Motion.HoldPose;
+        Age-=Motion.HoldDuration;
+    }
+    return Age*Motion.PlayRate+Motion.StartOffset;
 }
 void AWarCharacter::ReactToHit(const AActor* Source, float HealthLost)
 {
-    if (!HasAuthority() || bDead || HealthLost <= 0 || !VisualDefinition || VisualDefinition->AnimationStyle.IsNone()) return;
-    const auto* State = GetPlayerState<AWarPlayerState>();
-    const bool bSevere = State && State->GetAttributes() && HealthLost >= State->GetAttributes()->GetMaxHealth()*.2f;
-    if (IsActionPlaying() && !bSevere) return;
-    if (bSevere && State) State->GetClassAbilities()->Interrupt();
-    const bool bBack = Source && FVector::DotProduct(GetActorForwardVector(), (Source->GetActorLocation()-GetActorLocation()).GetSafeNormal2D()) < 0;
-    const FName MotionRole = bBack ? TEXT("hit_back") : TEXT("hit_front");
-    MulticastPlayAbilityMotion(MotionRole, GetAbilityAnimationDuration(MotionRole), false);
+    if (!HasAuthority() || bDead || HealthLost<=0 || !VisualDefinition || VisualDefinition->AnimationStyle.IsNone()) return;
+    // Damage reactions are cosmetic: never replace an action or interrupt gameplay.
+    if (IsActionPlaying()) return;
+    const bool bBack=Source && FVector::DotProduct(GetActorForwardVector(),(Source->GetActorLocation()-GetActorLocation()).GetSafeNormal2D())<0;
+    const FName ReactionRole=bBack ? TEXT("hit_back") : TEXT("hit_front");
+    MulticastPlayAbilityMotion(ReactionRole,GetAbilityAnimationDuration(ReactionRole),false);
 }
 bool AWarCharacter::CanAbilityTarget(const AActor* Target, float Range, bool bRequireSight) const
 {
@@ -202,7 +224,7 @@ void AWarCharacter::Tick(const float DeltaSeconds)
     if (!bDead && !bDevelopmentFlying)
     {
         const auto* State = GetPlayerState<AWarPlayerState>();
-        const bool bBusy = IsActionPlaying() || (State && State->GetClassAbilities()->IsBusy());
+        const bool bBusy = State && State->GetClassAbilities()->OwnsMovement();
         GetCharacterMovement()->MaxWalkSpeed = bBusy ? 0 : (bDevelopmentSpeedsCaptured ? DevelopmentBaseWalkSpeed : 600.f) * DevelopmentSpeed * CombatStatus->MovementScale();
         if ((bBusy || CombatStatus->MovementScale() == 0) && GetCharacterMovement()->IsMovingOnGround()) GetCharacterMovement()->StopMovementImmediately();
     }
@@ -220,6 +242,7 @@ void AWarCharacter::UpdateNativeAnimation(float Delta)
 {
     auto* Instance = Cast<UWarAnimationInstance>(GetMesh()->GetAnimInstance());
     if (!Instance) return;
+    Instance->UpperBodyBone=VisualDefinition->CombatUpperBodyBone;
     if (!bDead) if (const auto* Engineer=Cast<AWarSiegeCharacter>(this); Engineer && Engineer->Equipment)
     {
         UAnimSequence* Clip=nullptr; float Time=0;
@@ -255,7 +278,7 @@ void AWarCharacter::UpdateNativeAnimation(float Delta)
     UAnimSequence* Clip = Reference ? Reference->LoadSynchronous() : nullptr;
     if (!Clip) return;
     const bool bAction = !bDead && IsActionPlaying();
-    float Elapsed = FMath::Max(0., Now-((bAction || bDead) ? Motion.Start : LocomotionStart));
+    float Elapsed = bAction ? MotionSampleTime(Now-Motion.Start) : FMath::Max(0.,Now-(bDead ? Motion.Start : LocomotionStart));
     if (!bAction && bLoop)
     {
         const float ReferenceSpeed = VisualDefinition->LocomotionSpeeds.FindRef(MotionRole);
@@ -264,6 +287,21 @@ void AWarCharacter::UpdateNativeAnimation(float Delta)
     }
     if (bLoop) Elapsed = FMath::Fmod(Elapsed, FMath::Max(.001f, Clip->GetPlayLength()));
     const FName State = bAction ? FName(*(MotionRole.ToString()+FString::Printf(TEXT(":%d"), Motion.Serial))) : MotionRole;
+    FName TravelRole=TEXT("idle");
+    if (bFalling) TravelRole=TEXT("jump");
+    else if (Local.SizeSquared2D()>25)
+    {
+        if (FMath::Abs(Local.Y)>FMath::Abs(Local.X)*.8f) TravelRole=Local.Y<0 ? TEXT("strafe_left") : TEXT("strafe_right");
+        else if (Local.X<-5) TravelRole=TEXT("walk_backward");
+        else TravelRole=Local.Size2D()>300 ? TEXT("run") : TEXT("walk");
+    }
+    const auto* TravelRef=VisualDefinition->ImportedAnimations.Find(TravelRole);
+    const float TravelSpeed=VisualDefinition->LocomotionSpeeds.FindRef(TravelRole);
+    Instance->SelectLocomotion(TravelRef ? TravelRef->LoadSynchronous() : nullptr,Delta,TravelSpeed>1 ? Local.Size2D()/TravelSpeed : 1.f);
+    const bool bLayer=bAction && !Motion.bFullBody && (bFalling || Local.SizeSquared2D()>25);
+    Instance->LocomotionWeight=FMath::FInterpConstantTo(Instance->LocomotionWeight,bLayer ? 1.f : 0.f,Delta,10.f);
+    if (!bAction && Instance->LocomotionWeight>0 && TravelRole==MotionRole)
+        Elapsed=LocomotionPhase=Instance->LocomotionTime;
     Instance->Select(Clip, State, Elapsed); PlayingAnimation = MotionRole;
 }
 
@@ -273,14 +311,15 @@ void AWarCharacter::UpdateEquipmentPresentation()
     // Follow this frame's finalized bones, avoiding a frame of visible grip lag
     // during fast strikes and while the network corrects the mesh transform.
     const bool bAction=!bDead && IsActionPlaying();
-    float Elapsed=FMath::Max(0.,AnimationTime()-Motion.Start);
+    float Elapsed=MotionSampleTime(AnimationTime()-Motion.Start);
     if (bDead) { UpdateReleasedEquipment(Elapsed); return; }
     // Parallel pose evaluation can finish one tick after action selection.
     // Attachment handoffs must follow the pose currently on screen.
     if (bAction) if (const auto* Animation=Cast<UWarAnimationInstance>(GetMesh()->GetAnimInstance()))
         if (Animation->EvaluatedState==FName(*(Motion.Role.ToString()+FString::Printf(TEXT(":%d"),Motion.Serial))))
             Elapsed=Animation->EvaluatedTime;
-    float Stow = bAction && Motion.bStowEquipment ? FMath::Clamp(FMath::Min(Elapsed/.3f, (Motion.Duration-Elapsed)/.3f), 0.f, 1.f) : 0;
+    const float SourceDuration=bAction ? GetAbilityAnimationDuration(Motion.Role) : 0;
+    float Stow = bAction && Motion.bStowEquipment ? FMath::Clamp(FMath::Min(Elapsed/.3f, (SourceDuration-Elapsed)/.3f), 0.f, 1.f) : 0;
     if (VisualDefinition->AnimationStyle == TEXT("spell")) Stow = 1;
     const auto PositionEquipment = [&](UStaticMeshComponent* Part, const FName Hand, const FTransform& Grip, const FTransform& Stored)
     {
@@ -449,14 +488,17 @@ void AWarCharacter::UpdateMovementInput()
     if (bDead) MovementInput.bAutoRun = false;
     const auto* PC = Cast<AWarPlayerController>(Controller);
     if (!IsLocallyControlled() || !PC) return;
-    const bool bAllowed = !PC->IsMoveInputIgnored() && !bDead && bVisualReady && !IsActionPlaying() && CombatStatus->MovementScale() > 0;
+    const bool bAllowed = !PC->IsMoveInputIgnored() && !bDead && bVisualReady && CombatStatus->MovementScale() > 0;
     const bool bManualKey = PC->IsInputKeyDown(PC->GetControlKey(TEXT("Forward"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Backward")))
         || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Left"))) || PC->IsInputKeyDown(PC->GetControlKey(TEXT("Right")))
         || !FMath::IsNearlyZero(ForwardAxis) || !FMath::IsNearlyZero(RightAxis);
     const auto Intent = MovementInput.Resolve(ForwardAxis, RightAxis, bManualKey,
         !PC->IsWorldEditorOpen() && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Strike"))) && PC->IsInputKeyDown(PC->GetControlKey(TEXT("Orbit"))),
         bAllowed, bDead || GetCharacterMovement()->MovementMode == MOVE_Flying);
+    auto* State=GetPlayerState<AWarPlayerState>();
+    if (State) State->GetClassAbilities()->UpdateMovementIntent(bAllowed && !Intent.IsNearlyZero());
     if (!bAllowed) { ForwardAxis = 0; RightAxis = 0; return; }
+    if (State && State->GetClassAbilities()->OwnsMovement()) return;
     const FRotationMatrix Basis(FRotator(0.f, PC->GetControlRotation().Yaw, 0.f));
     AddMovementInput(Basis.GetUnitAxis(EAxis::X), Intent.X);
     AddMovementInput(Basis.GetUnitAxis(EAxis::Y), Intent.Y);
@@ -521,7 +563,16 @@ void AWarCharacter::SetCameraPreferences(float LookSensitivity, float ZoomSensit
 {
     if (IsLocallyControlled() && GetCameraState()) GetCameraState()->SetPreferences(LookSensitivity, ZoomSensitivity, bInvertX, bInvertY);
 }
-void AWarCharacter::StartJump() { if (Controller && !Controller->IsMoveInputIgnored() && !bDead && bVisualReady && !IsActionPlaying() && CombatStatus->MovementScale() > 0) Jump(); }
+void AWarCharacter::StartJump()
+{
+    if (!Controller || Controller->IsMoveInputIgnored() || bDead || !bVisualReady || CombatStatus->MovementScale()<=0) return;
+    if (auto* State=GetPlayerState<AWarPlayerState>())
+    {
+        auto* Runtime=State->GetClassAbilities(); Runtime->UpdateMovementIntent(Runtime->HasMovementIntent(),true);
+        if (Runtime->OwnsMovement()) return;
+    }
+    Jump();
+}
 
 void AWarCharacter::RequestStrike()
 {
@@ -540,11 +591,12 @@ void AWarCharacter::RequestTargetStrike(AActor* Target)
 void AWarCharacter::ServerRequestStrike_Implementation(AActor* Target)
 {
     const double Now = GetWorld()->GetTimeSeconds();
-    if (Now < NextStrikeRequestTime) return;
-    NextStrikeRequestTime = Now + 0.1;
     if (!CanStrikeTarget(Target)) return;
     const auto* State = GetPlayerState<AWarPlayerState>();
-    if (IsActionPlaying() || CombatStatus->Has(TEXT("stagger")) || (State && State->GetClassAbilities()->IsBusy())) return;
+    if (State && State->GetClassAbilities()->QueueAbility(TEXT("strike"),Target,GetWorld()->GetGameInstance()->GetSubsystem<UWarAbilityCatalog>()->GetVersion(),FVector::ZeroVector)) return;
+    if (Now < NextStrikeRequestTime) return;
+    NextStrikeRequestTime = Now + 0.1;
+    if (CombatStatus->Has(TEXT("stagger")) || (State && (State->GetClassAbilities()->IsBusy() || State->GetClassAbilities()->Cooldown(NAME_None)>0))) return;
     RequestedStrikeTarget = Target;
     GetAbilitySystemComponent()->TryActivateAbilityByClass(UWarStrikeAbility::StaticClass());
     RequestedStrikeTarget.Reset();
@@ -554,7 +606,7 @@ bool AWarCharacter::CanStrikeTarget(const AActor* Actor) const
 {
     if (const auto* State=GetPlayerState<AWarPlayerState>(); State && State->IsScenarioTransferPending()) return false;
     if (const auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Siege && (Siege->IsProtected(this) || Siege->IsProtected(Actor))) return false;
-    if (!HasAuthority() || !bVisualReady || bDead || !GetAbilitySystemComponent() || GetCharacterMovement()->IsFalling()) return false;
+    if (!HasAuthority() || !bVisualReady || bDead || !GetAbilitySystemComponent()) return false;
     if (const auto* Enemy = Cast<AWarEnemy>(Actor)) return Enemy->CanReceiveStrike(this);
     const auto* Target = Cast<AWarCharacter>(Actor);
     if (!IsValid(Target) || Target->GetWorld() != GetWorld() || !Target->bVisualReady || Target->bDead) return false;
@@ -574,6 +626,7 @@ void AWarCharacter::HandleDeath()
     if (!HasAuthority() || bDead) return;
     bDead = true;
     Motion.Role=TEXT("death"); Motion.Start=AnimationTime(); Motion.Duration=GetAbilityAnimationDuration(TEXT("death"));
+    Motion.PlayRate=1; Motion.StartOffset=Motion.HoldStart=Motion.HoldDuration=Motion.HoldPose=0; Motion.bFullBody=true;
     Motion.bLoop=false; Motion.bStowEquipment=false; ++Motion.Serial; ForceNetUpdate();
     AWarWrathRelic::RemoveFor(this);
     AWarWarpIdol::RemoveFor(this);

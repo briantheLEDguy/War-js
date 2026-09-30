@@ -181,6 +181,8 @@ bool FWarAbilityWorkshopDocument::Compile(const TSharedPtr<const FJsonObject>& W
             if (!Required && J && !J->HasField(Key)) return true; const double V=Number(J,Key,NAN); return FMath::IsFinite(V) && V>=Min && V<=Max; };
         if (!Bounded(A,TEXT("cooldownSec"),0,3600,true) || !Bounded(A,TEXT("gcdSec"),0,60,true)) return false;
         const auto T=Object(A,TEXT("targeting")),R=Object(A,TEXT("resource")),Timing=Object(A,TEXT("timing"));
+        if (A->HasField(TEXT("movementPolicy")) && !TArray<FString>{TEXT("free"),TEXT("stationary")}.Contains(Text(A,TEXT("movementPolicy")))) return false;
+        if (!Bounded(A,TEXT("preparationScale"),.1,1,false)) return false;
         if (!T || !R || !Timing || !Object(A,TEXT("visual")) || !Bounded(Object(A,TEXT("animation")),TEXT("durationSec"),.01,120,true)) return false;
         if (!TArray<FString>{TEXT("self"),TEXT("enemy"),TEXT("ally"),TEXT("ground")}.Contains(Text(T,TEXT("target")))
             || !TArray<FString>{TEXT("melee"),TEXT("projectile"),TEXT("beam"),TEXT("cone"),TEXT("area"),TEXT("self"),TEXT("dash"),TEXT("deployable"),TEXT("pet")}.Contains(Text(T,TEXT("shape")))

@@ -50,13 +50,13 @@ try {
   const reports = roles.map(role => JSON.parse(readFileSync(path.join(receipts, `${role}.json`), 'utf8').replace(/^\uFEFF/, '')));
   if (reports.some(report => !report.passed || report.uniqueVariants !== 41) || !reports[2].joinedDuringAction)
     throw new Error('Network presentation or late-join proof failed: '+JSON.stringify(reports.map(({samples: _, ...report}) => report)));
-  const server = new Map<string, {start: number; duration: number}>(reports[0].samples.map((row: {key: string; serial: number; start: number; duration: number}) => [`${row.key}:${row.serial}`, row]));
+  const server = new Map<string, {start: number; duration: number; playRate: number}>(reports[0].samples.map((row: {key: string; serial: number; start: number; duration: number; playRate: number}) => [`${row.key}:${row.serial}`, row]));
   // The authority keeps its receipt current until both clients finish.
   for (const report of reports.slice(1)) for (const row of report.samples) {
     const authoritative = server.get(`${row.key}:${row.serial}`);
-    if (!authoritative || authoritative.start !== row.start || authoritative.duration !== row.duration)
+    if (!authoritative || authoritative.start !== row.start || authoritative.duration !== row.duration || authoritative.playRate !== row.playRate || !Number.isFinite(row.playRate))
       throw new Error('Replicated timing differs from authority: '+row.key);
-    if (Math.abs(row.age-row.evaluatedTime) > .12) throw new Error('Client evaluated the wrong action phase');
+    if (Math.abs(row.age*row.playRate-row.evaluatedTime) > .12) throw new Error('Client evaluated the wrong action phase');
     if (row.poseLag < -.001 || row.poseLag > row.frameDelta + .05) throw new Error('Client evaluated a stale pose');
   }
   const presentationManifestSha256 = createHash('sha256').update(readFileSync(path.join(repoRoot,'artifacts/unreal/animation-replacement/presentations.json'))).digest('hex');

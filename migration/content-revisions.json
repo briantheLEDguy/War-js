@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "historicalContentSha256": "279731e631b268d4cfbacb99765eeacaa5af851c5611100335c92aceb438e37e",
-  "currentContentSha256": "1953ebdf608ad354bdeebd46a08223da2c353ae619bcf8d8c2afe257a9e90fc3",
-  "previousContentSha256": "b0b56d955fb64d96dbbb02ed0f0b47050ce06aaf177294c07f04d23671a54f7a",
-  "reason": "Summon Idol now exports the native stationary warp_idol effect and accurate targeting/lifetime copy. The prior supplied-animation, Icon of Wrath and ability-workshop baseline changes are preserved. The original browser content digest remains immutable. Imported population adds seven melee PvE enemies and six friendly camp inhabitants in four starter zones; existing map entities and historical browser evidence are retained."
+  "currentContentSha256": "bf4c0c9cd677ac169551fa699ff3a0714bbc07e83808e37cacb3fedfe124f388",
+  "previousContentSha256": "1953ebdf608ad354bdeebd46a08223da2c353ae619bcf8d8c2afe257a9e90fc3",
+  "reason": "Fluid combat baseline: explicit movement cancellation policies, 1.0 second standard shared cooldown, and 20% shorter ordinary spell preparation. Existing individual cooldowns, effects, authored GM timings, and historical browser digest are preserved."
 }
