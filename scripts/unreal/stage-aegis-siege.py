@@ -15,21 +15,20 @@ ROOT = Path(__file__).resolve().parents[2]
 TARGET = "/Game/Capitals/Siege/AegisCapital_Siege"
 OUTPUT = ROOT / "artifacts/unreal/siege"
 OUTPUT.mkdir(parents=True, exist_ok=True)
-config = (ROOT / "unreal/AegisWar/Config/DefaultEngine.ini").read_text()
-source = re.search(r"^GameDefaultMap=(/Game/Capitals/crownward/[A-Za-z0-9_/]+)\s*$", config, re.M)
-if not source:
-    raise RuntimeError("A configured Crownward capital is required as the source.")
+from shared_city_sources import source_plan
+city = next(c for c in source_plan(ROOT)['cities'] if c['id'] == 'aegis_capital')
 if unreal.EditorAssetLibrary.does_asset_exist(TARGET):
-    raise RuntimeError("Siege draft already exists; preserve authoring edits and inspect it in the Editor.")
-
-world = unreal.EditorAssetLibrary.duplicate_asset(source.group(1), TARGET)
-if not world:
-    raise RuntimeError("Capital duplication failed; no source map was changed.")
+    raise RuntimeError('Siege overlay already exists; preserve authoring edits.')
 levels = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
-if not levels.load_level(TARGET):
-    raise RuntimeError("Could not load the isolated siege draft.")
+if not levels.new_level(TARGET):
+    raise RuntimeError('Cannot create siege overlay.')
+world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
+for package in city['sceneryLevels']:
+    if not unreal.EditorLevelUtils.add_level_to_world(world, package, unreal.LevelStreamingAlwaysLoaded):
+        raise RuntimeError('Cannot attach shared city scenery.')
 actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 battlefield = actors.spawn_actor_from_class(unreal.WarSiegeBattlefield, unreal.Vector())
+battlefield.set_editor_property('city_definition', unreal.EditorAssetLibrary.load_asset(city['definition']))
 battlefield.set_actor_label("Bastion siege definition — authoring pending")
 battlefield.tags = ["WarAegisSiegeDefinitionV1"]
 
@@ -59,11 +58,11 @@ for asset_path in unreal.EditorAssetLibrary.list_assets("/Game/MigrationProof", 
 
 if not levels.save_current_level():
     raise RuntimeError("Could not save the isolated siege draft.")
-report = {"schemaVersion": 1, "sourceMap": source.group(1), "siegeMap": TARGET,
+report = {"schemaVersion": 1, "sourceMap": city['definition'], "siegeMap": TARGET,
           "draftCreated": True, "nativePlayable": False, "visualApproval": False,
           "availableProofVisuals": inventory,
           "blockers": ["Bind reviewed tank/healer/damage visuals for both realms and distinct encounter visuals.",
-                       "Remove inherited campaign actors/streaming population in the isolated map, without editing shared source sublevels.",
+                       "Verify shared scenery excludes campaign gameplay and matches the current city revision.",
                        "Author gate/defense props and verify escort routes, chamber clearance, spawn separation and navigation.",
                        "Complete equipped roster review and actual three-stage multiplayer playtests."]}
 (OUTPUT / "authoring.json").write_text(json.dumps(report, indent=2) + "\n")

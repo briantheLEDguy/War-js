@@ -235,6 +235,8 @@ export interface ZoneState {
   influence: Record<Realm, number>;
   queue: string[];
   pendingImpacts: PendingImpact[];
+  /** Native live-capital ownership; no host credentials are included in public snapshots. */
+  nativeSiege?: import('../siege/contract').NativeCapitalSiegeLease;
 }
 export interface CampaignEvent {
   id: number;
@@ -266,6 +268,13 @@ export interface CampaignState {
   /** Cumulative across reactivations and rounds, distinct from spendable keep stock. */
   contributions: Record<string, number>;
   results: CampaignResult[];
+  /** Trusted native-host journal is checkpointed, but never included in player snapshots. */
+  nativeSiegeJournal?: {
+    hosts: Record<string, { tokenHash: string }>;
+    leases: Record<string, import('../siege/contract').NativeCapitalSiegeLease>;
+    characters?: Record<string, import('../siege/character').NativeCampaignCharacterCheckpoint>;
+    receipts: Record<string, { hash: string; response: unknown; kind?: 'lease' | 'character_ack' | 'character_restore' }>;
+  };
 }
 export type PlayerAction =
   | { type: 'move'; direction: { x: number; z: number } }

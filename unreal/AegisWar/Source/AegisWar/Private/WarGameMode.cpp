@@ -1,4 +1,6 @@
 #include "WarGameMode.h"
+#include "WarSiegeEncounter.h"
+#include "WarSiegeHud.h"
 #include "AegisWar.h"
 #include "WarCharacter.h"
 #include "WarScenarioSession.h"
@@ -13,6 +15,8 @@
 #include "WarQuestHud.h"
 #include "WarZoneAnchor.h"
 #include "WarZoneStreamingSubsystem.h"
+#include "WarZonePortal.h"
+#include "WarCampaignSiegeSubsystem.h"
 #include "EngineUtils.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
@@ -27,7 +31,7 @@ AWarGameMode::AWarGameMode()
     DefaultPawnClass = AWarCharacter::StaticClass();
     PlayerStateClass = AWarPlayerState::StaticClass();
     PlayerControllerClass = AWarPlayerController::StaticClass();
-    HUDClass = AWarQuestHud::StaticClass();
+    HUDClass = AWarSiegeHud::StaticClass();
 }
 
 bool AWarGameMode::IsDevelopmentSession() const
@@ -96,6 +100,7 @@ UWarCharacterVisualDefinition* AWarGameMode::ResolveVisual(AController* Controll
 
 void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer)
 {
+    if (auto* PC = Cast<AWarPlayerController>(NewPlayer)) if (auto* Bridge = GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>()) Bridge->PrepareCharacter(PC);
     if (auto* PC=Cast<AWarPlayerController>(NewPlayer); PC && GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioSession>()->RestorePending(PC)) return;
     // Automated acceptance fixtures opt into direct entry; ordinary launches start at login.
     const bool bProofEntry = !UE_BUILD_SHIPPING && (
@@ -137,6 +142,8 @@ void AWarGameMode::HandleStartingNewPlayer_Implementation(APlayerController* New
 
 APawn* AWarGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* NewPlayer, const FTransform& SpawnTransform)
 {
+    if (auto* PC = Cast<AWarPlayerController>(NewPlayer)) if (auto* Bridge = GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>(); Bridge && !Bridge->PrepareCharacter(PC))
+    { RejectEntry(PC,TEXT("Campaign character admission is awaiting its stable identity and durable recovery.")); return nullptr; }
     FString Error;
     UWarCharacterVisualDefinition* Visual = ResolveVisual(NewPlayer, Error);
     if (!IsDevelopmentSession() || !Visual)
@@ -144,8 +151,16 @@ APawn* AWarGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* New
         RejectEntry(Cast<APlayerController>(NewPlayer), Error.IsEmpty() ? TEXT("Development admission is closed.") : Error);
         return nullptr;
     }
+    FTransform Arrival=SpawnTransform;
+    if (auto* PC=Cast<AWarPlayerController>(NewPlayer))
+        if (const auto* Bridge=GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>())
+        {
+            bool Recovering=false;
+            if (!Bridge->ResolveRecoverySpawn(PC,Arrival,Recovering,Error))
+            { PC->ClientZoneTravelStatus(Error.IsEmpty() ? TEXT("Your character remains protected while recovery finds clear arrival space.") : Error);return nullptr; }
+        }
     AWarCharacter* Character = GetWorld()->SpawnActorDeferred<AWarCharacter>(AWarCharacter::StaticClass(),
-        SpawnTransform, NewPlayer, nullptr, ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding);
+        Arrival, NewPlayer, nullptr, ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding);
     if (!Character)
     {
         RejectEntry(Cast<APlayerController>(NewPlayer), TEXT("Character creation failed. Check the selected PlayerStart, collision clearance and server log."));
@@ -157,7 +172,7 @@ APawn* AWarGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* New
         RejectEntry(Cast<APlayerController>(NewPlayer), Error);
         return nullptr;
     }
-    Character->FinishSpawning(SpawnTransform);
+    Character->FinishSpawning(Arrival);
     if (!IsValid(Character))
     {
         RejectEntry(Cast<APlayerController>(NewPlayer), TEXT("Character could not finish spawning. Move the PlayerStart clear of blocking geometry and retry."));
@@ -231,6 +246,7 @@ void AWarGameMode::FinishRestartPlayer(AController* NewPlayer, const FRotator& S
 void AWarGameMode::RespawnAfterDeath(AWarCharacter* Character)
 {
     if (!Character || !Character->HasAuthority()) return;
+    if (auto* Siege = AWarSiegeEncounter::For(Character); Siege && Siege->HandlesDeath(Character)) return;
     AController* Controller = Character->GetController();
     if (!Controller) return;
     if (const auto* Zone = AWarZoneAnchor::FindAt(GetWorld(), Character->GetActorLocation()))
@@ -263,8 +279,33 @@ AActor* AWarGameMode::ChoosePlayerStart_Implementation(AController* Player)
     {
         const FName Zone = State->GetCurrentZone().IsNone()
             ? FName(State->GetRealm() == EWarRealm::Riftbound ? TEXT("riftspire_capital") : TEXT("aegis_capital")) : State->GetCurrentZone();
-        if (auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone))
-        { State->SetCurrentZoneTrusted(Zone); return Anchor; }
+        FName DestinationZone = Zone;
+        if (const auto* Siege = AWarSiegeEncounter::Capital(GetWorld()); Siege && Zone == TEXT("aegis_capital") && Siege->BlocksCapitalEntry(State))
+            {
+            // Login uses the same authored, bidirectional neighboring routes as evacuation.
+            // No safe owned destination means protected recovery, not a guessed enemy spawn.
+            DestinationZone = NAME_None;
+            for (TActorIterator<AWarZonePortal> Portal(GetWorld()); Portal; ++Portal)
+            {
+                const auto* Source = AWarZoneAnchor::FindAt(GetWorld(), Portal->GetActorLocation());
+                const auto* Destination = AWarZoneAnchor::FindAt(GetWorld(), Portal->ArrivalLocation);
+                if (!Source || Source->ZoneId != Zone || !Destination || !Siege->CanEvacuate(State->GetRealm(), Destination->ZoneId) || !Portal->bDestinationBuilt) continue;
+                for (TActorIterator<AWarZonePortal> Paired(GetWorld()); Paired; ++Paired)
+                    if (Paired->RouteId == Portal->DestinationRouteId && Paired->DestinationRouteId == Portal->RouteId && Paired->bDestinationBuilt)
+                    { DestinationZone = Destination->ZoneId; break; }
+                if (!DestinationZone.IsNone()) break;
+            }
+            if (DestinationZone.IsNone()) { RejectEntry(Cast<APlayerController>(Player), TEXT("The besieged capital has no ready safe recovery route. Your character is retained.")); return nullptr; }
+        }
+        if (auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), DestinationZone))
+        { State->SetCurrentZoneTrusted(DestinationZone); return Anchor; }
     }
     return Super::ChoosePlayerStart_Implementation(Player);
+}
+
+void AWarGameMode::Logout(AController* Exiting)
+{
+    if (auto* PC = Cast<AWarPlayerController>(Exiting))
+        if (auto* Bridge = GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>()) Bridge->Disconnect(PC);
+    Super::Logout(Exiting);
 }

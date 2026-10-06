@@ -6,12 +6,24 @@ import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPat
 export const requiredNativeTests = [
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary', 'WorldSync', 'CombatFluidity', 'CombatLocomotion',
-  'PlayerStateAbilityOwnership', 'SpawnFailureReporting', 'ImportedPopulation',
-  'SiegeRules', 'SiegeBotRules', 'SiegeAuthorityAndNormalization', 'SiegeSpawnClearance', 'SiegeOwnership', 'LowerCityRounds', 'CombatFeedback',
+  'PlayerStateAbilityOwnership', 'SpawnFailureReporting', 'ImportedPopulation', 'FloatingCombatText', 'OverheadHealth', 'CombatUiSettings', 'CombatUiPreview',
+  'SiegeRules', 'SiegeBotRules', 'SiegeAuthorityAndNormalization', 'SiegeSpawnClearance', 'SiegeOwnership', 'SiegeEquipmentCollision', 'LowerCityRounds', 'CombatFeedback', 'SharedCity',
+  'CitadelParallelObjectives', 'CitadelCheckpointRecovery', 'CitadelEncounterScope', 'CitadelClaimGates',
+  'CitadelDurableCharacterMutation', 'CitadelRecoveryWalWitness', 'CitadelDefendedCampaign', 'CitadelScenarioCandidate',
+  'CitadelRouteWidth', 'CitadelRenderBuffers', 'CitadelNavigationScope',
+  'CitadelCookedAffineBounds', 'CitadelTriangleQueryDiagnostic', 'CitadelLiveCookedContact', 'CitadelProofJson', 'CitadelCapsulePolicy',
+  'CampaignCombatDefinition', 'CampaignCombatState', 'CampaignLease', 'CampaignNavigationOwnership', 'CampaignRecoverySpawn', 'PortalEvacuationLanding',
+  'CitadelReceiptSha256', 'CitadelSurfaceLods', 'CitadelSourceData', 'CitadelTerrainClone', 'CitadelEarnedBaseline',
   'CharacterFrontend', 'FrontendPresentation', 'ClassAbilityCatalog', 'ClassCombatStatus', 'AbilityConditions', 'AbilityConditionValidation', 'AbilityConditionConformance', 'AbilityWorkshopDocument', 'AbilityDeploymentJournal', 'IconOfWrath', 'WarpIdol', 'SiegeCasterGameplay', 'SuppliedAnimationGameplay',
   'InventoryRewardParity', 'InventoryAuthority', 'CraftingCatalogAndRules', 'SalvageParity', 'CultivationTransactions', 'CraftingStationInteraction', 'ResourceGatheringTransactions', 'CharacterProgressionParity', 'ExpeditionQuestParity',
   'InterfaceRules', 'TargetSelection', 'TargetReticle', 'LocalGmAccess', 'QuestMarkerVisibility', 'CameraControls', 'MovementInput', 'WorldEditHistory', 'WorldEditCatalog', 'WorldEditStreaming', 'ZonePortal', 'ZoneStreaming', 'ZoneRespawn', 'ZoneAtmosphere',
 ].map(name => `AegisWar.Foundation.${name}`);
+
+export function parseAutomationReport(bytes: Buffer): unknown {
+  // Windows Editor exports may use UTF-16LE; validation still checks the report.
+  const encoding = bytes[0] === 0xff && bytes[1] === 0xfe ? 'utf16le' : 'utf8';
+  return JSON.parse(bytes.toString(encoding).replace(/^\uFEFF/, ''));
+}
 
 export function validateAutomationReport(report: unknown): number {
   if (!report || typeof report !== 'object') throw new Error('Unreal did not produce an automation report.');
@@ -81,7 +93,7 @@ if (isMain(import.meta.url)) {
     const code = runEngineCommand(report.editorCommand, invocation);
     if (code !== 0) throw new Error(`Unreal editor exited ${code}; see ${output}`);
     if (mode === 'test') {
-      const data = JSON.parse(readFileSync(path.join(output, 'index.json'), 'utf8').replace(/^\uFEFF/, ''));
+      const data = parseAutomationReport(readFileSync(path.join(output, 'index.json')));
       console.log(JSON.stringify({ nativeTestsPassed: validateAutomationReport(data), report: output, graphicalAcceptance: false }));
     } else {
       const profile = args.get('--profile')!;

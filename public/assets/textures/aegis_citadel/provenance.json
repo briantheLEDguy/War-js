@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Original weathered ashlar and courtyard limestone sources for the reference citadel material trial",
+  "generator": "Built-in imagegen tool",
+  "createdAt": "2026-10-04",
+  "nativeVisualApproved": false,
+  "tileSeamsVerified": false,
+  "physicalHeightMeasured": false,
+  "notes": "Height is an artistic relief approximation. Review seams, shader-derived normals, physical course scale and native lighting before using this material in the published city.",
+  "assets": [
+    {
+      "file": "weathered_ashlar_albedo_v1.png",
+      "role": "baseColor",
+      "sha256": "295cc74ab7cbe592d06d8235d3d1b66916e8977e383bcbc0212f7d289ca8a654",
+      "prompt": "Use case: photorealistic-natural. Asset type: original seamless square base-color/albedo texture for Gothic fortress masonry in an Unreal 3D game. Generate ONLY the texture, edge-to-edge orthographic frontal surface, not a building or scene. Fine coursed dark cool-grey weathered limestone ashlar, roughly six to eight horizontal courses across the tile, varied long rectangular stone lengths with staggered very narrow mortar joints. Subtle mineral grain, pitting, worn arrises, slightly chipped edges, restrained mottling and age, realistic medieval monumental stone. Match the grey Gothic limestone feel of a grand mountain citadel, with sober material colour, no dramatic colour variation or checker pattern. Use perfectly flat diffuse illumination, no directional shadows, no ambient occlusion baked into broad surfaces, no specular highlights or perspective. The left/right and top/bottom boundaries must tile seamlessly in both axes; maintain continuous courses and coherent repeating edges. Very high fine photographic surface detail. No writing, logos, frame, objects, decorative relief, foliage, water stains, blue/gold decoration, human figures or buildings. Opaque background. Produce one square texture image suitable as an albedo source."
+    },
+    {
+      "file": "weathered_ashlar_height_v1.png",
+      "role": "height",
+      "sha256": "9844d38f44f69e2d1d9535b371b9093d6bf3dfa447fa44b5eacc14d72edd6d5c",
+      "reference": "weathered_ashlar_albedo_v1.png",
+      "prompt": "Use case: precise-object-edit. Asset type: matching PBR height texture for the attached original ashlar albedo game material. Treat the supplied image as the exact edit target. Produce a height/data map, NOT a grayscale photograph. Preserve exactly the image dimensions, square framing, every mortar joint, stone boundary, chip and pit position. Encode height with smooth pale grey raised stone faces around value0.7, dark recessed narrow mortar around value0.2, gentle grey relief at worn/chipped stone edges, tiny restrained darker pitting. Remove all photographic lighting, highlights and broad colour mottling; albedo differences between stones must not become height differences. Flat data only: no directional shadows, no bevel lighting, no colour, text or added features. Keep the same edge-to-edge pattern and seamless tile boundaries in both axes. No perspective, no scene. Opaque background."
+    },
+    {
+      "file": "courtyard_limestone_albedo_v1.png",
+      "role": "baseColor",
+      "sha256": "033042e4a25ac45de57c7a3d529f5caa8029f55b0b183b411e051a25a9c40604",
+      "prompt": "Use case: photorealistic-natural. Asset type: original seamless repeating PBR base-color texture for a Gothic fortress courtyard floor, to be applied to actual 3D geometry in Unreal. Produce one square flat orthographic albedo image showing cool medium-grey cut limestone paving slabs, mostly rectangular 60–90 cm stones in a staggered irregular ashlar layout, subtle mineral grain, small worn chips and age variation, restrained pale grey mortar seams only 1–2 cm wide. A 4.8 metre square ground patch; around six to eight slab widths across. Match realistic finely cut monumental fortress paving rather than cartoon blocks. Uniform neutral diffuse illumination with no directional shadows, no ambient occlusion painted in, no gloss highlights, no perspective, no objects, no text, no radial plaza design or borders, no large black cracks. Seamless edges in both directions. Full image is only the paving texture. Original texture, no copied commercial artwork.",
+      "physicalTileWidthCm": 480,
+      "nativeVisualApproved": false,
+      "tileSeamsVerified": false
+    },
+    {
+      "file": "courtyard_limestone_height_v1.png",
+      "role": "height",
+      "sha256": "4b2874e40b85d67474162cf91b28db832f2b494ce6753c27f8838208f7f7ee2b",
+      "reference": "courtyard_limestone_albedo_v1.png",
+      "prompt": "Edit target: the attached original courtyard limestone albedo texture. Create its matching grayscale artistic height-map texture, preserving exactly every paving-slab position, edge, joint, chip and crack and the same full square extent. White/light grey marks the nearly level stone surfaces; recessed narrow mortar seams and chipped edges are darker. Suppress all base-color mineral mottling that does not represent real relief. Shallow rounded wear at slab edges, with subtle fine stone grain only. Absolutely no directional lighting, cast shadows, specular highlights, perspective, text, objects, new joints, altered layout or border. Seamless repeating texture matching the supplied image. This is an approximate authored height channel for restrained material normals, not a physical measurement. Output only one grayscale height map.",
+      "physicalHeightMeasured": false,
+      "notes": "Artistic approximate relief; residual shading and fine grain require restrained shader strength and actual native review. No displacement or collision modification."
+    }
+  ]
+}

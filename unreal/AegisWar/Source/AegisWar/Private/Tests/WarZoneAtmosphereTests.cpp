@@ -4,6 +4,7 @@
 #include "Engine/World.h"
 #include "Engine/DirectionalLight.h"
 #include "Components/DirectionalLightComponent.h"
+#include "Components/VolumetricCloudComponent.h"
 #include "EngineUtils.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarZoneAtmosphereTest, "AegisWar.Foundation.ZoneAtmosphere",
@@ -27,10 +28,22 @@ bool FWarZoneAtmosphereTest::RunTest(const FString& Parameters)
     if (!TestNotNull(TEXT("Lighting test world"), World)) return false;
     auto* Authored = World->SpawnActor<ADirectionalLight>();
     Authored->GetLightComponent()->SetIntensity(1234);
+    auto* AuthoredCloud = World->SpawnActor<AVolumetricCloud>();
+    auto* HiddenCloud = World->SpawnActor<AVolumetricCloud>();
+    if (!TestNotNull(TEXT("Authored native cloud fixture"), AuthoredCloud)
+        || !TestNotNull(TEXT("Initially hidden native cloud fixture"), HiddenCloud))
+    { World->DestroyWorld(false); return false; }
+    auto* AuthoredCloudComponent = AuthoredCloud->FindComponentByClass<UVolumetricCloudComponent>();
+    auto* HiddenCloudComponent = HiddenCloud->FindComponentByClass<UVolumetricCloudComponent>();
+    if (!TestNotNull(TEXT("Authored native cloud component"), AuthoredCloudComponent)
+        || !TestNotNull(TEXT("Initially hidden native cloud component"), HiddenCloudComponent))
+    { World->DestroyWorld(false); return false; }
+    HiddenCloudComponent->SetVisibility(false);
     auto* Lighting = World->GetSubsystem<UWarZoneLightingSubsystem>();
     if (!TestNotNull(TEXT("Local atmosphere subsystem"), Lighting)) { World->DestroyWorld(false); return false; }
     TestTrue(TEXT("Marsh preview"), Lighting->PreviewZone(TEXT("cinderfen_outskirts"), FVector(200000, 0, 0)));
     TestFalse(TEXT("Authored sun temporarily hidden"), Authored->GetLightComponent()->IsVisible());
+    TestFalse(TEXT("Capital cloud cannot leak into an unrelated zone"), AuthoredCloudComponent->IsVisible());
     TestTrue(TEXT("Farmland preview reuses environment"), Lighting->PreviewZone(TEXT("sunmeadow_march"), FVector(400000, 0, 0)));
     int32 TransientActors = 0;
     for (TActorIterator<AActor> It(World); It; ++It) if (It->ActorHasTag(TEXT("WarLocalZoneEnvironment")))
@@ -47,9 +60,15 @@ bool FWarZoneAtmosphereTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Only one environment is resident across transitions"), TransientActors, 6);
     TestFalse(TEXT("Unknown preview is recoverable"), Lighting->PreviewZone(TEXT("missing"), FVector::ZeroVector));
     TestEqual(TEXT("Failed preview keeps previous environment"), Lighting->GetActiveZone(), FName(TEXT("sunmeadow_march")));
+    TestFalse(TEXT("Failed preview cannot expose capital clouds"), AuthoredCloudComponent->IsVisible());
     TestTrue(TEXT("Capital restores authored lighting"), Lighting->PreviewZone(TEXT("aegis_capital"), FVector::ZeroVector));
     TestTrue(TEXT("Original visibility restored"), Authored->GetLightComponent()->IsVisible());
     TestEqual(TEXT("Original light intensity unchanged"), Authored->GetLightComponent()->Intensity, 1234.f);
+    TestTrue(TEXT("Capital restores original authored cloud visibility"), AuthoredCloudComponent->IsVisible());
+    TestFalse(TEXT("Capital preserves an originally hidden cloud"), HiddenCloudComponent->IsVisible());
+    TestTrue(TEXT("Repeated capital preview retains authored cloud state"), Lighting->PreviewZone(TEXT("aegis_capital"), FVector::ZeroVector));
+    TestTrue(TEXT("Cloud restoration is stable across repeated capital previews"), AuthoredCloudComponent->IsVisible());
+    TestFalse(TEXT("Repeated capital preview does not reveal hidden authored cloud"), HiddenCloudComponent->IsVisible());
     World->DestroyWorld(false);
     return true;
 }

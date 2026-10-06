@@ -1,4 +1,4 @@
-#include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarSiegeEquipment.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarPlayerState.h"
@@ -7,7 +7,7 @@
 #include "WarSiegeNavigation.h"
 #include "Components/CapsuleComponent.h"
 
-bool AWarSiegeGameMode::ValidateEquipmentStaging(FString& Error)
+bool AWarSiegeEncounter::ValidateEquipmentStaging(FString& Error)
 {
     TArray<AWarSiegeEquipment*> Probes;
     bool Clear=Battlefield && Battlefield->EquipmentSpawns.Num()==2 && Battlefield->EquipmentDefinitions.Num()==2;
@@ -33,13 +33,13 @@ bool AWarSiegeGameMode::ValidateEquipmentStaging(FString& Error)
     return Clear;
 }
 
-bool AWarSiegeGameMode::ConvoyAlive() const
+bool AWarSiegeEncounter::ConvoyAlive() const
 {
     if (Convoy.Num()!=2) return false;
     for (const auto& Vehicle:Convoy) if (!IsValid(Vehicle) || !Vehicle->HasCrew()) return false;
     return true;
 }
-bool AWarSiegeGameMode::PrepareConvoy()
+bool AWarSiegeEncounter::PrepareConvoy()
 {
     if (Convoy.IsEmpty())
     {
@@ -49,7 +49,7 @@ bool AWarSiegeGameMode::PrepareConvoy()
             auto* Vehicle=GetWorld()->SpawnActor<AWarSiegeEquipment>(Battlefield->EquipmentSpawns[I],FRotator::ZeroRotator);
             if (!Vehicle || !Vehicle->Initialize(Battlefield->EquipmentDefinitions[I].LoadSynchronous()))
             { if (Vehicle) Vehicle->Destroy(); FailMatch(TEXT("Siege equipment could not load. Repair the convoy content and relaunch.")); return false; }
-            Convoy.Add(Vehicle);
+            Vehicle->SetOwner(this); Convoy.Add(Vehicle);
         }
     }
     for (const auto& Vehicle:Convoy) if (!Vehicle->TryPlace()) return true;
@@ -76,7 +76,7 @@ bool AWarSiegeGameMode::PrepareConvoy()
     }
     return true;
 }
-void AWarSiegeGameMode::DriveConvoy(const FWarSiegePresence& P,float Delta)
+void AWarSiegeEncounter::DriveConvoy(const FWarSiegePresence& P,float Delta)
 {
     if (Convoy.Num()!=2) return;
     const bool Enabled=P.bCrewAlive && P.Attackers>0 && P.Defenders==0;

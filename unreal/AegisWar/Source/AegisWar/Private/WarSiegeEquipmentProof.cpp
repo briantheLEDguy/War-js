@@ -2,6 +2,7 @@
 #include "WarSiegeEquipment.h"
 #include "WarSiegeBattlefield.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarPlayerState.h"
 #include "WarAttributeSet.h"
@@ -15,6 +16,7 @@
 #include "Camera/CameraActor.h"
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "UnrealClient.h"
 #include "GameFramework/PlayerController.h"
 #include "HAL/FileManager.h"
@@ -30,6 +32,35 @@ bool UWarSiegeEquipmentProof::ShouldCreateSubsystem(UObject* Outer) const
 }
 bool UWarSiegeEquipmentProof::DoesSupportWorldType(EWorldType::Type Type) const { return Type==EWorldType::Game; }
 TStatId UWarSiegeEquipmentProof::GetStatId() const { RETURN_QUICK_DECLARE_CYCLE_STAT(UWarSiegeEquipmentProof,STATGROUP_Tickables); }
+bool UWarSiegeEquipmentProof::GateBlocks(int32 Index) const
+{
+    if (!Battlefield || !Battlefield->StageGates.IsValidIndex(Index) || !IsValid(Battlefield->StageGates[Index])) return false;
+    const auto* Gate = Battlefield->StageGates[Index].Get();
+    FVector Center, Extent; Gate->GetActorBounds(false, Center, Extent);
+    // Compound cuts include flanks at different elevations. Test their widest
+    // main leaf here; the citadel route proof tests every individual leaf.
+    if (Battlefield->DefinitionVersion >= 2)
+    {
+        TArray<UStaticMeshComponent*> Leaves; Gate->GetComponents(Leaves);
+        double Widest = -1;
+        for (const auto* Leaf : Leaves) if (Leaf && Leaf->GetStaticMesh() && Leaf->Bounds.BoxExtent.Y > Widest)
+        { Widest = Leaf->Bounds.BoxExtent.Y; Center = Leaf->Bounds.Origin; Extent = Leaf->Bounds.BoxExtent; }
+        if (Widest < 0) return false;
+    }
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(SiegeGateProof), false);
+    for (const auto& Vehicle : Vehicles) {
+        Query.AddIgnoredActor(Vehicle);
+        for (const auto& Crew : Vehicle->Engineers) Query.AddIgnoredActor(Crew);
+    }
+    FHitResult Hit;
+    const auto* Capsule = GetDefault<AWarSiegeCharacter>()->GetCapsuleComponent();
+    Center.Z = Center.Z - Extent.Z + Capsule->GetScaledCapsuleHalfHeight() + 3;
+    const bool Blocked = GetWorld()->SweepSingleByChannel(Hit, Center-FVector(Extent.X+100,0,0),
+        Center+FVector(Extent.X+100,0,0), FQuat::Identity, ECC_Pawn,
+        FCollisionShape::MakeCapsule(Capsule->GetScaledCapsuleRadius(), Capsule->GetScaledCapsuleHalfHeight()), Query);
+    // Opening the overlay must clear the passage, including shared-city collision.
+    return Blocked;
+}
 void UWarSiegeEquipmentProof::Finish(bool Passed,const FString& Detail)
 {
     Finished=true;auto Report=MakeShared<FJsonObject>();Report->SetBoolField(TEXT("passed"),Passed);
@@ -37,6 +68,7 @@ void UWarSiegeEquipmentProof::Finish(bool Passed,const FString& Detail)
     Report->SetBoolField(TEXT("stoppedWithoutEscort"),StopVerified);Report->SetBoolField(TEXT("stoppedWithoutCrew"),DeathVerified);
     Report->SetBoolField(TEXT("ramStrikeAdvanced"),StrikeVerified);
     Report->SetBoolField(TEXT("overlapRecoveredWithoutDamage"),RecoveryVerified);
+    Report->SetBoolField(TEXT("gateCollisionVerified"),GateVerified);
     TArray<TSharedPtr<FJsonValue>> Rows;
     for (const auto& Vehicle:Vehicles)
     {
@@ -76,7 +108,16 @@ void UWarSiegeEquipmentProof::Tick(float Delta)
     if (Finished || !GetWorld()->HasBegunPlay()) return;
     const double Now=GetWorld()->GetTimeSeconds();if (Started<0) Started=Now;
     if (GetWorld()->GetNetMode()==NM_Client) { ObserveClient();return; }
-    if (GetWorld()->GetPackage()->GetName()!=TEXT("/Game/Capitals/Siege/AegisCapital_Siege"))
+    FString ExpectedMap = TEXT("/Game/Capitals/Siege/AegisCapital_Siege");
+    FParse::Value(FCommandLine::Get(),TEXT("WarSiegeEquipmentProofMap="),ExpectedMap);
+    const FString Prefix = TEXT("/Game/WorldRebuild/AegisCitadel_");
+    const FString Suffix = TEXT("/SiegeCandidate");
+    bool Candidate = ExpectedMap.StartsWith(Prefix) && ExpectedMap.EndsWith(Suffix)
+        && ExpectedMap.Len() == Prefix.Len() + 12 + Suffix.Len();
+    if (Candidate) for (TCHAR C : ExpectedMap.Mid(Prefix.Len(),12))
+        Candidate &= (C >= TEXT('0') && C <= TEXT('9')) || (C >= TEXT('a') && C <= TEXT('f'));
+    if ((!Candidate && ExpectedMap!=TEXT("/Game/Capitals/Siege/AegisCapital_Siege"))
+        || GetWorld()->GetPackage()->GetName()!=ExpectedMap)
     { Finish(false,TEXT("Requires isolated siege authority world."));return; }
     if (Now-Started<3) return;
     // The observer is a camera, not an escort or a physical obstacle in this fixture.
@@ -88,7 +129,17 @@ void UWarSiegeEquipmentProof::Tick(float Delta)
         Vehicles[0]->Drive(Battlefield->EquipmentDestination(3),150,Delta);
         Vehicles[0]->Operate(true);
         StrikeVerified |= Now-Vehicles[0]->StrikeStarted>.7;
-        if (Now-LastMove>6) Finish(StrikeVerified,StrikeVerified
+        if (Now-LastMove>2 && !GateVerified)
+        {
+            if (!GateInitiallyClosed || !GateBlocks(0)) { Finish(false,TEXT("Gate collision disappeared before the lower-city win.")); return; }
+            FWarSiegeState Won; Won.RulesVersion=Battlefield->DefinitionVersion;
+            Won.Scenario=EWarSiegeScenario::LowerCity; Won.Phase=EWarSiegePhase::Finished;
+            Won.MainClaims=0x0f;
+            Won.bAttackersWon=true; Won.MilestoneSeconds.Init(Now,4); Battlefield->ApplyMilestones(Won);
+            GateVerified=!GateBlocks(0) && Battlefield->StageGates[0]->IsHidden() && GateBlocks(1);
+            if (!GateVerified) { Finish(false,TEXT("Lower-city victory did not open exactly the outer gate.")); return; }
+        }
+        if (Now-LastMove>8) Finish(StrikeVerified && GateVerified,StrikeVerified
             ? TEXT("Both engines traversed the route; missing escort and dead crew stop movement; repeated arrived commands preserve the ram strike.")
             : TEXT("Repeated escort commands restarted the ram strike."));
         return;
@@ -97,13 +148,15 @@ void UWarSiegeEquipmentProof::Tick(float Delta)
     if (Step==0)
     {
         for (TActorIterator<AWarSiegeBattlefield> It(GetWorld());It;++It) Battlefield=*It;
-        if (!Battlefield || Battlefield->EquipmentDefinitions.Num()!=2) { Finish(false,TEXT("Missing convoy bindings."));return; }
+        if (!Battlefield || Battlefield->EquipmentDefinitions.Num()!=2 || Battlefield->EquipmentSpawns.Num()!=2) { Finish(false,TEXT("Missing convoy bindings."));return; }
+        GateInitiallyClosed=GateBlocks(0) && GateBlocks(1);
+        if (!GateInitiallyClosed) { Finish(false,TEXT("Both authored gates must initially block passage."));return; }
         const bool RampDiagnostic=FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentRampDiagnostic"));
         for (int32 I=0;I<2;++I)
         {
-            const FVector Start=Battlefield->Objective(0,RampDiagnostic?1:0)-FVector(I*850,0,0);
+            const FVector Start=RampDiagnostic ? Battlefield->Objective(0,1)-FVector(I*850,0,0) : Battlefield->EquipmentSpawns[I];
             auto* Vehicle=GetWorld()->SpawnActor<AWarSiegeEquipment>(Start,FRotator::ZeroRotator);
-            if (!Vehicle || !Vehicle->Initialize(Battlefield->EquipmentDefinitions[I].LoadSynchronous())) { Finish(false,TEXT("Unreviewed or missing equipment."));return; }
+            if (!Vehicle || !Vehicle->Initialize(Battlefield->EquipmentDefinitions[I].LoadSynchronous()) || !Vehicle->IsPlaced()) { Finish(false,TEXT("Unreviewed or missing equipment."));return; }
             Vehicles.Add(Vehicle);
             for (int32 Seat=0;Seat<2;++Seat) if (!Engineer(Vehicle,Seat,Error)) { Finish(false,Error);return; }
         }
@@ -143,7 +196,9 @@ void UWarSiegeEquipmentProof::Tick(float Delta)
     if (Travel>PreviousTravel+1) { LastMove=Now;PreviousTravel=Travel; }
     if (FVector::Dist2D(Ram->GetActorLocation(),Goal)<(Step==3 ? 5 : 100))
     {
-        FWarSiegeState S;S.Phase=EWarSiegePhase::Active;S.MilestoneSeconds.Init(Now,Step+1);Battlefield->ApplyMilestones(S);
+        FWarSiegeState S;S.RulesVersion=Battlefield->DefinitionVersion;S.Phase=EWarSiegePhase::Active;
+        S.MainClaims=(1<<FMath::Min(Step+1,3))-1;
+        S.MilestoneSeconds.Init(Now,Step+1);Battlefield->ApplyMilestones(S);
         UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_EQUIPMENT_CHECKPOINT=%d travel=%.1f"),Step,Travel);
         if (++Step==4) { Ram->Stop();Catapult->Stop();Ram->Operate(true);LastMove=Now;return; }
     }
@@ -171,6 +226,9 @@ void UWarSiegeEquipmentProof::ObserveClient()
     Vehicles.Reset();
     for (TActorIterator<AWarSiegeEquipment> It(GetWorld());It;++It) if (It->Definition) Vehicles.Add(*It);
     if (Vehicles.Num()!=2 || !Battlefield) return;
+    GateInitiallyClosed |= GateBlocks(0) && GateBlocks(1);
+    GateVerified = GateInitiallyClosed && Battlefield->StageGates.IsValidIndex(1)
+        && Battlefield->StageGates[0]->IsHidden() && !GateBlocks(0) && GateBlocks(1);
     Vehicles.Sort([](const AWarSiegeEquipment& A,const AWarSiegeEquipment& B) { return A.Definition->bBatteringRam && !B.Definition->bBatteringRam; });
     for (const auto& Vehicle:Vehicles)
     {
@@ -201,7 +259,7 @@ void UWarSiegeEquipmentProof::ObserveClient()
     if (Ram->Travel>200 && Claims==0) Capture(TEXT("convoy-start"));
     if (Claims>=2 && Now-ClaimSeenAt>3 && Ram->GetActorLocation().Z<100) Capture(TEXT("checkpoint-owned"));
     if (Ram->GetActorLocation().Z>1500 && Ram->GetActorLocation().Z<3000) Capture(TEXT("convoy-ramp"));
-    if (Claims>=4 && Now-ClaimSeenAt>3 && Ram->StrikeStarted>=0)
+    if (Claims>=4 && Now-ClaimSeenAt>3 && Ram->StrikeStarted>=0 && GateVerified)
     {
         Capture(TEXT("gate-owned"));if (ClientFinishedAt<0) ClientFinishedAt=Now;
         if (Now-ClientFinishedAt>2) Finish(Captured.Num()==4,TEXT("Replicated engines, four equipped engineers, ramp motion and attacker ownership rendered on a network client."));

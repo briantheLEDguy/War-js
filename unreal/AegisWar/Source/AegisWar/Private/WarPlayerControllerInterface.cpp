@@ -58,7 +58,8 @@ void AWarPlayerController::CloseInterface()
 
 bool AWarPlayerController::CloseAllPanels()
 {
-    bool Closed = false;
+    bool Closed = bEditingUi;
+    EndEditingUi(false);
     // Each panel owns one paired input lock. Close directly even during an entry failure.
     for (UUserWidget* Panel : {static_cast<UUserWidget*>(InterfaceWidget.Get()), static_cast<UUserWidget*>(InventoryWidget.Get()),
         static_cast<UUserWidget*>(QuestLogWidget.Get()), static_cast<UUserWidget*>(WorldEditWidget.Get()), static_cast<UUserWidget*>(CityServiceWidget.Get()), static_cast<UUserWidget*>(AbilityWorkshopWidget.Get())})

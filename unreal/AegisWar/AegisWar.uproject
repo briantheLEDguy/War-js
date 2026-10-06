@@ -22,6 +22,10 @@
 	],
 	"Plugins": [
 		{
+			"Name": "PlatformCrypto",
+			"Enabled": true
+		},
+		{
 			"Name": "ProceduralMeshComponent",
 			"Enabled": true
 		},

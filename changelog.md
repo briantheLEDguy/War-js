@@ -1,3 +1,60 @@
+## Aegis citadel and shared siege candidate (2026-10-04)
+
+Portal landing now distinguishes static ground from standing characters. Normal travel retains the exact authored arrival; authorized siege evacuation searches bounded, connected, collision-checked space within the validated destination. A real two-crash recovery fixture exposed stacked return positions despite durable acknowledgements; final physical return remains unapproved until the corrected native run passes. Recovery diagnostics now use separate immutable files.
+
+Local campaign checkpoint replacement now retries brief Windows sharing violations with bounded asynchronous waits. The durable journal and flushed pending file remain intact; persistent or unrelated failures still pause authority without advancing the revision. Focused persistence, authority and native siege tests passed (41); full native crash recovery remains pending.
+
+- Select validated recovery arrival space before spawning campaign avatars, avoiding the shared login-anchor collision found after the first real crash replay. Keep unready characters protected and unrelated entry unchanged. Build and all 103 Foundation tests passed; complete three-process recovery remains unverified.
+- Repair private live-campaign navigation ownership: transfer both baked profiles and matching bounds from the streamed siege overlay into the persistent candidate, with exact rollback copies and independent native reload verification. All 5,765 character and 2,523 convoy tile payloads survived unchanged; strict content validation passed. Canonical/scenario content is preserved; runtime convoy and crash recovery approval remain pending.
+- Actual private recovery exposed activation preflight/lease expiry and enrollment starvation. Memoized terrain reconstruction retains every consumed input hash and all native package checks. Native startup now owns a bounded streaming pin and schedules lease maintenance ahead of enrollment; failed fixtures are preserved and recovery remains unverified pending rerun.
+- Recipe 9 complete native traversal passed 92 walks, 27,680 width samples, 288 gate checks, 88 objective samples and 150 spawn samples; both independent width auditors passed. Private campaign preparation/content preflight passed without rewriting canonical packages. Final tooling suite: 295 tests in 53 files. Visual and full siege admission remain open.
+- Recipe 9 adds bounded wing footing repairs and stepped facade hierarchy. Its 73 architecture controls, asset export, 68-package private staging, 144 exact native ground replay points and 139 navigation waypoints passed. Tooling verification passed 293 tests; cinematic and full-siege acceptance remain open. Publication guards retain legacy 38-mesh recipes and require the new 39th footing binding in recipe 9.
+- Recipe 8 passed complete native traversal: 92 walks, 27,680 width samples, 288 gates, 88 objectives, 150 spawns and eight captures; both width auditors passed. A read-only 144-point ground survey bound wing/tower support to retained native terrain. Recipe 9 adds joined footing repairs, clearer terrace cornices and reduced decorative shaft density, with 73 source controls passing and unchanged route/objective topology. Native recipe 9 and visual approval remain pending.
+- Recipe 8 adds a taller central standard with joined masonry backing and supported iron brackets. Its source build and 71 architecture controls passed; native verification is pending. Recipe 7 passed all 92 walks and 27,680 width samples in both auditors. Matched lighting comparisons remain visually unapproved. The frontend candidate ownership fix preserves strict source ownership and passed 20 controls; fresh native preparation is pending.
+- Final pinned schema 4 traversal passed all 92 walks and 27,680 full-width samples on private revision 8bb3168368e3. Recipe 7 eb00703a2a63 adds articulated full-width spire roofs, pointed dormers and deterministic cross-interpreter terrain sums; its 70 architecture controls passed and new native staging/proofs remain separate. Corrected alpine snow is visible, but visual fidelity and cinematic lighting remain unapproved. Failed isolated campaign preparation is preserved; reflected-property access is corrected with 19 focused controls.
+- Pin actual native capsule dimensions, step height and walkable-floor limits after capture. Preserve Unreal's one-ULP spawn slope rounding, then reject any subsequent drift. The fresh Editor build and all 100 Foundation tests passed; fresh complete scene proof remains pending. Two alpine lighting studies completed basic game captures but remain visually rejected.
+- Complete the 8bb native rehearsal with 92 actual route walks, 27,680 width samples, 288 gate sweeps, 88 objective and 150 spawn checks; preserve it as schema 3 diagnostic history. Schema 4 now records the unchanged native Custom capsule policy with all 64 response channels, continuous tick/query checks and a real-character regression. Fix the ECC_MAX diagnostic array overread; fresh Editor build and all 100 Foundation tests pass. New schema 4 scene proof and visual approval remain pending.
+- Confined fresh live cooked-contact resolution to citadel route placement and movement proofs; gate checks, native floor support, swept movement and StepUp remain independent. Added strict independent receipt accounting and streamed UTF-8 report output after a 2 GB checkpoint writer failure. Verified 99 native Foundation and 283 Unreal tooling tests; full traversal rerun and visual approval remain pending.
+- Import survey-bound gallery revision 8bb3168368e3 and connect all 139 fresh native navigation waypoints. Export versioned whole-capsule separating-plane intervals for independent Decimal projection audits; twelve portable controls and 98 native Foundation tests pass. Raw collision admission and visual acceptance remain unchanged.
+- Import private recipe 6 revision 68cc73797d81 with protected source packages preserved. Retain exact affine live cooked witnesses and all body/item/destination contacts; native Foundation controls pass 97/97 and reproduce the overlap discrepancy on an authored stair face. Physical and visual admission remain pending.
+- Bind full-width gallery entries to a level tangent before the first riser. Source tests pass 70/70; native read-locked contact and rotated/scaled/mirrored BVH controls pass in Foundation 98/98. These diagnostics preserve raw overlap admission; new routes require a fresh native survey and revision.
+- Bind recipe 6 lower spawn footprints to actual surveyed ramp gradients without moving anchors; reserve complete gate openings and correct gallery landings. Native Foundation tests pass 95/95; the private candidate still fails physical and cinematic acceptance.
+- Preserve native floor handoff and independently verify genuine line support after height adjustment. Corrected width diagnostics retain 70 failures across 27,460 samples; matched game-world contact queries disclose solver/filter differences without waiving overlap admission.
+
+- Add an encounter-scoped 8,192-node navigation filter after actual native search-limit diagnostics; retain default navigation for ordinary players and saved version 1 rounds.
+- Reserve all six retained spawn anchors and full-width upper exits in recipe 5, with native pad grids and bidirectional approach proofs. Bind the reviewed Engine cloud parent into shared-city dependency hashes; new geometry remains privately staged pending physical and cinematic approval.
+
+- Add native geometry surveys, a scaled Gothic architectural sheet and signed route coverage for the supplied citadel reference, with isolated staging, bounded old-geometry replacement and lower-city preservation checks.
+- Add version 2 independent permanent side claims, player-only central capture, eight main anchors and three independent optional defenses. Preserve recorded legacy rules rather than reinterpreting old claims.
+- Separate the durable per-realm participant and visitor evacuation budgets; reject same-stage phase rollback and preparation-clock increases. Preserve pending participant returns until durable acknowledgement.
+- Require full current character documents for recovered-character return; reject flag-only restore acknowledgements and retain protected custody until durable return. Native reconnect/crash acceptance remains pending.
+- Add source-bound cinematic lighting diagnostics, seven exact environment fixture identities, shadowed practical lights and an owned native cloud. Read committed native terrain attributes for a bounded hall carve; final rendered and physical approval remains outstanding.
+- Add strict native render-LOD tangent validation, a guarded single-build LOD helper, engine-provided SHA-256 receipt hashing and hash-bound three-process character-recovery evidence. These checks do not grant visual, gameplay or release acceptance.
+- Move siege execution into an encounter-owned replicated actor and separate enrolled membership from scenario stat normalization. Add opt-in live-capital enrollment, service suspension, streaming/evacuation guards and owning-host campaign settlement.
+- Add private, atomic character/siege checkpoints and full-document native write-ahead records for critical character mutations, with owning-host revision/sequence replay and rollback on failed commits. Actual native crash recovery, transient effects, full gameplay, reference fidelity, performance and final-package admission remain acceptance work.
+- Add version 2 native effect and cooldown snapshots with exact applied definitions, source identity and absolute expiry times. Subtract downtime, skip offline periodic ticks and preserve protected recovery for unknown effects; full native regression passes 92 tests, while actual process-crash acceptance remains pending.
+- Add candidate dependency validation and native corridor/gate proof tooling. New geometry invalidates earlier receipts; purchased assets and native Content remain outside public Git. Native imports now explicitly convert source winding while retaining outward normals; corridor proofs cover five full-width lanes and clean architectural captures restore HUD visibility. Actual native visual and gate failures keep the private replacement unapproved.
+
+## Combat UI customization (2026-10-04)
+
+- Added local, versioned combat-overlay styles for friendly/enemy reticles, overhead bars, normal/critical/healing streams and selected-target panel children, plus the shared hit marker and message feed.
+- Extended Edit UI with blue/red Slate body outlines, live mock combat playback, element selection/dragging, numeric/color controls, hidden-element recovery, reset/copy and autosave. Existing action-bar editing is retained.
+- Shared layout and number animation between runtime Canvas and Slate preview; retained recipient relationship metadata across owner feedback, including self-healing and unresolved recipients.
+- Centralized editor entry/exit and input-lock cleanup. Added focused native, rendered interaction and owner/client proof coverage; verification evidence is recorded separately in docs/unreal-combat-ui.md.
+- Hardened network/live UI proof cleanup against failed launches and already-exited processes; await confirmed shutdown with bounded escalation, covered by portable process tests.
+
+## 2026-09-30 - Default overhead health bars
+
+- Show compact blue ally and red enemy health bars above eligible players and damageable NPCs by default, including full-health and unselected characters.
+- Read current replicated health every frame for immediate damage/healing updates; keep bars below floating numbers and hide dead, obstructed, offscreen or unavailable recipients.
+- Add native coverage for health changes, authored NPC damage, visibility policy, bounded layout and combat-number clearance.
+
+## 2026-09-30 - Floating damage and healing
+
+- Add outgoing damage and effective-healing numbers above receiving players and NPCs, including self-healing; keep incoming effects in existing combat feedback.
+- Give isolated numbers a one-second rise/fade, accelerate rapid procs up to five times faster, and bound each overhead region and visible count. Preserve the last head position briefly when a recipient despawns.
+- Add native timing, burst, bounds, routing, recipient movement and cleanup tests. Platform, Steam and interactive visual acceptance remain separate.
+
 ## 2026-09-30 - Fluid combat
 
 - Extend native combat verification through direction changes, attack restart, jumping and recovery on six profiles; export timed review previews and production impact samples, and verify camera-shake bounds/off and isolated preference persistence.
@@ -9,6 +66,22 @@
 - Replace damage-threshold interruptions with cosmetic feedback; add synthesized impact audio, hit markers, explicit critical-outcome feedback and configurable camera shake.
 - Add native movement/refund/channel/projectile tests, equipped captures, delayed loopback verification and guarded combat-only staging with backups. Platform, Steam and release acceptance remain separate.
 
+## 2026-09-29 - Shared capital scenery
+
+- Replace copied siege scenery and frontend placement/material snapshots with shared native city definitions and scenery-level references for both capitals.
+- Separate campaign services into gameplay overlays while preserving actor identities, transforms, components, collision and GM tags; retain siege objectives in their own map.
+- Compare scenario admission with current campaign routing and all city model/material dependencies, rejecting obsolete but internally consistent receipts.
+- Invalidate affected siege reviews on city changes; render frontend views with the shared city's own lighting and exposure.
+- Replace the legacy siege navigation folder filter with shared-definition validation, and add source-contract and native routing tests.
+- Remove 684 obsolete private scenery/material packages after reference checks and backups, preserving historical evidence.
+- Repair siege staging, ramp checkpoint and multipart-prop navigation for the shared city; stop convoy paths skipping corners and enforce diagonal clearance with full hull sweeps.
+- Require matching city/map hashes, physical crowd and convoy checks, replicated gate passage and reviewed captures before restoring local lower-city admission. Keep full-siege and release gates independent.
+
+## 2026-09-29 - GM rendering diagnostics
+
+- Add opt-in routed-pointer, held-input, direct, idle and desktop/manual GM rendering captures, including quality variables, show flags, camera grading, lighting components and streamed levels.
+- Isolate diagnostic preferences and world-edit storage and add a disposable embedded-PIE launcher plus screenshot/state comparison tooling.
+- Keep the persistent muted-color bug open pending rendered reproduction; these diagnostics do not claim a graphics fix or visual acceptance.
 
 ## 2026-09-29 - Branch consolidation
 

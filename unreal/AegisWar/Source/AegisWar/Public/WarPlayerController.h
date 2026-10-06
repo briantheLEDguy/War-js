@@ -5,6 +5,8 @@
 #include "WarCameraRules.h"
 #include "WarActionBarRules.h"
 #include "WarCombatFeedback.h"
+#include "WarFloatingCombatText.h"
+#include "WarCombatUiSettings.h"
 #include "WarPlayerController.generated.h"
 
 class UWarInterfaceWidget;
@@ -27,12 +29,17 @@ class AEGISWAR_API AWarPlayerController : public APlayerController
     GENERATED_BODY()
 public:
     AWarPlayerController();
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     FString ScenarioCharacterId;
+    bool bCampaignIdentityProvisioned = false;
     UFUNCTION(Server, Reliable) void ServerPrepareScenario();
     UFUNCTION(Server, Reliable) void ServerScenarioDepart(const FString& Ticket);
     UFUNCTION(Client, Reliable) void ClientScenarioRegistered(const FString& Url,const FString& Token,const FString& Id);
     UFUNCTION(Client, Reliable) void ClientScenarioConnectionStatus(bool Pending,const FString& Message);
     UFUNCTION(Client, Reliable) void ClientScenarioTravel(const FString& Endpoint,const FString& Ticket);
+    UFUNCTION(Server, Reliable) void ServerCampaignSiegeEnrollment(bool Join);
+    UFUNCTION(Exec) void WarCampaignSiegeJoin();
+    UFUNCTION(Exec) void WarCampaignSiegeLeave();
     UFUNCTION(Server, Reliable) void ServerSiegeSquadOrder(int32 Round, uint8 Order);
     UFUNCTION(Client, Reliable) void ClientSiegeSquadState(uint8 Order, int32 Count);
     uint8 SiegeSquadOrder = 0;
@@ -73,15 +80,24 @@ public:
     bool IsCombatTarget(const AActor* Target) const;
     FString GetCombatTargetLabel() const;
     FString GetActionMessage() const;
-    void SendCombatNotice(FName Kind, const FString& Label, float Amount);
-    UFUNCTION(Client, Unreliable) void ClientCombatNotice(uint32 Serial, FName Kind, const FString& Label, float Amount);
+    void SendCombatNotice(FName Kind, const FString& Label, float Amount, AActor* Recipient = nullptr);
+    UFUNCTION(Client, Unreliable) void ClientCombatNotice(uint32 Serial, FName Kind, const FString& Label, float Amount,
+        uint32 RecipientId, AActor* Recipient, FVector Anchor, bool bEnemy = true);
     const TArray<FWarCombatNotice>& GetCombatNotices() const { return CombatNotices; }
+    const TArray<FWarFloatingCombatNumber>& GetFloatingCombatNumbers() const { return FloatingCombatNumbers; }
     const TArray<FWarActionBarLayout>& GetActionBars();
     int32 AddActionBar(int32 Buttons);
     void RemoveActionBar(int32 Id);
     void ResizeActionBar(int32 Id, int32 Buttons);
     void MoveActionBar(int32 Id, FVector2D Position, bool bSave);
     void SetEditingUi(bool bEditing);
+    void EndEditingUi(bool bReturnToSettings);
+    const FWarCombatUiSettings& GetCombatUiSettings();
+    void SetCombatUiStyle(int32 Id, const FWarCombatUiStyle& Style, bool bSave = true);
+    void MoveCombatUi(int32 Id, FVector2D Delta, FVector2D View, float Scale, bool bSave);
+    void ResetCombatUi(int32 Id = INDEX_NONE);
+    void CopyCombatUiSide(int32 Id);
+    void SaveCombatUiSettings();
     bool IsEditingUi() const { return bEditingUi; }
     bool HasActionSlot(int32 Slot);
     void SaveActionBars();
@@ -161,6 +177,7 @@ private:
     double CombatNoticeWindow = 0;
     int32 CombatNoticeCount = 0;
     TArray<FWarCombatNotice> CombatNotices;
+    TArray<FWarFloatingCombatNumber> FloatingCombatNumbers;
     UPROPERTY(Transient) TObjectPtr<UWarSiegeLobbyWidget> SiegeLobbyWidget;
     bool bSiegeLobbyInput = false;
     UPROPERTY(Transient) TObjectPtr<UWarActionBarWidget> ActionBarWidget;
@@ -169,6 +186,9 @@ private:
     TArray<FWarActionBarLayout> ActionBars;
     bool bActionBarsLoaded = false;
     bool bEditingUi = false;
+    bool bCombatUiLoaded = false;
+    FWarCombatUiSettings CombatUiSettings;
+    UPROPERTY(Transient) TObjectPtr<class UWarCombatUiEditorWidget> CombatUiEditor;
     int32 NextActionBarId = 1;
     TWeakObjectPtr<AActor> CombatTarget;
     FString ActionMessage;

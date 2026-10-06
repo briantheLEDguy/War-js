@@ -1,4 +1,6 @@
 #include "WarCityNpc.h"
+#include "WarSiegeEncounter.h"
+#include "WarZoneAnchor.h"
 #include "WarCityServices.h"
 #include "WarNpcEquipment.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -54,6 +56,8 @@ void AWarCityNpc::Tick(float DeltaTime)
 FName AWarCityNpc::GetService() const { return WarCityServices::ServiceForNpc(NpcId); }
 bool AWarCityNpc::CanInteract(const APawn* Pawn) const
 {
+    if (const auto* Siege = AWarSiegeEncounter::Capital(GetWorld()))
+        if (const auto* Zone = AWarZoneAnchor::FindAt(GetWorld(), GetActorLocation()); Zone && Siege->SuspendsServices(Zone->ZoneId)) return false;
     const auto* Mesh = GetSkeletalMeshComponent();
     return IsValid(Pawn) && Pawn->GetWorld() == GetWorld() && !GetService().IsNone()
         && !IsActorBeingDestroyed() && !IsHidden() && Mesh && Mesh->IsVisible() && Mesh->GetSkeletalMeshAsset()

@@ -19,8 +19,11 @@ public:
     virtual TStatId GetStatId() const override;
     bool IsZoneReady(FName Zone, const APlayerController* Player = nullptr, FString* OutReason = nullptr) const;
     bool EnsureZone(FName Zone, FString& Error);
+    void PinZone(AActor* Owner, FName Zone);
+    void PinZone(UWorldSubsystem* Owner, FName Zone);
+    void ReleaseZone(UObject* Owner);
     static bool RequiresActorCollisionReadiness(const AActor* Actor);
-    bool QueuePortal(AWarZonePortal* Portal, AWarCharacter* Character, FName Destination, FString& Error);
+    bool QueuePortal(AWarZonePortal* Portal, AWarCharacter* Character, FName Destination, FString& Error, bool Evacuation = false);
     bool QueueGmZone(AWarPlayerController* Player, FName Destination, FString& Error);
     bool HasPending(const AWarCharacter* Character) const;
     void Cancel(AWarCharacter* Character);
@@ -36,9 +39,12 @@ private:
         double Deadline = 0;
         bool bGm = false;
         FVector SourcePosition = FVector::ZeroVector;
+        bool bEvacuation = false;
     };
     TArray<FPending> Pending;
     TMap<FName, double> KeepUntil;
+    friend class FWarCampaignLeaseTest;
+    TMap<TWeakObjectPtr<UObject>, FName> ZonePins;
     TMap<TWeakObjectPtr<APlayerController>, TSet<FName>> ClientPackages;
     double NextUpdateAt = 0;
     void UpdateStreaming();

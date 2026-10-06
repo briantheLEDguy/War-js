@@ -1,5 +1,6 @@
 #include "WarSiegeEquipment.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -15,6 +16,8 @@
 #include "WarPlayerState.h"
 #include "EngineUtils.h"
 #include "Engine/OverlapResult.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
 
 FRotator WarSiegeEquipment::SurfaceRotation(float Yaw,float ForwardGrade,float RightGrade)
 {
@@ -26,10 +29,11 @@ FRotator WarSiegeEquipment::SurfaceRotation(float Yaw,float ForwardGrade,float R
 ANavigationData* WarSiegeEquipment::Navigation(UWorld* World)
 {
     auto* Nav=World ? FNavigationSystem::GetCurrent<UNavigationSystemV1>(World) : nullptr;
-    auto* Data=Nav ? Nav->GetNavDataForProps(FNavAgentProperties(280,330)) : nullptr;
+    auto* Data=Nav ? Nav->GetNavDataForProps(FNavAgentProperties(NavigationRadius,NavigationHeight)) : nullptr;
     // Never silently fall back to pedestrian clearance when the convoy bake is absent.
     return Data && Data->GetConfig().Name==TEXT("SiegeConvoy")
-        && FMath::IsNearlyEqual(Data->GetConfig().AgentRadius,280.f) ? Data : nullptr;
+        && FMath::IsNearlyEqual(Data->GetConfig().AgentRadius,NavigationRadius)
+        && FMath::IsNearlyEqual(Data->GetConfig().AgentHeight,NavigationHeight) ? Data : nullptr;
 }
 
 bool UWarSiegeEquipmentDefinition::Validate(FString& Error) const
@@ -38,6 +42,9 @@ bool UWarSiegeEquipmentDefinition::Validate(FString& Error) const
         || HullExtent.ContainsNaN() || HullExtent.GetMin()<=0 || WalkSpeed<=0 || WheelCircumference<=0 || StrikeDuration<=0
         || !PushAnimation.LoadSynchronous() || !HoldAnimation.LoadSynchronous())
     { Error=TEXT("Siege equipment requires reviewed authored models and fitted engineer animations."); return false; }
+    if (HullExtent.Size2D()+8 > WarSiegeEquipment::NavigationRadius
+        || HullExtent.Z+155+8 > WarSiegeEquipment::NavigationHeight)
+    { Error=TEXT("Rebuild convoy navigation for this equipment's hull."); return false; }
     bool HasStrike=false;
     for (const auto& Part:Parts)
     {
@@ -166,12 +173,23 @@ bool AWarSiegeEquipment::Drive(const FVector& Destination,float Speed,float Delt
         auto* Data=WarSiegeEquipment::Navigation(GetWorld());
         // A following point can lie below the ramp at a slope transition.
         // Project its horizontal position onto the actual route before pathfinding.
-        if (!Nav || !Data || !Nav->ProjectPointToNavigation(Destination,End,FVector(100,100,1200),Data)) return false;
+        if (!Nav || !Data || !Nav->ProjectPointToNavigation(Destination,End,FVector(100,100,1200),Data))
+        {
+            if (FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentProof")) && FMath::Fmod(GetWorld()->GetTimeSeconds(),2.f)<.04f)
+                UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_NAV_FAILED %s from=%s goal=%s nav=%s"),*GetName(),*GetActorLocation().ToString(),*Destination.ToString(),*GetNameSafe(Data));
+            return false;
+        }
         auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(),GetActorLocation(),End.Location,Data);
-        if (!Path || !Path->IsValid() || Path->IsPartial()) return false;
+        if (!Path || !Path->IsValid() || Path->IsPartial())
+        {
+            if (FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentProof")) && FMath::Fmod(GetWorld()->GetTimeSeconds(),2.f)<.04f)
+                UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_PATH_FAILED %s from=%s end=%s"),*GetName(),*GetActorLocation().ToString(),*End.Location.ToString());
+            return false;
+        }
         Route=Path->PathPoints; RouteGoal=Destination;
     }
-    while (Route.Num()>1 && FVector::Dist2D(GetActorLocation(),Route[0])<80) Route.RemoveAt(0);
+    // Advancing 80 cm early cuts inside the baked obstacle clearance on turns.
+    while (Route.Num()>1 && FVector::Dist2D(GetActorLocation(),Route[0])<5) Route.RemoveAt(0);
     const FVector Direction=(Route[0]-GetActorLocation()).GetSafeNormal2D();
     FRotator Rotation=GetActorRotation();
     Rotation.Yaw=FMath::FixedTurn(Rotation.Yaw,Direction.Rotation().Yaw,35*Delta);
@@ -269,7 +287,13 @@ bool AWarSiegeEquipment::MovementClear(const FVector& Position,const FRotator& R
         const FVector End=FMath::Lerp(GetActorLocation(),Position,B)+Q.RotateVector(FVector(0,0,155));
         FHitResult Hit;
         if (GetWorld()->SweepSingleByObjectType(Hit,Start,End,Q,Objects,
-            FCollisionShape::MakeBox(Definition->HullExtent+FVector(Margin)),Query)) return false;
+            FCollisionShape::MakeBox(Definition->HullExtent+FVector(Margin)),Query))
+        {
+            if (FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentProof")) && FMath::Fmod(GetWorld()->GetTimeSeconds(),2.f)<.04f)
+                UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_SWEEP_BLOCKED %s actor=%s component=%s point=%s normal=%s penetrating=%d"),
+                    *GetName(),*GetNameSafe(Hit.GetActor()),*GetNameSafe(Hit.GetComponent()),*Hit.ImpactPoint.ToString(),*Hit.ImpactNormal.ToString(),Hit.bStartPenetrating);
+            return false;
+        }
     }
     return true;
 }
@@ -303,7 +327,7 @@ bool AWarSiegeEquipment::RecoverOverlaps()
             }
             if (Recovered) break;
         }
-        if (!Recovered) if (auto* Mode=GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Mode && Mode->Battlefield)
+        if (!Recovered) if (auto* Mode=AWarSiegeEncounter::For(this); Mode && Mode->Battlefield)
         {
             const auto* PS=Pawn->GetPlayerState<AWarPlayerState>();
             const int32 Index=Mode->SiegeState()->Siege.Stage*2+(PS && PS->GetRealm()==EWarRealm::Riftbound ? 1 : 0);

@@ -26,6 +26,15 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Unselected migrated campaign cannot gain workbench access"), WarWorldEditMap::IsSupported(Campaign, FinalMap));
     const FString Preview = TEXT("/Game/WorldRebuild/DutchBastion_61bc85751eac/Preview");
     TestFalse(TEXT("City previews do not become campaign workbenches"), WarWorldEditMap::IsSupported(Preview, Preview));
+    const FString Citadel = TEXT("/Game/WorldRebuild/AegisCitadel_abcdef123456/CampaignCandidate");
+    TestTrue(TEXT("Selected signed citadel campaign retains GM access"), WarWorldEditMap::IsSupported(Citadel, Citadel));
+    TestFalse(TEXT("Unselected citadel cannot gain GM access"), WarWorldEditMap::IsSupported(Citadel, Campaign));
+    TestFalse(TEXT("Citadel preview cannot become a workbench"), WarWorldEditMap::IsSupported(
+        TEXT("/Game/WorldRebuild/AegisCitadel_abcdef123456/ReviewCandidate"),
+        TEXT("/Game/WorldRebuild/AegisCitadel_abcdef123456/ReviewCandidate")));
+    TestFalse(TEXT("Unsigned citadel map names cannot gain GM access"), WarWorldEditMap::IsSupported(
+        TEXT("/Game/WorldRebuild/AegisCitadel_not_a_revision/CampaignCandidate"),
+        TEXT("/Game/WorldRebuild/AegisCitadel_not_a_revision/CampaignCandidate")));
     TestTrue(TEXT("Legacy authored proof remains available"), WarWorldEditMap::IsSupported(TEXT("/Game/Capitals/aegis_capital/AegisCapital_Workbench"), FinalMap));
     const FTransform GridInput(FRotator(12, 44, -8), FVector(125, -175, 73.2), FVector(2, -3, 4));
     const auto Snapped = WarWorldEditPlacement::SnapTransform(GridInput, 50, 90);
@@ -205,6 +214,35 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     FJsonSerializer::Serialize(LegacyRoot, TJsonWriterFactory<>::Create(&LegacyDraft));
     TestTrue(TEXT("Legacy fixture has pretty baseline whitespace"), PrettyBase.Contains(TEXT("\n")));
     TestTrue(TEXT("Version-one edit-only drafts remain readable"), Legacy.ImportDraft(LegacyDraft, 0, Error));
+    // An external authoring tool may reorder fields and print integral values
+    // with decimal suffixes. Neither changes the trusted authored geometry.
+    TSharedPtr<FJsonObject> FormattedRoot;
+    FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(LegacyDraft),FormattedRoot);
+    const auto FormattedBase = MakeShared<FJsonObject>();
+    TArray<TSharedPtr<FJsonValue>> FormattedRows;
+    for (const auto& Value : LegacyBase->GetArrayField(TEXT("objects")))
+    {
+        const auto Existing = Value->AsObject(); const auto Row = MakeShared<FJsonObject>();
+        Row->SetArrayField(TEXT("transform"),Existing->GetArrayField(TEXT("transform")));
+        Row->SetStringField(TEXT("sourceIdentity"),Existing->GetStringField(TEXT("sourceIdentity")));
+        Row->SetBoolField(TEXT("hidden"),Existing->GetBoolField(TEXT("hidden")));
+        Row->SetStringField(TEXT("id"),Existing->GetStringField(TEXT("id")));
+        FormattedRows.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    FormattedBase->SetArrayField(TEXT("objects"),FormattedRows);
+    FString ReorderedBase, ReorderedDraft;
+    FJsonSerializer::Serialize(FormattedBase,TJsonWriterFactory<>::Create(&ReorderedBase));
+    FormattedRoot->SetStringField(TEXT("baseline"),ReorderedBase);
+    FJsonSerializer::Serialize(FormattedRoot,TJsonWriterFactory<>::Create(&ReorderedDraft));
+    FWarWorldEditHistory ExternalDraft; ExternalDraft.Initialize(Objects,Error);
+    TestTrue(TEXT("Equivalent external baseline key order is accepted"),ExternalDraft.ImportDraft(ReorderedDraft,0,Error));
+    auto ChangedBase = FormattedRows[0]->AsObject();
+    ChangedBase->SetBoolField(TEXT("hidden"),!ChangedBase->GetBoolField(TEXT("hidden")));
+    FJsonSerializer::Serialize(FormattedBase,TJsonWriterFactory<>::Create(&ReorderedBase));
+    FormattedRoot->SetStringField(TEXT("baseline"),ReorderedBase);
+    FJsonSerializer::Serialize(FormattedRoot,TJsonWriterFactory<>::Create(&ReorderedDraft));
+    TestFalse(TEXT("Formatting compatibility cannot disguise baseline visibility edits"),ExternalDraft.ImportDraft(ReorderedDraft,1,Error));
+    TestEqual(TEXT("Rejected baseline leaves history unchanged"),ExternalDraft.GetRevision(),1);
     FWarWorldEditHistory StableModels;
     StableModels.Initialize({ { TEXT("first"), Original, false, TEXT("mesh:hash") },
         { TEXT("second"), Original, false, TEXT("mesh:hash") } }, Error);

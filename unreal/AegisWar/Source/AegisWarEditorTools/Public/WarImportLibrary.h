@@ -17,6 +17,9 @@ class AEGISWAREDITORTOOLS_API UWarImportLibrary : public UBlueprintFunctionLibra
 {
     GENERATED_BODY()
 public:
+    /** Reparent existing actors without clipboard recreation; preserves identities and component state. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static bool MoveCityGameplayToLevel(const TArray<AActor*>& Actors, ULevelStreaming* Destination);
     /** Commandlet-safe copy of explicitly owned, unattached campaign actors; source actors are retained. */
     UFUNCTION(BlueprintCallable, Category="Migration")
     static TArray<AActor*> CopyCampaignActorsToLevel(const TArray<AActor*>& Actors, ULevelStreaming* Destination);
@@ -55,6 +58,38 @@ public:
         const TArray<FVector>& Positions, const TArray<int32>& Indices, const TArray<FVector>& Normals,
         const TArray<FVector2D>& UVs, const TArray<FLinearColor>& VertexColors,
         const TArray<int32>& TriangleMaterials, const TArray<UMaterialInterface*>& Materials, bool bCollision);
+
+    /** Read actual built LOD buffers, not source-description UV counts. Never modifies or saves the mesh. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeStaticMeshRenderData(UStaticMesh* Mesh);
+
+    /** Read committed source triangle corners and attributes; never uses or changes a pending working copy. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeStaticMeshSourceData(UStaticMesh* Mesh, int32 Lod = 0);
+
+    /** Read every committed stored corner, including unused instances; never touches an editor working copy. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeStaticMeshStoredCorners(UStaticMesh* Mesh, int32 Lod = 0);
+
+    /** Read actual oriented render faces and computed corner basis; no build, save or source-normal inference. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeStaticMeshRenderedFaces(UStaticMesh* Mesh, int32 Lod = 0);
+
+    /** Read persistent source/build/mesh/collision policy through native accessors; no builds, saves or working copies. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeStaticMeshNativePolicy(UStaticMesh* Mesh);
+
+    /** Clone only the measured mountain into a fresh owned citadel package; no source edits or package saves. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static UStaticMesh* CreateCarvedCitadelTerrain(UStaticMesh* SourceMesh, const FString& Collection, const FString& ClippedJson);
+#if WITH_DEV_AUTOMATION_TESTS
+    /** Unsaved transient source fixtures only; exercises the same importer without touching the real mountain. */
+    static UStaticMesh* CreateCarvedCitadelTerrainForAutomation(UStaticMesh* SourceMesh, const FString& Collection, const FString& ClippedJson);
+#endif
+
+    /** Configure owned citadel source LODs and build once. Never saves or edits licensed/unowned assets. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static bool ConfigureCitadelSurfaceLods(UStaticMesh* Mesh);
 
     UFUNCTION(BlueprintCallable, Category="Migration")
     static void PreparePreviewFrame(USkeletalMeshComponent* Component);

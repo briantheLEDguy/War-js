@@ -3,8 +3,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerState.h"
 #include "AbilitySystemInterface.h"
+#include "ActiveGameplayEffectHandle.h"
 #include "WarTypes.h"
 #include "WarInventorySnapshot.h"
+#include "WarSiegeRules.h"
 #include "WarPlayerState.generated.h"
 
 class UAbilitySystemComponent;
@@ -15,6 +17,8 @@ class AWarResourceNode;
 class AWarCityNpc;
 class AWarQuestNpc;
 struct FWarQuestDefinition;
+struct FGameplayEffectSpec;
+struct FActiveGameplayEffect;
 
 /** PlayerState owns GAS so replacing the pawn does not clear ability cooldowns. */
 UCLASS()
@@ -23,10 +27,13 @@ class AEGISWAR_API AWarPlayerState : public APlayerState, public IAbilitySystemI
     GENERATED_BODY()
 public:
     AWarPlayerState();
+    virtual void PostInitializeComponents() override;
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     const UWarAttributeSet* GetAttributes() const { return Attributes; }
     class UWarAbilityRuntime* GetClassAbilities() const { return ClassAbilities; }
+    bool GetCampaignEffectEpoch(FActiveGameplayEffectHandle Handle,int64& Expiry) const;
+    bool RestoreCampaignEffectEpoch(FActiveGameplayEffectHandle Handle,int64 Expiry);
     EWarRealm GetRealm() const { return Realm; }
     FName GetCurrentZone() const { return CurrentZone; }
     void SetCurrentZoneTrusted(FName Zone);
@@ -37,6 +44,8 @@ public:
     void SetScenarioTransferPending(bool Pending);
     TSharedPtr<class FJsonObject> CaptureScenarioState() const;
     void RestoreScenarioState(const TSharedPtr<class FJsonObject>& State);
+    TSharedPtr<class FJsonObject> CaptureCampaignState(FString& Error) const;
+    bool RestoreCampaignState(const TSharedPtr<class FJsonObject>& State,FString& Error,bool Respawn=false,int64 CurrentUtc=0);
     const FWarInventorySnapshot& GetInventory() const { return Inventory; }
     // Trusted server API only. Receipts live for this PlayerState session, not across reconnects.
     bool GrantRewards(const FGuid& Transaction, const TArray<FWarInventoryItem>& Rewards, FString& Error);
@@ -52,6 +61,12 @@ public:
     void UseScenarioEarnedAbilities() { if (HasAuthority()) bScenarioEarnedAbilities=true; }
     bool IsSiegeNormalized() const { return bSiegeNormalized; }
     void SetSiegeNormalized(bool bEnabled);
+    class AWarSiegeEncounter* GetSiegeEncounter() const { return SiegeEncounter; }
+    EWarSiegeUnit GetSiegeUnit() const { return SiegeUnit; }
+    bool IsSiegeMember() const { return SiegeEncounter != nullptr; }
+    // Normalized training fixtures also use targeted class healing.
+    bool UsesSiegeTargeting() const;
+    void SetSiegeMembership(class AWarSiegeEncounter* Encounter, EWarSiegeUnit Unit = EWarSiegeUnit::Participant);
     // Called by the controller only after development GM authorization; never exposed as an RPC.
     bool SetGmLevelTrusted(int32 Level, FString& Error);
     // Trusted zone/NPC/kill services only; these methods are deliberately not RPCs.
@@ -87,8 +102,18 @@ public:
     UFUNCTION(Server, Reliable) void ServerGatherResource(AWarResourceNode* Node, int32 ExpectedRevision);
     FText GetInventoryMessage() const { return InventoryMessage; }
 private:
+    friend class FWarCampaignMutation;
+    int32 CampaignMutationDepth = 0;
+    struct FCampaignEffectEpoch { int64 Expiry=0;float WorldEnd=0,Duration=0; };
+    TMap<FActiveGameplayEffectHandle,FCampaignEffectEpoch> CampaignEffectEpochs;
+    void CampaignEffectAdded(UAbilitySystemComponent* Component,const FGameplayEffectSpec& Spec,FActiveGameplayEffectHandle Handle);
+    void CampaignEffectRemoved(const FActiveGameplayEffect& Effect);
+    TWeakObjectPtr<AWarCharacter> TransferAvatar;
+    uint8 TransferMovementMode = 0, TransferCustomMode = 0;
     bool bScenarioTransferPending = false;
     UPROPERTY(Replicated) bool bSiegeNormalized = false;
+    UPROPERTY(Replicated) TObjectPtr<class AWarSiegeEncounter> SiegeEncounter;
+    UPROPERTY(Replicated) EWarSiegeUnit SiegeUnit = EWarSiegeUnit::Participant;
     UPROPERTY(Replicated) bool bScenarioEarnedAbilities = false;
     UPROPERTY(Replicated) FName CurrentZone;
     bool CanPerformInventoryAction() const;

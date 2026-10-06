@@ -7,6 +7,7 @@
 #include "WarGameplayEffects.h"
 #include "WarAbilityExecution.h"
 #include "WarAbilityRuntime.h"
+#include "WarCampaignCombatState.h"
 #include "AbilitySystemComponent.h"
 #include "GameFramework/GameStateBase.h"
 #include "Net/UnrealNetwork.h"
@@ -48,7 +49,8 @@ float UWarCombatStatus::ReceiveDamage(float Damage)
     if (VulnerableDamage > Damage) WarCombatFeedback::Emit(nullptr, GetOwner(), TEXT("Guarded"), VulnerableDamage - Damage);
     return Damage;
 }
-void UWarCombatStatus::Apply(const FWarAbilityEffect& Effect, FName AbilityId, AWarCharacter* Source, float Strength, int32 Level, const FString& Version,float AuthoredAmount)
+void UWarCombatStatus::Apply(const FWarAbilityEffect& Effect, FName AbilityId, AWarCharacter* Source, float Strength, int32 Level, const FString& Version,float AuthoredAmount,
+    const TSharedPtr<const FWarAbilityDefinition>& AppliedDefinition)
 {
     if (!GetOwner()->HasAuthority() || Effect.Duration <= 0) return;
     FWarActiveStatus Status;
@@ -63,6 +65,8 @@ void UWarCombatStatus::Apply(const FWarAbilityEffect& Effect, FName AbilityId, A
     Status.Group = Effect.StackGroup; Status.Modifier = Effect.Modifier;
     Status.Magnitude = FMath::Clamp(Effect.Magnitude, 0.f, Status.Kind == TEXT("guard") ? .75f : .6f);
     Status.Expires = Now() + FMath::Clamp(Effect.Duration, 0.f, 60.f); Status.NextTick = Now() + 1; Status.Source = Source;
+    Status.ExpiresAtUnixMs=WarCampaignCombatState::UnixMs()+FMath::RoundToInt64(FMath::Clamp(Effect.Duration,0.f,60.f)*1000.);
+    Status.NextTickUnixMs=Status.ExpiresAtUnixMs-FMath::RoundToInt64(FMath::Clamp(Effect.Duration,0.f,60.f)*1000.)+1000;
     if (Status.Kind == TEXT("burn") || Status.Kind == TEXT("bleed")) Status.TickDamage = FMath::Max(1.f, FMath::RoundToFloat(Strength * Status.Magnitude + Level * .5f));
     if (Status.Kind == TEXT("shield"))
     {
@@ -73,13 +77,18 @@ void UWarCombatStatus::Apply(const FWarAbilityEffect& Effect, FName AbilityId, A
     }
     Active.RemoveAll([&](const auto& S) { return S.Expires <= Now() || S.Id == Status.Id
         || (!Status.Group.IsNone() && S.Group == Status.Group) || (Status.Kind == TEXT("shield") && S.Kind == Status.Kind); });
-    if (Active.Num() < 128) Active.Add(Status);
+    if (Active.Num() < 128)
+    {
+        Active.Add(Status); Periodic.Remove(Status.Id); TargetKeys.Remove(Status.Id);
+        if (AppliedDefinition) AppliedDefinitions.Add(Status.Id,AppliedDefinition); else AppliedDefinitions.Remove(Status.Id);
+        FString Key,Ignored; if (WarCampaignCombatState::KeyFor(Source,Key,Ignored)) SourceKeys.Add(Status.Id,Key); else SourceKeys.Remove(Status.Id);
+    }
     GetOwner()->ForceNetUpdate();
 }
 void UWarCombatStatus::Cleanse(const TArray<FName>& Kinds)
 { if (GetOwner()->HasAuthority()) { Active.RemoveAll([&](const auto& S) { return Kinds.Contains(S.Kind); }); GetOwner()->ForceNetUpdate(); } }
 void UWarCombatStatus::Clear()
-{ if (GetOwner()->HasAuthority()) { Active.Reset(); Periodic.Reset(); GetOwner()->ForceNetUpdate(); } }
+{ if (GetOwner()->HasAuthority()) { Active.Reset(); Periodic.Reset(); AppliedDefinitions.Reset(); SourceKeys.Reset(); TargetKeys.Reset(); GetOwner()->ForceNetUpdate(); } }
 
 TArray<FWarStatusObservation> UWarCombatStatus::Observe() const
 {
@@ -97,6 +106,8 @@ void UWarCombatStatus::ApplyPeriodic(const FWarAbilityEffect& Effect, float Base
     Status.Id=FName(*(Ability->Id.ToString()+TEXT(":")+Effect.Id.ToString()+TEXT(":")+Status.SourceCombatant.ToString()));
     Status.Category=Effect.Kind==TEXT("heal") ? TEXT("hot") : TEXT("dot"); Status.Kind=Status.Category;
     Status.Label=Ability->Name; Status.Expires=Now()+Effect.PeriodicDuration; Status.NextTick=Now()+Effect.Interval; Status.Interval=Effect.Interval;
+    const int64 AppliedAt=WarCampaignCombatState::UnixMs();Status.ExpiresAtUnixMs=AppliedAt+FMath::RoundToInt64(Effect.PeriodicDuration*1000.);
+    Status.NextTickUnixMs=AppliedAt+Effect.Interval*1000.;
     if (const auto* State=Source->GetPlayerState<AWarPlayerState>()) Status.SourceRealm=State->GetRealm()==EWarRealm::Aegis ? FName(TEXT("aegis")) : State->GetRealm()==EWarRealm::Riftbound ? FName(TEXT("riftbound")) : NAME_None;
     if (Effect.Kind==TEXT("heal")) Status.TickHealing=Base; else Status.TickDamage=Base;
     Active.RemoveAll([&](const auto& S) { return S.Id==Status.Id || S.Expires<=Now(); });
@@ -105,6 +116,11 @@ void UWarCombatStatus::ApplyPeriodic(const FWarAbilityEffect& Effect, float Base
     FPeriodicExecution Execution; Execution.Ability=Ability; Execution.Effect=Effect; Execution.Target=SelectedTarget;
     Execution.Base=Base; Execution.Strength=Strength; Execution.Level=Level; Execution.bBonus=bBonus;
     Periodic.Add(Status.Id,MoveTemp(Execution)); GetOwner()->ForceNetUpdate();
+    AppliedDefinitions.Add(Status.Id,Ability);
+    FString Key,Ignored;
+    if (WarCampaignCombatState::KeyFor(Source,Key,Ignored)) SourceKeys.Add(Status.Id,Key); else SourceKeys.Remove(Status.Id);
+    if (!SelectedTarget) TargetKeys.Add(Status.Id,FString());
+    else if (WarCampaignCombatState::KeyFor(SelectedTarget,Key,Ignored)) TargetKeys.Add(Status.Id,Key); else TargetKeys.Remove(Status.Id);
 }
 FString UWarCombatStatus::Description() const
 {
@@ -138,13 +154,26 @@ void UWarCombatStatus::TickComponent(float Delta, ELevelTick TickType, FActorCom
     Super::TickComponent(Delta, TickType, Function); if (!GetOwner()->HasAuthority()) return;
     const auto* Player = Cast<AWarCharacter>(GetOwner()); const auto* Enemy = Cast<AWarEnemy>(GetOwner());
     if ((Player && Player->IsDead()) || (Enemy && Enemy->IsDead())) { Clear(); return; }
+    if (const auto* State=Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr; State && State->IsScenarioTransferPending())
+    {
+        // Custody acknowledgments cannot race a periodic mutation of the held document.
+        // Timers still expire; overdue ticks are skipped rather than replayed on release.
+        const double Time=Now();
+        for (auto& S:Active) if (S.Interval>0 && S.NextTick<=Time)
+        {
+            const double Steps=FMath::FloorToDouble((Time-S.NextTick)/S.Interval)+1;
+            S.NextTick+=Steps*S.Interval;S.NextTickUnixMs+=Steps*S.Interval*1000.;
+        }
+        Active.RemoveAll([&](const auto& S) { return S.Expires<=Time || (S.Kind==TEXT("shield") && S.Shield<=0); });
+        return;
+    }
     // Snapshot every due evaluation before applying any tick to avoid same-event self-triggering.
     TArray<FWarActiveStatus> Ticks;
     TMap<FName,FPeriodicExecution> Executions;
     TMap<FName,FWarRuleEvaluation> Evaluations;
     for (auto& S : Active) if ((S.TickDamage>0 || S.TickHealing>0 || Periodic.Contains(S.Id)) && S.NextTick<=Now() && S.NextTick<=S.Expires)
     {
-        Ticks.Add(S); S.NextTick+=S.Interval;
+        Ticks.Add(S); S.NextTick+=S.Interval;S.NextTickUnixMs+=S.Interval*1000.;
         if (const auto* Execution=Periodic.Find(S.Id))
         {
             Executions.Add(S.Id,*Execution);
@@ -172,4 +201,7 @@ void UWarCombatStatus::TickComponent(float Delta, ELevelTick TickType, FActorCom
         }
     }
     for (auto It=Periodic.CreateIterator(); It; ++It) if (!Active.ContainsByPredicate([&](const auto& S) { return S.Id==It.Key(); })) It.RemoveCurrent();
+    for (auto It=AppliedDefinitions.CreateIterator(); It; ++It) if (!Active.ContainsByPredicate([&](const auto& S) { return S.Id==It.Key(); })) It.RemoveCurrent();
+    for (auto It=SourceKeys.CreateIterator(); It; ++It) if (!Active.ContainsByPredicate([&](const auto& S) { return S.Id==It.Key(); })) It.RemoveCurrent();
+    for (auto It=TargetKeys.CreateIterator(); It; ++It) if (!Active.ContainsByPredicate([&](const auto& S) { return S.Id==It.Key(); })) It.RemoveCurrent();
 }

@@ -7,6 +7,7 @@
 #include "WarPlayerState.h"
 #include "WarGameMode.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "GameFramework/Pawn.h"

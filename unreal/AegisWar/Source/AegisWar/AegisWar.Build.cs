@@ -10,7 +10,7 @@ public class AegisWar : ModuleRules
             "GameplayAbilities", "GameplayTags", "GameplayTasks", "DeveloperSettings",
             "UMG", "OnlineSubsystem", "OnlineSubsystemUtils", "ProceduralMeshComponent", "AIModule", "NavigationSystem"
         });
-        PrivateDependencyModuleNames.AddRange(new[] { "Json", "JsonUtilities", "Slate", "SlateCore", "ApplicationCore", "WarGraphicsBootstrap", "HTTP", "Sockets", "RHI" });
+        PrivateDependencyModuleNames.AddRange(new[] { "Json", "JsonUtilities", "Slate", "SlateCore", "ApplicationCore", "WarGraphicsBootstrap", "HTTP", "Sockets", "RHI", "RenderCore", "PhysicsCore", "Chaos", "ChaosCore", "PlatformCrypto", "PlatformCryptoContext" });
         if (Target.Platform == UnrealTargetPlatform.Win64 || Target.Platform == UnrealTargetPlatform.Linux
             || Target.Platform == UnrealTargetPlatform.Mac)
         {

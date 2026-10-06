@@ -10,12 +10,15 @@ export interface ScenarioDefinition {
   gatherMs: number;
   acceptMs: number;
   reconnectMs: number;
+  rulesVersion?: 1 | 2;
+  battlefield?: 'LowerCity' | 'FullSiege';
 }
 export const scenarioCatalog: readonly ScenarioDefinition[] = [{
-  id: 'lower_city', name: 'Breach the Lower City', map: '/Game/Capitals/Siege/AegisCapital_Siege',
-  contentRevision: '86500edebe9a9166ecaaf9b65524afc0aa250d8b9359f547e111b817f65469f2',
-  description: 'Secure supplies, escort the engineers and breach the lower city gate.',
-  capacity: 6, gatherMs: 30_000, acceptMs: 30_000, reconnectMs: 120_000,
+  id: 'lower_city', name: 'Siege of Bastion of Aegis', map: '/Game/Capitals/Siege/AegisCapital_Siege',
+  contentRevision: '', // The host pins this to the installed shared-city definition at startup.
+  description: 'Breach the city, capture both side objectives and the courtyard, then defeat the commander.',
+  capacity: 18, gatherMs: 30_000, acceptMs: 30_000, reconnectMs: 120_000,
+  rulesVersion: 2, battlefield: 'FullSiege',
 }];
 export type ScenarioPhase = 'idle' | 'queued' | 'offered' | 'allocating' | 'travel' | 'playing' | 'disconnected' | 'return';
 export interface ScenarioCharacter {
@@ -54,6 +57,8 @@ export interface ScenarioMatch {
   endpoint?: string;
   serverKey: string;
   started?: number;
+  /** Immutable allocation contract; old journals without it retain their historical 6v6 rules. */
+  definition?: ScenarioDefinition;
 }
 export interface ScenarioTicket { player: string; match: string; expires: number; kind: 'join' | 'return' }
 export interface ScenarioJournal {

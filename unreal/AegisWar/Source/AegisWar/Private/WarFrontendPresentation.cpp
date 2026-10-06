@@ -1,4 +1,8 @@
 #include "WarFrontendPresentation.h"
+#include "WarCityDefinition.h"
+#include "WarZoneLightingSubsystem.h"
+#include "Engine/LevelStreamingDynamic.h"
+#include "Engine/Level.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarContentSubsystem.h"
 #include "WarRuntimeSettings.h"
@@ -43,15 +47,18 @@ struct FWarFrontendScene
     USceneCaptureComponent2D* Capture = nullptr;
     USkeletalMeshComponent* Body = nullptr;
     FVector CharacterCenter = FVector::ZeroVector;
+    FVector CityOrigin = FVector::ZeroVector;
     float CharacterDistance = 400;
-    int32 BuildIndex = 0;
+    TArray<TWeakObjectPtr<ULevelStreamingDynamic>> Levels;
+    double LoadStarted = 0;
     int32 PoseFrames = 0;
     bool bReady = false;
     bool bFailed = false;
 
     FWarFrontendScene(UTextureRenderTarget2D* RenderTarget, bool bCharacter)
         : Scene(FPreviewScene::ConstructionValues().SetEditor(false).SetCreatePhysicsScene(false)
-            .SetTransactional(false).SetForceMipsResident(false).AllowAudioPlayback(false))
+            .SetTransactional(false).SetForceMipsResident(false).AllowAudioPlayback(false)
+            .SetCreateDefaultLighting(bCharacter).AllowLumenPrimitiveTrackingInPreviewWorld(true))
     {
         Capture = NewObject<USceneCaptureComponent2D>();
         Capture->TextureTarget = RenderTarget;
@@ -59,6 +66,8 @@ struct FWarFrontendScene
         Capture->bCaptureEveryFrame = false;
         Capture->bCaptureOnMovement = false;
         Capture->bAlwaysPersistRenderingState = true;
+        // City levels own their exposure and lighting; studio exposure only applies to characters.
+        Capture->PostProcessBlendWeight = bCharacter ? 1.f : 0.f;
         Capture->PostProcessSettings.bOverride_AutoExposureMethod = true;
         Capture->PostProcessSettings.AutoExposureMethod = AEM_Manual;
         Capture->PostProcessSettings.bOverride_AutoExposureApplyPhysicalCameraExposure = true;
@@ -67,53 +76,47 @@ struct FWarFrontendScene
         Capture->PostProcessSettings.MotionBlurAmount = 0;
         Capture->ShowFlags.SetMotionBlur(false);
         Scene.AddComponent(Capture, FTransform::Identity);
-        if (!bCharacter)
-        {
-            Scene.DirectionalLight->SetAtmosphereSunLight(true);
-            Scene.AddComponent(NewObject<USkyAtmosphereComponent>(), FTransform::Identity);
-        }
-    }
-
-    void Configure(const FWarFrontendCity& City)
-    {
-        Scene.SetLightDirection(City.SunDirection);
-        Scene.SetLightColor(City.SunColor.ToFColor(false));
-        Scene.SetLightBrightness(City.SunIntensity);
-        Scene.SetSkyBrightness(City.SkyIntensity);
-        auto* Fog = NewObject<UExponentialHeightFogComponent>();
-        Fog->SetFogDensity(.008f);
-        Fog->SetFogInscatteringColor(City.FogColor);
-        Scene.AddComponent(Fog, FTransform(FVector(0, 0, -800)));
     }
 
     bool Build(const FWarFrontendCity& City, FString& Error)
     {
-        // Amortize registration across frames; instances share geometry and material state.
-        const int32 End = FMath::Min(BuildIndex + 24, City.Placements.Num());
-        for (; BuildIndex < End; ++BuildIndex)
+        const auto Fail = [&](const FString& Why) { bFailed = true; Error = Why; return false; };
+        if (!City.CityDefinition || !City.CityDefinition->Validate(Error))
+            return Fail(TEXT("Shared city unavailable. Restore content and retry. ") + Error);
+        if (Levels.IsEmpty())
         {
-            const auto& Row = City.Placements[BuildIndex];
-            if (!Row.Mesh.Get()) { bFailed = true; Error = TEXT("City mesh unavailable. Restore frontend content and retry."); return false; }
-            auto* Mesh = NewObject<UInstancedStaticMeshComponent>();
-            Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-            Mesh->SetCanEverAffectNavigation(false);
-            Mesh->SetStaticMesh(Row.Mesh.Get());
-            for (int32 Index = 0; Index < Row.Materials.Num(); ++Index)
+            LoadStarted = FPlatformTime::Seconds();
+            CityOrigin = City.CityDefinition->Origin;
+            for (const auto& Package : City.CityDefinition->SceneryLevels)
             {
-                if (!Row.Materials[Index].Get()) { bFailed = true; Error = TEXT("City material unavailable. Restore frontend content and retry."); return false; }
-                Mesh->SetMaterial(Index, Row.Materials[Index].Get());
+                bool bLoaded = false;
+                auto* Level = ULevelStreamingDynamic::LoadLevelInstanceBySoftObjectPtr(Scene.GetWorld(), Package,
+                    FVector::ZeroVector, FRotator::ZeroRotator, bLoaded, TEXT(""), {}, true);
+                if (!Level || !bLoaded) return Fail(TEXT("Shared city level unavailable. Restore content and retry."));
+                Levels.Add(Level);
             }
-            Scene.AddComponent(Mesh, FTransform::Identity);
-            Mesh->AddInstances(Row.Instances, false, false, false);
         }
-        bReady = BuildIndex == City.Placements.Num();
+        Scene.GetWorld()->UpdateLevelStreaming();
+        for (const auto& Weak : Levels)
+        {
+            const auto* Level = Weak.Get();
+            if (!Level || Level->GetLevelStreamingState() == ELevelStreamingState::FailedToLoad
+                || FPlatformTime::Seconds() - LoadStarted > 120)
+                return Fail(TEXT("Shared city could not load. Restore content and retry."));
+            if (!Level->IsLevelLoaded() || !Level->IsLevelVisible()) return false;
+            if (!UWarCityDefinition::ValidateLevel(Level->GetLoadedLevel(), Error)) return Fail(Error);
+        }
+        if (!UWarZoneLightingSubsystem::PreviewWorld(Scene.GetWorld(), City.CityDefinition->ZoneId, CityOrigin))
+            return Fail(TEXT("Shared city lighting profile is unavailable. Restore content and retry."));
+        bReady = true;
         return true;
     }
 
     void SetShot(const FWarFrontendShot& Shot, float Progress)
     {
         const FVector Eye = FMath::Lerp(Shot.Eye, Shot.EndEye, FMath::SmoothStep(0.f, 1.f, Progress));
-        Capture->SetWorldLocationAndRotation(Eye, (Shot.Target - Eye).Rotation());
+        // Preserve authored world coordinates, including world-position material/sky effects.
+        Capture->SetWorldLocationAndRotation(Eye + CityOrigin, (Shot.Target - Eye).Rotation());
         Capture->FOVAngle = Shot.FieldOfView;
     }
 
@@ -157,20 +160,15 @@ bool UWarFrontendPresentationDefinition::Validate(FString& Error) const
     { Error = TEXT("Frontend presentation needs both capitals, valid timing and its character material."); return false; }
     for (const auto& City : Cities)
     {
-        if (City.Placements.IsEmpty() || City.Shots.Num() != 2)
+        if (!City.CityDefinition || City.CityDefinition->ZoneId != City.ZoneId
+            || !City.CityDefinition->Validate(Error) || City.Shots.Num() != 2)
         { Error = TEXT("Each capital needs authored geometry and two camera views."); return false; }
         for (const auto& Shot : City.Shots)
             if (Shot.Eye.ContainsNaN() || Shot.EndEye.ContainsNaN() || Shot.Target.ContainsNaN()
                 || Shot.Eye.Equals(Shot.Target) || Shot.EndEye.Equals(Shot.Target)
                 || !FMath::IsFinite(Shot.FieldOfView) || Shot.FieldOfView < 20 || Shot.FieldOfView > 100)
             { Error = TEXT("A capital camera view is invalid."); return false; }
-        for (const auto& Row : City.Placements)
-        {
-            if (Row.Mesh.IsNull() || Row.Instances.IsEmpty() || Row.Mesh.ToString().StartsWith(TEXT("/Engine/BasicShapes/")))
-            { Error = TEXT("Frontend scenery requires authored native meshes."); return false; }
-            for (const auto& Transform : Row.Instances)
-                if (Transform.ContainsNaN()) { Error = TEXT("City placement contains an invalid transform."); return false; }
-        }
+
     }
     Error.Reset(); return true;
 }
@@ -210,12 +208,6 @@ void UWarFrontendPresentation::LoadCities()
 {
     TArray<FSoftObjectPath> Paths;
     AddPath(Paths, Definition->CharacterComposite.ToSoftObjectPath());
-    for (const auto& City : Definition->Cities)
-        for (const auto& Row : City.Placements)
-        {
-            AddPath(Paths, Row.Mesh.ToSoftObjectPath());
-            for (const auto& Material : Row.Materials) AddPath(Paths, Material.ToSoftObjectPath());
-        }
     CityError = TEXT("Loading capital views...");
     CityLoad = UAssetManager::GetStreamableManager().RequestAsyncLoad(Paths,
         FStreamableDelegate::CreateWeakLambda(this, [this]() {
@@ -225,7 +217,6 @@ void UWarFrontendPresentation::LoadCities()
             {
                 CityTargets[Index] = Target(this, 1600, 900, false);
                 Cities[Index] = MakeShared<FWarFrontendScene>(CityTargets[Index], false);
-                Cities[Index]->Configure(Definition->Cities[Index]);
             }
             if (auto* Material = Definition->CharacterComposite.Get())
             {

@@ -1,10 +1,13 @@
 #include "WarPlayerState.h"
+#include "WarCampaignMutation.h"
 #include "WarAttributeSet.h"
 #include "WarResourceNode.h"
 #include "Misc/DateTime.h"
 
 bool AWarPlayerState::GatherResource(const AWarResourceNode* Node, const int32 ExpectedRevision, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction() || !IsValid(Node))
     { Error = TEXT("Gathering is unavailable or inventory changed."); return false; }
     FWarResourceDefinition Definition;
@@ -12,7 +15,7 @@ bool AWarPlayerState::GatherResource(const AWarResourceNode* Node, const int32 E
     const int64 NowMs = (FDateTime::UtcNow() - FDateTime(1970, 1, 1)).GetTicks() / ETimespan::TicksPerMillisecond;
     FRandomStream Random(GetTypeHash(FGuid::NewGuid()));
     if (!WarGathering::Gather(Inventory, Definition, NowMs, Random, Error)) return false;
-    ForceNetUpdate(); return true;
+    ForceNetUpdate(); return Mutation.Commit(Error);
 }
 void AWarPlayerState::ServerGatherResource_Implementation(AWarResourceNode* Node, const int32 ExpectedRevision)
 {

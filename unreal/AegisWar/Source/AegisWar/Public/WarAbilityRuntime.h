@@ -30,6 +30,7 @@ struct FWarAbilityCooldown
     GENERATED_BODY()
     UPROPERTY() FName Id;
     UPROPERTY() double Until = 0;
+    int64 ExpiresAtUnixMs = 0;
 };
 
 /** Client sends only a catalog ID and target; server owns every effect and timing decision. */
@@ -77,6 +78,8 @@ public:
     void ResetCooldowns();
     TSharedPtr<class FJsonObject> CaptureScenarioState() const;
     void RestoreScenarioState(const TSharedPtr<class FJsonObject>& State);
+    TSharedPtr<class FJsonObject> CaptureCampaignState(int64 CapturedAt) const;
+    bool RestoreCampaignState(const TSharedPtr<class FJsonObject>& State,int64 CapturedAt,int64 CurrentUtc,FString& Error,bool Apply=true);
     void Interrupt();
 private:
     UWarAbilityCatalog* Catalog() const;
@@ -95,6 +98,7 @@ private:
     UPROPERTY(Replicated) FName Career;
     UPROPERTY(Replicated) float Resource = 0;
     UPROPERTY(Replicated) double GcdUntil = 0;
+    int64 GcdExpiresAtUnixMs = 0;
     UPROPERTY(Replicated) double BusyUntil = 0;
     UPROPERTY(Replicated) bool bMovementCancelable = false;
     UPROPERTY(Replicated) bool bTravelActive = false;

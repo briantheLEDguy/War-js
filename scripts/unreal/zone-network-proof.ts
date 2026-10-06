@@ -13,11 +13,11 @@ const candidate = candidateIndex >= 0 ? JSON.parse(readFileSync(path.resolve(pro
 const receipt = candidate?.build ?? JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/world-portals/build.json'), 'utf8'));
 if (!receipt.partitionManifest) throw new Error('Attach the partitioned world first.');
 const manifest = candidate?.manifest ?? JSON.parse(readFileSync(path.join(repoRoot, 'artifacts/unreal/world-portals', receipt.partitionManifest), 'utf8'));
-const packages = [...new Set<string>([receipt.map, receipt.layer, ...Object.keys(manifest.packageHashes)])];
+const packages = [...new Set<string>([receipt.map, receipt.layer, ...Object.keys(manifest.packageHashes), ...Object.keys(candidate?.packageHashes ?? {}), ...manifest.zones.flatMap((zone: { cityDefinition?: string }) => zone.cityDefinition ? [zone.cityDefinition] : [])])];
 function fingerprints() {
   return Object.fromEntries(packages.map(asset => {
     if (!asset.startsWith('/Game/') || asset.includes('..')) throw new Error('Invalid world package path.');
-    const file = path.join(repoRoot, 'unreal/AegisWar/Content', `${asset.slice(6)}.umap`);
+    const file = path.join(repoRoot, 'unreal/AegisWar/Content', `${asset.slice(6)}${existsSync(path.join(repoRoot, 'unreal/AegisWar/Content', asset.slice(6) + '.umap')) ? '.umap' : '.uasset'}`);
     return [asset, createHash('sha256').update(readFileSync(file)).digest('hex')];
   }));
 }

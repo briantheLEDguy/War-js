@@ -1,6 +1,8 @@
 #include "WarInterfaceWidget.h"
 #include "WarScenarioSession.h"
 #include "WarPlayerController.h"
+#include "WarPlayerState.h"
+#include "WarSiegeEncounter.h"
 #include "Engine/GameInstance.h"
 #include "Serialization/JsonSerializer.h"
 #include "Widgets/SBoxPanel.h"
@@ -22,6 +24,18 @@ void UWarInterfaceWidget::ScenarioPage()
     Body->AddSlot().AutoHeight().Padding(0,0,0,14)[SNew(STextBlock).AutoWrapText(true)
         .Font(FCoreStyle::GetDefaultFontStyle("Regular",16))
         .Text_Lambda([Session] { return FText::FromString(Session->GetStatus()); })];
+    if (auto* PC = Cast<AWarPlayerController>(GetOwningPlayer()))
+    {
+        const auto* PS = PC->GetPlayerState<AWarPlayerState>();
+        if (PS && !PS->IsScenarioTransferPending())
+        {
+            const auto* Siege = PS->GetSiegeEncounter();
+            if (Siege && Siege->bCampaign)
+                AddButton(TEXT("Leave live capital siege"), [PC] { PC->ServerCampaignSiegeEnrollment(false); });
+            else if (!PS->IsSiegeMember())
+                AddButton(TEXT("Enroll in live capital siege (normal stats)"), [PC] { PC->ServerCampaignSiegeEnrollment(true); });
+        }
+    }
     const auto View=Session->GetView();
     if (!View)
     {

@@ -1,5 +1,9 @@
 #include "WarScenarioMenuProof.h"
 #include "WarScenarioSession.h"
+#include "WarScenarioInstance.h"
+#include "WarScenarioTransport.h"
+#include "WarCitadelSiegeProof.h"
+#include "WarCityDefinition.h"
 #include "WarFrontendWidget.h"
 #include "WarRuntimeSettings.h"
 #include "WarCharacterVisualDefinition.h"
@@ -9,6 +13,7 @@
 #include "WarSiegeLobbyWidget.h"
 #include "WarInterfaceWidget.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarSiegeHud.h"
 #include "WarPlayerController.h"
 #include "WarPlayerState.h"
@@ -65,9 +70,30 @@ void UWarScenarioMenuProof::Capture(const FString& Name)
 }
 void UWarScenarioMenuProof::Finish(bool Passed,const FString& Detail)
 {
+    FString CandidateError;
+    if (CandidateProof)
+    {
+        FString ActualHash;
+        Passed&=CandidateNormalized && CandidateReturned && CandidateWitness.IsValid()
+            && WarCitadelProofHash::File(CandidatePath,ActualHash,CandidateError) && ActualHash==CandidateHash
+            && WarScenarioCandidateProof::Bindings(CandidateProof,CandidateError);
+    }
     Finished=true;
     auto Report=MakeShared<FJsonObject>(); Report->SetBoolField(TEXT("passed"),Passed);
     Report->SetStringField(TEXT("detail"),Detail); Report->SetBoolField(TEXT("releaseApproved"),false);
+    Report->SetBoolField(TEXT("queueReturnVerified"),Passed && Step==15);
+    Report->SetBoolField(TEXT("reconnectVerified"),Passed && Step==15 && FParse::Param(FCommandLine::Get(),TEXT("WarScenarioProofReconnect")));
+    Report->SetBoolField(TEXT("fullSiegeStagesVerified"),false);
+    Report->SetBoolField(TEXT("humanPlaytest"),false);
+    if (CandidateProof)
+    {
+        if (!CandidateWitness) CandidateWitness=MakeShared<FJsonObject>();
+        CandidateWitness->SetBoolField(TEXT("normalizedDuringMatch"),CandidateNormalized);
+        CandidateWitness->SetBoolField(TEXT("normalizedAfterReturn"),!CandidateReturned);
+        CandidateWitness->SetBoolField(TEXT("coordinatorRecoveryVerified"),Passed && Step==15 && FParse::Param(FCommandLine::Get(),TEXT("WarScenarioProofRecovery")));
+        Report->SetObjectField(TEXT("candidateProof"),CandidateWitness);
+        if (!CandidateError.IsEmpty()) Report->SetStringField(TEXT("detail"),CandidateError);
+    }
     FString Json; FJsonSerializer::Serialize(Report,TJsonWriterFactory<>::Create(&Json));
     IFileManager::Get().MakeDirectory(*Folder(),true);
     FFileHelper::SaveStringToFile(Json,*(Folder()/TEXT("report.json")));
@@ -76,7 +102,11 @@ void UWarScenarioMenuProof::Finish(bool Passed,const FString& Detail)
 void UWarScenarioMenuProof::Tick(float Delta)
 {
     const double Now=FPlatformTime::Seconds();
-    if (!Started) { Started=Now;Next=Now+5;FString Realm;FParse::Value(FCommandLine::Get(),TEXT("WarScenarioProofRealm="),Realm);Side=Realm==TEXT("riftbound") ? 1 : 0;FParse::Value(FCommandLine::Get(),TEXT("WarScenarioProofParty="),PartyRole); }
+    if (!Started)
+    {
+        Started=Now;Next=Now+5;FString Realm;FParse::Value(FCommandLine::Get(),TEXT("WarScenarioProofRealm="),Realm);Side=Realm==TEXT("riftbound") ? 1 : 0;FParse::Value(FCommandLine::Get(),TEXT("WarScenarioProofParty="),PartyRole);
+        FString CandidateError;if (!LoadCandidate(CandidateError)) { Finish(false,CandidateError);return; }
+    }
     if (Now-Started>600) { Finish(false,FString::Printf(TEXT("In-game queue proof timed out at step %d: %s"),Step,*GetGameInstance()->GetSubsystem<UWarScenarioSession>()->GetStatus()));return; }
     auto* World=GetWorld();if (!World) return;
     auto* PC=Cast<AWarPlayerController>(World->GetFirstPlayerController());
@@ -166,7 +196,17 @@ void UWarScenarioMenuProof::Tick(float Delta)
         if (PartyRole==TEXT("member")) { if (Session->GetPhase()!=TEXT("queued")) return; }
         else {
             if (!PartyRole.IsEmpty()) for (const auto& Member:Session->GetView()->GetObjectField(TEXT("party"))->GetArrayField(TEXT("members"))) if (!Member->AsObject()->GetBoolField(TEXT("ready"))) return;
-            if (!Click(Panel,TEXT("Queue for Breach the Lower City"))) return;
+            const auto View=Session->GetView();
+            const TArray<TSharedPtr<FJsonValue>>* Catalog=nullptr;
+            if (!View || !View->TryGetArrayField(TEXT("catalog"),Catalog)) return;
+            FString Label;
+            for (const auto& Value:*Catalog)
+            {
+                const auto Definition=Value->AsObject();
+                if (Definition && Definition->GetStringField(TEXT("id"))==TEXT("lower_city"))
+                    Label=TEXT("Queue for ")+Definition->GetStringField(TEXT("name"));
+            }
+            if (Label.IsEmpty() || !Click(Panel,Label)) return;
         }
         ++Step;Next=Now+2;
     }
@@ -179,7 +219,11 @@ void UWarScenarioMenuProof::Tick(float Delta)
     else if (Step==7)
     {
         if (!GS || GS->Siege.Phase!=EWarSiegePhase::Active || !Pawn || !Pawn->IsVisualReady() || !PS) return;
-        if (!GS->bQueuedScenario || GS->Siege.Capacity!=6 || Inventory()!=CampaignInventory) { Finish(false,TEXT("Character transfer or match configuration changed"));return; }
+        if (!GS->bQueuedScenario || GS->Siege.Capacity!=18 || GS->Siege.RulesVersion!=2
+            || GS->Siege.Scenario!=EWarSiegeScenario::FullSiege || !PS->IsSiegeNormalized()
+            || Inventory()!=CampaignInventory)
+        { Finish(false,TEXT("Character transfer or full 18v18 scenario configuration changed"));return; }
+        FString CandidateError;if (!ObserveCandidate(CandidateError)) { Finish(false,CandidateError);return; }
         int32 Engines=0,Engineers=0;
         for (TActorIterator<AWarSiegeEquipment> It(World);It;++It) { ++Engines;for (const auto& Crew:It->Engineers) Engineers+=IsValid(Crew) && Crew->IsVisualReady(); }
         if (Engines!=2 || Engineers!=4) return;
@@ -230,8 +274,9 @@ void UWarScenarioMenuProof::Tick(float Delta)
         if (Inventory()!=CampaignInventory || PS->GetRealm()!=(Side==0 ? EWarRealm::Aegis : EWarRealm::Riftbound)
             || PS->IsSiegeNormalized() || FVector::Dist(Pawn->GetActorLocation(),CampaignPosition)>150) { Finish(false,TEXT("Campaign state or return position was not restored"));return; }
         Capture(TEXT("returned"));++Step;Next=Now+2;
+        CandidateReturned=CandidateProof && !PS->IsSiegeNormalized();
     }
-    else if (Step==15) Finish(true,TEXT("Current character queued from the capital, accepted a separate 6v6 instance, saw the parked convoy and four engineers, moved with their squad, issued orders, and returned with campaign inventory and realm preserved."));
+    else if (Step==15) Finish(true,TEXT("Current character queued from the capital into the full 18v18 siege, saw the convoy and engineers, moved with their squad, issued orders, and returned with campaign inventory and realm preserved. Complete stage outcomes require separate physical evidence."));
     else if (Step==16)
     {
         if (!PC || Session->GetPhase()!=TEXT("disconnected")) return;
@@ -243,6 +288,7 @@ void UWarScenarioMenuProof::Tick(float Delta)
     {
         if (Session->GetPhase()!=TEXT("playing") || !Pawn || !PS || !GS || !Pawn->IsVisualReady() || PC->SiegeSquadCount<1) return;
         if (Inventory()!=CampaignInventory) { Finish(false,TEXT("Reconnect changed the current character"));return; }
+        FString CandidateError;if (!ObserveCandidate(CandidateError)) { Finish(false,CandidateError);return; }
         Capture(TEXT("reconnected"));PC->ShowInterface(TEXT("Scenario"));Step=13;Next=Now+3;
     }
     else if (Step==18)
@@ -251,4 +297,66 @@ void UWarScenarioMenuProof::Tick(float Delta)
         if (PC->SiegeSquadOrder!=3) { Finish(false,TEXT("Optional objective HUD order was not acknowledged"));return; }
         Capture(TEXT("optional-order"));OptionalChecked=true;PC->ServerSiegeSquadOrder(GS->RoundId,1);Step=12;Next=Now+2;
     }
+}
+
+bool UWarScenarioMenuProof::LoadCandidate(FString& Error)
+{
+    if (!FParse::Value(FCommandLine::Get(),TEXT("WarScenarioCandidateProofConfig="),CandidatePath)) return true;
+    CandidateProof=WarScenarioTransport::ReadConfig(CandidatePath);
+    if (UE_BUILD_SHIPPING || IsRunningDedicatedServer() || !FParse::Param(FCommandLine::Get(),TEXT("WarDevelopmentNetworking"))
+        || !WarScenarioCandidateProof::Identity(CandidateProof,Error))
+    { if (Error.IsEmpty()) Error=TEXT("Private candidate menu entry requires its explicit development fixture.");return false; }
+    const FString Expected=FPaths::ConvertRelativePathToFull(FPaths::ProjectDir()/TEXT("../../artifacts/unreal/scenario-menu")
+        /CandidateProof->GetStringField(TEXT("fixtureId"))/TEXT("host/candidate-proof.json"));
+    if (!FPaths::IsSamePath(FPaths::ConvertRelativePathToFull(CandidatePath),Expected)
+        || !WarCitadelProofHash::File(CandidatePath,CandidateHash,Error) || !WarScenarioCandidateProof::Bindings(CandidateProof,Error))
+    { if (Error.IsEmpty()) Error=TEXT("The queued candidate descriptor is missing, changed or outside its private authority.");return false; }
+    FString HostPath,Url;bool Lan=true;
+    if (!FParse::Value(FCommandLine::Get(),TEXT("WarScenarioHostConfig="),HostPath)
+        || !FPaths::IsSamePath(FPaths::ConvertRelativePathToFull(HostPath),FPaths::GetPath(Expected)/TEXT("host.json")))
+    { Error=TEXT("Candidate menu entry must connect to its own isolated loopback authority.");return false; }
+    const auto Host=WarScenarioTransport::ReadConfig(HostPath);
+    if (!Host || !Host->HasTypedField<EJson::Boolean>(TEXT("allowLan")) || !Host->TryGetBoolField(TEXT("allowLan"),Lan) || Lan
+        || !Host->HasTypedField<EJson::String>(TEXT("url")) || !Host->TryGetStringField(TEXT("url"),Url) || !WarScenarioCandidateProof::LoopbackUrl(Url))
+    { Error=TEXT("Candidate menu entry cannot use an unrelated, LAN or credential-bearing URL.");return false; }
+    CandidateBlueprint=WarScenarioTransport::ReadConfig(CandidateProof->GetStringField(TEXT("blueprintPath")));
+    return true;
+}
+
+bool UWarScenarioMenuProof::ObserveCandidate(FString& Error)
+{
+    if (!CandidateProof) return true;
+    auto* World=GetWorld();auto* PC=World ? Cast<AWarPlayerController>(World->GetFirstPlayerController()) : nullptr;
+    if (!World) { Error=TEXT("The queued candidate client has no active world.");return false; }
+    const auto* PS=PC ? PC->GetPlayerState<AWarPlayerState>() : nullptr;
+    const auto* GS=World ? World->GetGameState<AWarSiegeGameState>() : nullptr;
+    const auto* Session=GetGameInstance()->GetSubsystem<UWarScenarioSession>();const auto View=Session ? Session->GetView() : nullptr;
+    const TSharedPtr<FJsonObject>* Match=nullptr;FString MatchId;FGuid Id;FString ActualHash;
+    AWarSiegeBattlefield* Field=nullptr;
+    for (TActorIterator<AWarSiegeBattlefield> It(World);It;++It)
+    { if (Field) { Error=TEXT("The queued client contains duplicate candidate battlefields.");return false; }Field=*It; }
+    if (!PS || !PS->IsSiegeNormalized() || !GS || !GS->bQueuedScenario || GS->Siege.Capacity!=18 || GS->Siege.RulesVersion!=2
+        || GS->Siege.Scenario!=EWarSiegeScenario::FullSiege || World->GetNetMode()!=NM_Client || !View
+        || !View->TryGetObjectField(TEXT("match"),Match) || !(*Match)->TryGetStringField(TEXT("id"),MatchId)
+        || !FGuid::ParseExact(MatchId,EGuidFormats::DigitsWithHyphens,Id) || !Id.IsValid()
+        || (CandidateWitness && CandidateWitness->GetStringField(TEXT("match"))!=MatchId)
+        || !WarCitadelProofHash::File(CandidatePath,ActualHash,Error) || ActualHash!=CandidateHash
+        || !WarScenarioCandidateProof::Bindings(CandidateProof,Error) || !WarScenarioCandidateProof::Battlefield(CandidateProof,Field,Error,CandidateBlueprint))
+    { if (Error.IsEmpty()) Error=TEXT("Actual queued candidate map, match, normalization or shared-city binding is incomplete.");return false; }
+    CandidateNormalized=true;
+    if (!CandidateWitness)
+    {
+        CandidateWitness=MakeShared<FJsonObject>();
+        for (const TCHAR* Key:{TEXT("fixtureId"),TEXT("map"),TEXT("mapSha256"),TEXT("signature"),TEXT("geometrySignature"),TEXT("cityRevision"),TEXT("cityDefinition"),TEXT("scenario"),TEXT("statsMode"),TEXT("battlefield")})
+            CandidateWitness->SetStringField(Key,CandidateProof->GetStringField(Key));
+        CandidateWitness->SetStringField(TEXT("configSha256"),CandidateHash);
+        CandidateWitness->SetStringField(TEXT("match"),MatchId);CandidateWitness->SetStringField(TEXT("realm"),Side==0 ? TEXT("aegis") : TEXT("riftbound"));
+        CandidateWitness->SetNumberField(TEXT("capacity"),GS->Siege.Capacity);CandidateWitness->SetNumberField(TEXT("rulesVersion"),GS->Siege.RulesVersion);
+        CandidateWitness->SetBoolField(TEXT("proofOnly"),true);CandidateWitness->SetBoolField(TEXT("transientReviewOverride"),true);
+        for (const TCHAR* Key:{TEXT("productionAdmission"),TEXT("steamAdmission"),TEXT("territorialAcceptance")}) CandidateWitness->SetBoolField(Key,false);
+    }
+    CandidateWitness->SetStringField(TEXT("actualMap"),UWorld::RemovePIEPrefix(World->GetOutermost()->GetName()));
+    CandidateWitness->SetStringField(TEXT("actualCityDefinition"),Field->CityDefinition->GetOutermost()->GetName());
+    CandidateWitness->SetStringField(TEXT("actualCityRevision"),Field->CityDefinition->Revision);
+    return true;
 }

@@ -1,8 +1,11 @@
 #include "WarZonePortal.h"
 #include "WarCharacter.h"
 #include "WarGameMode.h"
+#include "WarSiegeEncounter.h"
+#include "WarCampaignSiegeSubsystem.h"
 #include "WarZoneAnchor.h"
 #include "WarZoneStreamingSubsystem.h"
+#include "WarPortalLanding.h"
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
 #include "Components/SphereComponent.h"
@@ -83,17 +86,31 @@ void AWarZonePortal::Tick(float DeltaSeconds)
         if (auto* Player = It->Get()) AttemptEntry(Cast<AWarCharacter>(Player->GetPawn()));
 }
 
-bool AWarZonePortal::TryTraverse(AWarCharacter* Character, FString& Error)
+bool AWarZonePortal::BlocksSiegeDeparture(const AWarCharacter* Character, FName Destination)
 {
+    const auto* State = Character ? Character->GetPlayerState<AWarPlayerState>() : nullptr;
+    const auto* Encounter = State ? State->GetSiegeEncounter() : nullptr;
+    if (!Encounter || Destination == TEXT("aegis_capital")) return false;
+    // A remote reserved seat must retain its normal approach routes until physical admission.
+    return !Encounter->bCampaign || Encounter->IsCapitalOccupant(Character);
+}
+
+bool AWarZonePortal::TryTraverse(AWarCharacter* Character, FString& Error, bool bEvacuating)
+{
+    const auto* EvacuationBridge = GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>();
+    const bool HeldEvacuation = bEvacuating && EvacuationBridge && EvacuationBridge->HasEvacuationCheckpoint(Cast<AWarPlayerController>(Character ? Character->GetController() : nullptr));
     if (const auto* State = Character ? Character->GetPlayerState<AWarPlayerState>() : nullptr;
-        State && State->IsScenarioTransferPending())
+        State && State->IsScenarioTransferPending() && !HeldEvacuation)
     { Error = TEXT("Scenario departure is in progress."); return false; }
     const auto* Mode = GetWorld()->GetAuthGameMode<AWarGameMode>();
+    const auto* Siege = AWarSiegeEncounter::For(Character);
+    const auto* PS = Character ? Character->GetPlayerState<AWarPlayerState>() : nullptr;
+    const bool Evacuation = bEvacuating && HasAuthority() && Siege && PS && PS->GetCurrentZone() == TEXT("aegis_capital") && Siege->BlocksCapitalEntry(PS);
     const double Now = GetWorld()->GetTimeSeconds();
     if (!Character || !Character->GetController() || !CanEnter(HasAuthority(), Mode && Mode->IsDevelopmentSession(),
         !Character->IsDead(), Character->IsVisualReady(), bDestinationBuilt,
-        FVector::Dist(Character->GetActorLocation(), GetActorLocation()), Trigger->GetScaledSphereRadius(), Now,
-        AllowedAfter.FindRef(Character)))
+        Evacuation ? 0. : FVector::Dist(Character->GetActorLocation(), GetActorLocation()), Trigger->GetScaledSphereRadius(), Now,
+        Evacuation ? 0. : AllowedAfter.FindRef(Character)))
     {
         Error = TEXT("Portal unavailable, out of range, or still cooling down.");
         return false;
@@ -111,23 +128,21 @@ bool AWarZonePortal::TryTraverse(AWarCharacter* Character, FString& Error)
     const auto* DestinationZone = AWarZoneAnchor::FindAt(GetWorld(), ArrivalLocation);
     auto* Streaming = GetWorld()->GetSubsystem<UWarZoneStreamingSubsystem>();
     if (!DestinationZone) { Error = TEXT("Destination has no unambiguous zone anchor."); return false; }
+    if (!Siege && DestinationZone->ZoneId == TEXT("aegis_capital"))
+        for (TActorIterator<AWarSiegeEncounter> It(GetWorld()); It; ++It) if (It->bCampaign) { Siege = *It; break; }
+    if (Evacuation && (!Siege->CanEvacuate(PS->GetRealm(), DestinationZone->ZoneId)))
+    { Error = TEXT("Evacuation destination is no longer owned and secured by your realm."); return false; }
+    if (Siege && DestinationZone->ZoneId == TEXT("aegis_capital") && Siege->BlocksCapitalEntry(PS))
+    { Error = TEXT("Enroll in the active siege before entering the capital."); return false; }
+    if (!Evacuation && BlocksSiegeDeparture(Character, DestinationZone->ZoneId))
+    { Error = TEXT("Leave the siege before traveling to another zone."); return false; }
     if (Streaming && !Streaming->IsZoneReady(DestinationZone->ZoneId, Cast<APlayerController>(Character->GetController())))
-        return Streaming->QueuePortal(this, Character, DestinationZone->ZoneId, Error);
+        return Streaming->QueuePortal(this, Character, DestinationZone->ZoneId, Error, Evacuation);
 
-    // Only land on real blocking ground; missing terrain must never strand a player in the void.
-    FCollisionQueryParams Query(SCENE_QUERY_STAT(PortalLanding), false, Character);
-    Query.AddIgnoredActor(this); Query.AddIgnoredActor(Destination);
-    FHitResult Ground;
-    if (!GetWorld()->LineTraceSingleByChannel(Ground, ArrivalLocation + FVector(0, 0, 5000),
-        ArrivalLocation - FVector(0, 0, 5000), ECC_WorldStatic, Query) || Ground.ImpactNormal.Z < 0.7)
-    { Error = TEXT("Destination has no safe landing surface."); return false; }
-    const FVector Landing = Ground.ImpactPoint + FVector(0, 0, CapsuleGroundOffset(
-        Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight(),
-        Character->GetCapsuleComponent()->GetScaledCapsuleRadius(), Ground.ImpactNormal.Z));
-    if (GetWorld()->OverlapBlockingTestByProfile(Landing, FQuat::Identity, TEXT("Pawn"),
-        FCollisionShape::MakeCapsule(Character->GetCapsuleComponent()->GetScaledCapsuleRadius(),
-            Character->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()), Query))
-    { Error = TEXT("Destination landing is obstructed."); return false; }
+    FVector Landing;
+    const float SearchRadius=Evacuation ? FMath::Clamp(Destination->Trigger->GetScaledSphereRadius()
+        -Character->GetCapsuleComponent()->GetScaledCapsuleRadius()-5,0.f,600.f) : 0.f;
+    if (!WarPortalLanding::Find(Character,ArrivalLocation,DestinationZone,SearchRadius,this,Destination,Landing,Error)) return false;
     const double Previous = Destination->AllowedAfter.FindRef(Character);
     Destination->AllowedAfter.Add(Character, Now + 3.0);
     if (!Character->TeleportTo(Landing, Character->GetActorRotation()))
@@ -135,6 +150,7 @@ bool AWarZonePortal::TryTraverse(AWarCharacter* Character, FString& Error)
         Destination->AllowedAfter.Add(Character, Previous);
         Error = TEXT("Destination landing is obstructed."); return false;
     }
+    Error = Evacuation ? TEXT("Evacuated to a safe neighboring zone.") : FString();
     AllowedAfter.Add(Character, Now + 3.0);
     if (Streaming) Streaming->Cancel(Character);
     if (const auto* Anchor = AWarZoneAnchor::FindAt(GetWorld(), Character->GetActorLocation()))
@@ -142,7 +158,8 @@ bool AWarZonePortal::TryTraverse(AWarCharacter* Character, FString& Error)
     Character->GetCharacterMovement()->StopMovementImmediately();
     if (Character->IsAutoRunning()) Character->ToggleAutoRun();
     Character->ForceNetUpdate();
-    if (auto* Player = Cast<AWarPlayerController>(Character->GetController())) Player->ClientZoneTravelStatus(FString());
+    if (auto* Player = Cast<AWarPlayerController>(Character->GetController()))
+    { Player->ClientZoneTravelStatus(FString()); if (Evacuation) if (auto* Bridge = GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>()) Bridge->Evacuated(Player); }
     return true;
 }
 

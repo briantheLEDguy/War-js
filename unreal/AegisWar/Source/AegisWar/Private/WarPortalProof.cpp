@@ -83,8 +83,8 @@ void UWarPortalProof::Tick(float DeltaTime)
         // Admission becomes false as unloading starts, before actors are removed.
         // Assert actor retirement only after the engine actually releases every layer.
         const auto* Capital = AWarZoneAnchor::FindById(GetWorld(), TEXT("aegis_capital"));
-        bool bUnloaded = Capital && !Capital->ContentLevels.IsEmpty();
-        if (Capital) for (FName Package : Capital->ContentLevels)
+        bool bUnloaded = Capital && !Capital->GetContentLevels().IsEmpty();
+        if (Capital) for (FName Package : Capital->GetContentLevels())
             if (const auto* Level = UGameplayStatics::GetStreamingLevel(GetWorld(), Package))
                 bUnloaded &= !Level->IsLevelLoaded() && !Level->IsLevelVisible();
             else bUnloaded = false;
@@ -102,7 +102,7 @@ void UWarPortalProof::Tick(float DeltaTime)
         for (TActorIterator<AWarZonePortal> It(GetWorld()); It; ++It)
             if (It->RouteId == TEXT("aegis_capital_to_aegis_gate_fortress")) { Portal = *It; break; }
         auto* Target = Portal ? AWarZoneAnchor::FindAt(GetWorld(), Portal->ArrivalLocation) : nullptr;
-        if (!Portal || !Target || Target->ContentLevels.IsEmpty()) StreamingChecks = 2; // Legacy all-loaded map.
+        if (!Portal || !Target || Target->GetContentLevels().IsEmpty()) StreamingChecks = 2; // Legacy all-loaded map.
         else if (StreamingChecks == 0)
         {
             OriginalPosition = Character->GetActorLocation();

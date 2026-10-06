@@ -1,6 +1,7 @@
 #include "WarScenarioSession.h"
 #include "WarScenarioTransport.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarPlayerController.h"
 #include "WarCharacter.h"
 #include "WarPlayerState.h"
@@ -62,6 +63,8 @@ void UWarScenarioSession::RegisterAuthority(AWarPlayerController* PC,const FStri
         if (!DepartureTicket.IsEmpty()) PC->ClientScenarioTravel(FString(),Error);
         else PC->ClientScenarioConnectionStatus(false,Error);
     };
+    if (auto* PS = PC->GetPlayerState<AWarPlayerState>(); PS && PS->IsSiegeMember())
+    { Fail(TEXT("Leave the live siege before queuing or departing.")); return; }
     if (UE_BUILD_SHIPPING || Cast<AWarSiegeGameMode>(PC->GetWorld()->GetAuthGameMode()))
     { Fail(TEXT("Scenario queue connection is only available from a development campaign character."));return; }
     if (DepartureTicket.IsEmpty() && PendingRegistrations.Contains(PC)) return;
@@ -75,6 +78,7 @@ void UWarScenarioSession::RegisterAuthority(AWarPlayerController* PC,const FStri
         if (!PC->ScenarioCharacterId.IsEmpty() && PC->ScenarioCharacterId!=ProvisionedId)
         { Fail(TEXT("This development host config belongs to another character."));return; }
         PC->ScenarioCharacterId=ProvisionedId;
+        PC->bCampaignIdentityProvisioned=!ProvisionedId.IsEmpty();
     }
     if (PC->ScenarioCharacterId.IsEmpty()) PC->ScenarioCharacterId=FGuid::NewGuid().ToString(EGuidFormats::Digits);
     const FString Host=Config->GetStringField(TEXT("url")),Key=Config->GetStringField(TEXT("key"));

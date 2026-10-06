@@ -32,7 +32,7 @@ def configure():
     if architecture['geometrySignature']!=digest(architecture['houses']): raise RuntimeError('Edited architecture manifest')
     n.plan=plan;n.architecture=dict(houses=architecture['houses']+placement['surfaces'])
     n.architecture['geometrySignature']=digest(n.architecture['houses'])
-    n.revision=digest(dict(plan=digest(plan),geometry=n.architecture['geometrySignature'],placement=digest(placement),nativeRevision=3))[:12]
+    n.revision=digest(dict(plan=digest(plan),geometry=n.architecture['geometrySignature'],placement=digest(placement),nativeRevision=4))[:12]
     n.DEST='/Game/WorldRebuild/DutchBastion_'+n.revision;n.RUN=OUT/n.revision;n.RUN.mkdir(exist_ok=True)
     for name,value in (('source-architecture.json',architecture),('source-placement.json',placement),('source-plan.json',plan),('source-overlap-audit.json',overlap)):
         target=n.RUN/name
@@ -125,6 +125,25 @@ def build_city():
     fill.tags=['WarDutchBastion','WarWorldObject_dutch_bastion_overcast_fill']
     added.append(dict(id='dutch_bastion_overcast_fill',actor=fill.get_name(),state=snapshot(fill)))
     if not n.levels.save_current_level(): raise RuntimeError('City geometry save failed')
+    # Split before any review hashes are recorded. A staged definition references
+    # the candidate's actual levels; activation publishes them to the stable City asset.
+    from shared_city_authoring import prepare_city
+    from shared_city_sources import routing
+    _, current_manifest, _ = routing(ROOT)
+    current_zone = next(z for z in current_manifest['zones'] if z['id'] == 'aegis_capital')
+    staged_zone = dict(id='aegis_capital', origin=current_zone['origin'], levels={**copies, 'architecture':geometry})
+    staged_backups = n.RUN / 'shared-city-build-backup'
+    created = []
+    def backup_city(file):
+        import shutil
+        target = staged_backups / file.relative_to(ROOT)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if not target.exists(): shutil.copy2(file, target)
+    def created_city(package):
+        created.append(package)
+        (n.RUN/'shared-city-created.json').write_text(json.dumps(created, indent=2)+'\n')
+    staged_city = prepare_city(staged_zone, n.DEST+'/CityCandidate', backup_city, created_city, n.RUN)
+    copies = {k:v for k,v in staged_zone['levels'].items() if k != 'architecture'}
     target=n.DEST+'/Bastion_Dutch_City'
     if not n.levels.new_level(target): raise RuntimeError('Cannot create city review root')
     world=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
@@ -151,7 +170,8 @@ def build_city():
         pending.extend(str(p) for p in registry.get_dependencies(package,unreal.AssetRegistryDependencyOptions()))
     data=dict(revision=n.revision,map=target,layers=copies,geometryLayer=geometry,changes=changes,added=added,
               packageHashes={p:n.sha(n.package_file(p)) for p in packages},sourceHashes=baseline['hashes'],
-              visualHashes=visual_hashes,
+              visualHashes={**visual_hashes, **staged_city['dependencyHashes'], staged_city['definition']:staged_city['packageHashes'][staged_city['definition']]},
+              sharedCity=staged_city,
               coverage=placement['coverage'],acceptance=dict(visual=False,traversal=False,release=False))
     receipt.write_text(json.dumps(data,indent=2)+'\n')
     (OUT/'city-current.json').write_text(json.dumps(dict(revision=n.revision,map=target),indent=2)+'\n')

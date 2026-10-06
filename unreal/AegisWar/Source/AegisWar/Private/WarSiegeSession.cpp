@@ -1,4 +1,5 @@
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarScenarioInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/GameInstance.h"
@@ -28,11 +29,12 @@ bool AWarSiegeGameMode::IsMenuScenario() const
 void AWarSiegeGameMode::BeginPlay()
 {
     Super::BeginPlay();
+    Encounter = GetWorld()->SpawnActor<AWarSiegeEncounter>();
     if (auto* GS = SiegeState(); GS && IsDevelopmentPlaytest())
     {
         GS->bDevelopmentLobby = true;
         GS->bQueuedScenario=GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->IsEnabled();
-        GS->Siege.Scenario = EWarSiegeScenario::LowerCity;
+        GS->Siege.Scenario = GS->bQueuedScenario ? GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->Scenario() : EWarSiegeScenario::LowerCity;
         UpdateLobby();
     }
 }
@@ -42,7 +44,7 @@ void AWarSiegeGameMode::PreLogin(const FString& Options, const FString& Address,
     Super::PreLogin(Options, Address, UniqueId, ErrorMessage);
     if (ErrorMessage.IsEmpty() && IsMenuScenario() && GetNumPlayers() >= 1)
         ErrorMessage = TEXT("This menu scenario already has its player.");
-    if (ErrorMessage.IsEmpty() && IsDevelopmentPlaytest() && GetNumPlayers() >= 12)
+    if (ErrorMessage.IsEmpty() && IsDevelopmentPlaytest() && GetNumPlayers() >= (GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->IsEnabled() ? 36 : 12))
         ErrorMessage = TEXT("This lower-city playtest already has twelve human participants.");
 }
 
@@ -94,7 +96,10 @@ void AWarSiegeGameMode::UpdateLobby()
     NextLobbyCheck = Now + 1;
     auto* GS = SiegeState(); FString Error;
     const bool WasReady = GS->bContentReady;
-    GS->bContentReady = FindBattlefield(Error) && Battlefield->Validate(Error, EWarSiegeScenario::LowerCity);
+    const bool Queued = GetGameInstance() && GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->IsEnabled();
+    const auto Scenario = Queued ? GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->Scenario() : EWarSiegeScenario::LowerCity;
+    const int32 Capacity = Queued ? GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->Capacity() : 6;
+    GS->bContentReady = FindBattlefield(Error) && Battlefield->Validate(Error, Scenario);
     if (GS->bContentReady && !WasReady) GS->bContentReady=ValidateEquipmentStaging(Error);
     if (GS->bContentReady && !WasReady) UE_LOG(LogTemp, Display, TEXT("WAR_SIEGE_CONTENT_READY"));
     if (!GS->bContentReady && GS->Status != Error) UE_LOG(LogTemp, Warning, TEXT("WAR_SIEGE_CONTENT_BLOCKED %s"), *Error);
@@ -130,40 +135,10 @@ void AWarSiegeGameMode::UpdateLobby()
     }
     const auto* Instance=GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarScenarioInstance>() : nullptr;
     const bool Enough=Instance && Instance->IsEnabled() ? Instance->CanStart(Humans) : Humans >= (IsMenuScenario() ? 1 : 2);
-    if (GS->bContentReady && Enough && AllReady && Counts[0] <= 6 && Counts[1] <= 6)
-        if (!StartRound(6, GS->RoundId + 1, EWarSiegeScenario::LowerCity, Error))
+    if (GS->bContentReady && Enough && AllReady && Counts[0] <= Capacity && Counts[1] <= Capacity)
+        if (!StartRound(Capacity, GS->RoundId + 1, Scenario, Error))
         { GS->Status = Error; GS->ReadyPlayers.Reset(); }
     GS->ForceNetUpdate();
-}
-
-void AWarSiegeGameMode::ClearRoundEffects()
-{
-    // The isolated map owns these effects; no campaign actor is admitted here.
-    for (TActorIterator<AWarWrathRelic> It(GetWorld()); It; ++It) It->Destroy();
-    for (TActorIterator<AWarWarpIdol> It(GetWorld()); It; ++It) It->Destroy();
-    for (TActorIterator<AWarCharacter> It(GetWorld()); It; ++It)
-    {
-        if (auto* Status = UWarCombatStatus::On(*It)) Status->Clear();
-        if (auto* PS = It->GetPlayerState<AWarPlayerState>())
-        {
-            PS->GetClassAbilities()->Interrupt(); PS->GetClassAbilities()->ResetCooldowns(); PS->GetClassAbilities()->RestoreResource();
-            PS->GetAbilitySystemComponent()->RemoveActiveEffects(FGameplayEffectQuery());
-        }
-    }
-    // Dead humans have no pawn, but their PlayerState retains cooldowns.
-    for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
-        if (auto* PS = It->Get()->GetPlayerState<AWarPlayerState>())
-        { PS->GetClassAbilities()->Interrupt(); PS->GetClassAbilities()->ResetCooldowns(); PS->GetClassAbilities()->RestoreResource(); }
-}
-
-void AWarSiegeGameMode::EndRound()
-{
-    if (GetGameInstance()) GetGameInstance()->GetSubsystem<UWarScenarioInstance>()->Finish();
-    ClearRoundEffects(); ClearUnits(true);
-    auto* GS = SiegeState(); GS->ReadyPlayers.Reset(); GS->HazardUntil = 0; GS->CommanderAction.Reset();
-    for (auto It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
-        if (auto* PS = It->Get()->GetPlayerState<AWarPlayerState>()) PS->SetSiegeNormalized(false);
-    NextLobbyCheck = 0;
 }
 
 void AWarSiegeGameMode::Logout(AController* Exiting)
@@ -174,6 +149,7 @@ void AWarSiegeGameMode::Logout(AController* Exiting)
         PS->GetClassAbilities()->Interrupt(); PS->SetSiegeNormalized(false);
         if (auto* GS = SiegeState()) GS->ReadyPlayers.Remove(PS->GetPlayerId());
     }
+    if (Encounter) Encounter->Leave(Exiting);
     Selections.Remove(Exiting);
     Super::Logout(Exiting);
     NextLobbyCheck = 0;

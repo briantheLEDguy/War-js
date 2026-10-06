@@ -15,6 +15,9 @@ public:
     UPROPERTY(EditAnywhere, Category="Zone") double HalfSize = 60000;
     /** Empty on legacy all-loaded maps; names resolve only against this world's authored streaming levels. */
     UPROPERTY(EditAnywhere, Category="Zone") TArray<FName> ContentLevels;
+    UPROPERTY(EditAnywhere, Category="Zone") TObjectPtr<class UWarCityDefinition> CityDefinition;
+    TArray<FName> GetContentLevels() const;
+    bool ValidateCity(FString& Error) const;
     static bool ContainsPoint(FVector Origin, double Extent, FVector Point);
     static AWarZoneAnchor* FindAt(UWorld* World, FVector Point);
     static AWarZoneAnchor* FindById(UWorld* World, FName Id);

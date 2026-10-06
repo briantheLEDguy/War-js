@@ -1,5 +1,6 @@
 import { randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
-import { scenarioCatalog, type ScenarioCharacter, type ScenarioJournal, type ScenarioMatch, type ScenarioQueueEntry } from '../../shared/scenarios/types';
+import { scenarioCatalog, type ScenarioDefinition, type ScenarioCharacter, type ScenarioJournal, type ScenarioMatch, type ScenarioQueueEntry } from '../../shared/scenarios/types';
+import { validateScenarioCharacter } from '../../shared/scenarios/character';
 
 export class ScenarioError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -11,14 +12,8 @@ export function sameSecret(a: string, b: string): boolean {
 }
 const secret = () => randomBytes(32).toString('hex');
 function validateCharacter(character: ScenarioCharacter) {
-  if (!character || typeof character.id !== 'string' || !/^[a-zA-Z0-9_-]{1,80}$/.test(character.id)
-    || ['__proto__', 'constructor', 'prototype'].includes(character.id) || !['aegis', 'riftbound'].includes(character.realm)
-    || typeof character.name !== 'string' || !character.name.trim() || character.name.length > 64
-    || typeof character.visual !== 'string' || !character.visual.startsWith('/Game/')
-    || typeof character.returnMap !== 'string' || !character.returnMap.startsWith('/Game/')
-    || !Array.isArray(character.returnPosition) || character.returnPosition.length !== 3 || !character.returnPosition.every(Number.isFinite)
-    || !character.document || typeof character.document !== 'object' || Array.isArray(character.document))
-    throw new ScenarioError(400, 'Invalid trusted character snapshot.');
+  try { validateScenarioCharacter(character); }
+  catch { throw new ScenarioError(400, 'Invalid trusted character snapshot.'); }
 }
 const empty = (): ScenarioJournal => ({ version: 1, players: {}, parties: {}, invites: {}, queue: [], matches: {}, tickets: {} });
 
@@ -29,7 +24,7 @@ export class ScenarioCoordinator {
   private receipts = new Map<string, Set<string>>();
   private durableReceipts = new Map<string, Set<string>>();
   constructor(private save: (state: ScenarioJournal) => void = () => {}, restored?: ScenarioJournal,
-    private now = () => Date.now()) {
+    private now = () => Date.now(), private catalog: readonly ScenarioDefinition[] = scenarioCatalog) {
     if (restored && restored.version !== 1) throw new Error('Unsupported scenario journal');
     this.state = restored ?? empty();
     this.durable = structuredClone(this.state);
@@ -59,7 +54,11 @@ export class ScenarioCoordinator {
       throw error;
     }
   }
-  definition(id: string) { return scenarioCatalog.find(s => s.id === id) ?? reject('Unknown scenario.'); }
+  definition(id: string) { return this.catalog.find(s => s.id === id) ?? reject('Unknown scenario.'); }
+  matchDefinition(match: ScenarioMatch): ScenarioDefinition {
+    return match.definition ?? { ...this.definition(match.scenario), name: 'Breach the Lower City', capacity: 6,
+      rulesVersion: 1, battlefield: 'LowerCity' };
+  }
   player(id: string) { return Object.hasOwn(this.state.players, id) ? this.state.players[id] : reject('Character is unavailable.'); }
   authenticate(token: string): string {
     const entry = Object.values(this.state.players).find(p => sameSecret(p.token, token));
@@ -153,7 +152,7 @@ export class ScenarioCoordinator {
     } else if (action === 'reconnect') {
       const match = this.state.matches[player.match ?? ''];
       if (player.phase !== 'disconnected' || !match || match.phase !== 'running'
-        || this.now() - player.disconnectedAt! >= this.definition(match.scenario).reconnectMs) reject('Reconnect reservation expired.');
+        || this.now() - player.disconnectedAt! >= this.matchDefinition(match).reconnectMs) reject('Reconnect reservation expired.');
       player.phase = 'travel'; this.issueTicket(id, match.id, 'join');
     } else reject('Unknown scenario command.');
     receipts.add(requestId); if (receipts.size > 256) receipts.delete(receipts.values().next().value!);
@@ -190,12 +189,12 @@ export class ScenarioCoordinator {
       if (first) { this.rejectOffer(match.id, first); for (const party of missing) this.withdraw(party); }
     }
     for (const player of Object.values(this.state.players)) {
-      if (player.phase === 'disconnected' && now - player.disconnectedAt! >= this.definition(this.state.matches[player.match!].scenario).reconnectMs)
+      if (player.phase === 'disconnected' && now - player.disconnectedAt! >= this.matchDefinition(this.state.matches[player.match!]).reconnectMs)
         this.returnPlayer(player.character.id, 'Reconnect reservation expired. Your campaign character is safe.');
       if (player.phase === 'travel' && !Object.values(this.state.tickets).some(t => t.player === player.character.id && t.kind === 'join'))
         this.returnPlayer(player.character.id, 'Scenario connection timed out. Return to your campaign character.');
     }
-    for (const definition of scenarioCatalog) {
+    for (const definition of this.catalog) {
       const entries = this.state.queue.filter(e => e.scenario === definition.id).sort((a, b) => a.since - b.since);
       if (!entries.length) continue;
       const counts = { aegis: 0, riftbound: 0 }; const selected: ScenarioQueueEntry[] = [];
@@ -205,7 +204,7 @@ export class ScenarioCoordinator {
       }
       if (now - entries[0].since < definition.gatherMs && (counts.aegis < definition.capacity || counts.riftbound < definition.capacity)) continue;
       const id = randomUUID(), members = selected.flatMap(e => this.state.parties[e.party].members);
-      this.state.matches[id] = { id, scenario: definition.id, parties: selected, members, accepted: [], deadline: now + definition.acceptMs, phase: 'offered', serverKey: secret() };
+      this.state.matches[id] = { id, scenario: definition.id, definition: structuredClone(definition), parties: selected, members, accepted: [], deadline: now + definition.acceptMs, phase: 'offered', serverKey: secret() };
       this.state.queue = this.state.queue.filter(e => !selected.includes(e));
       for (const member of members) { const p = this.player(member); p.phase = 'offered'; p.match = id; p.message = 'Match found. Accept within 30 seconds.'; }
     }
@@ -251,7 +250,7 @@ export class ScenarioCoordinator {
     for (const [key, ticket] of Object.entries(this.state.tickets)) if (ticket.player === player) delete this.state.tickets[key];
     const owner = this.player(player);
     const reservationEnd = kind === 'join' && owner.disconnectedAt !== undefined
-      ? owner.disconnectedAt + this.definition(this.state.matches[match].scenario).reconnectMs : Infinity;
+      ? owner.disconnectedAt + this.matchDefinition(this.state.matches[match]).reconnectMs : Infinity;
     const token = secret(); this.state.tickets[token] = { player, match, kind, expires: Math.min(this.now() + 120_000, reservationEnd) }; return token;
   }
   private returnPlayer(id: string, message: string) {
@@ -276,7 +275,7 @@ export class ScenarioCoordinator {
     if (player.phase !== 'travel') reject('Character is already possessed or no longer admitted.');
     if (!player.campaignReleased) reject('Campaign possession has not been released.');
     delete this.state.tickets[ticket]; player.phase = 'playing'; player.disconnectedAt = undefined; player.possessionReleased = false;
-    player.message = this.definition(match.scenario).name;
+    player.message = this.matchDefinition(match).name;
     this.persist(); return structuredClone(player.character);
   }
   disconnected(id: string, matchId: string, key: string) {
@@ -316,7 +315,7 @@ export class ScenarioCoordinator {
     let ticket = Object.entries(this.state.tickets).find(([, value]) => value.player === id)?.[0];
     if (p.phase === 'return' && !ticket) { ticket = this.issueTicket(id, p.match ?? '', 'return'); this.persist(); }
     return {
-      id, phase: p.phase, message: p.message, catalog: scenarioCatalog,
+      id, phase: p.phase, message: p.message, catalog: this.catalog,
       party: { ...party, members: party.members.map(member => ({ id: member, name: this.player(member).character.name, ready: party.ready.includes(member) })) },
       invites: (this.state.invites[id] ?? []).filter(key => this.state.parties[key]).map(key => ({ id: key, name: this.player(this.state.parties[key].leader).character.name })),
       availablePlayers: Object.values(this.state.players).filter(other => other.party !== p.party && other.character.realm === p.character.realm

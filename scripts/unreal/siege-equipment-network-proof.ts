@@ -1,9 +1,10 @@
 import { spawn, type ChildProcess } from 'node:child_process';
 import { createSocket } from 'node:dgram';
-import { existsSync, readFileSync, mkdirSync, rmSync, copyFileSync } from 'node:fs';
+import { existsSync, readFileSync, mkdirSync, rmSync, copyFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, projectPath, repoRoot } from './toolchain';
 import { validateSiegeEquipment } from './siege-equipment-proof';
+import { siegeContentEvidence, requireSameSiegeContent } from './siege-content-evidence';
 
 async function run() {
   const engine = inspectToolchain(defaultEngineRoot());
@@ -14,6 +15,7 @@ async function run() {
   await new Promise<void>(resolve => socket.close(() => resolve()));
   const output = path.join(repoRoot, 'artifacts/unreal/siege/equipment/network', `${Date.now()}-${process.pid}`);
   mkdirSync(output, { recursive: true });
+  const content = siegeContentEvidence(repoRoot);
   const saved = path.join(repoRoot, 'unreal/AegisWar/Saved');
   const names = ['SiegeEquipment.json', 'SiegeEquipmentClient.json'];
   names.forEach(name => rmSync(path.join(saved, name), { force: true }));
@@ -53,11 +55,15 @@ async function run() {
       }
       await delay();
     }
-    for (const name of names) copyFileSync(path.join(saved, name), path.join(output, name));
+    requireSameSiegeContent(content, siegeContentEvidence(repoRoot));
+    for (const name of names) {
+      const report = JSON.parse(readFileSync(path.join(saved, name), 'utf8').replace(/^\uFEFF/, ''));
+      writeFileSync(path.join(output, name), JSON.stringify({ ...report, ...content }, null, 2) + '\n');
+    }
     const read = (name: string) => JSON.parse(readFileSync(path.join(output, name), 'utf8').replace(/^\uFEFF/, ''));
     validateSiegeEquipment(read(names[0]));
     const client = read(names[1]);
-    if (!client.passed || client.client !== true || client.ownershipStandards !== 4 || client.engineersReady !== 4 || client.captures !== 4
+    if (!client.passed || client.client !== true || client.gateCollisionVerified !== true || client.ownershipStandards !== 4 || client.engineersReady !== 4 || client.captures !== 4
       || children.some(child => child.exitCode !== 0)) throw new Error(`Client proof incomplete: ${JSON.stringify(client)}`);
     for (const name of captures) copyFileSync(path.join(saved, 'SiegeEquipmentProof', `${name}.png`), path.join(output, `${name}.png`));
     console.log(JSON.stringify({ passed: true, output }));

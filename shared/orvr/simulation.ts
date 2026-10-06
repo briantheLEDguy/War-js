@@ -1,5 +1,7 @@
 import { defaultZoneConfigs, opposite, ORVR_RULES as R, ORVR_TRACKS } from './config';
 import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundHeight } from './navigation';
+import { CAPITAL_SIEGE_RULES, validateNativeCapitalSiegeLease } from '../siege/contract';
+import { validateNativeCharacterCheckpoint, validateNativeCharacterAck } from '../siege/character';
 import { ORVR_PROTOCOL_VERSION } from './protocol';
 import { keepPosterns, nearbyKeepPostern, posternExitFor } from './postern';
 import { equipmentFacing, equipmentLocalPosition, equipmentOperatorPosition, equipmentOperatorSeat, equipmentOperatorSeats, RAM_OPERATOR_SEATS } from './equipment';
@@ -93,6 +95,7 @@ function activateZone(state: CampaignState, zoneId: string, preparation: number 
   zone.stagingRemaining = preparation;
   zone.cityRemaining = zone.config.kind === 'city' ? R.citySeconds : null;
   zone.cityAttacker = attacker;
+  delete zone.nativeSiege;
   zone.objectives = {};
   zone.keeps = {};
   zone.npcs = {};
@@ -650,6 +653,7 @@ export function submitCommand(state: CampaignState, playerId: string, command: P
   if (!Number.isSafeInteger(command.sequence) || command.sequence <= player.lastSequence) return fail('stale_sequence');
   const zone = state.zones[player.zoneId];
   if (command.activationId !== zone.activationId) return fail('stale_activation');
+  if (zone.nativeSiege && !zone.nativeSiege.result) return fail('native_city_authority');
   player.lastSequence = command.sequence;
   const action = command.action;
   // Transport validation is defense in depth: the shared authority rejects malformed wire payloads itself.
@@ -660,6 +664,7 @@ export function submitCommand(state: CampaignState, playerId: string, command: P
   if (action.type === 'transfer') {
     const destination = state.zones[action.zoneId];
     if (!destination) return fail('unknown_zone');
+    if (destination.nativeSiege && !destination.nativeSiege.result) return fail('native_city_admission_required');
     if (player.health <= 0) return fail('player_unavailable');
     if (destination.id === zone.id) return fail('already_in_zone');
     if (distance(player.position, zone.config.staging[player.realm]) > 30) return fail('staging_required');
@@ -1135,6 +1140,9 @@ export function advanceSimulation(state: CampaignState, deltaSeconds: number): C
       if (state.recoveryRemaining <= EPSILON) startNextRound(state, events);
     }
     for (const zone of Object.values(state.zones)) {
+      // A native lease owns movement, combat, captures and clocks even while paused.
+      // Never revive legacy combat after a native host or coordinator restart.
+      if (zone.nativeSiege && !zone.nativeSiege.result) continue;
       if (!playersIn(state, zone).some(p => p.connected && !p.queued)) continue;
       zone.seconds += dt;
       tickPlayers(state, zone, dt, events);
@@ -1207,7 +1215,42 @@ export function restoreCampaign(saved: unknown): CampaignState {
     if (zone.id !== zone.config.id || !finite(zone.seconds) || !zone.objectives || !zone.keeps || !zone.equipment || !zone.caravans) throw new Error('Invalid saved zone');
     zone.queue = [];
     for (const equipment of Object.values(zone.equipment)) { equipment.operators = []; delete equipment.operatorSeats; }
+    if (zone.nativeSiege) validateNativeCapitalSiegeLease(zone.nativeSiege);
   }
+  if (state.nativeSiegeJournal) {
+    const journal = state.nativeSiegeJournal;
+    if (!journal.hosts || !journal.leases || !journal.receipts
+      || Object.values(journal.hosts).some(host => !host || !/^[a-f0-9]{64}$/.test(host.tokenHash))) throw new Error('Invalid native host journal.');
+    for (const [activationId, lease] of Object.entries(journal.leases)) {
+      validateNativeCapitalSiegeLease(lease);
+      if (lease.activationId !== activationId || lease.campaignId !== state.id || lease.round > state.round
+        || !Object.hasOwn(journal.hosts, lease.hostId)) throw new Error('Invalid native activation journal.');
+    }
+    for (const receipt of Object.values(journal.receipts)) {
+      if (!receipt || !/^[a-f0-9]{64}$/.test(receipt.hash)) throw new Error('Invalid native request journal.');
+      if (receipt.kind === 'character_ack') validateNativeCharacterAck(receipt.response);
+      else if (receipt.kind === 'character_restore') validateNativeCharacterCheckpoint(receipt.response);
+      else if (receipt.kind === undefined || receipt.kind === 'lease') validateNativeCapitalSiegeLease(receipt.response);
+      else throw new Error('Invalid native receipt kind.');
+    }
+    for (const [key, character] of Object.entries(journal.characters ?? {})) {
+      validateNativeCharacterCheckpoint(character);
+      const lease = journal.leases[character.activationId];
+      if (key !== `${character.hostId}:${character.characterId}` || !lease || lease.hostId !== character.hostId
+        || !state.zones[String(character.character.document.zone)]) throw new Error('Invalid native character journal ownership or zone.');
+    }
+    for (const lease of Object.values(journal.leases)) for (const realm of ['aegis', 'riftbound'])
+      for (const scope of ['participant', 'evacuation']) {
+        if (Object.values(journal.characters ?? {}).filter(c => c.activationId === lease.activationId
+          && c.realm === realm && c.scope === scope && !c.returned).length > CAPITAL_SIEGE_RULES.capacity)
+          throw new Error(`Native durable character capacity exceeded for ${scope}.`);
+      }
+    for (const zone of Object.values(state.zones)) if (zone.nativeSiege) {
+      const lease = journal.leases[zone.nativeSiege.activationId];
+      if (!lease || JSON.stringify(lease) !== JSON.stringify(zone.nativeSiege)) throw new Error('Native zone and checkpoint lease differ.');
+      zone.nativeSiege = lease;
+    }
+  } else if (Object.values(state.zones).some(zone => zone.nativeSiege)) throw new Error('Native capital ownership journal is missing.');
   for (const player of Object.values(state.players)) {
     if (!state.zones[player.zoneId] || !positionValid(player.position)) throw new Error('Invalid saved player');
     player.connected = false;

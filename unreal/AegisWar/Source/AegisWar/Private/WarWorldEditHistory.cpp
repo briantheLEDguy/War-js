@@ -212,9 +212,28 @@ bool FWarWorldEditHistory::ImportDraft(const FString& Json, const int32 Expected
         SavedIds.Add(Original->Id);
     }
     ExpectedBase.Sort([](const auto& A, const auto& B) { return A.Id.LexicalLess(B.Id); });
-    // Older drafts embedded a pretty-printed baseline; accept both exact formats.
-    if (Base != BaselineText(ExpectedBase) && Base != BaselineText(ExpectedBase, false))
-    { Error = TEXT("An existing authored object or model changed. Resolve the draft conflict before loading."); return false; }
+    // Authoring tools may use different JSON key order or number formatting.
+    // Compare trusted geometry structurally; never use the draft as its own base.
+    for (const auto& Value : *SavedObjects)
+    {
+        const auto Object = Value->AsObject(); FString Id, Source; bool Hidden = false;
+        const TArray<TSharedPtr<FJsonValue>>* Values = nullptr;
+        if (!Object || !Object->TryGetStringField(TEXT("id"),Id)
+            || !Object->TryGetStringField(TEXT("sourceIdentity"),Source)
+            || !Object->TryGetBoolField(TEXT("hidden"),Hidden)
+            || Object->HasField(TEXT("templateId"))
+            || !Object->TryGetArrayField(TEXT("transform"),Values) || Values->Num()!=10)
+        { Error = TEXT("Invalid authored baseline object."); return false; }
+        const auto* Expected = ExpectedBase.FindByPredicate([&](const auto& Row) { return Row.Id.ToString()==Id; });
+        double Numbers[10];
+        for (int32 I=0;I<10;++I) if (!(*Values)[I]->TryGetNumber(Numbers[I]) || !FMath::IsFinite(Numbers[I]))
+        { Error = TEXT("Invalid authored baseline transform."); return false; }
+        const FTransform Transform(FQuat(Numbers[3],Numbers[4],Numbers[5],Numbers[6]),
+            FVector(Numbers[0],Numbers[1],Numbers[2]),FVector(Numbers[7],Numbers[8],Numbers[9]));
+        if (!Expected || Expected->SourceIdentity!=Source || Expected->bHidden!=Hidden
+            || !ValidTransform(Transform) || !Expected->Transform.Equals(Transform,1.e-7))
+        { Error = TEXT("An existing authored object or model changed. Resolve the draft conflict before loading."); return false; }
+    }
     TArray<FWarWorldEditObject> Next;
     for (const auto& Value : *Objects)
     {

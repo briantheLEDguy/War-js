@@ -1,4 +1,5 @@
 #include "WarPlayerState.h"
+#include "WarCampaignMutation.h"
 #include "WarCityNpc.h"
 #include "WarCityServices.h"
 #include "WarContentSubsystem.h"
@@ -7,6 +8,8 @@
 bool AWarPlayerState::TradeWithCityNpc(const AWarCityNpc* Npc, const FGuid& Transaction, const FName ItemKey,
     const bool bSell, const int32 Quantity, const int32 BagSlot, const int32 ExpectedRevision, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error = TEXT("Merchant unavailable, transaction duplicated, or inventory changed.");
     if (!HasAuthority() || !CanPerformInventoryAction() || !IsValid(Npc) || !Npc->CanInteract(GetPawn())
         || ExpectedRevision != Inventory.Revision || !Transaction.IsValid()
@@ -21,7 +24,7 @@ bool AWarPlayerState::TradeWithCityNpc(const AWarCityNpc* Npc, const FGuid& Tran
     Inventory = MoveTemp(Next);
     RewardReceipts.Add(Transaction);
     ForceNetUpdate();
-    return true;
+    return Mutation.Commit(Error);
 }
 
 void AWarPlayerState::ServerTradeWithCityNpc_Implementation(AWarCityNpc* Npc, FGuid Transaction, FName ItemKey,

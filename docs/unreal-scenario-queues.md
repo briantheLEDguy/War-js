@@ -4,9 +4,27 @@ This development increment moves Scenario into the possessed character's game me
 It uses a shared Node coordinator and separately allocated Unreal dedicated servers.
 Production Steam authentication, deployment and cross-platform acceptance remain gated.
 
+New `lower_city` matches display **Siege of Bastion of Aegis** and record a
+version 2 full-siege definition with 18 slots per realm. Both permanent side
+captures unlock the central plaza before commander combat. The 30-second
+gathering window, bot fill, offers, 120-second reconnect reservation and campaign
+return remain. Full-siege allocation is blocked until fresh native scenery,
+routes, combat, crowd and live-capital evidence matches the current revision.
+Existing saved matches keep their immutable definitions; older journals retain
+their historical version 1, 6v6 lower-city rules. See
+[the reference citadel guide](unreal-aegis-citadel.md). The 6v6 setup and receipts
+below document that historical flow.
+
+The current shared-city revision has fresh local lower-city scenery and traversal
+acceptance. The host rejects obsolete receipts and keeps the campaign character safe.
+Both Aegis and Riftbound passed the September 29 shared-city queue/offer/entry,
+squad-order and campaign-return proof with inventory and realm preserved. See
+`docs/unreal-shared-cities.md` for evidence and visual acceptance limits.
+
 ## Running locally
 
-Start `npm run scenario:host`, then launch the main Unreal game normally and enter a
+Open Windows Terminal or PowerShell in the repository root (the folder containing
+`package.json`). Start `npm run scenario:host`, then launch the main Unreal game normally and enter a
 character. Open the game menu, choose **Scenario**, mark yourself ready and queue for
 **Breach the Lower City**. A 30-second gathering window fills unused 6v6 seats with
 bots. Accept the match within 30 seconds. Members of a same-realm party (maximum six)

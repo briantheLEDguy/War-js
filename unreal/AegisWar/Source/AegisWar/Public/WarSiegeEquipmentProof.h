@@ -18,12 +18,14 @@ private:
     void ObserveClient();
     void Capture(const FString& Name);
     void Finish(bool Passed,const FString& Detail);
+    bool GateBlocks(int32 Index) const;
     UPROPERTY() TObjectPtr<AWarSiegeBattlefield> Battlefield;
     UPROPERTY() TArray<TObjectPtr<AWarSiegeEquipment>> Vehicles;
     double Started=-1,LastMove=0,NextSnapshot=0;
     float PreviousTravel=0;
     int32 Step=0;
     bool Finished=false,StopVerified=false,DeathVerified=false,StrikeVerified=false,RecoveryVerified=false;
+    bool GateInitiallyClosed=false,GateVerified=false;
     UPROPERTY() TObjectPtr<class ACameraActor> Camera;
     TSet<FString> Captured;
     double ClientFinishedAt=-1;

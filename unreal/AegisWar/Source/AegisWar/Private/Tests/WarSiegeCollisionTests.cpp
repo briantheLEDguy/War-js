@@ -41,6 +41,13 @@ bool FWarSiegeCollisionTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Rotation end is clear"),Vehicle->PoseClear(FVector::ZeroVector,FRotator(0,90,0).Quaternion()));
     TestFalse(TEXT("Rotation cannot sweep through an intervening obstacle"),Vehicle->MovementClear(FVector::ZeroVector,FRotator(0,90,0)));
     Corner->Destroy();
+    const FVector Elevated(0,0,200);
+    TestTrue(TEXT("The tilted hull is clear before adding the wall"),Vehicle->PoseClear(Elevated,FRotator(35,0,0).Quaternion()));
+    auto* SlopeObstacle=Box(FVector(-300,0,300),FVector(3),ECC_WorldStatic);
+    TestTrue(TEXT("The flat hull clears the slope-side obstacle"),Vehicle->PoseClear(Elevated,FQuat::Identity));
+    TestFalse(TEXT("Terrain tilt cannot bypass a collision outside the flat navigation footprint"),
+        Vehicle->PoseClear(Elevated,FRotator(35,0,0).Quaternion()));
+    SlopeObstacle->Destroy();
     FActorSpawnParameters Correction;Correction.SpawnCollisionHandlingOverride=ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
     auto* CorrectionPawn=World->SpawnActor<AWarCharacter>(FVector(0,0,96),FRotator::ZeroRotator,Correction);
     Vehicle->Tick(.016f);

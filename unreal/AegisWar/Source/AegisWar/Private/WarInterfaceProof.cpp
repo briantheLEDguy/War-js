@@ -70,6 +70,12 @@ namespace
     }
 }
 
+bool UWarInterfaceProof::DoesSupportWorldType(EWorldType::Type Type) const
+{
+    return Type == EWorldType::Game || (Type == EWorldType::PIE
+        && FParse::Param(FCommandLine::Get(), TEXT("WarGmRenderingProof")));
+}
+
 bool UWarInterfaceProof::ShouldCreateSubsystem(UObject* Outer) const
 {
 #if UE_BUILD_SHIPPING
@@ -89,9 +95,15 @@ void UWarInterfaceProof::Finish(bool Passed, const FString& Detail)
     if (FParse::Param(FCommandLine::Get(), TEXT("WarTargetingProof"))
         && FParse::Value(FCommandLine::Get(), TEXT("WarTargetingRun="), Run) && FGuid::Parse(Run, Id))
         Folder /= Id.ToString(EGuidFormats::Digits);
+    const bool GmRendering = FParse::Param(FCommandLine::Get(), TEXT("WarGmRenderingProof"));
+    if (GmRendering && FParse::Value(FCommandLine::Get(), TEXT("WarProofDraftId="), Run) && FGuid::Parse(Run, Id))
+        Folder = FPaths::ProjectSavedDir() / TEXT("GmRenderingProof") / Id.ToString(EGuidFormats::Digits);
     IFileManager::Get().MakeDirectory(*Folder, true);
-    const FString Report = FString::Printf(TEXT("{\"passed\":%s,\"detail\":\"%s\",\"fullUiParity\":false}"), Passed ? TEXT("true") : TEXT("false"), *Detail);
+    const FString Completion = GmRendering ? FString::Printf(TEXT(",\"completed\":%s,\"visualAcceptance\":false"), Passed ? TEXT("true") : TEXT("false")) : FString();
+    const FString Report = FString::Printf(TEXT("{\"passed\":%s,\"detail\":\"%s\",\"fullUiParity\":false%s}"), Passed ? TEXT("true") : TEXT("false"), *Detail, *Completion);
     FFileHelper::SaveStringToFile(Report, *FPaths::Combine(Folder, TEXT("report.json")));
+    // The disposable PIE launcher must end Play before shutting down the editor viewport.
+    if (GmRendering && GetWorld()->WorldType == EWorldType::PIE) return;
     FPlatformMisc::RequestExitWithStatus(false, Passed ? 0 : 1);
 }
 
@@ -109,6 +121,8 @@ void UWarInterfaceProof::Tick(float DeltaTime)
     }
     const auto Check = [this](bool Good, const FString& Detail) { if (!Good) Finish(false, Detail); return Good; };
     if (FParse::Param(FCommandLine::Get(), TEXT("WarTargetingProof"))) { TickTargeting(Now); return; }
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarCombatUiProof"))) { TickCombatUi(Now); return; }
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarGmRenderingProof"))) { TickGmRendering(Now); return; }
     if (FParse::Param(FCommandLine::Get(), TEXT("WarBuilderProof"))) { TickWorldBuilder(Now); return; }
     if (FParse::Param(FCommandLine::Get(),TEXT("WarWorkshopProof")))
     {
@@ -161,7 +175,7 @@ void UWarInterfaceProof::Tick(float DeltaTime)
             if (Page == TEXT("Edit UI"))
             {
                 PC->SetEditingUi(true);
-                if (!Check(PC->IsEditingUi() && !PC->IsMoveInputIgnored() && PC->bShowMouseCursor, TEXT("Edit UI did not release gameplay and expose dragging"))) return;
+                if (!Check(PC->IsEditingUi() && PC->IsMoveInputIgnored() && PC->bShowMouseCursor, TEXT("Edit UI did not protect gameplay input and expose dragging"))) return;
                 ++Step; NextStep = Now + 2; return;
             }
             if (PC->IsEditingUi()) PC->SetEditingUi(false);

@@ -84,6 +84,11 @@ Menu-art validation: Windows Editor and Game builds, 27 native automation groups
 
 ## Configurable action bars and Edit UI
 
+Edit UI also includes the [combat-overlay editor](unreal-combat-ui.md), with
+friendly/enemy Slate body outlines, draggable previews and local style controls.
+Combat resets preserve action-bar layouts. The editor now owns paired gameplay
+input locks; its tick retains action-bar visibility while those locks are held.
+
 Open Escape > UI Settings (also under Options). Add any number of bars and select 1-10 buttons for each. Each button offers an action selector, key capture and Clear key binding. Duplicate keys, Escape/F1, axes and modifier-only keys are rejected. Bindings are individual keyboard or mouse buttons, without modifier chords. The first bar defaults to 1-0; additional bars start empty and unbound.
 
 Edit UI closes the menu and shows gold drag handles. Drag bars and click Done or press Escape to save and return to UI Settings. Normalized positions keep bars within the viewport after resolution changes. Bars can overlap by choice. Resizing preserves assignments and keys for hidden buttons; those keys remain reserved but hidden buttons do not execute. Removal releases the keys. There is no fixed application bar-count limit.

@@ -1,4 +1,6 @@
 #include "WarPlayerController.h"
+#include "WarPlayerState.h"
+#include "WarCharacter.h"
 #include "Engine/World.h"
 #include "WarImpactCameraModifier.h"
 #include "Camera/PlayerCameraManager.h"
@@ -14,18 +16,32 @@ void AWarPlayerController::SetCombatShakeIntensity(float Value)
         if (auto* Modifier=Cast<UWarImpactCameraModifier>(PlayerCameraManager->FindCameraModifierByClass(UWarImpactCameraModifier::StaticClass()))) Modifier->Stop();
 }
 
-void AWarPlayerController::SendCombatNotice(FName Kind, const FString& Label, float Amount)
+void AWarPlayerController::SendCombatNotice(FName Kind, const FString& Label, float Amount, AActor* Recipient)
 {
     if (GetWorld()->GetTimeSeconds() >= CombatNoticeWindow)
     { CombatNoticeWindow = GetWorld()->GetTimeSeconds() + 1; CombatNoticeCount = 0; }
-    if (CombatNoticeCount >= 20) return;
+    if (CombatNoticeCount >= 128) return;
     if (HasAuthority() && WarCombatFeedback::Valid(Kind, Amount) && NextCombatSerial < MAX_uint32)
-    { ++CombatNoticeCount; ClientCombatNotice(++NextCombatSerial, Kind, Label.Left(80), Amount); }
+    {
+        ++CombatNoticeCount;
+        const bool bOutgoing = IsValid(Recipient);
+        const auto* RecipientCharacter=Cast<AWarCharacter>(Recipient);
+        const auto* Other=RecipientCharacter?RecipientCharacter->GetPlayerState<AWarPlayerState>():nullptr;
+        const auto* Self=GetPlayerState<AWarPlayerState>();
+        const bool bEnemy=Recipient!=GetPawn() && !(Self && Other && Self->GetRealm()!=EWarRealm::None && Self->GetRealm()==Other->GetRealm());
+        ClientCombatNotice(++NextCombatSerial, Kind, Label.Left(80), Amount,
+            bOutgoing ? Recipient->GetUniqueID() : 0, bOutgoing ? Recipient : nullptr,
+            bOutgoing ? WarFloatingCombatText::HeadAnchor(Recipient) : FVector::ZeroVector, bEnemy);
+    }
 }
-void AWarPlayerController::ClientCombatNotice_Implementation(uint32 Serial, FName Kind, const FString& Label, float Amount)
+void AWarPlayerController::ClientCombatNotice_Implementation(uint32 Serial, FName Kind, const FString& Label, float Amount,
+    uint32 RecipientId, AActor* Recipient, FVector Anchor, bool bEnemy)
 {
     const double Time=GetWorld()->GetTimeSeconds();
     if (!WarCombatFeedback::Append(CombatNotices,LastCombatSerial,Serial,Kind,Label,Amount,Time)) return;
+    const auto Part=Kind==TEXT("Heal")?EWarCombatUiPart::Healing:Kind==TEXT("CriticalHit")?EWarCombatUiPart::Critical:EWarCombatUiPart::Damage;
+    WarFloatingCombatText::Add(FloatingCombatNumbers, RecipientId, Recipient, Anchor, Kind, Amount, Time,bEnemy,
+        &GetCombatUiSettings().Styles[WarCombatUi::Id(Part,bEnemy)]);
     if (Kind!=TEXT("Hit") && Kind!=TEXT("CriticalHit")) return;
     const bool bCritical=Kind==TEXT("CriticalHit");
     if (PlayerCameraManager && CombatShakeIntensity>0)

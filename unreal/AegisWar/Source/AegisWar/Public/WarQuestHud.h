@@ -12,6 +12,7 @@ public:
     virtual void DrawHUD() override;
 private:
     void DrawCombatFeedback();
+    void DrawOverheadHealthBars();
     UPROPERTY(Transient) TObjectPtr<class UTexture2D> VitalsArtwork;
     UPROPERTY(Transient) TObjectPtr<class UTexture2D> MinimapArtwork;
     bool bArtworkLoaded = false;

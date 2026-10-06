@@ -7,6 +7,141 @@ GM timing compatibility, cancellation/refunds, equipped locomotion, impact
 feedback, combat-only staging and native/network verification. It also documents
 full-cycle equipped captures and production impact-audio review exports.
 
+Confirmed outgoing damage and effective healing now float above each receiving
+player or NPC, following them independently of target selection. Isolated numbers
+rise for one second; rapid procs accelerate the stream up to five times faster.
+Each head has a bounded 160 x 112 UI-pixel region (scaled with the HUD), six visible
+numbers at most, and a 32-number total limit. See the
+[floating-number behavior and verification](docs/unreal-combat-fluidity.md#floating-damage-and-healing).
+
+All visible nearby allied and enemy combat characters also have compact overhead
+health bars by default, including damageable NPCs. Blue ally and red enemy bars
+read current replicated health every frame, so damage from any source and healing
+update them immediately. Bars sit below the floating numbers and follow the same
+zone, range and visibility rules as combat targeting.
+
+[Combat UI editing](docs/unreal-combat-ui.md) adds local friendly/enemy styling
+to Edit UI: reticles, overhead bars, damage/critical/healing streams, target-panel
+children, hit marker and combat messages. Slate body outlines and isolated mock
+events preview edits; drag release and committed controls autosave separately
+from action-bar layouts. `WarCombatUiSettings` owns validation/persistence,
+`WarCombatUiDrawing` supplies shared Canvas/Slate layout, and
+`SWarCombatUiEditor` provides runtime controls. See the guide for rendered and
+owner/client verification commands and remaining acceptance evidence. The
+combat UI network/live proof runners share `combat-ui-process.ts` to report
+launch failures and confirm owned-process shutdown before releasing resources.
+
+[Shared capital scenery](docs/unreal-shared-cities.md) gives campaign cities,
+siege and the loading/menu presentation the same native scenery levels, meshes
+and materials. With Unreal closed, `npm run unreal:city-sync` migrates or updates
+bindings; `-- --check` verifies current sources. City changes invalidate affected
+siege navigation/visual reviews instead of allowing an older city to launch.
+Local lower-city admission now uses fresh crowd, convoy, gate and rendered
+evidence for the current shared city. Full-siege and release acceptance remain separate.
+
+The [reference citadel replacement](docs/unreal-aegis-citadel.md) adds a signed
+architectural sheet and bidirectional route ledger, surveys actual native
+geometry and stages Gothic scenery in private candidate packages. The version 2
+siege progresses through the lower city, independent permanent side captures,
+the locked central plaza and commander. Its encounter actor separates enrollment
+from stat normalization; scenario and live campaign adapters share the rules.
+The Node bridge owns readiness and durable settlement, validates the owning
+native host and suspends legacy city combat during its lease. Critical inventory,
+progression, quest and reward mutations flush a full private character document
+before reporting success, then replay through the owning host's revision and
+sequence checks. Interrupted native recovery, transient combat effects and
+physical character returns still need complete acceptance evidence. Fresh geometry, full 18v18 scenario/live
+capital, evacuation, recovery and rendered evidence are required before admission.
+Participant and visitor evacuation documents have separate per-realm durable
+budgets, so remote enrollment cannot consume the capital's evacuation capacity.
+Use `npm run unreal:citadel-proof -- --blueprint <file> --map <candidate>
+--city-revision <revision>` for exact-revision physical routes and gate sweeps.
+Native import explicitly converts source triangle winding while retaining outward
+normals. Route checks cover five lanes across each signed corridor width, and
+architectural captures temporarily hide and restore local HUDs. The current
+private captures are rejected for reference fidelity; older route diagnostics retain their failures,
+they do not authorize publication or full-siege admission.
+The older recipe 5 diagnostic retains 70 failures across 27,460 width samples. Exact
+game-world overlap/sweep and direct-body diagnostics investigate those contacts
+without changing corridor admission. Recipe 6 source binds the lower spawn's
+surveyed ramp gradient and corrects gate, gallery, foundation and bounded approach
+wall geometry. Private revision `8bb3168368e3` includes the gallery tangent
+correction, a fresh read-only native survey and 139 connected native waypoints.
+Its final schema 4 traversal passed, as recorded below. Live cooked contact
+diagnostics use exact affine transforms and retain both failed movement and
+destination contacts. Their candidate-face distance statistics never grant admission.
+Versioned winning-plane diagnostics export full capsule/triangle intervals for
+an independent Decimal projection audit; saved certificates never authorize movement.
+Width proof schema 3 confines fresh typed live separation checks to route
+placements, retaining raw gate admission and native floor/StepUp/movement vetoes.
+Each sample records query accounting and independently audited full-capsule
+certificates. The later schema 4 run supplies complete traversal for that revision.
+Schema 4 requires the unchanged native character's full 64-channel collision
+policy and continuous checks of capsule dimensions, scale, axis, gravity and
+walking limits. Its first rehearsal passed 27,680 width samples but was stopped
+after 24 walks to add the geometry guard; it remains diagnostic history.
+The final guard accounts for Unreal's one-ULP slope rounding at spawn, then pins
+the actual runtime and class-default limits exactly. All 100 native Foundation
+tests passed. Fresh schema 4 run `1791300014775-28176` completed all 92 actual
+walks and 27,680 width samples with zero route or physical failures; both
+independent width auditors passed. These receipts bind only revision `8bb3168368e3`.
+Recipe 7 `eb00703a2a63` adds articulated upper spires and supported dormers;
+its 70 architecture controls, native staging and 139-waypoint navigation passed.
+Fresh run `1791302524498-26280` passed all 92 walks, 27,680 width samples,
+288 gate checks, 88 objective checks and 150 spawn checks, with eight game-camera
+  captures. Both width auditors passed. Each receipt remains bound to its own geometry.
+  Recipe 8 `d7936ad95609` adds the supported taller central standard; its asset
+  build, 71 architecture controls, native staging and 139-waypoint navigation
+  passed. Fresh complete native proof `1791305174868-5128` passed all 92 walks,
+  27,680 width samples and all gate, objective and spawn checks, with eight views.
+  Both independent width auditors passed. Visual and full siege approval remain open.
+Recipe 9 `4069b99e5f8d` repairs bounded wing footings and strengthens the stepped
+façade hierarchy while preserving objective, route, gate, spawn and room data.
+Its asset build, 73 architecture controls, 68-package private staging and all
+139 navigation waypoints passed. Native replay matched all 144 signed ground
+samples exactly. Fresh native proof `1791308126754-24160` passed all 92 walks,
+27,680 width samples and all gate, objective and spawn checks; both independent
+width audits passed. Private campaign preparation and strict content validation
+passed, with canonical packages preserved. The tooling suite passed 295 tests.
+Crash recovery and cinematic visual review remain open for this revision.
+Live campaign startup exposed streamed navigation being discarded in game.
+The private campaign now owns both baked profiles and their bounds; a separate
+native reload preserved all 5,765 character and 2,523 convoy tiles byte for byte,
+and strict content validation passed. Runtime convoy and recovery checks remain
+pending. Canonical campaign packages and the isolated scenario remain intact.
+The local campaign journal now retries brief Windows sharing violations during
+atomic replacement, retaining the durable checkpoint and flushed pending file.
+Persistent or unrelated storage failures still pause authority without an ACK.
+The preceding schema 3 run completed all 92 walks with zero physical failures.
+Full siege acceptance, visual fidelity and cinematic lighting remain unapproved.
+Seven source-bound lighting fixtures, shadowed architectural lights and native
+clouds are being checked in isolated game-camera studies. New stair supports,
+sculpted sentinels and a bounded native mountain carve require fresh evidence.
+The carve checks every stored native corner, including unused attributes, and
+binds original mesh policy to a separate read-only survey. Character return
+requires a durable full current document; a restore acknowledgement cannot
+release return custody. Native reconnect and crash verification remain pending.
+Version 2 character recovery records supported effects and cooldowns with absolute
+expiry times and their applied definitions. Elapsed downtime reduces remaining
+duration; offline damage and healing ticks are skipped. Native regression tests
+cover this codec, while actual process-crash acceptance remains separate.
+
+Version 2 encounter navigation uses a bounded 8,192-node query filter; ordinary
+players and recorded version 1 rounds retain the engine default. The new private
+recipe records full-width spawn approaches and requires actual capsule checks
+across every pad. Recipe 6 binds the retained ramp footprint to a fresh native
+support survey without changing its anchor or clearance limits. Source checks
+and the earlier 95-test native Foundation suite have passed. The older recipe 5 candidate
+completed 92 center walks but still fails width and gate/spawn checks; fresh
+complete traversal and cinematic approval remain pending. Diagnostic-only runs
+cannot grant admission.
+
+
+[GM rendering diagnostics](docs/unreal-gm-rendering.md) compare pointer-driven GM
+controls, direct commands and an idle session using isolated preferences and
+drafts. The persistent muted-color report remains under investigation until a
+rendered before/after reproduction establishes its cause and verifies the fix.
+
 [Portal travel and model candidates](docs/unreal-portal-models.md) covers the
 capsule-entry fix, Interact retry, saved-world survey and reference-based Blender
 authoring. Both model variants are installed at all 70 local campaign entrances;
@@ -41,13 +176,14 @@ adds a loopback server/two-client launcher, preparation and rematch UI, separate
 lower-city victory rules, player squad orders and combat feedback. This work
 includes native Summon Idol, fitted caster armor, authored encounter models and
 crowd-aware objective navigation. The six-class roster and encounter assets are
-admitted for local lower-city development after equipped-frame and traversal
-review. Start `npm run scenario:host`, launch the main game and enter your
+equipped-frame reviewed; the current shared city still needs new siege route
+acceptance before admission. Once accepted, start `npm run scenario:host`, launch the main game and enter your
 character. Keep the host running while playing. If the Scenario panel reports a
 connection failure, start the host and select **Connect / retry** in that panel.
 Open **Escape → Scenario**, ready your party, queue and accept the
-match. Your existing realm, class and equipment carry into a separate 6v6
-instance. **Leave scenario and return** restores your campaign character and
+match. Your existing realm, class and equipment carry into a separate scenario
+instance. The recorded lower-city rules retain 6v6; the replacement full siege
+uses 18v18 after its fresh admission checks pass. **Leave scenario and return** restores your campaign character and
 position. The shared coordinator owns instance allocation and recovery; see
 [scenario queue setup](docs/unreal-scenario-queues.md).
 The lower-city escort includes an authored battering ram and field catapult,
@@ -67,15 +203,14 @@ configured, but the gateway address, owner login and hosted sync deployment are
 still outstanding; this does not deploy an active game server.
 
 The native [cinematic frontend](docs/unreal-character-entry.md#cinematic-frontend)
-renders isolated capital snapshots and equipped character previews. Editor builds
-and frontend proofs refresh stale private snapshots from every active capital
-layer, including architecture and population. After saving city edits, close the
-Editor/game and run `npm run unreal:frontend-refresh` before reopening; use
-`-- --check` to check freshness without rebuilding. This tracks saved native
-content, not unsaved edits or live server state. Run
-`npm run unreal:frontend-proof` for offscreen login, selection and transition
-evidence; `-- --width 1280 --height 720` and `-- --width 2560 --height 1080`
-exercise small and ultrawide layouts. Source city maps are never rewritten.
+loads the same shared scenery levels into isolated presentation worlds, with
+campaign lighting profiles and equipped character previews. After saving city
+edits, close the Editor/game and run `npm run unreal:city-sync` before reopening.
+Use `npm run unreal:frontend-refresh -- --check` to check presentation bindings.
+This tracks saved native content. Run `npm run unreal:frontend-proof` for offscreen
+login, selection and transition evidence; `-- --width 1280 --height 720` and
+`-- --width 2560 --height 1080` exercise small and ultrawide layouts. Presentation
+binding updates never rewrite source city maps or copy their materials.
 Import the owner's login logo, button and window PNGs from `graphics-new` with
 `scripts/unreal/import-frontend-artwork.py` through the same Python commandlet.
 Private UI materials apply bronze coloring and transparent-margin cropping;

@@ -1,5 +1,6 @@
 #include "WarSiegePlaytestProof.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarSiegeNavigation.h"
 #include "WarPlayerController.h"
 #include "WarPlayerState.h"

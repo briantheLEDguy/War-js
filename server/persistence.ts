@@ -1,5 +1,6 @@
 import { mkdir, readFile, rename, open, unlink } from 'node:fs/promises';
 import { dirname } from 'node:path';
+import { setTimeout as delay } from 'node:timers/promises';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { CampaignEvent, CampaignState } from '../shared/orvr/protocol';
 
@@ -24,7 +25,7 @@ export class MemoryCampaignRepository implements CampaignRepository {
 export class FileCampaignRepository implements CampaignRepository {
   private revision = 0;
   private lease: Awaited<ReturnType<typeof open>> | null = null;
-  constructor(private readonly filename: string) {}
+  constructor(private readonly filename: string, private readonly replace = rename) {}
   async load(): Promise<Checkpoint | null> {
     if (this.lease) throw new Error('Campaign repository is already open.');
     await mkdir(dirname(this.filename), { recursive: true });
@@ -63,7 +64,15 @@ export class FileCampaignRepository implements CampaignRepository {
     const file = await open(temporary, 'w', 0o600);
     try { await file.writeFile(JSON.stringify({ revision: next, state })); await file.sync(); }
     finally { await file.close(); }
-    await rename(temporary, this.filename);
+    // Windows readers can briefly deny replacement. Keep both the old checkpoint
+    // and flushed pending file; no revision or ACK advances until rename succeeds.
+    for (let attempt = 0; ; attempt++) {
+      try { await this.replace(temporary, this.filename); break; }
+      catch (error) {
+        if (attempt >= 20 || !['EPERM', 'EBUSY', 'EACCES'].includes((error as NodeJS.ErrnoException).code ?? '')) throw error;
+        await delay(25);
+      }
+    }
     this.revision = next;
     return next;
   }

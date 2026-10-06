@@ -2,6 +2,7 @@
 #include "WarAbilityRuntime.h"
 #include "WarAbilityCatalog.h"
 #include "WarAttributeSet.h"
+#include "WarCampaignCombatState.h"
 #include "Dom/JsonObject.h"
 
 TSharedPtr<FJsonObject> UWarAbilityRuntime::CaptureScenarioState() const
@@ -22,7 +23,9 @@ void UWarAbilityRuntime::RestoreScenarioState(const TSharedPtr<FJsonObject>& Sta
     const auto Kit=Catalog() ? Catalog()->Kit(Career) : TArray<const FWarAbilityDefinition*>();
     double Value=0;
     if (State->TryGetNumberField(TEXT("resource"),Value) && !Kit.IsEmpty()) Resource=FMath::Clamp(float(Value),0.f,Kit[0]->ResourceMax);
-    if (State->TryGetNumberField(TEXT("globalCooldown"),Value)) GcdUntil=Now()+FMath::Max(0.,Value);
+    const int64 RestoredAt=WarCampaignCombatState::UnixMs();
+    if (State->TryGetNumberField(TEXT("globalCooldown"),Value))
+    { GcdUntil=Now()+FMath::Max(0.,Value);GcdExpiresAtUnixMs=RestoredAt+FMath::RoundToInt64(FMath::Max(0.,Value)*1000.); }
     const TArray<TSharedPtr<FJsonValue>>* Entries=nullptr;
     if (State->TryGetArrayField(TEXT("cooldowns"),Entries))
     {
@@ -31,7 +34,8 @@ void UWarAbilityRuntime::RestoreScenarioState(const TSharedPtr<FJsonObject>& Sta
         {
             const auto Object=Entry->AsObject();FString Id;double Remaining=0;
             if (Object && Object->TryGetStringField(TEXT("id"),Id) && Object->TryGetNumberField(TEXT("remaining"),Remaining) && Remaining>0)
-            { FWarAbilityCooldown Cooldown;Cooldown.Id=FName(*Id);Cooldown.Until=Now()+Remaining;Cooldowns.Add(Cooldown); }
+            { FWarAbilityCooldown Cooldown;Cooldown.Id=FName(*Id);Cooldown.Until=Now()+Remaining;
+              Cooldown.ExpiresAtUnixMs=RestoredAt+FMath::RoundToInt64(Remaining*1000.);Cooldowns.Add(Cooldown); }
         }
     }
     GetOwner()->ForceNetUpdate();

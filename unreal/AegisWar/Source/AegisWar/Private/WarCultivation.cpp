@@ -1,4 +1,5 @@
 #include "WarPlayerState.h"
+#include "WarCampaignMutation.h"
 #include "WarAttributeSet.h"
 #include "WarContentSubsystem.h"
 #include "Engine/GameInstance.h"
@@ -11,6 +12,8 @@ namespace
 
 bool AWarPlayerState::PlantSeed(const FName SeedKey, const bool bUseSoil, const int32 ExpectedRevision, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Planting is unavailable or inventory changed."); return false; }
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
@@ -18,11 +21,13 @@ bool AWarPlayerState::PlantSeed(const FName SeedKey, const bool bUseSoil, const 
     if (!Content) { Error = TEXT("Cultivation catalog is unavailable."); return false; }
     if (!Content->GetCultivationSeed(SeedKey, Seed, Error)
         || !WarCultivation::Plant(Inventory, Seed, bUseSoil, ServerUtcMs(), FGuid::NewGuid(), Error)) return false;
-    ForceNetUpdate(); return true;
+    ForceNetUpdate(); return Mutation.Commit(Error);
 }
 
 bool AWarPlayerState::HarvestCrop(const FGuid PlotId, const int32 ExpectedRevision, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Harvesting is unavailable or inventory changed."); return false; }
     const auto* Plot = Inventory.CultivationPlots.FindByPredicate([PlotId](const auto& Row) { return Row.Id == PlotId; });
@@ -31,7 +36,7 @@ bool AWarPlayerState::HarvestCrop(const FGuid PlotId, const int32 ExpectedRevisi
     if (!Content || !Plot) { Error = TEXT("Crop or cultivation catalog is unavailable."); return false; }
     if (!Content->GetCultivationSeed(Plot->SeedKey, Seed, Error)
         || !WarCultivation::Harvest(Inventory, Seed, PlotId, ServerUtcMs(), Error)) return false;
-    ForceNetUpdate(); return true;
+    ForceNetUpdate(); return Mutation.Commit(Error);
 }
 
 void AWarPlayerState::ServerPlantSeed_Implementation(const FName SeedKey, const bool bUseSoil, const int32 ExpectedRevision)

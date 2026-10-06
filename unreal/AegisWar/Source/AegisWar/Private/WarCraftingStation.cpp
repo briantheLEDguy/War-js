@@ -1,4 +1,6 @@
 #include "WarCraftingStation.h"
+#include "WarSiegeEncounter.h"
+#include "WarZoneAnchor.h"
 #include "Net/UnrealNetwork.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
@@ -15,6 +17,8 @@ void AWarCraftingStation::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 
 bool AWarCraftingStation::CanInteract(const APawn* Pawn) const
 {
+    if (const auto* Siege = AWarSiegeEncounter::Capital(GetWorld()))
+        if (const auto* Zone = AWarZoneAnchor::FindAt(GetWorld(), GetActorLocation()); Zone && Siege->SuspendsServices(Zone->ZoneId)) return false;
     const UStaticMesh* Mesh = GetStaticMeshComponent()->GetStaticMesh();
     return Pawn && Pawn->GetWorld() == GetWorld() && !IsActorBeingDestroyed() && Mesh
         && Mesh->GetPathName().StartsWith(TEXT("/Game/Imported/")) && !IsHidden()

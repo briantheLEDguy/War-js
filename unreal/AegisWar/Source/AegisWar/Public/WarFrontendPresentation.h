@@ -12,16 +12,6 @@ class UWarCharacterVisualDefinition;
 struct FStreamableHandle;
 struct FWarFrontendScene;
 
-/** A visual-only snapshot; no source actor or gameplay class is instantiated. */
-USTRUCT(BlueprintType)
-struct FWarFrontendPlacement
-{
-    GENERATED_BODY()
-    UPROPERTY(EditAnywhere) TSoftObjectPtr<UStaticMesh> Mesh;
-    UPROPERTY(EditAnywhere) TArray<TSoftObjectPtr<UMaterialInterface>> Materials;
-    UPROPERTY(EditAnywhere) TArray<FTransform> Instances;
-};
-
 USTRUCT(BlueprintType)
 struct FWarFrontendShot
 {
@@ -38,7 +28,7 @@ struct FWarFrontendCity
     GENERATED_BODY()
     UPROPERTY(EditAnywhere) FName ZoneId;
     UPROPERTY(EditAnywhere) FString Label;
-    UPROPERTY(EditAnywhere) TArray<FWarFrontendPlacement> Placements;
+    UPROPERTY(EditAnywhere) TObjectPtr<class UWarCityDefinition> CityDefinition;
     UPROPERTY(EditAnywhere) TArray<FWarFrontendShot> Shots;
     UPROPERTY(EditAnywhere) FRotator SunDirection = FRotator(-35, -45, 0);
     UPROPERTY(EditAnywhere) FLinearColor SunColor = FLinearColor(1, .88f, .7f);

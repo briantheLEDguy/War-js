@@ -1,5 +1,7 @@
 import { spawnSync } from 'node:child_process';
-import { copyFileSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { verifySharedCities } from '../../server/scenarios/city-content';
 import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, isMain, projectPath, repoRoot } from './toolchain';
 
@@ -17,6 +19,10 @@ if (isMain(import.meta.url)) {
   try {
     const engine = inspectToolchain(defaultEngineRoot());
     if (!engine.editorCommand || engine.blockers.length) throw new Error(engine.blockers.join('\n'));
+    const city = verifySharedCities(repoRoot).find(row => row.id === 'aegis_capital')!;
+    const mapFile = path.join(repoRoot, 'unreal/AegisWar/Content/Capitals/Siege/AegisCapital_Siege.umap');
+    const mapHash = () => createHash('sha256').update(readFileSync(mapFile)).digest('hex');
+    const mapSha256 = mapHash();
     const output = path.join(repoRoot, 'artifacts/unreal/siege/traversal', `${Date.now()}-${process.pid}`);
     mkdirSync(output, { recursive: true });
     const report = path.join(repoRoot, 'unreal/AegisWar/Saved/SiegeTraversal.json');
@@ -27,8 +33,10 @@ if (isMain(import.meta.url)) {
       `-abslog=${path.join(output, 'server.log')}`];
     const result = spawnSync(engine.editorCommand, invocation, { cwd: repoRoot, stdio: 'inherit', windowsHide: true, timeout: 950_000 });
     if (result.error) throw result.error;
-    copyFileSync(report, path.join(output, 'report.json'));
     const evidence = JSON.parse(readFileSync(report, 'utf8').replace(/^\uFEFF/, ''));
+    if (mapHash() !== mapSha256 || verifySharedCities(repoRoot).find(row => row.id === city.id)?.revision !== city.revision)
+      throw new Error('City changed during traversal; repeat the proof.');
+    writeFileSync(path.join(output, 'report.json'), JSON.stringify({ ...evidence, cityRevision: city.revision, mapSha256 }, null, 2) + '\n');
     if (result.status !== 0) throw new Error(`Traversal failed: ${evidence.detail}. See ${output}`);
     validateSiegeTraversal(evidence);
     console.log(JSON.stringify({ traversalPassed: true, output, gameplayVerified: false, reviewGranted: false }));

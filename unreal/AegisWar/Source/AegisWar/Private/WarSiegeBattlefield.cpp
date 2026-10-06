@@ -1,4 +1,7 @@
 #include "WarSiegeBattlefield.h"
+#include "WarCityDefinition.h"
+#include "Engine/LevelStreaming.h"
+#include "Kismet/GameplayStatics.h"
 #include "WarSiegeEquipment.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarContentSubsystem.h"
@@ -19,11 +22,29 @@ FVector AWarSiegeBattlefield::Objective(int32 Stage, int32 Step) const
     const int32 Index = Stage == 0 ? Step : Stage == 1 ? 4 + Step : 7;
     return Objectives.IsValidIndex(Index) ? Objectives[Index] : FVector::ZeroVector;
 }
-bool AWarSiegeBattlefield::Validate(FString& Error, EWarSiegeScenario Scenario) const
+bool AWarSiegeBattlefield::Validate(FString& Error, EWarSiegeScenario Scenario, bool bLiveCampaign) const
 {
     const bool LowerOnly = Scenario == EWarSiegeScenario::LowerCity;
     auto Fail = [&Error](const FString& Why) { Error = Why; return false; };
-    if (DefinitionVersion != 1 || Capital != TEXT("aegis_capital")) return Fail(TEXT("Unsupported siege definition or capital."));
+    if ((DefinitionVersion != 1 && DefinitionVersion != 2) || Capital != TEXT("aegis_capital")) return Fail(TEXT("Unsupported siege definition or capital."));
+    if (!CityDefinition || CityDefinition->ZoneId != Capital || !CityDefinition->Validate(Error))
+        return Fail(TEXT("Shared siege city is unavailable. Restore current city content and retry. ") + Error);
+    const TArray<FName> Scenery = CityDefinition->Packages();
+    TSet<FName> Attached;
+    for (const auto* Stream : GetWorld()->GetStreamingLevels())
+    {
+        if (!bLiveCampaign && (!Stream || !Scenery.Contains(Stream->GetWorldAssetPackageFName()) || Attached.Contains(Stream->GetWorldAssetPackageFName())))
+            return Fail(TEXT("Siege contains an unexpected or duplicated scenery attachment."));
+        if (Stream) Attached.Add(Stream->GetWorldAssetPackageFName());
+    }
+    for (FName Package : CityDefinition->Packages())
+    {
+        const auto* Stream = UGameplayStatics::GetStreamingLevel(GetWorld(), Package);
+        if (!Stream || !Stream->IsLevelVisible() || !UWarCityDefinition::ValidateLevel(Stream->GetLoadedLevel(), Error))
+            return Fail(TEXT("Shared siege city is not ready. ") + Error);
+    }
+    if (ReviewedCityRevision != CityDefinition->Revision)
+        return Fail(TEXT("The city changed. Siege navigation and visual review must be repeated before launch."));
     if (Objectives.Num() != 8 || OptionalObjectives.Num() != 3 || TeamSpawns.Num() != 6)
         return Fail(TEXT("Siege requires eight objective anchors, three optional anchors and six team spawns."));
     if (StageGates.Num() != 2 || GateMechanisms.Num() != 2 || WarEffortProps.Num() != 3)
@@ -42,7 +63,7 @@ bool AWarSiegeBattlefield::Validate(FString& Error, EWarSiegeScenario Scenario) 
             return Fail(TEXT("Siege props require distinct authored meshes in the isolated persistent level."));
         Seen.Add(Prop);
     }
-    for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+    if (!bLiveCampaign) for (TActorIterator<AActor> It(GetWorld()); It; ++It)
     {
         const FString Class = It->GetClass()->GetName();
         if (Class == TEXT("WarEnemy") || Class == TEXT("WarQuestNpc") || Class == TEXT("WarCityNpc")
@@ -98,7 +119,8 @@ bool AWarSiegeBattlefield::Validate(FString& Error, EWarSiegeScenario Scenario) 
     if (!ConvoyNav) return Fail(TEXT("Build siege equipment navigation before launching the convoy."));
     for (int32 Step=1;Step<=3;++Step)
     {
-        auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(),Objective(0,Step-1),EquipmentDestination(Step),ConvoyNav);
+        const FVector Start=Step==1 ? EquipmentSpawns[0] : EquipmentDestination(Step-1);
+        auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(),Start,EquipmentDestination(Step),ConvoyNav);
         if (!Path || !Path->IsValid() || Path->IsPartial()) return Fail(TEXT("A siege equipment route is disconnected."));
     }
     TArray<FVector> Points;
@@ -155,11 +177,13 @@ void AWarSiegeBattlefield::ApplyMilestones(const FWarSiegeState& State)
     if (Claims != ClaimedObjectives) { ClaimedObjectives = Claims; OnRep_Ownership(); }
     OpenGates = State.Phase == EWarSiegePhase::Waiting ? 0 : State.Stage >= 2 ? 3 : State.Stage == 1 ? 1 : 0;
     if (State.Phase == EWarSiegePhase::Transition) OpenGates |= 1 << State.Stage;
+    if (State.RulesVersion >= 2) OpenGates = ((State.MainClaims & 0x08) ? 1 : 0) | ((State.MainClaims & 0x40) ? 2 : 0);
     if (State.Scenario == EWarSiegeScenario::LowerCity && State.Phase == EWarSiegePhase::Finished && State.bAttackersWon) OpenGates |= 1;
+    if (bLiveCapitalOverlay && State.Phase == EWarSiegePhase::Waiting) OpenGates = 3;
     OnRep_Gates(); ForceNetUpdate();
 }
 void AWarSiegeBattlefield::BeginPlay()
-{ Super::BeginPlay(); OnRep_Ownership(); OnRep_Gates(); }
+{ Super::BeginPlay(); if (HasAuthority() && bLiveCapitalOverlay) ApplyMilestones(FWarSiegeState()); else { OnRep_Ownership(); OnRep_Gates(); } }
 void AWarSiegeBattlefield::OnRep_Ownership()
 {
     for (int32 I = 0; I < AttackerStandards.Num(); ++I) if (IsValid(AttackerStandards[I]))

@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { mkdtempSync, readFileSync, rmSync, renameSync, mkdirSync, writeFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { mkdtempSync, readFileSync, rmSync, renameSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import type { AddressInfo } from 'node:net';
+import { sharedCityFixture } from './fixtures/sharedCityContent';
 import { atomicJson, authenticateCampaignHost, provisionDevelopmentPeer, startScenarioHost, verifyScenery } from '../server/scenarios/host';
 
 const cleanups: (() => Promise<void>)[] = [];
@@ -12,15 +12,9 @@ describe('scenario host transport', () => {
   it('rejects edited scenery or navigation after the reviewed content revision', () => {
     const directory = mkdtempSync(path.join(tmpdir(), 'aegis-scenario-content-'));
     try {
-      const content = path.join(directory, 'unreal/AegisWar/Content'); mkdirSync(content, { recursive: true });
-      const digest = createHash('sha256').update('reviewed').digest('hex');
-      for (const name of ['source', 'layer', 'siege']) writeFileSync(path.join(content, `${name}.umap`), 'reviewed');
-      atomicJson(path.join(directory, 'artifacts/unreal/scenario-queues/capital-scenery.json'), {
-        sourceHashes: { '/Game/source': digest }, layers: ['/Game/layer'], layerHashes: { '/Game/layer': digest },
-        map: '/Game/siege', mapSha256: digest, navigationVerified: true, visualVerified: true, revision: 'reviewed',
-      });
-      expect(verifyScenery(directory)).toBe('reviewed');
-      writeFileSync(path.join(content, 'siege.umap'), 'unreviewed navigation');
+      sharedCityFixture(directory);
+      expect(verifyScenery(directory)).toBe('current');
+      writeFileSync(path.join(directory, 'unreal/AegisWar/Content/Capitals/Siege/AegisCapital_Siege.umap'), 'unreviewed navigation');
       expect(() => verifyScenery(directory)).toThrow('stale');
     } finally { rmSync(directory, { recursive: true, force: true }); }
   });

@@ -39,11 +39,11 @@ void WarScenarioTransport::Request(const FString& Url,const FString& Key,const F
     });
     if (!Request->ProcessRequest()) Request->OnProcessRequestComplete().ExecuteIfBound(Request,nullptr,false);
 }
-TSharedPtr<FJsonObject> WarScenarioTransport::Capture(AWarPlayerController* PC,const FString& Id)
+TSharedPtr<FJsonObject> WarScenarioTransport::Capture(AWarPlayerController* PC,const FString& Id,bool AllowDefeated,bool Campaign,FString* CaptureError)
 {
     auto* PS=PC ? PC->GetPlayerState<AWarPlayerState>() : nullptr;
     auto* Pawn=PC ? Cast<AWarCharacter>(PC->GetPawn()) : nullptr;
-    if (!PS || !Pawn || !PC->HasAuthority() || !Pawn->IsVisualReady() || Pawn->IsDead() || !Pawn->GetVisualDefinition()) return nullptr;
+    if (!PS || !Pawn || !PC->HasAuthority() || !Pawn->IsVisualReady() || (!AllowDefeated && Pawn->IsDead()) || !Pawn->GetVisualDefinition()) return nullptr;
     auto Result=MakeShared<FJsonObject>();
     Result->SetStringField(TEXT("id"),Id);Result->SetStringField(TEXT("name"),PS->GetPlayerName());
     Result->SetStringField(TEXT("realm"),PS->GetRealm()==EWarRealm::Riftbound ? TEXT("riftbound") : TEXT("aegis"));
@@ -54,7 +54,11 @@ TSharedPtr<FJsonObject> WarScenarioTransport::Capture(AWarPlayerController* PC,c
     auto Document=MakeShared<FJsonObject>();auto Inventory=MakeShared<FJsonObject>();
     FJsonObjectConverter::UStructToJsonObject(FWarInventorySnapshot::StaticStruct(),&PS->GetInventory(),Inventory,0,0);
     Document->SetObjectField(TEXT("inventory"),Inventory);Document->SetStringField(TEXT("zone"),PS->GetCurrentZone().ToString());
-    Document->SetObjectField(TEXT("runtime"),PS->CaptureScenarioState());
+    FString Error;
+    auto Runtime = Campaign ? PS->CaptureCampaignState(Error) : PS->CaptureScenarioState();
+    if (!Runtime) { if (CaptureError) *CaptureError=Error; return nullptr; }
+    Runtime->SetBoolField(TEXT("dead"), Pawn->IsDead());
+    Document->SetObjectField(TEXT("runtime"),Runtime);
     Result->SetObjectField(TEXT("document"),Document);return Result;
 }
 bool WarScenarioTransport::Restore(AWarPlayerController* PC,const TSharedPtr<FJsonObject>& Character,bool Siege,FString& Error)

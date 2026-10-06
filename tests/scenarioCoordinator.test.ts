@@ -75,10 +75,19 @@ describe('shared scenario coordinator', () => {
     expect(f.c.view('a').availablePlayers).toEqual([]);
     expect(f.c.state.queue).toHaveLength(0);
   });
-  it('offers a full 6v6 immediately without changing realms', () => {
-    const f = fixture(); for (let i = 0; i < 12; i++) { f.add(`p${i}`, i < 6 ? 'aegis' : 'riftbound'); f.queue(`p${i}`); }
+  it('offers a full 18v18 immediately without changing realms', () => {
+    const f = fixture(); for (let i = 0; i < 36; i++) { f.add(`p${i}`, i < 18 ? 'aegis' : 'riftbound'); f.queue(`p${i}`); }
     f.advance(0); expect(Object.values(f.c.state.matches)).toHaveLength(1);
-    expect(Object.values(f.c.state.matches)[0].members).toHaveLength(12);
+    expect(Object.values(f.c.state.matches)[0].members).toHaveLength(36);
+    expect(Object.values(f.c.state.matches)[0].definition).toMatchObject({ capacity: 18, rulesVersion: 2, battlefield: 'FullSiege' });
+  });
+  it('retains historical six-player rules for recovery journals without an allocation snapshot', () => {
+    const f = fixture(), match = f.start(['a']);
+    const saved = f.saved(); delete saved.matches[match.id].definition;
+    const restored = new ScenarioCoordinator(() => {}, saved, () => 40_000);
+    expect(restored.matchDefinition(restored.state.matches[match.id])).toMatchObject({ capacity: 6, rulesVersion: 1, battlefield: 'LowerCity' });
+    expect(restored.player('a').phase).toBe('return');
+    expect(restored.player('a').character.document).toEqual(character('a').document);
   });
   it('requires party readiness and keeps members together', () => {
     const f = fixture(); f.add('a'); f.add('b'); f.command('a', 'invite', 'b');
@@ -101,11 +110,11 @@ describe('shared scenario coordinator', () => {
     f.add('extra'); expect(() => f.command('a', 'invite', 'extra')).toThrow();
   });
   it('does not overfill a realm and creates independent offers', () => {
-    const f = fixture(); for (let i = 0; i < 13; i++) { f.add(`p${i}`); f.queue(`p${i}`); }
+    const f = fixture(); for (let i = 0; i < 37; i++) { f.add(`p${i}`); f.queue(`p${i}`); }
     f.advance(30_000); f.advance(1); f.advance(1);
     const matches = Object.values(f.c.state.matches); expect(matches).toHaveLength(3);
-    expect(matches.map(m => m.members.length)).toEqual([6, 6, 1]);
-    expect(new Set(matches.flatMap(m => m.members)).size).toBe(13);
+    expect(matches.map(m => m.members.length)).toEqual([18, 18, 1]);
+    expect(new Set(matches.flatMap(m => m.members)).size).toBe(37);
   });
   it('withdraws a declining party while preserving others waiting priority', () => {
     const f = fixture(); f.add('a'); f.add('b'); f.queue('a'); f.queue('b'); f.advance(30_000);

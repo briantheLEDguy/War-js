@@ -41,6 +41,7 @@ void UWarCombatNetworkProof::Tick(float Delta)
 {
     if (bFinished || !GetWorld()->HasBegunPlay()) return;
     const double Now=GetWorld()->GetTimeSeconds(); if (Started<0) Started=Now;
+    if (FParse::Param(FCommandLine::Get(),TEXT("WarCombatUiNetworkProof"))) { TickUi(Now); return; }
     if (Now-Started>120) { Finish(false,TEXT("Timed out waiting for owner cast, movement cancellation and replicated refund")); return; }
     auto* Catalog=GetWorld()->GetGameInstance()->GetSubsystem<UWarAbilityCatalog>();
     if (GetWorld()->GetNetMode()==NM_DedicatedServer)

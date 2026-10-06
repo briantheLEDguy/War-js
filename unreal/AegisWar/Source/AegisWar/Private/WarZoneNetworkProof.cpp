@@ -82,14 +82,14 @@ void UWarZoneNetworkProof::Tick(float DeltaTime)
         Other && Other->GetPawn() ? FVector::Dist2D(Other->GetPawn()->GetActorLocation(), ResidentPosition) : -1.0,
         State ? State->GetInventory().Revision : -1, Revision)); return; }
     auto* Field = AWarZoneAnchor::FindById(GetWorld(), TEXT("sunmeadow_march"));
-    if (!Field || Field->ContentLevels.IsEmpty()) { Finish(false, TEXT("Partitioned Sunmeadow missing")); return; }
+    if (!Field || Field->GetContentLevels().IsEmpty()) { Finish(false, TEXT("Partitioned Sunmeadow missing")); return; }
     if (Stage == 1 || Stage == 3)
     {
         if (Stage == 3)
         {
             // The server keeps the union of occupied zones. Bastion must cease residency after its travel hold expires.
             for (TActorIterator<AWarZoneAnchor> It(GetWorld()); It; ++It)
-                for (FName Package : It->ContentLevels)
+                for (FName Package : It->GetContentLevels())
                 {
                     const auto* Level = UGameplayStatics::GetStreamingLevel(GetWorld(), Package);
                     const bool bServerExpected = It->ZoneId == Field->ZoneId || It->ZoneId == TEXT("riftspire_capital");
@@ -116,7 +116,7 @@ void UWarZoneNetworkProof::Tick(float DeltaTime)
         if (Streaming->HasPending(Pawn)) return;
         if (State->GetCurrentZone() != Field->ZoneId || !Streaming->IsZoneReady(Field->ZoneId, PC))
         { Finish(false, TEXT("Traveler entered before client content readiness")); return; }
-        for (FName Package : Field->ContentLevels)
+        for (FName Package : Field->GetContentLevels())
             if (Other->GetNetConnection()->ClientVisibleLevelNames.Contains(Package))
             { Finish(false, TEXT("Unrelated client loaded the traveler's destination")); return; }
         if (!Streaming->IsZoneReady(TEXT("riftspire_capital"), Other))
@@ -127,7 +127,7 @@ void UWarZoneNetworkProof::Tick(float DeltaTime)
     {
         if (Streaming->HasPending(Pawn)) return;
         if (State->GetCurrentZone() != TEXT("aegis_capital")) { Finish(false, TEXT("Return portal failed")); return; }
-        for (FName Package : Field->ContentLevels)
+        for (FName Package : Field->GetContentLevels())
         {
             const auto* Level = UGameplayStatics::GetStreamingLevel(GetWorld(), Package);
             if (!Level || Level->IsLevelLoaded() || PC->GetNetConnection()->ClientVisibleLevelNames.Contains(Package)) return;
@@ -150,7 +150,7 @@ void UWarZoneNetworkProof::InspectClientResidency()
     if (Now < ClientSettledAt) return;
     int32 VisibleContentLevels = 0, ContentActors = 0, PersistentMeshes = 0;
     for (TActorIterator<AWarZoneAnchor> It(GetWorld()); It; ++It)
-        for (FName Package : It->ContentLevels)
+        for (FName Package : It->GetContentLevels())
         {
             const auto* Level = UGameplayStatics::GetStreamingLevel(GetWorld(), Package);
             if (!Level || Level->IsLevelLoaded() != (It->ZoneId == Zone)) return;

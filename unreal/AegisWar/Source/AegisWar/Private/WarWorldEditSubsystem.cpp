@@ -30,6 +30,7 @@ namespace
     {
         const bool bPortalProof = FParse::Param(FCommandLine::Get(), TEXT("WarPortalProof"));
         if (bPortalProof || FParse::Param(FCommandLine::Get(), TEXT("WarCapitalProof")) || FParse::Param(FCommandLine::Get(), TEXT("WarBuilderProof"))
+            || FParse::Param(FCommandLine::Get(), TEXT("WarGmRenderingProof"))
             || FParse::Param(FCommandLine::Get(), TEXT("WarExpansionProof"))
             || FParse::Param(FCommandLine::Get(), TEXT("WarDutchBastionProof")))
         {
@@ -41,9 +42,11 @@ namespace
             }();
             return FPaths::Combine(FPaths::ProjectSavedDir(), bPortalProof ? TEXT("WorldEditPortalProof") : TEXT("WorldEditProof"), ProofId, TEXT("draft.json"));
         }
-        if (World && World->GetOutermost()->GetName().StartsWith(TEXT("/Game/WorldRebuild/DutchBastion_")))
+        const FString Package = World ? UWorld::RemovePIEPrefix(World->GetOutermost()->GetName()) : FString();
+        if (World && (Package.StartsWith(TEXT("/Game/WorldRebuild/DutchBastion_"))
+            || WarWorldEditMap::IsCitadelCampaign(Package)))
         {
-            const FString Revision=FPaths::GetCleanFilename(FPaths::GetPath(World->GetOutermost()->GetName()));
+            const FString Revision=FPaths::GetCleanFilename(FPaths::GetPath(Package));
             return FPaths::Combine(FPaths::ProjectSavedDir(),TEXT("WorldEdit"),Revision,TEXT("draft.json"));
         }
         const bool bCrownward = World && World->GetOutermost()->GetName().Contains(TEXT("/crownward/"));

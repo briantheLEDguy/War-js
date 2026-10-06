@@ -141,15 +141,16 @@ the import receipt. This is development UI evidence, not release acceptance.
 `WarFrontendWidget` owns the Slate layout and a `WarFrontendPresentation` object.
 The presentation owns two `FPreviewScene` city worlds and a separate character
 world. These worlds have no physics, navigation, audio, campaign actors, player
-pawns or replicated authority. Capital scenery is grouped into instanced static
-meshes; the source actor classes and their behaviors are never copied.
+pawns or replicated authority. Each world streams the same scenery levels from its
+`UWarCityDefinition`; campaign services are separate gameplay overlays. Native
+scenery actor validation rejects gameplay classes and missing models/materials.
 
-The private `/Game/UI/Frontend/CapitalPresentation` data asset contains two camera
-views per capital, source-derived geometry/material references and presentation
-lighting. Views alternate Aegis/Riftspire with 18-second holds and 3-second
-crossfades. Captures are capped at 30 Hz and 1600Ã—900 per city; only transitions
-need both city captures. The portrait target is 800Ã—1000. Camera transforms and
-explicit exposure prevent gameplay camera state from affecting the menu.
+The private `/Game/UI/Frontend/CapitalPresentation` asset contains two camera
+views per capital and the shared definition references. Views alternate
+Aegis/Riftspire with 18-second holds and 3-second crossfades. Captures are capped
+at 30 Hz and 1600×900 per city; only transitions need both city captures. The
+portrait target is 800×1000. City actors retain authored world coordinates and
+campaign lighting profiles; camera positions use the definition's origin.
 
 Initial login shows cities alone. Setup reveals the selected draft using the
 same playable definition and provenance checks as authoritative entry. Its
@@ -165,26 +166,28 @@ Selections cancel older loads and invalidate stale callbacks. Missing character
 content clears the old preview and displays a retryable error. Missing capital
 content exposes retry without replacing it with primitive geometry. Hidden or
 minimized frontends stop captures; removing the frontend releases preview worlds,
-targets and asynchronous handles. Scene packages and material adaptations remain
-private under ignored native Content paths, preserving existing license gates.
+targets and asynchronous handles. Native packages remain private under ignored
+Content paths, preserving existing license gates. There are no frontend city
+material adaptations or placement snapshots.
 
-`npm run unreal:build -- --target Editor` refreshes stale frontend content after
-compilation when a private world is installed. `npm run unreal:frontend-proof`
-also refreshes before capturing evidence. After saving city edits, close the
-Editor/game and run `npm run unreal:frontend-refresh` before reopening the game.
-Use `-- --check` for a read-only freshness check. Unsaved edits and live server
-state are not reflected in these saved scenery snapshots.
+After saving city changes, close the Editor/game and run `npm run unreal:city-sync`.
+`npm run unreal:frontend-refresh` updates presentation bindings, and `-- --check`
+checks freshness. Editor builds and frontend proofs also refresh stale bindings
+when the shared city contract is current. Unsaved drafts are not published scenery.
 
-`frontend_sources.py` resolves the manifest named by the active world build,
-requires its map to match `GameDefaultMap`, and selects every layer for both
-capitals, including architecture and population. The Aegis persistent shell is
-also retained; extraction filters actors by owning package to avoid duplicates.
-`frontend-content.ts` checks recipe/routing, source-package and output hashes,
-then invokes `build-frontend-presentation.py` only when stale. The builder saves
-only owned frontend assets, checks that source packages/routing stayed unchanged,
-and records schema-2 evidence in `artifacts/unreal/frontend/build.json`.
-Material adaptations enable instancing on private copies, preserving originals.
+`frontend_sources.py` uses the same shared contract as scenario admission. It
+checks the active campaign map, both capital definitions, source levels and their
+model/material dependencies. The builder saves only owned presentation assets
+and records schema-3 evidence in `artifacts/unreal/frontend/build.json`.
+See [shared city scenery](unreal-shared-cities.md) for migration and current checks.
 
+Shared-level verification: the 1280×720 proof passed at
+`artifacts/unreal/frontend/1280x720-80767af7-cba7-40ea-9f1f-b428f775dfba/`;
+both capital screenshots were inspected. Blank city captures now fail the proof.
+Riftspire uses the same native lighting profile as campaign. This does not grant
+production, cross-platform or general visual acceptance.
+
+Historical snapshot evidence (superseded by the shared-level implementation):
 The 2026-09-29 refresh includes 10,060 Aegis and 7,594 Riftspire scenery instances,
 including the active Dutch Bastion geometry. Source package hashes remained
 unchanged. The 1920x1080 frontend proof passed and both capital screenshots were

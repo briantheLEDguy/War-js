@@ -1,9 +1,8 @@
-"""Snapshot existing capital visuals into private, gameplay-free frontend content.
+"""Bind frontend cameras to the shared, gameplay-free capital levels.
 
 Run with UnrealEditor-Cmd -run=pythonscript -script=<this file>. Source maps are
 read, never saved. Generated packages stay under the ignored native Content tree.
 """
-import hashlib
 import json
 import struct
 import zlib
@@ -26,39 +25,6 @@ levels = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
 actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 plan = source_plan(ROOT)
 sources = {}
-material_copies = {}
-
-
-def instance_material(source):
-    """Private adaptations gain the instancing shader permutation; originals stay untouched."""
-    path = source.get_path_name()
-    if path in material_copies:
-        return material_copies[path]
-    if path.startswith('/Game/'):
-        fingerprint(path)
-    revision = sources.get(path.split('.')[0], '')
-    destination = FOLDER + '/Materials/M_' + hashlib.sha256((path + revision).encode()).hexdigest()[:20]
-    copy = assets.load_asset(destination) if assets.does_asset_exist(destination) else None
-    if copy and assets.get_metadata_tag(copy, 'WarFrontendOwner') != OWNER:
-        raise RuntimeError('Refusing to replace unowned material: ' + destination)
-    if not copy:
-        copy = assets.duplicate_asset(path, destination)
-        if not copy:
-            raise RuntimeError('Material adaptation failed: ' + path)
-        assets.set_metadata_tag(copy, 'WarFrontendOwner', OWNER)
-    material_copies[path] = copy
-    if isinstance(copy, unreal.MaterialInstanceConstant):
-        unreal.MaterialEditingLibrary.set_material_instance_parent(copy, instance_material(source.get_editor_property('parent')))
-        unreal.MaterialEditingLibrary.update_material_instance(copy)
-    elif isinstance(copy, unreal.Material):
-        unreal.MaterialEditingLibrary.set_base_material_usage(copy, unreal.MaterialUsage.MATUSAGE_INSTANCED_STATIC_MESHES)
-        unreal.MaterialEditingLibrary.recompile_material(copy)
-    else:
-        raise RuntimeError('Unsupported source material: ' + path)
-    assets.save_loaded_asset(copy, only_if_is_dirty=False)
-    return copy
-
-
 def owned(name, cls, factory):
     path = FOLDER + '/' + name
     value = assets.load_asset(path) if assets.does_asset_exist(path) else None
@@ -75,62 +41,6 @@ def owned(name, cls, factory):
 
 def fingerprint(package):
     sources[package.split('.')[0]] = digest(package_file(ROOT, package))
-
-
-def placements(zone, maps):
-    groups, seen = {}, set()
-    origin = unreal.Vector(*zone['origin'])
-    skipped = []
-    for map_path in maps:
-        fingerprint(map_path)
-        if not levels.load_level(map_path):
-            raise RuntimeError('Cannot load city source: ' + map_path)
-        for actor in actors.get_all_level_actors():
-            # Streaming dependencies can contain another capital or duplicate this layer.
-            if actor.get_outer().get_outer().get_path_name().split('.')[0] != map_path:
-                continue
-            for component in actor.get_components_by_class(unreal.StaticMeshComponent):
-                mesh = component.static_mesh
-                if not mesh or not component.is_visible() or component.get_editor_property('hidden_in_game'):
-                    continue
-                mesh_path = mesh.get_path_name()
-                if not mesh_path.startswith('/Game/') or '/BasicShapes/' in mesh_path:
-                    skipped.append(mesh_path)
-                    continue
-                materials = [component.get_material(index) for index in range(component.get_num_materials())]
-                if any(material is None for material in materials):
-                    raise RuntimeError('Missing city material: ' + mesh_path)
-                if isinstance(component, unreal.InstancedStaticMeshComponent):
-                    transforms = [component.get_instance_transform(index, world_space=True)
-                                  for index in range(component.get_instance_count())]
-                else:
-                    transforms = [component.get_world_transform()]
-                key = (mesh_path, tuple(material.get_path_name() for material in materials))
-                if key not in groups:
-                    groups[key] = {'mesh': mesh, 'materials': [instance_material(material) for material in materials], 'instances': []}
-                    fingerprint(mesh_path)
-                    for material in materials:
-                        if material.get_path_name().startswith('/Game/'):
-                            fingerprint(material.get_path_name())
-                for transform in transforms:
-                    transform.translation = transform.translation - origin
-                    t, r, s = transform.translation, transform.rotation, transform.scale3d
-                    identity = (key, tuple(round(v, 4) for v in (t.x, t.y, t.z, r.x, r.y, r.z, r.w, s.x, s.y, s.z)))
-                    if identity in seen:
-                        continue
-                    seen.add(identity)
-                    groups[key]['instances'].append(transform)
-    rows = []
-    for row in groups.values():
-        if not row['instances']:
-            continue
-        entry = unreal.WarFrontendPlacement()
-        for name, value in row.items():
-            entry.set_editor_property(name, value)
-        rows.append(entry)
-    if not rows:
-        raise RuntimeError('Capital contains no usable native scenery: ' + zone['id'])
-    return rows, sorted(set(skipped))
 
 
 def shot(eye, end, target, fov=55):
@@ -191,12 +101,15 @@ def character_material():
 cities, counts = [], []
 for zone_id, label in [('aegis_capital', 'Bastion of Aegis'), ('riftspire_capital', 'Riftspire Citadel')]:
     zone = next(row for row in plan['cities'] if row['id'] == zone_id)
-    maps = zone['maps']
-    rows, skipped = placements(zone, maps)
+    shared = assets.load_asset(zone['definition'])
+    if not isinstance(shared, unreal.WarCityDefinition):
+        raise RuntimeError('Shared city definition unavailable: ' + zone_id)
+    for package in [zone['definition'], *zone['sceneryLevels']]:
+        fingerprint(package)
     city = unreal.WarFrontendCity()
     city.set_editor_property('zone_id', zone_id)
     city.set_editor_property('label', label)
-    city.set_editor_property('placements', rows)
+    city.set_editor_property('city_definition', shared)
     if zone_id == 'aegis_capital':
         city.set_editor_property('shots', [
             shot((-18000, -12500, 4200), (-16300, -11900, 4250), (16500, 2000, 3500)),
@@ -209,7 +122,7 @@ for zone_id, label in [('aegis_capital', 'Bastion of Aegis'), ('riftspire_capita
         city.set_editor_property('sun_color', unreal.LinearColor(1, .72, .52, 1))
         city.set_editor_property('fog_color', unreal.LinearColor(.16, .13, .22, 1))
     cities.append(city)
-    counts.append({'zone': zone_id, 'groups': len(rows), 'instances': sum(len(row.get_editor_property('instances')) for row in rows), 'excludedNonProjectMeshes': skipped})
+    counts.append({'zone': zone_id, 'definition': zone['definition'], 'revision': zone['revision'], 'levels': zone['sceneryLevels']})
 
 factory = unreal.DataAssetFactory()
 factory.set_editor_property('data_asset_class', unreal.WarFrontendPresentationDefinition)
@@ -222,14 +135,14 @@ assets.save_loaded_asset(definition, only_if_is_dirty=False)
 for package, expected in sources.items():
     fingerprint(package)
     if sources[package] != expected:
-        raise RuntimeError('Source package changed during snapshot: ' + package)
+        raise RuntimeError('Source package changed during frontend binding: ' + package)
 if source_plan(ROOT) != plan:
-    raise RuntimeError('Capital routing changed during snapshot; retry the refresh.')
+    raise RuntimeError('Capital routing changed during frontend binding; retry the refresh.')
 outputs = {package: digest(package_file(ROOT, package)) for package in assets.list_assets(FOLDER, recursive=True)
            if assets.get_metadata_tag(assets.load_asset(package), 'WarFrontendOwner') == OWNER}
 # Normalize object paths so freshness checks use package identities consistently.
 outputs = {package.split('.')[0]: value for package, value in outputs.items()}
-(OUTPUT / 'build.json').write_text(json.dumps({'schemaVersion': 2, 'asset': definition.get_path_name(),
+(OUTPUT / 'build.json').write_text(json.dumps({'schemaVersion': 3, 'asset': definition.get_path_name(),
     'sourcePlan': plan, 'outputPackages': outputs,
     'cities': counts, 'sourcePackages': sources, 'sourceMapsModified': False, 'visualApproved': False,
     'licenseApprovalChanged': False}, indent=2) + '\n')

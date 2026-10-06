@@ -18,9 +18,11 @@ void AWarPlayerController::PlayerTick(float DeltaTime)
 {
     Super::PlayerTick(DeltaTime);
     if (!IsLocalController() || !GetLocalPlayer()) return;
+    WarFloatingCombatText::Advance(FloatingCombatNumbers, GetWorld()->GetTimeSeconds());
     TickSiegeLobby();
-    if (bEditingUi && IsMoveInputIgnored()) { bEditingUi = false; SaveActionBars(); }
     const auto* LocalCharacter = Cast<AWarCharacter>(GetPawn());
+    if (bEditingUi && (!LocalCharacter || !LocalCharacter->IsVisualReady() || IsWorldEditorOpen()
+        || !LastEntryFailure.IsEmpty() || bCharacterEntryPending)) EndEditingUi(false);
     if (!bWorldPublicationRestored && LocalCharacter && LocalCharacter->IsVisualReady())
     {
         auto* Editor = GetWorld()->GetSubsystem<UWarWorldEditSubsystem>();
@@ -31,12 +33,12 @@ void AWarPlayerController::PlayerTick(float DeltaTime)
             if (!Editor->Open(this, Error)) WorldEditMessage = TEXT("Published world could not load: ") + Error;
         }
     }
-    const bool bVisible = !IsWorldEditorOpen() && LocalCharacter && LocalCharacter->IsVisualReady() && !IsMoveInputIgnored()
+    const bool bVisible = !IsWorldEditorOpen() && LocalCharacter && LocalCharacter->IsVisualReady() && (bEditingUi || !IsMoveInputIgnored())
         && LastEntryFailure.IsEmpty() && !bCharacterEntryPending;
     if (bVisible && !ActionBarWidget)
     {
         ActionBarWidget = CreateWidget<UWarActionBarWidget>(this);
-        if (ActionBarWidget) ActionBarWidget->AddToViewport(1);
+        if (ActionBarWidget) ActionBarWidget->AddToViewport(bEditingUi?11:1);
     }
     if (ActionBarWidget) ActionBarWidget->SetVisibility(bVisible ? ESlateVisibility::SelfHitTestInvisible : ESlateVisibility::Collapsed);
 }

@@ -1,5 +1,6 @@
 #include "WarPlayerController.h"
 #include "WarActionBarWidget.h"
+#include "WarCombatUiEditorWidget.h"
 #include "Misc/ConfigCacheIni.h"
 
 const TArray<FWarActionBarLayout>& AWarPlayerController::GetActionBars()
@@ -107,9 +108,35 @@ void AWarPlayerController::MoveActionBar(int32 Id, FVector2D Position, bool bSav
 
 void AWarPlayerController::SetEditingUi(bool bEditing)
 {
-    if (bEditing) CloseAllPanels();
-    bEditingUi = bEditing;
+    if (!bEditing) { EndEditingUi(true); return; }
+    if (bEditingUi || !IsLocalController() || !GetLocalPlayer() || !GetPawn()) return;
+    CloseAllPanels();
+    CombatUiEditor = CreateWidget<UWarCombatUiEditorWidget>(this);
+    if (!CombatUiEditor) return;
+    GetCombatUiSettings();
+    bEditingUi = true;
+    SetIgnoreMoveInput(true);
+    SetIgnoreLookInput(true);
+    CombatUiEditor->AddToViewport(10);
+    if (ActionBarWidget) { ActionBarWidget->RemoveFromParent(); ActionBarWidget->AddToViewport(11); }
     bShowMouseCursor = true;
-    if (bEditing) { FInputModeGameAndUI Mode; Mode.SetHideCursorDuringCapture(false); SetInputMode(Mode); }
-    else { SaveActionBars(); RestoreGameplayInput(); ShowInterface(TEXT("UI Settings")); }
+    FInputModeGameAndUI Mode;
+    Mode.SetWidgetToFocus(CombatUiEditor->TakeWidget());
+    Mode.SetHideCursorDuringCapture(false);
+    SetInputMode(Mode);
+}
+
+void AWarPlayerController::EndEditingUi(bool bReturnToSettings)
+{
+    if (!bEditingUi) return;
+    bEditingUi = false;
+    SaveActionBars();
+    SaveCombatUiSettings();
+    if (CombatUiEditor) CombatUiEditor->RemoveFromParent();
+    CombatUiEditor = nullptr;
+    if (ActionBarWidget) { ActionBarWidget->RemoveFromParent(); ActionBarWidget->AddToViewport(1); }
+    SetIgnoreMoveInput(false);
+    SetIgnoreLookInput(false);
+    RestoreGameplayInput();
+    if (bReturnToSettings) ShowInterface(TEXT("UI Settings"));
 }

@@ -1,10 +1,15 @@
 """Publish the reviewed local lower-city content without approving the full siege."""
 import hashlib
 import json
+import shutil
+import sys
 from pathlib import Path
 import unreal
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).parent))
+from siege_review import current_review
+city, scenery_review = current_review(ROOT)
 OUT = ROOT/'artifacts/unreal/siege'
 TARGET = '/Game/Capitals/Siege/AegisCapital_Siege'
 PROFILES = {'riven_ruin_oracle_m', 'riven_void_magister_m'}
@@ -18,13 +23,13 @@ if review.get('scope') != 'local-lower-city' or review.get('equippedFramesReview
 for row in review['evidence']:
     if hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest() != row['sha256']:
         raise RuntimeError('Review evidence changed: '+row['path'])
-native = read(review['nativeReport'])
+native = read(scenery_review['nativeReport'])
 if native['failed'] or native['notRun'] or native['inProcess']:
     raise RuntimeError('Native tests did not complete successfully')
 for name in ('WarpIdol', 'SiegeCasterGameplay', 'SiegeAuthorityAndNormalization'):
     if not any(t['fullTestPath'] == 'AegisWar.Foundation.'+name and t['state'] == 'Success' for t in native['tests']):
         raise RuntimeError('Required native behavior test missing: '+name)
-traversal = read(review['traversalReport'])
+traversal = read(scenery_review['traversal']['path'])
 if not traversal['passed'] or traversal['routesCompleted'] != 7 or len(traversal['walkers']) != 12:
     raise RuntimeError('Twelve-character traversal is required')
 technical = read('artifacts/unreal/siege/animation/technical-verification.json')
@@ -63,11 +68,15 @@ for role in ('crew_visual','guard_visual','commander_visual'):
     visual = field.get_editor_property(role)
     if not visual or visual.validate_for_spawn(visual.realm): raise RuntimeError('Invalid encounter: '+role)
 registry['entries'] = list(entries.values())
+map_file = ROOT/'unreal/AegisWar/Content/Capitals/Siege/AegisCapital_Siege.umap'
+map_backup = ROOT/'artifacts/unreal/shared-cities'/('siege-pre-admission-'+scenery_review['mapSha256']+'.umap')
+if not map_backup.exists(): shutil.copy2(map_file, map_backup)
 backup = OUT/'visual-imports-before-lower-city.json'
 if not backup.exists(): backup.write_bytes(before)
 registry_path.write_text(json.dumps(registry,indent=2)+'\n',encoding='utf-8')
 try:
     field.set_editor_property('lower_city_reviewed', True)
+    field.set_editor_property('reviewed_city_revision', city['revision'])
     if not levels.save_current_level(): raise RuntimeError('Could not save local admission')
 except Exception:
     registry_path.write_bytes(before)
@@ -75,4 +84,15 @@ except Exception:
 (OUT/'local-admission.json').write_text(json.dumps(dict(map=TARGET,lowerCityReviewed=True,
     addedProfiles=sorted(PROFILES),fullSiegeReviewed=False,releaseApproved=False,
     reviewSha256=hashlib.sha256((OUT/'development-review.json').read_bytes()).hexdigest()),indent=2)+'\n')
+receipt_path = ROOT/'artifacts/unreal/scenario-queues/capital-scenery.json'
+receipt = json.loads(receipt_path.read_text())
+history = ROOT/'artifacts/unreal/shared-cities/admission-history'
+history.mkdir(parents=True, exist_ok=True)
+(history/(hashlib.sha256(receipt_path.read_bytes()).hexdigest()+'.json')).write_bytes(receipt_path.read_bytes())
+receipt.update(version=2, revision=city['revision'], cityDefinition=city['definition'], layers=city['sceneryLevels'],
+    map=TARGET, mapSha256=hashlib.sha256(map_file.read_bytes()).hexdigest(),
+    navigationVerified=True, visualVerified=True, reviewFailures=[],
+    review='artifacts/unreal/shared-cities/siege-review.json', verifiedMapSha256=scenery_review['mapSha256'],
+    fullSiegeApproved=False, releaseApproved=False)
+receipt_path.write_text(json.dumps(receipt, indent=2)+'\n')
 unreal.log('WAR_LOWER_CITY_ADMITTED; full siege and release remain unapproved')

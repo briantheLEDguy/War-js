@@ -3,6 +3,7 @@
 #include "WarPlayerState.h"
 #include "WarAttributeSet.h"
 #include "WarAbilityRuntime.h"
+#include "WarQuestRules.h"
 #include "Dom/JsonObject.h"
 #include "Engine/World.h"
 #include "Engine/Engine.h"
@@ -31,9 +32,17 @@ bool FWarScenarioStateTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Returning preserves campaign mana"),State->GetAttributes()->GetMana(),47.f);
     TestEqual(TEXT("Returning preserves remaining cooldown"),State->GetClassAbilities()->Cooldown(TEXT("recovery.test")),19.f);
     FString Error;const FGuid Receipt=FGuid::NewGuid();
-    State->SetScenarioTransferPending(true);
+    const int32 RecoveryRevision=State->GetInventory().Revision; State->SetScenarioTransferPending(true);
     TestFalse(TEXT("Departure lock rejects campaign reward mutations"),State->GrantCharacterRewards(Receipt,1,1,{},Error));
     TestFalse(TEXT("Departure lock rejects level mutations"),State->SetGmLevelTrusted(20,Error));
+    TestFalse(TEXT("Recovery rejects direct equipment mutation"),State->ChangeEquipment(State->GetInventory().Revision,0,true,Error));
+    TestFalse(TEXT("Recovery rejects direct item exchange"),State->ExchangeItems(FGuid::NewGuid(),State->GetInventory().Revision,{{0,1}},{},Error));
+    FWarQuestDefinition Quest; Quest.Id=TEXT("recovery_quest");
+    TestFalse(TEXT("Recovery rejects trusted quest acceptance"),State->AcceptQuestTrusted(Quest,TEXT("aegis_capital"),State->GetInventory().Revision,Error));
+    TestFalse(TEXT("Recovery rejects trusted kill receipts"),State->RecordQuestKillTrusted({},TEXT("aegis_capital"),TEXT("enemy"),FGuid::NewGuid(),Error));
+    TestFalse(TEXT("Recovery rejects trusted quest completion"),State->CompleteQuestTrusted(Quest,TEXT("aegis_capital"),State->GetInventory().Revision,{},Error));
+    TestFalse(TEXT("Recovery rejects enemy reward path"),State->AwardEnemyKillTrusted(TEXT("aegis_capital"),TEXT("enemy"),FGuid::NewGuid(),{},Error));
+    TestEqual(TEXT("Recovery mutations cannot advance revision"),State->GetInventory().Revision,RecoveryRevision);
     State->SetScenarioTransferPending(false);
     TestTrue(TEXT("Failed departure can restore ordinary campaign transactions"),State->GrantCharacterRewards(Receipt,1,1,{},Error));
     GEngine->DestroyWorldContext(World);World->DestroyWorld(false);return !HasAnyErrors();

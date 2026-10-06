@@ -1,6 +1,7 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "Misc/AutomationTest.h"
 #include "WarFrontendPresentation.h"
+#include "WarCityDefinition.h"
 #include "Materials/Material.h"
 #include "Engine/Texture2D.h"
 
@@ -50,17 +51,19 @@ bool FWarFrontendPresentationTest::RunTest(const FString& Parameters)
         FWarFrontendCity City; City.ZoneId = Zone;
         FWarFrontendShot Shot; Shot.Eye = FVector(1000, 0, 200); Shot.EndEye = FVector(1000, 50, 200);
         City.Shots = {Shot, Shot};
-        FWarFrontendPlacement Placement;
-        Placement.Mesh = TSoftObjectPtr<UStaticMesh>(FSoftObjectPath(TEXT("/Game/Test/Authored.Authored")));
-        Placement.Instances.Add(FTransform::Identity); City.Placements.Add(Placement);
+        City.CityDefinition = NewObject<UWarCityDefinition>();
+        City.CityDefinition->ZoneId = Zone;
+        City.CityDefinition->Revision = TEXT("reviewed-city");
+        City.CityDefinition->SceneryLevels.Add(TSoftObjectPtr<UWorld>(FSoftObjectPath(TEXT("/Game/Test/City.City"))));
         Definition->Cities.Add(City);
     }
     TestTrue(TEXT("Complete authored presentation structure is accepted"), Definition->Validate(Error));
     Definition->Cities[1].Shots[0].Target = Definition->Cities[1].Shots[0].Eye;
     TestFalse(TEXT("Degenerate camera is rejected"), Definition->Validate(Error));
     Definition->Cities[1].Shots[0].Target = FVector::ZeroVector;
-    Definition->Cities[1].Placements[0].Mesh = TSoftObjectPtr<UStaticMesh>(FSoftObjectPath(TEXT("/Engine/BasicShapes/Cube.Cube")));
-    TestFalse(TEXT("Primitive city substitutes are rejected"), Definition->Validate(Error));
+    const auto DuplicateLevel = Definition->Cities[1].CityDefinition->SceneryLevels[0];
+    Definition->Cities[1].CityDefinition->SceneryLevels.Add(DuplicateLevel);
+    TestFalse(TEXT("Duplicate shared city attachments are rejected"), Definition->Validate(Error));
 
     auto* Presentation = NewObject<UWarFrontendPresentation>();
     Presentation->SelectCharacter(TEXT("empire"), TEXT("battle_prelate"), TEXT("m"));

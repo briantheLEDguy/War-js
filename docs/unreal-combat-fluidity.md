@@ -48,6 +48,84 @@ hit-stop. `CriticalHit` feedback accepts explicitly identified critical outcomes
 without modifying their amounts; this pass does not invent a critical-damage
 mechanic for a runtime that does not currently have one.
 
+## Floating damage and healing
+
+`WarCombatFeedback::Emit` forwards the authoritative recipient only to the effect
+source's controller. `WarPlayerControllerCombatFeedback` passes that identity,
+actor and head position in the existing sequenced, unreliable owner RPC.
+Only confirmed positive health damage or effective healing produces a number;
+overheal, interrupts, mitigation and another player's outgoing effects do not.
+Self-healing produces one number. The existing combat log, sound and camera
+feedback remain available. The owner notice budget is 128 events per second;
+over-budget or lost cosmetic packets never affect gameplay or build a queue.
+
+`WarFloatingCombatText` owns the client-only animation and bounded storage.
+An isolated effect lasts one second. Each additional recent effect on the same
+recipient (within 350 ms) increases scroll speed, capped at five times normal;
+existing numbers accelerate too. Three short horizontal lanes separate procs,
+with earlier text pushed upward when a lane is reused. The oldest numbers are
+evicted at six per recipient or 32 overall. Effects on other targets do not
+accelerate an isolated number. Each event retains its actual amount.
+
+`WarCombatHud` projects each recipient's body-mesh head bounds, independent of
+the selected target. Normal damage is pale gold, critical feedback orange and
+healing green with a plus sign. Numbers rise 64 UI pixels and fade over the final
+30% of the path. Text width is fitted to 56 pixels; the complete number and shadow
+must fit a 160 x 112 pixel region above the head. These dimensions use the existing
+HUD scale. Offscreen/behind-camera numbers are never pinned to screen edges.
+Live recipients obey line of sight. An unmapped or destroyed actor briefly uses
+its supplied/last known position. Weak references avoid retaining actors, and
+controller ticking expires entries even while UI is hidden.
+
+Native `AegisWar.Foundation.FloatingCombatText` tests cover isolated lifetime,
+twenty procs within one second, simultaneous bursts, independent recipients,
+bounded motion/count, quiet-period reset, source-only player/NPC routing,
+self-healing, moving targets and despawn cleanup. Run it through
+`npm run unreal:test-native` after an Editor build. Interactive visual/feel review
+and actual multiplayer transport remain separate verification steps.
+
+Verified on Windows on 2026-09-30: Editor compilation and all 74 native tests
+passed (`artifacts/unreal/editor/test-1790774554074-5656/index.json`), including
+the floating-number test. The shared suite passed 722 tests and Unreal tooling
+passed 157 tests; all three typechecks, world/model validation and the migration
+audit completed successfully. The audit retains its four release blockers.
+
+## Default overhead health bars
+
+Combat overlays can be customized in [Edit UI](unreal-combat-ui.md), including
+independent friendly/enemy number motion, health bars, reticles and target panels.
+Defaults below remain the initial settings; number streams share recipient
+lanes and count limits even when their individual styles differ.
+
+`WarOverheadHealth` reads replicated health/max-health attributes for players and
+siege characters, or replicated health plus catalog max-health for `AWarEnemy`.
+`WarOverheadHealthHud` renders an 84 x 10 UI-pixel bar above each eligible head,
+scaled with the HUD, using the existing blue ally/red enemy colors, a dark border
+and an empty-health background. Full-health and unselected characters show bars.
+The fill follows current health directly each frame, including other characters'
+damage, healing and maximum-health changes; it never subtracts floating-number
+events or waits for a local attack. Floating numbers sit 12 pixels higher to keep
+their bounded stream clear of the bar.
+
+Eligibility reuses combat targeting: living characters with ready visuals, in the
+same zone and within 50 metres. The local player's existing vitals remain in the
+HUD. Dead, hidden, obstructed, offscreen or partly clipped bars do not render;
+modal/GM/interface-edit screens suppress them. Noncombat city service NPCs have
+no combat health and do not receive invented health bars. Rendering tests sight
+only after range/zone and projection checks. No new health replication is needed.
+
+`OverheadHealth` tests cover screen bounds, HUD scaling and clearance from damage
+numbers. `TargetSelection` additionally checks default allied/enemy bars, immediate
+health/heal/max-health updates, actual damage to an authored NPC, and rejection of
+dead, hidden, out-of-range, other-zone and unloaded characters.
+
+Verified on Windows on 2026-09-30: Editor build and all 75 native tests passed
+(`artifacts/unreal/editor/test-1790778973035-20284/index.json`). The NPC check uses
+the exact installed mesh/material/collision binding and applies real damage.
+All 722 shared tests, 157 Unreal-tooling tests, three typechecks, world/model
+validation and the migration audit also passed. Interactive visual and network
+acceptance remain outstanding; the audit retains its four release blockers.
+
 ## Staging and verification
 
 Use `npm run unreal:stage` for a fully reconciled content export. When unrelated

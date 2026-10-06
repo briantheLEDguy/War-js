@@ -1,13 +1,17 @@
 import { createServer, type IncomingMessage } from 'node:http';
 import { createSocket } from 'node:dgram';
 import { spawn, type ChildProcess } from 'node:child_process';
-import { createHash, randomBytes } from 'node:crypto';
+import { randomBytes } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync, openSync, closeSync, unlinkSync } from 'node:fs';
 import path from 'node:path';
 import type { AddressInfo } from 'node:net';
 import { fileURLToPath } from 'node:url';
 import { ScenarioCoordinator, ScenarioError, sameSecret } from './coordinator';
-import type { ScenarioJournal, ScenarioMatch } from '../../shared/scenarios/types';
+import { scenarioCatalog, type ScenarioJournal, type ScenarioMatch } from '../../shared/scenarios/types';
+import { verifySharedCities, verifyCityPackages, verifyFullCapitalSiege } from './city-content';
+import { hasScenarioCandidateMarker, requireSameScenarioCandidate, requireScenarioCandidateJournal, requireScenarioCandidateStorage,
+  scenarioCandidateProof, scenarioCandidateProofDirectory, scenarioProofCanonical,
+  type ScenarioCandidateProofOptions } from './candidate-proof';
 
 export function atomicJson(file: string, value: unknown, replace = renameSync) {
   mkdirSync(path.dirname(file), { recursive: true });
@@ -58,21 +62,22 @@ async function freePort() {
   return new Promise<number>((resolve, reject) => { socket.once('error', reject); socket.bind(0, '127.0.0.1', () => { const port = socket.address().port; socket.close(() => resolve(port)); }); });
 }
 export function verifyScenery(repository = root) {
+  const city = verifySharedCities(repository).find(row => row.id === 'aegis_capital')!;
   const receipt = JSON.parse(readFileSync(path.join(repository, 'artifacts/unreal/scenario-queues/capital-scenery.json'), 'utf8'));
-  const content = path.join(repository, 'unreal/AegisWar/Content');
-  const expected = { ...receipt.sourceHashes, ...receipt.layerHashes, [receipt.map]: receipt.mapSha256 } as Record<string, string>;
-  if (!receipt.layerHashes || receipt.layers.some((name: string) => !receipt.layerHashes[name])) throw new Error('Scenario scenery layer verification is missing.');
-  for (const [name, digest] of Object.entries(expected)) {
-    if (!name.startsWith('/Game/')) throw new Error('Invalid scenery source');
-    const file = path.resolve(content, `${name.slice(6)}.umap`);
-    if (!file.startsWith(content + path.sep) || createHash('sha256').update(readFileSync(file)).digest('hex') !== digest)
-      throw new Error('Scenario scenery is stale. Refresh it from the current capital before queuing.');
-  }
+  if (receipt.version !== 2 || receipt.cityDefinition !== city.definition || receipt.revision !== city.revision
+      || JSON.stringify(receipt.layers) !== JSON.stringify(city.sceneryLevels)
+      || receipt.map !== '/Game/Capitals/Siege/AegisCapital_Siege')
+    throw new Error('Scenario scenery is stale. Bind it to the current shared capital before queuing.');
+  verifyCityPackages(repository, { [receipt.map]: receipt.mapSha256 });
   if (!receipt.navigationVerified || !receipt.visualVerified) throw new Error('Scenario scenery still requires navigation and visual verification.');
   return receipt.revision as string;
 }
 
-export interface HostOptions { directory: string; executable: string; project: string; port: number; bind: string; advertise: string; allowLan: boolean }
+export interface HostOptions {
+  directory: string; executable: string; project: string; port: number; bind: string; advertise: string; allowLan: boolean;
+  /** Programmatic, isolated loopback fixture only; the ordinary CLI has no admission override. */
+  candidateProof?: ScenarioCandidateProofOptions;
+}
 function lockJournal(directory: string) {
   mkdirSync(directory, { recursive: true });
   const file = path.join(directory, 'host.lock');
@@ -96,18 +101,42 @@ function lockJournal(directory: string) {
 }
 export async function startScenarioHost(options: HostOptions) {
   if (!options.allowLan && !loopback(options.bind)) throw new Error('LAN binding requires explicit --allow-lan.');
+  const proof = options.candidateProof ? scenarioCandidateProof(options.candidateProof) : undefined;
+  if (proof && (options.allowLan || options.bind !== '127.0.0.1' || options.advertise !== '127.0.0.1'
+    || path.resolve(options.directory) !== scenarioCandidateProofDirectory(options.candidateProof!)
+    || path.resolve(options.project) !== path.resolve(options.candidateProof!.repositoryRoot, 'unreal/AegisWar/AegisWar.uproject')))
+    throw new Error('Candidate queue proofs require their isolated scenario-menu directory, project and loopback authority.');
+  if (proof) requireScenarioCandidateStorage(options.candidateProof!, options.directory);
+  if (!proof && hasScenarioCandidateMarker(options.directory))
+    throw new Error('A candidate proof journal cannot become an ordinary scenario authority.');
   const unlock = lockJournal(options.directory);
   try {
   mkdirSync(options.directory, { recursive: true });
+  const proofPath = path.join(options.directory, 'candidate-proof.json');
+  if (proof) {
+    if (existsSync(proofPath)) {
+      if (scenarioProofCanonical(JSON.parse(readFileSync(proofPath, 'utf8'))) !== scenarioProofCanonical(proof))
+        throw new Error('The saved candidate queue proof identity changed. Preserve its recovery directory.');
+    } else {
+      if (existsSync(path.join(options.directory, 'journal.json')) || existsSync(path.join(options.directory, 'control-key')))
+        throw new Error('A fresh candidate queue proof cannot adopt an existing authority journal.');
+      atomicJson(proofPath, proof);
+    }
+  }
   const keyFile = path.join(options.directory, 'control-key');
   const key = existsSync(keyFile) ? readFileSync(keyFile, 'utf8') : randomBytes(32).toString('hex');
   if (!existsSync(keyFile)) writeFileSync(keyFile, key, { mode: 0o600 });
   const journal = path.join(options.directory, 'journal.json');
   let storageFailed = false;
+  let cityRevision = '';
+  try { cityRevision = proof?.cityRevision ?? verifySharedCities(root).find(city => city.id === 'aegis_capital')!.revision; }
+  catch { /* Keep recovery/connection available; allocation reports missing or stale content. */ }
+  const restored = existsSync(journal) ? JSON.parse(readFileSync(journal, 'utf8')) as ScenarioJournal : undefined;
+  if (proof) requireScenarioCandidateJournal(restored, proof);
   const coordinator = new ScenarioCoordinator(s => {
     try { atomicJson(journal, s); storageFailed = false; }
     catch (error) { storageFailed = true; throw error; }
-  }, existsSync(journal) ? JSON.parse(readFileSync(journal, 'utf8')) as ScenarioJournal : undefined);
+  }, restored, () => Date.now(), proof ? [proof.definition] : scenarioCatalog.map(row => ({ ...row, contentRevision: cityRevision })));
   const processes = new Map<string, ChildProcess>(), allocating = new Set<string>();
   const url = `http://${options.advertise}:${options.port}`;
   let stopped = false;
@@ -115,15 +144,25 @@ export async function startScenarioHost(options: HostOptions) {
   async function allocate(match: ScenarioMatch) {
     allocating.add(match.id);
     try {
-      const contentRevision = verifyScenery();
-      if (contentRevision !== coordinator.definition(match.scenario).contentRevision) throw new Error('Scenario catalog and installed city revision differ. Refresh the catalog and scenery together.');
+      const definition = coordinator.matchDefinition(match);
+      if (proof) {
+        requireSameScenarioCandidate(options.candidateProof!, proof);
+        if (scenarioProofCanonical(definition) !== scenarioProofCanonical(proof.definition))
+          throw new Error('Candidate allocation must retain its exact immutable lower_city definition.');
+      }
+      const contentRevision = proof?.cityRevision ?? (definition.rulesVersion === 2 ? verifyFullCapitalSiege(root) : verifyScenery());
+      if (contentRevision !== definition.contentRevision) throw new Error('Scenario catalog and installed city revision differ. Refresh the catalog and scenery together.');
       const port = await freePort(), directory = path.join(options.directory, 'instances', match.id);
       mkdirSync(directory, { recursive: true });
       const config = path.join(directory, 'instance.json'), log = path.join(directory, 'server.log');
       atomicJson(config, { url: `http://127.0.0.1:${options.port}`, match: match.id, key: match.serverKey,
-        contentRevision, members: match.members.map(id => ({ id, realm: coordinator.player(id).character.realm })), allowLan: options.allowLan });
-      const child = spawn(options.executable, [options.project, coordinator.definition(match.scenario).map,
+        contentRevision, rulesVersion: definition.rulesVersion ?? 1, capacity: definition.capacity,
+        battlefield: definition.battlefield ?? 'LowerCity',
+        members: match.members.map(id => ({ id, realm: coordinator.player(id).character.realm })), allowLan: options.allowLan,
+        ...(proof ? { candidateProof: proof } : {}) });
+      const child = spawn(options.executable, [options.project, definition.map,
         '-server', '-nullrhi', '-unattended', '-nop4', '-nosplash', '-WarDevelopmentNetworking', '-WarSiegePlaytest',
+        ...(proof ? ['-WarScenarioCandidateProof'] : []),
         `-WarScenarioInstance=${config}`, `-port=${port}`, `-MULTIHOME=${options.bind}`, `-abslog=${log}`, '-forcelogflush'], { windowsHide: true, stdio: 'ignore' });
       processes.set(match.id, child);
       child.on('error', () => { if (coordinator.state.matches[match.id]?.phase === 'running') record(() => coordinator.finish(match.id, 'Scenario process failed. Your campaign character is safe.')); });
@@ -134,6 +173,7 @@ export async function startScenarioHost(options: HostOptions) {
         const text = existsSync(log) ? readFileSync(log, 'utf8') : '';
         if (text.includes('WAR_SIEGE_CONTENT_BLOCKED')) throw new Error('Scenario map or models failed validation.');
         if (text.includes('WAR_SIEGE_CONTENT_READY') && text.includes('IpNetDriver listening on port')) {
+          if (proof) requireSameScenarioCandidate(options.candidateProof!, proof);
           coordinator.allocated(match.id, `${options.advertise}:${port}`); return;
         }
         await new Promise(resolve => setTimeout(resolve, 500));
@@ -175,7 +215,10 @@ export async function startScenarioHost(options: HostOptions) {
         if (!loopback(ip)) throw new ScenarioError(403, 'Local instance required.');
         if (request.method !== 'POST') throw new ScenarioError(405, 'POST required.');
         const data = await body(request), match = coordinator.verifyServer(data.match, token(request));
-        if (route === '/instance/consume') result = coordinator.consume(data.ticket, match.id, token(request));
+        if (route === '/instance/consume') {
+          if (proof) requireSameScenarioCandidate(options.candidateProof!, proof);
+          result = coordinator.consume(data.ticket, match.id, token(request));
+        }
         else if (route === '/instance/disconnect') { coordinator.disconnected(data.id, match.id, token(request)); result = {}; }
         else if (route === '/instance/finish') { coordinator.finish(match.id); result = {}; }
         else if (route === '/instance/roster') result = { phase: match.phase, members: match.members.map(id => ({ id, realm: coordinator.player(id).character.realm, phase: coordinator.player(id).phase })) };
@@ -208,11 +251,22 @@ export async function startScenarioHost(options: HostOptions) {
     }
     } catch { storageFailed = true; }
   }, 1000);
-  return { server, coordinator, close: async () => {
+  return { server, coordinator, candidateProof: proof, candidateProofPath: proof ? proofPath : undefined, close: async () => {
     stopped = true; clearInterval(timer);
-    for (const [id, child] of processes) { child.kill(); record(() => coordinator.finish(id, 'Scenario host stopped. Your character is recoverable.')); }
-    await new Promise<void>(resolve => server.close(() => resolve()));
-    try { if (storageFailed) atomicJson(journal, coordinator.state); } finally { unlock(); }
+    const exits: Promise<void>[] = [];
+    for (const [id, child] of processes) {
+      if (proof && child.exitCode === null && child.signalCode === null) exits.push(new Promise<void>((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error('Owned candidate instance did not stop; keep its proof unaccepted.')), 15_000);
+        child.once('exit', () => { clearTimeout(timer); resolve(); });
+        child.once('error', error => { clearTimeout(timer); reject(error); });
+      }));
+      child.kill(); record(() => coordinator.finish(id, 'Scenario host stopped. Your character is recoverable.'));
+    }
+    try {
+      await new Promise<void>(resolve => server.close(() => resolve()));
+      if (storageFailed) atomicJson(journal, coordinator.state);
+      await Promise.all(exits);
+    } finally { unlock(); }
   } };
   } catch (error) { unlock(); throw error; }
 }

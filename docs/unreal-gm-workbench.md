@@ -1,5 +1,9 @@
 # Native capital GM workbench
 
+For the persistent muted-color report after GM interactions, see
+[GM rendering diagnostics](unreal-gm-rendering.md). The existing City Builder
+throttling proof does not establish the cause or resolution of that report.
+
 **City Builder > Remote world sync** adds developer sign-in, a backed-up/undoable
 remote pull, and revision-checked owner publication. See
 [connection setup and recovery](unreal-world-sync.md). These are development

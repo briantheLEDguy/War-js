@@ -6,6 +6,8 @@
 #include "WarGameMode.h"
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
+#include "WarCharacter.h"
+#include "WarSiegeEncounter.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
 #include "Engine/Brush.h"
@@ -76,6 +78,27 @@ bool FWarZonePortalTest::RunTest(const FString& Parameters)
     Portal->SetActorScale3D(FVector(2));
     Player->SetActorLocation(FVector(1799,0,0));
     TestTrue(TEXT("Interaction uses actual scaled trigger range"), Portal->IsWithinEntryRange(Player));
+    auto* Capital = World->SpawnActor<AWarZoneAnchor>(); Capital->ZoneId = TEXT("aegis_capital"); Capital->HalfSize = 5000;
+    auto* Campaign = World->SpawnActor<AWarSiegeEncounter>(); Campaign->bCampaign = true; Campaign->ActivationId = TEXT("portal-scope"); Campaign->Siege.Phase = EWarSiegePhase::Active;
+    auto* Scenario = World->SpawnActor<AWarSiegeEncounter>();
+    auto* Character = World->SpawnActor<AWarCharacter>(); auto* State = World->SpawnActor<AWarPlayerState>();
+    Character->SetPlayerState(State); State->SetDevelopmentRealm(EWarRealm::Aegis); State->SetSiegeMembership(Campaign);
+    Character->SetActorLocation(FVector(200000,0,0)); State->SetCurrentZoneTrusted(TEXT("dawnline_expanse"));
+    const auto BlocksDeparture = &AWarZonePortal::BlocksSiegeDeparture;
+    TestFalse(TEXT("Remote reserved seat can follow intermediate approach portals"), BlocksDeparture(Character, TEXT("sunmeadow_march")));
+    TestFalse(TEXT("Remote reserved seat can enter the capital through its validated portal"), BlocksDeparture(Character, TEXT("aegis_capital")));
+    TestFalse(TEXT("Remote character never receives capital siege protection"), Campaign->IsProtected(Character));
+    TestFalse(TEXT("Remote death retains ordinary campaign respawn handling"), Campaign->HandlesDeath(Character));
+    State->SetCurrentZoneTrusted(TEXT("aegis_capital"));
+    TestFalse(TEXT("A zone label alone cannot physically admit a remote seat"), BlocksDeparture(Character, TEXT("dawnline_expanse")));
+    Character->SetActorLocation(FVector(1000,0,0));
+    TestTrue(TEXT("Physically admitted capital participant must leave before departing"), BlocksDeparture(Character, TEXT("dawnline_expanse")));
+    TestFalse(TEXT("A capital destination remains available to its approved participant"), BlocksDeparture(Character, TEXT("aegis_capital")));
+    State->SetSiegeMembership(Scenario); Character->SetActorLocation(FVector(200000,0,0)); State->SetCurrentZoneTrusted(TEXT("dawnline_expanse"));
+    TestTrue(TEXT("Scenario membership still forbids leaving the isolated siege"), BlocksDeparture(Character, TEXT("sunmeadow_march")));
+    State->SetSiegeMembership(nullptr);
+    TestFalse(TEXT("Unrelated world players retain ordinary travel"), BlocksDeparture(Character, TEXT("sunmeadow_march")));
+    TestFalse(TEXT("Missing character has no siege membership"), BlocksDeparture(nullptr, TEXT("sunmeadow_march")));
     World->DestroyWorld(false);
     TestTrue(TEXT("Zone bounds include the authored boundary at any floor"), AWarZoneAnchor::ContainsPoint(FVector(200000,0,0),60000,FVector(260000,-60000,-5000)));
     TestFalse(TEXT("Neighbouring zones do not leak into the local map"), AWarZoneAnchor::ContainsPoint(FVector(200000,0,0),60000,FVector(260001,0,0)));

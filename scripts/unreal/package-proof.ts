@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { verifySharedCities } from '../../server/scenarios/city-content';
 import { officialCapitalMap } from './capital-map';
 import { defaultEngineRoot, inspectToolchain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
@@ -23,6 +24,7 @@ if (args.has('--include-kit-pilot')) {
   maps.push('/Game/Capitals/kit_pilot/AegisCapital_Workbench');
 }
 if (args.has('--include-crownward')) {
+  verifySharedCities(repoRoot);
   if (!existsSync(path.join(repoRoot, 'artifacts/unreal/licensed-kits/capital-kit-build.json')))
     throw new Error('Build the integrated kit capital before packaging it.');
   maps.push(officialCapitalMap());

@@ -25,6 +25,18 @@ namespace
         return FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("FrontendProof"),
             FGuid::Parse(Run, Guid) ? Guid.ToString(EGuidFormats::Digits) : TEXT("manual"));
     }
+    bool CityHasDetail(UTextureRenderTarget2D* Target)
+    {
+        TArray<FColor> Pixels;
+        if (!Target || !Target->GameThread_GetRenderTargetResource()->ReadPixels(Pixels) || Pixels.IsEmpty()) return false;
+        TSet<uint32> Colors;
+        for (const FColor& Pixel : Pixels)
+            Colors.Add((uint32(Pixel.R >> 4) << 8) | (uint32(Pixel.G >> 4) << 4) | (Pixel.B >> 4));
+        // A loaded render target can still be blank. This catches that regression;
+        // screenshots still require inspection for actual models and framing.
+        return Colors.Num() >= 16;
+    }
+
 }
 bool UWarFrontendProof::ShouldCreateSubsystem(UObject* Outer) const
 {
@@ -101,7 +113,7 @@ void UWarFrontendProof::Tick(float Delta)
         if (Presentation->HasCharacter()) { Finish(false, TEXT("Initial login incorrectly displays a character")); return; }
         Next = Now + 5; ++Step; return;
     }
-    if (Step == 1) { Screenshot(TEXT("login.png")); Next = Now + 1; ++Step; return; }
+    if (Step == 1) { if (!CityHasDetail(Presentation->GetCityTarget(0))) { Finish(false, TEXT("Bastion city capture is empty")); return; } Screenshot(TEXT("login.png")); Next = Now + 1; ++Step; return; }
     if (Step == 2)
     {
         Presentation->SelectCharacter(TEXT("missing"), TEXT("missing"), TEXT("m"));

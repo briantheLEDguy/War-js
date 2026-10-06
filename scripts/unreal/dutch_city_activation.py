@@ -13,7 +13,7 @@ def campaign_candidate(n, city):
     if receipt_path.exists():
         receipt=json.loads(receipt_path.read_text())
         for p,h in receipt['packageHashes'].items():
-            if n.sha(n.package_file(p))!=h: raise RuntimeError('Changed campaign candidate: '+p)
+            if n.sha(n.package_file(p, '.uasset' if p.endswith('/CityCandidate') else '.umap'))!=h: raise RuntimeError('Changed campaign candidate: '+p)
         return receipt
     build=json.loads((directory/'build.json').read_text())
     manifest=json.loads((directory/build['partitionManifest']).read_text())
@@ -24,15 +24,23 @@ def campaign_candidate(n, city):
         previous=n.OUT/capital.get('dutchRevision','')/'campaign.json'
         if not previous.exists(): raise RuntimeError('Capital routing changed after survey')
         prior=json.loads(previous.read_text())
-        if not prior.get('activated') or prior['manifest']!=manifest:
-            raise RuntimeError('Active city differs from its activation receipt')
-        for package,expected in prior['packageHashes'].items():
-            if n.sha(n.package_file(package))!=expected: raise RuntimeError('Preserve edited active city: '+package)
-        prior_city=json.loads((previous.parent/'city.json').read_text())
-        for package,expected in prior_city['packageHashes'].items():
-            if n.sha(n.package_file(package))!=expected: raise RuntimeError('Preserve edited active city layer: '+package)
-        for package,expected in prior_city['visualHashes'].items():
-            if n.sha(n.package_file(package,'.uasset'))!=expected: raise RuntimeError('Preserve edited active city asset: '+package)
+        if not prior.get('activated'):
+            raise RuntimeError('Active city lacks its activation receipt')
+        if capital.get('cityDefinition'):
+            # Migration changes package ownership while retaining historical receipts.
+            # The current shared contract verifies the live shell, levels and dependencies.
+            from shared_city_sources import source_plan
+            source_plan(n.ROOT)
+        else:
+            if prior['manifest'] != manifest:
+                raise RuntimeError('Active city differs from its activation receipt')
+            for package,expected in prior['packageHashes'].items():
+                if n.sha(n.package_file(package))!=expected: raise RuntimeError('Preserve edited active city: '+package)
+            prior_city=json.loads((previous.parent/'city.json').read_text())
+            for package,expected in prior_city['packageHashes'].items():
+                if n.sha(n.package_file(package))!=expected: raise RuntimeError('Preserve edited active city layer: '+package)
+            for package,expected in prior_city['visualHashes'].items():
+                if n.sha(n.package_file(package,'.uasset'))!=expected: raise RuntimeError('Preserve edited active city asset: '+package)
         draft=n.ROOT/'unreal/AegisWar/Saved/WorldEdit'/('DutchBastion_'+capital['dutchRevision'])/'draft.json'
         if draft.exists():
             document=json.loads(draft.read_text());baseline=json.loads(document['baseline'])['objects']
@@ -47,6 +55,8 @@ def campaign_candidate(n, city):
         shutil.copy2(file,target)
     (backup/'source-hashes.json').write_text(json.dumps(sources,indent=2)+'\n')
     replacements=list(city['layers'].values())+[city['geometryLayer']]
+    staged_city=city.get('sharedCity')
+    if not staged_city: raise RuntimeError('Rebuild the candidate with shared city authoring before campaign review')
     routing=n.DEST+'/CampaignRouting_v3';target=n.DEST+'/Bastion_Campaign_v3'
     for package in (routing,target):
         if n.assets.does_asset_exist(package): raise RuntimeError('Unreceipted campaign package: '+package)
@@ -56,9 +66,13 @@ def campaign_candidate(n, city):
     before={a.get_name():snapshot(a) for a in actors}
     anchors=[a for a in actors if isinstance(a,unreal.WarZoneAnchor)]
     anchor=next(a for a in anchors if str(a.get_editor_property('zone_id'))=='aegis_capital')
-    if sorted(map(str,anchor.get_editor_property('content_levels')))!=sorted(capital['levels'].values()):
+    bound = list(map(str,anchor.get_editor_property('content_levels')))
+    definition = anchor.get_editor_property('city_definition')
+    if definition: bound += [p.get_path_name().split('.')[0] for p in definition.get_editor_property('scenery_levels')]
+    if sorted(bound)!=sorted(capital['levels'].values()):
         raise RuntimeError('Unexpected capital anchor bindings')
-    anchor.set_editor_property('content_levels',replacements)
+    anchor.set_editor_property('content_levels',staged_city['gameplayLevels'])
+    anchor.set_editor_property('city_definition',n.assets.load_asset(staged_city['definition']))
     if before!={a.get_name():snapshot(a) for a in actors}: raise RuntimeError('Unrelated routing actor state changed')
     if not n.levels.save_current_level(): raise RuntimeError('Cannot save routing candidate')
     if not n.assets.duplicate_asset(build['map'],target) or not n.levels.load_level(target):
@@ -97,6 +111,7 @@ def campaign_candidate(n, city):
     candidate=copy.deepcopy(manifest)
     revised=next(z for z in candidate['zones'] if z['id']=='aegis_capital')
     revised['levels']={**city['layers'],'architecture':city['geometryLayer']}
+    revised.update(cityDefinition=staged_city['definition'], cityRevision=staged_city['revision'])
     revised['actorCount']=sum(len(rows) for rows in n.baseline()['actors'].values())-sum(c['action'] in ('remove_owned_house','remove_owned_street') for c in city['changes'])+len(city['added'])+sum(len(a.get('furnishing',[])) for a in city['added'])
     revised['dutchRevision']=n.revision
     revised['acceptance'].update(visual='pending',traversal='pending',release='blocked')
@@ -107,6 +122,7 @@ def campaign_candidate(n, city):
     revised_build.update(map=target,layer=routing,capitalSha256After=candidate['mainSha256'],runtimeTraversalVerified=False,dutchRevision=n.revision)
     result=dict(map=target,layer=routing,sourceHashes=sources,packageHashes={p:n.sha(n.package_file(p)) for p in [target,routing,*replacements]},
                 manifest=candidate,build=revised_build,activated=False)
+    result['packageHashes'][staged_city['definition']]=n.sha(n.package_file(staged_city['definition'],'.uasset'))
     receipt_path.write_text(json.dumps(result,indent=2)+'\n')
     unreal.log('WAR_DUTCH_CAMPAIGN_CANDIDATE='+target)
     return result
@@ -194,4 +210,9 @@ def activate(n, city):
     (n.RUN/'campaign.json').write_text(json.dumps(candidate,indent=2)+'\n')
     from dutch_city_revision import export_revision
     export_revision()
+    # Publish scenery once for campaign, siege and frontend; never refresh independent copies.
+    # Synchronization invalidates siege review when the active city geometry changes.
+    import runpy
+    runpy.run_path(str(n.ROOT/'scripts/unreal/sync-shared-cities.py'), run_name='__main__')
+    runpy.run_path(str(n.ROOT/'scripts/unreal/build-frontend-presentation.py'), run_name='__main__')
     print('Activated Dutch Bastion campaign revision '+n.revision)

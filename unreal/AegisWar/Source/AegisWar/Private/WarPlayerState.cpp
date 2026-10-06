@@ -1,4 +1,6 @@
 #include "WarPlayerState.h"
+#include "WarCampaignMutation.h"
+#include "WarSiegeEncounter.h"
 #include "WarAbilityRuntime.h"
 #include "WarAttributeSet.h"
 #include "WarCharacter.h"
@@ -9,6 +11,7 @@
 #include "WarContentSubsystem.h"
 #include "Engine/GameInstance.h"
 #include "WarCraftingStation.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 AWarPlayerState::AWarPlayerState()
 {
@@ -22,6 +25,14 @@ AWarPlayerState::AWarPlayerState()
 
 UAbilitySystemComponent* AWarPlayerState::GetAbilitySystemComponent() const { return AbilitySystem; }
 
+void AWarPlayerState::PostInitializeComponents()
+{
+    Super::PostInitializeComponents();
+    if (!HasAuthority()) return;
+    AbilitySystem->OnActiveGameplayEffectAddedDelegateToSelf.AddUObject(this,&AWarPlayerState::CampaignEffectAdded);
+    AbilitySystem->OnAnyGameplayEffectRemovedDelegate().AddUObject(this,&AWarPlayerState::CampaignEffectRemoved);
+}
+
 void AWarPlayerState::SetCurrentZoneTrusted(FName Zone)
 {
     if (HasAuthority() && !Zone.IsNone()) { CurrentZone = Zone; ForceNetUpdate(); }
@@ -33,6 +44,7 @@ void AWarPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(AWarPlayerState, Realm);
     DOREPLIFETIME(AWarPlayerState, CurrentZone);
     DOREPLIFETIME(AWarPlayerState, bSiegeNormalized);
+    DOREPLIFETIME(AWarPlayerState, SiegeEncounter); DOREPLIFETIME(AWarPlayerState, SiegeUnit);
     DOREPLIFETIME(AWarPlayerState, bScenarioEarnedAbilities);
     DOREPLIFETIME_CONDITION(AWarPlayerState, Inventory, COND_OwnerOnly);
 }
@@ -45,6 +57,8 @@ bool AWarPlayerState::GrantRewards(const FGuid& Transaction, const TArray<FWarIn
 bool AWarPlayerState::GrantCharacterRewards(const FGuid& Transaction, const int32 Xp, const int32 Gold,
     const TArray<FWarInventoryItem>& Rewards, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
     if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || !Transaction.IsValid() || RewardReceipts.Contains(Transaction)
         || RewardReceipts.Num() >= 65536 || Inventory.Revision == MAX_int32)
@@ -64,11 +78,13 @@ bool AWarPlayerState::GrantCharacterRewards(const FGuid& Transaction, const int3
     RewardReceipts.Add(Transaction);
     if (bLeveled) ApplyProgressionVitals(true);
     ForceNetUpdate();
-    return true;
+    return Mutation.Commit(Error);
 }
 
 bool AWarPlayerState::SetGmLevelTrusted(const int32 Level, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     if (bScenarioTransferPending || bSiegeNormalized) { Error = TEXT("Leave or reset the siege before changing saved character progression."); return false; }
     Error.Reset();
     if (!HasAuthority() || Inventory.Revision == MAX_int32)
@@ -79,12 +95,14 @@ bool AWarPlayerState::SetGmLevelTrusted(const int32 Level, FString& Error)
     ++Inventory.Revision;
     ApplyProgressionVitals(true);
     ForceNetUpdate();
-    return true;
+    return Mutation.Commit(Error);
 }
 
 bool AWarPlayerState::ChangeEquipment(const int32 ExpectedRevision, const int32 BagSlot, const bool bEquip, FString& Error)
 {
-    if (bSiegeNormalized) { Error = TEXT("Saved equipment cannot change during a normalized siege."); return false; }
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
+    if (bScenarioTransferPending || bSiegeNormalized) { Error = TEXT("Saved equipment cannot change while loading or during a normalized siege."); return false; }
     Error.Reset();
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || Inventory.Revision == MAX_int32)
     {
@@ -114,14 +132,16 @@ bool AWarPlayerState::ChangeEquipment(const int32 ExpectedRevision, const int32 
     }
     ++Inventory.Revision;
     ForceNetUpdate();
-    return true;
+    return Mutation.Commit(Error);
 }
 
 bool AWarPlayerState::ExchangeItems(const FGuid& Transaction, const int32 ExpectedRevision,
     const TMap<int32, int32>& ConsumedSlots, const TArray<FWarInventoryItem>& Outputs, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
-    if (!HasAuthority() || ExpectedRevision != Inventory.Revision || Inventory.Revision == MAX_int32
+    if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || ExpectedRevision != Inventory.Revision || Inventory.Revision == MAX_int32
         || !Transaction.IsValid() || RewardReceipts.Contains(Transaction) || RewardReceipts.Num() >= 65536
         || ConsumedSlots.IsEmpty())
     {
@@ -152,7 +172,7 @@ bool AWarPlayerState::ExchangeItems(const FGuid& Transaction, const int32 Expect
     ++Inventory.Revision;
     RewardReceipts.Add(Transaction);
     ForceNetUpdate();
-    return true;
+    return Mutation.Commit(Error);
 }
 
 void AWarPlayerState::ServerChangeEquipment_Implementation(const int32 ExpectedRevision, const int32 BagSlot, const bool bEquip)
@@ -170,6 +190,8 @@ void AWarPlayerState::ClientInventoryResult_Implementation(const bool bAccepted,
 
 bool AWarPlayerState::UseConsumable(const int32 ExpectedRevision, const int32 BagSlot, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Item use is unavailable or inventory changed."); return false; }
@@ -184,7 +206,7 @@ bool AWarPlayerState::UseConsumable(const int32 ExpectedRevision, const int32 Ba
         FMath::Clamp(Attributes->GetHealth() + Health, 0.f, Attributes->GetMaxHealth()));
     AbilitySystem->SetNumericAttributeBase(UWarAttributeSet::GetManaAttribute(),
         FMath::Clamp(Attributes->GetMana() + Mana, 0.f, Attributes->GetMaxMana()));
-    return true;
+    return Mutation.Commit(Error);
 }
 
 void AWarPlayerState::ServerUseConsumable_Implementation(const int32 ExpectedRevision, const int32 BagSlot)
@@ -196,6 +218,8 @@ void AWarPlayerState::ServerUseConsumable_Implementation(const int32 ExpectedRev
 
 bool AWarPlayerState::SalvageItem(const int32 ExpectedRevision, const int32 BagSlot, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Salvaging is unavailable or inventory changed."); return false; }
@@ -228,7 +252,7 @@ bool AWarPlayerState::SalvageItem(const int32 ExpectedRevision, const int32 BagS
         Inventory.Professions.Add(Added); Updated = &Inventory.Professions.Last();
     }
     Updated->Xp = PreviousXp + 8;
-    return true;
+    return Mutation.Commit(Error);
 }
 
 void AWarPlayerState::ServerSalvageItem_Implementation(const int32 ExpectedRevision, const int32 BagSlot)
@@ -241,6 +265,8 @@ void AWarPlayerState::ServerSalvageItem_Implementation(const int32 ExpectedRevis
 bool AWarPlayerState::CraftRecipe(const FName RecipeId, const int32 ExpectedRevision,
     const AWarCraftingStation* Station, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
     if (!HasAuthority() || ExpectedRevision != Inventory.Revision || !CanPerformInventoryAction())
     { Error = TEXT("Crafting is unavailable or inventory changed."); return false; }
@@ -274,7 +300,7 @@ bool AWarPlayerState::CraftRecipe(const FName RecipeId, const int32 ExpectedRevi
         Updated = &Inventory.Professions.Last();
     }
     Updated->Xp = PreviousXp + Recipe.Xp;
-    return true;
+    return Mutation.Commit(Error);
 }
 
 void AWarPlayerState::ServerCraftRecipe_Implementation(const FName RecipeId, const int32 ExpectedRevision, AWarCraftingStation* Station)
@@ -296,6 +322,7 @@ void AWarPlayerState::SetDevelopmentRealm(const EWarRealm InRealm)
 void AWarPlayerState::InitializeForPawn(AWarCharacter* Avatar)
 {
     AbilitySystem->InitAbilityActorInfo(this, Avatar);
+    if (HasAuthority() && Avatar && bScenarioTransferPending) SetScenarioTransferPending(true);
     if (!HasAuthority() || !Avatar || !Avatar->IsVisualReady()) return;
     AbilitySystem->ApplyGameplayEffectToSelf(GetDefault<UWarInitialAttributesEffect>(), 1.f, AbilitySystem->MakeEffectContext());
     ApplyProgressionVitals(true);
@@ -360,7 +387,27 @@ void AWarPlayerState::RestoreScenarioInventory(const FWarInventorySnapshot& Snap
 void AWarPlayerState::SetScenarioTransferPending(bool Pending)
 {
     if (!HasAuthority()) return;
+    if (auto* Avatar = Cast<AWarCharacter>(GetPawn()))
+    {
+        auto* Movement = Avatar->GetCharacterMovement();
+        if (Pending)
+        {
+            if (TransferAvatar.Get() != Avatar)
+            { TransferAvatar=Avatar; TransferMovementMode=uint8(Movement->MovementMode); TransferCustomMode=Movement->CustomMovementMode; }
+            Movement->StopMovementImmediately(); Movement->DisableMovement();
+        }
+        else if (!Pending && TransferAvatar.Get() == Avatar)
+        { Movement->SetMovementMode(EMovementMode(TransferMovementMode),TransferCustomMode); TransferAvatar.Reset(); }
+    }
     bScenarioTransferPending=Pending;
     if (Pending) ClassAbilities->Interrupt();
     ClassAbilities->SetComponentTickEnabled(!Pending);
+}
+
+void AWarPlayerState::SetSiegeMembership(AWarSiegeEncounter* Encounter, EWarSiegeUnit Unit)
+{ if (!HasAuthority()) return; SiegeEncounter = Encounter; SiegeUnit = Unit; ForceNetUpdate(); }
+
+bool AWarPlayerState::UsesSiegeTargeting() const
+{
+    return bSiegeNormalized || (SiegeEncounter && (!SiegeEncounter->bCampaign || SiegeEncounter->IsCapitalOccupant(Cast<AWarCharacter>(GetPawn()))));
 }

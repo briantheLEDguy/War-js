@@ -1,5 +1,6 @@
 #include "WarZoneStreamingSubsystem.h"
 #include "WarZoneAnchor.h"
+#include "WarCityDefinition.h"
 #include "WarZonePortal.h"
 #include "WarCharacter.h"
 #include "WarEnemy.h"
@@ -7,6 +8,8 @@
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
 #include "WarGameMode.h"
+#include "WarSiegeEncounter.h"
+#include "WarCampaignSiegeSubsystem.h"
 #include "Engine/LevelStreaming.h"
 #include "Engine/Level.h"
 #include "Engine/Brush.h"
@@ -45,11 +48,15 @@ bool UWarZoneStreamingSubsystem::IsZoneReady(FName Zone, const APlayerController
     const auto Waiting = [OutReason](const FString& Reason) { if (OutReason) *OutReason = Reason; return false; };
     const auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone);
     if (!Anchor) return Waiting(TEXT("Destination anchor is missing."));
-    for (const FName Package : Anchor->ContentLevels)
+    FString CityError;
+    if (!Anchor->ValidateCity(CityError)) return Waiting(CityError);
+    for (const FName Package : Anchor->GetContentLevels())
     {
         const auto* Level = UGameplayStatics::GetStreamingLevel(GetWorld(), Package);
         if (!Level || !Level->IsLevelLoaded() || !Level->IsLevelVisible())
             return Waiting(FString::Printf(TEXT("Level is not visible: %s"), *Package.ToString()));
+        if (Anchor->CityDefinition && Anchor->CityDefinition->Packages().Contains(Package)
+            && !UWarCityDefinition::ValidateLevel(Level->GetLoadedLevel(), CityError)) return Waiting(CityError);
         // UE can expose a visible streamed level before its async physics bodies finish.
         // Admission must wait for blocking collision, including on a fast return to a zone.
         for (const AActor* Actor : Level->GetLoadedLevel()->Actors)
@@ -74,7 +81,7 @@ bool UWarZoneStreamingSubsystem::IsZoneReady(FName Zone, const APlayerController
     for (TActorIterator<AWarEnemy> It(GetWorld()); It; ++It)
         if (It->ZoneId == Zone && !It->IsContentReady())
             return Waiting(FString::Printf(TEXT("Enemy content is not ready: %s"), *It->GetName()));
-    if (!Anchor->ContentLevels.IsEmpty())
+    if (!Anchor->GetContentLevels().IsEmpty())
     {
         // Body creation can finish before Chaos publishes it to scene queries. Probe the
         // authored arrivals too, rather than declaring readiness from registration alone.
@@ -99,11 +106,12 @@ bool UWarZoneStreamingSubsystem::EnsureZone(FName Zone, FString& Error)
     const auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone);
     if (!Mode || !Mode->IsDevelopmentSession() || !Anchor)
     { Error = TEXT("Zone loading requires a known development destination."); return false; }
-    for (FName Package : Anchor->ContentLevels)
+    if (!Anchor->ValidateCity(Error)) return false;
+    for (FName Package : Anchor->GetContentLevels())
         if (!UGameplayStatics::GetStreamingLevel(GetWorld(), Package))
         { Error = TEXT("Destination content is unavailable. You remain in the current zone."); return false; }
     KeepUntil.Add(Zone, GetWorld()->GetTimeSeconds() + 5.0);
-    for (FName Package : Anchor->ContentLevels)
+    for (FName Package : Anchor->GetContentLevels())
     {
         auto* Level = UGameplayStatics::GetStreamingLevel(GetWorld(), Package);
         Level->SetShouldBeLoaded(true);
@@ -136,7 +144,7 @@ bool UWarZoneStreamingSubsystem::QueueGmZone(AWarPlayerController* Player, FName
 }
 
 bool UWarZoneStreamingSubsystem::QueuePortal(AWarZonePortal* Portal, AWarCharacter* Character,
-    FName Destination, FString& Error)
+    FName Destination, FString& Error, bool Evacuation)
 {
     auto* Player = Character ? Cast<APlayerController>(Character->GetController()) : nullptr;
     if (!Portal || !Player || !EnsureZone(Destination, Error)) return false;
@@ -146,7 +154,7 @@ bool UWarZoneStreamingSubsystem::QueuePortal(AWarZonePortal* Portal, AWarCharact
         Error = Existing->Portal.Get() == Portal ? TEXT("Loading destination. Move away to cancel.") : TEXT("Another portal is loading. Move away to cancel.");
         return false;
     }
-    Pending.Add({Portal, Character, Player, Destination, GetWorld()->GetTimeSeconds() + 30.0});
+    Pending.Add({Portal, Character, Player, Destination, GetWorld()->GetTimeSeconds() + 30.0, false, FVector::ZeroVector, Evacuation});
     Character->GetCharacterMovement()->StopMovementImmediately();
     if (Character->IsAutoRunning()) Character->ToggleAutoRun();
     Error = TEXT("Loading destination. Move away to cancel.");
@@ -159,6 +167,8 @@ void UWarZoneStreamingSubsystem::UpdateStreaming()
 {
     const double Now = GetWorld()->GetTimeSeconds();
     TSet<FName> WantedZones;
+    for (auto It = ZonePins.CreateIterator(); It; ++It)
+        if (!It.Key().IsValid()) It.RemoveCurrent(); else WantedZones.Add(It.Value());
     for (auto It = KeepUntil.CreateIterator(); It; ++It)
         if (It.Value() <= Now) It.RemoveCurrent(); else WantedZones.Add(It.Key());
     TMap<TWeakObjectPtr<APlayerController>, TSet<FName>> PlayerZones;
@@ -167,7 +177,8 @@ void UWarZoneStreamingSubsystem::UpdateStreaming()
         auto* Player = It->Get();
         if (!Player) continue;
         auto& Zones = PlayerZones.FindOrAdd(Player);
-        if (const auto* State = Player->GetPlayerState<AWarPlayerState>()) Zones.Add(State->GetCurrentZone());
+        if (const auto* State = Player->GetPlayerState<AWarPlayerState>())
+        { Zones.Add(State->GetCurrentZone()); if (const auto* Siege = State->GetSiegeEncounter(); Siege && Siege->bCampaign) Zones.Add(TEXT("aegis_capital")); }
         if (const APawn* Pawn = Player->GetPawn())
             if (const auto* Anchor = AWarZoneAnchor::FindAt(GetWorld(), Pawn->GetActorLocation())) Zones.Add(Anchor->ZoneId);
         for (const auto& Row : Pending) if (Row.Player.Get() == Player) Zones.Add(Row.Destination);
@@ -177,7 +188,7 @@ void UWarZoneStreamingSubsystem::UpdateStreaming()
     TSet<FName> ManagedPackages;
     for (TActorIterator<AWarZoneAnchor> It(GetWorld()); It; ++It)
     {
-        for (FName Package : It->ContentLevels)
+        for (FName Package : It->GetContentLevels())
         {
             ManagedPackages.Add(Package);
             if (WantedZones.Contains(It->ZoneId)) WantedPackages.Add(Package);
@@ -195,7 +206,7 @@ void UWarZoneStreamingSubsystem::UpdateStreaming()
         if (!Player || Player->IsLocalController()) continue;
         TSet<FName> Wanted;
         for (FName Zone : Entry.Value)
-            if (const auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone)) Wanted.Append(Anchor->ContentLevels);
+            if (const auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone)) Wanted.Append(Anchor->GetContentLevels());
         const auto* Previous = ClientPackages.Find(Player);
         for (FName Package : ManagedPackages)
             if (!Previous || Previous->Contains(Package) != Wanted.Contains(Package))
@@ -220,12 +231,16 @@ void UWarZoneStreamingSubsystem::Tick(float DeltaTime)
         auto* Portal = Row.Portal.Get(); auto* Character = Row.Character.Get(); auto* Player = Row.Player.Get();
         auto* GmPlayer = Row.bGm ? Cast<AWarPlayerController>(Player) : nullptr;
         const auto* State = Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr;
-        const bool bValidRequest = !(State && State->IsScenarioTransferPending())
+        const auto* Siege = AWarSiegeEncounter::For(Character);
+        const auto* Bridge = GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>();
+        const bool TrustedEvacuation = Row.bEvacuation && Siege && State && Siege->BlocksCapitalEntry(State) && Siege->CanEvacuate(State->GetRealm(), Row.Destination)
+            && Bridge && Bridge->HasEvacuationCheckpoint(Cast<AWarPlayerController>(Player));
+        const bool bValidRequest = (!Row.bEvacuation || TrustedEvacuation) && (!(State && State->IsScenarioTransferPending()) || TrustedEvacuation)
             && (Row.bGm ? GmPlayer && GmPlayer->CanUseGmTools() : Portal != nullptr);
         const FVector Source = Row.bGm ? Row.SourcePosition : Portal ? Portal->GetActorLocation() : FVector::ZeroVector;
         const double Radius = Row.bGm ? 250.0 : Portal ? Portal->Radius * Portal->GetActorScale3D().GetAbsMax() : 0.0;
         if (!bValidRequest || !Character || !Player || !CanContinue(Player->GetPawn() == Character,
-            !Character->IsDead(), Character->IsVisualReady(), FVector::Dist(Character->GetActorLocation(), Source),
+            !Character->IsDead(), Character->IsVisualReady(), TrustedEvacuation ? 0. : FVector::Dist(Character->GetActorLocation(), Source),
             Radius, GetWorld()->GetTimeSeconds(), Row.Deadline))
         {
             Pending.RemoveAt(Index);
@@ -249,7 +264,18 @@ void UWarZoneStreamingSubsystem::Tick(float DeltaTime)
             continue;
         }
         FString Error;
-        const bool bSuccess = Portal->TryTraverse(Character, Error);
+        const bool bSuccess = Portal->TryTraverse(Character, Error, TrustedEvacuation);
         if (auto* PC = Cast<AWarPlayerController>(Player)) PC->ClientZoneTravelStatus(bSuccess ? FString() : Error);
     }
 }
+
+void UWarZoneStreamingSubsystem::PinZone(AActor* Owner, FName Zone)
+{ if (Owner && Owner->HasAuthority() && !Zone.IsNone()) { ZonePins.Add(Owner, Zone); UpdateStreaming(); } }
+void UWarZoneStreamingSubsystem::PinZone(UWorldSubsystem* Owner, FName Zone)
+{
+    if (Owner && Owner->GetWorld()==GetWorld() && GetWorld()->GetNetMode()!=NM_Client
+        && !Zone.IsNone() && AWarZoneAnchor::FindById(GetWorld(),Zone))
+    { ZonePins.Add(Owner,Zone); UpdateStreaming(); }
+}
+void UWarZoneStreamingSubsystem::ReleaseZone(UObject* Owner)
+{ ZonePins.Remove(Owner); UpdateStreaming(); }

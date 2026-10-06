@@ -11,16 +11,21 @@ bool WarSiege::IsEscort(const FWarSiegeState& S) { return S.Stage == 0 && (S.Obj
 uint16 WarSiege::ClaimedObjectives(const FWarSiegeState& S)
 {
     if (S.Phase == EWarSiegePhase::Waiting) return 0;
+    if (S.RulesVersion >= 2) return uint16(S.MainClaims | ((S.OptionalClaims & 7u) << 8));
     // Milestones survive a defender victory and reset only when a new round starts.
     const int32 Count = FMath::Clamp(S.MilestoneSeconds.Num() + (S.Stage == 2 && S.bAttackersWon ? 1 : 0), 0, 8);
     return uint16(((1u << Count) - 1) | ((S.OptionalClaims & 7u) << 8));
 }
-bool WarSiege::Start(FWarSiegeState& S, int32 Capacity, EWarSiegeScenario Scenario)
+bool WarSiege::CenterUnlocked(const FWarSiegeState& S)
+{ return S.RulesVersion == 1 ? S.Objective >= 2 : (S.MainClaims & 0x30) == 0x30; }
+bool WarSiege::RequiresCrew(const FWarSiegeState& S)
+{ return S.Stage < 2 && (IsEscort(S) || (S.Objective == FinalObjective(S.Stage) && (S.Stage == 0 || S.RulesVersion == 1))); }
+bool WarSiege::Start(FWarSiegeState& S, int32 Capacity, EWarSiegeScenario Scenario, int32 Version)
 {
-    if (!ValidCapacity(Capacity) || (Scenario != EWarSiegeScenario::FullSiege && Scenario != EWarSiegeScenario::LowerCity)
+    if ((Version != 1 && Version != 2) || !ValidCapacity(Capacity) || (Scenario != EWarSiegeScenario::FullSiege && Scenario != EWarSiegeScenario::LowerCity)
         || (Scenario == EWarSiegeScenario::LowerCity && Capacity != 6)
         || S.Phase == EWarSiegePhase::Active || S.Phase == EWarSiegePhase::Transition) return false;
-    S = {}; S.Capacity = Capacity; S.Scenario = Scenario; S.Phase = EWarSiegePhase::Active; return true;
+    S = {}; S.RulesVersion = Version; S.Capacity = Capacity; S.Scenario = Scenario; S.Phase = EWarSiegePhase::Active; return true;
 }
 namespace
 {
@@ -54,8 +59,9 @@ void WarSiege::Tick(FWarSiegeState& S, const FWarSiegePresence& P, double Delta)
             continue;
         }
         const bool Activity = S.Objective == FinalObjective(S.Stage)
-            && (S.Stage == 2 ? P.bRecentCommanderDamage : P.Attackers > 0 && P.bCrewAlive);
-        if (P.Attackers > 0 && P.Defenders > 0) S.ContestedSeconds += Dt;
+            && (S.Stage == 2 ? P.bRecentCommanderDamage : P.Attackers > 0 && (!RequiresCrew(S) || P.bCrewAlive));
+        if ((P.Attackers > 0 && P.Defenders > 0)
+            || (S.Stage == 1 && S.RulesVersion >= 2 && ((P.LeftAttackers > 0 && P.LeftDefenders > 0) || (P.RightAttackers > 0 && P.RightDefenders > 0)))) S.ContestedSeconds += Dt;
         if (!S.bOptionalComplete)
         {
             Capture(S.OptionalProgress, S.OptionalAbsence, P.OptionalAttackers, P.OptionalDefenders, Dt, false);
@@ -64,11 +70,30 @@ void WarSiege::Tick(FWarSiegeState& S, const FWarSiegePresence& P, double Delta)
         }
         if (S.Stage < 2)
         {
-            const bool CrewRequired = IsEscort(S) || S.Objective == FinalObjective(S.Stage);
-            if (!CrewRequired || P.bCrewAlive) Capture(S.Progress, S.Absence, P.Attackers, P.Defenders, Dt, IsEscort(S));
+            if (S.Stage == 1 && S.RulesVersion >= 2)
+            {
+                const bool PreviouslyUnlocked = CenterUnlocked(S);
+                for (int32 Side = 0; Side < 2; ++Side)
+                {
+                    const uint8 Claim = 1 << (4 + Side);
+                    if (S.MainClaims & Claim) continue;
+                    float& Progress = Side == 0 ? S.LeftProgress : S.RightProgress;
+                    double& Absence = Side == 0 ? S.LeftAbsence : S.RightAbsence;
+                    Capture(Progress, Absence, Side == 0 ? P.LeftAttackers : P.RightAttackers,
+                        Side == 0 ? P.LeftDefenders : P.RightDefenders, Dt, false);
+                    if (Progress >= 1) { S.MainClaims |= Claim; S.MilestoneSeconds.Add(S.Elapsed); }
+                }
+                S.Objective = CenterUnlocked(S) ? 2 : ((S.MainClaims & 0x10) ? 1 : 0);
+                // Presence sampled while the plaza was locked cannot advance it in this tick.
+                if (!PreviouslyUnlocked && CenterUnlocked(S)) return;
+                if (!CenterUnlocked(S)) { S.Progress = 0; S.Absence = 0; }
+                else Capture(S.Progress, S.Absence, P.Attackers, P.Defenders, Dt, false);
+            }
+            else if (!RequiresCrew(S) || P.bCrewAlive) Capture(S.Progress, S.Absence, P.Attackers, P.Defenders, Dt, IsEscort(S));
             if (IsEscort(S) && !P.bEscortAtCheckpoint) S.Progress = FMath::Min(S.Progress, .99f);
             if (S.Progress >= 1)
             {
+                S.MainClaims |= 1 << (S.Stage == 0 ? S.Objective : 4 + S.Objective);
                 S.MilestoneSeconds.Add(S.Elapsed);
                 if (S.Objective == FinalObjective(S.Stage))
                 {
@@ -79,7 +104,7 @@ void WarSiege::Tick(FWarSiegeState& S, const FWarSiegePresence& P, double Delta)
                 return;
             }
         }
-        else if (P.bCommanderDead) { Finish(S, true); return; }
+        else if (P.bCommanderDead) { S.MainClaims |= 0x80; Finish(S, true); return; }
         S.Remaining -= Dt;
         if (S.bOvertime)
         {

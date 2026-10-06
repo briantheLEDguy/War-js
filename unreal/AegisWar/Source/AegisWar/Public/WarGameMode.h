@@ -14,6 +14,7 @@ class AEGISWAR_API AWarGameMode : public AGameModeBase
     GENERATED_BODY()
 public:
     AWarGameMode();
+    virtual void Logout(AController* Exiting) override;
     virtual void PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage) override;
     virtual void HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer) override;
     virtual APawn* SpawnDefaultPawnAtTransform_Implementation(AController* NewPlayer, const FTransform& SpawnTransform) override;

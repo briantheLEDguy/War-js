@@ -44,6 +44,6 @@ void WarCombatFeedback::Emit(AActor* Source, AActor* Target, FName Kind, float A
     auto* From = Cast<APawn>(Source); auto* To = Cast<APawn>(Target);
     auto* SourcePlayer = From ? Cast<AWarPlayerController>(From->GetController()) : nullptr;
     auto* TargetPlayer = To ? Cast<AWarPlayerController>(To->GetController()) : nullptr;
-    if (SourcePlayer) SourcePlayer->SendCombatNotice(Kind, Name(Target), Amount);
+    if (SourcePlayer) SourcePlayer->SendCombatNotice(Kind, Name(Target), Amount, Target);
     if (TargetPlayer && TargetPlayer != SourcePlayer) TargetPlayer->SendCombatNotice(Kind, Name(Source), Amount);
 }

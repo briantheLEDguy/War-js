@@ -1,4 +1,5 @@
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
 #include "WarAttributeSet.h"
@@ -18,13 +19,14 @@ AWarSiegeBotController::AWarSiegeBotController(const FObjectInitializer& ObjectI
 void AWarSiegeBotController::Tick(float Delta)
 {
     Super::Tick(Delta);
-    auto* Mode = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>();
+    auto* Mode = AWarSiegeEncounter::For(this);
+    DefaultNavigationFilterClass = WarSiegeNavigation::FilterFor(this);
     auto* BotPawn = Cast<AWarCharacter>(GetPawn()); auto* PS = GetPlayerState<AWarPlayerState>();
     if (!Mode || !Mode->Battlefield || !BotPawn || !PS || BotPawn->IsDead() || !BotPawn->IsVisualReady()) return;
     auto* GS = Mode->SiegeState();
     if (GS->Siege.Phase != EWarSiegePhase::Active || Unit == EWarSiegeUnit::Crew || Unit == EWarSiegeUnit::Commander)
     { if (Unit != EWarSiegeUnit::Crew) StopMovement(); return; }
-    FVector Task=Mode->TaskLocation();
+    FVector Task=Mode->TaskLocation(ObjectiveSide);
     const auto* Commander=Cast<AWarPlayerController>(Leader.Get());
     const auto* Human=Commander ? Cast<AWarCharacter>(Commander->GetPawn()) : nullptr;
     const bool HasLeader=Human && !Human->IsDead();
@@ -40,7 +42,7 @@ void AWarSiegeBotController::Tick(float Delta)
     for (TActorIterator<AWarCharacter> It(GetWorld()); It; ++It)
     {
         const auto* OtherPS = It->GetPlayerState<AWarPlayerState>();
-        if (!OtherPS || It->IsDead() || !It->IsVisualReady()) continue;
+        if (!OtherPS || !Mode->Owns(OtherPS) || It->IsDead() || !It->IsVisualReady()) continue;
         if (OtherPS->GetRealm() == PS->GetRealm() && Mode->IsParticipant(*It)
             && FVector::DistSquared(BotPawn->GetActorLocation(), It->GetActorLocation()) < FMath::Square(2000.f))
         {
@@ -144,9 +146,8 @@ void AWarSiegeBotController::Tick(float Delta)
         StopMovement(); StalledSeconds = 0;
         UE_LOG(LogTemp, Warning, TEXT("WAR_SIEGE_ROUTE_STALL bot=%s position=%s goal=%s"), *PS->GetPlayerName(),*BotPawn->GetActorLocation().ToString(),*Goal.ToString());
         FVector Detour;
-        const FVector Toward=(Goal-BotPawn->GetActorLocation()).GetSafeNormal2D();
         const float Sign=(FMath::FloorToInt(GetWorld()->GetTimeSeconds()/5)+GetUniqueID())%2 ? 1.f : -1.f;
-        if (WarSiegeNavigation::Approach(BotPawn,BotPawn->GetActorLocation(),FVector(-Toward.Y,Toward.X,0)*400*Sign,900,Detour)
+        if (WarSiegeNavigation::Detour(BotPawn,Goal,Sign,Detour)
             && MoveToLocation(Detour,50,false)!=EPathFollowingRequestResult::Failed)
         { LastMoveGoal=Detour;StalledSeconds=-3;return; }
     }

@@ -9,6 +9,7 @@
 #include "WarAnimationInstance.h"
 #include "WarGameMode.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarSiegeEquipment.h"
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
@@ -195,7 +196,10 @@ void AWarCharacter::ReactToHit(const AActor* Source, float HealthLost)
 }
 bool AWarCharacter::CanAbilityTarget(const AActor* Target, float Range, bool bRequireSight) const
 {
-    if (const auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Siege && (Siege->IsProtected(this) || Siege->IsProtected(Target))) return false;
+    if (const auto* State = GetPlayerState<AWarPlayerState>(); State && State->IsScenarioTransferPending()) return false;
+    if (!AWarSiegeEncounter::SharesCombatScope(this, Target)) return false;
+    if (const auto* TargetSiege = AWarSiegeEncounter::For(Target); TargetSiege && TargetSiege->IsProtected(Target)) return false;
+    if (const auto* Siege = AWarSiegeEncounter::For(this); Siege && (Siege->IsProtected(this) || Siege->IsProtected(Target))) return false;
     if (!bVisualReady || bDead || IsDevelopmentFlying() || !IsValid(Target) || Target == this || Target->GetWorld() != GetWorld() || Target->IsHidden()) return false;
     const auto* Self = GetPlayerState<AWarPlayerState>(); if (!Self || Self->GetRealm() == EWarRealm::None) return false;
     if (const auto* Enemy = Cast<AWarEnemy>(Target)) return Enemy->CanReceiveAbility(this, Range, bRequireSight);
@@ -396,6 +400,14 @@ void AWarCharacter::PossessedBy(AController* NewController)
 {
     Super::PossessedBy(NewController);
     InitializeAbilityActor();
+}
+
+void AWarCharacter::Restart()
+{
+    Super::Restart();
+    // Engine restart restores default movement after possession. Durable admission still owns the hold.
+    if (HasAuthority()) if (auto* State = GetPlayerState<AWarPlayerState>(); State && State->IsScenarioTransferPending())
+        State->SetScenarioTransferPending(true);
 }
 
 void AWarCharacter::OnRep_PlayerState()
@@ -604,8 +616,10 @@ void AWarCharacter::ServerRequestStrike_Implementation(AActor* Target)
 
 bool AWarCharacter::CanStrikeTarget(const AActor* Actor) const
 {
+    if (!AWarSiegeEncounter::SharesCombatScope(this, Actor)) return false;
     if (const auto* State=GetPlayerState<AWarPlayerState>(); State && State->IsScenarioTransferPending()) return false;
-    if (const auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Siege && (Siege->IsProtected(this) || Siege->IsProtected(Actor))) return false;
+    if (const auto* Siege = AWarSiegeEncounter::For(this); Siege && (Siege->IsProtected(this) || Siege->IsProtected(Actor))) return false;
+    if (const auto* TargetSiege = AWarSiegeEncounter::For(Actor); TargetSiege && TargetSiege->IsProtected(Actor)) return false;
     if (!HasAuthority() || !bVisualReady || bDead || !GetAbilitySystemComponent()) return false;
     if (const auto* Enemy = Cast<AWarEnemy>(Actor)) return Enemy->CanReceiveStrike(this);
     const auto* Target = Cast<AWarCharacter>(Actor);

@@ -1,4 +1,5 @@
 #include "WarSiegeLobbyWidget.h"
+#include "WarSiegeEncounter.h"
 #include "WarScenarioSession.h"
 #include "Engine/GameInstance.h"
 #include "WarSiegeBattlefield.h"
@@ -16,7 +17,7 @@ TSharedRef<SWidget> UWarSiegeLobbyWidget::RebuildWidget()
 {
     SetIsFocusable(true);
     TWeakObjectPtr<AWarPlayerController> PC = Cast<AWarPlayerController>(GetOwningPlayer());
-    auto State = [PC]() { return PC.IsValid() ? PC->GetWorld()->GetGameState<AWarSiegeGameState>() : nullptr; };
+    auto State = [PC]() { return PC.IsValid() ? AWarSiegeEncounter::Find(PC->GetWorld()) : nullptr; };
     auto Content = SNew(SVerticalBox);
     Content->AddSlot().AutoHeight().Padding(0, 0, 0, 18)
         [SNew(STextBlock).Font(FCoreStyle::GetDefaultFontStyle("Bold", 28)).Text(FText::FromString(TEXT("BREACH THE LOWER CITY")))];

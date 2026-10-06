@@ -1,9 +1,78 @@
 # Bastion of Aegis siege
 
+City scenery is shared with the current campaign and loading/menu views through
+`UWarCityDefinition`; the siege map contains only its gameplay overlay and navigation.
+See [shared-city migration and verification](unreal-shared-cities.md). Historical
+receipts below describe their original revisions and do not approve changed city content.
+
+## Reference replacement and version 2 rules
+
+The current implementation work is described in
+[the reference citadel guide](unreal-aegis-citadel.md). New `lower_city` allocations
+retain that public identifier, gathering/acceptance windows, reconnect reservations
+and character-return behavior, but select **Siege of Bastion of Aegis**, 18 seats
+per realm and the full siege. Allocation requires fresh full-siege evidence and
+fails recoverably while that evidence is unfinished. Historical 6v6 rounds retain
+their recorded version 1 definition.
+
+Version 2 captures supplies, two convoy checkpoints and the outer breach, then
+allows both side objectives to progress independently. Side claims persist;
+unfinished progress retains contesting and absence decay. Both claims unlock a
+player-only central plaza capture, which opens the keep and commander encounter.
+Optional defenses never substitute for a required claim. The shared timers remain
+90-second solo captures, 14-minute stages, 60-second transitions and bounded
+overtime. `AWarSiegeEncounter` owns execution and replicated progress; the scenario
+GameMode and live campaign bridge adapt that same runtime.
+
+The live campaign bridge uses normal character stats and equipment, opt-in seats
+capped at 18 humans per realm, and 180 seconds of preparation for enrollment and
+evacuation. Trusted Node eligibility requires the enemy T4 front, inner T4 zone
+and fortress. Only the owning native host with a current activation and content
+revision can checkpoint or settle conquest; ordinary queued wins cannot do so.
+The legacy Node city-combat branch is suspended while a native lease owns the
+encounter. Expired ownership pauses recovery rather than letting legacy combat
+invent a result.
+
+`npm run server:dev -- --native-siege` provisions the private host configuration
+under `Saved/CampaignSiege/host.json`. Launch the development campaign authority
+with `-WarCampaignSiegeHostConfig=<absolute-file>` after fresh admission checks.
+Keep host credentials private. Native lifecycle checkpoints save full character
+documents atomically with siege claims/clocks, preserve dead/respawn intent and
+require restoration acknowledgement. Critical inventory, equipment, progression,
+quest and reward changes flush a full-document native write-ahead record before
+reporting success. Only the owning host can replay its next sequence against the
+saved character revision; conflicts retain protected recovery. Stable, explicitly
+provisioned development identities are required for live enrollment. Actual
+interrupted native recovery, transient combat-effect reconstruction and physical
+returns still require acceptance evidence. Production Steam identity, cross-platform builds and release
+acceptance remain separate.
+
+The remainder of this document records earlier lower-city implementation and
+proofs; those receipts do not approve the replacement or its later stages.
+
+
 The isolated lower-city development scenario has native rules, replicated state,
 six equipped class choices, bots, encounter logic and preparation/combat/results
-UI. Its content is admitted for local development. Full three-stage siege,
+UI. Local lower-city admission is restored using current city/map hashes,
+twelve-character physical routes, the replicated convoy and gate-passage proof,
+and reviewed client captures. Navigation projection alone does not grant review.
+Full three-stage siege,
 Steam, three-platform and release acceptance remain outstanding.
+
+`scripts/unreal/repair-shared-city-siege.py` backs up the siege overlay and
+reconciles its convoy staging and ramp checkpoint with the surveyed shared city.
+Navigation authoring excludes complete multipart supply props with pedestrian
+clearance; their narrow gaps must not produce paths through physical collision.
+Gates remain physical obstacles until their authoritative milestone opens them.
+The convoy proof starts at the same authored positions as runtime gameplay and
+checks capsule collision at both gates on the server and rendered client.
+
+Local admission through `admit-lower-city.py` requires fresh traversal, convoy,
+client and rendered evidence in `artifacts/unreal/shared-cities/siege-review.json`.
+Each physical report must match the current city revision and overlay hash; the
+review also hashes its captures. Admission preserves historical caster evidence,
+records the reviewed city on the native battlefield and publishes the updated
+map hash after saving review flags. It never approves the full siege or release.
 
 ## Scenario and balance
 
@@ -324,13 +393,17 @@ previous 2,000-health crew budget in 6v6; replacements return to their engine af
 30 seconds. The catapult is an escorted support engine; this change does not add
 a player-operated artillery attack.
 
-The convoy uses its own `SiegeConvoy` navigation agent (280 cm radius, 330 cm
+The convoy uses its own `SiegeConvoy` navigation agent (320 cm radius, 330 cm
 height). The `Default` pedestrian dimensions now match character capsules at 42/192 cm. Run
 `scripts/unreal/build-siege-navigation.py` through the Unreal Python commandlet
 after changing the route or navigation settings; it builds both meshes in the
 isolated Scenario map. Missing convoy navigation blocks Scenario admission.
 The catapult follows the ram's travelled path through turns, and ground alignment
 samples the full rotated chassis footprint before sweeping for obstacles.
+The navigation radius includes the flat hull diagonal. Waypoints are reached
+before turning, preserving the baked clearance; terrain-aligned hull sweeps still
+reject collision beyond that flat footprint. The first admission path starts at
+the authored ram staging position, matching actual runtime movement.
 
 `WarSiegeBattlefield` replicates completed main and optional claims independently
 of gate visibility. Eleven authored Riftbound war standards mark attacker control;

@@ -1,4 +1,5 @@
 #include "WarPlayerState.h"
+#include "WarCampaignMutation.h"
 #include "WarContentSubsystem.h"
 #include "WarEnemyRules.h"
 #include "Engine/GameInstance.h"
@@ -6,8 +7,10 @@
 bool AWarPlayerState::AwardEnemyKillTrusted(FName Zone, FName EnemyId, const FGuid& KillEvent,
     const TArray<FWarInventoryItem>& Loot, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error = TEXT("Enemy reward is unauthorized, duplicated or character state is unavailable.");
-    if (!HasAuthority() || Realm == EWarRealm::None || CurrentZone != Zone || !KillEvent.IsValid()
+    if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || Realm == EWarRealm::None || CurrentZone != Zone || !KillEvent.IsValid()
         || RewardReceipts.Contains(KillEvent) || QuestKillReceipts.Contains(KillEvent)
         || RewardReceipts.Num() >= 65536 || QuestKillReceipts.Num() >= 65536 || Inventory.Revision == MAX_int32) return false;
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
@@ -33,5 +36,5 @@ bool AWarPlayerState::AwardEnemyKillTrusted(FName Zone, FName EnemyId, const FGu
     // XP, deferred loot and quest counters share one commit and one death receipt.
     Inventory = MoveTemp(Next); RewardReceipts.Add(KillEvent); QuestKillReceipts.Add(KillEvent);
     if (bLeveled) ApplyProgressionVitals(true);
-    ForceNetUpdate(); Error.Reset(); return true;
+    ForceNetUpdate(); Error.Reset(); return Mutation.Commit(Error);
 }

@@ -12,6 +12,10 @@ class ANavigationData;
 
 namespace WarSiegeEquipment
 {
+    // Route clearance includes the flat hull's diagonal. Physical sweeps also
+    // enforce the larger terrain-aligned footprint at every movement step.
+    constexpr float NavigationRadius = 320.f;
+    constexpr float NavigationHeight = 330.f;
     AEGISWAR_API FRotator SurfaceRotation(float Yaw, float ForwardGrade, float RightGrade);
     AEGISWAR_API ANavigationData* Navigation(UWorld* World);
     AEGISWAR_API FVector TrailingPoint(TConstArrayView<FVector> Trail, float Distance);

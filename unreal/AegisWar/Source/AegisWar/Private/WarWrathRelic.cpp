@@ -3,6 +3,7 @@
 #include "WarPlayerState.h"
 #include "WarCombatStatus.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"

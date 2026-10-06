@@ -23,10 +23,13 @@ class AEGISWAR_API AWarSiegeBattlefield : public AActor
     GENERATED_BODY()
 public:
     AWarSiegeBattlefield();
+    UPROPERTY(EditAnywhere) bool bLiveCapitalOverlay = false;
     UPROPERTY(EditAnywhere, Category="Siege") int32 DefinitionVersion = 1;
     UPROPERTY(EditAnywhere, Category="Siege") FName Capital = TEXT("aegis_capital");
+    UPROPERTY(EditAnywhere, Category="Siege") TObjectPtr<class UWarCityDefinition> CityDefinition;
+    UPROPERTY(EditAnywhere, Category="Siege") FString ReviewedCityRevision;
     UPROPERTY(EditAnywhere, Category="Siege") TArray<FWarSiegeRosterEntry> Roster;
-    // Stage 0: supply, checkpoint 1, checkpoint 2, breach; stage 1: two mechanisms, controls; stage 2: commander.
+    // v1: sequential mechanisms/controls. v2: independent left/right sides, central plaza. Both retain eight anchors.
     UPROPERTY(EditAnywhere, Category="Siege", meta=(MakeEditWidget=true)) TArray<FVector> Objectives;
     UPROPERTY(EditAnywhere, Category="Siege", meta=(MakeEditWidget=true)) TArray<FVector> OptionalObjectives;
     // Aegis then Riftbound for each stage.
@@ -48,7 +51,7 @@ public:
     // The local lower-city review cannot approve either later siege stage.
     UPROPERTY(EditAnywhere, Category="Siege") bool bLowerCityReviewed = false;
     bool IsScenarioReviewed(EWarSiegeScenario Scenario) const;
-    bool Validate(FString& Error, EWarSiegeScenario Scenario = EWarSiegeScenario::FullSiege) const;
+    bool Validate(FString& Error, EWarSiegeScenario Scenario = EWarSiegeScenario::FullSiege, bool bLiveCampaign = false) const;
     FVector Objective(int32 Stage, int32 Step) const;
     FVector EquipmentDestination(int32 Step) const;
     void ApplyMilestones(const FWarSiegeState& State);

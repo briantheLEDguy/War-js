@@ -230,7 +230,7 @@ void UWarInterfaceWidget::Refresh()
     else if (CurrentPage == TEXT("UI Settings"))
     {
         AddText(TEXT("Create as many bars as you need, with 1-10 buttons each. Positions, actions and individual keys save on this computer. New bars start empty and unbound."));
-        AddButton(TEXT("Edit UI - drag bars into position"), [PC] { PC->SetEditingUi(true); });
+        AddButton(TEXT("Edit UI - action bars and combat overlays"), [PC] { PC->SetEditingUi(true); });
         AddButton(TEXT("Add a bar..."), [this] { ShowPage(TEXT("Add bar")); });
         AddButton(TEXT("Keyboard & mouse bindings"), [this] { ShowPage(TEXT("Key bindings")); });
         AddText(TEXT("Assign any class ability below. Locked abilities show their unlock level on the bar; your full kit unlocks through level 8. Summons marked unavailable cannot be activated."));

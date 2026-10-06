@@ -43,6 +43,7 @@ public:
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     virtual void PossessedBy(AController* NewController) override;
+    virtual void Restart() override;
     virtual void OnRep_PlayerState() override;
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
     void RefreshControlMappings();

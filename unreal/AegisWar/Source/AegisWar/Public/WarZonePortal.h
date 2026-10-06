@@ -24,7 +24,8 @@ public:
     UPROPERTY(EditAnywhere, Category="Portal") FVector ArrivalLocation = FVector::ZeroVector;
     UPROPERTY(EditAnywhere, Category="Portal") float Radius = 900.f;
     UPROPERTY(EditAnywhere, Category="Portal") bool bDestinationBuilt = false;
-    bool TryTraverse(AWarCharacter* Character, FString& Error);
+    bool TryTraverse(AWarCharacter* Character, FString& Error, bool bEvacuating = false);
+    static bool BlocksSiegeDeparture(const AWarCharacter* Character, FName Destination);
     static double CapsuleGroundOffset(double HalfHeight, double CapsuleRadius, double NormalZ);
     static bool CanEnter(bool bAuthority, bool bDevelopment, bool bAlive, bool bVisualReady,
         bool bDestinationReady, double Distance, double EntryRadius, double Now, double AllowedAt);

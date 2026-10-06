@@ -24,7 +24,7 @@ bool FWarSiegeOwnershipTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Rematch clears ownership"),WarSiege::ClaimedObjectives(S),uint16(0));
     S.Phase=EWarSiegePhase::Waiting;S.MilestoneSeconds.Add(1);
     TestEqual(TEXT("Lobby never displays stale ownership"),WarSiege::ClaimedObjectives(S),uint16(0));
-    S.Phase=EWarSiegePhase::Active;S.OptionalClaims=5;
+    S.Phase=EWarSiegePhase::Active;S.OptionalClaims=5;S.RulesVersion=1;
     TestEqual(TEXT("Optional claims survive stage transitions"),WarSiege::ClaimedObjectives(S),uint16(1281));
     S={};WarSiege::Start(S,6);P={};P.OptionalAttackers=6;
     WarSiege::Tick(S,P,45);
@@ -52,6 +52,15 @@ bool FWarSiegeOwnershipTest::RunTest(const FString& Parameters)
                 FMath::IsNearlyEqual(Aligned.Z,Grades.X*Aligned.X+Grades.Y*Aligned.Y,.001));
         }
     }
+    for (const FVector& Extent : {FVector(245,178,120), FVector(210,178,120)})
+        for (float Yaw : {0.f,37.f,90.f})
+            for (float X : {-1.f,1.f}) for (float Y : {-1.f,1.f}) for (float Z : {-1.f,1.f})
+            {
+                const FVector Corner=FRotator(0,Yaw,0).RotateVector(Extent*FVector(X,Y,Z)+FVector(0,0,155));
+                TestTrue(TEXT("Convoy navigation encloses the flat hull diagonal with sweep clearance"),
+                    Corner.Size2D()+8 <= WarSiegeEquipment::NavigationRadius);
+                TestTrue(TEXT("Convoy height covers the offset flat hull"), Corner.Z+8 <= WarSiegeEquipment::NavigationHeight);
+            }
     return true;
 }
 #endif

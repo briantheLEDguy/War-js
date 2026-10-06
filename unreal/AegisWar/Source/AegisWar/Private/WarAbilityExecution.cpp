@@ -4,11 +4,13 @@
 #include "WarCharacter.h"
 #include "WarEnemy.h"
 #include "WarPlayerState.h"
+#include "WarSiegeEncounter.h"
 #include "Engine/World.h"
 
 bool WarAbilityExecution::Allied(const AWarCharacter* Caster, const AActor* Target, float Range, bool bSight)
 {
     const auto* Ally=Cast<AWarCharacter>(Target);
+    if (!AWarSiegeEncounter::SharesCombatScope(Caster, Target)) return false;
     if (!Caster || !Ally || Caster->IsDead() || Caster->GetWorld()!=Ally->GetWorld() || Ally->IsDead() || !Ally->IsVisualReady() || Ally->IsDevelopmentFlying()) return false;
     const auto* Source=Caster->GetPlayerState<AWarPlayerState>(); const auto* Other=Ally->GetPlayerState<AWarPlayerState>();
     if (!Source || !Other || Source->GetRealm()==EWarRealm::None || Source->GetRealm()!=Other->GetRealm() || Source->GetCurrentZone()!=Other->GetCurrentZone()
@@ -52,5 +54,5 @@ void WarAbilityExecution::Apply(const FWarAbilityEffect& Effect, float Amount, A
     else if (Effect.Kind==TEXT("heal")) UWarCombatStatus::Heal(Cast<AWarCharacter>(Recipient),Amount,Caster);
     else if (Effect.Kind==TEXT("cleanse")) { if (auto* Status=UWarCombatStatus::On(Recipient)) Status->Cleanse(Effect.Cleanse); }
     else if (Effect.Kind==TEXT("status") || Effect.Kind==TEXT("player_status"))
-    { if (auto* Status=UWarCombatStatus::On(Recipient)) Status->Apply(Effect,Ability->Id,Caster,Strength,Level,Ability->Version,Amount); }
+    { if (auto* Status=UWarCombatStatus::On(Recipient)) Status->Apply(Effect,Ability->Id,Caster,Strength,Level,Ability->Version,Amount,Ability); }
 }

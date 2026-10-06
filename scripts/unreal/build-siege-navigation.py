@@ -16,6 +16,15 @@ battlefields = [a for a in actors.get_all_level_actors() if isinstance(a, unreal
 if len(battlefields) != 1:
     raise RuntimeError("Expected one siege definition")
 battlefield = battlefields[0]
+city = battlefield.get_editor_property('city_definition')
+if not city:
+    raise RuntimeError('Bind shared city content before rebuilding siege navigation')
+for package in city.get_editor_property('scenery_levels'):
+    name = package.get_path_name().split('.')[0]
+    if not unreal.GameplayStatics.get_streaming_level(world, name):
+        if not unreal.EditorLevelUtils.add_level_to_world(world, name, unreal.LevelStreamingAlwaysLoaded):
+            raise RuntimeError('Cannot attach shared city scenery')
+unreal.GameplayStatics.flush_level_streaming(world)
 if not levels.set_current_level_by_name("AegisCapital_Siege"):
     raise RuntimeError("Cannot select the owned siege persistent level")
 if not unreal.WarSiegeAuthoringLibrary.build_navigation(world, unreal.Vector(3000,0,3500), unreal.Vector(25000,18000,6000)):

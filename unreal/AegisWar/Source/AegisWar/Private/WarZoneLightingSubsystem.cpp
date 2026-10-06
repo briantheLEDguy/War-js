@@ -7,6 +7,7 @@
 #include "Components/ExponentialHeightFogComponent.h"
 #include "Components/SkyLightComponent.h"
 #include "Components/SkyAtmosphereComponent.h"
+#include "Components/VolumetricCloudComponent.h"
 #include "Components/PostProcessComponent.h"
 #include "Camera/PlayerCameraManager.h"
 #include "GameFramework/PlayerController.h"
@@ -14,7 +15,7 @@
 #include "EngineUtils.h"
 
 bool UWarZoneLightingSubsystem::DoesSupportWorldType(EWorldType::Type Type) const
-{ return Type == EWorldType::Game || Type == EWorldType::PIE || Type == EWorldType::Editor || Type == EWorldType::EditorPreview; }
+{ return Type == EWorldType::Game || Type == EWorldType::PIE || Type == EWorldType::Editor || Type == EWorldType::EditorPreview || Type == EWorldType::GamePreview; }
 void UWarZoneLightingSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
     Super::Initialize(Collection);
@@ -88,6 +89,7 @@ void UWarZoneLightingSubsystem::HideAuthoredEnvironment()
     for (TActorIterator<ASkyLight> It(GetWorld()); It; ++It) Hide(It->GetLightComponent());
     for (TActorIterator<AExponentialHeightFog> It(GetWorld()); It; ++It) Hide(It->GetComponent());
     for (TActorIterator<ASkyAtmosphere> It(GetWorld()); It; ++It) Hide(It->GetComponent());
+    for (TActorIterator<AVolumetricCloud> It(GetWorld()); It; ++It) Hide(It->FindComponentByClass<UVolumetricCloudComponent>());
     for (auto It = AuthoredVisibility.CreateIterator(); It; ++It) if (!It.Key().IsValid()) It.RemoveCurrent();
 }
 void UWarZoneLightingSubsystem::RestoreAuthoredEnvironment()
@@ -131,7 +133,8 @@ bool UWarZoneLightingSubsystem::Apply(FName Zone, FVector Origin)
 }
 bool UWarZoneLightingSubsystem::PreviewZone(FName Zone, FVector Origin)
 {
-    if (GetWorld()->WorldType != EWorldType::Editor && GetWorld()->WorldType != EWorldType::EditorPreview) return false;
+    if (GetWorld()->WorldType != EWorldType::Editor && GetWorld()->WorldType != EWorldType::EditorPreview
+        && GetWorld()->WorldType != EWorldType::GamePreview) return false;
     return Apply(Zone, Origin);
 }
 bool UWarZoneLightingSubsystem::PreviewWorld(UWorld* World, FName Zone, FVector Origin)

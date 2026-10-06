@@ -1,7 +1,10 @@
 #include "WarPlayerController.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarSiegeLobbyWidget.h"
 #include "WarScenarioSession.h"
+#include "WarPlayerState.h"
+#include "WarCampaignSiegeSubsystem.h"
 #include "WarSiegeNavigation.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/GameInstance.h"
@@ -22,7 +25,10 @@ void AWarPlayerController::ServerSiegeSelectRole_Implementation(int32 Round, uin
 }
 void AWarPlayerController::TickSiegeLobby()
 {
-    const auto* GS = GetWorld()->GetGameState<AWarSiegeGameState>();
+    const auto* PS = GetPlayerState<AWarPlayerState>();
+    const auto* GS = PS ? PS->GetSiegeEncounter() : nullptr;
+    // Preparation precedes membership, but only isolated scenario worlds own this lobby.
+    if (!GS && GetWorld()->GetGameState<AWarSiegeGameState>()) GS = AWarSiegeEncounter::Find(GetWorld());
     const bool Open = GS && GS->bDevelopmentLobby && !GS->bQueuedScenario
         && (GS->Siege.Phase == EWarSiegePhase::Waiting || GS->Siege.Phase == EWarSiegePhase::Finished);
     if (Open == bSiegeLobbyInput) return;
@@ -66,7 +72,7 @@ void AWarPlayerController::ServerGmSiegeReset_Implementation()
 
 void AWarPlayerController::ServerSiegeSquadOrder_Implementation(int32 Round,uint8 Order)
 {
-    auto* Mode=GetWorld()->GetAuthGameMode<AWarSiegeGameMode>();
+    auto* Mode=AWarSiegeEncounter::For(this);
     const auto* OrderPawn=Cast<AWarCharacter>(GetPawn());
     if (!Mode || !OrderPawn || OrderPawn->IsDead() || !Mode->IsParticipant(OrderPawn) || !Mode->SiegeState()
         || Mode->SiegeState()->RoundId!=Round || Mode->SiegeState()->Siege.Phase!=EWarSiegePhase::Active
@@ -95,3 +101,8 @@ void AWarPlayerController::ClientScenarioRegistered_Implementation(const FString
 { ScenarioCharacterId=Id;GetGameInstance()->GetSubsystem<UWarScenarioSession>()->SetCredentials(Url,Token,Id); }
 void AWarPlayerController::ClientScenarioTravel_Implementation(const FString& Endpoint,const FString& Ticket)
 { GetGameInstance()->GetSubsystem<UWarScenarioSession>()->Travel(Endpoint,Ticket); }
+
+void AWarPlayerController::ServerCampaignSiegeEnrollment_Implementation(bool Join)
+{ if (auto* Bridge = GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>()) Bridge->Enroll(this, Join); }
+void AWarPlayerController::WarCampaignSiegeJoin() { ServerCampaignSiegeEnrollment(true); }
+void AWarPlayerController::WarCampaignSiegeLeave() { ServerCampaignSiegeEnrollment(false); }

@@ -25,6 +25,8 @@ private:
     TArray<FVector> Previous;
     TArray<float> Distance;
     TArray<float> Stalled;
+    TArray<double> ResumeAt;
+    TArray<int32> Recoveries;
     TArray<bool> Jumped;
     double StartedAt = -1;
     double PhaseAt = 0;

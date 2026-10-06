@@ -2,6 +2,7 @@
 #include "WarCharacter.h"
 #include "WarCombatStatus.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarWrathRelic.h"
 #include "WarPlayerState.h"
 #include "WarCombatFeedback.h"
@@ -30,13 +31,19 @@ bool UWarAttributeSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData& 
 {
     if (!Super::PreGameplayEffectExecute(Data)) return false;
     if (const auto* State=Cast<AWarPlayerState>(GetOwningActor()); State && State->IsScenarioTransferPending()) return false;
-    if (Data.EvaluatedData.Attribute == GetHealthAttribute()) HealthBeforeEffect = GetHealth();
-    if (auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>(); Siege && Data.EvaluatedData.Attribute == GetHealthAttribute())
+    if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+    {
+        if (!AWarSiegeEncounter::SharesCombatScope(Data.EffectSpec.GetContext().GetInstigator(),GetOwningAbilitySystemComponent()->GetAvatarActor())) return false;
+        HealthBeforeEffect = GetHealth();
+    }
+    if (auto* Siege = AWarSiegeEncounter::For(GetOwningActor()); Siege && Data.EvaluatedData.Attribute == GetHealthAttribute())
     {
         auto* Avatar = GetOwningAbilitySystemComponent()->GetAvatarActor();
         if (Data.EvaluatedData.Magnitude < 0 && (Siege->IsProtected(Avatar) || Siege->IsProtected(Data.EffectSpec.GetContext().GetInstigator()))) return false;
         if (const auto* Unit = Cast<AWarSiegeCharacter>(Avatar); Unit && Unit->Unit == EWarSiegeUnit::Commander && Data.EvaluatedData.Magnitude > 0) return false;
     }
+    if (Data.EvaluatedData.Attribute == GetHealthAttribute() && Data.EvaluatedData.Magnitude < 0)
+        if (const auto* SourceSiege = AWarSiegeEncounter::For(Data.EffectSpec.GetContext().GetInstigator()); SourceSiege && SourceSiege->IsProtected(Data.EffectSpec.GetContext().GetInstigator())) return false;
     if (Data.EvaluatedData.Attribute == GetHealthAttribute() && Data.EvaluatedData.Magnitude < 0)
         if (auto* Status = UWarCombatStatus::On(GetOwningAbilitySystemComponent()->GetAvatarActor()))
             Data.EvaluatedData.Magnitude = -Status->ReceiveDamage(-Data.EvaluatedData.Magnitude);
@@ -50,7 +57,7 @@ void UWarAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbac
     {
         if (Data.EvaluatedData.Magnitude < 0)
             if (const auto* Unit = Cast<AWarSiegeCharacter>(GetOwningAbilitySystemComponent()->GetAvatarActor()); Unit && Unit->Unit == EWarSiegeUnit::Commander)
-                if (auto* Siege = GetWorld()->GetAuthGameMode<AWarSiegeGameMode>()) Siege->CommanderDamaged();
+                if (auto* Siege = AWarSiegeEncounter::For(GetOwningActor())) Siege->CommanderDamaged();
         SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
         const float HealthLost = FMath::Max(0.f, HealthBeforeEffect - GetHealth());
         auto* Dealer = Cast<AWarCharacter>(Data.EffectSpec.GetContext().GetInstigator());

@@ -29,6 +29,9 @@ struct FWarActiveStatus
     UPROPERTY() FString AppliedVersion;
     UPROPERTY() float TickHealing = 0;
     UPROPERTY() float Interval = 1;
+    // Server custody deadlines are fixed at application/restore, never reconstructed per capture.
+    int64 ExpiresAtUnixMs = 0;
+    double NextTickUnixMs = 0;
 };
 
 /** Pawn-local effects expire on death; ability resources/cooldowns live on PlayerState. */
@@ -44,18 +47,22 @@ public:
     float MovementScale() const;
     float OutgoingScale() const;
     float ReceiveDamage(float Damage);
-    void Apply(const FWarAbilityEffect& Effect, FName AbilityId, AWarCharacter* Source, float Strength, int32 Level, const FString& Version=TEXT("baseline"),float AuthoredAmount=-1);
+    void Apply(const FWarAbilityEffect& Effect, FName AbilityId, AWarCharacter* Source, float Strength, int32 Level, const FString& Version=TEXT("baseline"),float AuthoredAmount=-1,
+        const TSharedPtr<const FWarAbilityDefinition>& AppliedDefinition = nullptr);
     void ApplyPeriodic(const FWarAbilityEffect& Effect, float Base, AWarCharacter* Source, AActor* SelectedTarget,
         const TSharedPtr<const FWarAbilityDefinition>& Ability, float Strength, int32 Level, bool bBonus);
     TArray<FWarStatusObservation> Observe() const;
     const TArray<FWarActiveStatus>& GetActive() const { return Active; }
     void Cleanse(const TArray<FName>& Kinds);
     void Clear();
+    bool CaptureCampaignState(int64 CapturedAt, TSharedPtr<class FJsonObject>& State, FString& Error) const;
+    bool RestoreCampaignState(const TSharedPtr<class FJsonObject>& State, int64 CurrentUtc, FString& Error, bool bApply = true, bool ClearForRespawn = false);
     FString Description() const;
     static UWarCombatStatus* On(const AActor* Actor);
     static bool Damage(AActor* Target, AWarCharacter* Source, float Amount, float Range, bool bRequireSight = true);
     static void Heal(AWarCharacter* Target, float Amount, AWarCharacter* Source = nullptr);
 private:
+    friend class FWarCampaignCombatStateTest;
     double Now() const;
     float Strongest(FName Kind) const;
     UPROPERTY(Replicated) TArray<FWarActiveStatus> Active;
@@ -69,4 +76,6 @@ private:
         bool bBonus=false;
     };
     TMap<FName,FPeriodicExecution> Periodic;
+    TMap<FName,TSharedPtr<const FWarAbilityDefinition>> AppliedDefinitions;
+    TMap<FName,FString> SourceKeys, TargetKeys;
 };

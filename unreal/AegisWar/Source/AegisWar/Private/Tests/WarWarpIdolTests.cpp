@@ -8,6 +8,7 @@
 #include "WarCombatStatus.h"
 #include "WarGameplayEffects.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "AbilitySystemComponent.h"
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"

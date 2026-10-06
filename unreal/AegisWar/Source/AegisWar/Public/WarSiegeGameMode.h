@@ -6,9 +6,6 @@
 #include "AIController.h"
 #include "WarSiegeGameMode.generated.h"
 
-UENUM()
-enum class EWarSiegeUnit : uint8 { Participant, Crew, Guard, Commander, Emplacement };
-
 UCLASS()
 class AEGISWAR_API AWarSiegeCharacter : public AWarCharacter
 {
@@ -30,9 +27,12 @@ public:
     virtual void Tick(float Delta) override;
     EWarSiegeRole CombatRole = EWarSiegeRole::Damage;
     EWarSiegeUnit Unit = EWarSiegeUnit::Participant;
+    // A new birth identity prevents recovered effects from retargeting a replacement NPC.
+    FString CampaignCombatSourceKey;
     TWeakObjectPtr<AController> Leader;
     UPROPERTY() TObjectPtr<UWarCharacterVisualDefinition> Visual;
     bool bOptionalTask = false;
+    int32 ObjectiveSide = 0;
     FVector PreviousLocation = FVector::ZeroVector;
     FVector LastMoveGoal = FVector::ZeroVector;
     double StalledSeconds = 0;
@@ -67,7 +67,8 @@ public:
     bool IsProtected(const AActor* Actor) const;
     bool IsParticipant(const AWarCharacter* Pawn) const;
     FVector TaskLocation() const;
-    AWarSiegeGameState* SiegeState() const;
+    class AWarSiegeEncounter* SiegeState() const;
+    UPROPERTY() TObjectPtr<class AWarSiegeEncounter> Encounter;
     void CommanderDamaged();
     UPROPERTY() TObjectPtr<AWarSiegeBattlefield> Battlefield;
 private:
@@ -75,30 +76,12 @@ private:
     bool StartRound(int32 Capacity, int32 Seed, EWarSiegeScenario Scenario, FString& Error);
     bool FindBattlefield(FString& Error);
     void UpdateLobby();
-    void EndRound();
     void ClearRoundEffects();
     TMap<TWeakObjectPtr<AController>, TWeakObjectPtr<UWarCharacterVisualDefinition>> Selections;
     double NextLobbyCheck = 0;
     int32 DevelopmentJoins = 0;
     void Wave();
-    void AssignSquads();
-    void StageStarted();
-    void Encounters(float Delta);
-    AWarSiegeBotController* SpawnUnit(EWarRealm Realm, EWarSiegeRole CombatRole, EWarSiegeUnit Unit,
-        UWarCharacterVisualDefinition* Visual, const FVector& Position);
+    bool ValidateEquipmentStaging(FString& Error);
     void ClearUnits(bool bParticipants);
     void Publish();
-    void FailMatch(const FString& Error);
-    TWeakObjectPtr<AWarSiegeBotController> Crew, Commander;
-    UPROPERTY() TArray<TObjectPtr<class AWarSiegeEquipment>> Convoy;
-    bool PrepareConvoy();
-    bool ValidateEquipmentStaging(FString& Error);
-    bool ConvoyAlive() const;
-    void DriveConvoy(const FWarSiegePresence& Presence, float Delta);
-    TArray<TWeakObjectPtr<AWarSiegeBotController>> Units;
-    double CrewAt = 0, ReinforcementAt = 0, CommanderDamageAt = -100, CommanderEngagedAt = 0;
-    double CommanderActionAt = 0, CommanderReleaseAt = 0;
-    int32 CommanderSequence = 0, StartedStage = -1;
-    bool bCommanderInterrupted = false;
-    FRandomStream Random;
 };

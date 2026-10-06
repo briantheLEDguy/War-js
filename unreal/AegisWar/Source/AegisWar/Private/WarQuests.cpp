@@ -1,4 +1,6 @@
 #include "WarPlayerState.h"
+#include "WarCampaignMutation.h"
+#include "WarSiegeEncounter.h"
 #include "WarQuestRules.h"
 #include "WarContentSubsystem.h"
 #include "WarQuestNpc.h"
@@ -14,6 +16,8 @@ bool AWarPlayerState::InteractQuest(const AWarQuestNpc* Npc, FName QuestId, bool
 {
     if (!HasAuthority() || !CanPerformInventoryAction() || ExpectedRevision != Inventory.Revision || !IsValid(Npc))
     { Error = TEXT("Quest interaction is unavailable or character state changed."); return false; }
+    if (const auto* Siege = AWarSiegeEncounter::Capital(GetWorld()); Siege && Siege->SuspendsServices(Npc->ZoneId))
+    { Error = TEXT("City quest services are suspended during the siege."); return false; }
     FString Name;
     if (!Npc->ResolveInteraction(GetPawn(), Name, Error)) return false;
     const auto* Content = GetGameInstance()->GetSubsystem<UWarContentSubsystem>();
@@ -38,18 +42,23 @@ void AWarPlayerState::ClientQuestResult_Implementation(bool bAccepted, bool bTur
 
 bool AWarPlayerState::AcceptQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
-    if (!HasAuthority() || Realm == EWarRealm::None || ExpectedRevision != Inventory.Revision || Inventory.Revision == MAX_int32)
+    if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || Realm == EWarRealm::None || ExpectedRevision != Inventory.Revision || Inventory.Revision == MAX_int32)
     { Error = TEXT("Quest acceptance is unauthorized or character state changed."); return false; }
+    if (const auto* Siege = AWarSiegeEncounter::Capital(GetWorld()); Siege && Siege->SuspendsServices(Zone)) { Error = TEXT("City quest services are suspended during the siege."); return false; }
     if (!WarQuests::Accept(Quest, QuestRealm(Realm), Zone, Inventory.CharacterProgression.Level, Inventory.Quests, Error)) return false;
-    ++Inventory.Revision; ForceNetUpdate(); return true;
+    ++Inventory.Revision; ForceNetUpdate(); return Mutation.Commit(Error);
 }
 
 bool AWarPlayerState::RecordQuestKillTrusted(const TArray<FWarQuestDefinition>& Quests, FName Zone,
     const FString& EnemyName, const FGuid& KillEvent, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
-    if (!HasAuthority() || Realm == EWarRealm::None || !KillEvent.IsValid() || QuestKillReceipts.Contains(KillEvent)
+    if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || Realm == EWarRealm::None || !KillEvent.IsValid() || QuestKillReceipts.Contains(KillEvent)
         || QuestKillReceipts.Num() >= 65536 || Inventory.Revision == MAX_int32)
     { Error = TEXT("Quest kill event is unauthorized, duplicated or exceeds session limits."); return false; }
     bool Changed = false;
@@ -63,15 +72,18 @@ bool AWarPlayerState::RecordQuestKillTrusted(const TArray<FWarQuestDefinition>& 
     // Remember even unmatched events so a later acceptance cannot replay an old kill.
     QuestKillReceipts.Add(KillEvent);
     if (Changed) { ++Inventory.Revision; ForceNetUpdate(); }
-    return true;
+    return Mutation.Commit(Error);
 }
 
 bool AWarPlayerState::CompleteQuestTrusted(const FWarQuestDefinition& Quest, FName Zone, int32 ExpectedRevision,
     const TArray<FWarInventoryItem>& ResolvedRewards, FString& Error)
 {
+    FWarCampaignMutation Mutation(this);
+    if (!Mutation.Ready(Error)) return false;
     Error.Reset();
-    if (!HasAuthority() || Realm == EWarRealm::None || ExpectedRevision != Inventory.Revision)
+    if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || Realm == EWarRealm::None || ExpectedRevision != Inventory.Revision)
     { Error = TEXT("Quest completion is unauthorized or character state changed."); return false; }
+    if (const auto* Siege = AWarSiegeEncounter::Capital(GetWorld()); Siege && Siege->SuspendsServices(Zone)) { Error = TEXT("City quest services are suspended during the siege."); return false; }
     auto Progress = Inventory.Quests;
     FWarInventorySnapshot Next;
     if (!WarQuests::TurnIn(Quest, QuestRealm(Realm), Zone, ResolvedRewards, Inventory, Progress, Next, Error)) return false;
@@ -79,7 +91,7 @@ bool AWarPlayerState::CompleteQuestTrusted(const FWarQuestDefinition& Quest, FNa
     Next.Quests = MoveTemp(Progress);
     Inventory = MoveTemp(Next);
     if (Leveled) ApplyProgressionVitals(true);
-    ForceNetUpdate(); return true;
+    ForceNetUpdate(); return Mutation.Commit(Error);
 }
 
 bool AWarPlayerState::AcceptCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error)
@@ -94,7 +106,7 @@ bool AWarPlayerState::AcceptCatalogQuestTrusted(FName QuestId, FName Zone, int32
 bool AWarPlayerState::CompleteCatalogQuestTrusted(FName QuestId, FName Zone, int32 ExpectedRevision, FString& Error)
 {
     Error.Reset();
-    if (!HasAuthority() || Realm == EWarRealm::None || ExpectedRevision != Inventory.Revision)
+    if (bScenarioTransferPending || bSiegeNormalized || !HasAuthority() || Realm == EWarRealm::None || ExpectedRevision != Inventory.Revision)
     { Error = TEXT("Quest completion is unauthorized or character state changed."); return false; }
     const auto* Content = GetGameInstance() ? GetGameInstance()->GetSubsystem<UWarContentSubsystem>() : nullptr;
     FWarQuestDefinition Quest;
@@ -103,6 +115,7 @@ bool AWarPlayerState::CompleteCatalogQuestTrusted(FName QuestId, FName Zone, int
     // Use the minimum affix only for capacity/precondition checks. Rejected turn-ins consume no random samples.
     TArray<FWarInventoryItem> Rewards;
     if (!WarQuests::ResolveRewards(Quest, [] { return 0.0; }, Rewards, Error)) return false;
+    if (const auto* Siege = AWarSiegeEncounter::Capital(GetWorld()); Siege && Siege->SuspendsServices(Zone)) { Error = TEXT("City quest services are suspended during the siege."); return false; }
     auto Progress = Inventory.Quests; FWarInventorySnapshot Preview;
     if (!WarQuests::TurnIn(Quest, QuestRealm(Realm), Zone, Rewards, Inventory, Progress, Preview, Error)) return false;
     if (!WarQuests::ResolveRewards(Quest, [] { return double(FMath::FRand()); }, Rewards, Error)) return false;

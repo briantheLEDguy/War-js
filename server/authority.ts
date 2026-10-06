@@ -7,6 +7,7 @@ import {
 import { DevelopmentAuthenticator, type Authenticator } from './auth';
 import { MemoryCampaignRepository, type CampaignRepository } from './persistence';
 import { assertCampaignConfigCompatible } from './configCompatibility';
+import { nativeSiegeRequest, NativeSiegeError, pauseExpiredNativeSieges, type NativeSiegeOptions } from './nativeSiege';
 
 export interface AuthorityOptions {
   host?: string;
@@ -18,6 +19,7 @@ export interface AuthorityOptions {
   /** Tests may drive the actual authoritative tick without sleeping. Never accepted from clients. */
   automaticTicks?: boolean;
   reauthenticationMs?: number;
+  nativeSiege?: NativeSiegeOptions;
 }
 interface Connection {
   socket: WebSocket; playerId: string | null; userId: string | null; authenticating: boolean; count: number; windowStart: number;
@@ -28,6 +30,8 @@ interface Connection {
 const CRITICAL_EVENTS = new Set([
   'supplies_delivered', 'equipment_purchased', 'gate_repaired', 'objective_captured', 'keep_captured',
   'zone_won', 'front_advanced', 'central_breakthrough', 'city_siege_opened', 'campaign_ended', 'campaign_started',
+  'native_city_siege_paused',
+  'native_city_siege_reservation_expired',
 ]);
 
 export async function startAuthority(options: AuthorityOptions) {
@@ -117,6 +121,28 @@ export async function startAuthority(options: AuthorityOptions) {
       ready: !failed, protocol: 1, phase: state.phase, connections: connections.size, frames, lastStepMs,
       authentication: development ? 'development-loopback' : 'supabase',
     });
+    if (request.url?.startsWith('/native/siege/')) {
+      if (!development || !options.nativeSiege || !['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(request.socket.remoteAddress ?? ''))
+        return json(response, 403, { error: 'Native capital admission is available only to explicitly configured loopback development hosts.' });
+      if (request.method !== 'POST') return json(response, 405, { error: 'POST required.' });
+      let data: Record<string, unknown>;
+      try { data = await bodyJson(request, 36 * 262_144 + 65_536); } catch { return json(response, 400, { error: 'Invalid native request.' }); }
+      if (!data || typeof data !== 'object' || Array.isArray(data)) return json(response, 400, { error: 'A native request object is required.' });
+      const credential = request.headers.authorization?.startsWith('Bearer ') ? request.headers.authorization.slice(7) : '';
+      let replied = false;
+      await enqueue(async () => {
+        if (failed || closed) { replied = true; json(response, 503, { error: 'Campaign authority is recovering.' }); return; }
+        let result: ReturnType<typeof nativeSiegeRequest>;
+        try { result = nativeSiegeRequest(state, request.url!.slice('/native/siege/'.length), data, credential, options.nativeSiege!); }
+        catch (error) {
+          if (error instanceof NativeSiegeError) { replied = true; json(response, error.status, { error: error.message }); return; }
+          throw error;
+        }
+        await save(result.events); publish(); replied = true; json(response, 200, { data: result.response });
+      });
+      if (!replied) json(response, 503, { error: 'Campaign recovery storage is unavailable.' });
+      return;
+    }
     if (request.url === '/dev/session' && request.method === 'POST' && options.auth instanceof DevelopmentAuthenticator) {
       const address = request.socket.remoteAddress;
       if (!['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(address ?? '')) return json(response, 403, { error: 'Local development only.' });
@@ -213,7 +239,7 @@ export async function startAuthority(options: AuthorityOptions) {
   const step = (seconds = .05) => enqueue(async () => {
     if (closed || failed) return;
     const started = performance.now();
-    const events = advanceSimulation(state, seconds);
+    const events = [...pauseExpiredNativeSieges(state, (options.nativeSiege?.now ?? Date.now)()), ...advanceSimulation(state, seconds)];
     checkpointSeconds += seconds;
     if (events.some(event => CRITICAL_EVENTS.has(event.type)) || checkpointSeconds >= 5) await save(events);
     else pendingEvents.push(...events);
@@ -281,8 +307,8 @@ function send(socket: WebSocket, message: ServerMessage): void {
 function json(response: ServerResponse, status: number, value: unknown): void {
   response.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }).end(JSON.stringify(value));
 }
-async function bodyJson(request: IncomingMessage): Promise<Record<string, unknown>> {
+async function bodyJson(request: IncomingMessage, limit = 16384): Promise<Record<string, unknown>> {
   let text = '';
-  for await (const chunk of request) { text += chunk; if (text.length > 4096) throw new Error('Request too large.'); }
+  for await (const chunk of request) { text += chunk; if (text.length > limit) throw new Error('Request too large.'); }
   return JSON.parse(text);
 }

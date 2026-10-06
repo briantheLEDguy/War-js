@@ -1,5 +1,34 @@
 #include "WarZoneAnchor.h"
+#include "WarCityDefinition.h"
 #include "EngineUtils.h"
+
+TArray<FName> AWarZoneAnchor::GetContentLevels() const
+{
+    TArray<FName> Result = ContentLevels;
+    if (CityDefinition) Result.Append(CityDefinition->Packages());
+    return Result;
+}
+
+bool AWarZoneAnchor::ValidateCity(FString& Error) const
+{
+    const bool Capital = ZoneId == TEXT("aegis_capital") || ZoneId == TEXT("riftspire_capital");
+    if (!CityDefinition)
+    {
+        if (!Capital) return true;
+        Error = TEXT("Shared city definition is missing. Restore city content and retry."); return false;
+    }
+    if (CityDefinition->ZoneId != ZoneId || !CityDefinition->Origin.Equals(ZoneOrigin))
+    { Error = TEXT("Shared city identity or origin differs from campaign routing."); return false; }
+    if (!CityDefinition->Validate(Error)) return false;
+    TSet<FName> Seen;
+    for (FName Package : GetContentLevels())
+    {
+        if (Seen.Contains(Package))
+        { Error = TEXT("City scenery or gameplay is attached twice."); return false; }
+        Seen.Add(Package);
+    }
+    return true;
+}
 
 bool AWarZoneAnchor::ContainsPoint(FVector Origin, double Extent, FVector Point)
 {

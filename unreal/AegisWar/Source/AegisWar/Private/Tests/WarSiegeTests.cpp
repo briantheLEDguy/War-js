@@ -2,6 +2,7 @@
 #include "Misc/AutomationTest.h"
 #include "WarSiegeRules.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarPlayerState.h"
 #include "WarAttributeSet.h"
 #include "Engine/World.h"
@@ -16,23 +17,23 @@ bool FWarSiegeRulesTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Unsupported capacity refused"), WarSiege::Start(S, 7));
     for (int32 N : {6, 12, 18})
     {
-        S = {}; TestTrue(TEXT("Supported capacity"), WarSiege::Start(S, N));
+        S = {}; TestTrue(TEXT("Supported capacity"), WarSiege::Start(S, N, EWarSiegeScenario::FullSiege, 1));
         TestEqual(TEXT("Major NPC health scales"), WarSiege::HealthScale(N), N / 6.f);
         TestEqual(TEXT("Wave size scales"), WarSiege::Reinforcements(N, false), N / 3);
         TestEqual(TEXT("Sabotage halves waves"), WarSiege::Reinforcements(N, true), N / 6);
-        TestFalse(TEXT("Active launch cannot reset progress"), WarSiege::Start(S, 6));
+        TestFalse(TEXT("Active launch cannot reset progress"), WarSiege::Start(S, 6, EWarSiegeScenario::FullSiege, 1));
     }
     TestEqual(TEXT("Empty objective has no speed"), WarSiege::ParticipationRate(0), 0.f);
     TestEqual(TEXT("Capture participation capped"), WarSiege::ParticipationRate(18), 2.5f);
     TestEqual(TEXT("Escort participation capped"), WarSiege::ParticipationRate(18, true), 1.5f);
-    S = {}; WarSiege::Start(S, 6); P.Attackers = 6; P.Defenders = 1;
+    S = {}; WarSiege::Start(S, 6, EWarSiegeScenario::FullSiege, 1); P.Attackers = 6; P.Defenders = 1;
     WarSiege::Tick(S, P, 30); TestEqual(TEXT("One defender contests six attackers"), S.Progress, 0.f);
     P.Defenders = 0; WarSiege::Tick(S, P, 10);
     TestTrue(TEXT("Presence accelerates capture"), FMath::IsNearlyEqual(S.Progress, .25f, .001f));
     P.Attackers = 0; WarSiege::Tick(S, P, 10);
     TestTrue(TEXT("Ten second grace preserves progress"), FMath::IsNearlyEqual(S.Progress, .25f, .001f));
     WarSiege::Tick(S, P, 2); TestTrue(TEXT("Then decay at five percent per second"), FMath::IsNearlyEqual(S.Progress, .15f, .001f));
-    S = {}; WarSiege::Start(S, 6); P = {}; P.Attackers = 6;
+    S = {}; WarSiege::Start(S, 6, EWarSiegeScenario::FullSiege, 1); P = {}; P.Attackers = 6;
     WarSiege::Tick(S, P, 41); TestEqual(TEXT("Supply advances to first checkpoint"), S.Objective, 1);
     P.bCrewAlive = false; WarSiege::Tick(S, P, 20); TestEqual(TEXT("Dead crew cannot advance"), S.Progress, 0.f);
     P.bCrewAlive = true;
@@ -53,23 +54,23 @@ bool FWarSiegeRulesTest::RunTest(const FString& Parameters)
     WarSiege::Tick(S, P, 100); TestEqual(TEXT("Result emitted exactly once"), S.ResultCount, 1);
     for (int32 Stage = 0; Stage < 3; ++Stage)
     {
-        S = {}; WarSiege::Start(S, 6); S.Stage = Stage; S.Remaining = .5; P = {};
+        S = {}; WarSiege::Start(S, 6, EWarSiegeScenario::FullSiege, 1); S.Stage = Stage; S.Remaining = .5; P = {};
         WarSiege::Tick(S, P, 1); TestEqual(TEXT("Defenders can win each stage"), S.Phase, EWarSiegePhase::Finished);
         TestFalse(TEXT("Timeout is defender victory"), S.bAttackersWon);
-        S = {}; WarSiege::Start(S, 6); S.Stage = Stage; S.Objective = WarSiege::FinalObjective(Stage); S.Remaining = .5;
+        S = {}; WarSiege::Start(S, 6, EWarSiegeScenario::FullSiege, 1); S.Stage = Stage; S.Objective = WarSiege::FinalObjective(Stage); S.Remaining = .5;
         P.Attackers = 1; P.Defenders = 1; P.bRecentCommanderDamage = true;
         WarSiege::Tick(S, P, 1); TestTrue(TEXT("Final objective activity grants overtime"), S.bOvertime);
         P.Attackers = 0; P.bRecentCommanderDamage = false;
         WarSiege::Tick(S, P, 10.1); TestEqual(TEXT("Overtime ends on absence"), S.Phase, EWarSiegePhase::Finished);
-        S = {}; WarSiege::Start(S, 6); S.Stage = Stage; S.Objective = WarSiege::FinalObjective(Stage); S.Remaining = .5;
+        S = {}; WarSiege::Start(S, 6, EWarSiegeScenario::FullSiege, 1); S.Stage = Stage; S.Objective = WarSiege::FinalObjective(Stage); S.Remaining = .5;
         P.Attackers = 1; P.Defenders = 1; P.bRecentCommanderDamage = true;
         WarSiege::Tick(S, P, 121); TestEqual(TEXT("Active overtime still bounded"), S.Phase, EWarSiegePhase::Finished);
     }
-    S = {}; WarSiege::Start(S, 6); P = {}; P.OptionalAttackers = 6;
+    S = {}; WarSiege::Start(S, 6, EWarSiegeScenario::FullSiege, 1); P = {}; P.OptionalAttackers = 6;
     WarSiege::Tick(S, P, 41); TestTrue(TEXT("Optional objective completes independently"), S.bOptionalComplete);
     WarSiege::Tick(S, {}, 60); TestTrue(TEXT("Completed optional task persists"), S.bOptionalComplete);
     TestEqual(TEXT("Optional task never advances required chain"), S.Objective, 0);
-    FWarSiegeState Small, Large; WarSiege::Start(Small,6); WarSiege::Start(Large,6); P = {}; P.Attackers = 1;
+    FWarSiegeState Small, Large; WarSiege::Start(Small,6,EWarSiegeScenario::FullSiege,1); WarSiege::Start(Large,6,EWarSiegeScenario::FullSiege,1); P = {}; P.Attackers = 1;
     WarSiege::Tick(Large,P,10); for (int32 I=0; I<100; ++I) WarSiege::Tick(Small,P,.1);
     TestTrue(TEXT("Frame-rate independent capture"), FMath::IsNearlyEqual(Small.Progress,Large.Progress,.0001f));
     return true;
@@ -156,7 +157,7 @@ bool FWarSiegeAuthorityTest::RunTest(const FString& Parameters)
     auto* Outer = World->SpawnActor<AActor>();
     auto* Inner = World->SpawnActor<AActor>();
     Battlefield->StageGates = {Outer, Inner};
-    FWarSiegeState Siege;
+    FWarSiegeState Siege; Siege.RulesVersion = 1;
     Battlefield->ApplyMilestones(Siege);
     TestTrue(TEXT("Outer blockade starts closed"), Outer->GetActorEnableCollision());
     TestTrue(TEXT("Inner blockade starts closed"), Inner->GetActorEnableCollision());
@@ -174,7 +175,7 @@ bool FWarSiegeAuthorityTest::RunTest(const FString& Parameters)
     Siege.Stage = 1;
     Battlefield->ApplyMilestones(Siege);
     TestFalse(TEXT("Courtyard victory opens inner blockade"), Inner->GetActorEnableCollision());
-    Siege = {};
+    Siege = {}; Siege.RulesVersion = 1;
     Battlefield->ApplyMilestones(Siege);
     TestTrue(TEXT("Reset restores outer blockade"), Outer->GetActorEnableCollision());
     TestTrue(TEXT("Reset restores inner blockade"), Inner->GetActorEnableCollision());

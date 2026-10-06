@@ -4,7 +4,9 @@
 #include "WarPlayerState.h"
 #include "WarAttributeSet.h"
 #include "WarSiegeGameMode.h"
+#include "WarSiegeEncounter.h"
 #include "WarCombatStatus.h"
+#include "WarCampaignCombatState.h"
 #include "WarCombatFeedback.h"
 #include "WarWrathRelic.h"
 #include "WarWarpIdol.h"
@@ -23,7 +25,7 @@ namespace
     {
         if (!Source || !Target || Target->IsDead() || !Target->IsVisualReady() || Target->IsDevelopmentFlying() || Source->GetWorld() != Target->GetWorld()) return false;
         const auto* A = Source->GetPlayerState<AWarPlayerState>(); const auto* B = Target->GetPlayerState<AWarPlayerState>();
-        if (!A || !B || !A->IsSiegeNormalized() || !B->IsSiegeNormalized() || A->GetRealm() != B->GetRealm()) return false;
+        if (!A || !B || !A->UsesSiegeTargeting() || !B->UsesSiegeTargeting() || A->GetRealm() != B->GetRealm() || A->GetSiegeEncounter() != B->GetSiegeEncounter()) return false;
         const auto* Unit = Cast<AWarSiegeCharacter>(Target);
         if (Unit && Unit->Unit != EWarSiegeUnit::Participant) return false;
         if (FVector::DistSquared(Source->GetActorLocation(), Target->GetActorLocation()) > FMath::Square(Range)) return false;
@@ -61,7 +63,7 @@ void UWarAbilityRuntime::InitializeCharacter(AWarCharacter* Pawn)
     Interrupt(); Projectiles.Reset(); bMovementIntent=false;
     if (Career != Pawn->GetCareerId())
     {
-        Career = Pawn->GetCareerId(); Cooldowns.Reset(); GcdUntil = 0;
+        Career = Pawn->GetCareerId(); Cooldowns.Reset(); GcdUntil = 0;GcdExpiresAtUnixMs=0;
         const auto Kit = Catalog() ? Catalog()->Kit(Career) : TArray<const FWarAbilityDefinition*>();
         Resource = Kit.IsEmpty() ? 0 : Kit[0]->ResourceInitial;
     }
@@ -111,7 +113,8 @@ uint32 UWarAbilityRuntime::BeginBasicAttack(float ContactSeconds)
 {
     if (!GetOwner()->HasAuthority()) return ActionSerial;
     if (Activation) Cancel(false,false);
-    BusyUntil=Now()+FMath::Max(.01f,ContactSeconds); GcdUntil=FMath::Max(GcdUntil,Now()+1.0);
+    BusyUntil=Now()+FMath::Max(.01f,ContactSeconds);
+    if (GcdUntil<Now()+1.0) { GcdUntil=Now()+1.0;GcdExpiresAtUnixMs=WarCampaignCombatState::UnixMs()+1000; }
     QueuedAbility=NAME_None; bBasicPending=true; return ++ActionSerial;
 }
 void UWarAbilityRuntime::FinishBasicAttack(uint32 Serial)
@@ -159,7 +162,7 @@ bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Tar
     if (Resource < FMath::Max(A.Cost, A.MinimumResource)) return Fail(FString::Printf(TEXT("Requires %.0f %s."), FMath::Max(A.Cost, A.MinimumResource), *A.ResourceLabel));
     if (A.bEnemyTarget && !Pawn->CanAbilityTarget(Target, A.Range)) return Fail(TEXT("Select a living hostile in range with a clear line of sight."));
     if (A.TargetKind==TEXT("ally") && !WarAbilityExecution::Allied(Pawn,Target,A.Range)) return Fail(TEXT("Select a living ally in the same zone, within range and line of sight."));
-    if (State->IsSiegeNormalized() && !A.bEnemyTarget && Target && Target != Pawn
+    if (State->UsesSiegeTargeting() && !A.bEnemyTarget && Target && Target != Pawn
         && A.Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("heal"); })
         && !SiegeAlly(Pawn, Cast<AWarCharacter>(Target), 2000)) return Fail(TEXT("Select a living allied siege participant within 20 metres and line of sight."));
     if (Pawn->GetCharacterMovement()->IsFalling() && (A.RequiresStationary() || A.Effects.ContainsByPredicate([](const auto& E){return E.Kind==TEXT("movement") || E.Kind==TEXT("wrath_relic") || E.Kind==TEXT("warp_idol");}))) return Fail(TEXT("Land before starting this action."));
@@ -260,8 +263,10 @@ bool UWarAbilityRuntime::TryActivate(FName Id, AActor* Target, FString& Error, c
     bMovementCancelable=A->RequiresStationary();
     State->GetAbilitySystemComponent()->ApplyModToAttribute(UWarAttributeSet::GetManaAttribute(), EGameplayModOp::Additive, -A->Mana);
     Cooldowns.RemoveAll([&](const auto& C) { return C.Until <= Now() || C.Id == Id; });
-    FWarAbilityCooldown Cool; Cool.Id = Id; Cool.Until = Now() + A->Cooldown; Cooldowns.Add(Cool); GcdUntil = Now() + A->Gcd;
-    PendingPawn = Pawn; PendingTarget = A->bEnemyTarget || !A->Conditions.IsEmpty() || A->TargetKind==TEXT("ally") || !A->bLegacyTargeting || (State->IsSiegeNormalized() && !A->bEnemyTarget && A->Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("heal"); })) ? Target : nullptr; PendingZone = State->GetCurrentZone();
+    const int64 ActivatedAt=WarCampaignCombatState::UnixMs();
+    FWarAbilityCooldown Cool; Cool.Id = Id; Cool.Until = Now() + A->Cooldown;Cool.ExpiresAtUnixMs=ActivatedAt+FMath::RoundToInt64(A->Cooldown*1000.);
+    Cooldowns.Add(Cool); GcdUntil = Now() + A->Gcd;GcdExpiresAtUnixMs=ActivatedAt+FMath::RoundToInt64(A->Gcd*1000.);
+    PendingPawn = Pawn; PendingTarget = A->bEnemyTarget || !A->Conditions.IsEmpty() || A->TargetKind==TEXT("ally") || !A->bLegacyTargeting || (State->UsesSiegeTargeting() && !A->bEnemyTarget && A->Effects.ContainsByPredicate([](const auto& E) { return E.Kind == TEXT("heal"); })) ? Target : nullptr; PendingZone = State->GetCurrentZone();
     Casting = Id; bReleased = false; Strength = State->GetEffectiveStrength(); Level = State->GetCombatLevel();
     if (A->bEnemyTarget && IsValid(Target)) Pawn->SetActorRotation((Target->GetActorLocation() - Pawn->GetActorLocation()).GetSafeNormal2D().Rotation());
     Origin = Pawn->GetActorLocation(); Facing = Pawn->GetActorForwardVector();
@@ -367,7 +372,7 @@ void UWarAbilityRuntime::ResolveImpact(FWarAbilityImpact& Impact)
             else if (Beneficial)
             { if (A.TargetKind==TEXT("self")) Result.Add(Pawn); else if (Impact.Target.IsValid()) Result.Add(Impact.Target.Get()); }
             else Result=Targets;
-            if (A.bLegacyTargeting && E.Kind==TEXT("heal") && !A.bEnemyTarget && Impact.Target.IsValid() && Pawn->GetPlayerState<AWarPlayerState>()->IsSiegeNormalized())
+            if (A.bLegacyTargeting && E.Kind==TEXT("heal") && !A.bEnemyTarget && Impact.Target.IsValid() && Pawn->GetPlayerState<AWarPlayerState>()->UsesSiegeTargeting())
             { Result.Reset(); if (SiegeAlly(Pawn,Cast<AWarCharacter>(Impact.Target.Get()),2000)) Result.Add(Impact.Target.Get()); }
             Result.Sort([](const AActor& Left,const AActor& Right) { return Left.GetUniqueID()<Right.GetUniqueID(); });
             if (Result.Num()>A.MaxTargets) Result.SetNum(A.MaxTargets); return Result;
@@ -433,15 +438,15 @@ void UWarAbilityRuntime::ResolveImpact(FWarAbilityImpact& Impact)
         else if (E.Kind == TEXT("heal"))
         {
             auto* Ally = Cast<AWarCharacter>(Impact.Target.Get());
-            if (!A.bEnemyTarget && Ally && Ally != Pawn && Pawn->GetPlayerState<AWarPlayerState>()->IsSiegeNormalized())
+            if (!A.bEnemyTarget && Ally && Ally != Pawn && Pawn->GetPlayerState<AWarPlayerState>()->UsesSiegeTargeting())
             { if (SiegeAlly(Pawn, Ally, 2000)) UWarCombatStatus::Heal(Ally, Value, Pawn); }
             else UWarCombatStatus::Heal(Pawn, Value, Pawn);
         }
-        else if (E.Kind == TEXT("player_status")) { if (auto* Status = UWarCombatStatus::On(Pawn)) Status->Apply(E, A.Id, Pawn, Impact.Strength, Impact.Level); }
+        else if (E.Kind == TEXT("player_status")) { if (auto* Status = UWarCombatStatus::On(Pawn)) Status->Apply(E, A.Id, Pawn, Impact.Strength, Impact.Level,A.Version,-1,Impact.Definition); }
         else if (E.Kind == TEXT("damage") || E.Kind == TEXT("status")) for (AActor* Target : Targets)
         {
             if (E.Kind == TEXT("damage")) UWarCombatStatus::Damage(Target, Pawn, Value * Scale, A.Range + A.Radius + 100);
-            else if (Pawn->CanAbilityTarget(Target, A.Range + A.Radius + 100)) if (auto* Status = UWarCombatStatus::On(Target)) Status->Apply(E, A.Id, Pawn, Impact.Strength, Impact.Level);
+            else if (Pawn->CanAbilityTarget(Target, A.Range + A.Radius + 100)) if (auto* Status = UWarCombatStatus::On(Target)) Status->Apply(E, A.Id, Pawn, Impact.Strength, Impact.Level,A.Version,-1,Impact.Definition);
         }
     }
 }
@@ -616,4 +621,4 @@ FString UWarAbilityRuntime::Description() const
 void UWarAbilityRuntime::RestoreResource()
 { if (GetOwner()->HasAuthority() && Catalog()) { const auto Kit = Catalog()->Kit(Career); if (!Kit.IsEmpty()) Resource = Kit[0]->ResourceMax; GetOwner()->ForceNetUpdate(); } }
 void UWarAbilityRuntime::ResetCooldowns()
-{ if (GetOwner()->HasAuthority()) { Cooldowns.Reset(); GcdUntil = 0; GetOwner()->ForceNetUpdate(); } }
+{ if (GetOwner()->HasAuthority()) { Cooldowns.Reset(); GcdUntil = 0;GcdExpiresAtUnixMs=0; GetOwner()->ForceNetUpdate(); } }

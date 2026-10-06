@@ -24,6 +24,12 @@ AWarPlayerController::AWarPlayerController()
     bShowMouseCursor = true;
 }
 
+void AWarPlayerController::EndPlay(const EEndPlayReason::Type Reason)
+{
+    EndEditingUi(false);
+    Super::EndPlay(Reason);
+}
+
 void AWarPlayerController::RestoreGameplayInput()
 {
     bShowMouseCursor = true;

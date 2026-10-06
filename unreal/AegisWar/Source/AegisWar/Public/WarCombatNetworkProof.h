@@ -16,6 +16,9 @@ public:
     virtual void Tick(float Delta) override;
 private:
     void Finish(bool bPassed,const FString& Detail);
+    void TickUi(double Now);
+    TWeakObjectPtr<AWarCharacter> Friendly;
+    uint8 UiObserved=0;
     TWeakObjectPtr<AWarCharacter> Actor, Target;
     FName Ability;
     double Started=-1, ActionAt=-1, MovementAt=-1;
