@@ -12,6 +12,7 @@ public:
     AWarPracticalLight();
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Regional atmosphere") FName ZoneId;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Regional atmosphere", meta=(ClampMin="0",ClampMax="5000")) float NightLumens=900;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Regional atmosphere", meta=(ClampMin="0",ClampMax="5000")) float DayLumens=0;
     void ApplyTime(double Seconds);
     virtual void Tick(float DeltaSeconds) override;
 };

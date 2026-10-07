@@ -23,6 +23,9 @@ describe('modular T1 village authoring', () => {
     expect(military.reduce((n, m) => n + projection(m), 0) / military.length).toBeGreaterThan(civilian.reduce((n, m) => n + projection(m), 0) / civilian.length);
     for (const module of plan.modules) {
       expect(module.approach.at(-1)).toEqual({ x: zone.spawnPoint!.x, z: zone.spawnPoint!.z });
+      for (const fixture of plan.modules.flatMap(m => m.practical && m.practical.y < 2 ? [m.practical] : []))
+        for (let i = 1;i < module.approach.length;i++)
+          expect(distanceToSpatialSegment(fixture, module.approach[i - 1], module.approach[i])).toBeGreaterThanOrEqual(1.3);
       for (const path of zone.paths!) for (let i = 1;i < path.points.length;i++)
         expect(distanceToSpatialSegment(module, path.points[i - 1], path.points[i])).toBeGreaterThan(path.width / 2 + Math.hypot(7, 8) + 3);
     }
@@ -35,5 +38,11 @@ describe('modular T1 village authoring', () => {
     const module = villagePlan(zone).modules[0];
     expect(segmentCrossesModule(moduleLocalPoint(module, { x: -20, z: 0 }), moduleLocalPoint(module, { x: 20, z: 0 }), module)).toBe(true);
     expect(segmentCrossesModule(moduleLocalPoint(module, { x: -20, z: 20 }), moduleLocalPoint(module, { x: 20, z: 20 }), module)).toBe(false);
+  });
+  it('rejects a fixture placed in another building approach', () => {
+    const zone = redesignT1(JSON.parse(readFileSync('public/assets/maps/cinderfen_outskirts.json', 'utf8')) as ZoneDefinition);
+    const plan = villagePlan(zone), route = plan.modules[0].approach;
+    Object.assign(plan.modules[1].practical!, route.at(-1));
+    expect(() => validateVillagePlan(plan, zone)).toThrow('blocks village circulation');
   });
 });

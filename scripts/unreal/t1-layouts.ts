@@ -51,7 +51,7 @@ export const T1_REGIONS: Record<string, Region> = {
     outline: [[-940, -220], [-720, -405], [-335, -345], [-85, -415], [240, -350], [660, -405], [940, -200], [905, 220], [650, 405], [310, 335], [105, 405], [-210, 295], [-560, 400], [-880, 220]],
     village: [735, -195, 10],
     main: [[-430, -125, 10], [-275, -80, 8], [-120, -30, 9], [-60, 10, 11], [5, 65, 13], [75, 75, 14], [140, 55, 14], [280, 5, 12], [430, -65, 11]],
-    upper: [[-430, -125, 10], [-310, 80, 24], [-60, 215, 27], [75, 225, 26], [290, 150, 25], [430, -65, 11]],
+    upper: [[-430, -125, 10], [-310, 80, 20], [-60, 215, 27], [75, 225, 26], [290, 150, 25], [430, -65, 11]],
     lower: [[-430, -125, 10], [-300, -250, 14], [-60, -200, 18], [75, -165, 18], [300, -180, 16], [430, -65, 11]],
     lair: [-665, 215, 18], landforms: [[-160, 305, 570, 180, 76], [240, -315, 600, 140, 65], [-700, 90, 250, 200, 42]],
     theme: 'Bending dry wash below layered sandstone plateaus, silver ash and bleached grass', landmark: 'Dark standing monuments above the caravan wash',
@@ -98,6 +98,9 @@ export function redesignT1(source: ZoneDefinition): ZoneDefinition {
   const region = T1_REGIONS[source.id]; if (!region) return structuredClone(source);
   const zone = structuredClone(source), old = source.orvrLayout; if (!old) throw new Error('Missing retained RvR layout');
   const main = region.main.map(point), upper = region.upper.map(point), lower = region.lower.map(point), village = point(region.village), lair = point(region.lair);
+  // Approach the eastern delivery point from below its shelter. The ridge
+  // branches at shared advance vertices, clear of the complete keep envelopes.
+  main[7] = { ...main[7], z: main[8].z - 55 };
   zone.size = Math.max(region.width, region.depth) + 200; zone.segments = Math.ceil(zone.size / 6); zone.flatTerrain = false;
   zone.spatial = {
 bounds: { minX: -region.width / 2 - 100, maxX: region.width / 2 + 100, minZ: -region.depth / 2 - 100, maxZ: region.depth / 2 + 100 },
@@ -115,12 +118,17 @@ bounds: { minX: -region.width / 2 - 100, maxX: region.width / 2 + 100, minZ: -re
   });
   layout.battlefieldObjectives = old.battlefieldObjectives.map((bo, i) => ({ ...bo, ...targets[i] }));
   layout.stagingCamps = old.stagingCamps.map((camp, i) => ({ ...camp, x: main[i === 0 ? 0 : 8].x + (i === 0 ? -110 : 110), z: main[i === 0 ? 0 : 8].z + 115, y: main[i === 0 ? 0 : 8].y }));
-  const paths = [main, upper, lower, [upper[2], main[3], lower[2]], [upper[3], main[5], lower[3]]];
+  const ridge = [main[0], main[1], ...upper.slice(1, -1), main[7], main[8]];
+  const paths = [main, ridge, lower, [upper[2], main[3], lower[2]], [upper[3], main[5], lower[3]]];
   zone.paths = paths.map((points, i) => ({ id: `${zone.id}_${['advance', 'ridge_flank', 'outer_flank', 'rotation_1', 'rotation_2'][i]}`, style: 'dirt_trail', width: 12, points }));
   for (const [i, keep] of layout.keeps.entries()) zone.paths.push({ id: `${keep.objectiveId}_approach`, style: 'dirt_trail', width: 6, points: [{ ...keep.deliveryPoint, y: main[i === 0 ? 0 : 8].y }, { x: keep.x, z: keep.z - 13.9, y: main[i === 0 ? 0 : 8].y }, { x: keep.x, z: keep.z, y: main[i === 0 ? 0 : 8].y }] });
-  for (const [i, camp] of layout.stagingCamps.entries()) zone.paths.push({ id: `${camp.id}_road`, style: 'dirt_trail', width: 12, points: [camp, main[i === 0 ? 0 : 8]] });
+  const stagingRoads = layout.stagingCamps.map((camp, i) => {
+    const delivery = main[i === 0 ? 0 : 8], side = i === 0 ? -1 : 1;
+    return [camp, { ...delivery, x: delivery.x + side * 95, z: delivery.z + 30 }, { ...delivery, x: delivery.x + side * 95 }, delivery];
+  });
+  for (const [i, camp] of layout.stagingCamps.entries()) zone.paths.push({ id: `${camp.id}_road`, style: 'dirt_trail', width: 12, points: stagingRoads[i] });
   const home = source.campaign?.realm === 'aegis' ? 0 : 1;
-  zone.paths.push({ id: `${zone.id}_village_road`, style: 'dirt_trail', width: 12, points: [village, layout.stagingCamps[home], main[home === 0 ? 0 : 8]] });
+  zone.paths.push({ id: `${zone.id}_village_road`, style: 'dirt_trail', width: 12, points: [village, ...stagingRoads[home]] });
   const capitalCourt = { ...village, x: village.x + (home === 0 ? 55 : -55), z: village.z - 40 };
   for (const trigger of zone.zoneTriggers ?? []) {
     const destination = trigger.targetZoneId;

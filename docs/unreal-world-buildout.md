@@ -6,6 +6,11 @@ native prototypes. Active campaign/capital packages remain preserved. Village
 completion, effects/audio, visual and live play acceptance remain open; the
 existing first-pair lair and batch sequence gates still apply.
 
+Read-only T1 obstacle checks now cover retained keep approaches and village
+circulation. Separate private furnished-home studies provide measured doorway,
+floor and step routes with local interior exposure; their regional appearance,
+live movement, GM persistence and license acceptance remain outstanding.
+
 The approved scope is 32 existing zones and 70 directed portals in the main
 AegisWar project. Implementation has begun with shared foundations and
 Sunmeadow March/Cinderfen Outskirts. **No zone or batch is complete.**

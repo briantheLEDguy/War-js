@@ -27,6 +27,23 @@ for identity in ['sunmeadow_march','cinderfen_outskirts','brightfen_approach','a
         if not file.exists():raise RuntimeError('Progress drawing missing')
         parts.append(picture(file,identity.replace('_',' ').title()+' — '+suffix.replace('_',' ')+' (schematic)'))
 parts.append('</div>')
+home_review_file=DIRECTORY/'home-review.json'
+if home_review_file.exists():
+    home_review=json.loads(home_review_file.read_text())
+    home_native=json.loads((DIRECTORY/'homes-latest.json').read_text())
+    if home_review['signature']!=home_native['signature'] or home_review['parentPlanSha256']!=native['planSha256'] or not home_review['savedCandidatesUnchanged']:
+        raise RuntimeError('Home gallery requires matching unchanged native studies')
+    home_views=ROOT/home_review['pictureDirectory']
+    parts.append('<h2>Furnished home studies — private modular catalog</h2><p>These are room and doorway prototypes. Regional architecture, live movement, camera clearance and visual approval remain pending.</p><div class="grid">')
+    for home in home_review['homes']:
+        drawing=DIRECTORY/(home['id']+'_floor_plan.png')
+        if drawing.exists():parts.append(picture(drawing,home['id'].replace('_',' ').title()+' — room plan (schematic)'))
+        for phase in ['day','night','dusk']:
+            for view in ['exterior','interior']:
+                file=home_views/(home['id']+'_'+view+'_'+phase+'.png')
+                if not file.exists():raise RuntimeError('Native home capture missing')
+                parts.append(picture(file,home['id'].replace('_',' ').title()+' / '+view+' / '+phase+' — unapproved study'))
+    parts.append('</div>')
 for zone in review['zones']:
     identity=zone['zone']
     parts.append('<h2>'+html.escape(identity.replace('_',' ').title())+' — native player-height views</h2><div class="grid">')

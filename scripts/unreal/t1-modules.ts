@@ -60,7 +60,8 @@ function connectEntrances(plan: VillagePlan, center: SpatialPoint, zone: ZoneDef
   const step = 3, extent = 46, spatial = resolveZoneSpatial(zone);
   const point = (x: number, z: number) => ({ x: center.x + x * step, z: center.z + z * step });
   const clear = (a: SpatialPoint, b: SpatialPoint) => containsSpatialPoint(spatial, b, 1)
-    && !plan.modules.some(module => segmentCrossesModule(a, b, module));
+    && !plan.modules.some(module => segmentCrossesModule(a, b, module)
+      || (module.practical && module.practical.y < 2 && distanceToSpatialSegment(module.practical, a, b) < 1.3));
   const key = (x: number, z: number) => `${x},${z}`;
   // One flood from the village green provides every entrance's shortest reserved walk.
   const previous = new Map<string, string | null>([['0,0', null]]), queue: Array<[number, number]> = [[0, 0]];
@@ -157,6 +158,7 @@ export function validateVillagePlan(plan: VillagePlan, zone: ZoneDefinition): vo
     ids.add(module.id);
     if (!corners(module).every(p => containsSpatialPoint(spatial, p, 2))) throw new Error('Assembly leaves playable ground');
     if (module.approach.length < 2) throw new Error('Assembly has no reserved approach');
-    for (let i = 1;i < module.approach.length;i++)if (plan.modules.some(other => segmentCrossesModule(module.approach[i - 1], module.approach[i], other))) throw new Error('Assembly blocks village circulation');
+    for (let i = 1;i < module.approach.length;i++)if (plan.modules.some(other => segmentCrossesModule(module.approach[i - 1], module.approach[i], other)
+      || (other.practical && other.practical.y < 2 && distanceToSpatialSegment(other.practical, module.approach[i - 1], module.approach[i]) < 1.3))) throw new Error('Assembly blocks village circulation');
   }
 }

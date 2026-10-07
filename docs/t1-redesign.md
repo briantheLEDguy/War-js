@@ -59,6 +59,49 @@ each completed revision gets a fresh private collection. The native prototypes
 are rendering studies: module collision/gameplay registration, navigation and
 ordinary GM assembly persistence still need integration and execution.
 
+## Native clearance and furnished-home studies
+
+`review-t1-clearance.py` binds its input inventory to the saved candidate receipt
+and performs forward/reverse native sweeps against actual admitted scenery.
+Roads, six supply itineraries, village approaches, services and arrivals are
+included. Wide roads receive three character lanes and a 6 × 9 × 3.3 m diagnostic
+corridor; six-metre keep approaches retain a 5.4 m corridor with edge clearance.
+These upright boxes exclude terrain, whose full-width support is checked
+separately. They do not simulate vehicle steering, suspension, navigation or
+gate ownership states. Unplaced gate/banner bindings remain explicit.
+
+The initial survey found roads intersecting keep walls/shelters and three
+Cinderfen walking links hitting lanterns. Ridge approaches now branch at shared
+advance vertices, staging roads skirt complete retained assemblies, and the
+eastern advance approaches delivery from below the quartermaster shelter.
+Standing fixtures reserve clearance in the village circulation flood. All
+four data layouts retain the supply pacing and terrain grade checks; the repaired
+first-pair native candidates pass 77,389 obstacle sweeps with no blockers.
+
+`build-t1-home-studies.py` clones each isolated first-pair candidate into fresh
+Review/Generated/Authored packages and substitutes its two required home lots
+with existing furnished private catalog templates. It checks the full project
+dependency closure, original template fingerprints and parent map hashes.
+Original kit assets, parent candidates and capital maps are untouched. Native
+axis/pivot conversion, single-floor door routes and a twelve-metre study height
+are explicit in `t1_native_homes.py`. These are kit interior studies, with regional
+architecture and licensed distribution acceptance still open.
+
+`review-t1-homes.py` checks actual floor support and the unchanged 42 cm radius /
+96 cm half-height character capsule in both directions. Rounded-foot sweeps
+handle porch edges; bounded up/across/down sweeps use the existing 45 cm step
+limit. The four routes pass this geometric review. It does not execute character
+movement, verify camera collision or certify home accessibility in gameplay.
+The source templates include furniture, windows and door openings; capture and
+collision receipts alone do not grant visual or furnished-home acceptance.
+
+`AWarPracticalLight` supports a daytime indoor level while its outdoor default
+still extinguishes in daylight. `AWarInteriorAtmosphere` supplies a bounded
+room exposure component with a 75 cm blend, using the same authority clock.
+It inherits regional camera/colour settings and leaves exterior exposure alone.
+Private home studies have one interior light/room component per house. Their
+lighting, source materials and cultural adaptation remain prototypes.
+
 ## Spatial and atmosphere implementation
 
 `shared/worldSpatial.ts` resolves rectangular content bounds, an irregular
@@ -134,8 +177,8 @@ regional tints; water, texture detail and broad landscape composition need work.
 primitive scenery fallback, purchase or distribution approval is added.
 
 Route grading now blends overlapping supports continuously. Native collision
-sampling covers 7,971 Sunmeadow and 7,794 Cinderfen points, including both road
-shoulders, with maximum measured rise/run about .180 and .158. The review fails
+sampling covers 8,712 Sunmeadow and 8,631 Cinderfen points, including both road
+shoulders, with maximum measured rise/run about .180 and .151. The review fails
 above the .22 authoring target. This does not prove vehicle handling or fairness.
 All four twelve-tile rectangular inventories pass coverage validation, including
 fractional thirds; real coverage gaps/overlap still fail.
@@ -160,16 +203,42 @@ frame time, memory and travel on Windows/Linux/macOS and complete Steam/release
 gates. Tests, exported data, compilation and isolated captures grant no art or
 completion acceptance.
 
-Verification: all three typechecks, 1,080 repository tests, 472 Unreal tooling
-tests, four Python coverage tests and 144 native Foundation tests pass.
+Verification: all three typechecks, 1,081 repository tests, 473 Unreal tooling
+tests, eight Python coverage/adapter tests and 144 native Foundation tests pass.
 Migration audit, 33-map world validation and 906 model records pass. Strict
 release checking retains four outstanding gates. Focused T1 tests also pass
 after scenery placement and absolute-height corrections.
 
-The 2026-10-08 checkpoint is native plan `f597f9bbeb96`: 50 player-height
+The initial 2026-10-08 checkpoint was native plan `f597f9bbeb96`: 50 player-height
 captures, eight progress drawings, unchanged saved candidate packages, and native
 Foundation report `artifacts/unreal/editor/test-1791410986308-33672`. The local
 gallery links full-resolution originals; it applies no image enhancement.
+
+The subsequent route-clearance checkpoint is plan `1a4677079d8c`. It retains
+50 player-height views and unchanged saved maps, with measured road grades
+about .180/.151 for Sunmeadow/Cinderfen. Repository/tool suites now pass
+1,081/473 tests, including fixture-circulation regression coverage. Four new
+Python adapter/inventory tests pass alongside the four terrain coverage tests.
+The home-study receipt and `home-review.json` bind the latest private room maps,
+24 actual day/dusk/night captures and four schematic room drawings. Earlier
+failed clearance/home receipts are retained privately for diagnosis.
+
+The latest home study is `c3546858f94b`: 4,218 native capsule/foot/step sweeps,
+1,372 floor samples, four clear routes, 24 rendered views and unchanged parent/
+study maps. Indoor fixtures measure 2,500/2,225/1,400 lumens at day/dusk/night;
+bounded exposure uses day bias 2 and night 3.5. Source materials, regional
+architecture and roof/window composition remain unapproved. The latest native
+Foundation report is `artifacts/unreal/editor/test-1791413941815-24868` (144 pass).
+The local gallery now contains 74 native captures and 12 schematic drawings.
+
+Run `review-t1-clearance.py` as a null-RHI Python commandlet after a matching
+candidate build. Run `build-t1-home-studies.py`, then `review-t1-homes.py` with
+`-AllowCommandletRendering -RenderOffscreen -NoTextureStreaming`. Regenerate
+room drawings with `t1-home-pictures.py` using Pillow, and the existing progress
+drawings/gallery helpers for the complete checkpoint. Neither helper saves a
+reviewed map or changes source kit assets. Close saved editor/game processes
+before native module builds or private candidate writes, as required by the
+world buildout workflow.
 
 Overnight continuation is active on this chat through 08:00 Amsterdam on
 2026-10-08. It continues independent modular implementation and shares meaningful

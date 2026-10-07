@@ -2,6 +2,7 @@
 #include "WarZoneAnchor.h"
 #include "WarEnvironmentState.h"
 #include "WarPracticalLight.h"
+#include "WarInteriorAtmosphere.h"
 #include "Engine/DirectionalLight.h"
 #include "Engine/ExponentialHeightFog.h"
 #include "Engine/SkyLight.h"
@@ -176,6 +177,7 @@ bool UWarZoneLightingSubsystem::PreviewEnvironment(UWorld* World,FName Zone,FVec
     if (!Lighting || !FMath::IsFinite(Seconds) || !FMath::IsFinite(Weather) || !Lighting->PreviewZone(Zone,Origin)) return false;
     Lighting->ApplyRegionalTime(Seconds,Weather);
     for(TActorIterator<AWarPracticalLight> It(World);It;++It)if(It->ZoneId==Zone)It->ApplyTime(Seconds);
+    for(TActorIterator<AWarInteriorAtmosphere> It(World);It;++It)if(It->ZoneId==Zone)It->ApplyTime(Seconds);
     return true;
 }
 void UWarZoneLightingSubsystem::Deinitialize()

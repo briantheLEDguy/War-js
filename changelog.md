@@ -1723,3 +1723,24 @@ Local campaign checkpoint replacement now retries brief Windows sharing violatio
 Seven reviewed civic profiles now populate 15 stationary NPC placements: Gateward Market, Cinderbank, Lantern Quays, Bellfound Cloister, Crownwatch Garden and Great Hall. Children remain beside adults. The campaign generator checks clear ground against canal and prop footprints; existing services and patrols are retained. City NPCs use the reviewed middle LOD and custom idle-only civic rig. Rebuild with `npm run campaign:generate` and `npm run models:registry`; verify with `npx vitest run tests/aegisPeople.test.ts` and `npm run world:validate`.
 
 Civilian leather garments now have a contoured waist/chest, belt tension folds, curved hip panels, and laces fitted to the garment edge.
+## 2026-10-08 - T1 route clearance and furnished home studies
+
+- Add read-only native capsule/corridor sweeps covering roads, six supply
+  itineraries, village approaches, services and arrivals in both first-pair
+  candidates. Repair routes crossing retained keep walls/shelters and footpaths
+  clipping standing lanterns; preserve gate widths and supply pacing.
+- Pass 77,389 bidirectional obstacle sweeps against the admitted candidate
+  scenery. Missing gates/banners, actual navigation, walk/drive and combat
+  acceptance remain open.
+- Clone isolated candidates into new private home-study layers and replace two
+  reserved shells per zone with fingerprinted furnished catalog templates.
+  Preserve parent maps, kit dependencies and accepted capital scenes. Native
+  foot/capsule/step probes clear four home routes; no live walking or art
+  acceptance is granted.
+- Add local indoor light levels and bounded, clock-driven room exposure. Export
+  actual day/dusk/night room captures and source-derived floor-plan drawings.
+  Regional architectural adaptation and licensed distribution remain unapproved.
+- Pass 1,081 repository tests, 473 Unreal tooling tests, three typechecks and
+  migration/world/model validation, eight Python checks and 144 native
+  Foundation tests. Retain all batch, persistence/network,
+  performance/platform, Steam and release gates.

@@ -4,6 +4,9 @@
 #include "WarZoneLightingSubsystem.h"
 #include "WarZoneAnchor.h"
 #include "WarPracticalLight.h"
+#include "WarInteriorAtmosphere.h"
+#include "Components/BoxComponent.h"
+#include "Components/PostProcessComponent.h"
 #include "Engine/World.h"
 #include "Engine/DirectionalLight.h"
 #include "Components/DirectionalLightComponent.h"
@@ -39,6 +42,18 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Fixture extinguishes in daylight"),Practical->GetLightComponent()->Intensity,0.f);
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)Day=It->GetLightComponent()->Intensity;
     TestTrue(TEXT("Night stays darker with readable moonlight"),Night>0&&Night<Day*.1f);
+    Practical->DayLumens=250;Practical->NightLumens=700;
+    Practical->ApplyTime(1200);TestEqual(TEXT("Interior fixture retains daylight illumination"),Practical->GetLightComponent()->Intensity,250.f);
+    Practical->ApplyTime(2700);TestEqual(TEXT("Interior fixture follows night level"),Practical->GetLightComponent()->Intensity,700.f);
+    Practical->ApplyTime(2250);TestEqual(TEXT("Interior fixture blends at dusk"),Practical->GetLightComponent()->Intensity,362.5f);
+    Practical->DayLumens=-10;Practical->ApplyTime(1200);TestEqual(TEXT("Invalid fixture output is clamped"),Practical->GetLightComponent()->Intensity,0.f);
+    auto* Interior=World->SpawnActor<AWarInteriorAtmosphere>();Interior->ZoneId=TEXT("sunmeadow_march");
+    TestFalse(TEXT("Room exposure is bounded"),Interior->Exposure->bUnbound);
+    TestEqual(TEXT("Room geometry does not block movement"),Interior->RoomBounds->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
+    TestEqual(TEXT("Day eye adaptation"),Interior->Exposure->Settings.AutoExposureBias,2.f);
+    UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2700,0);
+    TestEqual(TEXT("Room follows night preview"),Interior->Exposure->Settings.AutoExposureBias,3.5f);
+    Interior->ApplyTime(2250);TestEqual(TEXT("Room blends at dusk"),Interior->Exposure->Settings.AutoExposureBias,2.75f);
     World->DestroyWorld(false);return true;
 }
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarSpatialOutlineTest,"AegisWar.Foundation.SpatialOutline",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)

@@ -20,7 +20,8 @@ AWarPracticalLight::AWarPracticalLight()
 void AWarPracticalLight::ApplyTime(double Seconds)
 {
     const float Day=AWarEnvironmentState::Daylight(Seconds);
-    GetLightComponent()->SetIntensity(FMath::Clamp(NightLumens,0.f,5000.f)*(1-Day)*(1-Day));
+    GetLightComponent()->SetIntensity(FMath::Lerp(FMath::Clamp(DayLumens,0.f,5000.f),
+        FMath::Clamp(NightLumens,0.f,5000.f),(1-Day)*(1-Day)));
 }
 void AWarPracticalLight::Tick(float DeltaSeconds)
 {

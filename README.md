@@ -11,6 +11,12 @@ weather/audio effects, camera approval, walking/driving/18v18, GM/network proof
 and platform performance remain open; batch two retains the lair gate. See
 [implementation and reproduction](docs/t1-redesign.md).
 
+The isolated T1 checks now include bidirectional native obstacle sweeps, repaired
+keep/staging approaches and fixture-aware village circulation. Private furnished
+home studies reuse fingerprinted existing kit templates, with explicit door
+routes, floor/step probes and bounded interior exposure. These studies retain
+their license, regional appearance, live walking and ordinary GM acceptance gates.
+
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both
 `GameDefaultMap` and `EditorStartupMap`. Campaign, frontend and canonical siege
