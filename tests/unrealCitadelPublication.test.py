@@ -76,6 +76,24 @@ def width_evidence(routes):
 
 
 class PublicationTests(unittest.TestCase):
+    def test_normal_conversion_is_versioned_and_bound_to_actual_saved_texture(self):
+        file='public/assets/textures/aegis_citadel_interiors/citadel_normal.png'
+        package='/Game/WorldRebuild/AegisCitadel_0123456789ab/Textures/T_citadel_normal_normal'
+        source=dict(materialSpecs=dict(furniture=dict(normal=file,normalConvention='gltf_opengl_positive_y')),
+            materialSources={file:'a'*64})
+        city=dict(revision='0123456789ab',packageHashes={package:'b'*64},nativeNormalTextureBindings=[dict(
+            source=file,sourceSha256='a'*64,sourceConvention='gltf_opengl_positive_y',package=package,sha256='b'*64,
+            actualFlipGreenChannel=True,actualSrgb=False,actualCompression='TC_NORMALMAP')])
+        publisher.normal_texture_binding_proof(dict(recipeVersion=10),source,{})
+        publisher.normal_texture_binding_proof(dict(recipeVersion=11),source,city)
+        for key,value in dict(actualFlipGreenChannel=False,actualSrgb=True,actualCompression='TC_DEFAULT',
+                sourceConvention='unrecorded',sha256='c'*64,sourceSha256='c'*64,package='/Game/Other/T_normal').items():
+            invalid=copy.deepcopy(city);invalid['nativeNormalTextureBindings'][0][key]=value
+            with self.subTest(key=key),self.assertRaisesRegex(ValueError,'normal'):
+                publisher.normal_texture_binding_proof(dict(recipeVersion=11),source,invalid)
+        invalid=copy.deepcopy(city);invalid['nativeNormalTextureBindings']*=2
+        with self.assertRaisesRegex(ValueError,'normal'):publisher.normal_texture_binding_proof(dict(recipeVersion=11),source,invalid)
+
     def test_mesh_recipe_keeps_legacy_counts_and_requires_new_footing_binding(self):
         legacy = [dict(id='asset_'+str(i)) for i in range(38)]
         current = legacy + [dict(id='wing_foundation_repairs')]
@@ -84,13 +102,21 @@ class PublicationTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 publisher.versioned_mesh_bindings(dict(recipeVersion=version), current, current)
         self.assertEqual(len(publisher.versioned_mesh_bindings(dict(recipeVersion=9), current, current)), 39)
+        dressing=[dict(id='dressing_'+key) for key in ('forehall','throne_hall','west_archive','east_treasury','west_terrace','east_terrace')]
+        for version in (10, 11, 12):
+            self.assertEqual(len(publisher.versioned_mesh_bindings(dict(recipeVersion=version),current+dressing,current+dressing)),45)
+        for missing in dressing:
+            wrong=current+[dict(id='wrong_room') if row==missing else row for row in dressing]
+            for version in (10, 11, 12):
+                with self.assertRaisesRegex(ValueError,'Furnishing groups'):
+                    publisher.versioned_mesh_bindings(dict(recipeVersion=version),wrong,wrong)
         for rows, bindings in ((legacy, legacy), (current, legacy),
                 (current, current[:-1]+[current[0]]),
                 (current, current[:-1]+[dict(id='wrong_mesh')]),
                 (legacy+[dict(id='wrong_mesh')], legacy+[dict(id='wrong_mesh')])):
             with self.subTest(rows=rows[-1], bindings=bindings[-1]), self.assertRaises(ValueError):
                 publisher.versioned_mesh_bindings(dict(recipeVersion=9), rows, bindings)
-        for version in (0, 10, True, '9', None, 9.5):
+        for version in (0, 13, True, '9', None, 9.5):
             with self.subTest(version=version), self.assertRaises(ValueError):
                 publisher.versioned_mesh_bindings(dict(recipeVersion=version), current, current)
 

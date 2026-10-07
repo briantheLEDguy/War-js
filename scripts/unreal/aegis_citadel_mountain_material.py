@@ -9,9 +9,9 @@ MOUNTAIN_TEXTURES = {
     'baseColor': '/Game/Capitals/crownward/Textures/MountainBaseColor.MountainBaseColor',
     'normal': '/Game/Capitals/crownward/Textures/MountainNormal.MountainNormal',
 }
-MOUNTAIN_MATERIAL_SPEC = dict(snowStartCm=17000, snowFullCm=29000,
-    snowEarliestNoiseShiftCm=15200, heightNoiseSpanCm=3600,
-    snowMinimumNormalZ=.28, snowFullNormalZ=.8, textureRepeat=6,
+MOUNTAIN_MATERIAL_SPEC = dict(recipeVersion=2,snowStartCm=26000, snowFullCm=38000,
+    snowEarliestNoiseShiftCm=24200, heightNoiseSpanCm=3600,
+    snowMinimumNormalZ=.5, snowFullNormalZ=.92, textureRepeat=6,
     retainedRenderNormalZSign=-1,
     rockTint=[.13, .19, .28], snowColor=[.52, .61, .72],
     geometryDisplacement=False, collisionChanged=False, originalTexturesPreserved=True)
@@ -35,15 +35,22 @@ struct AlpineNoise {
 AlpineNoise noise;
 float broad = noise.Value(P / 3200);
 float fine = noise.Value(P / 850);
-float heightMask = saturate((P.z - 17000 + (broad-.5)*3600) / 12000);
+float heightMask = saturate((P.z - @SNOW_START@ + (broad-.5)*@HEIGHT_NOISE@) / @HEIGHT_SPAN@);
 // The retained native render buffer has downward highland vertex normals.
 // Its measured convention is bound before authoring this private material.
-float shelter = saturate((-N.z - .28) / .52);
-float snow = saturate(heightMask * (shelter * 2.4 + (fine-.5)*.18));
+float shelter = saturate((-N.z - @NORMAL_MIN@) / @NORMAL_SPAN@);
+float snow = saturate(heightMask * (shelter * 1.4 + (fine-.5)*.25));
 float3 rock = Rock * float3(.13,.19,.28) * lerp(.76,1.14,broad);
 float3 frost = float3(.52,.61,.72) * lerp(.85,1.04,fine);
 return lerp(rock, frost, snow);
 '''
+for token,value in dict(SNOW_START=MOUNTAIN_MATERIAL_SPEC['snowStartCm'],
+        HEIGHT_NOISE=MOUNTAIN_MATERIAL_SPEC['heightNoiseSpanCm'],
+        HEIGHT_SPAN=MOUNTAIN_MATERIAL_SPEC['snowFullCm']-MOUNTAIN_MATERIAL_SPEC['snowStartCm'],
+        NORMAL_MIN=MOUNTAIN_MATERIAL_SPEC['snowMinimumNormalZ'],
+        NORMAL_SPAN=MOUNTAIN_MATERIAL_SPEC['snowFullNormalZ']-MOUNTAIN_MATERIAL_SPEC['snowMinimumNormalZ']).items():
+    MOUNTAIN_SHADER=MOUNTAIN_SHADER.replace('@'+token+'@',str(value))
+if '@' in MOUNTAIN_SHADER:raise ValueError('Alpine snow shading has an unbound recipe input')
 
 
 def mountain_render_normal_convention(run, candidate):

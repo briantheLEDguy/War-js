@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'artifacts/unreal/aegis-citadel'
 REFERENCE = Path('C:/Users/bschm/Downloads/Bastion of Aegis_ Citadel War Board.png')
-RECIPE_VERSION = 9
+RECIPE_VERSION = 12
 UPPER_BOUNDS=[[13500,-9600,2400],[34500,9600,24000]]
 APPROACH_ENCLOSURE_BOUNDS=[
     dict(id='west_approach_wall_toe',bounds=[[13250,-7120,4190],[13350,-6810,4520]]),
@@ -270,7 +270,8 @@ def wing_ground_witness(file,baseline):
         freshNativeReplayRequired=True,nativeFoundationApproved=False)
 
 
-def plan(baseline=None, *, reference_hash=None, castle_removals=None,ground_survey=None):
+def plan(baseline=None, *, reference_hash=None, castle_removals=None,ground_survey=None,spawn_survey=None,
+         furnishing_density=False):
     """Missing fresh native evidence leaves staging explicitly blocked."""
     lower = [[-11600, 0, 10], [-1000, 0, 10], [11900, -400, 4000], [13600, 0, 4210]]
     optional0, spawn0, spawn1 = [-7900, 3400, 10], [5800, -4800, 910], [-15800, 0, 10]
@@ -460,6 +461,7 @@ def plan(baseline=None, *, reference_hash=None, castle_removals=None,ground_surv
         wingFoundationGroundSurvey=wing_ground_witness(ground_survey,baseline) if baseline else None,
         sourceRecipes={name:sha(Path(__file__).with_name(name)) for name in
                        ('aegis_citadel_blueprint.py','aegis_citadel_mesh.py','build-aegis-citadel.py',
+                        'aegis_citadel_furnishings.py','world_static.py',
                         'stage-aegis-citadel.py','citadel_stage_contract.py',
                         'aegis_citadel_crown.py','aegis_citadel_spire_detail.py','aegis_citadel_standard_detail.py','aegis_citadel_wing_hierarchy.py','aegis_citadel_wing_footings.py','citadel_wing_support_evidence.py','survey-citadel-wing-support.py','aegis_citadel_statue.py','aegis_citadel_supports.py',
                         'aegis_citadel_lighting.py','aegis_citadel_terrain.py',
@@ -539,8 +541,8 @@ def plan(baseline=None, *, reference_hash=None, castle_removals=None,ground_surv
             portalReveals=dict(additionalOpeningWidthCm=40,signedRouteAndGateWidthUnchanged=True),
             forehallPiers=dict(oldXCm=27700,newXCm=27820),
             northTerraceArcade=dict(oldColumnYCm=[6500,7100],newColumnYCm=[6700,7300],oldArchYCm=6800,newArchYCm=6950,mirrored=True),
-            throne=dict(oldPointCm=[32400,0,6010],newPointCm=[32630,0,6010],oldScale=1.8,newScale=1.5,
-                rationale='Grounded rear hall placement preserves the commander function and clears both gallery descent corridors.'),
+            throne=dict(oldPointCm=[32400,0,6010],newPointCm=[32630,0,6010],oldScale=1.5,newScale=.55,oldYawDegrees=-90,newYawDegrees=180,
+                rationale='Original source front faces downhill; a 4.76 m ceremonial throne retains the commander function with clear gallery descents.'),
             plazaSpokes='Raised round gold rods are replaced by flat engraved inlays 0.2 cm above the floor with vertical floor normals.',
             landingJoint='Flat landing faces are clipped at neighboring rising/descending flight planes, with outer corner floor unions; support clearance includes other segments of the same route.'),
         stairConstruction=[dict(route=r['id'],clearWidthCm=r['width'],flights=[dict(
@@ -620,6 +622,23 @@ def plan(baseline=None, *, reference_hash=None, castle_removals=None,ground_surv
         acceptance=dict(geometry=False, traversal=False, visual=False,
                                           eighteenPerRealm=False, published=False))
     data['architecturalLights']=shadowed_practical_requests(data['architecturalLights'])
+    if spawn_survey:
+        if not baseline:
+            raise ValueError('A spawn relocation requires the actual native baseline.')
+        from citadel_spawn_surface import relocation_witness
+        relocation=relocation_witness(spawn_survey,baseline)
+        data['spawnRelocations']=[relocation]
+        data['teamSpawns'][0]=relocation['point']
+        data['spawnApproaches'][0]['points']=[relocation['point']]
+        data['spawnApproaches'][0]['groundGradient']=relocation['measuredSurface']['groundGradient']
+    from aegis_citadel_furnishings import DRESSING_GROUPS, dressing_requests
+    data['furnishingPlan']=dict(schemaVersion=1,groups=list(DRESSING_GROUPS),requests=dressing_requests(),
+        registrySha256=sha(ROOT/'public/assets/models/asset-index.json'),
+        originalSurfacesRequired=True,nativeClearanceRequired=True)
+    if type(furnishing_density) is not bool: raise ValueError('Explicit furnishing study boolean required')
+    if furnishing_density:
+        from aegis_citadel_furnishing_density import study_plan
+        data['furnishingPlan']['densityStudy']=study_plan()
     data['signature'] = digest({k:v for k,v in data.items() if k not in ('signature','acceptance')})
     data['revision'] = data['signature'][:12]
     validate(data)
@@ -627,6 +646,10 @@ def plan(baseline=None, *, reference_hash=None, castle_removals=None,ground_surv
 
 
 def validate(data):
+    study=data.get('furnishingPlan',{}).get('densityStudy')
+    if study is not None:
+        from aegis_citadel_furnishing_density import study_plan
+        if study!=study_plan(): raise ValueError('Furnishing density source/resident binding changed')
     if data.get('signature') != digest({k:v for k,v in data.items() if k not in ('signature','revision','acceptance')}):
         raise ValueError('Reviewed topology or blueprint identity changed')
     if data['units'] != 'unreal_centimetres' or len(data['objectives']) != 8 or len(data['optionalObjectives']) != 3 or len(data['teamSpawns']) != 6:
@@ -670,7 +693,7 @@ def validate(data):
         if not connected:
             raise ValueError('Spawn approach does not meet its declared playable route')
     if data.get('recipeVersion',0)>=6 and (data.get('baseline') or {}).get('packageHashes'):
-        validate_retained_surfaces(data['baseline'],approaches)
+        validate_retained_surfaces(data['baseline'],approaches,data.get('spawnRelocations'),data['recipeVersion'])
     if [g['index'] for g in data['gates']] != [0,1] or [len(g['leaves']) for g in data['gates']] != [3,5]:
         raise ValueError('A flank or gallery stage crossing is missing its physical gate')
     if len(data['editMask']['removeActors']) != 2267:
@@ -758,8 +781,11 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--baseline',type=Path)
     parser.add_argument('--wing-ground-survey',type=Path)
+    parser.add_argument('--spawn-survey',type=Path)
+    parser.add_argument('--furnishing-density-study',action='store_true')
     args=parser.parse_args();baseline=json.loads(args.baseline.read_text()) if args.baseline else None
-    data=plan(baseline,ground_survey=args.wing_ground_survey);directory=OUT/data['revision'];directory.mkdir(parents=True,exist_ok=True)
+    data=plan(baseline,ground_survey=args.wing_ground_survey,spawn_survey=args.spawn_survey,
+        furnishing_density=args.furnishing_density_study);directory=OUT/data['revision'];directory.mkdir(parents=True,exist_ok=True)
     (directory/'blueprint.json').write_text(json.dumps(data,indent=2)+'\n')
     (directory/'architectural-sheet.svg').write_text(svg(data))
     (OUT/'current.json').write_text(json.dumps(dict(revision=data['revision'],directory=str(directory)),indent=2)+'\n')

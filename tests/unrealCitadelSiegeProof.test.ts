@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { citadelDefendedProofConfig, validateCitadelSiegeProof, type CitadelSiegeProofConfig } from '../scripts/unreal/citadel-siege-proof';
+import { citadelDefendedProofConfig, citadelDiagnosticProofConfig, validateCitadelSiegeDiagnostic,
+  validateCitadelSiegeProof, type CitadelSiegeProofConfig } from '../scripts/unreal/citadel-siege-proof';
 
 const config: CitadelSiegeProofConfig = {
   map: '/Game/WorldRebuild/AegisCitadel_123456abcdef/SiegeCandidate', signature: 'a'.repeat(64),
@@ -12,6 +13,9 @@ const report = () => ({
   campaignHumanEnrollmentVerified: false, encounterScopedCleanupVerified: true,
   syntheticNormalControllers: false, trustedSettlementAcknowledged: false,
   maxAegis: 18, maxRiftbound: 18, concurrentSides: true, lockedCenterObserved: true,
+  lockedCenterPhysicallyOccupied: true, lockedCenterPhysicalSeconds: 1,
+  lockedCenterPhysicalSamples: Array.from({ length: 5 }, (_, i) => ({ presenceSampleAt: 100 + i * .25,
+    qualifyingAttackers: 2, progress: 0, locked: true })),
   movementCm: 50_000, normalAbilityActivations: 40,
   rounds: [
     { phase: 'finished', stage: 2, attackersWon: true, completed: [0, 1, 2, 3, 4, 5, 6, 7], elapsed: 1100 },
@@ -39,6 +43,53 @@ const defendedReport = () => ({ ...liveReport(), campaignOutcome: 'city_defended
     hasAvatar: true, alive: true, modelReady: true, zone: 'aegis_capital', health: 61, mana: 73 })),
 });
 describe('exact-candidate physical siege receipts', () => {
+  it('keeps bounded diagnostics separate from outcome and live campaign acceptance', () => {
+    const diagnostic = citadelDiagnosticProofConfig(config, 180);
+    const physical = { version: 1, diagnosticOnly: true, available: true, presenceAgeSeconds: .01,
+      qualifyingAttackers: 6, qualifyingDefenders: 0, crewReady: true, escortAtCheckpoint: false, convoyCount: 2,
+      vehicles: Array.from({ length: 2 }, () => ({ position: [0, 0, 0], travelCm: 1, moving: false, crewReady: true, engineers: [{}, {}] })) };
+    const sample = { ...report(), passed: false, rounds: [], diagnosticOnly: true,
+      diagnosticSampleComplete: true, diagnosticSeconds: 180,
+      diagnosticElapsedSeconds: 180.05,
+      samples: Array.from({ length: 18 }, (_, i) => ({ stage: 0, phase: 'active', completed: [],
+        diagnosticElapsedSeconds: i * 10, physical: structuredClone(physical) })) };
+    expect(() => validateCitadelSiegeDiagnostic(sample, diagnostic)).not.toThrow();
+    expect(() => validateCitadelSiegeProof(sample, diagnostic)).toThrow(/unfinished/);
+    for (const bad of [NaN, 0, 59, 601]) expect(() => citadelDiagnosticProofConfig(config, bad)).toThrow();
+    expect(() => citadelDiagnosticProofConfig(liveConfig, 180)).toThrow(/isolated scenario/);
+    expect(() => citadelDiagnosticProofConfig({ ...config, performanceBaseline: true }, 180)).toThrow();
+    for (const change of [{ passed: true }, { productionAdmission: true }, { trustedSettlementAcknowledged: true },
+      { diagnosticSampleComplete: false }, { diagnosticSeconds: 181 }, { rounds: [{}] }, { samples: [] }])
+      expect(() => validateCitadelSiegeDiagnostic({ ...sample, ...change }, diagnostic)).toThrow();
+    const stale = structuredClone(sample); stale.samples[0].physical.presenceAgeSeconds = 3;
+    expect(() => validateCitadelSiegeDiagnostic(stale, diagnostic)).toThrow(/current convoy/);
+    const accelerated = structuredClone(sample); accelerated.samples.forEach(row => { row.diagnosticElapsedSeconds /= 2; });
+    expect(() => validateCitadelSiegeDiagnostic(accelerated, diagnostic)).toThrow(/ordinary/);
+  });
+  it('requires convoy equipment in the lower city and its cleanup after earned upper-stage entry', () => {
+    const diagnostic = citadelDiagnosticProofConfig(config, 180);
+    const sample = { ...report(), passed: false, rounds: [], diagnosticOnly: true,
+      diagnosticSampleComplete: true, diagnosticSeconds: 180, diagnosticElapsedSeconds: 180.05,
+      samples: Array.from({ length: 18 }, (_, i) => ({ stage: i < 8 ? 0 : i < 14 ? 1 : 2,
+        phase: 'active', completed: i < 8 ? [] : i < 14 ? [0, 1, 2, 3] : [0, 1, 2, 3, 4, 5, 6],
+        diagnosticElapsedSeconds: i * 10, physical: { version: 1, diagnosticOnly: true, available: true,
+          presenceAgeSeconds: .01, qualifyingAttackers: 6, qualifyingDefenders: 0,
+          crewReady: i < 8, escortAtCheckpoint: false, convoyCount: i < 8 ? 2 : 0,
+          vehicles: i < 8 ? Array.from({ length: 2 }, () => ({ position: [0, 0, 0], travelCm: 1,
+            moving: false, crewReady: true, engineers: [{}, {}] })) : [] } })) };
+    expect(() => validateCitadelSiegeDiagnostic(sample, diagnostic)).not.toThrow();
+    for (const [index, change] of [[0, { convoyCount: 0, vehicles: [] }],
+      [8, sample.samples[0].physical]] as const) {
+      const invalid = structuredClone(sample); Object.assign(invalid.samples[index].physical, change);
+      expect(() => validateCitadelSiegeDiagnostic(invalid, diagnostic)).toThrow(/convoy/);
+    }
+    for (const [index, change] of [[8, { completed: [0, 1, 2] }], [8, { stage: 2 }],
+      [14, { completed: [0, 1, 2, 3, 4, 6] }], [15, { stage: 1 }], [0, { stage: -1 }],
+      [17, { phase: 'finished' }], [8, { completed: [0, 1, 2, 3, 3] }]] as const) {
+      const invalid = structuredClone(sample); Object.assign(invalid.samples[index], change);
+      expect(() => validateCitadelSiegeDiagnostic(invalid, diagnostic)).toThrow(/stages/);
+    }
+  });
   it('accepts complete explicitly automated evidence for both real outcomes', () => {
     expect(() => validateCitadelSiegeProof(report(), config)).not.toThrow();
   });
@@ -53,6 +104,15 @@ describe('exact-candidate physical siege receipts', () => {
     for (const change of [{ mapSha256: 'f'.repeat(64) }, { productionAdmission: true }, { visualApproval: true },
       { humanPlaytest: true }, { reconnectVerified: true }, { normalCharacterRecoveryVerified: true }])
       expect(() => validateCitadelSiegeProof({ ...report(), ...change }, config)).toThrow();
+  });
+  it('distinguishes a locked state from actual continuous physical occupancy', () => {
+    for (const change of [{ lockedCenterPhysicallyOccupied: false }, { lockedCenterPhysicalSeconds: .9 },
+      { lockedCenterPhysicalSamples: [] }])
+      expect(() => validateCitadelSiegeProof({ ...report(), ...change }, config)).toThrow(/physical occupancy/);
+    for (const change of [{ qualifyingAttackers: 0 }, { progress: .01 }, { locked: false }, { presenceSampleAt: 104 }]) {
+      const samples = structuredClone(report().lockedCenterPhysicalSamples);Object.assign(samples[2], change);
+      expect(() => validateCitadelSiegeProof({ ...report(), lockedCenterPhysicalSamples: samples }, config)).toThrow(/physical occupancy/);
+    }
   });
   it('retains the default live attacker proof and requires the actual matching settlement', () => {
     expect(() => validateCitadelSiegeProof(liveReport(), liveConfig)).not.toThrow();

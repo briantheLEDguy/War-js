@@ -2,6 +2,7 @@
 #include "Misc/AutomationTest.h"
 #include "WarSiegeRules.h"
 #include "WarSiegeEncounter.h"
+#include "WarSiegeEquipment.h"
 #include "WarCitadelSiegeProof.h"
 #include "WarScenarioInstance.h"
 #include "WarCityDefinition.h"
@@ -35,6 +36,40 @@ namespace
 }
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarCitadelReceiptHashTest,"AegisWar.Foundation.CitadelReceiptSha256",
     EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarCitadelPhysicalSnapshotTest,"AegisWar.Foundation.CitadelPhysicalSnapshot",
+    EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FWarCitadelPhysicalSnapshotTest::RunTest(const FString& Parameters)
+{
+    const auto Options=UWorld::InitializationValues().AllowAudioPlayback(false).CreatePhysicsScene(false).CreateNavigation(false).CreateAISystem(false);
+    auto* World=UWorld::CreateWorld(EWorldType::Game,false,NAME_None,nullptr,true,ERHIFeatureLevel::Num,&Options);
+    if (!World) return false;GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);
+    ON_SCOPE_EXIT { GEngine->DestroyWorldContext(World);World->DestroyWorld(false); };
+    World->InitializeActorsForPlay(FURL());
+    auto* Proof=NewObject<UWarCitadelSiegeProof>(World);
+    TestFalse(TEXT("A missing encounter has no available diagnostic"),Proof->PhysicalSnapshot()->GetBoolField(TEXT("available")));
+    auto* Encounter=World->SpawnActor<AWarSiegeEncounter>();auto* Foreign=World->SpawnActor<AWarSiegeEncounter>();
+    Encounter->Battlefield=World->SpawnActor<AWarSiegeBattlefield>();Proof->Encounter=Encounter;
+    Encounter->LastSampledPresence.Attackers=6;Encounter->LastSampledPresence.Defenders=0;
+    Encounter->LastPresenceSampleAt=World->GetTimeSeconds();
+    auto* Cart=World->SpawnActor<AWarSiegeEquipment>();Cart->SetOwner(Encounter);Cart->Travel=123;Cart->bMoving=true;Cart->Engineers.SetNum(2);
+    auto* OtherCart=World->SpawnActor<AWarSiegeEquipment>();OtherCart->SetOwner(Foreign);
+    Encounter->Convoy={Cart,OtherCart};
+    const auto Before=Encounter->Siege;const auto Position=Cart->GetActorLocation();
+    const auto Snapshot=Proof->PhysicalSnapshot();
+    TestTrue(TEXT("An owned field supplies diagnostic data"),Snapshot->GetBoolField(TEXT("available")));
+    TestTrue(TEXT("Diagnostic has no acceptance semantics"),Snapshot->GetBoolField(TEXT("diagnosticOnly")));
+    TestEqual(TEXT("Actual sampled presence is retained"),Snapshot->GetNumberField(TEXT("qualifyingAttackers")),6.);
+    TestEqual(TEXT("Actual array count exposes foreign entries"),Snapshot->GetNumberField(TEXT("convoyCount")),2.);
+    const auto& Vehicles=Snapshot->GetArrayField(TEXT("vehicles"));
+    if (!TestEqual(TEXT("Foreign-owned vehicles are excluded"),Vehicles.Num(),1)) return false;
+    const auto Vehicle=Vehicles[0]->AsObject();
+    TestEqual(TEXT("Actual travel is reported"),Vehicle->GetNumberField(TEXT("travelCm")),123.);
+    TestTrue(TEXT("Movement intent is observed without stopping"),Vehicle->GetBoolField(TEXT("moving")) && Cart->bMoving);
+    TestEqual(TEXT("Missing crew seats remain explicit"),Vehicle->GetArrayField(TEXT("engineers")).Num(),2);
+    TestTrue(TEXT("Read-only sample preserves cart position"),Cart->GetActorLocation().Equals(Position,0));
+    TestTrue(TEXT("Read-only sample preserves claims and elapsed time"),Encounter->Siege.MainClaims==Before.MainClaims && Encounter->Siege.Elapsed==Before.Elapsed);
+    return true;
+}
 bool FWarCitadelReceiptHashTest::RunTest(const FString& Parameters)
 {
     FString Hash, Error;

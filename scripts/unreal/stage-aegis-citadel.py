@@ -278,7 +278,8 @@ else:
     def created(package):
         journal=json.loads(pending.read_text());journal['created'].append(package)
         pending.write_text(json.dumps(journal,indent=2)+'\n')
-    def import_texture(file,channel,power_of_two=None):
+    normal_texture_bindings={}
+    def import_texture(file,channel,power_of_two=None,normal_convention=None):
         texture_path=DEST+'/Textures/T_'+Path(file).stem+'_'+channel
         if not assets.does_asset_exist(texture_path):
             if sha(ROOT/file)!=source['materialSources'][file]:raise RuntimeError('Changed original PBR texture: '+file)
@@ -289,7 +290,16 @@ else:
         texture=unreal.load_asset(texture_path)
         if not isinstance(texture,unreal.Texture2D):raise RuntimeError('Original PBR texture import failed: '+file)
         texture.set_editor_property('srgb',channel=='baseColor')
-        if channel=='normal':texture.set_editor_property('compression_settings',unreal.TextureCompressionSettings.TC_NORMALMAP)
+        if channel=='normal':
+            texture.set_editor_property('compression_settings',unreal.TextureCompressionSettings.TC_NORMALMAP)
+            if plan.get('recipeVersion',0)>=11:
+                if normal_convention!='gltf_opengl_positive_y':
+                    raise RuntimeError('Original citadel normals need their explicit glTF/OpenGL source convention')
+                texture.set_editor_property('flip_green_channel',True)
+                if (texture.get_editor_property('flip_green_channel') is not True
+                        or texture.get_editor_property('srgb') is not False
+                        or texture.get_editor_property('compression_settings')!=unreal.TextureCompressionSettings.TC_NORMALMAP):
+                    raise RuntimeError('Native normal import differs from the original source convention')
         elif channel=='orm':texture.set_editor_property('compression_settings',unreal.TextureCompressionSettings.TC_MASKS)
         elif channel=='height':texture.set_editor_property('compression_settings',unreal.TextureCompressionSettings.TC_GRAYSCALE)
         if power_of_two:
@@ -299,7 +309,12 @@ else:
             texture.set_editor_property('max_texture_size',2048)
         texture.set_editor_property('address_x',unreal.TextureAddress.TA_WRAP)
         texture.set_editor_property('address_y',unreal.TextureAddress.TA_WRAP)
-        save(texture);return texture
+        save(texture)
+        if channel=='normal' and plan.get('recipeVersion',0)>=11:
+            normal_texture_bindings[texture_path]=dict(source=file,sourceSha256=sha(ROOT/file),
+                sourceConvention=normal_convention,package=texture_path,sha256=sha(package_file(ROOT,texture_path)),
+                actualFlipGreenChannel=True,actualSrgb=False,actualCompression='TC_NORMALMAP')
+        return texture
     materials=[];material_bindings=[]
     for role,spec in source['materialSpecs'].items():
         path=DEST+'/Materials/M_'+role
@@ -320,7 +335,7 @@ else:
         tint.constant=unreal.LinearColor(*spec['tint'],1)
         def sample(channel):
             node=lib.create_material_expression(material,unreal.MaterialExpressionTextureSample)
-            node.texture=import_texture(spec[channel],channel,spec.get('texturePowerOfTwo'))
+            node.texture=import_texture(spec[channel],channel,spec.get('texturePowerOfTwo'),spec.get('normalConvention'))
             node.sampler_type=(unreal.MaterialSamplerType.SAMPLERTYPE_COLOR if channel=='baseColor' else
                                unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL if channel=='normal' else
                                unreal.MaterialSamplerType.SAMPLERTYPE_MASKS)
@@ -330,6 +345,15 @@ else:
             connect(color,'RGB',multiply,'A');connect(tint,'',multiply,'B')
             property_input(multiply,'',unreal.MaterialProperty.MP_BASE_COLOR)
         else:property_input(tint,'',unreal.MaterialProperty.MP_BASE_COLOR)
+        if 'alphaMode' in spec:
+            masked=spec['alphaMode']=='MASK'
+            material.set_editor_property('blend_mode',unreal.BlendMode.BLEND_MASKED if masked else unreal.BlendMode.BLEND_TRANSLUCENT)
+            if masked:material.set_editor_property('opacity_mask_clip_value',spec['alphaCutoff'])
+            opacity=lib.create_material_expression(material,unreal.MaterialExpressionConstant);opacity.r=spec['opacity']
+            if 'baseColor' in spec:
+                multiply=lib.create_material_expression(material,unreal.MaterialExpressionMultiply)
+                connect(color,'A',multiply,'A');connect(opacity,'',multiply,'B');opacity=multiply
+            property_input(opacity,'',unreal.MaterialProperty.MP_OPACITY_MASK if masked else unreal.MaterialProperty.MP_OPACITY)
         packed=sample('orm') if 'orm' in spec else None
         for key,prop in [('roughness',unreal.MaterialProperty.MP_ROUGHNESS),('metallic',unreal.MaterialProperty.MP_METALLIC)]:
             value=lib.create_material_expression(material,unreal.MaterialExpressionConstant);value.r=spec[key]
@@ -344,7 +368,7 @@ else:
         if packed:property_input(packed,'R',unreal.MaterialProperty.MP_AMBIENT_OCCLUSION)
         if 'normal' in spec:
             normal=sample('normal');strength=lib.create_material_expression(material,unreal.MaterialExpressionConstant3Vector)
-            strength.constant=unreal.LinearColor(.45,.45,1,1)
+            strength.constant=unreal.LinearColor(spec.get('normalStrength',.45),spec.get('normalStrength',.45),1,1)
             multiply=lib.create_material_expression(material,unreal.MaterialExpressionMultiply)
             connect(normal,'RGB',multiply,'A');connect(strength,'',multiply,'B')
             normalized=lib.create_material_expression(material,unreal.MaterialExpressionNormalize)
@@ -374,7 +398,7 @@ else:
             emission=lib.create_material_expression(material,unreal.MaterialExpressionConstant3Vector)
             emission.constant=unreal.LinearColor(*spec['emission'],1)
             property_input(emission,'',unreal.MaterialProperty.MP_EMISSIVE_COLOR)
-        material.set_editor_property('two_sided',role=='blue');lib.recompile_material(material);save(material)
+        material.set_editor_property('two_sided',spec.get('twoSided',role=='blue'));lib.recompile_material(material);save(material)
         materials.append(material)
         if role=='blue':
             if set(spec)!={'tint','roughness','metallic','specular'}:
@@ -793,6 +817,7 @@ else:
         stageDependencySha256={name:sha(Path(__file__).with_name(name)) for name in
             ('citadel_stage_contract.py','aegis_citadel_lighting.py','aegis_citadel_terrain.py','aegis_citadel_terrain_readback.py','aegis_citadel_terrain_render_readback.py','citadel_route_surface_evidence.py','shared_city_authoring.py','shared_city_sources.py','citadel_spawn_surface.py','citadel_wing_support_evidence.py')},
         nativeImportConvention=NATIVE_IMPORT_CONVENTION,proofStart=proof_start,materialBindings=material_bindings,
+        nativeNormalTextureBindings=list(normal_texture_bindings.values()),
         gameplayPadPlacements=gameplay_pads,
         resolvedBaselineBlockers=baseline['terrainIntrusions'],sourceHashes=source_hashes,
         packageHashes=world_hashes(packages),nativeImported=True,geometryApproved=False,

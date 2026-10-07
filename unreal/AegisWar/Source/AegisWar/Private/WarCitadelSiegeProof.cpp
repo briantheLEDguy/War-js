@@ -2,6 +2,8 @@
 #include "WarSiegeEncounter.h"
 #include "WarSiegeNavigation.h"
 #include "WarSiegeBattlefield.h"
+#include "WarSiegeEquipment.h"
+#include "WarSiegeEscort.h"
 #include "WarCityDefinition.h"
 #include "WarPlayerState.h"
 #include "WarPlayerController.h"
@@ -57,6 +59,13 @@
 #include "RenderTimer.h"
 #include "AssetRegistry/AssetRegistryModule.h"
 #include "Serialization/JsonSerializer.h"
+
+bool WarCitadelProofTactics::CanTarget(const AWarSiegeEncounter* Encounter, const AWarCharacter* Source,
+    const AWarCharacter* Target, float Range)
+{
+    return Encounter && Source && Target && Encounter->Owns(Target->GetPlayerState<AWarPlayerState>())
+        && Source->CanAbilityTarget(Target, Range);
+}
 
 namespace WarCitadelProofHash
 {
@@ -160,8 +169,13 @@ namespace
         for (const auto* Ability:Catalog->Kit(Pawn->GetCareerId()))
             if (Ability->Effects.ContainsByPredicate([](const auto& E) { return E.Kind==TEXT("heal"); }) && Runtime->ReadyIn(Ability->Id)<=0)
             {
-                if (Ability->RequiresStationary()) { Pawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false); }
-                FString Error; if (Runtime->TryActivate(Ability->Id,Injured,Error)) return true;
+                FString Error;
+                if (Ability->RequiresStationary())
+                {
+                    if (!Runtime->CanPrepareStationaryCast(*Ability,Injured,Error)) continue;
+                    Pawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false);
+                }
+                if (Runtime->TryActivate(Ability->Id,Injured,Error)) return true;
             }
         return false;
     }
@@ -241,6 +255,12 @@ bool UWarCitadelSiegeProof::Load(FString& Error)
     if (Digest != MapHash)
     { Error = TEXT("The loaded candidate package does not match its SHA-256 receipt."); return false; }
     if (!LoadPerformance(Config,Error) || !LoadRecovery(Config,Error)) return false;
+    const bool DiagnosticFlag=FParse::Param(FCommandLine::Get(),TEXT("WarCitadelSiegeDiagnostic"));
+    const bool DiagnosticConfig=Config->HasField(TEXT("diagnosticSeconds"));
+    if (DiagnosticFlag!=DiagnosticConfig || (DiagnosticConfig &&
+        (!Config->TryGetNumberField(TEXT("diagnosticSeconds"),DiagnosticSeconds) || !FMath::IsFinite(DiagnosticSeconds)
+        || DiagnosticSeconds<60 || DiagnosticSeconds>600 || bLive || bPerformance || bRecoveryProof)))
+    { Error=TEXT("A bounded diagnostic requires an isolated scenario, matching flag and 60-600 ordinary seconds.");return false; }
     Began = GetWorld()->GetTimeSeconds(); bLoaded = true; return true;
 }
 
@@ -1315,7 +1335,9 @@ bool UWarCitadelSiegeProof::Start(FString& Error)
     // The preserved-city benchmark uses this same ordinary zero-claim launch.
     // Its later gate openings must be earned by capture and convoy movement.
     if (!ObserveBaselineProgression(Error)) return false;
-    ++Round; return true;
+    ++Round;
+    if (DiagnosticSeconds>0 && DiagnosticStartedAt<0) DiagnosticStartedAt=GetWorld()->GetTimeSeconds();
+    return true;
 }
 bool UWarCitadelSiegeProof::SpawnLivePlayers(AWarSiegeBattlefield* Field,FString& Error)
 {
@@ -1378,25 +1400,42 @@ void UWarCitadelSiegeProof::DriveLivePlayers()
             const bool OpeningDefense=bLiveDefended && Encounter->Siege.Elapsed<20;
             FVector Goal=bLiveDefended ? (OpeningDefense ? Encounter->TaskLocation() : Encounter->Battlefield->TeamSpawns[Attacker ? 1 : 0])
                 : (Attacker ? Encounter->TaskLocation(I&1) : Encounter->Battlefield->TeamSpawns[Encounter->Siege.Stage*2]);
+            const bool CenterProbe=Attacker && I<20 && !bLiveDefended && !bPerformance && !bLockedCenterPhysical
+                && Encounter->Siege.Stage==1 && !WarSiege::CenterUnlocked(Encounter->Siege);
+            if (CenterProbe) Goal=Encounter->Battlefield->Objective(1,2);
             const bool Benchmark=BenchmarkGoal(I,Goal);
+            const bool Escort=Attacker && !bLiveDefended && !Benchmark && Encounter->Siege.Stage==0
+                && Encounter->Siege.Objective>0 && Encounter->Convoy.Num()==2;
+            const bool ClearVehicle=Escort && !WarSiegeNavigation::ConvoyPositionClear(Pawn,Encounter);
+            const bool KeepEscort=Escort && ((I-18)%3==0 || ClearVehicle);
+            if (ClearVehicle && Runtime->IsStationaryCast()) Runtime->UpdateMovementIntent(true);
+            if (Runtime->IsStationaryCast() || Runtime->OwnsMovement()) { Waypoints.Remove(Pawn);continue; }
             AWarCharacter* Enemy=nullptr; double Distance=FMath::Square(2500.);
             if (Attacker && !Benchmark && (!bLiveDefended || OpeningDefense)) for (TActorIterator<AWarCharacter> Other(GetWorld());Other;++Other)
             {
-                const auto* OtherPS=Other->GetPlayerState<AWarPlayerState>(); const double D=FVector::DistSquared(Pawn->GetActorLocation(),Other->GetActorLocation());
-                if (OtherPS && Encounter->Owns(OtherPS) && !Encounter->IsParticipant(*Other) && D<Distance && Pawn->CanAbilityTarget(*Other,2500))
+                const double D=FVector::DistSquared(Pawn->GetActorLocation(),Other->GetActorLocation());
+                if (D<Distance && WarCitadelProofTactics::CanTarget(Encounter,Pawn,*Other,2500))
                 { Distance=D; Enemy=*Other; }
             }
-            if (Enemy) Goal=Enemy->GetActorLocation(); FVector Ground;
-            const float Angle=I*2.399963f; const FVector Offset(FMath::Cos(Angle)*360,FMath::Sin(Angle)*360,0);
-            const bool HasGoal=Benchmark ? (Ground=Goal,true) : WarSiegeNavigation::Approach(Pawn,Goal,Offset,Encounter->Battlefield->ObjectiveRadius,Ground);
+            if (Enemy && !KeepEscort && !CenterProbe) Goal=Enemy->GetActorLocation(); FVector Ground;
+            const bool Formation=Escort && (KeepEscort || !Enemy);
+            const float Angle=I*2.399963f;FVector Offset(FMath::Cos(Angle)*360,FMath::Sin(Angle)*360,0);
+            if (Formation) Offset=WarSiegeEscort::Offset(I-18,Encounter->Convoy[0]->GetActorRotation().Yaw);
+            else if (Escort && Enemy) Offset=(Enemy->GetActorLocation()-Encounter->Convoy[0]->GetActorLocation()).GetSafeNormal2D()*225;
+            const bool HasGoal=Benchmark ? (Ground=Goal,true) : Escort
+                ? WarSiegeNavigation::ConvoyApproach(Pawn,Goal,Offset,Encounter->Battlefield->ObjectiveRadius,Encounter,Ground,Formation)
+                : WarSiegeNavigation::Approach(Pawn,Goal,Offset,Encounter->Battlefield->ObjectiveRadius,Ground);
             if (HasGoal)
             {
-                const auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(),Pawn->GetActorLocation(),Ground,Pawn);
-                if (Path && Path->IsValid() && !Path->IsPartial() && Path->PathPoints.Num()>1)
-                { int32 Point=1; while (Point<Path->PathPoints.Num()-1 && FVector::Dist2D(Pawn->GetActorLocation(),Path->PathPoints[Point])<(Benchmark ? 10 : 100)) ++Point;
+                const auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(),Pawn->GetActorLocation(),Ground,Pawn,WarSiegeNavigation::FilterFor(Pawn));
+                if (Path && Path->IsValid() && !Path->IsPartial() && Path->PathPoints.Num()>1
+                    && (!Escort || WarSiegeNavigation::ConvoyPathClear(Pawn,Encounter,Path->PathPoints)))
+                { int32 Point=1; while (Point<Path->PathPoints.Num()-1 && FVector::Dist2D(Pawn->GetActorLocation(),Path->PathPoints[Point])<(Benchmark ? 10 : Escort ? 20 : 100)) ++Point;
                   Waypoints.Add(Pawn,Path->PathPoints[Point]); }
                 else Waypoints.Remove(Pawn);
             }
+            else Waypoints.Remove(Pawn);
+            if (ClearVehicle) continue;
             const bool Healed=!Benchmark && HealNearby(Pawn,Runtime,Catalog,Encounter); if (Healed) ++Actions;
             // A genuine catalog self-buff exercises ordinary resource/cooldown rules even when the approach has no enemy in range.
             if (bLiveDefended && Actions==0 && Catalog && !Healed)
@@ -1417,16 +1456,28 @@ void UWarCitadelSiegeProof::DriveLivePlayers()
                 {
                     if (!Ability->Effects.ContainsByPredicate([](const auto& E) { return E.Kind==TEXT("damage") || E.Kind==TEXT("status"); })) continue;
                     FString Error;
-                    if (Ability->RequiresStationary() && Runtime->ReadyIn(Ability->Id)<=0)
-                    { Pawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false); }
-                    if (Runtime->TryActivate(Ability->Id,Ability->bEnemyTarget ? static_cast<AActor*>(Enemy) : Pawn,Error)) { ++Actions; break; }
+                    AActor* Aim=Ability->bEnemyTarget ? static_cast<AActor*>(Enemy) : Pawn;
+                    if (Ability->RequiresStationary())
+                    {
+                        if (!Runtime->CanPrepareStationaryCast(*Ability,Aim,Error)) continue;
+                        Pawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false);
+                    }
+                    if (Runtime->TryActivate(Ability->Id,Aim,Error)) { ++Actions; break; }
                 }
                 if (!Runtime->IsBusy()) Pawn->RequestTargetStrike(Enemy);
             }
         }
         FVector FormationGoal;const bool Formation=BenchmarkGoal(I,FormationGoal);
+        const bool Escort=Attacker && !bLiveDefended && !Formation && Encounter->Siege.Stage==0 && Encounter->Siege.Objective>0 && Encounter->Convoy.Num()==2;
         if (!Runtime->IsStationaryCast() && !Runtime->OwnsMovement()) if (const auto* Waypoint=Waypoints.Find(Pawn);
-            Waypoint && FVector::Dist2D(Pawn->GetActorLocation(),*Waypoint)>(Formation ? 10 : 70)) Pawn->AddMovementInput((*Waypoint-Pawn->GetActorLocation()).GetSafeNormal2D());
+            Waypoint && FVector::Dist2D(Pawn->GetActorLocation(),*Waypoint)>(Formation ? 10 : Escort ? 5 : 70))
+        {
+            const float Half=Pawn->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+            const TArray<FVector> Segment={Pawn->GetActorLocation()-FVector(0,0,Half+3),*Waypoint};
+            if (!Escort || WarSiegeNavigation::ConvoyPathClear(Pawn,Encounter,Segment))
+                Pawn->AddMovementInput((*Waypoint-Pawn->GetActorLocation()).GetSafeNormal2D());
+            else { Waypoints.Remove(Pawn);Pawn->GetCharacterMovement()->StopMovementImmediately(); }
+        }
     }
     MaxAegis=FMath::Max(MaxAegis,Counts[0]); MaxRiftbound=FMath::Max(MaxRiftbound,Counts[1]);
     bConcurrentSides|=Encounter->Siege.Stage==1 && Encounter->Siege.LeftProgress>0 && Encounter->Siege.RightProgress>0;
@@ -1470,12 +1521,31 @@ bool UWarCitadelSiegeProof::LiveCharacterWitnesses(TArray<TSharedPtr<FJsonValue>
     }
     return true;
 }
+void UWarCitadelSiegeProof::ObserveLockedCenter()
+{
+    if (bLockedCenterPhysical || bPerformance || !Encounter) return;
+    const auto& State=Encounter->Siege;
+    const double SampleAt=Encounter->LastPresenceSampleAt,Age=GetWorld()->GetTimeSeconds()-SampleAt;
+    const int32 Attackers=Encounter->LastSampledPresence.Attackers;
+    if (State.Phase!=EWarSiegePhase::Active || State.Stage!=1 || State.RulesVersion!=2
+        || WarSiege::CenterUnlocked(State) || State.Progress!=0 || Attackers<2 || SampleAt<0 || Age<0 || Age>.25)
+    { LockedCenterSince=LockedCenterLastSample=-1;LockedCenterObservations.Reset();return; }
+    if (SampleAt<=LockedCenterLastSample || (LockedCenterLastSample>=0 && SampleAt-LockedCenterLastSample<.25)) return;
+    if (LockedCenterLastSample<0 || SampleAt-LockedCenterLastSample>.5)
+    { LockedCenterSince=SampleAt;LockedCenterObservations.Reset(); }
+    LockedCenterLastSample=SampleAt;
+    auto Row=MakeShared<FJsonObject>();Row->SetNumberField(TEXT("presenceSampleAt"),SampleAt);
+    Row->SetNumberField(TEXT("qualifyingAttackers"),Attackers);Row->SetNumberField(TEXT("progress"),State.Progress);
+    Row->SetBoolField(TEXT("locked"),true);LockedCenterObservations.Add(MakeShared<FJsonValueObject>(Row));
+    LockedCenterPhysicalSeconds=SampleAt-LockedCenterSince;
+    bLockedCenterPhysical=LockedCenterPhysicalSeconds>=1 && LockedCenterObservations.Num()>=4;
+}
 void UWarCitadelSiegeProof::Drive()
 {
     if (!Encounter || !Encounter->Battlefield || Encounter->Siege.Phase != EWarSiegePhase::Active) return;
     const auto& S = Encounter->Siege;
-    int32 Counts[2] = {}, Index[2] = {};
-    for (auto Seat=PerformanceSeats.CreateIterator();Seat;++Seat) if (!Seat.Key().IsValid()) Seat.RemoveCurrent();
+    int32 Counts[2] = {};
+    for (auto Seat=TacticalSeats.CreateIterator();Seat;++Seat) if (!Seat.Key().IsValid()) Seat.RemoveCurrent();
     const auto* Catalog = GetWorld()->GetGameInstance()->GetSubsystem<UWarAbilityCatalog>();
     for (TActorIterator<AWarSiegeBotController> It(GetWorld()); It; ++It)
     {
@@ -1484,24 +1554,23 @@ void UWarCitadelSiegeProof::Drive()
         if (!PS || !Encounter->Owns(PS) || Bot->Unit != EWarSiegeUnit::Participant) continue;
         const bool Attacker = PS->GetRealm() == EWarRealm::Riftbound;
         const int32 Team = Attacker ? 1 : 0;int32 Slot=0;
-        if (bPerformance)
+        // Surviving controllers retain their seats; replacements reclaim vacancies.
         {
-            if (const int32* Existing=PerformanceSeats.Find(Bot)) Slot=*Existing%18;
+            if (const int32* Existing=TacticalSeats.Find(Bot)) Slot=*Existing%18;
             else
             {
                 Slot=0;
                 while (Slot<18)
                 {
                     bool Used=false;
-                    for (const auto& Seat:PerformanceSeats) Used|=Seat.Value==Team*18+Slot;
+                    for (const auto& Seat:TacticalSeats) Used|=Seat.Value==Team*18+Slot;
                     if (!Used) break;++Slot;
                 }
-                if (Slot>=18) { Finish(false,TEXT("The benchmark encountered more than 18 seats in one realm."));return; }
-                PerformanceSeats.Add(Bot,Team*18+Slot);
+                if (Slot>=18) { Finish(false,TEXT("The fixture encountered more than 18 seats in one realm."));return; }
+                TacticalSeats.Add(Bot,Team*18+Slot);
             }
         }
         if (!Pawn || Pawn->IsDead() || !Pawn->IsVisualReady()) continue;
-        if (!bPerformance) Slot=Index[Team]++;
         ++Counts[Team]; Bot->SetActorTickEnabled(false);
         const FVector Current = Pawn->GetActorLocation();
         if (const auto* Previous = Positions.Find(Pawn)) Movement += FVector::Dist2D(Current, *Previous);
@@ -1512,48 +1581,136 @@ void UWarCitadelSiegeProof::Drive()
         FVector Goal = Encounter->Battlefield->TeamSpawns[S.Stage * 2 + Team];
         if (Attacker && (!DefendedRound || S.Elapsed < 20)) Goal = Encounter->TaskLocation(Slot & 1);
         if (!Attacker && DefendedRound && S.Elapsed < 20) Goal = Encounter->TaskLocation();
+        const bool CenterProbe=Attacker && Slot<2 && !DefendedRound && !bPerformance && !bLockedCenterPhysical
+            && S.Stage==1 && !WarSiege::CenterUnlocked(S);
+        if (CenterProbe) Goal=Encounter->Battlefield->Objective(1,2);
         const bool Benchmark=BenchmarkGoal(Team*18+Slot,Goal);
+        const bool Escort=Attacker && !DefendedRound && !Benchmark && S.Stage==0 && S.Objective>0 && Encounter->Convoy.Num()==2;
+        const bool ClearVehicle=Escort && !WarSiegeNavigation::ConvoyPositionClear(Pawn,Encounter);
+        const bool KeepEscort=Escort && (Slot%3==0 || ClearVehicle);
+        auto* Runtime=PS->GetClassAbilities();
+        if (ClearVehicle && Runtime->IsStationaryCast()) Runtime->UpdateMovementIntent(true);
+        if (Runtime->IsStationaryCast() || Runtime->OwnsMovement()) { Bot->StopMovement();continue; }
         AWarCharacter* Enemy = nullptr;
         double Nearest = FMath::Square(2500.);
         if (Attacker && !DefendedRound && !Benchmark)
             for (TActorIterator<AWarCharacter> Other(GetWorld()); Other; ++Other)
             {
-                const auto* OtherPS = Other->GetPlayerState<AWarPlayerState>();
                 const double Distance = FVector::DistSquared(Current, Other->GetActorLocation());
-                if (OtherPS && Encounter->Owns(OtherPS) && !Encounter->IsParticipant(*Other)
-                    && Distance < Nearest && Pawn->CanAbilityTarget(*Other, 2500))
+                if (Distance < Nearest && WarCitadelProofTactics::CanTarget(Encounter,Pawn,*Other,2500))
                 { Nearest = Distance; Enemy = *Other; }
             }
-        if (Enemy) Goal = Enemy->GetActorLocation();
+        if (Enemy && !KeepEscort && !CenterProbe) Goal = Enemy->GetActorLocation();
         FVector Ground;
         const float Angle = Slot * 2.399963f;
-        const FVector Offset(FMath::Cos(Angle) * 360, FMath::Sin(Angle) * 360, 0);
-        const bool HasGoal=Benchmark ? (Ground=Goal,true) : WarSiegeNavigation::Approach(Pawn,Goal,Offset,Encounter->Battlefield->ObjectiveRadius,Ground);
+        const bool Formation=Escort && (KeepEscort || !Enemy);
+        FVector Offset(FMath::Cos(Angle)*360,FMath::Sin(Angle)*360,0);
+        if (Formation) Offset=WarSiegeEscort::Offset(Slot,Encounter->Convoy[0]->GetActorRotation().Yaw);
+        else if (Escort && Enemy) Offset=(Enemy->GetActorLocation()-Encounter->Convoy[0]->GetActorLocation()).GetSafeNormal2D()*225;
+        const bool HasGoal=Benchmark ? (Ground=Goal,true) : Escort
+            ? WarSiegeNavigation::ConvoyApproach(Pawn,Goal,Offset,Encounter->Battlefield->ObjectiveRadius,Encounter,Ground,Formation)
+            : WarSiegeNavigation::Approach(Pawn,Goal,Offset,Encounter->Battlefield->ObjectiveRadius,Ground);
         if (HasGoal)
         {
             if (Bot->GetMoveStatus() != EPathFollowingStatus::Moving
-                || FVector::DistSquared(Bot->LastMoveGoal,Ground) > FMath::Square(150.f))
-            { Bot->MoveToLocation(Ground, Benchmark ? 10 : 60, false); Bot->LastMoveGoal = Ground; }
+                || FVector::DistSquared(Bot->LastMoveGoal,Ground) > FMath::Square(Escort ? 35.f : 150.f))
+            { Bot->MoveToLocation(Ground, Benchmark ? 10 : Escort ? 25 : 60, false); Bot->LastMoveGoal = Ground; }
         }
-        if (!Enemy || !Catalog) continue;
-        Bot->SetFocus(Enemy); auto* Runtime = PS->GetClassAbilities();
-        if (HealNearby(Pawn,Runtime,Catalog,Encounter)) { ++Actions; if (Runtime->IsStationaryCast()) Bot->StopMovement(); continue; }
+        else if (Escort) Bot->StopMovement();
+        if (ClearVehicle || !Catalog) continue;
+        if (!Benchmark && HealNearby(Pawn,Runtime,Catalog,Encounter)) { ++Actions; if (Runtime->IsStationaryCast()) Bot->StopMovement(); continue; }
+        if (!Enemy) { Bot->ClearFocus(EAIFocusPriority::Gameplay);continue; }
+        Bot->SetFocus(Enemy);
         for (const auto* Ability : Catalog->Kit(Pawn->GetCareerId()))
         {
             if (!Ability->Effects.ContainsByPredicate([](const auto& Effect) { return Effect.Kind == TEXT("damage") || Effect.Kind == TEXT("status"); })) continue;
             FString Error;
-            if (Ability->RequiresStationary() && Runtime->ReadyIn(Ability->Id) <= 0)
-            { Bot->StopMovement(); Pawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false); }
-            if (Runtime->TryActivate(Ability->Id, Ability->bEnemyTarget ? static_cast<AActor*>(Enemy) : Pawn, Error))
+            AActor* Aim=Ability->bEnemyTarget ? static_cast<AActor*>(Enemy) : Pawn;
+            if (Ability->RequiresStationary())
+            {
+                if (!Runtime->CanPrepareStationaryCast(*Ability,Aim,Error)) continue;
+                Bot->StopMovement(); Pawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false);
+            }
+            if (Runtime->TryActivate(Ability->Id,Aim,Error))
             { ++Actions; break; }
         }
         if (Runtime->IsStationaryCast() || Runtime->OwnsMovement()) Bot->StopMovement();
-        else { Pawn->RequestTargetStrike(Enemy); Bot->MoveToActor(Enemy, 100, false); }
+        else { Pawn->RequestTargetStrike(Enemy); if (!Escort) Bot->MoveToActor(Enemy,100,false); }
     }
     MaxAegis = FMath::Max(MaxAegis, Counts[0]); MaxRiftbound = FMath::Max(MaxRiftbound, Counts[1]);
     bConcurrentSides |= S.Stage == 1 && S.LeftProgress > 0 && S.RightProgress > 0;
     bLockedCenter |= S.Stage == 1 && !WarSiege::CenterUnlocked(S) && S.Progress == 0;
     bSawContest |= Encounter->bContested;
+}
+TSharedPtr<FJsonObject> UWarCitadelSiegeProof::PhysicalSnapshot() const
+{
+    auto Result=MakeShared<FJsonObject>();Result->SetNumberField(TEXT("version"),1);
+    Result->SetBoolField(TEXT("diagnosticOnly"),true);
+    if (!Encounter || !Encounter->Battlefield) { Result->SetBoolField(TEXT("available"),false);return Result; }
+    Result->SetBoolField(TEXT("available"),true);
+    Result->SetNumberField(TEXT("presenceSampleAt"),Encounter->LastPresenceSampleAt);
+    Result->SetNumberField(TEXT("presenceAgeSeconds"),Encounter->LastPresenceSampleAt<0 ? -1 : GetWorld()->GetTimeSeconds()-Encounter->LastPresenceSampleAt);
+    const auto& Presence=Encounter->LastSampledPresence;
+    Result->SetNumberField(TEXT("qualifyingAttackers"),Presence.Attackers);
+    Result->SetNumberField(TEXT("qualifyingDefenders"),Presence.Defenders);
+    Result->SetBoolField(TEXT("crewReady"),Presence.bCrewAlive);
+    Result->SetBoolField(TEXT("escortAtCheckpoint"),Presence.bEscortAtCheckpoint);
+    Result->SetNumberField(TEXT("crewReplacementAt"),Encounter->CrewAt);
+    TArray<TSharedPtr<FJsonValue>> Participants;
+    for (TActorIterator<AWarSiegeBotController> It(GetWorld());It;++It)
+    {
+        const auto* Bot=*It;const auto* State=Bot->GetPlayerState<AWarPlayerState>();
+        const auto* Pawn=Cast<AWarCharacter>(Bot->GetPawn());
+        if (!State || !Encounter->Owns(State) || Bot->Unit!=EWarSiegeUnit::Participant || !Pawn) continue;
+        if (Participants.Num()>=36) break;
+        auto Row=MakeShared<FJsonObject>();Row->SetStringField(TEXT("actor"),Pawn->GetPathName());
+        Row->SetBoolField(TEXT("attacker"),State->GetRealm()==EWarRealm::Riftbound);
+        Row->SetArrayField(TEXT("position"),JsonPoint(Pawn->GetActorLocation()));
+        Row->SetArrayField(TEXT("lastMoveGoal"),JsonPoint(Bot->LastMoveGoal));
+        Row->SetNumberField(TEXT("moveStatus"),int32(Bot->GetMoveStatus()));
+        Row->SetBoolField(TEXT("dead"),Pawn->IsDead());Row->SetBoolField(TEXT("visualReady"),Pawn->IsVisualReady());
+        Row->SetBoolField(TEXT("protected"),Encounter->IsProtected(Pawn));
+        Row->SetBoolField(TEXT("stationaryCast"),State->GetClassAbilities()->IsStationaryCast());
+        Row->SetBoolField(TEXT("abilityOwnsMovement"),State->GetClassAbilities()->OwnsMovement());
+        Row->SetNumberField(TEXT("health"),State->GetAttributes()->GetHealth());Participants.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    Result->SetArrayField(TEXT("participants"),Participants);
+    Result->SetNumberField(TEXT("convoyCount"),Encounter->Convoy.Num());
+    TArray<TSharedPtr<FJsonValue>> Vehicles;
+    for (const auto& Vehicle:Encounter->Convoy)
+    {
+        if (Vehicles.Num()>=2) break;
+        if (!IsValid(Vehicle) || Vehicle->GetOwner()!=Encounter) continue;
+        auto Row=MakeShared<FJsonObject>();Row->SetStringField(TEXT("actor"),Vehicle->GetPathName());
+        Row->SetArrayField(TEXT("position"),JsonPoint(Vehicle->GetActorLocation()));
+        Row->SetNumberField(TEXT("yaw"),Vehicle->GetActorRotation().Yaw);Row->SetNumberField(TEXT("travelCm"),Vehicle->Travel);
+        Row->SetBoolField(TEXT("moving"),Vehicle->bMoving);Row->SetBoolField(TEXT("placed"),Vehicle->IsPlaced());
+        Row->SetBoolField(TEXT("crewReady"),Vehicle->HasCrew());
+        Row->SetArrayField(TEXT("routeGoal"),JsonPoint(Vehicle->RouteGoal));
+        Row->SetNumberField(TEXT("remainingPathPoints"),Vehicle->Route.Num());
+        if (!Vehicle->Route.IsEmpty()) Row->SetArrayField(TEXT("nextPathPoint"),JsonPoint(Vehicle->Route[0]));
+        Row->SetNumberField(TEXT("checkpointDistanceCm"),FVector::Dist2D(Vehicle->GetActorLocation(),Encounter->Battlefield->EquipmentDestination(Encounter->Siege.Objective)));
+        Row->SetNumberField(TEXT("recoveryDisplacements"),Vehicle->RecoveryDisplacements);
+        Row->SetNumberField(TEXT("projectedStartSkips"),Vehicle->ProjectedStartSkips);
+        if (Vehicle->Definition) Row->SetArrayField(TEXT("hullExtentCm"),JsonPoint(Vehicle->Definition->HullExtent));
+        TArray<TSharedPtr<FJsonValue>> Crew;
+        for (const auto& Engineer:Vehicle->Engineers)
+        {
+            if (Crew.Num()>=2) break;
+            auto Person=MakeShared<FJsonObject>();Person->SetBoolField(TEXT("present"),IsValid(Engineer));
+            if (IsValid(Engineer))
+            {
+                Person->SetStringField(TEXT("actor"),Engineer->GetPathName());Person->SetBoolField(TEXT("dead"),Engineer->IsDead());
+                Person->SetBoolField(TEXT("visualReady"),Engineer->IsVisualReady());
+                const auto* State=Engineer->GetPlayerState<AWarPlayerState>();
+                Person->SetBoolField(TEXT("encounterOwned"),State && Encounter->Owns(State));
+                if (State) { Person->SetNumberField(TEXT("health"),State->GetAttributes()->GetHealth());Person->SetNumberField(TEXT("maxHealth"),State->GetAttributes()->GetMaxHealth()); }
+            }
+            Crew.Add(MakeShared<FJsonValueObject>(Person));
+        }
+        Row->SetArrayField(TEXT("engineers"),Crew);Vehicles.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    Result->SetArrayField(TEXT("vehicles"),Vehicles);return Result;
 }
 void UWarCitadelSiegeProof::Finish(bool Passed, const FString& Detail)
 {
@@ -1562,6 +1719,10 @@ void UWarCitadelSiegeProof::Finish(bool Passed, const FString& Detail)
     FString PerformanceError;Passed&=FinishPerformance(Passed,PerformanceError);
     auto Report = MakeShared<FJsonObject>();
     Report->SetBoolField(TEXT("passed"), Passed); Report->SetStringField(TEXT("detail"), Detail);
+    Report->SetBoolField(TEXT("diagnosticOnly"),DiagnosticSeconds>0);
+    Report->SetBoolField(TEXT("diagnosticSampleComplete"),bDiagnosticComplete);
+    Report->SetNumberField(TEXT("diagnosticSeconds"),DiagnosticSeconds);
+    Report->SetNumberField(TEXT("diagnosticElapsedSeconds"),DiagnosticStartedAt<0 ? 0 : GetWorld()->GetTimeSeconds()-DiagnosticStartedAt);
     Report->SetStringField(TEXT("map"), Map); Report->SetStringField(TEXT("signature"), Signature);
     Report->SetStringField(TEXT("cityRevision"), Revision); Report->SetStringField(TEXT("mapSha256"), MapHash);
     Report->SetBoolField(TEXT("proofOnly"), true); Report->SetBoolField(TEXT("transientReviewOverride"), bFixtureReview);
@@ -1594,6 +1755,9 @@ void UWarCitadelSiegeProof::Finish(bool Passed, const FString& Detail)
         }
     }
     Report->SetBoolField(TEXT("concurrentSides"), bConcurrentSides); Report->SetBoolField(TEXT("lockedCenterObserved"), bLockedCenter);
+    Report->SetBoolField(TEXT("lockedCenterPhysicallyOccupied"),bLockedCenterPhysical);
+    Report->SetNumberField(TEXT("lockedCenterPhysicalSeconds"),LockedCenterPhysicalSeconds);
+    Report->SetArrayField(TEXT("lockedCenterPhysicalSamples"),LockedCenterObservations);
     Report->SetBoolField(TEXT("physicalContestObserved"), bSawContest);
     Report->SetBoolField(TEXT("encounterScopedCleanupVerified"), !bLive && bSentinelIntact);
     Report->SetNumberField(TEXT("maxAegis"), MaxAegis); Report->SetNumberField(TEXT("maxRiftbound"), MaxRiftbound);
@@ -1627,7 +1791,7 @@ void UWarCitadelSiegeProof::Tick(float Delta)
     {
         const auto* Bridge=GetWorld()->GetSubsystem<UWarCampaignSiegeSubsystem>();
         if (Bridge && Bridge->SettlementAcknowledged(PendingSettlement,!bLiveDefended))
-            Finish(MaxAegis==18 && MaxRiftbound==18 && Actions>0 && (!bLiveDefended ? bConcurrentSides && bLockedCenter
+            Finish(MaxAegis==18 && MaxRiftbound==18 && Actions>0 && (!bLiveDefended ? bConcurrentSides && bLockedCenter && (bPerformance || bLockedCenterPhysical)
                 : Movement>10000 && bLivePreparationObserved && bLiveServicesSuspendedObserved && bLiveCustodyHeldObserved),
                 bLiveDefended ? TEXT("Synthetic normal 18v18 stage defense timed out through ordinary rules and the real private Node authority acknowledged city defense.")
                     : TEXT("Synthetic normal 18v18 combat completed and the real private Node authority acknowledged settlement."));
@@ -1645,6 +1809,7 @@ void UWarCitadelSiegeProof::Tick(float Delta)
     if (!Round)
     { if (Now - Began < 20) return; if (!Start(Error) && Now - Began > 180 && !Error.IsEmpty()) Finish(false, Error); return; }
     if (!Encounter) { Finish(false, TEXT("The encounter disappeared before its durable outcome.")); return; }
+    ObserveLockedCenter();
     if (!ObserveBaselineProgression(Error)) { Finish(false,Error);return; }
     if (bLive) DriveLivePlayers();
     else if (Now >= NextDrive) { NextDrive = Now + .25; Drive(); }
@@ -1668,8 +1833,13 @@ void UWarCitadelSiegeProof::Tick(float Delta)
         auto Row = UWarCampaignSiegeSubsystem::Snapshot(Encounter->Siege, Encounter->bPreparing,
             FMath::Max(0.,Encounter->PreparationUntil - Now));
         Row->SetNumberField(TEXT("round"), Round); Row->SetNumberField(TEXT("deaths"), Encounter->Deaths);
+        if (!bPerformance) Row->SetObjectField(TEXT("physical"),PhysicalSnapshot());
+        if (DiagnosticSeconds>0) Row->SetNumberField(TEXT("diagnosticElapsedSeconds"),Now-DiagnosticStartedAt);
         Samples.Add(MakeShared<FJsonValueObject>(Row));
     }
+    if (DiagnosticSeconds>0 && DiagnosticStartedAt>=0 && Now-DiagnosticStartedAt>=DiagnosticSeconds
+        && Encounter->Siege.Phase!=EWarSiegePhase::Finished)
+    { bDiagnosticComplete=true;Finish(false,TEXT("Bounded physical diagnostic completed; encounter outcome remains unverified."));return; }
     if (Encounter->Siege.Phase != EWarSiegePhase::Finished) return;
     auto Result = UWarCampaignSiegeSubsystem::Snapshot(Encounter->Siege, false);
     Result->SetNumberField(TEXT("round"), Round); Rounds.Add(MakeShared<FJsonValueObject>(Result));
@@ -1679,6 +1849,6 @@ void UWarCitadelSiegeProof::Tick(float Delta)
     { PendingSettlement=Encounter->ActivationId; return; }
     if (Round == 1)
     { Encounter->ResetRound(); Positions.Reset(); if (!Start(Error)) Finish(false, Error); return; }
-    Finish(MaxAegis == 18 && MaxRiftbound == 18 && bConcurrentSides && bLockedCenter && Movement > 10000 && Actions > 0,
+    Finish(MaxAegis == 18 && MaxRiftbound == 18 && bConcurrentSides && bLockedCenter && (bPerformance || bLockedCenterPhysical) && Movement > 10000 && Actions > 0,
         TEXT("Physical 18v18 full siege and defended timeout completed using normal encounter rules."));
 }

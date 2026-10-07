@@ -24,18 +24,91 @@
 #include "Rendering/SkeletalMeshLODRenderData.h"
 #include "Rendering/SkinWeightVertexBuffer.h"
 #include "StaticMeshResources.h"
+#include "DistanceFieldAtlas.h"
+#include "MeshCardBuild.h"
+#include "RayTracingGeometry.h"
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonSerializer.h"
 #include "WarCitadelSiegeProof.h"
 #include "JsonObjectConverter.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
+#include "Materials/MaterialExpression.h"
+#include "Materials/Material.h"
 #include "UObject/NoExportTypes.h"
 #include <type_traits>
 
 IMPLEMENT_MODULE(FDefaultModuleImpl, AegisWarEditorTools);
 
+FString UWarImportLibrary::DescribeMaterialExpressionPins(UMaterialExpression* Expression)
+{
+    auto Report=MakeShared<FJsonObject>();
+    Report->SetNumberField(TEXT("schemaVersion"),1);
+    Report->SetBoolField(TEXT("readOnly"),true);
+    Report->SetBoolField(TEXT("available"),false);
+    if (IsInGameThread() && IsValid(Expression))
+    {
+        const int32 InputCount=Expression->CountInputs();
+        const auto& Outputs=Expression->GetOutputs();
+        if (InputCount>=0 && InputCount<=256 && Outputs.Num()<=1024)
+        {
+            TArray<TSharedPtr<FJsonValue>> InputsJson,OutputsJson;
+            bool bValid=true;
+            for (int32 Index=0;Index<InputCount;++Index)
+            {
+                const FExpressionInput* Input=Expression->GetInput(Index);
+                if (!Input || (Input->Expression && !IsValid(Input->Expression))) { bValid=false;break; }
+                auto Row=MakeShared<FJsonObject>();
+                Row->SetNumberField(TEXT("inputIndex"),Index);
+                const FName InputName=Expression->GetInputName(Index);
+                Row->SetStringField(TEXT("input_name"),InputName.IsNone()?FString():InputName.ToString());
+                if (Input->Expression) Row->SetStringField(TEXT("node"),Input->Expression->GetName());
+                else Row->SetField(TEXT("node"),MakeShared<FJsonValueNull>());
+                Row->SetNumberField(TEXT("output_index"),Input->OutputIndex);
+                Row->SetNumberField(TEXT("mask"),Input->Mask);
+                Row->SetNumberField(TEXT("mask_r"),Input->MaskR);
+                Row->SetNumberField(TEXT("mask_g"),Input->MaskG);
+                Row->SetNumberField(TEXT("mask_b"),Input->MaskB);
+                Row->SetNumberField(TEXT("mask_a"),Input->MaskA);
+                InputsJson.Add(MakeShared<FJsonValueObject>(Row));
+            }
+            for (const FExpressionOutput& Output:Outputs)
+            {
+                auto Row=MakeShared<FJsonObject>();
+                Row->SetStringField(TEXT("output_name"),Output.OutputName.IsNone()?FString():Output.OutputName.ToString());
+                Row->SetNumberField(TEXT("mask"),Output.Mask);
+                Row->SetNumberField(TEXT("mask_r"),Output.MaskR);
+                Row->SetNumberField(TEXT("mask_g"),Output.MaskG);
+                Row->SetNumberField(TEXT("mask_b"),Output.MaskB);
+                Row->SetNumberField(TEXT("mask_a"),Output.MaskA);
+                OutputsJson.Add(MakeShared<FJsonValueObject>(Row));
+            }
+            if (bValid)
+            {
+                Report->SetBoolField(TEXT("available"),true);
+                Report->SetStringField(TEXT("expression"),Expression->GetPathName());
+                Report->SetArrayField(TEXT("inputs"),InputsJson);
+                Report->SetArrayField(TEXT("outputs"),OutputsJson);
+            }
+        }
+    }
+    FString Json;FJsonSerializer::Serialize(Report,TJsonWriterFactory<>::Create(&Json));return Json;
+}
+
 namespace
 {
+    TSharedRef<FJsonObject> MaterialInputJson(const FExpressionInput& Input)
+    {
+        auto Row=MakeShared<FJsonObject>();
+        if (Input.Expression) Row->SetStringField(TEXT("node"),Input.Expression->GetName());
+        else Row->SetField(TEXT("node"),MakeShared<FJsonValueNull>());
+        Row->SetNumberField(TEXT("output_index"),Input.OutputIndex);
+        Row->SetNumberField(TEXT("mask"),Input.Mask);
+        Row->SetNumberField(TEXT("mask_r"),Input.MaskR);
+        Row->SetNumberField(TEXT("mask_g"),Input.MaskG);
+        Row->SetNumberField(TEXT("mask_b"),Input.MaskB);
+        Row->SetNumberField(TEXT("mask_a"),Input.MaskA);
+        return Row;
+    }
     struct FCitadelTerrainArrays
     {
         TArray<FVector3f> Positions, Normals, Tangents;
@@ -807,6 +880,122 @@ FString UWarImportLibrary::DescribeStaticMeshNativePolicy(UStaticMesh* Mesh)
     FString Text; FJsonSerializer::Serialize(Report, TJsonWriterFactory<>::Create(&Text)); return Text;
 }
 
+FString UWarImportLibrary::DescribeMaterialRoots(UMaterial* Material)
+{
+    auto Report=MakeShared<FJsonObject>();
+    Report->SetNumberField(TEXT("schemaVersion"),1);Report->SetBoolField(TEXT("readOnly"),true);
+    Report->SetBoolField(TEXT("available"),false);
+    if (IsInGameThread() && IsValid(Material))
+    {
+        const TPair<const TCHAR*,EMaterialProperty> Properties[]={
+            {TEXT("MP_BASE_COLOR"),MP_BaseColor},{TEXT("MP_NORMAL"),MP_Normal},
+            {TEXT("MP_ROUGHNESS"),MP_Roughness},{TEXT("MP_METALLIC"),MP_Metallic},
+            {TEXT("MP_SPECULAR"),MP_Specular},{TEXT("MP_AMBIENT_OCCLUSION"),MP_AmbientOcclusion},
+            {TEXT("MP_EMISSIVE_COLOR"),MP_EmissiveColor},{TEXT("MP_WORLD_POSITION_OFFSET"),MP_WorldPositionOffset},
+            {TEXT("MP_OPACITY"),MP_Opacity},{TEXT("MP_OPACITY_MASK"),MP_OpacityMask},
+            {TEXT("MP_MATERIAL_ATTRIBUTES"),MP_MaterialAttributes},{TEXT("MP_PIXEL_DEPTH_OFFSET"),MP_PixelDepthOffset},
+            {TEXT("MP_DISPLACEMENT"),MP_Displacement},
+            {TEXT("MP_CUSTOMIZED_UVS0"),MP_CustomizedUVs0},{TEXT("MP_CUSTOMIZED_UVS1"),MP_CustomizedUVs1},
+            {TEXT("MP_CUSTOMIZED_UVS2"),MP_CustomizedUVs2},{TEXT("MP_CUSTOMIZED_UVS3"),MP_CustomizedUVs3},
+            {TEXT("MP_CUSTOMIZED_UVS4"),MP_CustomizedUVs4},{TEXT("MP_CUSTOMIZED_UVS5"),MP_CustomizedUVs5},
+            {TEXT("MP_CUSTOMIZED_UVS6"),MP_CustomizedUVs6},{TEXT("MP_CUSTOMIZED_UVS7"),MP_CustomizedUVs7}};
+        auto Roots=MakeShared<FJsonObject>();bool bValid=true;
+        for (const auto& Property:Properties)
+        {
+            const FExpressionInput* Input=Material->GetExpressionInputForProperty(Property.Value);
+            if (!Input || (Input->Expression && !IsValid(Input->Expression))) { bValid=false;break; }
+            Roots->SetObjectField(Property.Key,MaterialInputJson(*Input));
+        }
+        if (bValid)
+        {
+            Report->SetBoolField(TEXT("available"),true);
+            Report->SetStringField(TEXT("material"),Material->GetPathName());
+            Report->SetObjectField(TEXT("roots"),Roots);
+        }
+    }
+    FString Json;FJsonSerializer::Serialize(Report,TJsonWriterFactory<>::Create(&Json));return Json;
+}
+
+FString UWarImportLibrary::DescribeStaticMeshLumenResources(UStaticMesh* Mesh)
+{
+    const auto Json=[](const TSharedRef<FJsonObject>& Value)
+    {
+        FString Result;
+        FJsonSerializer::Serialize(Value,TJsonWriterFactory<>::Create(&Result));
+        return Result;
+    };
+    auto J=MakeShared<FJsonObject>();
+    J->SetBoolField(TEXT("diagnosticOnly"),true);
+    J->SetBoolField(TEXT("readOnly"),true);
+    J->SetBoolField(TEXT("rendererStateVerified"),false);
+    J->SetBoolField(TEXT("available"),false);
+    if (!IsInGameThread() || !IsValid(Mesh)) return Json(J);
+    J->SetStringField(TEXT("mesh"),Mesh->GetPathName());
+    J->SetBoolField(TEXT("compiling"),Mesh->IsCompiling());
+    if (Mesh->IsCompiling()) return Json(J);
+    const FStaticMeshRenderData* Data=Mesh->GetRenderData();
+    if (!Data || Data->LODResources.IsEmpty()) return Json(J);
+    const auto& Lod=Data->LODResources[0];
+    const auto* DF=Lod.DistanceFieldData;
+    auto Distance=MakeShared<FJsonObject>();
+    Distance->SetBoolField(TEXT("present"),DF!=nullptr);
+    if (DF)
+    {
+        Distance->SetBoolField(TEXT("valid"),DF->IsValid());
+        Distance->SetBoolField(TEXT("asyncBuilding"),DF->bAsyncBuilding);
+        Distance->SetNumberField(TEXT("alwaysLoadedBytes"),DF->AlwaysLoadedMip.Num());
+        Distance->SetNumberField(TEXT("streamableBytes"),DF->StreamableMips.GetBulkDataSize());
+        int64 Bricks=0;
+        TArray<TSharedPtr<FJsonValue>> Mips;
+        for (const auto& Mip:DF->Mips)
+        {
+            Bricks+=Mip.NumDistanceFieldBricks;
+            auto Row=MakeShared<FJsonObject>();
+            Row->SetArrayField(TEXT("indirectionDimensions"),{
+                MakeShared<FJsonValueNumber>(Mip.IndirectionDimensions.X),
+                MakeShared<FJsonValueNumber>(Mip.IndirectionDimensions.Y),
+                MakeShared<FJsonValueNumber>(Mip.IndirectionDimensions.Z)});
+            Row->SetNumberField(TEXT("bricks"),Mip.NumDistanceFieldBricks);
+            Row->SetNumberField(TEXT("bulkSize"),Mip.BulkSize);
+            Mips.Add(MakeShared<FJsonValueObject>(Row));
+        }
+        Distance->SetNumberField(TEXT("bricks"),Bricks);
+        Distance->SetArrayField(TEXT("mips"),Mips);
+    }
+    J->SetObjectField(TEXT("distanceField"),Distance);
+    auto Cards=MakeShared<FJsonObject>();
+    const auto* Card=Lod.CardRepresentationData;
+    Cards->SetBoolField(TEXT("present"),Card!=nullptr);
+    if (Card)
+    {
+        Cards->SetNumberField(TEXT("count"),Card->MeshCardsBuildData.CardBuildData.Num());
+        Cards->SetBoolField(TEXT("finite"),!Card->ContainsNaN());
+    }
+    J->SetObjectField(TEXT("cards"),Cards);
+    auto Ray=MakeShared<FJsonObject>();
+#if RHI_RAYTRACING
+    // The UObject/render-data lifetime is retained on GT until this queued read completes.
+    auto* Geometry=Lod.RayTracingGeometry;
+    ENQUEUE_RENDER_COMMAND(WarReadLumenGeometry)([Geometry,Ray](FRHICommandListImmediate&)
+    {
+        Ray->SetBoolField(TEXT("present"),Geometry!=nullptr);
+        if (!Geometry) return;
+        Ray->SetBoolField(TEXT("validInitializer"),Geometry->HasValidInitializer());
+        Ray->SetBoolField(TEXT("valid"),Geometry->IsValid());
+        Ray->SetBoolField(TEXT("rhiPresent"),Geometry->GetRHI()!=nullptr);
+        Ray->SetBoolField(TEXT("requiresBuild"),Geometry->GetRequiresBuild());
+    });
+    FlushRenderingCommands();
+#else
+    Ray->SetBoolField(TEXT("present"),false);
+#endif
+    J->SetObjectField(TEXT("rayTracing"),Ray);
+    J->SetBoolField(TEXT("available"),true);
+    J->SetBoolField(TEXT("runtimeSceneMembershipVerified"),false);
+    J->SetBoolField(TEXT("surfaceCacheCoverageVerified"),false);
+    return Json(J);
+}
+
 FString UWarImportLibrary::DescribeStaticMeshRenderData(UStaticMesh* Mesh)
 {
     if (!IsValid(Mesh)) return TEXT("{\"available\":false,\"reason\":\"missingMesh\"}");
@@ -1434,6 +1623,28 @@ void UWarImportLibrary::PrepareWorldPreviewFrame(UWorld* World)
     // Commandlets do not tick the editor world between camera captures.
     if (World) World->SendAllEndOfFrameUpdates();
     FlushRenderingCommands();
+}
+
+TArray<FString> UWarImportLibrary::GetStreamingLevelPackageNames(UWorld* World)
+{
+    TArray<FString> Packages;
+    if (!IsValid(World))
+    {
+        UE_LOG(LogTemp, Error, TEXT("Streaming level package inspection requires a valid world."));
+        return Packages;
+    }
+    Packages.Reserve(World->GetStreamingLevels().Num());
+    for (const ULevelStreaming* Level : World->GetStreamingLevels())
+    {
+        if (!IsValid(Level))
+        {
+            UE_LOG(LogTemp, Error, TEXT("Streaming level package inspection encountered an invalid declaration."));
+            return {};
+        }
+        Packages.Add(Level->GetWorldAssetPackageName());
+    }
+    Packages.Sort();
+    return Packages;
 }
 
 FString UWarImportLibrary::GetSourceAnimationName(const UAnimSequence* Animation)

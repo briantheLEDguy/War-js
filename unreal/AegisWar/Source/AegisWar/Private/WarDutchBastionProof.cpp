@@ -1,4 +1,7 @@
 #include "WarDutchBastionProof.h"
+#include "WarCitadelLightingWitness.h"
+#include "WarCitadelLumenStudyRuntime.h"
+#include "WarCitadelLumenViewProbe.h"
 #include "WarCitadelCookedContacts.h"
 #include "WarCitadelProofJson.h"
 #include "WarCitadelCapsulePolicy.h"
@@ -29,6 +32,7 @@
 #include "HAL/FileManager.h"
 #include "HAL/PlatformMemory.h"
 #include "UnrealClient.h"
+#include "Engine/GameViewportClient.h"
 #include "RHIStats.h"
 #include "ContentStreaming.h"
 #include "HAL/IConsoleManager.h"
@@ -625,11 +629,12 @@ void UWarDutchBastionProof::RestoreArchitectureUi()
     SavedHudVisibility.Reset();SavedWidgetVisibility.Reset();
 }
 void UWarDutchBastionProof::Deinitialize()
-{ RestoreArchitectureUi();Super::Deinitialize(); }
+{ WarCitadelLumenViewProbe::Disarm();LightingOverride.Reset();RestoreArchitectureUi();Super::Deinitialize(); }
 
 void UWarDutchBastionProof::Finish(bool Passed,const FString& Detail)
 {
     bFinished=true;
+    WarCitadelLumenViewProbe::Disarm();LightingOverride.Reset();
     RestoreArchitectureUi();
     Passed=Passed && bPhysicalPassed && (!bCitadelWidth || (bWidthComplete && bWidthPassed));
     auto Report=MakeShared<FJsonObject>();
@@ -717,6 +722,16 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
         Config->TryGetStringField(TEXT("mapSha256"),MapSha256);
         if (Config->TryGetNumberField(TEXT("viewSettleSeconds"),ViewSettleSeconds)) ViewSettleSeconds=FMath::Clamp(ViewSettleSeconds,3.0,30.0);
         Views=Config->GetArrayField(TEXT("views"));Routes=Config->GetArrayField(TEXT("routes"));
+        Config->TryGetBoolField(TEXT("cinematicView"),bCinematicView);
+        if (bCinematicView && (!Citadel || Views.IsEmpty() || !Routes.IsEmpty()))
+        { Finish(false,TEXT("Temporary capture settings require a views-only citadel diagnostic"));return; }
+        if (Config->TryGetStringField(TEXT("privateLumenMode"),PrivateLumenMode))
+        {
+            TMap<FString,int32> Recipe;
+            if (!Citadel || Views.IsEmpty() || !Routes.IsEmpty()
+                || !WarCitadelLumenStudyRuntime::Recipe(PrivateLumenMode,Recipe))
+            { Finish(false,TEXT("Lumen diagnostic requires a private views-only citadel study"));return; }
+        }
         bCitadelWidth=Citadel && !Routes.IsEmpty();
         const TArray<TSharedPtr<FJsonValue>>* ConfigGates=nullptr;
         if (Citadel && Config->TryGetArrayField(TEXT("gates"),ConfigGates)) Gates=*ConfigGates;
@@ -729,6 +744,13 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
     auto* PC=GetWorld()->GetFirstPlayerController();auto* Pawn=PC?Cast<AWarCharacter>(PC->GetPawn()):nullptr;
     if (!Pawn || !Pawn->IsVisualReady())
     { if (Now-Started>60) Finish(false,TEXT("Playable character unavailable"));return; }
+    if ((!PrivateLumenMode.IsEmpty() || bCinematicView) && !LightingOverride)
+    {
+        TMap<FString,int32> Recipe;WarCitadelLumenStudyRuntime::Recipe(PrivateLumenMode,Recipe);
+        if (bCinematicView) WarCitadelLumenStudyRuntime::ReviewRecipe(Recipe);
+        LightingOverride=MakeShared<WarCitadelLumenStudyRuntime::FOverride>();FString Error;
+        if (!LightingOverride->Apply(Recipe,Error)) { Finish(false,Error);return; }
+    }
     if (bCitadelConfig && !WarCitadelCapsulePolicy::Matches(Pawn))
     { Finish(false,TEXT("Proof character capsule differs from the reviewed native class default"));return; }
     if (bCitadelConfig)
@@ -1106,8 +1128,28 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
             Camera->GetCameraComponent()->SetProjectionMode(OrthoWidth>0 ? ECameraProjectionMode::Orthographic : ECameraProjectionMode::Perspective);
             if (OrthoWidth>0) Camera->GetCameraComponent()->SetOrthoWidth(OrthoWidth);
             PC->bAutoManageActiveCameraTarget=false;PC->SetViewTarget(Camera.Get());
-            Next=Now+ViewSettleSeconds;bPositioned=true;bCaptured=false;return;
+            Next=Now+ViewSettleSeconds;bPositioned=true;bCaptured=false;
+            bViewMaterialsReady=false;ViewMaterialsWaitStarted=Now;NextViewMaterialCheck=Now;
+            CaptureMaterialReadiness.Reset();return;
         }
+        if (!bCaptured && Now>=NextViewMaterialCheck)
+        {
+            CaptureMaterialReadiness=WarCitadelLightingWitness::PrivateMaterialReadiness(GetWorld());
+            const bool Ready=CaptureMaterialReadiness->GetBoolField(TEXT("ready"));
+            NextViewMaterialCheck=Now+.5;
+            if (!Ready)
+            {
+                bViewMaterialsReady=false;ViewFrames.Reset();ViewDrawCalls.Reset();
+                if (Now-ViewMaterialsWaitStarted>120)
+                { Finish(false,TEXT("Private materials did not resolve to intended valid shader resources"));return; }
+            }
+            else if (!bViewMaterialsReady)
+            {
+                bViewMaterialsReady=true;Next=Now+ViewSettleSeconds;
+                ViewFrames.Reset();ViewDrawCalls.Reset();
+            }
+        }
+        if (!bCaptured && !bViewMaterialsReady) return;
         if (Now>Next-3 && DeltaTime>0)
         {
             Frames.Add(DeltaTime*1000);
@@ -1118,6 +1160,18 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
         if (Now<Next) return;
         if (!bCaptured)
         {
+            // Check again at the request; an earlier ready resource may have been invalidated.
+            CaptureMaterialReadiness=WarCitadelLightingWitness::PrivateMaterialReadiness(GetWorld());
+            if (!CaptureMaterialReadiness->GetBoolField(TEXT("ready")))
+            { bViewMaterialsReady=false;ViewFrames.Reset();ViewDrawCalls.Reset();return; }
+            CaptureLighting=WarCitadelLightingWitness::Capture(GetWorld(),Pawn,Camera.Get());
+            if (LightingOverride)
+            {
+                const auto* Viewport=GetWorld()->GetGameViewport();
+                CaptureNonce=FGuid::NewGuid().ToString();
+                if (!Viewport || !WarCitadelLumenViewProbe::Arm(GetWorld(),Viewport->Viewport,CaptureNonce))
+                { Finish(false,TEXT("Private Lumen game-view probe unavailable"));return; }
+            }
             FScreenshotRequest::RequestScreenshot(Directory/FString::Printf(TEXT("view_%02d.png"),ViewIndex),false,false);
             bCaptured=true;Next=Now+1;return;
         }
@@ -1141,6 +1195,19 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
         if (Orthographic) Metric->SetNumberField(TEXT("orthographicWidthCm"),Camera->GetCameraComponent()->OrthoWidth);
         if (!ViewFrames.IsEmpty()) Metric->SetNumberField(TEXT("p95FrameMs"),ViewFrames[FMath::Min(ViewFrames.Num()-1,FMath::FloorToInt(ViewFrames.Num()*.95))]);
         if (!ViewDrawCalls.IsEmpty()) Metric->SetNumberField(TEXT("p95DrawCalls"),ViewDrawCalls[FMath::Min(ViewDrawCalls.Num()-1,FMath::FloorToInt(ViewDrawCalls.Num()*.95))]);
+        if (CaptureLighting) Metric->SetObjectField(TEXT("lightingWitness"),CaptureLighting);
+        if (CaptureMaterialReadiness) Metric->SetObjectField(TEXT("privateMaterialReadiness"),CaptureMaterialReadiness);
+        if (LightingOverride)
+        {
+            // This observes the capture window, not an independently identified
+            // screenshot frame or renderer-owned pass/backend selection.
+            auto ViewDiagnostic=WarCitadelLumenViewProbe::LatestUnbound(CaptureNonce);
+            if (!ViewDiagnostic) { Finish(false,TEXT("Private Lumen blended game-view readback missing"));return; }
+            Metric->SetStringField(TEXT("privateLumenMode"),PrivateLumenMode);
+            Metric->SetBoolField(TEXT("temporaryCinematicSettings"),bCinematicView);
+            Metric->SetObjectField(TEXT("unboundBlendedViewDiagnostic"),ViewDiagnostic);
+            WarCitadelLumenViewProbe::Disarm();
+        }
         Metric->SetNumberField(TEXT("physicalMiB"),FPlatformMemory::GetStats().UsedPhysical/1048576.0);
         ViewPerformance.Add(MakeShared<FJsonValueObject>(Metric));ViewFrames.Reset();ViewDrawCalls.Reset();
         UE_LOG(LogTemp,Display,TEXT("WAR_DUTCH_VIEW=%d/%d"),ViewIndex+1,Views.Num());

@@ -13,13 +13,18 @@
 #include "Engine/LevelStreaming.h"
 #include "Engine/Level.h"
 #include "Engine/Brush.h"
+#include "Engine/LevelStreamingVolume.h"
 #include "Components/PrimitiveComponent.h"
+#include "Dom/JsonObject.h"
 #include "Engine/NetConnection.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PlayerController.h"
+#include "Misc/CommandLine.h"
+#include "Misc/Parse.h"
+#include "Serialization/JsonSerializer.h"
 
 bool UWarZoneStreamingSubsystem::DoesSupportWorldType(EWorldType::Type Type) const
 { return Type == EWorldType::Game || Type == EWorldType::PIE; }
@@ -203,7 +208,9 @@ void UWarZoneStreamingSubsystem::UpdateStreaming()
     for (const auto& Entry : PlayerZones)
     {
         auto* Player = Entry.Key.Get();
-        if (!Player || Player->IsLocalController()) continue;
+        // Connectionless authority controllers execute client RPCs locally, which
+        // would replace the server's union with one player's streaming subset.
+        if (!Player || Player->IsLocalController() || !Player->GetNetConnection()) continue;
         TSet<FName> Wanted;
         for (FName Zone : Entry.Value)
             if (const auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone)) Wanted.Append(Anchor->GetContentLevels());
@@ -218,6 +225,114 @@ void UWarZoneStreamingSubsystem::UpdateStreaming()
         if (!It.Key().IsValid() || !PlayerZones.Contains(It.Key())) It.RemoveCurrent();
 }
 
+FString UWarZoneStreamingSubsystem::DescribeZoneStreaming(FName Zone) const
+{
+    const auto* World = GetWorld();
+    const double Now = World->GetTimeSeconds();
+    auto Snapshot = MakeShared<FJsonObject>();
+    Snapshot->SetNumberField(TEXT("schemaVersion"), 1);
+    Snapshot->SetBoolField(TEXT("diagnosticOnly"), true);
+    Snapshot->SetStringField(TEXT("zone"), Zone.ToString());
+    Snapshot->SetBoolField(TEXT("levelLoadRequestsAllowed"), World->AllowLevelLoadRequests());
+    TSet<TWeakObjectPtr<APlayerController>> WorldPlayers;
+    for (auto It = World->GetPlayerControllerIterator(); It; ++It)
+        if (auto* Player = It->Get()) WorldPlayers.Add(Player);
+    Snapshot->SetNumberField(TEXT("worldControllers"), WorldPlayers.Num());
+    Snapshot->SetNumberField(TEXT("pendingRequestsTotal"), Pending.Num());
+    Snapshot->SetNumberField(TEXT("clientPackageOwners"), ClientPackages.Num());
+    int32 Pins = 0;
+    for (const auto& Pin : ZonePins) if (Pin.Key.IsValid() && Pin.Value == Zone) ++Pins;
+    Snapshot->SetNumberField(TEXT("zonePins"), Pins);
+    Snapshot->SetNumberField(TEXT("graceSecondsRemaining"), FMath::Max(0.0, KeepUntil.FindRef(Zone) - Now));
+    TArray<TSharedPtr<FJsonValue>> Requests;
+    int32 RequestCount = 0, OwnersInWorld = 0;
+    for (const auto& Request : Pending)
+    {
+        if (Request.Destination != Zone) continue;
+        ++RequestCount;
+        const auto* Player = Request.Player.Get();
+        OwnersInWorld += WorldPlayers.Contains(Request.Player);
+        if (Requests.Num() >= 64) continue;
+        auto Row = MakeShared<FJsonObject>();
+        const auto* State = Player ? Player->GetPlayerState<AWarPlayerState>() : nullptr;
+        const APawn* Pawn = Player ? Player->GetPawn() : nullptr;
+        const auto* Source = Pawn ? AWarZoneAnchor::FindAt(GetWorld(), Pawn->GetActorLocation()) : nullptr;
+        Row->SetBoolField(TEXT("ownerInWorld"), WorldPlayers.Contains(Request.Player));
+        Row->SetBoolField(TEXT("ownerValid"), Player != nullptr);
+        Row->SetBoolField(TEXT("networkConnection"), Player && Player->GetNetConnection());
+        Row->SetBoolField(TEXT("localController"), Player && Player->IsLocalController());
+        Row->SetBoolField(TEXT("samePawn"), Pawn && Pawn == Request.Character.Get());
+        Row->SetBoolField(TEXT("evacuation"), Request.bEvacuation);
+        Row->SetStringField(TEXT("currentZone"), State ? State->GetCurrentZone().ToString() : FString());
+        Row->SetStringField(TEXT("physicalZone"), Source ? Source->ZoneId.ToString() : FString());
+        Row->SetNumberField(TEXT("deadlineSecondsRemaining"), Request.Deadline - Now);
+        Requests.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    Snapshot->SetNumberField(TEXT("pendingRequestsForZone"), RequestCount);
+    Snapshot->SetNumberField(TEXT("pendingOwnersInWorld"), OwnersInWorld);
+    Snapshot->SetBoolField(TEXT("requestsTruncated"), RequestCount > Requests.Num());
+    Snapshot->SetArrayField(TEXT("requests"), Requests);
+    const auto* Anchor = AWarZoneAnchor::FindById(GetWorld(), Zone);
+    Snapshot->SetBoolField(TEXT("uniqueAnchor"), Anchor != nullptr);
+    const TArray<FName> Packages = Anchor ? Anchor->GetContentLevels() : TArray<FName>();
+    Snapshot->SetNumberField(TEXT("contentLevels"), Packages.Num());
+    Snapshot->SetBoolField(TEXT("levelsTruncated"), Packages.Num() > 32);
+    TArray<TSharedPtr<FJsonValue>> Levels;
+    for (int32 Index = 0; Index < FMath::Min(Packages.Num(), 32); ++Index)
+    {
+        const FName Package = Packages[Index];
+        const auto* Stream = UGameplayStatics::GetStreamingLevel(GetWorld(), Package);
+        auto Row = MakeShared<FJsonObject>();
+        Row->SetStringField(TEXT("package"), Package.ToString());
+        Row->SetBoolField(TEXT("declared"), Stream != nullptr);
+        int32 Declarations = 0;
+        for (const ULevelStreaming* Candidate : World->GetStreamingLevels())
+            if (Candidate && Candidate->GetWorldAssetPackageFName() == Package) ++Declarations;
+        Row->SetNumberField(TEXT("matchingDeclarations"), Declarations);
+        if (Stream)
+        {
+            Row->SetStringField(TEXT("class"), Stream->GetClass()->GetName());
+            Row->SetBoolField(TEXT("shouldLoad"), Stream->ShouldBeLoaded());
+            Row->SetBoolField(TEXT("shouldBeVisible"), Stream->GetShouldBeVisibleFlag());
+            Row->SetBoolField(TEXT("loaded"), Stream->IsLevelLoaded());
+            Row->SetBoolField(TEXT("visible"), Stream->IsLevelVisible());
+            Row->SetStringField(TEXT("state"), EnumToString(Stream->GetLevelStreamingState()));
+            Row->SetBoolField(TEXT("loadRequestPending"), Stream->HasLoadRequestPending());
+            Row->SetBoolField(TEXT("streamingStatePending"), Stream->IsStreamingStatePending());
+            Row->SetBoolField(TEXT("unloadAndRemoval"), Stream->GetIsRequestingUnloadAndRemoval());
+            Row->SetNumberField(TEXT("loadedActors"), Stream->GetLoadedLevel() ? Stream->GetLoadedLevel()->Actors.Num() : 0);
+            int32 ActiveVolumes = 0;
+            for (const ALevelStreamingVolume* Volume : Stream->EditorStreamingVolumes)
+                if (IsValid(Volume) && !Volume->bDisabled && !Volume->bEditorPreVisOnly) ++ActiveVolumes;
+            Row->SetNumberField(TEXT("activeStreamingVolumes"), ActiveVolumes);
+        }
+        Levels.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    Snapshot->SetArrayField(TEXT("levels"), Levels);
+    FString Text;
+    FJsonSerializer::Serialize(Snapshot, TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Text));
+    return Text;
+}
+
+void UWarZoneStreamingSubsystem::LogRecoveryStreamingDiagnostics()
+{
+    const double Now = GetWorld()->GetTimeSeconds();
+    if (UE_BUILD_SHIPPING || Pending.IsEmpty() || StreamingDiagnosticSamples >= 12 || Now < NextStreamingDiagnosticAt
+        || !FParse::Param(FCommandLine::Get(), TEXT("WarDevelopmentNetworking"))
+        || !FParse::Param(FCommandLine::Get(), TEXT("WarCitadelSiegeProof"))
+        || !FParse::Param(FCommandLine::Get(), TEXT("WarCitadelSiegeRecoveryProof"))) return;
+    // Capture actual requests without loading content, changing readiness, or extending deadlines.
+    NextStreamingDiagnosticAt = Now + 10;
+    ++StreamingDiagnosticSamples;
+    TSet<FName> Destinations;
+    for (const auto& Request : Pending) Destinations.Add(Request.Destination);
+    TArray<FName> Zones = Destinations.Array();
+    Zones.Sort(FNameLexicalLess());
+    for (int32 Index = 0; Index < FMath::Min(Zones.Num(), 8); ++Index)
+        UE_LOG(LogTemp, Display, TEXT("WAR_RECOVERY_ZONE_STREAMING sample=%d zonesTruncated=%d %s"),
+            StreamingDiagnosticSamples, Zones.Num() > 8, *DescribeZoneStreaming(Zones[Index]));
+}
+
 void UWarZoneStreamingSubsystem::Tick(float DeltaTime)
 {
     const auto* Mode = GetWorld()->GetAuthGameMode<AWarGameMode>();
@@ -225,6 +340,7 @@ void UWarZoneStreamingSubsystem::Tick(float DeltaTime)
     if (GetWorld()->GetTimeSeconds() < NextUpdateAt) return;
     NextUpdateAt = GetWorld()->GetTimeSeconds() + 0.1;
     UpdateStreaming();
+    LogRecoveryStreamingDiagnostics();
     for (int32 Index = Pending.Num() - 1; Index >= 0; --Index)
     {
         const FPending Row = Pending[Index];

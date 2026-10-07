@@ -7,6 +7,10 @@
 class UAnimSequence;
 class UStaticMesh;
 class UMaterialInterface;
+class UMaterialExpression;
+class UMaterial;
+class UMaterialInstance;
+class UMaterialExpressionVectorParameter;
 class USkeletalMeshComponent;
 class UBoxComponent;
 class ULevelStreaming;
@@ -59,9 +63,44 @@ public:
         const TArray<FVector2D>& UVs, const TArray<FLinearColor>& VertexColors,
         const TArray<int32>& TriangleMaterials, const TArray<UMaterialInterface*>& Materials, bool bCollision);
 
+    /** Fresh render-only citadel study. Supplied native winding/basis are explicit; source collision is never copied. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static UStaticMesh* CreatePrivateCitadelRenderSurface(UStaticMesh* PolicySource, const FString& Collection,
+        const FString& Key, const TArray<FVector>& Positions, const TArray<int32>& Indices,
+        const TArray<FVector>& Normals, const TArray<FVector>& Tangents, const TArray<double>& BinormalSigns,
+        const TArray<FVector2D>& UV0, const TArray<FVector2D>& UV1,
+        const TArray<int32>& TriangleMaterials, const TArray<UMaterialInterface*>& Materials);
+#if WITH_DEV_AUTOMATION_TESTS
+    static UStaticMesh* CreatePrivateCitadelRenderSurfaceForAutomation(UStaticMesh* PolicySource,
+        const FString& Collection, const FString& Key, const TArray<FVector>& Positions,
+        const TArray<int32>& Indices, const TArray<FVector>& Normals, const TArray<FVector>& Tangents,
+        const TArray<double>& BinormalSigns, const TArray<FVector2D>& UV0, const TArray<FVector2D>& UV1,
+        const TArray<int32>& TriangleMaterials, const TArray<UMaterialInterface*>& Materials);
+#endif
+
     /** Read actual built LOD buffers, not source-description UV counts. Never modifies or saves the mesh. */
     UFUNCTION(BlueprintCallable, Category="Migration")
     static FString DescribeStaticMeshRenderData(UStaticMesh* Mesh);
+
+    /** Read existing LOD0 distance fields/cards/RT geometry; never builds, changes or saves assets. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeStaticMeshLumenResources(UStaticMesh* Mesh);
+
+    /** Read native expression pin indices and masks, including disconnected inputs; no edits, compilation or saves. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeMaterialExpressionPins(UMaterialExpression* Expression);
+
+    /** Read exact material roots, including Python-hidden depth/displacement and customized UV inputs. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeMaterialRoots(UMaterial* Material);
+
+    /** Bounded typed MIC overrides/settings, including disabled values; no edits, compilation or saves. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeMaterialInstance(UMaterialInstance* Material);
+
+    /** Eight exact vector-parameter profile values, including GUID and localized text history; no edits. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static FString DescribeVectorParameter(UMaterialExpressionVectorParameter* Expression);
 
     /** Read committed source triangle corners and attributes; never uses or changes a pending working copy. */
     UFUNCTION(BlueprintCallable, Category="Migration")
@@ -105,6 +144,10 @@ public:
 
     UFUNCTION(BlueprintCallable, Category="Migration")
     static void PrepareWorldPreviewFrame(UWorld* World);
+
+    /** Sorted declarations, including unloaded levels and duplicates; invalid worlds or entries log an error and return empty. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static TArray<FString> GetStreamingLevelPackageNames(UWorld* World);
 
     UFUNCTION(BlueprintCallable, Category="Migration")
     static FBox GetSkinnedBounds(USkeletalMeshComponent* Component);

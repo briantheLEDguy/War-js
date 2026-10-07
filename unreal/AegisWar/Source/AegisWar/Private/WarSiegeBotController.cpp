@@ -8,6 +8,8 @@
 #include "WarWarpIdol.h"
 #include "WarCombatStatus.h"
 #include "WarSiegeNavigation.h"
+#include "WarSiegeEquipment.h"
+#include "WarSiegeEscort.h"
 #include "Engine/GameInstance.h"
 #include "EngineUtils.h"
 #include "Navigation/CrowdFollowingComponent.h"
@@ -65,10 +67,25 @@ void AWarSiegeBotController::Tick(float Delta)
     { UE_LOG(LogTemp, Verbose, TEXT("WAR_SIEGE_BOT %s decision=%d"), *PS->GetPlayerName(), int32(Decision)); LastDecision = Decision; }
     auto* Catalog = GetGameInstance()->GetSubsystem<UWarAbilityCatalog>();
     auto* Runtime = PS->GetClassAbilities(); FString Error;
+    const bool Escort=Unit==EWarSiegeUnit::Participant && PS->GetRealm()==EWarRealm::Riftbound && Order==1
+        && GS->Siege.RulesVersion==2 && GS->Siege.Stage==0 && GS->Siege.Objective>0
+        && EscortSeat>=0 && EscortSeat<18 && Mode->ConvoyVehicles().Num()==2;
+    const bool ClearVehicle=Escort && !WarSiegeNavigation::ConvoyPositionClear(BotPawn,Mode);
+    const auto MoveEscort=[&](const FVector& Anchor,const FVector& Offset,bool Formation)
+    {
+        FVector Ground;
+        if (!WarSiegeNavigation::ConvoyApproach(BotPawn,Anchor,Offset,Mode->Battlefield->ObjectiveRadius,Mode,Ground,Formation))
+        { StopMovement();return; }
+        if (GetMoveStatus()!=EPathFollowingStatus::Moving || FVector::DistSquared(LastMoveGoal,Ground)>FMath::Square(35.f))
+        { MoveToLocation(Ground,25,false);LastMoveGoal=Ground; }
+    };
+    const auto EscortOffset=[&]() { return WarSiegeEscort::Offset(EscortSeat,Mode->ConvoyVehicles()[0]->GetActorRotation().Yaw); };
+    if (ClearVehicle && Runtime->IsStationaryCast()) Runtime->UpdateMovementIntent(true);
+    if (ClearVehicle && !Runtime->OwnsMovement()) { MoveEscort(Mode->TaskLocation(),EscortOffset(),true);return; }
     const auto Kit = Catalog ? Catalog->Kit(BotPawn->GetCareerId()) : TArray<const FWarAbilityDefinition*>();
     const auto TryCombatAbility=[&](FName Id,AActor* Aim) {
         const auto* A=Catalog ? Catalog->Find(Id,BotPawn->GetCareerId()) : nullptr;
-        if (A && A->RequiresStationary() && Runtime->ReadyIn(Id)<=0 && (!A->bEnemyTarget || BotPawn->CanAbilityTarget(Aim,A->Range)))
+        if (A && Runtime->CanPrepareStationaryCast(*A,Aim,Error))
         { StopMovement(); BotPawn->GetCharacterMovement()->StopMovementImmediately(); Runtime->UpdateMovementIntent(false); }
         return Runtime->TryActivate(Id,Aim,Error);
     };
@@ -121,12 +138,20 @@ void AWarSiegeBotController::Tick(float Delta)
             BotPawn->RequestTargetStrike(Enemy);
             // When every class action is unavailable, close to basic-strike range.
             // A role-based ranged stopping distance can strand melee damage kits.
-            if (Unit != EWarSiegeUnit::Emplacement) MoveToActor(Enemy, 100, false);
+            if (Escort)
+            {
+                const bool Formation=EscortSeat%3==0;
+                const FVector Offset=Formation ? EscortOffset()
+                    : (Enemy->GetActorLocation()-Mode->TaskLocation()).GetSafeNormal2D()*225;
+                MoveEscort(Formation ? Mode->TaskLocation() : Enemy->GetActorLocation(),Offset,Formation);
+            }
+            else if (Unit != EWarSiegeUnit::Emplacement) MoveToActor(Enemy,100,false);
         }
         return;
     }
     ClearFocus(EAIFocusPriority::Gameplay);
     if (Unit == EWarSiegeUnit::Emplacement) { StopMovement(); return; }
+    if (Escort) { MoveEscort(Mode->TaskLocation(),EscortOffset(),true);return; }
     if (StalledSeconds<0)
     {
         StalledSeconds=FMath::Min(0.,StalledSeconds+Delta);

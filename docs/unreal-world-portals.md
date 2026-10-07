@@ -1,5 +1,13 @@
 # Native campaign world
 
+The fresh normal-default run in
+`artifacts/unreal/consolidated-build-20261007/normal-portals/` passes all 70 directed
+routes, 20 resource gathers, 64 deferred traversals, two streaming
+failure/cancellation controls, GM draft/history unload and return, and inventory
+continuity. It launches the actual configured default with no explicit map URL
+or INI override. The original shared portal receipt and ordinary GM documents
+remain preserved; this Development fixture grants no Steam or release acceptance.
+
 The combined-layer construction below is the original bootstrap. The main world
 now uses per-zone Generated/Authored levels and asynchronous development travel;
 see [current buildout architecture, evidence and remaining work](unreal-world-buildout.md).
@@ -92,6 +100,55 @@ The verification receipt requires all twenty resource identities too, plus
 GM draft/undo/redo survival through streamed travel and respawn.
 Use `render-world-portals.py` with `-AllowCommandletRendering -RenderOffscreen`
 for saved-scene inspection; it uses transient zone-lighting previews and saves no map changes.
+
+## Private citadel walkthroughs
+
+The combined Development default is now the furnished
+`/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate`. Its copied routing
+retains all 32 zone anchors and 70 directed portals, original services and
+protected destination layers. `GameDefaultMap` and `EditorStartupMap` select the
+same campaign. Normal-campaign launch/proof arguments omit explicit map URLs and
+INI overrides, so startup resolves the configured default. The bootstrap and
+private-review evidence below retain their original historical bindings.
+
+`stage-citadel-review-world.py` clones the complete private prepared campaign and
+isolates its routing and additional residents. It preserves destination levels
+and city services, verifies exact zone identities, unique loaded anchors, city
+bindings and all required streaming declarations, and records package hashes.
+Its receipt supplies the process-local `GameDefaultMap` override for that exact
+walkthrough. The editor-only `WarImportLibrary.get_streaming_level_package_names`
+query includes unloaded declarations and retains duplicates; it never loads
+levels or changes their residency flags.
+
+Run `WarPortalProof` with the receipt's selected-map argument and retain the
+actual `LoadMap` line, all 70 unique route markers, the successful GM/inventory
+report and matching wrapper/source package hashes. The canonical `verify-world.py`
+receipt covers the attached main map; private review evidence identifies its
+exact wrapper separately. The October 7 `e8ef0a3b089b` walkthrough passed all 70
+routes, 20 resource harvests, streaming failure/cancellation checks, GM history,
+inventory continuity and zone-local respawn. Crash-recovery acceptance remains
+independent: the furnished `ae9133cf6047` CampaignCandidate also passed the
+three-process normal-character recovery fixture, with all 36 safe physical
+returns. Siege outcome recovery remains unverified.
+
+## Recovery streaming diagnostics
+
+Only controllers with an actual network connection receive per-player streaming
+notifications. Connectionless development controllers still contribute to the
+server's occupied/requested-zone union; their client RPCs must not overwrite it.
+The native `ZoneStreaming` test demonstrates the engine's local RPC effect and
+verifies the retained two-zone union.
+
+The existing `-WarDevelopmentNetworking -WarCitadelSiegeProof
+-WarCitadelSiegeRecoveryProof` fixture emits `WAR_RECOVERY_ZONE_STREAMING` JSON
+when portal requests are pending. Sampling is capped at 12 groups, spaced at
+least 10 game seconds apart, with explicit truncation fields for more than eight
+destinations, 32 content levels or 64 requests per destination. Snapshots retain
+controller membership/connections, pending counts/deadlines, residency pins,
+grace leases, load permission, declaration counts, actual/requested load and
+visibility, streaming states and enabled streaming volumes. Diagnostics load no
+assets and do not change readiness, authority or travel deadlines. A logged
+request is not proof of a loaded destination or successful travel.
 
 ## Remaining work
 

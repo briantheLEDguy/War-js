@@ -6,7 +6,7 @@ leaves are real portcullises; structural collision never fills an open doorway.
 import math
 from aegis_citadel_blueprint import route_clearance
 
-MATERIALS = ('stone','limestone','flagstone','slate','gold','iron','blue','glass','window_dark','carved_stone','paving_inlay')
+MATERIALS = ['stone','limestone','flagstone','slate','gold','iron','blue','glass','window_dark','carved_stone','paving_inlay']
 BLENDER_EXPORT_CONVENTION=dict(schemaVersion=1,positions='metres_y_x_z',normals='y_x_z',
     determinant=-1,triangleWinding='swap_second_and_third_at_blender_boundary',
     nativeSourceArraysPreserved=True)
@@ -90,11 +90,11 @@ MATERIAL_SPECS = {
         height=CITADEL_TEXTURES+'courtyard_limestone_height_v1.png',tint=[.68,.73,.80]),
     'slate': dict(baseColor=CITY_TEXTURES+'a40fe728cb768bfffcaf.png',
         normal=CITY_TEXTURES+'5005f7be83d08dfd1db6.png',orm=CITY_TEXTURES+'648ff647ce4bdaaec9ca.png',
-        tint=[.7,.8,1],roughness=.9,metallic=.12),
+        normalConvention='gltf_opengl_positive_y',tint=[.7,.8,1],roughness=.9,metallic=.12),
     'gold': dict(tint=[.61,.34,.075],roughness=.38,metallic=.8),
     'iron': dict(baseColor=CITY_TEXTURES+'2c15df4f7f5bd2e751c7.png',
         normal=CITY_TEXTURES+'6b89092569d158db6d91.png',orm=CITY_TEXTURES+'b0a09e676afb125acd05.png',
-        tint=[.6,.7,.8],roughness=.65,metallic=.9),
+        normalConvention='gltf_opengl_positive_y',tint=[.6,.7,.8],roughness=.65,metallic=.9),
     'blue': dict(tint=[.0035,.012,.034],roughness=.92,metallic=0,specular=.25),
     'glass': dict(tint=[.11,.045,.009],roughness=.3,metallic=.18,emission=[10,3.1,.4]),
     'window_dark': dict(tint=[.025,.035,.048],roughness=.24,metallic=.25),
@@ -111,6 +111,27 @@ class Mesh:
         self.key=key;self.collision=collision;self.positions=[];self.indices=[]
         self.normals=[];self.uvs=[];self.triangle_materials=[]
         self.defer_flat_floors=defer_flat_floors;self.flat_floors={}
+
+    def remove_identical_faces(self):
+        """Remove repeated oriented surfaces, retaining opposite solid-boundary faces."""
+        seen={};remap={};indices=[];materials=[];removed=0
+        for triangle,material in enumerate(self.triangle_materials):
+            ids=self.indices[triangle*3:triangle*3+3]
+            # No spatial epsilon may erase an authored seam or decorative relief.
+            corners=tuple(sorted((tuple(self.positions[i]),tuple(self.normals[i]),tuple(self.uvs[i])) for i in ids))
+            key=(material,corners)
+            if key in seen:
+                remap[triangle]=seen[key];removed+=1;continue
+            remap[triangle]=len(materials);seen[key]=len(materials)
+            indices.extend(ids);materials.append(material)
+        self.indices=indices;self.triangle_materials=materials
+        # Signed graded approach witnesses refer to triangle ordinals. Preserve
+        # their exact surfaces after preceding support duplicates are removed.
+        for binding in getattr(self,'surface_bindings',[]):
+            binding['topTriangleIndices']=list(dict.fromkeys(remap[i] for i in binding['topTriangleIndices']))
+        return dict(policy='exact_positions_normals_uvs_material_oriented_face_v1',
+            removedTriangles=removed,retainedTriangles=len(materials),
+            oppositeFacingSolidBoundariesPreserved=True,positionsNormalsAndUvsPreserved=True)
 
     def face(self, vertices, material='stone'):
         a,b,c=vertices[:3];normal=cross([b[i]-a[i] for i in range(3)],[c[i]-a[i] for i in range(3)])
@@ -291,13 +312,13 @@ def arch(mesh, x,y,z, width,height,depth=120,thickness=75, material='limestone',
         for side in (-1,1):
             xx=x+side*depth/2
             vertices=[[xx,y+a[0],z+a[1]],[xx,y+b[0],z+b[1]],[xx,y+d[0],z+d[1]],[xx,y+c[0],z+c[1]]]
-            mesh.face(vertices if side<0 else list(reversed(vertices)),material)
-        mesh.face([[x-depth/2,y+a[0],z+a[1]],[x+depth/2,y+a[0],z+a[1]],
-                   [x+depth/2,y+b[0],z+b[1]],[x-depth/2,y+b[0],z+b[1]]],material)
-        mesh.face([[x-depth/2,y+c[0],z+c[1]],[x-depth/2,y+d[0],z+d[1]],
-                   [x+depth/2,y+d[0],z+d[1]],[x+depth/2,y+c[0],z+c[1]]],material)
+            mesh.face(list(reversed(vertices)) if side<0 else vertices,material)
+        mesh.face([[x-depth/2,y+b[0],z+b[1]],[x+depth/2,y+b[0],z+b[1]],
+                   [x+depth/2,y+a[0],z+a[1]],[x-depth/2,y+a[0],z+a[1]]],material)
+        mesh.face([[x+depth/2,y+c[0],z+c[1]],[x+depth/2,y+d[0],z+d[1]],
+                   [x-depth/2,y+d[0],z+d[1]],[x-depth/2,y+c[0],z+c[1]]],material)
     if glass:
-        mesh.face([[x-depth*.25,y+u,z+v] for u,v in reversed(inner)],'glass' if lit else 'window_dark')
+        mesh.face([[x-depth*.25,y+u,z+v] for u,v in inner],'glass' if lit else 'window_dark')
         mesh.rod([x-depth*.53,y,z+20],[x-depth*.53,y,z+height-35],9,'gold')
         for level in (height*.3,height*.55):
             mesh.rod([x-depth*.53,y-width*.43,z+level],[x-depth*.53,y+width*.43,z+level],7,'gold')
@@ -311,7 +332,7 @@ def blind_bay(mesh,x,y,z,width,height,relief_cm=30):
     """Shallow outward relief on a solid wall, with no floor or aperture edit."""
     if not 20<=relief_cm<=40:raise ValueError('Front blind relief exceeds its bounded envelope')
     profile=pointed_profile(width,height)
-    mesh.face([[x-.5,y+u,z+v] for u,v in reversed(profile)],'window_dark')
+    mesh.face([[x-.5,y+u,z+v] for u,v in profile],'window_dark')
     arch(mesh,x-relief_cm/2,y,z,width,height,relief_cm,32)
     for sign in (-1,1):
         yy=y+sign*(width/2+52)
@@ -353,12 +374,16 @@ def wall_cut(mesh,x, y0,y1,z0,z1, openings, depth=120):
             cursor=max(cursor,right)
 
 
-def side_arch(mesh,x,y,z,width,height,depth=70,thickness=40,glass=True,lit=True):
+def side_arch(mesh,x,y,z,width,height,depth=70,thickness=40,glass=True,lit=True,outward_side=None):
     if glass and z>=9000 and width<1000:width*=.6
+    if glass and outward_side not in (-1,1):raise ValueError('Glazed side bay requires its explicit outward side')
+    if outward_side is None:outward_side=1
+    if outward_side not in (-1,1):raise ValueError('Unknown side-bay orientation')
     local=Mesh('temporary_reveal');arch(local,0,0,0,width,height,depth,thickness,glass=glass,lit=lit)
     for i in range(0,len(local.indices),3):
         points=[local.positions[j] for j in local.indices[i:i+3]]
-        mesh.face([[x+p[1],y-p[0],z+p[2]] for p in points],MATERIALS[local.triangle_materials[i//3]])
+        if outward_side<0:points=list(reversed(points))
+        mesh.face([[x+p[1],y-outward_side*p[0],z+p[2]] for p in points],MATERIALS[local.triangle_materials[i//3]])
 
 
 def sun(mesh,x,y,z,radius,final_coordinates=False):
@@ -438,6 +463,57 @@ def pinnacle(mesh,x,y,z,width=160,height=1100):
     mesh.rod(tip,[x,y,z+height+90],9,'gold',6)
 
 
+def roof_courses(mesh,ring,tip):
+    """Slate joints and iron arrises follow the existing supported roof planes."""
+    for index,a in enumerate(ring):
+        b=ring[(index+1)%len(ring)]
+        mesh.rod(a,b,6,'iron',6)
+        mesh.rod(a,tip,4,'iron',6)
+        # The narrow seams sit on the roof; they do not bridge its silhouette.
+        count=max(2,math.ceil((tip[2]-a[2])/180))
+        for course in range(1,count):
+            t=course/count
+            left=[a[j]+(tip[j]-a[j])*t for j in range(3)]
+            right=[b[j]+(tip[j]-b[j])*t for j in range(3)]
+            mesh.rod(left,right,1.8,'iron',6)
+
+
+def outer_crest_support(mesh):
+    """Join the curtain above its existing aperture, backing the gate's sun crest."""
+    wall_cut(mesh,14220,-1120,1120,6210,7350,[],260)
+    # Short piers embed in the existing 6,510 cm wall crown. Nothing projects
+    # into the original 1,840 by 1,800 cm pedestrian/convoy opening.
+    for side in (-1,1):
+        mesh.block([14220,side*1080,6105],[260,80,1170],'stone',3)
+    mesh.block([14220,0,7365],[310,2300,65],'limestone',5)
+    for side in (-1,1):
+        mesh.block([14065,side*1045,6810],[70,90,1090],'limestone',4)
+    # Shallow carved fields stay within the existing backing and side trims.
+    for side in (-1,1):
+        profile=pointed_profile(230,900)
+        mesh.face([[14089.5,side*850+u,6240+v] for u,v in reversed(profile)],'window_dark')
+        arch(mesh,14072.5,side*850,6240,230,900,35,32)
+    return dict(boundsCm=[[14030,-1150,5520],[14375,1150,7397.5]],
+        crestPlaneXCm=14075,backingFaceXCm=14090,
+        preservedOpening=dict(pointCm=[14200,0,4210],widthCm=1840,heightCm=1800),
+        joinsExistingCrown=True,nativeClearanceVerified=False)
+
+
+def foundation_courses(mesh):
+    """Bounded relief articulates the keep foundation below its occupied floors."""
+    for side in (-1,1):
+        y0,y1=side*2100,side*8910
+        for z in (2720,3380,4050,4760,5630):
+            mesh.block([25985,(y0+y1)/2,z],[45,abs(y1-y0),55],'limestone',4)
+        for y in (side*2700,side*4300,side*5900,side*7500,side*8750):
+            mesh.block([25983,y,4090],[50,115,3270],'stone',4)
+        for z in (2720,3380,4050,4760,5630):
+            mesh.block([29700,side*9108,z],[7240,40,55],'limestone',4)
+    return dict(frontReliefCm=42,sideReliefCm=28,
+        maximumZCm=5725,walkingFloorsUnchanged=True,
+        grandStairHalfWidthReservationCm=2100,nativeClearanceVerified=False)
+
+
 def tower(mesh,x,y,base,width=1000,height=3600,spire=2400,style='square'):
     final_tip = None
     if style!='battlement' and base+height>9000:
@@ -459,7 +535,7 @@ def tower(mesh,x,y,base,width=1000,height=3600,spire=2400,style='square'):
             w=min(150,width*.15);h=min(950,height*.2)
             lit=(i+j+int(x/100))%4==0
             arch(mesh,x-width/2-7,y+yy,base+zz,w,h,55,30,glass=True,lit=lit)
-            side_arch(mesh,x+yy,y-width/2-7,base+zz,w,h,55,30,True,lit)
+            side_arch(mesh,x+yy,y-width/2-7,base+zz,w,h,55,30,True,lit,outward_side=-1)
     # Open castellated towers, square turrets and clustered narrow spires have
     # separate silhouettes; a repeated generic pyramid does not match the board.
     if style=='battlement':
@@ -489,6 +565,7 @@ def tower(mesh,x,y,base,width=1000,height=3600,spire=2400,style='square'):
     for i in range(sides):
         j=(i+1)%sides;mesh.face([ring[i],ring[j],top],'slate')
         if style in ('spire','lantern'):mesh.rod(ring[i],top,7,'gold',6)
+    roof_courses(mesh,ring,top)
     mesh.rod(top,[x,y,top[2]+(120/UPPER_FACTOR if base+height>9000 else 220)],11,'gold')
     for dx in (-width*.52,width*.52):
         for dy in (-width*.52,width*.52):
@@ -863,10 +940,10 @@ def architecture(blueprint):
         tower(curtain,14200,side*1550,4210,1200,3900 if side<0 else 3400,1600,'battlement')
         for x in (16600,20100,23500):
             curtain.block([x,side*7550,4430],[320,500,3900],'limestone',12)
-            side_arch(curtain,x,side*7690,4400,300,1650,60,65,True)
+            side_arch(curtain,x,side*7690,4400,300,1650,60,65,True,outward_side=side)
         for x in range(15400,24700,1100):
             side_arch(curtain,x,side*7600,2750,680,1700,120,80,False)
-            side_arch(curtain,x,side*7600,4790,260,900,90,55,True,(x//1100)%4==0)
+            side_arch(curtain,x,side*7600,4790,260,900,90,55,True,(x//1100)%4==0,outward_side=side)
         for x in (16500,23700):
             for offset in (-600,600):
                 side_arch(court,x+offset,side*7210,2680,520,1370,90,65,False)
@@ -888,11 +965,13 @@ def architecture(blueprint):
     for side in (-1,1):
         banner(curtain,13530,side*1550,7860,740,3400)
         banner(curtain,14210,side*7440,7480,600,3000)
+    curtain.outer_crest_support=outer_crest_support(curtain)
     sun(curtain,14075,0,6790,330)
     hall=Mesh('fortress_keep_shell');meshes.append(hall)
     # A broad, flat-crowned fortress replaces the cathedral's dominant house roof.
     # Foundation fills only below the hall floor; functional rooms remain hollow.
     hall.block([29700,0,4094],[7400,18200,3388],'stone',12)
+    hall.foundation_course_details=foundation_courses(hall)
     floor_solid(paths,[[26000,-4300,6010],[33400,-4300,6010],[33400,4300,6010],[26000,4300,6010]],220)
     hall_openings=[{**leaf,'width':leaf['width']+40,'height':2600 if leaf['width']==1800 else leaf['height']}
                    for leaf in blueprint['gates'][1]['leaves']]
@@ -946,12 +1025,18 @@ def architecture(blueprint):
                 'limestone',6)
             battlements(facade,x0,x1,outside,top+140,170)
             for bay,x in enumerate(hierarchy['bayPositionsCm']):
-                side_arch(facade,x,outside+side*80,base+350,240,hierarchy['windowHeightCm'],140,65,True,(x//560+tier)%4==0)
-                facade.block([x-280,outside,(base+top)/2],[130,380,top-base+100],'stone',8)
-                if bay in hierarchy['rodBayIndices']:
-                    for dx in (-45,45):facade.rod([x-280+dx,outside+side*215,base+120],[x-280+dx,outside+side*215,top+170],16,'limestone',6)
+                side_arch(facade,x,outside+side*80,base+350,240,hierarchy['windowHeightCm'],140,65,True,(x//560+tier)%4==0,outward_side=side)
+                # Select attached upper piers; all existing lancet bays stay clear.
+                strengthen=tier>=1 and bay in hierarchy['pinnacleBayIndices']
+                facade.block([x-280,outside,(base+top)/2],
+                    [160 if strengthen else 130,470 if strengthen else 380,top-base+100],'stone',8)
+                if bay in hierarchy['rodBayIndices'] or strengthen:
+                    offset,radius=(260,22) if strengthen else (215,16)
+                    for dx in (-45,45):facade.rod([x-280+dx,outside+side*offset,base+120],[x-280+dx,outside+side*offset,top+170],radius,'limestone',6)
                 if bay in hierarchy['pinnacleBayIndices']:
-                    pinnacle(facade,x-280,outside,top+210,130,850+tier*150)
+                    # Convert the full 700 cm height, including its existing finial.
+                    height=700/UPPER_FACTOR-90 if strengthen else 850+tier*150
+                    pinnacle(facade,x-280,outside,top+210,130,height)
             for y in range(int(yy-width/2)+230,int(yy+width/2)-120,420):
                 arch(facade,x0-120,y,base+420,240,min(1500,top-base-500),180,60,glass=True,lit=(y//420)%4==0)
             tower(facade,x0+450,outside,base,850-tier*90,top-base+850,1100+tier*650,
@@ -966,7 +1051,7 @@ def architecture(blueprint):
         # The central body stays rectangular and broad. Taller clustered spires
         # rise behind it, matching the reference's broad vertical keep silhouette.
         for x in range(26800,33200,550):
-            side_arch(facade,x,side*4435,10400,240,2500,170,70,True,(x//550)%5==0)
+            side_arch(facade,x,side*4435,10400,240,2500,170,70,True,(x//550)%5==0,outward_side=side)
             base=9000 if 29400<x-270<31500 else 6180
             facade.block([x-270,side*4540,(base+14480)/2],[150,410,14480-base],'stone',8)
             for dx in (-45,45):facade.rod([x-270+dx,side*4770,base],[x-270+dx,side*4770,14480],16,'limestone',6)
@@ -1032,7 +1117,7 @@ def architecture(blueprint):
         interior.block([cx,cy,8720],[b[0]-a[0]+150,b[1]-a[1]+150,140],'stone',12)
         for x in range(a[0]+400,b[0]-200,800):arch(interior,x,cy,7510,b[1]-a[1]-200,1100,80,45)
         for x in range(a[0]+450,b[0]-300,650):
-            side_arch(facade,x,outside+(75 if cy>0 else -75),6650,220,1450,100,50,True)
+            side_arch(facade,x,outside+(75 if cy>0 else -75),6650,220,1450,100,50,True,outward_side=1 if cy>0 else -1)
             facade.block([x-330,outside,7490],[90,250,3000],'limestone',5)
         for side_y in (a[1]-80,b[1]+80):
             facade.face([[a[0]-80,side_y,8890],[b[0]+80,side_y,8890],
@@ -1049,9 +1134,9 @@ def architecture(blueprint):
     for key,p,scale in [('court_oath',[20800,0,4710],1.97),
                          ('west_guard',[24800,-2500,5860],2.8),('east_guard',[24800,2500,5860],2.8),
                          ('west_terrace_guard',[25000,-6800,6010],2.5),('east_terrace_guard',[25000,6800,6010],2.5),
-                         ('throne',[32630,0,6010],1.5),('war_table',[29400,-5700,6010],1.3),
+                         ('throne',[32630,0,6010],.55),('war_table',[29400,-5700,6010],.85),
                          ('archive',[32000,-6350,6010],1.3),('treasury',[32200,6150,6010],1.4),
-                         ('reliquary',[31500,6100,6010],1.3),('arms_rack',[27700,-3900,6010],1.2)]:
+                         ('reliquary',[31500,6100,6010],1.3),('arms_rack',[27700,-3900,6010],.8)]:
         kind='oath_statue' if 'guard' in key or key=='court_oath' else key
         if key=='court_oath':
             for tier in range(3):dressing.block([p[0],p[1],4260+tier*100],[1000-tier*20,1000-tier*20,100],'limestone',15)
@@ -1063,10 +1148,11 @@ def architecture(blueprint):
             dressing.block([p[0],p[1],5035],[700,700,1650],'limestone',18)
             arch(dressing,p[0]-360,p[1],4470,370,1050,90,55)
             dressing.block([p[0],p[1],5815],[850,850,90],'limestone',10)
-        placements.append(dict(id=key,source='public/assets/models/prop_aegis_citadel_'+kind+'.glb',point=p,scale=scale))
+        placements.append(dict(id=key,source='public/assets/models/prop_aegis_citadel_'+kind+'.glb',point=p,scale=scale,
+            **(dict(yawDegrees=180) if key=='throne' else {})))
     for index,(x,y,z) in enumerate([(18200,-3600,4210),(18200,3600,4210),(22000,-6500,4210),(22000,6500,4210),
         (23600,-1300,4210),(23600,1300,4210),(26400,-1250,6010),(26400,1250,6010),
-        (27800,-3900,6010),(27800,3900,6010),(30200,-3900,6010),(30200,3900,6010)]):
+        (27950,-3450,6010),(27800,3900,6010),(30200,-3900,6010),(30200,3900,6010)]):
         candidates=sorted((dx*dx+dy*dy,x+dx,y+dy) for dx in range(-800,801,100) for dy in range(-800,801,100))
         for _,xx,yy in candidates:
             if z==6010 and not(26150<=xx<=33000 and abs(yy)<=4080):continue
@@ -1099,4 +1185,5 @@ def architecture(blueprint):
     commander_vault(interior)
     paths.structural_supports=dict(policy='solid_masonry_with_exact_vaulted_route_subtraction',
         signedLaneMarginCm=47,minimumStraightHeadroomCm=350,deckSeparationCm=2,rows=support_rows)
+    for mesh in meshes:mesh.surface_duplicate_repair=mesh.remove_identical_faces()
     return meshes,gate_meshes,placements

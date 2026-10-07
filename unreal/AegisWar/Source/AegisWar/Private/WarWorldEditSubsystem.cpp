@@ -43,6 +43,8 @@ namespace
             return FPaths::Combine(FPaths::ProjectSavedDir(), bPortalProof ? TEXT("WorldEditPortalProof") : TEXT("WorldEditProof"), ProofId, TEXT("draft.json"));
         }
         const FString Package = World ? UWorld::RemovePIEPrefix(World->GetOutermost()->GetName()) : FString();
+        const FString PrivateReviewDraft = WarWorldEditMap::PrivateReviewDraftRelativePath(Package);
+        if (!PrivateReviewDraft.IsEmpty()) return FPaths::Combine(FPaths::ProjectSavedDir(), PrivateReviewDraft);
         if (World && (Package.StartsWith(TEXT("/Game/WorldRebuild/DutchBastion_"))
             || WarWorldEditMap::IsCitadelCampaign(Package)))
         {
@@ -129,6 +131,7 @@ bool UWarWorldEditSubsystem::Open(APlayerController* Controller, FString& Error)
             Template.Collision.Add({ Box->GetRelativeTransform(), Box->GetUnscaledBoxExtent(), Box->GetCollisionProfileName(), Box->GetFName() });
         if (Template.Collision.IsEmpty() && Template.MeshCollisionProfile == TEXT("NoCollision"))
         { Error = TEXT("The building template has no authored collision."); return false; }
+        if (!WarWorldEditPracticalLights::Capture(*It, Template.PracticalLights, Error)) return false;
         CandidateTemplates.Add(Id, MoveTemp(Template));
     }
     if (!History.Initialize(Objects, Error)) return false;
@@ -217,6 +220,8 @@ void UWarWorldEditSubsystem::ApplyActors()
         const auto* Found = History.Find(Pair.Key);
         if (!Found) { Actor->SetActorHiddenInGame(true); Actor->SetActorEnableCollision(false); continue; }
         const auto& Row = *Found;
+        const auto* Template = Templates.Find(Row.TemplateId.IsNone() ? Row.Id : Row.TemplateId);
+        if (Template) WarWorldEditPracticalLights::SetHidden(Actor, Template->PracticalLights, Row.bHidden);
         if (Actor->GetActorTransform().Equals(Row.Transform, 0.0001) && Actor->IsHidden() == Row.bHidden) continue;
         TArray<UPrimitiveComponent*> Components; Actor->GetComponents(Components);
         for (auto* Component : Components) Component->SetMobility(EComponentMobility::Movable);
@@ -268,12 +273,18 @@ bool UWarWorldEditSubsystem::ApplyHistory(FWarWorldEditHistory Next, FString& Er
             Box->SetBoxExtent(Collision.Extent); Box->SetRelativeTransform(Collision.Transform);
             Box->SetCollisionProfileName(Collision.Profile); Box->SetHiddenInGame(true); Box->RegisterComponent();
         }
+        if (!WarWorldEditPracticalLights::Create(Actor, Template->PracticalLights, Error)) return false;
     }
     Actors.Append(Staged); History = MoveTemp(Next); ApplyActors(); bCommitted = true;
     // Undo may remove a created object. Destroy it now and recreate it from its
     // immutable template on redo, keeping actor memory bounded by the document.
     for (auto It = Actors.CreateIterator(); It; ++It)
-        if (!History.Find(It.Key())) { if (It.Value().IsValid()) It.Value()->Destroy(); It.RemoveCurrent(); }
+        if (!History.Find(It.Key()))
+        {
+            if (It.Value().IsValid())
+            { WarWorldEditPracticalLights::DestroyAttached(It.Value().Get()); It.Value()->Destroy(); }
+            It.RemoveCurrent();
+        }
     return true;
 }
 

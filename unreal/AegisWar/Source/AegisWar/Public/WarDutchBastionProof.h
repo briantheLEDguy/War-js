@@ -10,6 +10,7 @@ class AHUD;
 class UUserWidget;
 class FJsonObject;
 namespace WarCitadelCapsulePolicy { struct FKinematicsBaseline; }
+namespace WarCitadelLumenStudyRuntime { class FOverride; }
 struct FFindFloorResult;
 
 /** Physical proof helpers; they never alter a route definition or gameplay review. */
@@ -93,6 +94,9 @@ private:
     bool bCitadelConfig=false, bCityBindingChecked=false;
     bool bCitadelWidth=false, bWidthComplete=false, bWidthPassed=true, bPhysicalPassed=true;
     bool bArchitectureUiSuppressed=false;
+    bool bCinematicView=false;
+    bool bViewMaterialsReady=false;
+    double ViewMaterialsWaitStarted=0,NextViewMaterialCheck=0;
     double Started=-1, Next=0, RouteStarted=0;
     double ViewSettleSeconds=6;
     double LastProgress=0, BestDistance=MAX_dbl;
@@ -107,6 +111,10 @@ private:
     TArray<TSharedPtr<FJsonValue>> PhysicalFailures;
     TArray<TSharedPtr<FJsonValue>> RouteWidthSamples;
     TSharedPtr<FJsonObject> RouteWidthConfig;
+    TSharedPtr<FJsonObject> CaptureLighting;
+    TSharedPtr<FJsonObject> CaptureMaterialReadiness;
+    FString PrivateLumenMode, CaptureNonce;
+    TSharedPtr<WarCitadelLumenStudyRuntime::FOverride> LightingOverride;
     TSharedPtr<WarCitadelCapsulePolicy::FKinematicsBaseline> KinematicsBaseline;
     int32 WidthRouteIndex=0;
     TArray<TSharedPtr<FJsonValue>> RouteFailures;

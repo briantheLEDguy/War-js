@@ -100,6 +100,8 @@ protected:
 
 private:
     friend class UWarAnimationInstance;
+    friend class FWarAbilityPreparationTest;
+    friend class FWarCitadelTacticalTargetsTest;
     UFUNCTION() void OnRep_VisualDefinition();
     UFUNCTION() void OnRep_Dead();
     UFUNCTION(Server, Reliable) void ServerRequestStrike(AActor* Target);

@@ -4,7 +4,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, expect, test } from 'vitest';
-import { requireNativeCitadelImport,requireNativeCitadelMaterials,requireVersionedCitadelMeshBindings } from '../scripts/unreal/citadel-import-evidence';
+import { requireNativeCitadelImport,requireNativeCitadelMaterials,requireNativeCitadelNormalTextures,requireVersionedCitadelMeshBindings } from '../scripts/unreal/citadel-import-evidence';
 import { citadelCandidateImportFixture } from './fixtures/citadelCandidateImport';
 
 const roots: string[] = [];
@@ -21,8 +21,41 @@ test('mesh recipe preserves legacy manifests and requires the new footing identi
     [[...legacy, { id: 'wrong_mesh' }], [...legacy, { id: 'wrong_mesh' }]]]) {
     expect(() => requireVersionedCitadelMeshBindings({ recipeVersion: 9 }, assets, bindings)).toThrow();
   }
-  for (const recipeVersion of [0, 10, true, '9', null, 9.5])
+  for (const recipeVersion of [0, 13, true, '9', null, 9.5])
     expect(() => requireVersionedCitadelMeshBindings({ recipeVersion }, current, current)).toThrow();
+});
+test('recipe ten requires every room and terrace furnishing group without reinterpreting old revisions', () => {
+  const current = [...Array.from({length:38},(_,i)=>({id:`asset_${i}`})), {id:'wing_foundation_repairs'}];
+  const dressed = [...current,...['forehall','throne_hall','west_archive','east_treasury','west_terrace','east_terrace'].map(key=>({id:`dressing_${key}`}))];
+  for (const recipeVersion of [10, 11, 12])
+    expect(() => requireVersionedCitadelMeshBindings({recipeVersion},dressed,dressed)).not.toThrow();
+  for (const key of dressed.slice(39)) {
+    const wrong = dressed.map(row=>row===key?{id:'unrecorded_room'}:row);
+    for (const recipeVersion of [10, 11, 12])
+      expect(() => requireVersionedCitadelMeshBindings({recipeVersion},wrong,wrong)).toThrow(/Furnishing groups/);
+  }
+  expect(() => requireVersionedCitadelMeshBindings({recipeVersion:9},dressed,dressed)).toThrow();
+});
+test('recipe eleven requires original OpenGL texture conversion while preserving historical imports', () => {
+  const file='public/assets/textures/aegis_citadel_interiors/citadel_normal.png';
+  const packageName='/Game/WorldRebuild/AegisCitadel_0123456789ab/Textures/T_citadel_normal_normal';
+  const source={materialSpecs:{furniture:{normal:file,normalConvention:'gltf_opengl_positive_y'}},materialSources:{[file]:'a'.repeat(64)}};
+  const receipt={revision:'0123456789ab',packageHashes:{[packageName]:'b'.repeat(64)},nativeNormalTextureBindings:[{
+    source:file,sourceSha256:'a'.repeat(64),sourceConvention:'gltf_opengl_positive_y',package:packageName,sha256:'b'.repeat(64),
+    actualFlipGreenChannel:true,actualSrgb:false,actualCompression:'TC_NORMALMAP',
+  }]};
+  expect(() => requireNativeCitadelNormalTextures({},source,{recipeVersion:10})).not.toThrow();
+  expect(() => requireNativeCitadelNormalTextures(receipt,source,{recipeVersion:11})).not.toThrow();
+  for (const change of [{actualFlipGreenChannel:false},{actualSrgb:true},{actualCompression:'TC_DEFAULT'},
+    {sourceConvention:'unrecorded'},{sha256:'c'.repeat(64)},{sourceSha256:'c'.repeat(64)},
+    {package:'/Game/Other/T_citadel_normal_normal'}]) {
+    const invalid=structuredClone(receipt);Object.assign(invalid.nativeNormalTextureBindings[0],change);
+    expect(() => requireNativeCitadelNormalTextures(invalid,source,{recipeVersion:11})).toThrow(/normal/);
+  }
+  const duplicate=structuredClone(receipt);duplicate.nativeNormalTextureBindings.push(duplicate.nativeNormalTextureBindings[0]);
+  expect(() => requireNativeCitadelNormalTextures(duplicate,source,{recipeVersion:11})).toThrow(/normal/);
+  const unsigned=structuredClone(source);unsigned.materialSpecs.furniture.normalConvention='unrecorded';
+  expect(() => requireNativeCitadelNormalTextures(receipt,unsigned,{recipeVersion:11})).toThrow(/normal/);
 });
 test('portable publication/import invariants run with the normal Unreal tooling suite', () => {
   const run = spawnSync('python', ['-B', 'tests/unrealCitadelPublication.test.py'], { encoding: 'utf8', windowsHide: true });

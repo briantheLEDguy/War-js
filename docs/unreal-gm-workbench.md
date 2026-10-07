@@ -1,5 +1,128 @@
 # Native capital GM workbench
 
+The combined Development campaign uses ordinary revision storage at
+`Saved/WorldEdit/AegisCitadel_62df5e965e66/draft.json`, with its map-specific local
+publication in the same directory. Existing capital and private-review documents
+are neither imported nor moved. The ordinary three-process proof also supports
+this exact selected CampaignCandidate, requiring the actual default map without
+an override and retaining standalone, authority, source/package and storage
+guards. Private wrapper behavior and its separate namespace remain unchanged.
+
+Normal-default run `3842eb8c1da741f2910d7d211cdc3b95` passes all three native
+processes with the lit catalog sentinel: GUI Save, independent Load/local Publish
+and automatic restart restoration. Scene/camera witnesses bind the new city and
+complete campaign to the same native/source/package bytes. All 13 preexisting
+GM documents remain unchanged. Only the two newly proof-owned normal save files
+are hash-checked and quarantined into retained proof evidence before playable
+handoff, leaving that initially empty ordinary namespace clear. This proves
+local Development persistence and camera handling, with ordinary Steam login,
+physical mouse hardware and shared publication still unverified.
+
+Authored furnishings tagged with `WarCitadelDecorPractical` now carry their
+point-light assembly when duplicated or recreated from an ordinary draft.
+`WarWorldEditPracticalLights` caches the trusted native template's relative
+transforms, visibility and 31 bounded renderer-property names. It excludes
+asset references, IES/light-function assets, unsupported actor/component types
+and nonfinite values. The draft format and GM authority gates stay unchanged.
+Created fixtures own registered light components; original attached light
+actors hide with their parent. Movement/rotation/scale, undo, draft recreation
+and streaming template checks preserve the assembly. Unmarked attached lights
+remain independent.
+
+The native build and all 139 Foundation tests pass. Ordinary run
+`db2c51b19c554c33910925fde6ffa91f` passes three independent processes on private
+`0cead0939e03`, using the compiled
+`7c046fcc6f30f68579a510f7779e7aab59c2c6e883c9a9e06ef84fadf8da7426`
+DLL and its complete 774-file source binding. The actual GM catalog places the
+treasury wall lantern; save, independent load/local publication and startup
+restoration check every captured renderer value and the attachment. Nine
+preexisting WorldEdit documents remain byte-exact, and two proof-owned files
+are retained. The ordinary proof prefers a lit catalog template when present.
+Final-wrapper run `250178ef28c34d1799b5872eec796f2e` also passes on
+`62df5e965e66` with the same compiled DLL and complete source binding. Its
+three process IDs are 33648, 33356 and 25996. Eleven preexisting WorldEdit
+documents remain exact and two new proof-owned documents are retained.
+The lit sentinel is a treasury wall lantern; the proof verifies all 31 renderer
+values and its relative attachment at save, load/publication and restart.
+Ordinary login, shared publication and direct editing of every prop remain
+separate acceptance checks. Earlier evidence below retains its original binding.
+
+The three-process ordinary persistence run `c2f8968b4a3a40d0b1ec2d3655a3adee`
+passed on 2026-10-07 in `CitadelHumanReview_20261007_6e0fe6829e5b`, using
+the compiled `c77abbdb05e29f99f0455f78986e46ac5882099d032c9075672557c4039807a7`
+DLL and its complete 735-file source binding. Save, independent Load and
+local Publish passed through the GUI; the third process restored the exact
+published actor before opening controls. Existing WorldEdit bytes stayed intact.
+This is private Development fixture evidence. Ordinary login, shared publication
+and final scenery/gameplay approval remain unverified; later native builds need
+fresh source-bound execution before final admission.
+
+Run `npx tsx scripts/unreal/world-builder-ordinary-proof.ts --receipt <fresh-staged.json> --binding <native-binding.json>`
+after compiling the Development proof mode and staging a fresh private wrapper.
+This opt-in runner uses `-WarBuilderOrdinaryProof` and the normal map-specific
+`Saved/WorldEdit/PrivateReviews` draft/publication paths. Production storage
+selection and ordinary gameplay do not change. The existing GUID-scoped
+`world-builder-proof.ts` remains available for disposable builder coverage.
+
+The ordinary proof requires an explicit verified wrapper receipt and a binding
+document with `schemaVersion: 1`, the configured native `binaryPath` and
+`binarySha256`, and complete absolute-path `sourceHashes` for module sources,
+headers, Config and Unreal tooling. These are byte bindings; compilation
+provenance and native execution still require their own verified evidence.
+
+It opens GM Tools and clicks Open world builder, places a catalog model,
+and saves through the native GUI without publishing. A second process proves
+the draft is not automatically applied, clicks Load draft, verifies the exact
+created model/transform, and publishes through the GUI. A third process verifies
+automatic publication restoration before opening the builder. Each phase binds
+the exact manifest, native PID, map, DLL, sources and package bytes. Reports and
+screenshots stay in `Saved/WorldEditOrdinaryProof/<run id>/`.
+
+Use a new wrapper whose ordinary storage directory is empty. Any existing file,
+lock, temporary file or escaped/reparse path blocks the run. Preexisting
+WorldEdit files are checked as raw bytes before and after each phase, including
+failure exits. The runner never restores, overwrites or removes existing work.
+New proof-owned drafts/publications are retained with hashes for explicit owner
+cleanup after review. Keep other GM writers closed throughout the run.
+
+Fixture admission remains explicit because `-WarInterfaceProof` bypasses the
+frontend. This proof verifies ordinary storage and actual GM controls; it does
+not verify ordinary login, Steam authentication, shared publication, visuals,
+siege outcome or release acceptance. Portable preservation tests do not confirm
+native compilation or the three GUI phases.
+
+
+Private citadel walkthroughs support the workbench only when the exact package
+is selected as `GameDefaultMap`: `/Game/WorldRebuild/CitadelHumanReview_YYYYMMDD/Walkthrough`,
+optionally with `_` and a 12-character lowercase hexadecimal revision after the
+valid date. This map check does not grant authority: Shipping and networked
+sessions remain denied by the existing standalone development GM gate.
+
+These maps use `Saved/WorldEdit/PrivateReviews/<wrapper directory>/Walkthrough/draft.json`.
+The existing map-specific `*-live.json` publication stays in that same isolated
+directory. Existing capital, campaign, proof and other review drafts/publications
+are neither moved nor loaded. Create a new revision-qualified wrapper when its
+scenery changes; changing a name alone does not validate or approve its content.
+The catalog still validates every loaded `WarCapitalBuilding` identity, source
+hash, model and authored collision. One invalid template prevents initialization;
+map admission does not bypass that check. `AegisWar.Foundation.WorldEditPrivateReview`
+covers map selection, malformed names, storage separation and unchanged authority.
+The native build and all 105 Foundation groups, including private review map
+selection, pass. The refreshed `CitadelHumanReview_20261007_e8ef0a3b089b`
+walkthrough passed actual catalog initialization, editing, draft save/load and
+undo/redo across capital unload/reload, all 70 directed routes and respawn.
+Evidence is in `artifacts/unreal/citadel-reference/oct7-wrapper-portal-e8ef0a3b089b/`;
+the selected-map LoadMap log and package fingerprints bind that result to the
+exact wrapper. Rendered builder run `9a835569810c486e932a52b54a33a887` also passed
+catalog selection, pointer placement, movement, cancellation, stale-publication
+rejection and actual publication reload in a fresh process on that wrapper.
+This uses an isolated proof draft and grants no shared publication or art approval.
+Run `world-builder-proof.ts --review-receipt <staged.json>` for that workflow.
+Use the review receipt's process-local argument
+`-ini:Engine:[/Script/EngineSettings.GameMapsSettings]:GameDefaultMap=<exact map>`
+with `-WarDevelopmentGM`; `-WarWorldEditMap` is not a recognized selector.
+This leaves canonical startup settings and other review drafts unchanged.
+
 For the persistent muted-color report after GM interactions, see
 [GM rendering diagnostics](unreal-gm-rendering.md). The existing City Builder
 throttling proof does not establish the cause or resolution of that report.

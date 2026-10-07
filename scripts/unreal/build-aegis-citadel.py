@@ -21,6 +21,44 @@ runtime=RUN/'runtime';runtime.mkdir(exist_ok=True)
 sources=RUN/'sources';sources.mkdir(exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 
+# Resolve every original material before exporting any structure or furnishing.
+from aegis_citadel_furnishings import source_furnishing, checked_dressing
+structure,gates,placements=architecture(blueprint)
+furnishings=[];bounds=[]
+for placement in placements:
+    source=ROOT/placement['source']
+    if not source.is_file():raise RuntimeError('Required authored furnishing missing: '+str(source))
+    sculpture=placement['id']=='court_oath' or 'guard' in placement['id']
+    if sculpture:
+        mesh=placed_sentinel(placement)
+        adaptation=dict(kind='original_sentinel_v6',sourceRecipe='scripts/unreal/aegis_citadel_statue.py',
+            sourceRecipeSha256=sha(ROOT/'scripts/unreal/aegis_citadel_statue.py'),
+            legacyScaleReference=dict(file=placement['source'],sha256=sha(source)),
+            footFit=mesh.foot_fit,normals='preserve_authored_smooth_patches_and_hard_plate_seams')
+    else:mesh,adaptation=source_furnishing(placement)
+    measured=[[min(p[i] for p in mesh.positions) for i in range(3)],
+              [max(p[i] for p in mesh.positions) for i in range(3)]]
+    for prior in bounds:
+        if all(measured[1][i]>prior['boundsCm'][0][i] and measured[0][i]<prior['boundsCm'][1][i] for i in range(3)):
+            raise RuntimeError('Core furnishings overlap: '+placement['id']+' / '+prior['id'])
+    bounds.append(dict(id=placement['id'],boundsCm=measured))
+    furnishings.append((placement,mesh,adaptation))
+dressing,dressing_ledger=checked_dressing(blueprint,bounds,structure)
+density_study=blueprint['furnishingPlan'].get('densityStudy')
+density_evidence=None
+if density_study is not None:
+    from aegis_citadel_furnishing_density import checked_density
+    from aegis_citadel_mesh import append_mesh
+    additions,addition_ledger,architecture_inventory=checked_density(blueprint,structure,
+        [*bounds,*dressing_ledger],density_study)
+    for group,mesh in additions.items():
+        append_mesh(next(m for m in dressing if m.key=='dressing_'+group),mesh)
+    dressing_ledger.extend(addition_ledger)
+    density_evidence=dict(study=density_study,architectureInventory=architecture_inventory,
+        additions=len(addition_ledger),sourceBoundsChecksPassed=True,
+        nativeClearanceVerified=False,visualApproved=False,gameplayApproved=False)
+structure.extend(dressing)
+
 # Use the original authored PBR surfaces, with the reference's blue-grey/gold palette.
 materials=[]
 for role in MATERIALS:
@@ -38,6 +76,12 @@ for role in MATERIALS:
         multiply.inputs[0].default_value=1;multiply.inputs[2].default_value=(*spec['tint'],1)
         links.new(color.outputs['Color'],multiply.inputs[1]);links.new(multiply.outputs['Color'],p.inputs['Base Color'])
     p.inputs['Roughness'].default_value=spec['roughness'];p.inputs['Metallic'].default_value=spec['metallic']
+    if 'alphaMode' in spec:
+        p.inputs['Alpha'].default_value=spec['opacity']
+        if 'baseColor' in spec:
+            opacity=nodes.new('ShaderNodeMath');opacity.operation='MULTIPLY'
+            opacity.inputs[1].default_value=spec['opacity']
+            links.new(color.outputs['Alpha'],opacity.inputs[0]);links.new(opacity.outputs[0],p.inputs['Alpha'])
     if 'specular' in spec:p.inputs['Specular IOR Level'].default_value=spec['specular']
     if 'orm' in spec:
         packed=sample('orm');split=nodes.new('ShaderNodeSeparateColor');links.new(packed.outputs['Color'],split.inputs['Color'])
@@ -46,7 +90,7 @@ for role in MATERIALS:
             factor.inputs[1].default_value=spec[key.lower()];links.new(split.outputs[channel],factor.inputs[0])
             links.new(factor.outputs[0],p.inputs[key])
     if 'normal' in spec:
-        normal=sample('normal');mapping=nodes.new('ShaderNodeNormalMap');mapping.inputs['Strength'].default_value=.45
+        normal=sample('normal');mapping=nodes.new('ShaderNodeNormalMap');mapping.inputs['Strength'].default_value=spec.get('normalStrength',.45)
         links.new(normal.outputs['Color'],mapping.inputs['Color']);links.new(mapping.outputs['Normal'],p.inputs['Normal'])
     if 'height' in spec:
         if any(key in spec for key in ('normal','orm')):raise RuntimeError('Ashlar height must use its matching source alone')
@@ -56,7 +100,7 @@ for role in MATERIALS:
         links.new(height.outputs['Color'],bump.inputs['Height']);links.new(bump.outputs['Normal'],p.inputs['Normal'])
     if 'emission' in spec:
         p.inputs['Emission Color'].default_value=(*spec['emission'],1);p.inputs['Emission Strength'].default_value=1
-    mat.use_backface_culling=role!='blue';materials.append(mat)
+    mat.use_backface_culling=not spec.get('twoSided',role=='blue');materials.append(mat)
 
 
 def blender_point(p): return blender_export_point(p)
@@ -119,7 +163,7 @@ def add_mesh(data):
     return obj
 
 
-structure,gates,placements=architecture(blueprint);rows=[];surface_bindings=[]
+rows=[];surface_bindings=[]
 for mesh in [*structure,*gates]:
     data=mesh.export();file=runtime/(mesh.key+'.mesh.json')
     file.write_text(json.dumps(data,separators=(',',':'))+'\n')
@@ -130,11 +174,14 @@ for mesh in [*structure,*gates]:
                      gateLeaf=mesh in gates,materials=list(MATERIALS)))
     if hasattr(mesh,'floor_union_receipt'):rows[-1]['floorUnion']=mesh.floor_union_receipt
     if hasattr(mesh,'structural_supports'):rows[-1]['structuralSupports']=mesh.structural_supports
+    if hasattr(mesh,'surface_duplicate_repair'):rows[-1]['surfaceDuplicateRepair']=mesh.surface_duplicate_repair
     if hasattr(mesh,'crown_replacement'):rows[-1]['crownReplacement']=mesh.crown_replacement
     if hasattr(mesh,'articulated_spire_details'):rows[-1]['articulatedSpireDetails']=mesh.articulated_spire_details
     if hasattr(mesh,'central_standard_replacement'):rows[-1]['centralStandardReplacement']=mesh.central_standard_replacement
     if hasattr(mesh,'wing_hierarchy'):rows[-1]['wingHierarchy']=mesh.wing_hierarchy
     if hasattr(mesh,'wing_foundation_repairs'):rows[-1]['wingFoundationRepairs']=mesh.wing_foundation_repairs
+    if hasattr(mesh,'outer_crest_support'):rows[-1]['outerCrestSupport']=mesh.outer_crest_support
+    if hasattr(mesh,'foundation_course_details'):rows[-1]['foundationCourseDetails']=mesh.foundation_course_details
     if hasattr(mesh,'surface_bindings'):
         surface_bindings.extend([{**binding,'sourceMeshSha256':sha(file)} for binding in mesh.surface_bindings])
     rows[-1]['blenderSplitNormals']=dict(applied=True,minimumDot=obj['WarCitadelSourceNormalMinimumDot'],
@@ -143,37 +190,8 @@ for mesh in [*structure,*gates]:
 
 # Reuse actual detailed Aegis furnishings; transform/export their real triangles.
 prop_sources=[]
-for placement in placements:
+for placement,combined,adaptation in furnishings:
     source=ROOT/placement['source']
-    if not source.is_file():raise RuntimeError('Required authored citadel furnishing missing: '+str(source))
-    sculpture=placement['id']=='court_oath' or 'guard' in placement['id']
-    if sculpture:
-        combined=placed_sentinel(placement)
-        adaptation=dict(kind='original_sentinel_v6',sourceRecipe='scripts/unreal/aegis_citadel_statue.py',
-            sourceRecipeSha256=sha(ROOT/'scripts/unreal/aegis_citadel_statue.py'),
-            legacyScaleReference=dict(file=placement['source'],sha256=sha(source)),
-            footFit=combined.foot_fit,normals='preserve_authored_smooth_patches_and_hard_plate_seams')
-    else:
-        before=set(bpy.data.objects);bpy.ops.import_scene.gltf(filepath=str(source))
-        imported=[o for o in bpy.data.objects if o not in before and o.type=='MESH']
-        if not imported:raise RuntimeError('Source furnishing contains no mesh: '+str(source))
-        combined=Mesh('furnishing_'+placement['id'])
-        minz=min((o.matrix_world@Vector(v)).z for o in imported for v in o.bound_box)
-        # Original furnishings use metres. Their frontage faces the approach.
-        rotation=Matrix.Rotation(-3.141592653589793/2,4,'Z')
-        for obj in imported:
-            obj.data.calc_loop_triangles()
-            for tri in obj.data.loop_triangles:
-                verts=[]
-                for index in tri.vertices:
-                    p=obj.matrix_world@obj.data.vertices[index].co;p.z-=minz
-                    p=rotation@p;p*=placement['scale']
-                    verts.append([-p.y*100+placement['point'][0],p.x*100+placement['point'][1],p.z*100+placement['point'][2]])
-                name=obj.data.materials[tri.material_index].name.lower() if obj.data.materials else ''
-                role='gold' if any(k in name for k in ('gold','copper','brass')) else 'iron' if 'iron' in name else 'blue' if any(k in name for k in ('canvas','tapestry')) else 'glass' if any(k in name for k in ('glow','flame','ember','amber','glass')) else 'carved_stone'
-                combined.face(verts,role)
-        adaptation=combined.cohere_throne_gold_faces() if placement['id']=='throne' else None
-        for obj in imported:bpy.data.objects.remove(obj,do_unlink=True)
     data=combined.export();file=runtime/(combined.key+'.mesh.json');file.write_text(json.dumps(data,separators=(',',':'))+'\n')
     obj=add_mesh(data);rows.append(dict(id=combined.key,meshFile=file.relative_to(RUN).as_posix(),sha256=sha(file),
         triangles=len(data['indices'])//3,collision=True,gateLeaf=False,materials=list(MATERIALS),source=placement['source']))
@@ -196,12 +214,14 @@ for row in rows:
                         fbx=dict(path=fbx.relative_to(RUN).as_posix(),sha256=sha(fbx))))
 report=dict(schemaVersion=1,revision=blueprint['revision'],blueprintSignature=blueprint['signature'],
     recipeSha256=sha(Path(__file__).with_name('aegis_citadel_mesh.py')),assets=rows,exports=exports,
-    sourceFurnishings=prop_sources,materialSpecs=MATERIAL_SPECS,surfaceBindings=surface_bindings,
+    sourceFurnishings=prop_sources,dressingLedger=dressing_ledger,materialSpecs=MATERIAL_SPECS,surfaceBindings=surface_bindings,
+    dressingSources={r['source']:sha(ROOT/r['source']) for r in dressing_ledger},
     materialSources={file:sha(ROOT/file) for spec in MATERIAL_SPECS.values() for key,file in spec.items()
                      if key in ('baseColor','normal','orm','height','provenance')},
     geometrySignature=digest([(r['id'],r['sha256']) for r in rows]),
     sourceMaster=dict(path='sources/Bastion_Reference_Citadel.blend',sha256=sha(sources/'Bastion_Reference_Citadel.blend')),
     blenderExportConvention=BLENDER_EXPORT_CONVENTION,
     nativeImported=False,visualApproved=False,traversalApproved=False)
+if density_evidence is not None: report['furnishingDensityStudy']=density_evidence
 (RUN/'assets-source.json').write_text(json.dumps(report,indent=2)+'\n')
 print('WAR_CITADEL_SOURCE_READY='+str(RUN/'assets-source.json'),flush=True)

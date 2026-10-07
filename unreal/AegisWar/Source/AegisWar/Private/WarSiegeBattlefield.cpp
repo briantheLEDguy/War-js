@@ -3,6 +3,8 @@
 #include "Engine/LevelStreaming.h"
 #include "Kismet/GameplayStatics.h"
 #include "WarSiegeEquipment.h"
+#include "WarCharacter.h"
+#include "WarCitadelNavigationFilter.h"
 #include "WarCharacterVisualDefinition.h"
 #include "WarContentSubsystem.h"
 #include "WarAbilityCatalog.h"
@@ -17,6 +19,8 @@
 
 AWarSiegeBattlefield::AWarSiegeBattlefield()
 { RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("SiegeOrigin")); bReplicates = true; bAlwaysRelevant = true; }
+TSubclassOf<UNavigationQueryFilter> AWarSiegeBattlefield::NavigationFilter() const
+{ return DefinitionVersion==2 ? UWarCitadelNavigationFilter::StaticClass() : nullptr; }
 FVector AWarSiegeBattlefield::Objective(int32 Stage, int32 Step) const
 {
     const int32 Index = Stage == 0 ? Step : Stage == 1 ? 4 + Step : 7;
@@ -115,6 +119,8 @@ bool AWarSiegeBattlefield::Validate(FString& Error, EWarSiegeScenario Scenario, 
     }
     auto* Nav = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
     if (!Nav) return Fail(TEXT("Siege navigation is not built."));
+    const auto* CharacterNav=Nav->GetNavDataForProps(GetDefault<AWarCharacter>()->GetNavAgentPropertiesRef());
+    if (!CharacterNav) return Fail(TEXT("Build character navigation before launching the siege."));
     auto* ConvoyNav=WarSiegeEquipment::Navigation(GetWorld());
     if (!ConvoyNav) return Fail(TEXT("Build siege equipment navigation before launching the convoy."));
     for (int32 Step=1;Step<=3;++Step)
@@ -129,12 +135,15 @@ bool AWarSiegeBattlefield::Validate(FString& Error, EWarSiegeScenario Scenario, 
     for (const auto& P : Points)
     {
         FNavLocation Projected;
-        if (P.ContainsNaN() || !Nav->ProjectPointToNavigation(P, Projected, FVector(100,100,250))
+        if (P.ContainsNaN() || !Nav->ProjectPointToNavigation(P, Projected, FVector(100,100,250),CharacterNav)
             || FVector::Dist2D(P, Projected.Location) > 100)
             return Fail(TEXT("Siege anchor has no reachable navigation surface."));
         // A zero-length query is not a valid path in Recast; projection suffices.
         if (FVector::DistSquared(Objectives[0], Projected.Location) < FMath::Square(100.f)) continue;
-        auto* Path = UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(), Objectives[0], Projected.Location);
+        // Readiness must use the same physical profile and bounded search as
+        // enrolled citadel characters, rather than a different default query.
+        auto* Path = UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(), Objectives[0], Projected.Location,
+            const_cast<ANavigationData*>(CharacterNav),NavigationFilter());
         if (!Path || !Path->IsValid() || Path->IsPartial()) return Fail(TEXT("Siege route is disconnected."));
     }
     for (int32 Stage = 0; Stage < (LowerOnly ? 1 : 3); ++Stage)

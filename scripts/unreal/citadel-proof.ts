@@ -6,6 +6,10 @@ import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPat
 import { citadelRouteWidthSeed,validateCitadelRouteSurfaceProfiles,validateCitadelSurfaceReport,type CitadelRouteSurfaceProfile } from './citadel-route-surface';
 import { validateRoutePlacementOverlaps } from './citadel-placement-evidence';
 import { validateCitadelCapsulePolicy,validateCitadelCapsuleKinematics } from './citadel-collision-policy';
+import { citadelCloudRenderState } from './citadel-cloud-render-state';
+import { privateLumenStudyRequest } from './citadel-lumen-study';
+import { validatePrivateMaterialReadiness, type PrivateMaterialExpectation } from './citadel-material-readiness';
+import { privateMountainStudyExpectation } from './citadel-mountain-study-binding';
 
 type Point = [number, number, number];
 interface CitadelGateApproach {
@@ -38,6 +42,9 @@ export interface CitadelProofConfig {
     sweepHalfSpanCm: number; approachClearance?: CitadelGateApproach }[];
   anchors: { id: string; point: Point; index: number; optional: boolean }[];
   spawnPads: { index: number; point: Point; widthCm: number; groundGradient?: [number, number] }[];
+  privateLumenMode?: 'lumen_software' | 'lumen_hardware';
+  expectedPrivateMaterialBindings?: readonly PrivateMaterialExpectation[];
+  cinematicView?: boolean;
 }
 
 const hash = (file: string) => createHash('sha256').update(readFileSync(file)).digest('hex');
@@ -275,6 +282,9 @@ export function validateCitadelProof(report: any, config: CitadelProofConfig): v
       throw new Error('Native camera receipts are missing or duplicated.');
     for (const view of config.views) {
       const evidence = report.viewPerformance.find((v: any) => v.id === view.id);
+      if (config.privateLumenMode || config.expectedPrivateMaterialBindings)
+        validatePrivateMaterialReadiness(evidence?.privateMaterialReadiness,evidence?.lightingWitness?.privateSurfaceMaterials,
+          config.expectedPrivateMaterialBindings);
       const direction = view.target.map((p, i) => p - view.eye[i]);
       const magnitude = Math.hypot(...direction);
       if (!evidence || evidence.canvasHudHidden !== true || evidence.viewportWidgetsCollapsed !== true
@@ -397,8 +407,8 @@ function gateSweepClearance(evidence: any, gate: CitadelProofConfig['gates'][num
 
 if (isMain(import.meta.url)) {
   try {
-    const args = parseArguments(process.argv.slice(2), ['--routes-only', '--views-only', '--width-diagnostic', '--dry-run'],
-      ['--blueprint', '--map', '--city-revision']);
+    const args = parseArguments(process.argv.slice(2), ['--routes-only', '--views-only', '--width-diagnostic', '--dry-run', '--cinematic-view'],
+      ['--blueprint', '--map', '--city-revision', '--private-lumen-study', '--private-material-study']);
     if (['--routes-only','--views-only','--width-diagnostic'].filter(key=>args.has(key)).length>1)
       throw new Error('Choose one proof or diagnostic mode.');
     const ledgerFile = path.resolve(repoRoot, args.get('--blueprint') ?? '');
@@ -406,6 +416,30 @@ if (isMain(import.meta.url)) {
     const mapFile = path.join(repoRoot, 'unreal/AegisWar/Content', map.replace(/^\/Game\//, '') + '.umap');
     const config = citadelProofConfig(read(ledgerFile), map, args.get('--city-revision') ?? '', hash(mapFile),
       args.has('--routes-only') || args.has('--width-diagnostic') ? 'routes' : args.has('--views-only') ? 'views' : 'all');
+    if (args.has('--cinematic-view')) {
+      if (!args.has('--views-only')) throw new Error('Temporary cinematic capture settings require views-only mode.');
+      config.cinematicView = true;
+    }
+    if (args.has('--private-lumen-study') && args.has('--private-material-study'))
+      throw new Error('Choose one source-bound study receipt.');
+    const studyArgument=args.get('--private-lumen-study') ?? args.get('--private-material-study');
+    const studyFile = studyArgument ? path.resolve(repoRoot, studyArgument) : undefined;
+    const studyHash = studyFile ? hash(studyFile) : undefined;
+    const lumen = studyFile && args.has('--private-lumen-study') ? privateLumenStudyRequest(read(studyFile), {
+      map, mapSha256: config.mapSha256, cityRevision: config.cityRevision, blueprintSha256: hash(ledgerFile),
+    }) : undefined;
+    if (lumen) {
+      if (!args.has('--views-only')) throw new Error('Private Lumen comparison requires views-only mode.');
+      config.privateLumenMode = lumen.mode;
+    }
+    if (studyFile) {
+      if (!args.has('--views-only')) throw new Error('Private material comparisons require views-only mode.');
+      config.expectedPrivateMaterialBindings=privateMountainStudyExpectation(read(studyFile), {
+        map,mapSha256:config.mapSha256,cityRevision:config.cityRevision,blueprintSha256:hash(ledgerFile),
+      });
+      if (args.has('--private-material-study') && !config.expectedPrivateMaterialBindings)
+        throw new Error('Explicit mountain study receipt omitted its signed retained binding.');
+    }
     const engine = inspectToolchain(defaultEngineRoot());
     if (!engine.editorCommand || engine.blockers.length) throw new Error(engine.blockers.join('\n'));
     const id = `${Date.now()}-${process.pid}`;
@@ -414,6 +448,7 @@ if (isMain(import.meta.url)) {
     const configFile = path.join(saved, 'config.json');
     const invocation = [projectPath, map, '-game', '-unattended', '-nop4', '-nosplash', '-nosound',
       '-WarDevelopmentGM', '-WarDutchBastionProof', `-WarCitadelProofConfig=${configFile}`,
+      ...(lumen?.startupArguments ?? []),
       ...(args.has('--width-diagnostic') ? ['-WarCitadelWidthDiagnostic'] : []),
       ...(config.views.length ? ['-RenderOffscreen', '-windowed', '-ForceRes', '-ResX=1920', '-ResY=1080'] : ['-nullrhi']),
       `-abslog=${path.join(output, 'native.log')}`];
@@ -431,6 +466,7 @@ if (isMain(import.meta.url)) {
       const report = read(reportFile);
       if (hash(mapFile) !== config.mapSha256 || hash(ledgerFile) !== beforeLedger)
         throw new Error('Candidate geometry or route plan changed during its proof.');
+      if (studyFile && hash(studyFile) !== studyHash) throw new Error('Private Lumen study binding changed during capture.');
       for (let i = 0; i < config.views.length; i++) {
         const capture = path.join(saved, `view_${String(i).padStart(2, '0')}.png`);
         if (existsSync(capture)) copyFileSync(capture, path.join(output, config.views[i].id + '.png'));
@@ -444,7 +480,10 @@ if (isMain(import.meta.url)) {
       validateCitadelProof(report, config);
       for (const view of config.views) if (!existsSync(path.join(output, view.id + '.png')))
         throw new Error(`Native view missing: ${view.id}`);
+      const cloudState = citadelCloudRenderState(report, map, config.views.map(view => view.id));
+      if (config.views.length) writeFileSync(path.join(output, 'cloud-render-state.json'), JSON.stringify(cloudState, null, 2) + '\n');
       console.log(JSON.stringify({ passed: true, output, routes: config.routes.length,
+        ...(config.views.length ? { cloudRenderResourceAvailable: cloudState.available } : {}),
         visualApproval: false, fullSiegeApproval: false }));
     }
   } catch (error) { console.error(error instanceof Error ? error.message : error); process.exitCode = 1; }

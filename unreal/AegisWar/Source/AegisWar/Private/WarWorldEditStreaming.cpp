@@ -67,8 +67,9 @@ void UWarWorldEditSubsystem::LevelAdded(ULevel* Level, UWorld* World)
             bMatches &= Found && (*Found)->GetRelativeTransform().Equals(Box.Transform, .0001)
                 && (*Found)->GetUnscaledBoxExtent().Equals(Box.Extent, .0001) && (*Found)->GetCollisionProfileName() == Box.Profile;
         }
+        bMatches &= WarWorldEditPracticalLights::Matches(Actor, Template->PracticalLights);
         if (!bMatches)
-        { StreamingConflict = TEXT("Authored GM placement, materials or collision changed during zone reload; the draft was not applied."); return; }
+        { StreamingConflict = TEXT("Authored GM placement, materials, collision or practical lights changed during zone reload; the draft was not applied."); return; }
         Rebound.Add(Id, Actor);
     }
     for (const auto& Pair : BaselineLevels)

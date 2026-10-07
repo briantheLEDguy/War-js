@@ -30,7 +30,10 @@ export function validateCitadelRecoveryCast(value:any, state:any, characterId:st
   const statusMatches=(s:any):boolean=>{
     const effect=effects.find((e:any)=>e.id===s.effectId);
     return !!effect && effect.kind==='player_status' && (effect.recipient==='caster' || applied.legacyTargeting && effect.recipient==='')
-      && s.id===(effect.recipient!=='' ? `${definition.id}:${effect.id}:${s.sourceKey}` : `${definition.id}:${effect.statusId}:${effect.statusKind}`)
+      // Legacy IDs use FName::ToString(), which spells an empty name "None";
+      // the immutable definition codec deliberately serializes that name as ''.
+      && s.id===(effect.recipient!=='' ? `${definition.id}:${effect.id}:${s.sourceKey}`
+        : `${definition.id}:${effect.statusId || 'None'}:${effect.statusKind}`)
       && s.kind===effect.statusKind && s.group===effect.stackGroup && s.modifier===effect.modifier
       && s.label===(effect.label || effect.statusKind) && s.category===(s.kind==='shield' ? 'shield' : 'status')
       && s.magnitude===Math.min(effect.magnitude,s.kind==='guard' ? .75 : Math.fround(.6))

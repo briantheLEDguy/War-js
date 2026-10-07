@@ -6,7 +6,7 @@ public class AegisWarEditorTools : ModuleRules
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PublicDependencyModuleNames.AddRange(new[] { "Core", "CoreUObject", "Engine" });
-        PrivateDependencyModuleNames.AddRange(new[] { "AegisWar", "UnrealEd", "MeshDescription", "StaticMeshDescription", "AssetRegistry", "RenderCore", "NavigationSystem", "Json", "JsonUtilities" });
+        PrivateDependencyModuleNames.AddRange(new[] { "AegisWar", "UnrealEd", "MeshDescription", "StaticMeshDescription", "AssetRegistry", "RenderCore", "RHI", "MeshUtilities", "NavigationSystem", "PhysicsCore", "Json", "JsonUtilities" });
         if (Target.bCompileRecast) PrivateDependencyModuleNames.Add("Navmesh");
     }
 }

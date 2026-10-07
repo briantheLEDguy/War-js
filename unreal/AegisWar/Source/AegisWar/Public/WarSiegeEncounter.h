@@ -35,6 +35,7 @@ public:
     bool HandlesDeath(AWarCharacter* Character);
     void RespawnAfterDeath(AWarCharacter* Character);
     FVector TaskLocation(int32 PreferredSide = 0) const;
+    TConstArrayView<TObjectPtr<class AWarSiegeEquipment>> ConvoyVehicles() const { return Convoy; }
     void CommanderDamaged();
     bool Enroll(AWarPlayerController* Player, FString& Error, bool bRecordedRecovery = false);
     void Leave(AController* Controller);
@@ -78,6 +79,11 @@ public:
     UPROPERTY(Replicated) int32 Deaths = 0;
     double GetServerWorldTimeSeconds() const;
 private:
+    friend class UWarCitadelSiegeProof;
+    friend class FWarCitadelPhysicalSnapshotTest;
+    friend class FWarSiegeEscortSeatTest;
+    FWarSiegePresence LastSampledPresence;
+    double LastPresenceSampleAt = -1;
     void EndRound();
     void ClearRoundEffects();
     void AssignSquads();

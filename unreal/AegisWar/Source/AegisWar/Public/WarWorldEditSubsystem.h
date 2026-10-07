@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "WarWorldEditHistory.h"
+#include "WarWorldEditPracticalLights.h"
 #include "WarWorldEditSubsystem.generated.h"
 
 class APlayerController;
@@ -39,6 +40,7 @@ public:
     const FString& GetPublicationLoadError() const { return PublicationLoadError; }
 private:
     friend class FWarWorldEditStreamingTest;
+    friend class FWarWorldEditPracticalLightTest;
     bool Ready(APlayerController* Controller, FString& Error);
     bool ApplyHistory(FWarWorldEditHistory Next, FString& Error);
     void ApplyActors();
@@ -63,6 +65,7 @@ private:
         FName MeshCollisionProfile = TEXT("NoCollision");
         TArray<TSoftObjectPtr<class UMaterialInterface>> Materials;
         TArray<FCollisionTemplate> Collision;
+        TArray<FWarWorldEditPracticalLight> PracticalLights;
     };
     TMap<FName, FModelTemplate> Templates;
     FWarWorldEditHistory History;

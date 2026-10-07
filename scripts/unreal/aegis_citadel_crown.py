@@ -179,7 +179,8 @@ def _corner_tower(mesh, body, side, peak):
         x=body.x0-300
     y = body.y+side*(body.width/2+(120 if not central else 0))
     front = x-width/2
-    stone_top = body.eaves+(1050 if central else 1550)
+    # More masonry under the same six tips; retain the joined crown footprint.
+    stone_top = body.eaves+(1650 if central else 2050)
     bay_bottom = stone_top-800
     lower_height = bay_bottom-body.bottom
     # The broad core is solid. A recessed blind lancet carves its front skin;

@@ -102,6 +102,20 @@ class RecoveryRuntimeTests(unittest.TestCase):
         for change in (dict(succeeded=False),dict(statusIds=[]),dict(career='another_career'),dict(observedAtUnixMs=EPOCH+200),dict(cooldownExpiresAtUnixMs=EPOCH+99000)):
             with self.subTest(change=change),self.assertRaises(ValueError):checked_cast(dict(cast,**change),after,IDENTITY,'aegis')
 
+    def test_legacy_empty_name_requires_exact_native_none_identity(self):
+        after=copy.deepcopy(self.before);d=after['combat']['definitions'][0];pure=json.loads(d['payload'])
+        pure['legacyTargeting']=True;pure['effects'][0].update(recipient='',statusId='');definition(after,pure)
+        after['combat']['statuses'][0]['id']=d['id']+':None:haste'
+        cast=dict(abilityId=d['id'],career=d['career'],version=d['version'],definitionSha256=d['sha256'],startedAtUnixMs=EPOCH,
+            succeeded=True,observedAtUnixMs=after['capturedAtUnixMs'],statusIds=[after['combat']['statuses'][0]['id']],
+            cooldownExpiresAtUnixMs=after['abilities']['cooldowns'][0]['expiresAtUnixMs'])
+        checked_cast(cast,after,IDENTITY,'aegis')
+        for middle in ('','none','another_status'):
+            bad=copy.deepcopy(after);bad['combat']['statuses'][0]['id']=d['id']+':'+middle+':haste'
+            wrong=dict(cast,statusIds=[bad['combat']['statuses'][0]['id']])
+            with self.subTest(middle=middle),self.assertRaisesRegex(ValueError,'self-cast'):
+                checked_cast(wrong,bad,IDENTITY,'aegis')
+
     def test_hash_bound_payload_still_requires_complete_applied_native_semantics(self):
         for mutate in (lambda p:p.pop('conditions'),lambda p:p['effects'][0].update(duration=120),
                 lambda p:p['effects'][0].update(recipient='client_object'),lambda p:p.update(opaqueUObject='/Game/Unsafe')):

@@ -43,6 +43,32 @@ export function requireNativeCitadelMaterials(receipt: any, source: any): void {
     || ['roughness','metallic','specular'].some(k => typeof actual[k]!=='number' || !Number.isFinite(actual[k]) || Math.abs(actual[k]-spec[k])>1e-6)
     || actual.normalInputConnected!==false || actual.ambientOcclusionInputConnected!==false) fail();
 }
+
+/** Recipe eleven imports the original glTF normals using the native DirectX convention. */
+export function requireNativeCitadelNormalTextures(receipt: any, source: any, blueprint: any): void {
+  if ((blueprint.recipeVersion ?? 1) < 11) return;
+  const fail = () => { throw new Error('Original citadel OpenGL normal textures need their signed native import readbacks and package hashes.'); };
+  const sources=new Set<string>();
+  for (const spec of Object.values(source.materialSpecs ?? {}) as any[]) {
+    if (spec.normal === undefined) continue;
+    if (typeof spec.normal!=='string' || !/^public\/assets\/[a-zA-Z0-9_./-]+\.png$/.test(spec.normal)
+      || spec.normal.split('/').includes('..') || spec.normalConvention!=='gltf_opengl_positive_y') fail();
+    sources.add(spec.normal);
+  }
+  const rows=receipt.nativeNormalTextureBindings;
+  if (!Array.isArray(rows) || rows.length!==sources.size) fail();
+  const seen=new Set<string>();
+  for (const row of rows) {
+    const packageName=`/Game/WorldRebuild/AegisCitadel_${receipt.revision}/Textures/T_${path.posix.parse(row?.source ?? '').name}_normal`;
+    if (!row || Object.keys(row).sort().join(',')!=='actualCompression,actualFlipGreenChannel,actualSrgb,package,sha256,source,sourceConvention,sourceSha256'
+      || !sources.has(row.source) || seen.has(row.source) || row.sourceConvention!=='gltf_opengl_positive_y'
+      || row.package!==packageName || !/^[a-f0-9]{64}$/.test(row.sha256 ?? '')
+      || row.sha256!==receipt.packageHashes?.[packageName] || !/^[a-f0-9]{64}$/.test(row.sourceSha256 ?? '')
+      || row.sourceSha256!==source.materialSources?.[row.source]
+      || row.actualFlipGreenChannel!==true || row.actualSrgb!==false || row.actualCompression!=='TC_NORMALMAP') fail();
+    seen.add(row.source);
+  }
+}
 function renderTangentBasis(row: any): void {
   const basis = row.tangentBasis;
   const fail = () => { throw new Error('Actual native render tangent basis is missing, degenerate or uses an unknown diagnostic policy.'); };
@@ -123,17 +149,21 @@ const relativeFile = (root: string, relative: unknown) => {
 
 export function requireVersionedCitadelMeshBindings(blueprint: any, assets: any, bindings: any): void {
   const version = Object.hasOwn(blueprint, 'recipeVersion') ? blueprint.recipeVersion : 1;
-  if (!Number.isInteger(version) || version < 1 || version > 9)
+  if (!Number.isInteger(version) || version < 1 || version > 12)
     throw new Error('Unsupported citadel mesh recipe version.');
-  const count = version === 9 ? 39 : 38;
+  // Recipe twelve reshapes crown geometry within the same signed 45-model manifest.
+  const count = version >= 10 ? 45 : version === 9 ? 39 : 38;
   if (!Array.isArray(assets) || assets.length !== count || !Array.isArray(bindings) || bindings.length !== count
     || [...assets, ...bindings].some(row => !row || typeof row.id !== 'string'))
     throw new Error('Every versioned native binding must match the signed source manifest.');
   const ids = new Set<string>(assets.map(row => row.id)), native = new Set<string>(bindings.map(row => row.id));
   if (ids.size !== count || native.size !== count || [...ids].some(id => !native.has(id)))
     throw new Error('Duplicate or mismatched native/source citadel mesh identity.');
-  if (ids.has('wing_foundation_repairs') !== (version === 9))
+  if (ids.has('wing_foundation_repairs') !== (version >= 9))
     throw new Error('Wing foundation binding differs from the recorded recipe version.');
+  const dressing = ['forehall','throne_hall','west_archive','east_treasury','west_terrace','east_terrace'].map(key => `dressing_${key}`);
+  if (dressing.some(id => ids.has(id) !== (version >= 10)))
+    throw new Error('Furnishing groups differ from the recorded recipe version.');
 }
 
 /** Bind the native boundary adaptation to every unchanged authored source mesh. */
@@ -144,6 +174,7 @@ export function requireNativeCitadelImport(directory: string, receipt: any, blue
     throw new Error('The explicit source CCW to native CW outward-normal import convention is required.');
   const source = JSON.parse(readFileSync(path.join(directory, 'assets-source.json'), 'utf8').replace(/^\uFEFF/, ''));
   requireNativeCitadelMaterials(receipt,source);
+  requireNativeCitadelNormalTextures(receipt,source,blueprint);
   if (source.schemaVersion !== 1 || source.revision !== receipt.revision || source.blueprintSignature !== receipt.signature
     || source.geometrySignature !== receipt.geometrySignature)
     throw new Error('Native bindings must match the signed source manifest.');

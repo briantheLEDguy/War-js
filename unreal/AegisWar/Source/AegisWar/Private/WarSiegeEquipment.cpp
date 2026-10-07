@@ -36,6 +36,16 @@ ANavigationData* WarSiegeEquipment::Navigation(UWorld* World)
         && FMath::IsNearlyEqual(Data->GetConfig().AgentHeight,NavigationHeight) ? Data : nullptr;
 }
 
+int32 WarSiegeEquipment::RouteStartIndex(const FVector& Position,TConstArrayView<FVector> Path,bool OnwardNavClear)
+{
+    // Only a freshly returned path's initial projection may be bypassed. Real
+    // route corners keep their five-centimetre arrival threshold in Drive.
+    if (!OnwardNavClear || Position.ContainsNaN() || Path.Num()<2
+        || Path[0].ContainsNaN() || Path[1].ContainsNaN()) return 0;
+    const double Distance=FVector::Dist2D(Position,Path[0]);
+    return Distance>=5 && Distance<=ProjectedStartTolerance ? 1 : 0;
+}
+
 bool UWarSiegeEquipmentDefinition::Validate(FString& Error) const
 {
     if (!bReviewed || Parts.IsEmpty() || CrewPositions.Num()!=2 || SourceSha256.Len()!=64
@@ -153,6 +163,20 @@ void AWarSiegeEquipment::PlaceEngineers()
     }
 }
 void AWarSiegeEquipment::Stop() { bMoving=false; }
+bool AWarSiegeEquipment::EmitProofDiagnostic() const
+{
+#if UE_BUILD_SHIPPING
+    return false;
+#else
+    const bool EquipmentProof=FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentProof"));
+    const bool CitadelProof=FParse::Param(FCommandLine::Get(),TEXT("WarCitadelSiegeProof"))
+        && FParse::Param(FCommandLine::Get(),TEXT("WarDevelopmentNetworking")) && Cast<AWarSiegeEncounter>(GetOwner());
+    if (!GetWorld() || !HasAuthority() || (!EquipmentProof && !CitadelProof)
+        || FParse::Param(FCommandLine::Get(),TEXT("WarCitadelSiegePerformance"))
+        || GetWorld()->GetTimeSeconds()<NextProofDiagnosticAt) return false;
+    NextProofDiagnosticAt=GetWorld()->GetTimeSeconds()+2;return true;
+#endif
+}
 void AWarSiegeEquipment::Operate(bool bEnabled)
 {
     const double Now=GetWorld()->GetTimeSeconds();
@@ -175,18 +199,30 @@ bool AWarSiegeEquipment::Drive(const FVector& Destination,float Speed,float Delt
         // Project its horizontal position onto the actual route before pathfinding.
         if (!Nav || !Data || !Nav->ProjectPointToNavigation(Destination,End,FVector(100,100,1200),Data))
         {
-            if (FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentProof")) && FMath::Fmod(GetWorld()->GetTimeSeconds(),2.f)<.04f)
+            if (EmitProofDiagnostic())
                 UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_NAV_FAILED %s from=%s goal=%s nav=%s"),*GetName(),*GetActorLocation().ToString(),*Destination.ToString(),*GetNameSafe(Data));
             return false;
         }
         auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(GetWorld(),GetActorLocation(),End.Location,Data);
         if (!Path || !Path->IsValid() || Path->IsPartial())
         {
-            if (FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentProof")) && FMath::Fmod(GetWorld()->GetTimeSeconds(),2.f)<.04f)
+            if (EmitProofDiagnostic())
                 UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_PATH_FAILED %s from=%s end=%s"),*GetName(),*GetActorLocation().ToString(),*End.Location.ToString());
             return false;
         }
         Route=Path->PathPoints; RouteGoal=Destination;
+        // Recast may project the start a few centimetres behind the chassis.
+        // Steering back to that projection on every replan causes needless
+        // reverse turns. Verify the actual onward chord on the convoy profile;
+        // the normal ground fit and full physical hull sweep still run below.
+        const double StartDistance=Route.Num()>1 ? FVector::Dist2D(GetActorLocation(),Route[0]) : 0;
+        if (StartDistance>=5 && StartDistance<=WarSiegeEquipment::ProjectedStartTolerance)
+        {
+            FVector Hit;FNavigationRaycastAdditionalResults Ray;
+            const bool Blocked=Data->Raycast(GetActorLocation(),Route[1],Hit,&Ray,Data->GetDefaultQueryFilter(),this);
+            if (WarSiegeEquipment::RouteStartIndex(GetActorLocation(),Route,!Blocked && Ray.bIsRayEndInCorridor)==1)
+            { Route.RemoveAt(0);++ProjectedStartSkips; }
+        }
     }
     // Advancing 80 cm early cuts inside the baked obstacle clearance on turns.
     while (Route.Num()>1 && FVector::Dist2D(GetActorLocation(),Route[0])<5) Route.RemoveAt(0);
@@ -196,7 +232,13 @@ bool AWarSiegeEquipment::Drive(const FVector& Destination,float Speed,float Delt
     FVector Position=GetActorLocation();
     if (FMath::Abs(FMath::FindDeltaAngleDegrees(Rotation.Yaw,Direction.Rotation().Yaw))<8)
         Position+=Direction*FMath::Min(Speed*Delta,FVector::Dist2D(Position,Route[0]));
-    if (!GroundPose(Position,Rotation) || !MovementClear(Position,Rotation)) return false;
+    if (!GroundPose(Position,Rotation))
+    {
+        if (EmitProofDiagnostic()) UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_GROUND_FAILED %s from=%s proposed=%s yaw=%f"),
+            *GetName(),*GetActorLocation().ToString(),*Position.ToString(),Rotation.Yaw);
+        return false;
+    }
+    if (!MovementClear(Position,Rotation)) return false;
     const float Distance=FVector::Dist2D(GetActorLocation(),Position);
     SetActorLocationAndRotation(Position,Rotation); Travel+=Distance; bMoving=Distance>.01f; PlaceEngineers();
     if (Distance>.01f)
@@ -289,7 +331,7 @@ bool AWarSiegeEquipment::MovementClear(const FVector& Position,const FRotator& R
         if (GetWorld()->SweepSingleByObjectType(Hit,Start,End,Q,Objects,
             FCollisionShape::MakeBox(Definition->HullExtent+FVector(Margin)),Query))
         {
-            if (FParse::Param(FCommandLine::Get(),TEXT("WarSiegeEquipmentProof")) && FMath::Fmod(GetWorld()->GetTimeSeconds(),2.f)<.04f)
+            if (EmitProofDiagnostic())
                 UE_LOG(LogTemp,Display,TEXT("WAR_SIEGE_SWEEP_BLOCKED %s actor=%s component=%s point=%s normal=%s penetrating=%d"),
                     *GetName(),*GetNameSafe(Hit.GetActor()),*GetNameSafe(Hit.GetComponent()),*Hit.ImpactPoint.ToString(),*Hit.ImpactNormal.ToString(),Hit.bStartPenetrating);
             return false;
@@ -297,20 +339,31 @@ bool AWarSiegeEquipment::MovementClear(const FVector& Position,const FRotator& R
     }
     return true;
 }
+bool WarSiegeEquipment::MovementContacts(UWorld* World,const FVector& Center,const FQuat& Rotation,
+    const FVector& Extent,const FCollisionQueryParams& Query,TArray<FOverlapResult>& Contacts)
+{
+    Contacts.Reset();
+    if (!World) return false;
+    // A capsule can stop the padded sweep while just outside the bare hull.
+    // Recovery and temporary escape collision must cover that same envelope.
+    return World->OverlapMultiByObjectType(Contacts,Center,Rotation,FCollisionObjectQueryParams(ECC_Pawn),
+        FCollisionShape::MakeBox(Extent+FVector(MaximumMovementPadding)),Query);
+}
 bool AWarSiegeEquipment::RecoverOverlaps()
 {
     if (!HasAuthority() || !bPlaced) return false;
     FCollisionQueryParams Query(SCENE_QUERY_STAT(SiegeRecovery),false,this);
     for (const auto& Engineer:Engineers) Query.AddIgnoredActor(Engineer);
     TArray<FOverlapResult> Overlaps;
-    GetWorld()->OverlapMultiByObjectType(Overlaps,Hull->GetComponentLocation(),Hull->GetComponentQuat(),
-        FCollisionObjectQueryParams(ECC_Pawn),FCollisionShape::MakeBox(Definition->HullExtent),Query);
+    WarSiegeEquipment::MovementContacts(GetWorld(),Hull->GetComponentLocation(),Hull->GetComponentQuat(),
+        Definition->HullExtent,Query,Overlaps);
     bool Blocked=false;
     for (const auto& Hit:Overlaps)
     {
         auto* Pawn=Cast<AWarCharacter>(Hit.GetActor());
         if (!Pawn || Pawn->IsDead()) continue;
         Blocked=true; Stop(); Operate(false);
+        if (!CanRecoverCharacter(Pawn)) continue;
         auto* Nav=FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
         const auto* Capsule=Pawn->GetCapsuleComponent();
         const auto* Data=Nav ? Nav->GetNavDataForProps(Pawn->GetNavAgentPropertiesRef()) : nullptr;
@@ -335,9 +388,15 @@ bool AWarSiegeEquipment::RecoverOverlaps()
             if (WarSiegeNavigation::SpawnCenter(GetWorld(),Mode->Battlefield->TeamSpawns[Index],Center))
                 Recovered=Pawn->TeleportTo(Center,Pawn->GetActorRotation(),false,true);
         }
-        if (Recovered) { Pawn->GetCharacterMovement()->StopMovementImmediately(); Pawn->ForceNetUpdate(); }
+        if (Recovered) { ++RecoveryDisplacements;Pawn->GetCharacterMovement()->StopMovementImmediately(); Pawn->ForceNetUpdate(); }
     }
     return Blocked;
+}
+bool AWarSiegeEquipment::CanRecoverCharacter(const AWarCharacter* Character) const
+{
+    const auto* Encounter=Cast<AWarSiegeEncounter>(GetOwner());
+    return IsValid(Character) && Encounter && Character->GetWorld()==GetWorld()
+        && Encounter->Owns(Character->GetPlayerState<AWarPlayerState>());
 }
 void AWarSiegeEquipment::UpdateEscapeCollision()
 {
@@ -349,8 +408,8 @@ void AWarSiegeEquipment::UpdateEscapeCollision()
         TArray<FOverlapResult> Hits;
         FCollisionQueryParams Query(SCENE_QUERY_STAT(SiegeEscape),false,this);
         for (const auto& Engineer:Engineers) Query.AddIgnoredActor(Engineer);
-        GetWorld()->OverlapMultiByObjectType(Hits,Hull->GetComponentLocation(),Hull->GetComponentQuat(),
-            FCollisionObjectQueryParams(ECC_Pawn),FCollisionShape::MakeBox(Definition->HullExtent),Query);
+        WarSiegeEquipment::MovementContacts(GetWorld(),Hull->GetComponentLocation(),Hull->GetComponentQuat(),
+            Definition->HullExtent,Query,Hits);
         for (const auto& Hit:Hits) if (auto* Pawn=Cast<AWarCharacter>(Hit.GetActor()))
         { Inside.Add(Pawn);Pawn->GetCapsuleComponent()->IgnoreActorWhenMoving(this,true); }
     }

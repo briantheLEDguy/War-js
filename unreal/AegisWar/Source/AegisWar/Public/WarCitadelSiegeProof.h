@@ -4,6 +4,8 @@
 #include "Dom/JsonObject.h"
 #include "WarSiegeRules.h"
 #include "WarCitadelSiegeProof.generated.h"
+class AWarSiegeEncounter;
+class AWarCharacter;
 
 /** Exact receipt hashing through the engine crypto provider; unavailable inputs fail recoverably. */
 namespace WarCitadelProofHash
@@ -11,6 +13,13 @@ namespace WarCitadelProofHash
     AEGISWAR_API bool Bytes(const uint8* Data, int64 Length, FString& OutHash, FString& Error);
     AEGISWAR_API bool Text(const FString& Value, FString& OutHash, FString& Error);
     AEGISWAR_API bool File(const FString& Filename, FString& OutHash, FString& Error);
+}
+
+/** Fixture targeting uses ordinary combat eligibility for every owned opposing unit. */
+namespace WarCitadelProofTactics
+{
+    AEGISWAR_API bool CanTarget(const AWarSiegeEncounter* Encounter, const AWarCharacter* Source,
+        const AWarCharacter* Target, float Range);
 }
 
 /** Exact private candidate fixture. It never publishes traversal, roster or release approval. */
@@ -27,8 +36,14 @@ private:
     bool Load(FString& Error);
     bool Start(FString& Error);
     void Drive();
+    void ObserveLockedCenter();
     bool SpawnLivePlayers(class AWarSiegeBattlefield* Field,FString& Error);
     void DriveLivePlayers();
+    TSharedPtr<FJsonObject> PhysicalSnapshot() const;
+    double DiagnosticSeconds = 0;
+    double DiagnosticStartedAt = -1;
+    bool bDiagnosticComplete = false;
+    friend class FWarCitadelPhysicalSnapshotTest;
     bool ExpectedFinishedOutcome(const FWarSiegeState& State) const;
     bool LiveCharacterWitnesses(TArray<TSharedPtr<FJsonValue>>& Rows,FString& Error) const;
     void Finish(bool Passed, const FString& Detail);
@@ -55,6 +70,9 @@ private:
     bool bLoaded = false, bFinished = false, bFixtureReview = false, bLive = false;
     bool bLiveDefended=false,bLivePreparationObserved=false,bLiveServicesSuspendedObserved=false,bLiveCustodyHeldObserved=false;
     bool bConcurrentSides = false, bLockedCenter = false, bSawContest = false;
+    bool bLockedCenterPhysical=false;
+    double LockedCenterSince=-1,LockedCenterLastSample=-1,LockedCenterPhysicalSeconds=0;
+    TArray<TSharedPtr<FJsonValue>> LockedCenterObservations;
     bool bSentinelIntact = true;
     int32 Round = 0, Actions = 0, MaxAegis = 0, MaxRiftbound = 0;
     double Began = 0, NextDrive = 0, NextSample = 0, Movement = 0;
@@ -82,7 +100,7 @@ private:
     TSharedPtr<FJsonObject> PerformanceBindings, PerformanceHardware, PerformanceSourceCity, PerformanceBlueprint, PerformanceBaselineManifest;
     TArray<TSharedPtr<FJsonValue>> PerformanceCameras, PerformanceWindows, PerformanceRoster, PerformancePositions;
     FString PerformanceRosterHash, PerformanceRosterCanonical, PerformanceStatsMode;
-    TMap<TWeakObjectPtr<class AWarSiegeBotController>,int32> PerformanceSeats;
+    TMap<TWeakObjectPtr<class AWarSiegeBotController>,int32> TacticalSeats;
     TUniquePtr<FArchive> PerformanceWriter;
     UPROPERTY() TObjectPtr<class ACameraActor> PerformanceCamera;
     bool bRecoveryProof=false,bRecoveryRestored=false,bRecoveryMutation=false,bRecoveryHeld=false;

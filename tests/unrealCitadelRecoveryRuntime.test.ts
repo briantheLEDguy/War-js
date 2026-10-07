@@ -1,7 +1,14 @@
 import { createHash } from 'node:crypto';
+import { spawnSync } from 'node:child_process';
 import { expect, test } from 'vitest';
 import { validateCitadelRecoveryCast, validateCitadelRuntimeEvolution } from '../scripts/unreal/citadel-recovery-runtime';
 import { RECOVERY_EPOCH as epoch, recoveryCastFixture, recoveryRuntimeFixture } from './fixtures/citadelRecoveryRuntime';
+
+test('Python publication validates the portable recovery corpus and exact native legacy identities',()=>{
+  const run=spawnSync('python',['-B','tests/unrealCitadelRecoveryRuntime.test.py'],{encoding:'utf8',windowsHide:true});
+  expect(run.error,run.error?.message).toBeUndefined();
+  expect(run.status,run.stdout+run.stderr).toBe(0);
+},30_000);
 
 const characterId='portable_recovery',realm='aegis';
 function state(now=epoch+100,castAt=epoch):any { return recoveryRuntimeFixture(characterId,realm,now,castAt); }
@@ -88,6 +95,20 @@ test('requires a separately verified catalog self-cast to explain new or genuine
   for (const update of [{succeeded:false},{statusIds:[]},{career:'another_career'},
     {observedAtUnixMs:epoch+200},{cooldownExpiresAtUnixMs:epoch+99_000}])
     expect(()=>validateCitadelRecoveryCast({...cast,...update},after,characterId,realm)).toThrow();
+});
+
+test('legacy empty status names retain the actual Unreal None identity rather than accepting an empty or arbitrary ID',()=>{
+  const after=state(),d=after.combat.definitions[0],pure=JSON.parse(d.payload);
+  pure.legacyTargeting=true;pure.effects[0].recipient='';pure.effects[0].statusId='';
+  d.payload=JSON.stringify(pure);d.sha256=createHash('sha256').update(d.payload).digest('hex');
+  Object.assign(after.combat.statuses[0],{id:`${d.id}:None:haste`,definitionSha256:d.sha256});
+  const cast=recoveryCastFixture(after,epoch);
+  expect(()=>validateCitadelRecoveryCast(cast,after,characterId,realm)).not.toThrow();
+  for (const middle of ['', 'none', 'another_status']) {
+    const bad=structuredClone(after);bad.combat.statuses[0].id=`${d.id}:${middle}:haste`;
+    const wrong=recoveryCastFixture(bad,epoch);
+    expect(()=>validateCitadelRecoveryCast(wrong,bad,characterId,realm)).toThrow(/self-cast/);
+  }
 });
 
 test('only an actual named self-cast may replace a previous native stack group',()=>{

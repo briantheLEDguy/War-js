@@ -174,11 +174,38 @@ def material_binding_proof(plan, source, city):
         raise ValueError('Owned matte navy constants, graph readbacks or package binding differ from the signed source.')
 
 
+def normal_texture_binding_proof(plan, source, city):
+    if plan.get('recipeVersion',1)<11:return
+    sources=set()
+    for spec in source.get('materialSpecs',{}).values():
+        if 'normal' not in spec:continue
+        file=spec['normal']
+        if (not isinstance(file,str) or not re.fullmatch(r'public/assets/[a-zA-Z0-9_./-]+\.png',file)
+                or '..' in file.split('/') or spec.get('normalConvention')!='gltf_opengl_positive_y'):
+            raise ValueError('Original citadel normal source convention is missing.')
+        sources.add(file)
+    rows=city.get('nativeNormalTextureBindings');seen=set()
+    if not isinstance(rows,list) or len(rows)!=len(sources):
+        raise ValueError('Original citadel OpenGL normal bindings are missing or duplicated.')
+    for row in rows:
+        package=f'/Game/WorldRebuild/AegisCitadel_{city["revision"]}/Textures/T_{Path(row.get("source","")).stem}_normal'
+        if (set(row)!={'source','sourceSha256','sourceConvention','package','sha256',
+                    'actualFlipGreenChannel','actualSrgb','actualCompression'}
+                or row['source'] not in sources or row['source'] in seen
+                or row['sourceConvention']!='gltf_opengl_positive_y' or row['package']!=package
+                or not re.fullmatch('[a-f0-9]{64}',str(row['sha256'])) or row['sha256']!=city.get('packageHashes',{}).get(package)
+                or not re.fullmatch('[a-f0-9]{64}',str(row['sourceSha256'])) or row['sourceSha256']!=source.get('materialSources',{}).get(row['source'])
+                or row['actualFlipGreenChannel'] is not True or row['actualSrgb'] is not False or row['actualCompression']!='TC_NORMALMAP'):
+            raise ValueError('Original citadel OpenGL normal import readbacks or package hashes differ.')
+        seen.add(row['source'])
+
+
 def versioned_mesh_bindings(plan, rows, bindings):
     version = plan.get('recipeVersion', 1)
-    if type(version) is not int or not 1 <= version <= 9:
+    if type(version) is not int or not 1 <= version <= 12:
         raise ValueError('Unsupported citadel mesh recipe version.')
-    count = 39 if version == 9 else 38
+    # Recipe twelve changes crown geometry within the signed 45-model manifest.
+    count = 45 if version >= 10 else 39 if version == 9 else 38
     if (not isinstance(rows, list) or len(rows) != count
             or not isinstance(bindings, list) or len(bindings) != count
             or any(not isinstance(row, dict) or not isinstance(row.get('id'), str)
@@ -188,8 +215,11 @@ def versioned_mesh_bindings(plan, rows, bindings):
     source_ids = {row['id'] for row in rows}
     if len(native) != count or len(source_ids) != count or set(native) != source_ids:
         raise ValueError('Duplicate or mismatched native/source citadel mesh identity.')
-    if ('wing_foundation_repairs' in source_ids) != (version == 9):
+    if ('wing_foundation_repairs' in source_ids) != (version >= 9):
         raise ValueError('Wing foundation binding differs from the recorded recipe version.')
+    dressing = {'dressing_'+key for key in ('forehall','throne_hall','west_archive','east_treasury','west_terrace','east_terrace')}
+    if source_ids.intersection(dressing) != (dressing if version >= 10 else set()):
+        raise ValueError('Furnishing groups differ from the recorded recipe version.')
     return native
 
 
@@ -198,6 +228,7 @@ def import_binding_proof(run, plan, source, city):
     from citadel_stage_contract import (NATIVE_IMPORT_CONVENTION, SOURCE_TRIANGLE_CONVENTION, native_triangle_indices,
         NATIVE_MESH_BUILD_SETTINGS, checked_render_audit, source_array_sha256)
     material_binding_proof(plan,source,city)
+    normal_texture_binding_proof(plan,source,city)
     if city.get('nativeImportConvention') != NATIVE_IMPORT_CONVENTION:
         raise ValueError('Explicit source CCW to native CW outward-normal import convention is required.')
     rows, bindings = source.get('assets'), city.get('bindings')
@@ -606,7 +637,7 @@ def spawn_approach_routes(plan):
             if not connected:
                 raise ValueError('Spawn approach does not meet its declared playable route.')
         if plan.get('recipeVersion',0)>=6 and (plan.get('baseline') or {}).get('packageHashes'):
-            validate_retained_surfaces(plan['baseline'],approaches)
+            validate_retained_surfaces(plan['baseline'],approaches,plan.get('spawnRelocations'),plan['recipeVersion'])
     return [dict(id='spawn_' + str(row['index']) + '_approach',
                  points=row['points'], width=row['widthCm'])
             for row in approaches if row['index'] >= 2 and len(row['points']) > 1]

@@ -16,12 +16,24 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).parent))
 from aegis_citadel_blueprint import OUT, digest, sha
 from aegis_citadel_lighting import FIXTURES, reference_fixture_requests, CLOUD_PROPERTIES, CLOUD_IDENTITY, REVIEWED_CLOUD_MATERIAL
-from citadel_stage_contract import native_lighting_value, lighting_readback, checked_lighting_exposure
+from citadel_stage_contract import native_lighting_value, lighting_readback, checked_lighting_exposure, checked_render_audit
 from shared_city_sources import package_file,protected_source_file
 from shared_city_authoring import prepare_city
-from world_actor_state import snapshot
+from world_actor_state import snapshot, transform
 from aegis_citadel_mountain_material import (alpine_material,MOUNTAIN_MATERIAL_SPEC,
     MOUNTAIN_MATERIAL_SOURCE,MOUNTAIN_SHADER,mountain_render_normal_convention)
+from aegis_citadel_cloud_material import SPEC as AUTHORED_CLOUD_SPEC, SHADER as AUTHORED_CLOUD_SHADER, create_cloud_material
+from aegis_citadel_alpine_relief import SPEC as ALPINE_RELIEF_SPEC, refine_native_highland
+from aegis_citadel_stone_material import SPEC as SCULPTURE_SPEC, COLOR_SHADER, HEIGHT_SHADER, NORMAL_SHADER, weather_carved_stone
+from aegis_citadel_reference_material import REFERENCE_MATERIAL_MODES, reference_material_comparison, reference_cloud_comparison
+from citadel_lumen_study import PRIVATE_LUMEN_MODES, private_lumen_comparison
+from citadel_performance_evidence import performance_package_file
+from citadel_twilight_fire_study import (checked_option as twilight_fire_option,
+    comparison as twilight_fire_comparison, checked_readbacks as checked_twilight_fire_readbacks)
+from citadel_private_surface_study import (selected_specs, verify_bindings, create_surfaces,
+    create_mountain, actor_binding_readback, verify_role_coverage, graph_readback, sculpture_binding_readbacks)
+from aegis_citadel_distant_crags import (checked_option, bind_backdrop, stage_backdrop,
+    collision_snapshot, read_component_policy, checked_retained_collision)
 
 revision = os.environ.get('WAR_CITADEL_INSPECT_REVISION', '')
 if not re.fullmatch('[a-f0-9]{12}', revision):
@@ -42,10 +54,17 @@ requests = [dict(id=row['id'],properties=copy.deepcopy(row['properties']),
     for row in blueprint['lightingTreatment']['fixtures']]
 if len(requests)!=7 or {row['id'] for row in requests}!={row[0] for row in FIXTURES}:
     raise RuntimeError('Study requires all seven exact signed fixture identities')
-ALPINE_MODES=('alpine_sunset','alpine_storm','alpine_recess','alpine_clear_foreground','alpine_cloud_scale','alpine_portal_reveal')
+ALPINE_MODES=('alpine_sunset','alpine_storm','alpine_recess','alpine_clear_foreground','alpine_cloud_scale','alpine_portal_reveal','alpine_engine_mask','alpine_native_clouds','alpine_stratocumulus','alpine_volume_probe','alpine_authored_clouds','alpine_relief')
 mode = os.environ.get('WAR_CITADEL_LIGHTING_STUDY_MODE', 'base')
-if mode not in ('base', 'cloud_contrast', 'billowing_canopy', 'cumulus_quality', 'grazing_sunset', 'matte_cloth','cinematic_dusk','storm_dusk','balanced_dusk','reference_dusk','slate_dusk',*ALPINE_MODES):
+if mode not in ('base', 'cloud_contrast', 'billowing_canopy', 'cumulus_quality', 'grazing_sunset', 'matte_cloth','cinematic_dusk','storm_dusk','balanced_dusk','reference_dusk','slate_dusk',*ALPINE_MODES,*REFERENCE_MATERIAL_MODES,*PRIVATE_LUMEN_MODES):
     raise RuntimeError('Unknown isolated lighting study mode')
+backdrop_enabled = checked_option(os.environ.get('WAR_CITADEL_DISTANT_CRAGS', ''))
+backdrop_spec, backdrop_mesh, backdrop_readback = None, None, None
+retained_scenery_collision = {}
+if backdrop_enabled:
+    backdrop_spec, backdrop_mesh = bind_backdrop(ROOT, blueprint, revision)
+    backdrop_spec['helperSha256'] = sha(Path(__file__).with_name('aegis_citadel_distant_crags.py'))
+    backdrop_spec['candidateSha256'] = sha(source_dir / 'candidate.json')
 cloud_scalars, cloud_vectors = {}, {}
 cloud_properties = dict(CLOUD_PROPERTIES)
 if mode in ('cloud_contrast', 'billowing_canopy', 'cumulus_quality', 'grazing_sunset', 'matte_cloth'):
@@ -127,7 +146,7 @@ if mode in ('cinematic_dusk','storm_dusk','balanced_dusk','reference_dusk','slat
         by_id['ambient_sky']['properties'].update(intensity=2)
         by_id['exposure']['properties'].update(auto_exposure_min_brightness=64,
             auto_exposure_max_brightness=192,auto_exposure_bias=-.5)
-if mode in ('alpine_storm','alpine_recess','alpine_clear_foreground','alpine_cloud_scale','alpine_portal_reveal'):
+if mode in ('alpine_storm','alpine_recess','alpine_clear_foreground','alpine_cloud_scale','alpine_portal_reveal','alpine_engine_mask'):
     by_id['sun']['rotationDegrees']=[-16,30,0]
     by_id['sun']['properties'].update(intensity=1800,temperature=5800,light_source_angle=4)
     by_id['soft_sky_fill']['properties'].update(intensity=500,cast_shadows=False,cast_dynamic_shadows=False)
@@ -138,7 +157,7 @@ if mode in ('alpine_storm','alpine_recess','alpine_clear_foreground','alpine_clo
     cloud_scalars.update(Cloud_GlobalCoverage=.58,Cloud_GlobalDensity=.012,StormClouds=.8)
     by_id['exposure']['properties'].update(auto_exposure_min_brightness=64,
         auto_exposure_max_brightness=256,auto_exposure_bias=-.55)
-if mode in ('alpine_recess','alpine_clear_foreground','alpine_cloud_scale','alpine_portal_reveal'):
+if mode in ('alpine_recess','alpine_clear_foreground','alpine_cloud_scale','alpine_portal_reveal','alpine_engine_mask'):
     # A single-variable comparison against the storm study: retain readable
     # skylight while reducing the shadowless directional wash across recesses.
     by_id['soft_sky_fill']['properties']['intensity']=200
@@ -147,7 +166,7 @@ if mode=='alpine_clear_foreground':
     # ordinary exponential fog unchanged for this single-variable comparison.
     by_id['distance_haze']['properties']['volumetric_fog_start_distance']=10000
 cloud_default_witness = None
-if mode == 'alpine_cloud_scale':
+if mode in ('alpine_cloud_scale','alpine_native_clouds','alpine_stratocumulus'):
     surveys = sorted(source_dir.glob('cloud-material-survey-*.json'))
     if not surveys:
         raise RuntimeError('An actual native cloud-default survey is required')
@@ -164,23 +183,107 @@ if mode == 'alpine_cloud_scale':
         originalScale=parent[0]['scalars']['Layout_CloudGlobalScale'],
         comparisonScale=8, requestedScale=256)
     cloud_scalars['Layout_CloudGlobalScale'] = 256
-if mode == 'alpine_portal_reveal':
+    if mode in ('alpine_native_clouds','alpine_stratocumulus'):
+        # Isolate the actual installed density/layout recipe before tuning its
+        # appearance; render-resource validity alone cannot prove visible clouds.
+        native=parent[0]
+        cloud_scalars={key:native['scalars'][key] for key in
+            ('Layout_CloudGlobalScale','Cloud_GlobalCoverage','Cloud_GlobalDensity','StormClouds')}
+        cloud_vectors={key:native['vectors'][key] for key in ('Layout_CloudTypeMask','Cloud_AlbedoColor')}
+        cloud_vectors['Storm_LightningColor']=[0,0,0,0]
+        cloud_default_witness['requestedScalars']=cloud_scalars
+        cloud_default_witness['requestedVectors']=cloud_vectors
+if mode=='alpine_stratocumulus':
+    # Layout_CloudType controls visibility; TypeMask controls the global mask's
+    # influence. Bind real stratocumulus, retain installed shape/noise defaults.
+    cloud_scalars.update(Cloud_GlobalCoverage=.65,Cloud_GlobalDensity=.012,StormClouds=.25)
+    cloud_vectors.update(Layout_CloudType=[1,.15,.1,.3],Layout_CloudTypeMask=[0,0,0,0],
+        Cloud_AlbedoColor=[.55,.61,.70,.65],Storm_AlbedoColor=[.18,.23,.31,.5])
+    cloud_properties.update(layer_bottom_altitude=.7,layer_height=3)
+    cloud_default_witness.update(parameterSemanticsSource=
+        'https://dev.epicgames.com/documentation/unreal-engine/volumetric-cloud-material-in-unreal-engine',
+        typeVisibilityParameter='Layout_CloudType',maskInfluenceParameter='Layout_CloudTypeMask')
+if mode in ('alpine_portal_reveal','alpine_engine_mask','alpine_native_clouds','alpine_stratocumulus'):
     for request in practical_requests:
         if request['id'] in ('portal_reveal_0', 'portal_reveal_1'):
             request['studyPointCm'] = [25000, *request['pointCm'][1:]]
+if mode == 'alpine_engine_mask':
+    # Historical comparison of global-mask influence, not cloud-type visibility.
+    cloud_vectors['Layout_CloudTypeMask']=[0,0,0,1]
 if mode == 'matte_cloth':
     next(r for r in requests if r['id'] == 'sun')['rotationDegrees'] = [-20, 65, 0]
     cloth_spec = dict(baseColor=[.018, .075, .23, 1], roughness=.92, metallic=0, specular=.25, twoSided=True)
-study_signature = digest(dict(sourceRevision=revision, sourceCity=candidate['city']['revision'],
+volume_probe=dict(extinctionPerCm=.0005,albedo=[.72,.78,.9,1],blendMode='additive',diagnosticOnly=True) if mode=='alpine_volume_probe' else None
+authored_cloud = dict(spec=AUTHORED_CLOUD_SPEC,shader=AUTHORED_CLOUD_SHADER,
+    helperSha256=sha(Path(__file__).with_name('aegis_citadel_cloud_material.py'))) if mode in ('alpine_authored_clouds','alpine_relief') else None
+relief_spec=dict(spec=ALPINE_RELIEF_SPEC,
+    helperSha256=sha(Path(__file__).with_name('aegis_citadel_alpine_relief.py')),
+    existingCollisionRetained=True,renderOnly=True) if mode=='alpine_relief' else None
+sculpture_spec=dict(spec=SCULPTURE_SPEC,colorShader=COLOR_SHADER,heightShader=HEIGHT_SHADER,normalShader=NORMAL_SHADER,
+    helperSha256=sha(Path(__file__).with_name('aegis_citadel_stone_material.py'))) if mode=='alpine_relief' else None
+if authored_cloud:
+    by_id['sun']['rotationDegrees']=[-16,30,0]
+    by_id['sun']['properties'].update(intensity=1800,temperature=6500,light_source_angle=4)
+    by_id['soft_sky_fill']['properties'].update(intensity=200,cast_shadows=False,cast_dynamic_shadows=False)
+    by_id['ambient_sky']['properties'].update(intensity=2.5)
+    cloud_properties.update(layer_bottom_altitude=AUTHORED_CLOUD_SPEC['layerBottomKm'],
+        layer_height=AUTHORED_CLOUD_SPEC['layerHeightKm'])
+    if relief_spec:
+        by_id['sun']['properties'].update(cast_cloud_shadows=True,cloud_shadow_strength=.65,
+            cloud_shadow_on_surface_strength=.65,cloud_shadow_extent=5,cloud_shadow_map_resolution_scale=2)
+        by_id['ambient_sky']['properties'].update(cloud_ambient_occlusion=True,
+            cloud_ambient_occlusion_strength=.45,cloud_ambient_occlusion_extent=5)
+private_lumen_spec = None
+if mode in PRIVATE_LUMEN_MODES:
+    requests, private_lumen_cloud, private_lumen_spec = private_lumen_comparison(
+        mode, requests, blueprint['lightingTreatment']['cloudFixture'])
+    cloud_properties, cloud_scalars, cloud_vectors = private_lumen_cloud
+    private_lumen_spec['helperSha256'] = sha(Path(__file__).with_name('citadel_lumen_study.py'))
+    private_lumen_spec['cloudRecipeHelperSha256'] = sha(Path(__file__).with_name('aegis_citadel_reference_material.py'))
+if mode in REFERENCE_MATERIAL_MODES:
+    requests,carved_spec,stone_specs=reference_material_comparison(mode,requests)
+    cloud_properties,cloud_scalars,cloud_vectors=reference_cloud_comparison(blueprint['lightingTreatment']['cloudFixture'])
+private_twilight_spec = None
+if twilight_fire_option(os.environ.get('WAR_CITADEL_TWILIGHT_FIRE_STUDY', '')):
+    requests, practical_requests, private_twilight_spec = twilight_fire_comparison(
+        mode, requests, blueprint['architecturalLights'], blueprint['lightingTreatment']['exposureUnits'],
+        exposure_extended, dict(blueprint=sha(source_dir / 'blueprint.json'),
+            candidate=sha(source_dir / 'candidate.json'), stager=sha(Path(__file__)),
+            fixtureHelper=sha(Path(__file__).with_name('aegis_citadel_lighting.py')),
+            twilightHelper=sha(Path(__file__).with_name('citadel_twilight_fire_study.py'))))
+    cloud_properties, cloud_scalars, cloud_vectors = reference_cloud_comparison(blueprint['lightingTreatment']['cloudFixture'])
+from citadel_retained_mountain_bridge import inspect_current_mountain
+from citadel_private_surface_study import MOUNTAIN_SWITCH,MOUNTAIN_MODE
+mountain_inspection = inspect_current_mountain(unreal,ROOT,candidate) if os.environ.get(MOUNTAIN_SWITCH)==MOUNTAIN_MODE else None
+private_surface_spec = selected_specs(os.environ, mode, ROOT, source_dir, candidate, mountain_inspection=mountain_inspection)
+if private_surface_spec is not None:
+    private_surface_spec['helperSha256'] = sha(Path(__file__).with_name('citadel_private_surface_study.py'))
+    verify_bindings(ROOT, private_surface_spec)
+study_signature_input = dict(sourceRevision=revision, sourceCity=candidate['city']['revision'],
     fixtureRequests=requests, cloud=cloud_properties, glassEmission=[10, 3.1, .4],
     mode=mode, cloudScalars=cloud_scalars, cloudVectors=cloud_vectors,
     practicalShadows=True, practicalRequests=practical_requests,
     cloth=cloth_spec, carvedStone=carved_spec,masonryTints=stone_specs,
     mountainMaterial=MOUNTAIN_MATERIAL_SPEC if mode in ALPINE_MODES else None,
     roofDetail=roof_detail,
+    retainedMountainAdapterSha256=sha(Path(__file__).with_name('citadel_retained_mountain_adapter.py')),
+    retainedMountainBridgeSha256=sha(Path(__file__).with_name('citadel_retained_mountain_bridge.py')),
     mountainShader=MOUNTAIN_SHADER if mode in ALPINE_MODES else None,helperSha256=sha(Path(__file__)),
-    cloudDefaultWitness=cloud_default_witness,
-    mountainHelperSha256=sha(Path(__file__).with_name('aegis_citadel_mountain_material.py'))))
+    cloudDefaultWitness=cloud_default_witness,volumeProbe=volume_probe,authoredCloud=authored_cloud,alpineRelief=relief_spec,
+    sculptureWeathering=sculpture_spec,
+    referenceMaterialHelperSha256=sha(Path(__file__).with_name('aegis_citadel_reference_material.py')) if mode in REFERENCE_MATERIAL_MODES else None,
+    mountainHelperSha256=sha(Path(__file__).with_name('aegis_citadel_mountain_material.py')))
+if private_lumen_spec is not None:
+    study_signature_input['privateLumen'] = private_lumen_spec
+if backdrop_enabled:
+    study_signature_input['distantCragBackdrop'] = backdrop_spec
+if private_surface_spec is not None:
+    study_signature_input['privateSurfaceStudy'] = private_surface_spec
+if private_twilight_spec is not None:
+    if private_surface_spec is not None and private_surface_spec['mountainMode']:
+        raise RuntimeError('Retained mountain treatment stays disabled for twilight comparisons')
+    study_signature_input['privateTwilightFire'] = private_twilight_spec
+study_signature = digest(study_signature_input)
 destination = '/Game/WorldRebuild/AegisCitadel_' + study_signature[:12]
 output = source_dir / ('lighting-study-' + study_signature[:12])
 output.mkdir(exist_ok=True)
@@ -206,11 +309,47 @@ def duplicate(source, target):
 
 mountain_material,mountain_readback=None,None
 mountain_actor_readbacks=[]
+if private_surface_spec is not None and private_surface_spec['mountainMode']:
+    mountain_material, mountain_readback = create_mountain(
+        unreal, destination, source_dir, candidate, private_surface_spec, duplicate)
+relief_mesh,relief_readback=None,None
+dynamic_light_readbacks=[]
 if mode in ALPINE_MODES:
     if MOUNTAIN_MATERIAL_SOURCE not in expected:
         raise RuntimeError('Original granite material is outside the signed source package closure')
     normal_convention=mountain_render_normal_convention(source_dir,candidate)
     mountain_material,mountain_readback=alpine_material(unreal,destination,duplicate,normal_convention)
+    if relief_spec:
+        measured=candidate['terrainCarves'][0]
+        rendered_binding=measured['nativeReadback']['renderedFaces']
+        rendered_file=source_dir/rendered_binding['path']
+        if sha(rendered_file)!=rendered_binding['sha256']:
+            raise RuntimeError('Refinement requires the exact saved mountain render buffers')
+        relief_data,relief_readback=refine_native_highland(json.loads(rendered_file.read_text()))
+        relief_file=output/'alpine-relief.json'
+        relief_file.write_text(json.dumps(relief_data,separators=(',',':'))+'\n')
+        relief_path=destination+'/Meshes/SM_AlpineRelief'
+        if assets.does_asset_exist(relief_path):raise RuntimeError('Preserve an existing alpine refinement')
+        # The dedicated visible component has no collision. The original measured
+        # actor continues to own all ground/corridor collision in the copied level.
+        import math
+        native_normals=[[v/math.sqrt(sum(c*c for c in normal)) for v in normal]
+            for normal in relief_data['normals']]
+        relief_mesh=unreal.WarImportLibrary.create_composite_world_surface('AegisCitadel_'+study_signature[:12],
+            'SM_AlpineRelief',[unreal.Vector(*p) for p in relief_data['positions']],relief_data['indices'],
+            [unreal.Vector(*n) for n in native_normals],[unreal.Vector2D(*uv) for uv in relief_data['uvs']],[],
+            relief_data['triangleMaterials'],[mountain_material],False)
+        if not relief_mesh or not unreal.WarImportLibrary.configure_citadel_surface_lods(relief_mesh):
+            raise RuntimeError('Cannot build the owned three-LOD alpine render surface')
+        record(relief_path)
+        render_payload=unreal.WarImportLibrary.describe_static_mesh_render_data(relief_mesh)
+        render_audit=json.loads(render_payload)
+        checked_render_audit(render_audit,relief_mesh.get_path_name())
+        if not assets.save_loaded_asset(relief_mesh,only_if_is_dirty=False):
+            raise RuntimeError('Cannot save the owned alpine render surface')
+        relief_readback.update(sourceRenderedFaces=rendered_binding,sourceFile=str(relief_file),
+            sourceSha256=sha(relief_file),mesh=relief_mesh.get_path_name(),renderAudit=render_audit,
+            lodTriangles=[relief_mesh.get_num_triangles(i) for i in range(relief_mesh.get_num_lods())])
 
 def load(package):
     if not levels.load_level(package):
@@ -287,6 +426,8 @@ if carved_spec:
         raise RuntimeError('Expected exact untextured carved-stone base color graph')
     wanted=carved_spec['baseColor'];node.constant=unreal.LinearColor(r=wanted[0],g=wanted[1],b=wanted[2],a=1)
     carved_readbacks['baseColor']=lighting_readback(node.constant,dict(kind='linear_color',value=wanted))
+    if sculpture_spec:
+        carved_readbacks['weathering']=weather_carved_stone(unreal,carved,node)
     unreal.MaterialEditingLibrary.recompile_material(carved)
     if not assets.save_loaded_asset(carved,only_if_is_dirty=False):
         raise RuntimeError('Cannot save owned study carved stone')
@@ -335,6 +476,12 @@ for role,wanted in stone_specs.items():
     if not assets.save_loaded_asset(material,only_if_is_dirty=False):
         raise RuntimeError('Cannot save owned masonry material: '+role)
     masonry_materials[original]=material
+private_surface_readbacks = {}
+private_surface_actor_readbacks = []
+if private_surface_spec is not None and private_surface_spec['surfaceMode']:
+    private_materials, private_surface_readbacks = create_surfaces(
+        unreal, destination, revision, source_materials, private_surface_spec, duplicate)
+    masonry_materials.update(private_materials)
 cloud_material = unreal.load_asset(REVIEWED_CLOUD_MATERIAL)
 cloud_parameter_readbacks = {}
 if cloud_scalars or cloud_vectors:
@@ -366,6 +513,34 @@ if cloud_scalars or cloud_vectors:
         cloud_parameter_readbacks[key] = lighting_readback(actual, dict(kind='linear_color', value=wanted))
     if not assets.save_loaded_asset(cloud_material, only_if_is_dirty=False):
         raise RuntimeError('Cannot save owned cloud instance')
+authored_cloud_readback = None
+if authored_cloud:
+    cloud_material,authored_cloud_readback = create_cloud_material(unreal,destination,record)
+if volume_probe:
+    # A uniform volume isolates renderer/cloud-shell visibility from the stock
+    # layout and noise graph. It is a diagnostic, never a proposed final sky.
+    material_path=destination+'/Materials/M_CloudVolumeProbe'
+    cloud_material=unreal.AssetToolsHelpers.get_asset_tools().create_asset('M_CloudVolumeProbe',
+        destination+'/Materials',unreal.Material,unreal.MaterialFactoryNew())
+    if not cloud_material:raise RuntimeError('Cannot create isolated volume probe')
+    record(material_path);lib=unreal.MaterialEditingLibrary
+    cloud_material.set_editor_property('material_domain',unreal.MaterialDomain.MD_VOLUME)
+    cloud_material.set_editor_property('blend_mode',unreal.BlendMode.BLEND_ADDITIVE)
+    cloud_material.set_editor_property('used_with_volumetric_cloud',True)
+    if (cloud_material.get_editor_property('material_domain')!=unreal.MaterialDomain.MD_VOLUME
+            or cloud_material.get_editor_property('blend_mode')!=unreal.BlendMode.BLEND_ADDITIVE
+            or cloud_material.get_editor_property('used_with_volumetric_cloud') is not True):
+        raise RuntimeError('The isolated probe requires an additive volume cloud material')
+    for prop,wanted in ((unreal.MaterialProperty.MP_BASE_COLOR,volume_probe['albedo']),
+                        (unreal.MaterialProperty.MP_SUBSURFACE_COLOR,[volume_probe['extinctionPerCm']]*3+[1])):
+        node=lib.create_material_expression(cloud_material,unreal.MaterialExpressionConstant3Vector)
+        node.constant=unreal.LinearColor(*wanted)
+        if not lib.connect_material_property(node,'',prop) or lib.get_material_property_input_node(cloud_material,prop)!=node:
+            raise RuntimeError('Volume probe has a disconnected material input')
+        lighting_readback(node.constant,dict(kind='linear_color',value=wanted))
+    errors=lib.recompile_material(cloud_material)
+    if errors:raise RuntimeError('Volume probe did not compile: '+str(errors))
+    if not assets.save_loaded_asset(cloud_material,only_if_is_dirty=False):raise RuntimeError('Cannot save volume probe')
 
 scenery = []
 fixture_readbacks = []
@@ -396,6 +571,9 @@ def portal_shadow_segment(world, actor, origin):
     return row
 for index, source in enumerate(candidate['city']['sceneryLevels']):
     if source.endswith('/Layers/population'):
+        if backdrop_enabled:
+            load(source)
+            retained_scenery_collision[source] = collision_snapshot(unreal, own(source))
         scenery.append(source)
         continue
     target = destination + '/Layers/Study_' + str(index)
@@ -406,6 +584,15 @@ for index, source in enumerate(candidate['city']['sceneryLevels']):
     if {a.get_name(): snapshot(a) for a in own(target)} != source_states:
         raise RuntimeError('Native duplicate changed retained actor state')
     rows = own(target)
+    if relief_spec:
+        for actor in rows:
+            for component in actor.get_components_by_class(unreal.PointLightComponent):
+                original_mobility=component.get_editor_property('mobility')
+                component.set_mobility(unreal.ComponentMobility.MOVABLE)
+                if component.get_editor_property('mobility')!=unreal.ComponentMobility.MOVABLE:
+                    raise RuntimeError('The copied runtime practical retained static-lighting dependence')
+                dynamic_light_readbacks.append(dict(actor=actor.get_path_name(),component=component.get_path_name(),
+                    sourceMobility=str(original_mobility),actualMobility='movable',intensity=component.get_editor_property('intensity')))
     for request in requests:
         identity = next(row for row in FIXTURES if row[0] == request['id'])
         _, name, klass, label, component_name, _, tag = identity
@@ -439,6 +626,8 @@ for index, source in enumerate(candidate['city']['sceneryLevels']):
             if any(abs(v-w)>.01 for v,w in zip((point.x,point.y,point.z),wanted)):
                 raise RuntimeError('Private practical moved from its signed position')
             component=actor.point_light_component
+            if private_twilight_spec is not None and component.get_editor_property('mobility') != unreal.ComponentMobility.MOVABLE:
+                raise RuntimeError('Twilight practical requires the actual movable source component')
             practical_visibility = visible_state(actor,component)
             if practical_visibility != dict(actorHidden=False,componentVisible=True,componentHiddenInGame=False):
                 raise RuntimeError('The exact owned practical light is hidden or disabled')
@@ -464,10 +653,14 @@ for index, source in enumerate(candidate['city']['sceneryLevels']):
                 castShadows=lighting_readback(component.get_editor_property('cast_shadows'),True),
                 attenuationRadiusCm=lighting_readback(component.get_editor_property('attenuation_radius'),source_light['attenuationRadiusCm']),
                 temperatureK=lighting_readback(component.get_editor_property('temperature'),source_light['temperatureK']),
-                intensityCd=lighting_readback(component.get_editor_property('intensity'),request['intensityCd'])))
+                intensityCd=lighting_readback(component.get_editor_property('intensity'),request['intensityCd']),
+                **(dict(sourceRadiusCm=lighting_readback(component.get_editor_property('source_radius'),source_light['sourceRadiusCm']),
+                        mobility='movable') if private_twilight_spec is not None else {})))
         for actor in rows:
             if isinstance(actor, unreal.PointLight):
                 actor.point_light_component.set_cast_shadows(True)
+            if private_surface_spec is not None and private_surface_spec['surfaceMode']:
+                surface_actor_before = snapshot(actor)
             for component in actor.get_components_by_class(unreal.StaticMeshComponent):
                 for slot in range(component.get_num_materials()):
                     material = component.get_material(slot)
@@ -487,6 +680,20 @@ for index, source in enumerate(candidate['city']['sceneryLevels']):
                         component=component.get_path_name(),mesh=component.static_mesh.get_path_name(),
                         emissiveSlot=slots[0],emissiveMaterial=component.get_material(slots[0]).get_path_name(),
                         visibility=visible_state(actor,component),runtimeVisibilityVerified=False))
+            if private_surface_spec is not None and private_surface_spec['surfaceMode']:
+                replacements = {source: material.get_path_name() for source, material in masonry_materials.items()}
+                replacements[glass_source] = glass.get_path_name()
+                if cloth:
+                    replacements[cloth_source] = cloth.get_path_name()
+                if carved:
+                    replacements[carved_source] = carved.get_path_name()
+                surface_actor_after = snapshot(actor)
+                bindings = actor_binding_readback(surface_actor_before, surface_actor_after, replacements)
+                bindings = [row for row in bindings if row['actualMaterial'] in
+                    {material.get_path_name() for material in private_materials.values()}]
+                if bindings:
+                    private_surface_actor_readbacks.append(dict(level=target, actorName=actor.get_name(),
+                        actor=actor.get_path_name(), before=surface_actor_before, after=surface_actor_after, bindings=bindings))
         clouds=[a for a in rows if isinstance(a,unreal.VolumetricCloud)
             and a.get_actor_label()==CLOUD_IDENTITY['label']
             and CLOUD_IDENTITY['requiredTag'] in [str(t) for t in a.tags]]
@@ -520,11 +727,39 @@ for index, source in enumerate(candidate['city']['sceneryLevels']):
             next(c for c in expected_actor['components'] if c['name']==measured['component'])['materials']=[mountain_material.get_path_name()]
             if after_actor!=expected_actor:
                 raise RuntimeError('Mountain study changed geometry, transform, collision or another actor property')
+            if relief_mesh:
+                collision_before=component.get_collision_enabled()
+                component.set_visibility(False,False)
+                if component.is_visible() or component.get_collision_enabled()!=collision_before:
+                    raise RuntimeError('The measured collision actor must remain enabled beneath the render replacement')
+                location=actor.get_actor_location();rotation=actor.get_actor_rotation()
+                visual=actors.spawn_actor_from_class(unreal.StaticMeshActor,location,rotation)
+                if not visual or visual.get_outer().get_path_name().split('.')[0]!=target:
+                    raise RuntimeError('Alpine render actor must belong to the exact owned copied level')
+                visual.set_actor_label('Bastion alpine highland render relief')
+                visual.tags=[unreal.Name('WarCitadelPrivateAlpineRelief')]
+                visible=visual.static_mesh_component;visible.set_static_mesh(relief_mesh)
+                visible.set_mobility(unreal.ComponentMobility.STATIC)
+                visible.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
+                visual.set_actor_scale3d(actor.get_actor_scale3d())
+                actual_render_transform=transform(visual.get_actor_transform())
+                expected_render_transform=transform(actor.get_actor_transform())
+                if (visible.get_collision_enabled()!=unreal.CollisionEnabled.NO_COLLISION
+                        or not visible.is_visible() or actual_render_transform!=expected_render_transform):
+                    raise RuntimeError('Alpine render replacement state differs: '+str(dict(
+                        actual=actual_render_transform,expected=expected_render_transform,
+                        collision=str(visible.get_collision_enabled()),visible=visible.is_visible())))
+                relief_readback.update(collisionActor=actor.get_path_name(),collisionComponent=component.get_path_name(),
+                    collisionEnabled=str(collision_before),collisionRetained=True,collisionMesh=component.static_mesh.get_path_name(),
+                    originalRenderHidden=True,renderActor=visual.get_path_name(),renderComponent=visible.get_path_name(),
+                    renderHasCollision=False,actorTransform=snapshot(visual))
             mountain_actor_readbacks.append(dict(actor=actor.get_path_name(),mesh=component.static_mesh.get_path_name(),
-                sourceMaterialBindings=actual_materials,sourcePbrGraph=MOUNTAIN_MATERIAL_SOURCE,
+                sourceMaterialBindings=actual_materials,sourcePbrGraph=mountain_readback.get('sourcePbrGraph',MOUNTAIN_MATERIAL_SOURCE),
                 studyMaterial=component.get_material(0).get_path_name(),
                 before=before_actor,after=after_actor))
     save(target)
+    if backdrop_enabled:
+        retained_scenery_collision[target] = collision_snapshot(unreal, own(target))
     scenery.append(target)
 if len(fixture_readbacks) != 7 or {r['id'] for r in fixture_readbacks} != {r[0] for r in FIXTURES}:
     raise RuntimeError('All seven exact native fixtures must be treated once')
@@ -542,6 +777,10 @@ def read_only_backup(file):
     if file.exists() and file.suffix not in ('.umap', '.uasset'):
         raise RuntimeError('Unexpected city package')
 
+if backdrop_enabled:
+    backdrop_layer, backdrop_readback = stage_backdrop(unreal, ROOT, destination, study_signature,
+        backdrop_spec, backdrop_mesh, record, duplicate, load, own, save)
+    scenery.append(backdrop_layer)
 zone = dict(id='aegis_capital', origin=candidate['city']['origin'], levels={str(i): p for i, p in enumerate(scenery)})
 city = prepare_city(zone, destination + '/City', read_only_backup, record, output,expected)
 if city['gameplayLevels'] or city['movedGameplay']:
@@ -577,6 +816,45 @@ for actor in actors.get_all_level_actors():
                  'enable_volumetric_fog','volumetric_fog_start_distance',
                  'volumetric_fog_near_fade_in_distance','volumetric_fog_distance',
                  'volumetric_fog_extinction_scale','volumetric_fog_scattering_distribution')}))
+if backdrop_enabled:
+    for package, retained in retained_scenery_collision.items():
+        checked_retained_collision(retained, collision_snapshot(unreal, own(package)))
+    matches = [a for a in own(backdrop_readback['layer']) if a.get_path_name() == backdrop_readback['actor']]
+    if len(matches) != 1:
+        raise RuntimeError('Assembled backdrop actor is unavailable or ambiguous')
+    loaded_policy = read_component_policy(unreal, matches[0].static_mesh_component)
+    if loaded_policy != backdrop_readback['componentReadback']:
+        raise RuntimeError('Assembled backdrop lost its saved native flags')
+    backdrop_readback['loadedComponentReadback'] = loaded_policy
+    backdrop_readback['retainedSceneryCollisionHashes'] = {p: digest(state) for p, state in retained_scenery_collision.items()}
+    rebound, _ = bind_backdrop(ROOT, blueprint, revision)
+    rebound['helperSha256'] = sha(Path(__file__).with_name('aegis_citadel_distant_crags.py'))
+    rebound['candidateSha256'] = sha(source_dir / 'candidate.json')
+    if rebound != backdrop_spec:
+        raise RuntimeError('Backdrop inputs or protected gameplay records changed during staging')
+private_surface_loaded_readbacks = []
+if private_surface_spec is not None:
+    verify_bindings(ROOT, private_surface_spec)
+    for actor_binding in private_surface_actor_readbacks:
+        matches = [actor for actor in actors.get_all_level_actors()
+            if actor.get_name() == actor_binding['actorName']
+            and actor.get_outer().get_path_name().split('.')[0] == actor_binding['level']]
+        if len(matches) != 1 or snapshot(matches[0]) != actor_binding['after']:
+            raise RuntimeError('Final loaded private surface actor state differs')
+        private_surface_loaded_readbacks.append(dict(actor=matches[0].get_path_name(), bindings=actor_binding['bindings']))
+    if private_surface_spec['surfaceMode']:
+        private_surface_role_coverage = verify_role_coverage(private_surface_loaded_readbacks,
+            [material.get_path_name() for material in private_materials.values()])
+        private_sculpture_readbacks = sculpture_binding_readbacks(unreal, actors.get_all_level_actors(),
+            private_surface_spec, private_materials[carved_source])
+    for audit in [*private_surface_readbacks.values(), *([mountain_readback] if private_surface_spec['mountainMode'] else [])]:
+        actual = graph_readback(unreal, unreal.load_asset(audit.get('graphMaterial',audit['material'])))
+        if actual != audit['afterGraph']:
+            raise RuntimeError('Final assembled private material graph differs from its saved readback')
+        if 'afterInstance' in audit:
+            native_instance=json.loads(unreal.WarImportLibrary.describe_material_instance(unreal.load_asset(audit['material'])))
+            if native_instance!=audit['afterInstance']:
+                raise RuntimeError('Final assembled retained MI state differs from its native saved readback')
 after = {p: sha(source_file(p,h)) for p,h in expected.items()}
 if before != after:
     raise RuntimeError('Private study changed retained or historical native bytes')
@@ -584,11 +862,12 @@ report = dict(schemaVersion=1, diagnosticOnly=True, signature=study_signature,
     helperSha256=sha(Path(__file__)), cloudDefaultWitness=cloud_default_witness,
     exposureUsesExtendedEV100=exposure_extended,exposureUnits=blueprint['lightingTreatment']['exposureUnits'],
     glassCompileErrors=list(glass_compile_errors),
-    mode=mode, cloudParameterReadbacks=cloud_parameter_readbacks, cloudProperties=cloud_properties,
+    mode=mode, cloudParameterReadbacks=cloud_parameter_readbacks, cloudProperties=cloud_properties,volumeProbe=volume_probe,
+    authoredCloudReadback=authored_cloud_readback,
     clothSpec=cloth_spec, clothReadbacks=cloth_readbacks,carvedStoneSpec=carved_spec,carvedStoneReadbacks=carved_readbacks,
     masonryTints=stone_specs,masonryReadbacks=masonry_readbacks,
     mountainMaterialReadback=mountain_readback,mountainActorReadbacks=mountain_actor_readbacks,
-    roofDetail=roof_detail,
+    roofDetail=roof_detail,alpineReliefReadback=relief_readback,dynamicPracticalReadbacks=dynamic_light_readbacks,
     historicalGeometryRevision=revision, blueprintPath=str(source_dir / 'blueprint.json'),
     blueprintSha256=sha(source_dir / 'blueprint.json'), map=map_path,
     mapSha256=sha(package_file(ROOT, map_path)), cityRevision=city['revision'],
@@ -598,6 +877,47 @@ report = dict(schemaVersion=1, diagnosticOnly=True, signature=study_signature,
     createdPackageHashes={p: sha(package_file(ROOT, p)) for p in created},
     sourceAndCandidateHashesUnchanged=True, visualApproved=False, lightingApproved=False,
     physicalTraversalApproved=False, gameplayApproved=False, releaseAcceptance=False)
+if private_surface_spec is not None:
+    report['privateSurfaceStudy'] = dict(spec=private_surface_spec,
+        materials=private_surface_readbacks, actorBindings=private_surface_actor_readbacks,
+        loadedBindings=private_surface_loaded_readbacks,
+        roleCoverage=private_surface_role_coverage if private_surface_spec['surfaceMode'] else None,
+        sculptures=private_sculpture_readbacks if private_surface_spec['surfaceMode'] else [],
+        mountain=mountain_readback if private_surface_spec['mountainMode'] else None,
+        editorGraphReadbackMatches=True, coldProcessVerified=False,
+        rendererStateVerified=False, visualApproved=False, releaseAcceptance=False)
+if private_lumen_spec is not None:
+    # Inspect the complete loaded static-mesh closure without rebuilding or
+    # saving its shared dependencies. Resource presence is not surface coverage.
+    inventory={}
+    for actor in actors.get_all_level_actors():
+        for component in actor.get_components_by_class(unreal.StaticMeshComponent):
+            mesh=component.static_mesh
+            if not mesh:
+                continue
+            path=mesh.get_path_name()
+            if path not in inventory:
+                package=path.split('.')[0]
+                file=performance_package_file(ROOT,package)
+                inventory[path]=dict(mesh=path,packageSha256=sha(file),
+                    resources=json.loads(unreal.WarImportLibrary.describe_static_mesh_lumen_resources(mesh)),components=[])
+            inventory[path]['components'].append(dict(actor=actor.get_path_name(),component=component.get_path_name(),
+                visible=component.is_visible(),hiddenInGame=component.get_editor_property('hidden_in_game'),
+                actorHidden=actor.get_editor_property('hidden'),affectDistanceFieldLighting=component.get_editor_property('affect_distance_field_lighting'),
+                visibleInRayTracing=component.get_editor_property('visible_in_ray_tracing')))
+    report['privateLumen'] = private_lumen_spec
+    report['rendererStateVerified'] = False
+    report['nativeResourcePresenceReady'] = False
+    report['nativeResourceAudit'] = dict(schemaVersion=1,readOnly=True,meshes=list(inventory.values()),
+        meshCount=len(inventory),runtimeSceneMembershipVerified=False,surfaceCacheCoverageVerified=False)
+    report['blendedViewReadback'] = None
+    report['rendererPassWitness'] = None
+if private_twilight_spec is not None:
+    report['privateTwilightFire'] = dict(spec=private_twilight_spec,
+        editorObjectReadback=checked_twilight_fire_readbacks(private_twilight_spec, fixture_readbacks,
+            practical_readbacks, loaded_lights, destination))
+if backdrop_enabled:
+    report['distantCragBackdrop'] = backdrop_readback
 (output / 'study.json').write_text(json.dumps(report, indent=2) + '\n')
 pending.unlink()
 unreal.log('WAR_CITADEL_PRIVATE_LIGHTING_STUDY=' + str(output / 'study.json'))

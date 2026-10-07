@@ -33,6 +33,7 @@ public:
     UPROPERTY() TObjectPtr<UWarCharacterVisualDefinition> Visual;
     bool bOptionalTask = false;
     int32 ObjectiveSide = 0;
+    int32 EscortSeat = INDEX_NONE;
     FVector PreviousLocation = FVector::ZeroVector;
     FVector LastMoveGoal = FVector::ZeroVector;
     double StalledSeconds = 0;

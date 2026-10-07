@@ -12,7 +12,11 @@
 #include "Engine/World.h"
 #include "Engine/Brush.h"
 #include "Engine/BlockingVolume.h"
+#include "Engine/LevelStreamingDynamic.h"
 #include "Components/SphereComponent.h"
+#include "Dom/JsonObject.h"
+#include "Serialization/JsonSerializer.h"
+#include "LevelUtils.h"
 #include <limits>
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarZoneStreamingTest, "AegisWar.Foundation.ZoneStreaming",
@@ -41,6 +45,112 @@ bool FWarZoneStreamingTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("Lost visual readiness cancels travel"), Continue(true,true,false,0,900,1,30));
     TestFalse(TEXT("The loading deadline does not extend on retries"), Continue(true,true,true,0,900,30,30));
     TestFalse(TEXT("Invalid distance cancels travel"), Continue(true,true,true,std::numeric_limits<double>::quiet_NaN(),900,1,30));
+
+    World = UWorld::CreateWorld(EWorldType::Game, false, NAME_None, nullptr, true, ERHIFeatureLevel::Num, &Values);
+    if (!TestNotNull(TEXT("Connectionless streaming fixture world"), World)) return false;
+    GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(World);
+    // Runtime actor initialization registers controllers and enables the engine RPC dispatch path.
+    World->InitializeActorsForPlay(FURL());
+    TestTrue(TEXT("Streaming fixture has completed runtime actor initialization"), World->AreActorsInitialized());
+    auto* Streaming = World->GetSubsystem<UWarZoneStreamingSubsystem>();
+    auto* FirstPlayer = World->SpawnActor<AWarPlayerController>();
+    auto* SecondPlayer = World->SpawnActor<AWarPlayerController>();
+    auto* FirstState = World->SpawnActor<AWarPlayerState>();
+    auto* SecondState = World->SpawnActor<AWarPlayerState>();
+    auto* FirstZone = World->SpawnActor<AWarZoneAnchor>();
+    auto* SecondZone = World->SpawnActor<AWarZoneAnchor>();
+    if (!TestNotNull(TEXT("World streaming subsystem"), Streaming)
+        || !TestNotNull(TEXT("First synthetic controller"), FirstPlayer)
+        || !TestNotNull(TEXT("Second synthetic controller"), SecondPlayer)
+        || !TestNotNull(TEXT("First controller state"), FirstState)
+        || !TestNotNull(TEXT("Second controller state"), SecondState)
+        || !TestNotNull(TEXT("First zone anchor"), FirstZone)
+        || !TestNotNull(TEXT("Second zone anchor"), SecondZone))
+    {
+        World->DestroyWorld(false); GEngine->DestroyWorldContext(World);
+        return false;
+    }
+    FirstPlayer->SetPlayerState(FirstState); SecondPlayer->SetPlayerState(SecondState);
+    FirstZone->ZoneId = TEXT("sunmeadow_march"); SecondZone->ZoneId = TEXT("aegis_gate_fortress");
+    FirstState->SetCurrentZoneTrusted(FirstZone->ZoneId); SecondState->SetCurrentZoneTrusted(SecondZone->ZoneId);
+    const auto DeclareLevel = [World](AWarZoneAnchor* Anchor, FName Package)
+    {
+        auto* Level = NewObject<ULevelStreamingDynamic>(World);
+        Level->SetWorldAssetByPackageName(Package);
+        World->AddStreamingLevel(Level);
+        Anchor->ContentLevels.Add(Package);
+        return Level;
+    };
+    auto* FirstLevel = DeclareLevel(FirstZone, TEXT("/Game/Tests/Streaming/Sunmeadow"));
+    auto* SecondLevel = DeclareLevel(SecondZone, TEXT("/Game/Tests/Streaming/AegisGate"));
+    TestTrue(TEXT("Engine streaming status lookup resolves both declared levels"),
+        FLevelUtils::FindStreamingLevel(World, FirstLevel->GetWorldAssetPackageFName()) == FirstLevel
+        && FLevelUtils::FindStreamingLevel(World, SecondLevel->GetWorldAssetPackageFName()) == SecondLevel);
+    TestTrue(TEXT("Both dynamic declarations permit engine streaming status replication"),
+        FirstLevel->CanReplicateStreamingStatus() && SecondLevel->CanReplicateStreamingStatus());
+    TestTrue(TEXT("Synthetic controllers complete the runtime initialization used by RPCs"),
+        FirstPlayer->IsActorInitialized() && SecondPlayer->IsActorInitialized());
+    TestEqual(TEXT("Fixture runs without a network driver"), World->GetNetMode(), NM_Standalone);
+    TestNull(TEXT("First synthetic controller has no remote connection"), FirstPlayer->GetNetConnection());
+    TestNull(TEXT("Second synthetic controller has no remote connection"), SecondPlayer->GetNetConnection());
+    TestFalse(TEXT("Connectionless first controller is not a local player"), FirstPlayer->IsLocalController());
+    TestFalse(TEXT("Connectionless second controller is not a local player"), SecondPlayer->IsLocalController());
+    TSet<APlayerController*> Controllers;
+    for (auto It = World->GetPlayerControllerIterator(); It; ++It) Controllers.Add(It->Get());
+    TestTrue(TEXT("First synthetic controller participates in the server residency union"), Controllers.Contains(FirstPlayer));
+    TestTrue(TEXT("Second synthetic controller participates in the server residency union"), Controllers.Contains(SecondPlayer));
+
+    // A connectionless client RPC runs locally and can overwrite another player's server residency.
+    FirstLevel->SetShouldBeLoaded(true); FirstLevel->SetShouldBeVisible(true);
+    SecondPlayer->LevelStreamingStatusChanged(FirstLevel, false, false, false, INDEX_NONE);
+    TestFalse(TEXT("Engine client notification without a connection changes this server's load flag"), FirstLevel->ShouldBeLoaded());
+    TestFalse(TEXT("Engine client notification without a connection changes this server's visibility flag"), FirstLevel->GetShouldBeVisibleFlag());
+    FirstLevel->SetShouldBeLoaded(false); FirstLevel->SetShouldBeVisible(false);
+    SecondLevel->SetShouldBeLoaded(false); SecondLevel->SetShouldBeVisible(false);
+    Streaming->UpdateStreaming();
+    TestTrue(TEXT("First occupied zone remains requested by the server union"), FirstLevel->ShouldBeLoaded() && FirstLevel->GetShouldBeVisibleFlag());
+    TestTrue(TEXT("Second occupied zone remains requested by the server union"), SecondLevel->ShouldBeLoaded() && SecondLevel->GetShouldBeVisibleFlag());
+    TestTrue(TEXT("Connectionless controllers do not acquire per-client streaming state"), Streaming->ClientPackages.IsEmpty());
+
+    UWarZoneStreamingSubsystem::FPending Request;
+    Request.Player = FirstPlayer; Request.Destination = FirstZone->ZoneId;
+    const double Deadline = World->GetTimeSeconds() + 30.0;
+    const double GraceDeadline = World->GetTimeSeconds() + 5.0;
+    Request.Deadline = Deadline;
+    Streaming->Pending.Add(Request); Streaming->KeepUntil.Add(FirstZone->ZoneId, GraceDeadline);
+    TestFalse(TEXT("A declared requested level has no actual readiness before loading"), Streaming->IsZoneReady(FirstZone->ZoneId, FirstPlayer));
+    const FString SnapshotText = Streaming->DescribeZoneStreaming(FirstZone->ZoneId);
+    TSharedPtr<FJsonObject> Snapshot;
+    if (TestTrue(TEXT("Streaming diagnostic is valid JSON"), FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(SnapshotText), Snapshot)) && Snapshot)
+    {
+        TestTrue(TEXT("Snapshot identifies itself as diagnostic evidence"), Snapshot->GetBoolField(TEXT("diagnosticOnly")));
+        const auto& Requests = Snapshot->GetArrayField(TEXT("requests"));
+        if (TestEqual(TEXT("Snapshot retains the pending requester"), Requests.Num(), 1))
+        {
+            const auto Owner = Requests[0]->AsObject();
+            TestTrue(TEXT("Snapshot proves the requester belongs to this world"), Owner->GetBoolField(TEXT("ownerInWorld")));
+            TestFalse(TEXT("Snapshot distinguishes a requester without a network connection"), Owner->GetBoolField(TEXT("networkConnection")));
+        }
+        const auto& Levels = Snapshot->GetArrayField(TEXT("levels"));
+        if (TestEqual(TEXT("Snapshot describes the one authored streaming declaration"), Levels.Num(), 1))
+        {
+            const auto Level = Levels[0]->AsObject();
+            TestTrue(TEXT("Snapshot resolves the declared streaming level"), Level->GetBoolField(TEXT("declared")));
+            TestTrue(TEXT("Snapshot records desired loading"), Level->GetBoolField(TEXT("shouldLoad")));
+            TestTrue(TEXT("Snapshot records desired visibility"), Level->GetBoolField(TEXT("shouldBeVisible")));
+            TestFalse(TEXT("Snapshot does not report desired loading as actual loading"), Level->GetBoolField(TEXT("loaded")));
+            TestFalse(TEXT("Snapshot does not report desired visibility as actual visibility"), Level->GetBoolField(TEXT("visible")));
+        }
+    }
+    TestEqual(TEXT("Snapshot preserves the pending request count"), Streaming->Pending.Num(), 1);
+    TestEqual(TEXT("Snapshot preserves the original request deadline"), Streaming->Pending[0].Deadline, Deadline);
+    TestEqual(TEXT("Snapshot preserves the zone grace lease"), Streaming->KeepUntil.FindRef(FirstZone->ZoneId), GraceDeadline);
+    TestTrue(TEXT("Snapshot preserves both server residency requests"), FirstLevel->ShouldBeLoaded() && FirstLevel->GetShouldBeVisibleFlag()
+        && SecondLevel->ShouldBeLoaded() && SecondLevel->GetShouldBeVisibleFlag());
+    TestFalse(TEXT("Snapshot cannot load or reveal the destination"), FirstLevel->IsLevelLoaded() || FirstLevel->IsLevelVisible());
+    TestFalse(TEXT("Snapshot cannot grant destination readiness"), Streaming->IsZoneReady(FirstZone->ZoneId, FirstPlayer));
+    Streaming->Pending.Reset(); Streaming->KeepUntil.Remove(FirstZone->ZoneId);
+    World->DestroyWorld(false); GEngine->DestroyWorldContext(World);
     return true;
 }
 

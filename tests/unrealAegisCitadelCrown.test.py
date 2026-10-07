@@ -96,7 +96,8 @@ class CitadelCrownProposalTests(unittest.TestCase):
             self.assertGreaterEqual(body['roofSetbackCm'], 350)
         for tower in towers:
             self.assertGreaterEqual(tower['widthCm'], 650)
-            self.assertGreater(tower['peakCm']-tower['stoneTopCm'], 1300)
+            # A supported cap keeps at least 800 cm rise above its 90 cm seat.
+            self.assertGreaterEqual(tower['peakCm']-tower['stoneTopCm'], 890)
             # The actual upper opening is above the keep coping and remains
             # clear through the complete tower, rather than facing a roof skin.
             x, y = tower['centreCm']
@@ -118,6 +119,17 @@ class CitadelCrownProposalTests(unittest.TestCase):
         self.assertEqual(len(cluster['satelliteTurrets']),4)
         self.assertGreater(cluster['stoneTopCm'],max(body['ridge'] for body in self.contract['belfries']))
         self.assertEqual(self.contract['coreCompressionHighestZCm'],14200)
+
+    def test_fixed_six_tips_have_more_masonry_without_moving_the_lantern(self):
+        expected={'west_belfry':(13900,[15780,15150]),
+                  'central_belfry':(14800,[16680,16150]),
+                  'east_belfry':(13980,[15480,14880])}
+        for body in self.contract['belfries']:
+            top,peaks=expected[body['id']]
+            self.assertEqual([t['stoneTopCm'] for t in body['towers']],[top,top])
+            self.assertEqual([t['peakCm'] for t in body['towers']],peaks)
+        self.assertEqual(self.contract['centralCluster']['peakCm'],17200)
+        self.assertEqual(max(p[2] for p in self.mesh.positions),17200)
 
     def test_actual_source_faces_normals_and_float32_uvs_remain_valid(self):
         f32 = lambda x: struct.unpack('f', struct.pack('f', x))[0]

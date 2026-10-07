@@ -3,6 +3,7 @@
 #include "WarWorldEditHistory.h"
 #include "WarWorldEditPlacement.h"
 #include "WarWorldEditMap.h"
+#include "WarGmRules.h"
 #include "WarWorldEditStorage.h"
 #include "Misc/Paths.h"
 #include "Misc/FileHelper.h"
@@ -14,6 +15,51 @@
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarWorldEditHistoryTest, "AegisWar.Foundation.WorldEditHistory",
     EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarPrivateReviewMapTest, "AegisWar.Foundation.WorldEditPrivateReview",
+    EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FWarPrivateReviewMapTest::RunTest(const FString& Parameters)
+{
+    const FString Map = TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006/Walkthrough");
+    const FString Revised = TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006_abcdef123456/Walkthrough");
+    const FString Other = TEXT("/Game/WorldRebuild/CitadelHumanReview_20261007/Walkthrough");
+    TestTrue(TEXT("Selected dated walkthrough supports the workbench"), WarWorldEditMap::IsSupported(Map, Map));
+    TestTrue(TEXT("Selected revision-qualified walkthrough supports the workbench"), WarWorldEditMap::IsSupported(Revised, Revised));
+    TestFalse(TEXT("A different selected revision cannot grant access"), WarWorldEditMap::IsSupported(Map, Revised));
+    TestEqual(TEXT("Walkthrough draft has an isolated map directory"), WarWorldEditMap::PrivateReviewDraftRelativePath(Map),
+        FString(TEXT("WorldEdit/PrivateReviews/CitadelHumanReview_20261006/Walkthrough/draft.json")));
+    for (const FString& Distinct : { Revised, Other })
+    {
+        const FString Path = WarWorldEditMap::PrivateReviewDraftRelativePath(Distinct);
+        TestFalse(TEXT("Different wrapper revisions cannot share draft or publication directories"),
+            FPaths::GetPath(Path) == FPaths::GetPath(WarWorldEditMap::PrivateReviewDraftRelativePath(Map)));
+    }
+    for (const FString Invalid : {
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20260230/Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_00001006/Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_2026100a/Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006_ABCDEF123456/Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006_abcdef12345g/Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006_extra/Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006/../Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006/Walkthrough.Walkthrough"),
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006/ReviewCandidate"),
+        TEXT("/Game/WorldRebuild/citadelhumanreview_20261006/Walkthrough"),
+        TEXT("/Game/Capitals/aegis_capital/AegisCapital_Workbench") })
+    {
+        TestFalse(TEXT("Only exact private review names are classified"), WarWorldEditMap::IsCitadelHumanReview(Invalid));
+        TestTrue(TEXT("Other maps cannot select private review storage"), WarWorldEditMap::PrivateReviewDraftRelativePath(Invalid).IsEmpty());
+    }
+    TestTrue(TEXT("Selected review permits an authorized standalone development session"),
+        WarWorldEditMap::IsSupported(Map, Map) && WarGmRules::AllowsDevelopmentSession(false, NM_Standalone, EWorldType::Game, true, false));
+    for (ENetMode Mode : { NM_Client, NM_ListenServer, NM_DedicatedServer })
+        TestFalse(TEXT("Review map does not grant shared-server authority"),
+            WarWorldEditMap::IsSupported(Map, Map) && WarGmRules::AllowsDevelopmentSession(false, Mode, EWorldType::Game, true, true));
+    TestFalse(TEXT("Shipping remains denied"), WarWorldEditMap::IsSupported(Map, Map)
+        && WarGmRules::AllowsDevelopmentSession(true, NM_Standalone, EWorldType::Game, true, true));
+    return true;
+}
 
 bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
 {
@@ -27,6 +73,13 @@ bool FWarWorldEditHistoryTest::RunTest(const FString& Parameters)
     const FString Preview = TEXT("/Game/WorldRebuild/DutchBastion_61bc85751eac/Preview");
     TestFalse(TEXT("City previews do not become campaign workbenches"), WarWorldEditMap::IsSupported(Preview, Preview));
     const FString Citadel = TEXT("/Game/WorldRebuild/AegisCitadel_abcdef123456/CampaignCandidate");
+    TestEqual(TEXT("Normal citadel draft retains its ordinary revision directory"), WarWorldEditMap::OrdinaryDraftRelativePath(Citadel),
+        FString(TEXT("WorldEdit/AegisCitadel_abcdef123456/draft.json")));
+    TestEqual(TEXT("Private review ordinary draft remains isolated"), WarWorldEditMap::OrdinaryDraftRelativePath(
+        TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006_abcdef123456/Walkthrough")),
+        FString(TEXT("WorldEdit/PrivateReviews/CitadelHumanReview_20261006_abcdef123456/Walkthrough/draft.json")));
+    TestTrue(TEXT("Unrelated map cannot acquire an ordinary citadel draft path"),
+        WarWorldEditMap::OrdinaryDraftRelativePath(FinalMap).IsEmpty());
     TestTrue(TEXT("Selected signed citadel campaign retains GM access"), WarWorldEditMap::IsSupported(Citadel, Citadel));
     TestFalse(TEXT("Unselected citadel cannot gain GM access"), WarWorldEditMap::IsSupported(Citadel, Campaign));
     TestFalse(TEXT("Citadel preview cannot become a workbench"), WarWorldEditMap::IsSupported(

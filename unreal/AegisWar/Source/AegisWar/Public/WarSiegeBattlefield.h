@@ -51,6 +51,7 @@ public:
     // The local lower-city review cannot approve either later siege stage.
     UPROPERTY(EditAnywhere, Category="Siege") bool bLowerCityReviewed = false;
     bool IsScenarioReviewed(EWarSiegeScenario Scenario) const;
+    TSubclassOf<class UNavigationQueryFilter> NavigationFilter() const;
     bool Validate(FString& Error, EWarSiegeScenario Scenario = EWarSiegeScenario::FullSiege, bool bLiveCampaign = false) const;
     FVector Objective(int32 Stage, int32 Step) const;
     FVector EquipmentDestination(int32 Step) const;

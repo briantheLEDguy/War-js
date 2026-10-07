@@ -1,11 +1,654 @@
 # Aegis reference citadel
 
+Current private decor revision `62df5e965e66` retains the accepted exterior and
+all 52 earlier mesh placements, native mesh references, collision and actor
+states. Four complete approved floor models add two paired lantern fixtures
+beside the archive/treasury desks, terrace return barrels and dispatch crates.
+The resulting 56 additions contain 456,364 source triangles and 34 attached
+point lights, with eight residents retained. Five proposed component/tabletop
+selections remain source-only; their floor/parent contracts and native review
+are still required.
+
+The preceding appearance revision `0cead0939e03` retains geometry and adjusts
+16 mounted emitters, plus two plain paint roles to satin navy. Saved material
+constants and every intended actor override are independently checked. The
+four new lower lights use 1,200 lumens, 750 cm attenuation, a 3 cm source radius,
+2,850 K and shadows. Their paired glass panes preserve the full source emission
+factor multiplied by the authored strength of 2 in a fresh private material.
+Cold readback verifies all 56 mesh/material/LOD bindings, 360 floor probes,
+184 mount contacts, eight resident floor/capsule clearances, four emitter
+spheres and 12 unobstructed native rays to the expected floors. Eight historical
+opposite-boundary roof queries retain their recorded 2 cm difference.
+
+Evidence is private under `oct7-decor-detail-source-1/`,
+`oct7-decor-detail-native-62df5e965e66/` and `oct7-decor-detail-cold-3/`.
+The first ray diagnostic extended vertically below its target and shifted XY;
+the second used an unavailable Python vector method. Both failures are retained.
+The third extends the original ray collinearly and keeps the strict 0.2 cm
+floor tolerance. Original packages, sources, binaries and GM documents remain
+exact throughout. Fresh native traversal passes all 92 directed walks, 27,680
+width samples, 288 gate checks, 88 objective probes and 150 spawn probes with
+zero failures. The scene-bound report is in
+`oct7-decor-detail-full-routes-1/native-report.json`. Final-wrapper ordinary GM
+run `250178ef28c34d1799b5872eec796f2e` passes save, independent load/local
+publication and startup restoration in three processes. All 11 preexisting
+WorldEdit documents remain exact; two proof-owned documents are retained.
+
+The combined normal Development campaign selects
+`/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate`. Its routing and
+resident layer are revision-qualified copies of the verified furnished review;
+existing city services and all 70 directed routes remain attached. The canonical
+scenario and frontend bind the same city definition and scenery. Both startup
+settings select this campaign, without a process-local review override.
+
+`integrate-citadel-development.py` requires exact checkpoint, stage, package and
+previous-binding hashes. Its durable journal records rollback copies before
+changing defaults, manifests, frontend or canonical scenario. Focused portable
+controls reject stale bindings, lost services, duplicate layers, missing hashes
+and ambiguous config edits. The normal launch and three-process GM proof require
+the actual configured default and `Saved/WorldEdit/AegisCitadel_62df5e965e66/`.
+Private review storage and preexisting documents remain separate.
+
+The combined native build and all 139 Foundation tests pass. Fresh normal-default
+GM run `3842eb8c1da741f2910d7d211cdc3b95` passes actual GUI Save, independent
+Load/local Publish and restart restoration. Each phase reads the expected 56
+decor objects, 34 practical lights, eight residents, 32 zone anchors and 70
+portal actors against the same city revision. Legacy mouse-axis sensitivity is
+1; the actual local handler applies 100 pixels as 28.6478897565 degrees of yaw
+and restores the prior camera state. Physical mouse hardware, ordinary Steam
+login and shared publication remain separate checks. All 13 preexisting GM
+documents remain exact; test-owned normal saves are preserved outside active
+ordinary storage after hash-checked quarantine.
+
+Final repository validation passes 1,062 tests (including 454 Unreal-tool tests),
+three typechecks, migration audit and world/model validation. The strict release
+check retains its four outstanding gates. Receipts are local under
+`artifacts/unreal/consolidated-build-20261007/` and
+`artifacts/unreal/citadel-development/62df5e965e66/`.
+
+Fresh normal-default portal proof passes all 70 directed routes, 20 resource
+gathers, 64 deferred traversals, two streaming failure/cancellation controls,
+GM draft/history unloading and return, and inventory continuity. Its native
+receipt is under `consolidated-build-20261007/normal-portals/`.
+The functional 1920x1080 frontend run passes both cities and all four character
+profiles; flat lighting and existing lighting/navmesh rebuild notices remain,
+so its capped timing and captures confer no visual or populated-scene approval.
+
+Final cold inspection in `consolidated-build-20261007/normal-decor-cold-3/`
+passes all 56 saved mesh/render/material bindings, 360 floor probes and
+184 paired mount samples (368 endpoint traces). The checks also cover
+eight resident floors/capsules, four lower emitter spheres, 12 floor
+rays and all 34 light snapshots/attachments. It invokes the existing read-only
+`PreparePreviewFrame(nullptr)` compilation/shader/render flush after loading.
+The earlier relative evidence-path failure and pre-flush exact hearth-probe miss
+remain preserved. This establishes a passed readback after asset readiness;
+geometry, source packages, assertions and the 0.2 cm physical tolerance remain
+unchanged. All 13,126 Content files and 13 prior GM documents are preserved.
+
+This is local Development selection. Full-siege admission, visual/lighting,
+populated performance, Steam and three-platform release acceptance remain open.
+Native assets require the companion repository's distribution review; its current
+empty approved roots do not permit remote Content delivery. Earlier evidence
+below retains its original private-review binding and does not certify this
+normal campaign.
+
+All 16 final runtime decor views were personally inspected. Lower desk lamps
+improve readability and the sampled additions show no obvious intersections.
+Those two fixtures retain their source turquoise caps; the earlier furnishing
+paint overrides remain satin navy. Bright sunlit stone against shaded interiors,
+hard chandelier ceiling shadows and some simple furnishing materials still
+need polish. These decor cameras do not replace the architectural reference
+view set. The 5,289 diagnostic frame samples record 6,370 MiB of physical memory
+and per-view p95 times from 8.57 to 55.29 ms; forehall and throne-hall views reach
+55.29 and 53.34 ms. This does not certify the populated 18v18 scene budget.
+Visual, lighting and populated-performance approval
+remain open. Earlier checkpoints below retain their own revision bindings.
+
+On October 7 the owner accepted the exterior for now and directed work toward
+interior/exterior decor. Retain the `0284fb4947a8` shell; further keep/crown
+proposals remain diagnostic. This art decision does not certify a complete
+siege, new collision, populated performance or release readiness.
+
+The additional floor-mounted decor ledger uses 36 approved Aegis assemblies.
+`citadel_decor.py` validates their actual rotated/scaled source vertices against
+the retained structural triangles and all signed play reservations, including
+service pads and the eight residents. Every prop has nine floor-support probes
+and a separate native GM identity; its local origin remains at its placement
+so editing does not rotate furniture around the city origin. Two proposed hall
+hearths were excluded after clearance checks. Seven focused Python controls
+cover obstruction, floating floors, room containment, overlap, identity aliases,
+routes/spawns, objectives/services/gates/residents and invalid source transforms.
+The 36 additions contribute 225,064 source triangles. Saved private revision
+`d62f3833c9f8` includes 14 warm, shadow-casting practical lights. Fourteen new
+pieces have room-facing corrections. A private copy of the furnished layer
+turns the retained main archive bookcase about its measured XY centre; its
+bounds remain within 0.2 cm and all other retained actors are exact. The shell
+and active city definitions remain unchanged.
+
+Cold inspection verifies all 36 saved mesh/material/LOD bindings, 324 floor
+samples, eight resident floor/capsule clearances, lighting attachment/state and
+routing declarations. Loading dirties only the private campaign overlay in
+memory; inspection adds no dirty packages and all original saved bytes remain
+exact. This is not a claim of a completely clean Editor dirty state.
+Three independent native processes verify GM GUI save, load/local publication
+and startup restoration using an approved catalog crate sentinel. Existing GM
+documents remain exact. The proof uses development fixture admission; ordinary
+login, shared publication and editing every new prop remain unverified. Fresh
+physical traversal, runtime appearance and populated performance must bind this
+revision before adoption. Evidence is private under
+`artifacts/unreal/citadel-reference/oct7-decor-native-d62f3833c9f8/` and
+`oct7-decor-cold-3/`; the GM report is under
+`unreal/AegisWar/Saved/WorldEditOrdinaryProof/c5e3c6f3f80043379e055a1101838426/`.
+
+The subsequent private revision `604efb759fc2` retains all 36 floor arrangements
+and adds two chandeliers and two wall lanterns per room in the forehall, throne
+hall, archive and treasury. Its 52 additions contribute 436,040 source triangles
+and have individual GM identities. Thirty warm, shadow-casting practical lights
+attach to their owning props. The mounted models retain their original geometry,
+normals and atlas transport; their documented emissive strength of 2 is baked
+into fresh private material identities. This bounded private correction does
+not silently change the general furnishing adapter or existing materials.
+
+The source proposal checks the actual eight architecture groups, full fixture
+triangles and occupied/play reservations. Fresh native readback passes 184 wall
+and vault contact probes within 0.2 cm, 324 floor probes, eight resident
+clearances, all 52 saved mesh/material/LOD bindings, all 30 light attachments and
+16 emissive-material readbacks. Eight opposite-boundary probes hit the outer
+Gothic roof 2 cm above the inner source slab; native paired-boundary
+correspondence, closed solid topology and load capacity are not certified.
+The staging wrapper's obsolete 36-object count reported failure after Unreal
+successfully saved 52; that report is preserved. Independent cold inspection
+and private-launch package validation verify the saved result without
+restaging or overwriting it. Original native content, sources, binaries and GM
+documents remain exact. The load-induced private-overlay dirty state remains
+explicitly recorded. Evidence is under `oct7-decor-mounted-source-1/`,
+`oct7-decor-native-604efb759fc2/` and `oct7-decor-cold-5/` in the private
+citadel-reference artifacts. Fresh traversal, GM, appearance and populated
+performance must bind this revision before adoption. The three-process GM run
+`251d24330e8a43dd887f900a391094fa` passes on this revision with seven preexisting
+GM documents retained exactly. It uses the same catalog-sentinel/development
+fixture boundary described above. All 12 actual runtime decor views were
+personally inspected: vaults have warm chandelier pools, while archive/treasury
+floor lighting remains dim and some furnishing paint is overly saturated.
+Visual and lighting approval remain false; these are decor diagnostic cameras,
+not the required architecture-reference camera set.
+
+The final revision's native route report
+`artifacts/unreal/citadel-reference/proofs/1791372626015-31104/report.json`
+passes all 92 directed walks, 27,680 width samples, 144 ground and 144 elevated
+gate sweeps, 88 objective probes and 150 spawn probes, with zero route or
+physical failures. It binds city revision
+`7e014b0ee062983707b5ab728c47bef5541c571ad1460bd41a04d3ebee6564ba`
+and saved fixture map hash
+`9f714c3710cb5795be68bacc9c7e937af1e4de3fc5b0a397dbd1d470a27df1a6`.
+These capsule/corridor checks do not certify equipped motion, actual convoy hull
+traversal, 18v18 crowd movement, populated performance or complete siege outcomes.
+
+Repository tests pass 1,050 checks across 158 files. Unreal tools pass 442 checks
+across 78 files on the retry with rendering idle; the preceding 75-second
+architecture-test timeout remains recorded and no timeout was increased.
+All three typechecks, migration audit and world/model validation pass. The
+unchanged DLLs retain their complete 138-test native Foundation evidence.
+
+Private revision `0284fb4947a8` fixes winding on the actual one-sided arch and
+window surfaces. Front/back masonry and inner/outer reveals face outward;
+glazed side bays require explicit wall orientation, with pane and trim facing
+the approach on both sides. Blind-bay backing remains on the wall surface.
+Seven focused helper tests check directions, placement, aperture continuity and
+rejection of ambiguous sides. Seven crown and 75 architecture controls pass.
+The fresh Blender export contains the same 45 models and 74 arrangements, with
+minimum source-to-Blender normal dot of 0.999998786. All 17 protected gameplay fields
+and the full baseline remain exact against `252ca2f6ef88`. Native import and all
+139 navigation points pass. Fresh physical evidence passes all 92 directed walks,
+27,680 width samples, 144 ground and 144 elevated gate checks, 88 objective probes
+and 150 spawn probes. All eight native views were personally inspected. Panes and
+trim appear on both approaches, but harsh daylight, smooth mountains, sparse side
+precincts and plain grid rails were recorded as earlier fidelity concerns. The
+subsequent owner decision pauses exterior iterations. These route receipts do
+not certify crowd movement, equipment, populated performance, GM or complete siege
+admission. Exact reports and image hashes are in
+`artifacts/unreal/citadel-reference/oct7-window-native-review.json`.
+
+Owned architectural details can also be rebuilt as fresh private source assets
+through `citadel_private_architecture_rebuild.py`. The raw source SHA-256 binds
+each source face ordinal; ordinals never address a native render buffer. All
+unselected oriented face/material occurrences and the complete original
+position/normal/UV0 arrays remain exact prefixes, including unused entries.
+Extra source channels require a separate reviewed policy. New render-only
+geometry must declare final Unreal world centimetres and outward source winding.
+Eleven focused Python controls cover retention, hash changes, invalid selections,
+material mapping, winding and extra-channel rejection.
+
+The current CPU assembly retains 841,937 source triangles and appends 475,620
+Gothic rail, curved standard and shallow moulding triangles across four owned
+meshes. Native integration uses a fresh namespace and the existing composite
+builder followed by `ConfigureCitadelSurfaceLods`: authored normals, Mikk UV
+tangents, full-precision UVs, high-precision tangent storage, generated UV1 and
+three LODs. This source rebuild does not claim exact preservation of old packed
+native buffers or atlases. The older strict transport proposal remains a frozen
+alternative. Private comparisons retain the original collision actors and GM
+identities; new visual children have no collision or navigation. Physical barrier
+agreement, saved correspondence, reduced-LOD appearance, GM save/restore and
+populated performance must pass before shared adoption. New geometry invalidates
+old traversal and visual receipts.
+
+The current Editor build passes all 138 native Foundation tests. Its restricted
+private-render factory stages highland, backdrop and apron copies with explicit
+normal/tangent/UV transport and no new collision or navigation authority. The
+treated study `c19ed137dd36` has 436,072 committed triangles; native staging checks
+every triangle and all 21 retained gameplay fields against the source. Original
+terrain collision remains in place. Saved full-buffer, culling, visual, route and
+performance checks must bind this fresh geometry before adoption; earlier
+mountain or traversal receipts cannot certify it.
+
+Independent cold reload now matches the staged render audits, native mesh
+policies, actor flags/material bindings and all 21 retained gameplay fields.
+Complete actual LOD0 triangle/basis/UV readbacks are recorded for all three
+render surfaces; their full source correspondence and atlas checks remain
+pending. Shader readiness now admits exactly the three fresh private crag
+roles (`rock`, `dark_seam`, `snow`), requiring the intended material resource
+without fallback. Both eight-view geometry comparisons completed and preserved
+all 768 source files, DLLs, 12,704 saved Content files, original mage files and
+GM drafts. All 16 views were personally inspected. The distant horizon is
+covered in the inspected hero/front views, but regular vertical corrugation,
+faceted snow, smooth brown highland, narrow beige keep, white statues, hard
+shadows and sparse interiors still fail the reference. No lighting, geometry,
+shared-scenery or full-siege adoption is approved. The exact bound review is
+`artifacts/unreal/citadel-reference/oct7-mountain-geometry-captures-1-visual-review.json`.
+
+Editor-only mage diagnostic tooling is separate from scenery and gameplay.
+`WarMageMeshBufferReadback` reads actual rendered LOD0 face/eye/hair buffers,
+including section-local bone indices mapped to reference names and uint16-domain
+skin weights. It refuses missing CPU mirrors, invalid sections and out-of-scope
+meshes without changing streaming, CPU access, build data or packages. Two native
+test suites verify decoding and read-only isolation. Saved reference/animation
+checks do not establish source geometry correspondence, equipment clearance or
+visual quality; private diagnostics cannot activate character presentations.
+
+The saved face diagnostic has since passed independent reference and animation
+reload: all 25 copied supplied clips, 2,507 frames per RAW and COMPRESSED mode,
+and explicit Flashstep sampling match at zero pose error. Actual section/bone
+readbacks match all 31,008 source triangles and 93,024 cyclically oriented
+corners without assuming vertex or triangle order. Maximum position error is
+0.0000196843 cm; UV, normals and named weights remain within the measured
+half-UV/SNORM8/8-bit-weight quantization bounds. The face correctly includes
+head, neck and blended attachment weights; eyes and hair remain head-weighted.
+Eight fixture mutation controls reject changed winding, material, geometry,
+UV, normals and weights. This verifies import correspondence, not adult facial
+quality. Oblique eye coverage, mouth/nose forms and painted angular skin marks
+still need revision, while the original body/rig/neck/ear attachments remain
+protected. Frozen receipts live under
+`artifacts/unreal/mage-face-native-source-correspondence/` and
+`artifacts/unreal/mage-face-native-cold-results/cold_finish_retry_1/`.
+
+Current verification passes 1,048 repository tests, 440 Unreal-tool tests,
+all three typechecks, world/model validation and the migration audit. All 138
+native Foundation tests pass against the current DLLs. The three earlier
+tooling timeouts under concurrent rendering are retained; the idle-worker retry
+passes without relaxing their limits. Release readiness remains false.
+
+The retained-mountain bridge now handles the actual tinted MI/direct-parent
+chain. Strict native vector-parameter readback preserves GUIDs and localized
+parameter names. The copied parent adds only the independent alpine BaseColor
+chain, consuming the original rock texture/tint while preserving every other
+root, PBR input and override. Actor transform/collision remain unchanged.
+Owner integration required two compile-reference corrections and an actual
+WorldPosition XYZ mask correction; failed trials and unsaved diagnostics remain
+preserved. Forty portable Python controls, 32 relevant tooling checks, full
+tools typecheck and all124 native Foundation tests pass. Fresh matched
+control10af5036ab02 and treatedb11e2cbb9098 studies create12/14packages, pass cold
+saved-graph/property/actor checks and exact private-material readiness, and retain
+all original packages. Root personally reviewed all16 native images. Smooth grey
+rock, coarse silhouettes, faceted peak snow and the exposed background edge fail
+the reference. Timing samples are view diagnostics, not a populated benchmark;
+no mountain, lighting, combined study or shared adoption is approved.
+
+Receipts: `oct7-window-blueprint-preservation.json`,
+`oct7-window-winding-source-export.log`,
+`oct7-retained-mountain-bridge-retry-1-view-summary.json` and
+`oct7-retained-mountain-bridge-retry-1-visual-review.md`, under the ignored
+`artifacts/unreal/citadel-reference` workspace.
+
+Private density revision `75641ea12130` adds eight tables, sixteen benches and
+two barrel clusters to four existing dressing groups. Its Blender export retains
+45 model identities and contains 74 dressing arrangements. Exact comparison
+preserves 17 gameplay/lighting fields, including all 43 routes, eight main and
+three optional anchors, gates, spawns, rooms, crossing semantics and terrain
+carves. Fourteen focused source tests and 15 relevant tooling tests pass. Actual
+transformed bounds must clear complete source architecture triangles, routes,
+service/objective pads, gates, existing furnishings and eight resident
+reservations. Nine floor probes per bound and source triangle checks do not
+prove continuous support or native collision. Native import passed with 45
+models, six normal textures and 101 owned packages, preserving the entire prior
+candidate package closure. The saved navigation build reaches all 139 ledger
+points. Fresh constrained walking, populated review and performance are still
+required; no adoption is approved.
+
+The subsequent complete 74-arrangement audit found nine older bounds intersecting
+facade trim or gallery stairs, plus six older terrace props entering gameplay pad
+reservations. A bounded repair proposal moves those 15 arrangements by 50–350 cm
+while preserving their identities. All 48 existing and 26 additional arrangements
+pass full source architecture, floor, route, objective, service, gate, resident
+and neighboring-furnishing checks with the repaired positions. Ten focused
+furnishing tests and 15 relevant tooling tests pass, including the measured
+facade-triangle regression and negative reservation/floor controls. The applied
+repair generates revision `252ca2f6ef88`; exact comparison preserves all 17
+protected gameplay/lighting fields and the surveyed baseline. Its Blender export
+retains 45 model identities, 74 arrangements and 666 recorded floor probes.
+Native import passed with 101 owned packages, six normal textures and all 45
+models; navigation reaches all 139 ledger points. The previous candidate's
+complete native package closure and all 748 source files/both DLLs stayed
+unchanged during staging. Fresh physical and populated review remain required.
+
+Repaired-revision twilight v2 control and treated copies each staged 12 fresh
+packages and passed cold checks for seven fixtures, 18 practical lights and five
+private material graphs. Both eight-view runs preserve their 1,457-package
+closures and source/binary bindings. All 16 images were personally inspected:
+the treated plaza, stairs, balconies and warm hall are more readable, while
+coarse pale mountains, exposed side terrain and repetitive architectural detail
+still fail the reference requirement. The views omit the resident gameplay
+overlay and grant no populated performance, GM or shared-scenery acceptance.
+
+Earlier density revision `75641ea12130` completed native proof
+`1791351428584-24276`: all 92 constrained walks, 27,680 full-width samples, 144
+ground and 144 elevated gate sweeps, 88 objective probes and 150 spawn probes
+pass without failures. All 748 source files, both DLLs and 1,445 native packages
+remained unchanged during that run. It grants no approval to the repaired
+revision and does not clear the older furnishing reservation defects.
+
+Recipe 12 source/export revision `423a3d57fd65` raises the masonry beneath the
+same six crown tips, strengthens selected upper piers and adds recessed crest
+lancets. Exact comparison with recipe 11 preserves all 43 routes, crossing
+semantics, eight main and three optional anchors, gates, rooms, spawns, terrain
+carves and crowd standing points. Native import passed with 45 models, six
+normal textures and 101 owned packages; city revision is
+`a54b1b425afa7dabefde0a7f2f4aa0023e4905aa89abb6dfb35db4c3cf7d14bc`.
+The source comparison and import grant no traversal or visual approval.
+The subsequent navigation save reaches all 139 ledger points; its saved map
+hash is `d79bddcd82494e9817629ecb5483d38752b26668f8be183e6241b68ceee6566e`.
+The navigation result does not attest physical corridor widths or convoy travel.
+Earlier captures and walks predate this map save and remain historical evidence.
+
+The six-minute convoy-envelope diagnostic `siege-1791342294916-6296` earned
+three lower-city milestones at 61.15, 150.05 and 337.40 seconds and passed both
+earlier stuck locations. The ram travelled 34,626 cm and the support vehicle
+34,302 cm. They performed 89 and 78 ordinary overlap recoveries respectively;
+this is not clean corridor traversal or a completed siege. Its 735 source files
+and DLL `d1a01a6d…` remained unchanged. Convoy recovery now also checks ownership
+before relocating a character; unrelated blockers remain physically blocking.
+
+The initial projected path point is now skipped only for a finite horizontal
+offset of 5–20 cm when an actual SiegeConvoy navigation ray confirms a clear
+onward corridor. Later path corners retain the 5 cm arrival rule, full physical
+hull sweeps remain mandatory, and gate docking/support spacing are unchanged.
+`SiegeProjectedRouteStart` tests the observed offset, rejected blocked/invalid
+paths, later corners, repeated replans and an actual blocking wall. The 360-second
+run had only 22.6 seconds after the third claim, shorter than the fourth claim's
+36-second theoretical minimum. The subsequent ordinary 600-second diagnostic
+`siege-1791348826259-19592` reached all four lower-city claims, both side
+claims and center at 65.45, 151.15, 366.04, 416.14, 530.44, 542.14 and 583.34
+seconds. Side progress ran concurrently; the locked center was physically
+occupied for 1.00 seconds without capture, and unrelated-player cleanup
+protection passed. Ram/support travel was 35,420/35,368 cm with 75/68 overlap
+recoveries and zero/one projected-start skips. This is not clean convoy travel
+or a commander outcome, and longer runtime also contributed to progression.
+The original launcher incorrectly required lower-city convoys after their
+normal stage cleanup. Its failure is preserved. Twelve focused stage-aware
+parser tests pass; revalidation binds the unchanged original DLL, all other
+original sources and native package closure, without rewriting the receipt or
+replaying the game. See private `oct7-stage-aware-diagnostic-revalidation.json`.
+
+Private `lumen_software` and `lumen_hardware` studies change the copied exposure
+fixture's GI/reflection methods without changing the shared lighting allowlist.
+The views-only launcher binds the exact study, native map, city and blueprint.
+Startup support requests are process-local INI layers; late runtime overrides
+use tagged temporary CVar history and restore earlier settings on exit. Native
+tests cover restoration, changed underlying settings and missing/protected
+variables. The read-only Editor inventory checks loaded static-mesh DF/card/RT
+resources. The render-thread probe observes the final blended view in the
+capture window, explicitly leaving screenshot-frame binding and actual
+renderer-pass/backend verification false. Neither requests nor public view
+prerequisites prove working Lumen, surface coverage, performance or cinematic
+quality. Both repaired eight-view runs completed against DLL `6027469b…` and
+742 unchanged source files: control `1791344329885-5708` and hardware
+`1791344454948-16676`. The latter's unbound blended views report Lumen GI and
+reflections, enabled/allowed ray tracing and enabled runtime allow controls.
+Actual renderer-pass verification is pending. The inspected hero, front,
+courtyard and hall still fail reference fidelity: tan masonry, white figures,
+coarse mountains and an exposed blue horizon remain.
+
+The initial diagnostics build exposed an installed API signature and a stale
+private macro assumption; both were corrected, preserving the failed log.
+The repaired build and subsequent ownership restriction each passed 113 native
+Foundation tests. All 415 tooling and 1,023 repository tests, three typechecks,
+world/model validation and the migration audit pass; readiness remains false.
+The additional temporary `--cinematic-view` preset requests 100% screen
+percentage, disabled dynamic resolution, shadows, antialiasing and view distance
+for matched private views. The obsolete antialiasing control initially rejected
+the run; replacing it with the installed method/temporal controls passed 113
+native tests and completed the comparisons. Both runs exposed a handled ensure
+from typed-data lookup on reference CVars. The reader now uses the generic
+current-thread float getter, with a render-thread reference/fractional regression;
+the new build and its 114-test suite pass. The cold backdrop-policy expansion
+also passes, bringing the suite to 115 tests. This preset
+does not save preferences or grant crowd-performance
+acceptance. Previous native captures remain rejected.
+
+`stage-citadel-lighting-study.py` supports the independent private option
+`WAR_CITADEL_DISTANT_CRAGS=connected_original_v1`. It requires the exact six
+frozen original authoring artifacts beneath
+`artifacts/unreal/citadel-reference/reference-fidelity-proposal/`; missing or
+changed inputs fail before staging. The 4,996-triangle connected prototype is
+copied into fresh owned mesh/material/layer packages. All collision, navigation,
+ray-tracing visibility and 11 shadow controls must read back disabled; retained
+scenery state and the complete source blueprint remain bound. Fifteen portable
+contract tests use synthetic input bindings; they do not attest the real mesh.
+Editor staging `1ce044ca60d0` passes all disabled-control checks after explicitly
+setting the NoCollision profile and disabling mesh-default collision. A native
+regression verifies the runtime policy reader. Cold game copies made after the
+navigation save retain all 18 inspected disabled controls and NoCollision.
+Their navigation-octree observation is unavailable; silhouette, occlusion and
+performance remain unapproved. This option cannot publish the city or grant
+visual/gameplay approval.
+
+The independent `WAR_CITADEL_SURFACE_STUDY=cool_masonry_weathered_sculpture_v1`
+comparison creates fresh private materials for four masonry roles and all five
+named stone figures. It adds albedo shaders while requiring every original node,
+edge, UV, normal/ORM connection and material setting to remain unchanged. Actual
+rendered triangle/material bindings must cover each figure. Python-protected pin
+outputs and hidden material-root enums are read through native Editor accessors;
+disconnected `INDEX_NONE` pins remain explicitly disconnected. The 21 roots
+include depth offset, displacement and all eight customized UV inputs. The
+two successful studies are `7f1171726875` (surface) and `56b5a0f6bc0a`
+(surface plus distant crags). All ten graphs match their staged records after
+independent cold Editor reload, with Substrate disabled and no FrontMaterial
+root. In both initial game comparisons, the hero's 25 used private material
+bindings resolved to WorldGrid fallback despite valid fallback shader maps;
+their later plaza bindings resolved to the intended private shaders. Those hero
+images cannot judge the albedo treatment.
+
+Private captures now poll used private resources, require the intended base
+interface without fallback and a valid shader map, then retain the complete
+12-second camera settle. They recheck resources immediately before capture and
+fail after 120 seconds of unavailable resources. Tooling rejects missing or
+mismatched readiness receipts. All 118 native Foundation tests and 25 focused
+tooling tests pass, as does tooling typechecking. Three new eight-view comparisons
+completed with these gates: control `1791348196519-3684`, surface
+`1791348327397-30592` and surface plus crags `1791348455394-10872`. Both surface
+runs report five ready intended resources, 25 positive section bindings and zero
+fallback resources in every view. All bound sources, DLLs and native package
+closures stayed unchanged. Review of all eight surface views still rejects
+cinematic approval: daylight masonry, uneven interior light, repeated rails and
+coarse/exposed backdrop require further work. The proxy query is read-only with respect to assets,
+but may queue shader work in Editor-built games; it does not establish passive
+observation, submitted mesh batches, exact screenshot pixels or visual approval.
+The separate
+retained-mountain option remains disabled. Cold inspection found the actually
+bound `MI_Mountain_365df6bd` instance, parent `M_Mountain` and its
+`Base_Color_Tint` override `[.37,.40,.44,1]`. The current option starts from
+`MountainGranite`, so it must preserve the measured instance chain before use. No material study grants
+renderer, geometry, traversal or release approval.
+
+
+The independent private `WAR_CITADEL_TWILIGHT_FIRE_STUDY=1` option changes only
+the existing seven fixtures and 18 signed point lights. It requires a private
+Lumen mode, rejects unsupported selectors and keeps the retained-mountain
+option disabled. It requests a low cool sun, softer fill, adjusted sky/fog and
+exposure, brighter existing gate/courtyard braziers and portal lights; hall
+sconces retain their original power. Positions, light types, candela units,
+temperatures, attenuation and source radii, mobility and shadow policy remain
+checked. Eleven portable Python tests pass. Private studies `daf96e839901` (off)
+and `2460c65f11aa` (on) staged successfully. Cold reload matched all seven
+fixtures, 18 practical lights and five graphs in each, preserving their source
+and study package closures. Matched eight-view runs `1791350275448-756` (off) and `1791350402852-10948` (on)
+completed with all 747 bound sources, DLLs and both 1,457-package closures
+preserved. Every view reported five ready intended resources and 25 section
+bindings without fallback. Review rejected this look: the hall is more evenly
+warm, but the plaza, stairs and eastern balcony are too dark. The archived
+recipe-one helper preserves its historical source bytes. Recipe two increases
+the existing fill from 140 to 700 lux, rotates it to `[-65,0,0]` above the
+approaches and raises sky contribution from .6 to 1.4. It retains the original
+key/practical recipe and requires both actual directional rotations to match.
+Twelve focused checks pass. Fresh native staging and camera review are required.
+Actual renderer-pass selection, cinematic quality and populated performance
+remain unapproved.
+
+## Prior recipe 11 evidence
+
+Current private recipe 11 revision `703172b6184e` has 45 imported native models,
+48 furnishing arrangements and 139 connected navigation ledger points. The
+combined GM/navigation build passed 110 native Foundation and 409 tooling tests.
+Readiness shares the participant navigation profile and query budget; recipe 11
+launchers require exact saved-map navigation evidence before enrollment.
+
+The 92-route movement receipt predates the navigation save, so final traversal
+must be repeated against the saved map. Four supplemental lower-spawn walks pass
+with measured floor heights, but 410 lateral samples still collide at retained
+building corners. Their aggregate width proof remains failed. The frozen-source
+full scenario `siege-1791339046100-9560` timed out at 840 seconds after two earned
+milestones. All four engineers survived, with zero qualifying attackers near the
+ram on the uphill approach; its source and DLL bindings remained unchanged.
+The bounded approach-floor correction and stronger locked-center physical
+occupancy witness passed their native unit checks. Frozen diagnostic
+`siege-1791341153985-12356` sampled 360 ordinary seconds and retained both
+milestones, ready crew and twelve qualifying attackers. It stopped at a capsule
+beside the ram: the padded movement sweep blocked while the bare recovery hull
+did not include that capsule. Recovery and temporary escape queries now cover
+the sweep's maximum eight-centimetre padding; the actual hull sweep remains.
+Its actual expanded-envelope physics test passes; the six-minute run above
+records gameplay progress while full outcomes remain unverified.
+The normal private GM persistence run `c2f8968b4a3a40d0b1ec2d3655a3adee`
+passed three independent launches on the previous frozen DLL, preserving drafts.
+Native captures remain rejected for reference fidelity;
+current recovery, full campaign outcomes, populated performance, visual approval
+and release acceptance remain open.
+
 The replacement uses the supplied **Bastion of Aegis: Citadel War Board** as its
 architectural reference. The main perspective governs massing and proportions;
 the inset governs route roles. The lower city and external connections remain
 outside the bounded castle replacement.
 
 ## Authoring and protected baseline
+
+Recipe 11 adds supported backing behind the outer crest, bounded foundation
+courses below the occupied floor, roof seams and 16 additional furniture
+arrangements (48 total). It records the source normal convention and requires
+actual saved Unreal normal compression, linear sampling and green-channel
+conversion readbacks. The final source revision has native staging and reference
+route checks; full gameplay, recovery, crowd and visual acceptance remain required.
+
+The native convoy survey found that the original lower defender spawn sits
+254 cm from the actual convoy centre path, inside its unchanged 750 cm
+protection radius. A complete replacement 600 cm footprint at
+`[5500,-8000,778.5]`, gradient `[.5,0]`, is 3,311 cm from that path. All 25
+native floor/capsule samples match unchanged original city actor states, and
+both character navigation connections are complete. Use the explicit
+`--spawn-survey <receipt>` authoring argument to bind this overlay adjustment;
+the baseline and native city scenery remain unchanged. The witness validator
+rechecks the original source hashes, exact actors, full footprint, actual convoy
+path distance and both character paths. Recipes before 11 retain their recorded
+spawn semantics. Read-only navigation is diagnostic evidence; actual movement,
+spawn protection, crowd and full-siege checks must be repeated on the new revision.
+It also pins the exact copy-layer index, actor path, component name/class and
+that component's mesh, retaining separate native survey and original source paths.
+Coherent substitution of another correctly hashed copied layer is rejected.
+
+The final source revision `703172b6184e` exported all 45 meshes and 48 arrangements;
+75 architecture controls and four focused spawn controls passed. Its native import
+verified all 45 bindings and six normal textures. Fresh physical proof
+`1791336619219-4812` passed 92 walks, 27,680 width samples, 144 gate sweeps,
+88 objective samples and 150 spawn samples. A separate supplemental lower-spawn
+replay `spawn-connections-1791337682637` failed: coarse navigation elevations
+differ from actual sloping floors, and a 100 cm corridor leaves only 8 cm of
+centre movement for a 42 cm capsule at bends. It grants no spawn-connection
+acceptance. The follow-up uses measured floor heights and a separately declared
+pedestrian corridor; reference route widths and all gate restrictions remain fixed.
+Earlier recipe 11
+import `6883e3881af5` verified all 45 native bindings and six saved normal textures.
+Eight native captures in `1791335982989-6920` completed with valid cloud resources.
+They still show insufficient mountain detail, bright statues and exterior lighting
+below the reference standard. A preceding ReviewCandidate capture was rejected
+for its missing native city binding; use the city-bound SiegeCandidate for this
+proof. These historical frames grant no new-revision visual acceptance.
+
+Recipe 10 retains original reviewed furniture materials, normals and atlas
+mapping, adds 32 arrangements in six areas and corrects the ceremonial throne's
+facing and scale. Exactly repeated oriented stair faces are removed with their
+route-surface triangle references remapped. Opposite faces and relief remain.
+Collapsed furniture seam UVs receive at most a quarter-texel offset on separate
+corners, preserving geometry, normals and healthy UVs. Actual native three-LOD
+render-buffer validation remains mandatory; source-array validity is insufficient.
+
+Private review worlds now use `stage-citadel-review-world.py` and
+`citadel_review_world.py`. They clone the complete prepared campaign and routing
+layer, preserve every directed portal and required destination declaration, and
+verify the actual Aegis definition and unique zone anchors. Review residents use
+installed bodies and supplied idle clips in a separate gameplay layer, with
+signed route/objective/furniture reservations and native floor/capsule checks.
+They are explicitly private review content pending shared gameplay integration.
+Resident levels use revision-qualified short names: Unreal's editor selector
+uses case-insensitive FNames, so a generic Population name can select retained
+lower-city content. Placement checks the actual selected level before spawning.
+The receipt records the exact launch map override, package hashes and isolated
+GM storage. Build fresh navigation before campaign preparation and verify its
+persistent ownership before cloning a walkthrough. Geometry changes require
+new traversal, visual, recovery and gameplay evidence.
+`citadel-review-launch.ts --receipt <staged.json>` verifies the complete saved
+package set and opens that exact private map. Every streaming declaration must
+have a protected package binding; declarations remain a complete list, including
+retained duplicates. `--dry-run` performs the same byte checks without opening
+Unreal. It never edits normal startup configuration.
+
+Recipe 10 revision `ae9133cf6047` imported all 45 native meshes with valid
+three-LOD render buffers. Its private campaign navigation survived a separate
+ownership verification for character and convoy agents. The refreshed
+`CitadelHumanReview_20261007_e8ef0a3b089b` wrapper passed all 70 directed portal
+routes, gathering/full-inventory checks, streamed GM draft/history and respawn;
+its 32 zone anchors, 73 streaming declarations and protected source hashes remain
+intact. Evidence is in `artifacts/unreal/citadel-reference/oct7-wrapper-portal-e8ef0a3b089b/`.
+Fresh physical proof `1791327655067-13952` passed all 92 directed walks,
+27,680 full-width samples, 288 gate checks, 88 objective floor/line-of-sight
+samples and 150 spawn samples with zero failures on the furnished geometry.
+These receipts do not establish visual or full-siege acceptance. Current native
+captures still fall short of the reference. The native architectural proof
+accepts isolated citadel candidates. A private walkthrough capture attempt
+(`1791328745821-28324`) was rejected by that native map guard before any view;
+the failed report remains preserved. Private residents have separate staged
+floor/body/idle checks and rendered builder evidence.
+The furnished campaign's three-process crash fixture
+`recovery-1791326899434-14632` reached both actual WAL/ACK interruption boundaries
+and completed all 36 normal-stat safe returns. Initial aggregate validation
+rejected a legacy empty status ID: Unreal spells its FName segment `None`, whereas
+the immutable definition codec emits an empty string. The exact compatibility
+correction has focused positive and negative tests. All 16 original hash-bound
+files revalidated against the unchanged DLL, native sources and map; the original
+failure remains preserved beside `validation-after-legacy-name-fix.json`.
+The Python publication validator applies the same exact legacy identity rule;
+its ten focused tests pass, and `python-validation-after-legacy-name-fix.json`
+records independent validation of the same sixteen files and current native bytes.
+Inventory, equipment, progression and absolute effect/cooldown epochs passed.
+This narrow character-recovery result does not prove interrupted outcome
+settlement, equipment mutations, dead intent, conquest or production admission.
 
 `scripts/unreal/survey-aegis-citadel.py` reads actual saved Unreal actors, current
 shared scenery dependencies, siege anchors and approach ground heights. It does
@@ -34,7 +677,7 @@ textures are referenced by hash. Native Content and purchased kit data remain
 private and ignored. Source renders help refine the architecture; they are not
 native visual or gameplay acceptance.
 
-The next source revision replaces the rejected crown with six substantial,
+The current source revision replaces the rejected crown with six substantial,
 unequal attached belfry towers, a central octagonal lantern with satellite
 turrets, long slate spires, sloping roof ridges and deeper Gothic window reveals.
 It adds sculpted sentinel armor and gives terrace stairs continuous structural
@@ -117,6 +760,64 @@ separate private lighting study for settled game-camera diagnostics. It verifies
 all original and historical candidate package bytes remain unchanged and grants
 no visual, traversal, gameplay or publication approval. Unsaved SceneCapture
 images do not establish effective game-camera exposure.
+Native captures include game-thread component state and the actual render-thread
+material resource. `citadel-cloud-render-state.ts` reports missing, hidden or
+fallback resources separately from successful screenshot capture; valid resources
+still do not prove visible clouds or artistic quality. The isolated uniform-volume
+probe uses additive blending, as required by the installed engine's volume shader.
+The private `alpine_relief` study refines measured highland render triangles above
+Z16000 cm into continuous rock ribs while retaining every low terrain corner and
+the original collision actor. Its separate visible component has no collision;
+native source packages and gameplay routes remain protected. The study also adds
+original world-space sculpture weathering and moves copied practical lights to
+runtime mobility. Source continuity tests do not grant native visual or performance
+acceptance: saved render buffers, actual game views and populated frame times are
+still required before adopting any of these changes.
+
+The furnished scenario run `siege-1791329586008-22248` failed its attacker
+completion check at the ordinary 840-second lower-city timeout. It earned the
+supply objective in 61.4 seconds, then remained at the escort checkpoint cap of
+99%; no courtyard, commander or second-round outcome was exercised. Its failure
+report is retained. Walking-route receipts do not establish convoy traversal.
+The later exact-steering run `siege-1791333624173-300` also timed out at
+840 seconds after two milestones, with protected defender collision stopping
+the convoy. Its native failure remains preserved. Aggregate validation also
+rejected a changed staging-source closure: future proofs must freeze candidate
+authoring scripts as well as the DLL, native sources and saved packages.
+Both scenario and live fixture target selectors now use the same ordinary
+combat predicate for opposing owned participants and guards. The dedicated
+native regression verifies participant eligibility, allies, foreign encounters,
+protection, death, visibility, range and physical line-of-sight blocking. The
+updated build passed all 110 Foundation tests in
+`artifacts/unreal/editor/test-1791335384645-9064/`; full scenario/live outcomes
+and fresh recovery evidence remain separate gates.
+Use `unreal:citadel-siege-proof -- --map <isolated SiegeCandidate>
+--diagnostic-seconds 180` to collect a bounded unfinished scenario diagnostic.
+Actual sampled capture presence, cart positions/travel/path points and crew state
+are recorded alongside rate-limited nav, ground and hull blockers. This mode is
+forbidden for live campaigns and performance runs and always reports
+`passed=false`; it cannot authorize outcome, conquest or full-siege admission.
+Any native source or DLL changes require fresh bound crash-recovery evidence;
+the prior furnished recovery run remains evidence for its recorded build only.
+The first 180-second physical diagnostic observed healthy ready engineers and
+character capsules stopping both carts after approximately 17 metres. The first
+steering trial increased ram travel to 109.4 metres at its last 170.5-second
+sample, with both carts still moving; neither run established a siege outcome.
+Convoy steering now reserves each rotated chassis plus the actual upright
+capsule support, 100 cm horizontal steering margin and 20 cm vertical margin.
+Exact segment/box intersections reject corner crossings; initially obstructed
+pawns can only leave without moving deeper or re-entering. Eighteen flank seats
+fit the actual 650 cm objective radius and retain separate full capsules.
+Surviving bot controllers keep their assigned seats, and replacements reclaim
+vacancies. Nearby unsafe units clear the cart before ordinary pursuit or casting.
+Scenario bots and the live fixture share these navigation checks; live movement
+also revalidates the selected waypoint chord against current vehicle poses.
+Stationary-cast preflight validates resources, range, presentation and ordinary
+eligibility before stopping, with authoritative movement validation retained at
+activation. Unsupported ground casts cannot stop a unit without a ground point.
+Safe held casts retain their movement hold; benchmark seating does not add
+opportunistic healing. These source changes require fresh native traversal,
+outcomes, performance and crash-recovery evidence.
 Exposure uses the project's existing luminance units. The signed adaptation
 limits of 64 and 4096 correspond to EV100 6 and 12 at the engine's unit scale;
 the scene records the actual disabled extended-EV100 mode. A scene authoring

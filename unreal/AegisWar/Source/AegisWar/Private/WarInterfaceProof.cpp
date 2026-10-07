@@ -89,6 +89,8 @@ TStatId UWarInterfaceProof::GetStatId() const { RETURN_QUICK_DECLARE_CYCLE_STAT(
 
 void UWarInterfaceProof::Finish(bool Passed, const FString& Detail)
 {
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarBuilderOrdinaryProof")))
+    { FinishOrdinaryBuilder(Passed, Detail); return; }
     bFinished = true;
     FString Folder = FPaths::Combine(FPaths::ProjectSavedDir(), TEXT("InterfaceProof"));
     FString Run; FGuid Id;
@@ -112,6 +114,9 @@ void UWarInterfaceProof::Tick(float DeltaTime)
     if (bFinished || !GetWorld()->HasBegunPlay()) return;
     const double Now = GetWorld()->GetTimeSeconds();
     if (Now < NextStep) return;
+    // This mode owns separate evidence and waits for the ordinary controller startup.
+    if (FParse::Param(FCommandLine::Get(), TEXT("WarBuilderOrdinaryProof")))
+    { TickWorldBuilderOrdinary(Now); return; }
     auto* PC = Cast<AWarPlayerController>(GetWorld()->GetFirstPlayerController());
     const auto* Pawn = PC ? Cast<AWarCharacter>(PC->GetPawn()) : nullptr;
     if (!Pawn || !Pawn->IsVisualReady())

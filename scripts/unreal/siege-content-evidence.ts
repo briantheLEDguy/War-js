@@ -14,6 +14,38 @@ export interface CandidateSiegeContentEvidence extends SiegeContentEvidence {
   map: string; signature: string; geometrySignature: string;
 }
 
+/** New recipes cannot launch a fixture against inherited, stale navigation. */
+export function requireCandidateSiegeNavigation(directory: string, receipt: any, blueprint: any): void {
+  if ((blueprint.recipeVersion ?? 0) < 11) return;
+  const binding = receipt.navigation;
+  if (binding?.file !== 'navigation.json' || !/^[a-f0-9]{64}$/.test(binding.sha256 ?? ''))
+    throw new Error('Build fresh candidate navigation before launching the native siege fixture.');
+  const bytes = readFileSync(path.join(directory, binding.file));
+  if (createHash('sha256').update(bytes).digest('hex') !== binding.sha256)
+    throw new Error('Candidate navigation receipt changed; rebuild and verify before launch.');
+  const navigation = JSON.parse(bytes.toString('utf8').replace(/^\uFEFF/, ''));
+  const expected: number[][] = [];
+  for (const point of [...blueprint.objectives, ...blueprint.optionalObjectives, ...blueprint.teamSpawns,
+    ...blueprint.routes.flatMap((row: any) => row.points),
+    ...(blueprint.spawnApproaches ?? []).flatMap((row: any) => row.points)]) {
+    if (!Array.isArray(point) || point.length !== 3 || !point.every(Number.isFinite))
+      throw new Error('Candidate navigation ledger contains an invalid waypoint.');
+    if (!expected.some(previous => previous.every((value, i) => value === point[i]))) expected.push(point);
+  }
+  const probes: string[] = typeof navigation.probe === 'string'
+    ? (navigation.probe as string).split(/\r?\n/).filter(row => row.trim()) : [];
+  if (navigation.schemaVersion !== 1 || navigation.passed !== true || navigation.anchorsReachable !== true
+    || navigation.map !== receipt.siegeMap || navigation.signature !== blueprint.signature
+    || navigation.cityRevision !== receipt.city.revision || binding.cityRevision !== navigation.cityRevision
+    || navigation.mapSha256 !== receipt.packageHashes[receipt.siegeMap] || binding.mapSha256 !== navigation.mapSha256
+    || navigation.packageHashes?.[receipt.siegeMap] !== navigation.mapSha256
+    || JSON.stringify(navigation.points) !== JSON.stringify(expected) || probes.length !== expected.length
+    || probes.some((row, i) => !row.startsWith(`${i} projected=1 connected=1 `))
+    || ['physicalTraversalVerified', 'convoyVerified', 'fullSiegeApproved', 'visualApproved', 'releaseAcceptance']
+      .some(name => navigation[name] !== false))
+    throw new Error('Candidate navigation is incomplete, stale or claims unverified acceptance.');
+}
+
 /** Candidate proofs bind all native dependencies without granting admission. */
 export function candidateSiegeContentEvidence(repository: string, map: string,
   engineRoot = defaultEngineRoot()): CandidateSiegeContentEvidence {
@@ -69,6 +101,7 @@ export function candidateSiegeContentEvidence(repository: string, map: string,
   requireNativeCitadelImport(directory, receipt, blueprint);
   requireNativeCitadelLighting(receipt, blueprint);
   requireNativeCitadelTerrain(repository, directory);
+  requireCandidateSiegeNavigation(directory, receipt, blueprint);
   return { map, signature: receipt.signature, geometrySignature: receipt.geometrySignature,
     cityRevision: receipt.city.revision, mapSha256: receipt.packageHashes[map] };
 }

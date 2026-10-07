@@ -9,6 +9,8 @@
 #include "WarPlayerState.h"
 #include "WarSiegeEncounter.h"
 #include "WarSiegeBattlefield.h"
+#include "WarSiegeEquipment.h"
+#include "WarSiegeEscort.h"
 #include "WarCitadelNavigationFilter.h"
 #include "GameFramework/Controller.h"
 
@@ -18,9 +20,8 @@ TSubclassOf<UNavigationQueryFilter> WarSiegeNavigation::FilterFor(const AActor* 
     if (const auto* Pawn=Cast<AWarCharacter>(Actor)) State=Pawn->GetPlayerState<AWarPlayerState>();
     else if (const auto* Controller=Cast<AController>(Actor)) State=Controller->GetPlayerState<AWarPlayerState>();
     const auto* Encounter=State ? State->GetSiegeEncounter() : nullptr;
-    return Encounter && Encounter->Owns(State) && Encounter->Siege.RulesVersion==2
-        && Encounter->Battlefield && Encounter->Battlefield->DefinitionVersion==2
-        ? UWarCitadelNavigationFilter::StaticClass() : nullptr;
+    return Encounter && Encounter->Owns(State) && Encounter->Siege.RulesVersion==2 && Encounter->Battlefield
+        ? Encounter->Battlefield->NavigationFilter() : nullptr;
 }
 
 bool WarSiegeNavigation::Detour(const ACharacter* Pawn,const FVector& Goal,float Side,FVector& Ground)
@@ -28,6 +29,17 @@ bool WarSiegeNavigation::Detour(const ACharacter* Pawn,const FVector& Goal,float
     if (!IsValid(Pawn) || Goal.ContainsNaN() || !FMath::IsFinite(Side)) return false;
     const FVector Toward=(Goal-Pawn->GetActorLocation()).GetSafeNormal2D();
     return Approach(Pawn,Pawn->GetActorLocation(),FVector(-Toward.Y,Toward.X,0)*400*(Side>=0 ? 1 : -1),900,Ground);
+}
+
+bool WarSiegeNavigation::ProjectedFloor(UWorld* World,const FVector& NavigationPoint,FHitResult& Floor,const AActor* Ignore)
+{
+    if (!World || NavigationPoint.ContainsNaN()) return false;
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(SiegeProjectedFloor),false,Ignore);
+    // Recast ramp polygons sit above the collision floor. Sample a bounded
+    // vertical band at the same XY, without choosing a different balcony.
+    return World->LineTraceSingleByObjectType(Floor,NavigationPoint+FVector(0,0,25),NavigationPoint-FVector(0,0,200),
+        FCollisionObjectQueryParams(ECC_WorldStatic),Query) && !Floor.bStartPenetrating && Floor.ImpactNormal.Z>=.7f
+        && Floor.ImpactPoint.Z<=NavigationPoint.Z+25 && Floor.ImpactPoint.Z>=NavigationPoint.Z-200;
 }
 
 bool WarSiegeNavigation::SpawnCandidate(UWorld* World,const FVector& Ground,float Radius,float HalfHeight,FVector& Center,const AActor* Ignore)
@@ -63,7 +75,20 @@ bool WarSiegeNavigation::SpawnCenter(UWorld* World,const FVector& Anchor,FVector
     return false;
 }
 
-bool WarSiegeNavigation::Approach(const ACharacter* Pawn,const FVector& Anchor,const FVector& PreferredOffset,float CaptureRadius,FVector& Ground)
+namespace
+{
+TArray<FWarSiegeEscortHull> ConvoyHulls(const AWarSiegeEncounter* Encounter)
+{
+    TArray<FWarSiegeEscortHull> Hulls;
+    if (Encounter) for (const auto& Vehicle:Encounter->ConvoyVehicles())
+        if (IsValid(Vehicle) && Vehicle->GetOwner()==Encounter && Vehicle->Definition && Vehicle->IsPlaced())
+            Hulls.Add({Vehicle->GetActorLocation()+Vehicle->GetActorQuat().RotateVector(FVector(0,0,155)),
+                Vehicle->GetActorQuat(),Vehicle->Definition->HullExtent});
+    return Hulls;
+}
+
+bool ApproachGround(const ACharacter* Pawn,const FVector& Anchor,const FVector& PreferredOffset,float CaptureRadius,FVector& Ground,
+    TConstArrayView<FWarSiegeEscortHull> Hulls,bool Formation)
 {
     if (!IsValid(Pawn) || Anchor.ContainsNaN() || PreferredOffset.ContainsNaN() || !FMath::IsFinite(CaptureRadius) || CaptureRadius<200) return false;
     auto* World=Pawn->GetWorld(); auto* Nav=FNavigationSystem::GetCurrent<UNavigationSystemV1>(World);
@@ -77,25 +102,54 @@ bool WarSiegeNavigation::Approach(const ACharacter* Pawn,const FVector& Anchor,c
     // by physical capsule clearance even if their navmesh projection succeeds.
     for (TActorIterator<APawn> It(World);It;++It) Query.AddIgnoredActor(*It);
     const float StartAngle=FMath::Atan2(PreferredOffset.Y,PreferredOffset.X);
-    const float Reach=CaptureRadius-100, Outer=FMath::Min(450.f,Reach-60);
-    for (float Ring:{FMath::Clamp(float(PreferredOffset.Size2D()),20.f,Outer),Outer*.55f,Outer}) for (int32 Attempt=0;Attempt<8;++Attempt)
+    const float Reach=CaptureRadius-100, Outer=FMath::Min(Formation ? 1050.f : 450.f,Reach-60);
+    const float Inner=Formation ? FMath::Min(480.f,Outer) : 20.f;
+    for (float Ring:{FMath::Clamp(float(PreferredOffset.Size2D()),Inner,Outer),FMath::Max(Inner,Outer*.55f),Outer}) for (int32 Attempt=0;Attempt<8;++Attempt)
     {
         const float Angle=StartAngle+Attempt*PI/4;
         const FVector Seed=Anchor+FVector(FMath::Cos(Angle),FMath::Sin(Angle),0)*Ring;
         FNavLocation Projected;
         if (!Nav->ProjectPointToNavigation(Seed,Projected,FVector(60,60,180),Data) || FVector::Dist2D(Anchor,Projected.Location)>Reach) continue;
         FHitResult Floor;
-        if (!World->LineTraceSingleByChannel(Floor,Projected.Location+FVector(0,0,100),Projected.Location-FVector(0,0,100),ECC_Visibility,Query)
-            || Floor.ImpactNormal.Z<.7 || FMath::Abs(Floor.ImpactPoint.Z-Projected.Location.Z)>25) continue;
+        if (!WarSiegeNavigation::ProjectedFloor(World,Projected.Location,Floor,Pawn)) continue;
         // A capsule resting on an incline sits above its centre floor sample;
         // account for its rounded base before testing walls and nearby props.
         const float FloorClearance=Half-Radius+Radius/Floor.ImpactNormal.Z+3;
         const FVector Center=Floor.ImpactPoint+FVector(0,0,FloorClearance);
+        if (!Hulls.IsEmpty() && !WarSiegeEscort::PointClear(Center,Hulls,Radius,Half)) continue;
         if (World->OverlapBlockingTestByChannel(Center,FQuat::Identity,ECC_Pawn,FCollisionShape::MakeCapsule(Radius,Half-1),Query)) continue;
         auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(World,Pawn->GetActorLocation(),Projected.Location,
-            const_cast<ACharacter*>(Pawn),FilterFor(Pawn));
+            const_cast<ACharacter*>(Pawn),WarSiegeNavigation::FilterFor(Pawn));
         if (!Path || !Path->IsValid() || Path->IsPartial()) continue;
-        Ground=Projected.Location; return true;
+        if (!Hulls.IsEmpty() && !WarSiegeEscort::PathClear(Path->PathPoints,Hulls,Radius,Half)) continue;
+        Ground=Floor.ImpactPoint; return true;
     }
     return false;
+}
+}
+bool WarSiegeNavigation::Approach(const ACharacter* Pawn,const FVector& Anchor,const FVector& Offset,float CaptureRadius,FVector& Ground)
+{ return ApproachGround(Pawn,Anchor,Offset,CaptureRadius,Ground,{},false); }
+bool WarSiegeNavigation::ConvoyPositionClear(const ACharacter* Pawn,const AWarSiegeEncounter* Encounter)
+{
+    if (!IsValid(Pawn)) return false;
+    const auto* Capsule=Pawn->GetCapsuleComponent();
+    return WarSiegeEscort::PointClear(Pawn->GetActorLocation(),ConvoyHulls(Encounter),Capsule->GetScaledCapsuleRadius(),Capsule->GetScaledCapsuleHalfHeight());
+}
+bool WarSiegeNavigation::ConvoyPathClear(const ACharacter* Pawn,const AWarSiegeEncounter* Encounter,TConstArrayView<FVector> Path)
+{
+    if (!IsValid(Pawn)) return false;
+    const auto* Capsule=Pawn->GetCapsuleComponent();
+    return WarSiegeEscort::PathClear(Path,ConvoyHulls(Encounter),Capsule->GetScaledCapsuleRadius(),Capsule->GetScaledCapsuleHalfHeight());
+}
+bool WarSiegeNavigation::ConvoyApproach(const ACharacter* Pawn,const FVector& Anchor,const FVector& Offset,float CaptureRadius,
+    const AWarSiegeEncounter* Encounter,FVector& Ground,bool Formation)
+{
+    const auto Hulls=ConvoyHulls(Encounter);
+    if (ApproachGround(Pawn,Anchor,Offset,CaptureRadius,Ground,Hulls,Formation)) return true;
+    if (!IsValid(Pawn) || Hulls.IsEmpty()) return false;
+    // A direct nav path may cross a moving hull that does not carve the navmesh.
+    // Take an ordinary capsule-clear flank step, then retry the destination.
+    const FVector Side=Hulls[0].Rotation.RotateVector(FVector(0,450,0));
+    return ApproachGround(Pawn,Pawn->GetActorLocation(),Side,900,Ground,Hulls,false)
+        || ApproachGround(Pawn,Pawn->GetActorLocation(),-Side,900,Ground,Hulls,false);
 }

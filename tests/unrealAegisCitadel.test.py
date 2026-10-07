@@ -1,8 +1,11 @@
 """Reference topology, structural passages and gate coverage without Unreal."""
 import copy
+import hashlib
+import json
 import math
 import struct
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -1013,6 +1016,104 @@ class SurfaceCapsulePoseTests(unittest.TestCase):
 
 
 class SpawnSurfaceTests(unittest.TestCase):
+    def test_native_relocation_witness_binds_unchanged_actors_paths_and_complete_footprint(self):
+        import citadel_spawn_surface as surfaces
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);baseline_file=root/'artifacts/unreal/aegis-citadel/baseline.json'
+            baseline_file.parent.mkdir(parents=True)
+            floor='/Game/OriginalFloor';city='/Game/OriginalCity'
+            copied='/Game/PrivateCandidate/Layers/RetainedCity_0';actor=copied+'.RetainedCity_0:PersistentLevel.FloorActor'
+            state=dict(location=[0,0,0],components=[dict(name='FloorComponent',class_='StaticMeshComponent',mesh=floor+'.OriginalFloor')])
+            state['components'][0]['class']=state['components'][0].pop('class_')
+            state_hash=hashlib.sha256(json.dumps(state,sort_keys=True,separators=(',', ':')).encode()).hexdigest()
+            baseline=dict(file=baseline_file.relative_to(root).as_posix(),packageHashes={floor:'a'*64,city:'b'*64},
+                city=dict(sceneryLevels=[city]),
+                battlefield=dict(team_spawns=[[5800,-4800,910],[-15800,0,10]],
+                    objectives=[[-11600,0,10],[-1000,0,10],[11900,-400,4000]],optional_objectives=[[-7900,3400,10]]),
+                actors={city:[dict(actor='FloorActor',state=state)]},spawnPadSurfaces=[])
+            for index,point in enumerate(baseline['battlefield']['team_spawns']):
+                baseline['spawnPadSurfaces'].append(dict(schemaVersion=1,index=index,point=point,widthCm=600,
+                    groundGradient=[0,0],capsuleRadiusCm=42,capsuleHalfHeightCm=96,diagnosticOnly=True,
+                    samples=[dict(x=x,y=y,floor=surfaces.seed(point,x,y,258,[0,0]),normal=[0,0,1],capsuleClear=True,
+                        source=dict(meshPackage=floor,meshSha256='a'*64,actorPackage=city,actorPath='original.actor',
+                            componentPath='original.actor.mesh',actorStateSha256=state_hash)) for x in range(-2,3) for y in range(-2,3)]))
+            baseline_file.write_text(json.dumps(baseline))
+            destination=[3000,-6500,3.5];convoy=[[-1000,0,10],[11900,-400,4000]]
+            delta=[convoy[1][i]-convoy[0][i] for i in range(3)]
+            t=sum((destination[i]-convoy[0][i])*delta[i] for i in range(3))/sum(v*v for v in delta)
+            gap=math.dist(destination,[convoy[0][i]+t*delta[i] for i in range(3)])
+            pad=dict(pointCm=destination,widthCm=600,groundGradient=[0,0],minimumConvoyCentrePathDistanceCm=gap,
+                diagnosticFootprintComplete=True,samples=[dict(x=x,y=y,pointCm=surfaces.seed(destination,x,y,258,[0,0]),
+                    normal=[0,0,1],capsuleClear=True,source=dict(meshPackage=floor,meshSha256='a'*64,
+                        actorPackage=copied,actorPath=actor,componentPath=actor+'.FloorComponent',
+                        originalActorPackage=city,originalActorName='FloorActor',actorStateSha256=state_hash))
+                    for x in range(-2,3) for y in range(-2,3)])
+            for key,end in (('characterPathToOriginalSpawn',baseline['battlefield']['team_spawns'][0]),
+                            ('characterPathToCheckpoint',baseline['battlefield']['objectives'][2])):
+                pad[key]=dict(valid=True,partial=False,pointsCm=[destination,end])
+            report=dict(schemaVersion=1,packagesUnchanged=True,diagnosticOnly=True,traversalApproved=False,visualApproved=False,
+                protectionRadiusCm=750,spawnsCm=baseline['battlefield']['team_spawns'],
+                baselineSha256=hashlib.sha256(baseline_file.read_bytes()).hexdigest(),packageHashes={**baseline['packageHashes'],copied:'d'*64},
+                spawnPadCandidates=[pad],paths=[dict(kind='direct',segments=[dict(valid=True,partial=False,pointsCm=convoy)])],
+                map='/Game/PrivateCandidate/SiegeCandidate',revision='fixture')
+            survey=root/'artifacts/unreal/citadel-reference/survey.json';survey.parent.mkdir(parents=True)
+            def save(value):survey.write_text(json.dumps(value))
+            with patch.object(surfaces,'ROOT',root):
+                save(report);relocation=surfaces.relocation_witness(survey,baseline)
+                approaches=[dict(index=index,points=[destination if index==0 else point],widthCm=600,groundGradient=[0,0])
+                    for index,point in enumerate(baseline['battlefield']['team_spawns'])]
+                surfaces.validate_retained_surfaces(baseline,approaches,[relocation],11)
+                self.assertEqual(baseline['spawnPadSurfaces'][0]['point'],[5800,-4800,910])
+                with self.assertRaises(ValueError):surfaces.validate_retained_surfaces(baseline,approaches,[relocation],10)
+                for change in ('baseline','actor','gap','blocked','missing','partial','source','mesh','actor_path','component_path','actor_package','coherent_copy'):
+                    bad=copy.deepcopy(report)
+                    if change=='baseline':bad['baselineSha256']='c'*64
+                    elif change=='actor':bad['spawnPadCandidates'][0]['samples'][0]['source']['actorStateSha256']='c'*64
+                    elif change=='gap':bad['spawnPadCandidates'][0]['minimumConvoyCentrePathDistanceCm']+=1
+                    elif change=='blocked':bad['spawnPadCandidates'][0]['samples'][0]['capsuleClear']=False
+                    elif change=='missing':bad['spawnPadCandidates'][0]['samples'].pop()
+                    elif change=='partial':bad['spawnPadCandidates'][0]['characterPathToCheckpoint']['partial']=True
+                    elif change=='source':bad['packageHashes'][floor]='c'*64
+                    elif change=='mesh':
+                        bad['spawnPadCandidates'][0]['samples'][0]['source'].update(meshPackage=city,meshSha256='b'*64)
+                    elif change=='actor_path':bad['spawnPadCandidates'][0]['samples'][0]['source']['actorPath']=actor+'Wrong'
+                    elif change=='component_path':bad['spawnPadCandidates'][0]['samples'][0]['source']['componentPath']=actor+'.OtherComponent'
+                    elif change=='actor_package':
+                        wrong='/Game/PrivateCandidate/Layers/OtherCity';bad['packageHashes'][wrong]='e'*64
+                        bad['spawnPadCandidates'][0]['samples'][0]['source']['actorPackage']=wrong
+                    else:
+                        wrong='/Game/PrivateCandidate/Layers/RetainedCity_1';bad['packageHashes'][wrong]='e'*64
+                        wrong_actor=wrong+'.RetainedCity_1:PersistentLevel.FloorActor'
+                        bad['spawnPadCandidates'][0]['samples'][0]['source'].update(actorPackage=wrong,
+                            actorPath=wrong_actor,componentPath=wrong_actor+'.FloorComponent')
+                    save(bad)
+                    with self.subTest(change=change),self.assertRaises(ValueError):
+                        row=surfaces.relocation_witness(survey,baseline)
+                        surfaces.validate_retained_surfaces(baseline,approaches,[row],11)
+
+    def test_relocation_retains_protection_and_requires_both_actual_native_connections(self):
+        from citadel_spawn_surface import _validate_relocation
+        baseline=dict(battlefield=dict(team_spawns=[[5800,-4800,910]],objectives=[None,None,[11900,-400,4000]]))
+        row=dict(schemaVersion=1,index=0,fromPoint=[5800,-4800,910],point=[5500,-8000,778.5],
+            measuredSurface=dict(point=[5500,-8000,778.5]),protectionRadiusCm=750,
+            minimumConvoyCentrePathDistanceCm=3310.99,freshNativeReplayRequired=True,nativeTraversalApproved=False)
+        for key,end in (('characterPathToOriginalSpawn',row['fromPoint']),
+                        ('characterPathToCheckpoint',baseline['battlefield']['objectives'][2])):
+            row[key]=dict(valid=True,partial=False,pointsCm=[row['point'],end])
+        _validate_relocation(row,baseline)
+        for change in ('protection','gap','partial','invalid','start','end','nan','approval','old_anchor'):
+            bad=copy.deepcopy(row)
+            if change=='protection':bad['protectionRadiusCm']=100
+            elif change=='gap':bad['minimumConvoyCentrePathDistanceCm']=1299
+            elif change=='partial':bad['characterPathToOriginalSpawn']['partial']=True
+            elif change=='invalid':bad['characterPathToCheckpoint']['valid']=False
+            elif change=='start':bad['characterPathToCheckpoint']['pointsCm'][0]=[0,0,0]
+            elif change=='end':bad['characterPathToOriginalSpawn']['pointsCm'][-1]=[0,0,0]
+            elif change=='nan':bad['characterPathToCheckpoint']['pointsCm'][-1][0]=float('nan')
+            elif change=='approval':bad['nativeTraversalApproved']=True
+            else:bad['fromPoint']=[5800,-4800,9]
+            with self.subTest(change=change),self.assertRaises(ValueError):_validate_relocation(bad,baseline)
+
     def test_retained_ramp_requires_complete_native_source_and_clearance_witness(self):
         from citadel_spawn_surface import validate_retained_surfaces,seed
         pads=plan()['spawnApproaches'];hashes={'/Game/OriginalFloor':'a'*64,'/Game/OriginalCity':'b'*64}

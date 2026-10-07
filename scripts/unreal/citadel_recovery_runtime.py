@@ -218,7 +218,8 @@ def checked_cast(value,state,character_id,realm):
     def matches(s):
         effect=next((e for e in effects if e['id']==s['effectId']),None)
         if not effect:return False
-        identity=definition['id']+':'+(effect['id']+':'+s['sourceKey'] if effect['recipient'] else effect['statusId']+':'+effect['statusKind'])
+        # Empty legacy status names serialize through FName::ToString as None.
+        identity=definition['id']+':'+(effect['id']+':'+s['sourceKey'] if effect['recipient'] else (effect['statusId'] or 'None')+':'+effect['statusKind'])
         return (effect['kind']=='player_status' and (effect['recipient']=='caster' or applied['legacyTargeting'] and effect['recipient']=='')
             and s['id']==identity and s['kind']==effect['statusKind'] and s['group']==effect['stackGroup'] and s['modifier']==effect['modifier']
             and s['label']==(effect['label'] or effect['statusKind']) and s['category']==('shield' if s['kind']=='shield' else 'status')

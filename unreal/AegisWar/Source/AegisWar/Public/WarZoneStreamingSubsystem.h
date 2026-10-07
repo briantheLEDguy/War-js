@@ -44,8 +44,13 @@ private:
     TArray<FPending> Pending;
     TMap<FName, double> KeepUntil;
     friend class FWarCampaignLeaseTest;
+    friend class FWarZoneStreamingTest;
     TMap<TWeakObjectPtr<UObject>, FName> ZonePins;
     TMap<TWeakObjectPtr<APlayerController>, TSet<FName>> ClientPackages;
     double NextUpdateAt = 0;
     void UpdateStreaming();
+    FString DescribeZoneStreaming(FName Zone) const;
+    void LogRecoveryStreamingDiagnostics();
+    double NextStreamingDiagnosticAt = 0;
+    int32 StreamingDiagnosticSamples = 0;
 };

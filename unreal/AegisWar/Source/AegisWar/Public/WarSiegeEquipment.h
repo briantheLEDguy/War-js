@@ -9,6 +9,8 @@ class UAnimSequence;
 class AWarSiegeCharacter;
 class AWarCharacter;
 class ANavigationData;
+struct FCollisionQueryParams;
+struct FOverlapResult;
 
 namespace WarSiegeEquipment
 {
@@ -16,9 +18,16 @@ namespace WarSiegeEquipment
     // enforce the larger terrain-aligned footprint at every movement step.
     constexpr float NavigationRadius = 320.f;
     constexpr float NavigationHeight = 330.f;
+    // Movement sweeps add 3 cm plus at most 5 cm for each rotational arc.
+    constexpr float MaximumMovementPadding = 8.f;
+    // Bound only the initial navigation projection, never subsequent corners.
+    constexpr float ProjectedStartTolerance = 20.f;
+    AEGISWAR_API int32 RouteStartIndex(const FVector& Position,TConstArrayView<FVector> Path,bool bOnwardNavClear);
     AEGISWAR_API FRotator SurfaceRotation(float Yaw, float ForwardGrade, float RightGrade);
     AEGISWAR_API ANavigationData* Navigation(UWorld* World);
     AEGISWAR_API FVector TrailingPoint(TConstArrayView<FVector> Trail, float Distance);
+    AEGISWAR_API bool MovementContacts(UWorld* World, const FVector& Center, const FQuat& Rotation,
+        const FVector& Extent, const FCollisionQueryParams& Query, TArray<FOverlapResult>& Contacts);
 }
 
 USTRUCT(BlueprintType)
@@ -57,6 +66,8 @@ class AEGISWAR_API AWarSiegeEquipment : public AActor
     GENERATED_BODY()
 public:
     AWarSiegeEquipment();
+    /** Physical blockers remain blockers; only this encounter's characters may be relocated. */
+    bool CanRecoverCharacter(const AWarCharacter* Character) const;
     UPROPERTY(ReplicatedUsing=OnRep_Definition) TObjectPtr<UWarSiegeEquipmentDefinition> Definition;
     UPROPERTY(Replicated) TArray<TObjectPtr<AWarSiegeCharacter>> Engineers;
     UPROPERTY(Replicated) float Travel = 0;
@@ -79,6 +90,9 @@ public:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out) const override;
 private:
+    friend class UWarCitadelSiegeProof;
+    bool EmitProofDiagnostic() const;
+    mutable double NextProofDiagnosticAt = 0;
     UFUNCTION() void OnRep_Definition();
     UFUNCTION() void OnRep_Placed();
     UPROPERTY(ReplicatedUsing=OnRep_Placed) bool bPlaced = false;
@@ -93,5 +107,7 @@ private:
     bool RecoverOverlaps();
     void UpdateEscapeCollision();
     TSet<TWeakObjectPtr<AWarCharacter>> EscapingPawns;
+    int32 RecoveryDisplacements = 0;
+    int32 ProjectedStartSkips = 0;
     void PlaceEngineers();
 };

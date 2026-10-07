@@ -17,6 +17,59 @@ export interface CitadelSiegeProofConfig extends CandidateSiegeContentEvidence {
   isolatedStageWindows?: false;
   fixtureMode?: 'earned_progression';
   campaignOutcome?: 'city_captured' | 'city_defended';
+  diagnosticSeconds?: number;
+}
+export function citadelDiagnosticProofConfig(config: CitadelSiegeProofConfig, seconds: number): CitadelSiegeProofConfig {
+  if (!config.map.endsWith('/SiegeCandidate') || config.performance || config.performanceBaseline || config.campaignOutcome
+    || !Number.isFinite(seconds) || seconds < 60 || seconds > 600)
+    throw new Error('A bounded diagnostic requires an isolated scenario and 60-600 ordinary seconds.');
+  return { ...config, diagnosticSeconds: seconds };
+}
+export function validateCitadelSiegeDiagnostic(report: any, config: CitadelSiegeProofConfig): void {
+  citadelDiagnosticProofConfig(config, config.diagnosticSeconds!);
+  if (report?.passed !== false || report.diagnosticOnly !== true || report.diagnosticSampleComplete !== true
+    || report.diagnosticSeconds !== config.diagnosticSeconds || report.map !== config.map || report.signature !== config.signature
+    || report.mapSha256 !== config.mapSha256 || report.cityRevision !== config.cityRevision
+    || report.proofOnly !== true || report.transientReviewOverride !== true || report.productionAdmission !== false
+    || report.steamAdmission !== false || report.visualApproval !== false || report.humanPlaytest !== false
+    || report.trustedSettlementAcknowledged !== false || report.syntheticNormalControllers !== false
+    || report.normalCharacterRecoveryVerified !== false || report.campaignHumanEnrollmentVerified !== false
+    || report.reconnectVerified !== false || !Array.isArray(report.rounds) || report.rounds.length !== 0
+    || !Number.isFinite(report.diagnosticElapsedSeconds) || report.diagnosticElapsedSeconds < config.diagnosticSeconds!
+    || report.diagnosticElapsedSeconds > config.diagnosticSeconds! + 1
+    || !Array.isArray(report.samples) || report.samples.length < Math.floor(config.diagnosticSeconds! / 10))
+    throw new Error('The unfinished physical diagnostic is incomplete or claims outcome acceptance.');
+  let previous = -10, previousStage = 0;
+  for (const sample of report.samples) {
+    if (!Number.isFinite(sample.diagnosticElapsedSeconds) || sample.diagnosticElapsedSeconds < 0
+      || sample.diagnosticElapsedSeconds - previous < 9 || sample.diagnosticElapsedSeconds - previous > 11)
+      throw new Error('The diagnostic does not retain ordinary monotonic ten-second samples.');
+    previous = sample.diagnosticElapsedSeconds;
+    const completed = sample.completed;
+    if (!Number.isInteger(sample.stage) || sample.stage < previousStage || sample.stage > previousStage + 1
+      || sample.stage > 2 || !['active', 'transition'].includes(sample.phase)
+      || !Array.isArray(completed) || new Set(completed).size !== completed.length
+      || completed.some((index: any) => !Number.isInteger(index) || index < 0 || index > 7)
+      || (sample.stage > 0 && [0, 1, 2, 3].some(index => !completed.includes(index)))
+      || (sample.stage > 1 && [4, 5, 6].some(index => !completed.includes(index))))
+      throw new Error('The diagnostic lacks ordinary monotonic stages and earned prerequisite claims.');
+    previousStage = sample.stage;
+    // Convoy equipment belongs to the lower-city stage and is removed at its normal transition.
+    const convoyCount = sample.stage === 0 ? 2 : 0;
+    const physical = sample.physical;
+    if (physical?.version !== 1 || physical.diagnosticOnly !== true || physical.available !== true
+      || !Number.isFinite(physical.presenceAgeSeconds) || physical.presenceAgeSeconds < 0 || physical.presenceAgeSeconds > 1
+      || !Number.isInteger(physical.qualifyingAttackers) || physical.qualifyingAttackers < 0 || physical.qualifyingAttackers > 18
+      || !Number.isInteger(physical.qualifyingDefenders) || physical.qualifyingDefenders < 0 || physical.qualifyingDefenders > 18
+      || typeof physical.crewReady !== 'boolean' || typeof physical.escortAtCheckpoint !== 'boolean'
+      || physical.convoyCount !== convoyCount || !Array.isArray(physical.vehicles) || physical.vehicles.length !== convoyCount
+      || physical.vehicles.some((v: any) => !Array.isArray(v.position) || v.position.length !== 3 || !v.position.every(Number.isFinite)
+        || !Number.isFinite(v.travelCm) || v.travelCm < 0 || typeof v.moving !== 'boolean' || typeof v.crewReady !== 'boolean'
+        || !Array.isArray(v.engineers) || v.engineers.length !== 2))
+      throw new Error('Bounded physical diagnostic samples lack current convoy or presence evidence.');
+  }
+  if (previous < config.diagnosticSeconds! - 11 || previous > report.diagnosticElapsedSeconds)
+    throw new Error('The diagnostic did not retain its complete ordinary sample window.');
 }
 export function citadelDefendedProofConfig(config: CitadelSiegeProofConfig): CitadelSiegeProofConfig {
   if (!config.map.endsWith('/CampaignCandidate') || config.performance || config.performanceBaseline)
@@ -31,6 +84,8 @@ export function citadelSiegeProofConfig(repositoryRoot: string, map: string): Ci
       Array.from({ length: 18 }, (_, i) => `proof-${evidence.signature.slice(0, 12)}-${realm}-${i}`)) } : {}) };
 }
 export function validateCitadelSiegeProof(report: any, config: CitadelSiegeProofConfig): void {
+  if (config.diagnosticSeconds !== undefined || report?.diagnosticOnly === true)
+    throw new Error('An unfinished diagnostic cannot establish a siege outcome.');
   const live = config.map.endsWith('/CampaignCandidate');
   const defended = live && config.campaignOutcome === 'city_defended';
   if (config.campaignOutcome && (!live || !['city_captured', 'city_defended'].includes(config.campaignOutcome)))
@@ -85,6 +140,18 @@ export function validateCitadelSiegeProof(report: any, config: CitadelSiegeProof
     throw new Error('The defended fixture did not use the ordinary bounded stage timeout.');
   if (!report.samples.some((sample: any) => sample.stage === 1 && sample.leftProgress > 0 && sample.rightProgress > 0))
     throw new Error('Concurrent physical side objective evidence is missing.');
+  if (!config.performance) {
+    const rows = report.lockedCenterPhysicalSamples;
+    if (report.lockedCenterPhysicallyOccupied !== true || !Number.isFinite(report.lockedCenterPhysicalSeconds)
+      || report.lockedCenterPhysicalSeconds < 1 || !Array.isArray(rows) || rows.length < 4 || rows.length > 8
+      || rows.some((row: any, i: number) => row.locked !== true || row.progress !== 0
+        || !Number.isInteger(row.qualifyingAttackers) || row.qualifyingAttackers < 2 || row.qualifyingAttackers > 18
+        || !Number.isFinite(row.presenceSampleAt) || row.presenceSampleAt < 0
+        || (i > 0 && (row.presenceSampleAt - rows[i - 1].presenceSampleAt < .25
+          || row.presenceSampleAt - rows[i - 1].presenceSampleAt > .5)))
+      || Math.abs(rows.at(-1).presenceSampleAt - rows[0].presenceSampleAt - report.lockedCenterPhysicalSeconds) > 1e-6)
+      throw new Error('The locked center lacks continuous physical occupancy with zero capture progress.');
+  }
 }
 
 async function execute(command: string, args: string[], output: string): Promise<number> {
@@ -98,7 +165,7 @@ async function execute(command: string, args: string[], output: string): Promise
 
 if (isMain(import.meta.url)) {
   const args = parseArguments(process.argv.slice(2), ['--dry-run', '--performance', '--performance-baseline', '--defended'],
-    ['--map', '--blueprint', '--performance-binary', '--graphics-settings']);
+    ['--map', '--blueprint', '--performance-binary', '--graphics-settings', '--diagnostic-seconds']);
   const map = args.get('--map') ?? '';
   let authority: Awaited<ReturnType<typeof startNativeSiegeProofAuthority>> | undefined;
   try {
@@ -123,6 +190,7 @@ if (isMain(import.meta.url)) {
         path.resolve(args.get('--blueprint') ?? baseline?.baselinePath ?? path.join(repoRoot, 'artifacts/unreal/aegis-citadel', revision, 'blueprint.json')),
         args.get('--graphics-settings')!, path.join(saved, 'benchmark.ini'), args.get('--performance-binary'));
     }
+    if (args.has('--diagnostic-seconds')) config = citadelDiagnosticProofConfig(config, Number(args.get('--diagnostic-seconds')));
     const invocation = [projectPath, `${map}?game=/Script/AegisWar.${map.endsWith('/CampaignCandidate') ? 'WarGameMode' : 'WarSiegeGameMode'}`,
       '-game', '-unattended', '-nop4', '-nosplash', '-nosound', '-WarDevelopmentNetworking',
       ...(config.performance ? ['-WarCitadelSiegePerformance', '-RenderOffscreen', '-windowed', '-ForceRes',
@@ -131,6 +199,7 @@ if (isMain(import.meta.url)) {
         `-GameUserSettingsINI=${config.performance.settingsPath}`] : ['-nullrhi']),
       ...(baseline ? ['-WarCitadelSiegePerformanceBaseline'] : []),
       '-WarCitadelSiegeProof', `-WarCitadelSiegeProofConfig=${configFile}`, `-abslog=${path.join(output, 'native.log')}`];
+    if (config.diagnosticSeconds !== undefined) invocation.push('-WarCitadelSiegeDiagnostic');
     if (args.has('--dry-run')) {
       console.log(JSON.stringify({ command: engine.editorCommand, arguments: invocation, config,
         realTimers: true, automatedTactics: true, humanAcceptance: false, executed: false }, null, 2));
@@ -152,7 +221,10 @@ if (isMain(import.meta.url)) {
       requireSameSiegeContent(config, after);
       if (config.performance) requireSamePerformanceFiles(config.performance);
       writeFileSync(path.join(output, 'report.json'), JSON.stringify(report, null, 2) + '\n');
-      if (!baseline) validateCitadelSiegeProof(report, config);
+      if (config.diagnosticSeconds !== undefined) {
+        validateCitadelSiegeDiagnostic(report, config);
+      }
+      else if (!baseline) validateCitadelSiegeProof(report, config);
       let performanceWindows;
       if (config.performance) {
         const performanceFile = path.join(saved, 'performance-report.json'), framesFile = path.join(saved, 'performance-frames.json');
@@ -167,7 +239,8 @@ if (isMain(import.meta.url)) {
           throw new Error('Rendered native report is not bound to the actual config and flushed frame file.');
         performanceWindows = validateCitadelPerformance(performance, frames, config, !baseline);
       }
-      console.log(JSON.stringify({ passed: true, output, fixtureOnly: true, fullSiegeAdmission: false,
+      console.log(JSON.stringify({ passed: config.diagnosticSeconds === undefined,
+        ...(config.diagnosticSeconds !== undefined ? { diagnosticOnly: true } : {}), output, fixtureOnly: true, fullSiegeAdmission: false,
         ...(performanceWindows ? { performanceWindows, baselineVerified: false, isolatedStageWindows: false,
           ...(baseline ? { fixtureMode: 'earned_progression' } : {}) } : {}) }));
     }

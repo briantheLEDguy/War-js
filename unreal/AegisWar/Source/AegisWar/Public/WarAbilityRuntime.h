@@ -67,6 +67,8 @@ public:
     const TArray<FWarRuleTrace>& GetConditionTraces() const { return ConditionTraces; }
     void RecordConditions(const TArray<FWarRuleTrace>& Traces);
     bool CanActivate(const FWarAbilityDefinition& Ability, AActor* Target, FString& Error, bool bCheckMovement = true) const;
+    /** Advisory AI preflight ignores current locomotion only; TryActivate always checks actual movement again. */
+    bool CanPrepareStationaryCast(const FWarAbilityDefinition& Ability,AActor* Target,FString& Error) const;
     bool TryActivate(FName Id, AActor* Target, FString& Error, const FVector* Ground=nullptr);
     UFUNCTION(Server, Reliable) void ServerActivate(FName Id, AActor* Target);
     UFUNCTION(Server, Reliable) void ServerActivateVersioned(FName Id, AActor* Target, const FString& Version, FVector Ground);
@@ -82,6 +84,8 @@ public:
     bool RestoreCampaignState(const TSharedPtr<class FJsonObject>& State,int64 CapturedAt,int64 CurrentUtc,FString& Error,bool Apply=true);
     void Interrupt();
 private:
+    friend class FWarAbilityPreparationTest;
+    bool CheckActivation(const FWarAbilityDefinition& Ability,AActor* Target,FString& Error,bool bCheckMovement,bool bCheckMovementIntent) const;
     UWarAbilityCatalog* Catalog() const;
     AWarCharacter* Avatar() const;
     bool MovementDestination(const FWarAbilityDefinition& Ability, AActor* Target, FVector& End, FString& Error, TArray<FVector>* OutPath = nullptr) const;

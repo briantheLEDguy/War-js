@@ -255,6 +255,20 @@ void AWarSiegeEncounter::Wave()
 }
 void AWarSiegeEncounter::AssignSquads()
 {
+    uint32 EscortSeats[2]={};
+    for (const auto& Weak:Units) if (auto* Bot=Weak.Get(); Bot && Bot->Unit==EWarSiegeUnit::Participant)
+    {
+        const int32 Team=Bot->GetPlayerState<AWarPlayerState>()->GetRealm()==EWarRealm::Aegis ? 0 : 1;
+        if (Bot->EscortSeat>=0 && Bot->EscortSeat<18 && !(EscortSeats[Team]&(1u<<Bot->EscortSeat)))
+            EscortSeats[Team]|=1u<<Bot->EscortSeat;
+        else Bot->EscortSeat=INDEX_NONE;
+    }
+    for (const auto& Weak:Units) if (auto* Bot=Weak.Get(); Bot && Bot->Unit==EWarSiegeUnit::Participant && Bot->EscortSeat==INDEX_NONE)
+    {
+        const int32 Team=Bot->GetPlayerState<AWarPlayerState>()->GetRealm()==EWarRealm::Aegis ? 0 : 1;
+        for (int32 Seat=0;Seat<18;++Seat) if (!(EscortSeats[Team]&(1u<<Seat)))
+        { Bot->EscortSeat=Seat;EscortSeats[Team]|=1u<<Seat;break; }
+    }
     TMap<AController*,int32> Counts;
     TArray<AWarPlayerController*> Humans;
     for (auto It=GetWorld()->GetPlayerControllerIterator();It;++It)
@@ -458,6 +472,7 @@ void AWarSiegeEncounter::Tick(float Delta)
         P.bCommanderDead = Boss && Boss->IsDead();
         P.bRecentCommanderDamage = GetWorld()->GetTimeSeconds() - CommanderDamageAt < 10;
     }
+    LastSampledPresence = P; LastPresenceSampleAt = GetWorld()->GetTimeSeconds();
     const auto Before = GS->Siege;
     GS->bContested = (P.Attackers > 0 && P.Defenders > 0) || (P.LeftAttackers > 0 && P.LeftDefenders > 0) || (P.RightAttackers > 0 && P.RightDefenders > 0);
     const auto* CrewState = Crew.IsValid() ? Crew->GetPlayerState<AWarPlayerState>() : nullptr;

@@ -1,6 +1,164 @@
+## 2026-10-07 - Combined normal Development citadel build
+
+- Select the furnished 62df5e965e66 campaign through both normal startup settings; bind campaign, frontend and canonical scenario to the same city while retaining services, eight residents and all 32 zones / 70 directed portals.
+- Consolidate full-pixel mouse camera input, authority streaming fixes, native siege/GM improvements and completed citadel tooling in one Development source/build revision.
+- Add exact previous-binding checks, a durable rollback journal and focused integration tests; support migrated campaign defaults and ordinary GM persistence without map overrides or storage redirects.
+- Pass 1,062 repository tests (454 Unreal-tool tests), all three typechecks, audit and world/model validation; rebuild natively and pass all 139 Foundation tests. Verify normal-default lit GM save/load/local-publication/restart and actual camera handling in three processes while preserving the 13 prior GM documents.
+- Pass fresh normal-default execution of all 70 portal routes and full inventory/GM history controls, functional frontend rendering, and strict final decor readback after a read-only asset-readiness flush. Retain the initial path/probe failures; change no geometry or tolerances. Existing lighting/navmesh notices and visual approval remain open.
+- Preserve private review documents and source-only proposals. Keep native Content private and all competitive, appearance, populated-performance, platform and Steam release gates closed.
+
+## 2026-10-07 - Citadel practical lights and desk-area decor
+
+- Hold the accepted exterior and all 52 prior mesh placements; append four complete grounded models in private revision 62df5e965e66: paired archive/treasury lantern fixtures, terrace barrels and dispatch crates. The scene has 56 added objects, 456,364 source triangles and 34 attached lights.
+- Polish 16 mounted emitters and two paint roles in private revision 0cead0939e03. Preserve source emission strength 2 on the new paired fixtures without changing the general furnishing adapter.
+- Verify all 56 saved mesh/material/LOD bindings, 360 floor probes, 184 mount contacts, eight residents, four clear emitter spheres and 12 native light-to-floor rays. Preserve both failed ray diagnostics and the original strict tolerances.
+- Retain trusted authored point-light assemblies in native GM clones and draft recreation; preserve parenting, renderer settings, visibility, undo and streaming checks while excluding unrelated lights and asset references. All 139 native Foundation tests pass.
+- Pass three independent ordinary GM processes on 0cead0939e03 using a lit catalog furnishing and the exact 774-file source/DLL binding. Preserve nine existing documents and retain two proof-owned files. Fresh traversal on 62df5e965e66 passes 92 walks, 27,680 width samples, 288 gate checks, 88 objective probes and 150 spawn probes with zero failures. Final-wrapper GM run 250178ef28c34d1799b5872eec796f2e also passes three independent processes with 11 existing documents preserved and two owned files retained. All 16 final runtime decor views were inspected; lower desk lighting is clearer. Sunlit-stone contrast, hard ceiling shadows and some simple furnishing materials still need polish. Diagnostic p95 frame times range from 8.57 to 55.29 ms; populated performance remains open.
+- Pass 1,051 repository tests, 443 Unreal-tool tests, all three typechecks, migration audit and world/model validation. Release checks retain their four outstanding gates. Original packages and saved work remain intact; no active-city publication or shutdown occurs.
+
+## 2026-10-07 - Citadel decor after exterior acceptance
+
+- Retain the accepted castle shell and routes while furnishing interiors and terraces.
+- Add a tested floor-decor validator using actual model bounds, structural triangles and signed route/objective/service/resident reservations. Seven focused Python controls pass.
+- Save 36 additional seating, shelf, rack, hearth, cart, planter and lantern arrangements; correct 14 room-facing placements and the retained main archive bookcase. Exclude two hall hearths that fail clearance.
+- Add eight source-reviewed chandeliers and eight wall lanterns with measured mounts: 52 new decor objects and 30 warm practical lights in the final private world. Preserve the mounted models' authored emissive strength in fresh private material identities.
+- Verify 324 native floor samples, eight resident clearances, 184 native attachment contacts and 16 saved emissive-material readbacks. Record the eight outer-roof/inner-slab boundary differences separately; do not grant full geometry or visual acceptance.
+- Verify local GM save, load/publication and startup restoration in three independent native processes. The catalog-sentinel fixture does not certify ordinary login, shared publication or editing every new object.
+- Pass 1,050 repository tests, 442 Unreal-tool tests on the render-idle retry, three typechecks, migration audit and world/model validation. Preserve the earlier timeout without increasing limits. Unchanged DLLs retain the 138-test Foundation evidence.
+- Pass fresh traversal on the decorated revision: 92 directed walks, 27,680 width samples, 288 gate checks, 88 objective probes and 150 spawn probes. Inspect 12 actual runtime decor views; archive/treasury floor lighting and material polish remain unfinished.
+- Keep original native packages, character sources, saved GM documents and active city definitions intact. Native content remains private. Appearance, populated performance and complete siege/release admission remain separate gates.
+
+## Private owned architecture source rebuild - 2026-10-07
+
+- Add a hash-bound source rebuild helper for four owned citadel architecture meshes. Preserve unselected oriented faces, material roles and all original position/normal/UV0 entries, including unused entries; append reviewed render-only details in final world centimetres. Eleven focused Python controls pass through the tooling wrapper.
+- Assemble Gothic balustrades, curved standards and shallow stone mouldings while retaining 841,937 source triangles. Fresh native packing, generated UV1, reduced LODs, collision agreement, GM persistence, visuals and populated performance remain unapproved; preserve original packages and active city definitions.
+
+## Private crag shader readiness and saved review - 2026-10-07
+
+- Extend private capture readiness to the three exact fresh crag material roles, rejecting fallback resources, missing bindings and malformed namespaces/object names before camera settling. Add focused native and tooling controls.
+- Verify saved mage reference/animation parity and actual face-source triangle/skin-weight correspondence without activating presentations. Record shader-ready mountain comparisons and their visual rejection; cinematic lighting, architecture, equipment fit and release acceptance remain unfinished.
+- Verify all 138 native Foundation tests, 1,048 repository tests, 440 Unreal-tool tests, three typechecks, world/model validation and migration audit. Preserve earlier contention-timeout evidence; the idle-worker retry passes without increasing limits.
+
+## Private native review verification - 2026-10-07
+
+- Add restricted, read-only native skeletal-mesh buffer inspection for the private mage face review: actual LOD0 positions, normals, UVs, section triangles and decoded skin weights. Missing CPU mirrors and invalid scopes return explicit unavailable results.
+- Add native guard, bone-map decoding, eight-bit weight expansion and isolation tests; all 138 Foundation tests pass. Diagnostic readback does not activate models or confer visual approval.
+
+## 2026-10-07 â€” repaired window revision, fresh native evidence
+
+Revision `0284fb4947a8` imported successfully, retained the protected native packages,
+and reached all 139 authored navigation points. Fresh physical evidence passes all
+92 directed walks, 27,680 width samples, 144 ground and 144 elevated gate checks,
+88 objective floor/line-of-sight probes and 150 spawn probes without failures.
+All eight fresh native captures were personally inspected. The panes now appear,
+but harsh daylight, smooth mountains, sparse precincts and plain railings still
+fall short of the reference. Visual, lighting and full-siege approval remain open.
+
+All 1,045 repository tests and 437 Unreal-tool tests pass, together with all three
+typechecks, world/model validation and the migration audit. The audit still records
+the independent model, native acceptance, platform and Steam gates. These results
+do not certify populated performance, a complete live siege or release readiness.
+See `oct7-window-native-review.json` for the exact report and image hashes.
+
+## Citadel window orientation and retained mountain bridge (2026-10-07)
+
+- Fix arch/ring/reveal/glass winding and require explicit outward side for glazed wall bays. Seven orientation, seven crown and75 architecture checks pass. Private0284fb4947a8 exports45models/74arrangements while preserving17gameplayfields and the full surveyed baseline; native acceptance remains pending.
+- Add strict native vector-parameter readback and a copied retained mountain MI/direct-parent bridge preserving PBR/overrides/actor collision.40Pythoncontrols,32toolingchecks/fulltypecheck and124nativeFoundationtests pass. Fresh matched native/cold/material-readiness checks pass; all16personally viewed captures still fail reference fidelity and remain unapproved.
+- Begin isolated Ember Arcanist body/armor and face repairs. Weight-only correction eliminates36mm measured facial distortion across25actualanimations/2507samples. Separate anatomy improves cheeks/nose/eyes;18focusedsourcechecks pass. Coarse face materials/hair and kit artwork/motion fit require further refinement; no native model activation or human approval is claimed.
+
+## Repaired citadel native staging and twilight v2 review (2026-10-07)
+
+- Repaired revision 252ca2f6ef88 imports all 45 models, six normal textures and 101 owned packages; saved navigation reaches 139 ledger points while preserving the prior native package closure.
+- Matched twilight v2 copies stage and pass cold saved-property checks. Both eight-view runs preserve source, binary and native package bindings. The plaza, stairs, balconies and hall are more readable, but personally reviewed images still fail reference fidelity; no lighting adoption, populated performance or full-siege approval is granted.
+
+## Citadel furnishing overlap repairs (2026-10-07)
+
+- Move 15 older dressing arrangements clear of facade trim, gallery stairs and terrace gameplay pads. Require complete eight-group source architecture, floor, route, room, service, objective, gate and resident checks for existing dressing as well as density additions. Add measured-triangle and negative reservation/floor regressions; ten furnishing controls and 15 focused tooling tests pass.
+- Export repaired private revision `252ca2f6ef88` with the same 45 models and 74 arrangements. All 666 dressing floor probes pass; 17 protected gameplay/lighting fields and the full surveyed baseline remain unchanged. Native verification is pending.
+- Complete prior density revision `75641ea12130` physical proof: 92 walks, 27,680 width samples, 288 gate checks, 88 objective probes and 150 spawn probes pass with all source/DLL/native-package bindings preserved. Those receipts do not verify the repaired revision or approve its visuals.
+
+## Citadel furnishing density and lighting review (2026-10-07)
+
+- Stage private density revision `75641ea12130`: 26 additional reviewed table, bench and barrel arrangements, 74 dressing arrangements in the existing 45-model manifest. Preserve 17 gameplay/lighting fields; source clearance checks pass. Native import and navigation to all 139 ledger points pass; fresh physical and populated review remains required.
+- Complete matched off/on twilight captures and cold saved-property checks. Reject the first look for dark plaza, stair and balcony routes. Recipe two raises and redirects the existing soft fill and sky contribution; twelve focused checks pass, with fresh native review pending.
+- Verify 1,031 repository tests, 423 Unreal-tool tests, all three required typechecks, 33 world definitions and 906 models. Migration audit completes with four release blockers still open.
+
+
+### Citadel siege diagnostics and private twilight study (2026-10-07)
+
+- Validate ordinary diagnostic stages and normal convoy cleanup independently; reject missing active convoys, retained later-stage convoys, skipped/reversed stages and invalid claims. Twelve focused tests pass. Revalidated preserved 600-second native evidence reached lower city, both sides and center; commander results and clean convoy traversal remain unverified.
+- Add an independent private twilight/fire comparison preserving existing geometry and light positions. Eleven portable tests and cold saved-property checks for seven fixtures, 18 practical lights and five material graphs pass in both off/on copies. Cinematic acceptance remains unapproved.
+- Complete shader-ready eight-view surface comparisons with unchanged native bindings; retain rejection of visual quality and all original failed receipts. Inspect the actually bound retained-mountain instance chain before changing its material.
+
+
+### Citadel verification and convoy refinements (2026-10-07)
+
+- Preserve the recipe-12 signed 45-model manifest in native import and publication checks; unknown future recipes remain rejected.
+- Inspect exact native expression pins and 21 material roots, preserving disconnected pins, original normals/UVs and source package bytes. Both private surface studies staged and passed independent cold graph reload checks.
+- Delay private camera captures until intended non-fallback shader resources are ready, retain the full 12-second settle, and recheck immediately before capture. Reject old or mismatched readiness receipts. These diagnostics do not grant renderer or visual approval.
+- Guard tiny initial convoy navigation projections with an actual clear onward corridor; retain hull collision, later corners, ownership, docking and support spacing. Longer ordinary encounter verification is pending.
+- Pass 118 native Foundation tests, 1,028 repository tests, 420 Unreal-tool tests, all three typechecks, world/model validation and the migration audit. Release readiness remains false; reference appearance and final physical/gameplay acceptance remain open.
+
+## Convoy movement envelope and verified private GM persistence (2026-10-07)
+
+## Private citadel lighting diagnostics and crown refinement (2026-10-07)
+
+- Strengthen crown masonry beneath the same six tips, selected upper piers and carved crest lancets. Recipe 12 export 423a3d57fd65 preserves all signed routes, crossings, objectives, gates, rooms, spawns, terrain carves and crowd points; native/visual approval remains pending.
+- Add source/map/city-bound private software and hardware Lumen comparisons. Process-only startup layers and tagged temporary runtime CVar history preserve saved settings; native tests cover restoration and rejected protected/missing variables.
+- Add read-only native distance-field/card/ray-tracing resource inventory and render-thread blended-view diagnostics. Capture-window samples explicitly do not verify screenshot-frame binding, renderer passes, tracing backend, surface coverage or lighting quality.
+- Limit convoy overlap relocation to the owning encounter's characters. Unrelated players remain physical blockers without being teleported.
+- Verify the six-minute expanded-hull diagnostic: three earned lower-city milestones, both prior stuck points passed, unchanged source/DLL binding. Preserve its 89 ram and 78 support overlap recoveries; no clean traversal, siege victory or release acceptance is claimed.
+- The repaired lighting build passed 113 native Foundation tests; the later convoy ownership restriction is built with its fresh native test run pending. All 415 tooling tests and three typechecks pass. Prior material captures remain rejected and no study is adopted.
+
+
+- Align convoy pawn recovery and temporary escape queries with the existing maximum eight-centimetre movement padding. A native physics regression reproduces a capsule clearing the bare hull while blocking the padded sweep. Keep actual hull clearance, capture rules and timers intact; record successful ordinary recovery displacements separately in diagnostics.
+- Verify normal private-review GM Save, independent Load and local Publish, then startup restoration, across three native GUI processes. Existing WorldEdit bytes remain preserved. Ordinary login and shared publication remain separate unverified gates.
+- Reconcile only the current private candidate's two retained-zone hashes against their existing exact native streaming evidence; preserve original metadata, native packages and canonical receipts. Fresh campaign navigation ownership and the full 32-zone review wrapper stage successfully.
+- The convoy-envelope build passes 112 native Foundation groups, 411 Unreal tooling tests and all three typechecks. The source-frozen physical diagnostic remains pending. Reference visual quality, full-siege outcomes, current recovery, populated performance and release acceptance remain open.
+
+## Native approach floors and reference material comparisons (2026-10-07)
+
+- Bind siege approach points to a bounded static collision-floor sample under the same navigation XY, rejecting penetrating traces, steep faces and other storeys. Keep capsule, path, convoy and objective checks. Add native collision tests and bounded participant movement diagnostics.
+- Require continuous physical presence of two attackers at the locked center with zero progress in ordinary scenario/live proof runs; retain independent side tactics and existing capture clocks. Rendered performance retains its separate formation controls.
+- Add private material and light-balance comparisons using darker owned stone and sculpture palettes while preserving the signed native canopy. Existing candidate, retained city, licensed sources and saved drafts remain protected. These studies grant no visual approval.
+- The new build passes 111 native Foundation groups, 410 Unreal tooling tests and tooling typecheck. The previous frozen full scenario timed out at 840 seconds after two milestones; corrected physical gameplay, ordinary GM execution and release acceptance remain unverified.
+
+## Ordinary private-review GM persistence proof (2026-10-07)
+
+- Share version 2 siege readiness with the enrolled character navigation profile and bounded query budget; require fresh recipe 11 navigation before launching a native fixture. Rebuild 139 signed ledger points while preserving prior map bytes for rollback. The combined GM/navigation build, 110 native Foundation tests, 409 Unreal tooling tests and all typechecks pass; ordinary GM GUI execution and full-siege outcomes remain pending.
+
+- Add an opt-in Development-only three-process native GUI proof for normal private-review draft save, independent load/local publication and automatic startup restoration. Bind the exact created object, native/DLL/source/package bytes and separate evidence paths. Refuse occupied storage and preserve every preexisting WorldEdit file byte. Portable harness tests cover preservation and admission guards; native compilation and execution remain unverified.
+
+## Portal streaming residency (2026-10-06)
+
+- Preserve the furnished scenario escort failure and add bounded native convoy diagnostics with strict separation from outcome, campaign and performance acceptance. The capture, collision and encounter timers are unchanged.
+
+- Add recipe 11 supported crest backing, foundation/roof detail and 48 furnished arrangements, with explicit native normal-texture conversion readbacks. Bind the lower defender spawn overlay to a complete native survey outside the convoy path while preserving lower-city scenery, every objective/route/gate and 750 cm protection. Correct fixture targeting of opposing participants under ordinary combat rules; all 110 native Foundation tests pass. New geometry still needs fresh traversal, full siege, recovery, crowd performance and cinematic visual acceptance.
+
+- Add safe convoy flank steering, stable survivor seats, exact rotated-hull path reservations and movement-safe stationary-cast preflight for scenario bots and live fixtures. A bounded trial increases measured ram travel from 17 to 109 metres; full siege and fresh crash-recovery acceptance remain pending. Preserve authoritative capture timers, collision and ordinary activation validation.
+
+- Add private highland render refinement and world-space sculpture weathering studies, preserving native source packages and measured terrain collision. Native visual and performance acceptance remain required.
+
+- Added an exact private citadel review launcher with native package hash checks and isolated map selection; cloud render-resource diagnostics now distinguish fallback shaders from captured frames.
+
+- Require a real network connection before sending per-player streaming notifications. Connectionless development controllers retain their occupied/requested zones in the server union without executing client RPCs that overwrite it.
+- Add a native two-controller regression demonstrating the engine RPC overwrite and verifying both zone declarations remain requested. Add bounded read-only recovery diagnostics separating desired loading/visibility from actual state and recording controller membership, requests and residency. The coordinated native build and all 105 Foundation groups pass, including ZoneStreaming and CameraControls. All 907 repository tests and the latest 300 Unreal-tool tests pass; actual travel through all 70 routes in the exact restored October 7 walkthrough passes, including 20 resource harvests, GM history, inventory continuity and zone-local respawn. Normal character recovery also passes three real process attempts and all 36 safe physical returns in the furnished CampaignCandidate; siege outcome recovery remains unverified.
+- Add a read-only editor query for every streaming declaration, including unloaded destinations and duplicate entries. A focused CampaignNavigationOwnership regression checks complete sorted results and unchanged declarations, flags, load state and package dirtiness; the coordinated native build and all 105 Foundation groups pass on the updated DLL.
+
+## Mouse camera input (2026-10-06)
+
+- Restore full mouse pixel deltas by overriding Unreal's inherited 0.07 mouse-axis sensitivity, correcting the roughly fourteen-fold reduction in camera rotation. Keep the existing look/zoom preferences and inversion controls.
+- Extend native `CameraControls` coverage through merged input configuration, actual Enhanced Input mapping rebuilds and raw horizontal/vertical events at 30, 60 and 120 Hz. The coordinated Editor build and all 105 native Foundation tests passed, including the camera regression.
+
+## Private citadel walkthrough GM access (2026-10-06)
+
+- Admit only the exact selected, validated dated/revision-qualified private walkthrough map under the existing standalone development GM gate. Isolate its draft and publication directory without migrating existing capital or review edits. Add native map/storage/authority regression coverage; the coordinated build and all 105 Foundation groups pass, and the exact walkthrough passes GM catalog/edit/save/load/undo/redo in isolated proof directories. Ordinary private-review storage remains unverified.
+
 ## Aegis citadel and shared siege candidate (2026-10-04)
 
-Portal landing now distinguishes static ground from standing characters. Normal travel retains the exact authored arrival; authorized siege evacuation searches bounded, connected, collision-checked space within the validated destination. A real two-crash recovery fixture exposed stacked return positions despite durable acknowledgements; final physical return remains unapproved until the corrected native run passes. Recovery diagnostics now use separate immutable files.
+- The refreshed private walkthrough passed all 70 directed portals, 20 resource gathers, full-inventory rejection, GM catalog/edit/save/load/undo/redo across streaming, and an inventory-preserving respawn. Exact selected-map logs and unchanged package hashes bind the receipt to the new wrapper; citadel traversal, visual and full-siege acceptance remain pending.
+- Citadel recipe 10 restores authored furnishing PBR/atlas/normals, adds 32 arrangements in 6 areas, corrects throne facing/scale and removes 4,206 exact oriented stair duplicates while remapping route witnesses. Collapsed seam UVs receive a bounded quarter-texel repair; strict native render validation remains. New full-campaign review composition preserves portals/services and stages supplied-model residents separately; fresh exact-world gameplay and visual acceptance remain pending.
+Portal landing now distinguishes static ground from standing characters. Normal travel retains the exact authored arrival; authorized siege evacuation searches bounded, connected, collision-checked space within the validated destination. A real two-crash recovery fixture exposed stacked return positions despite durable acknowledgements; the corrected furnished CampaignCandidate passes normal character recovery across three real process attempts with all 36 safe physical returns. Siege outcome recovery remains unverified. Recovery diagnostics now use separate immutable files.
 
 Local campaign checkpoint replacement now retries brief Windows sharing violations with bounded asynchronous waits. The durable journal and flushed pending file remain intact; persistent or unrelated failures still pause authority without advancing the revision. Focused persistence, authority and native siege tests passed (41); full native crash recovery remains pending.
 
@@ -430,7 +588,7 @@ Local campaign checkpoint replacement now retries brief Windows sharing violatio
 - Enable GM tools and the builder by default after character entry in supported standalone development workbenches launched from AegisWar.uproject; retain local editor Play and explicit -WarDevelopmentGM access.
 - Add a standalone project setting while preserving Shipping, network-mode, map, authority and character-entry checks. Add native regression coverage and update launch instructions.
 
-## 2026-09-22 — Battle Prelate recovery
+## 2026-09-22 ï¿½ Battle Prelate recovery
 
 - Restore the male Battle Prelate development selection and assemble its preserved body, nine armor modules and hammer for native import, without replacing browser source assets.
 - Remove the proof-map script that deleted the male import and assigned an herbalist NPC to the female Prelate identity. Reject NPC/different-class source substitutions for playable characters.
@@ -1216,7 +1374,7 @@ Local campaign checkpoint replacement now retries brief Windows sharing violatio
 - Expanded the high-resolution Blender kit to 47 assets and 141 GLBs with narrow rowhouses, workshops, awnings, carts, storage piles, greenery, washing lines, noticeboards and a fountain.
 - Added contrasting plaster, masonry and roof finishes, irregular PBR surface detail, separate paving and flagstone textures, and world-space weathering on city surfaces.
 
-## 2026-09-06 — Bastion of Aegis canal city
+## 2026-09-06 ï¿½ Bastion of Aegis canal city
 
 - Rebuilt Aegis with five districts, winding brick walks, canals, six bridges, 98 ordinary houses, a citadel, eight exploration courts and six public interior entrances. Preserved campaign exits and local services.
 - Enclosed the city in fortress walls with towers, operable road gates, barred water gates and two stairways to the wall walk. Added canal collision, actual ground cutouts and safe recovery for obstructed saved positions.

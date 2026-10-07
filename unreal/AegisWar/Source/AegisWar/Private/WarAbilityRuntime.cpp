@@ -145,6 +145,16 @@ void UWarAbilityRuntime::ProcessQueue()
     if (!TryActivate(Id,QueuedTarget.Get(),Error,A && A->TargetKind==TEXT("ground") ? &QueuedGround : nullptr)) ClientResult(Error);
 }
 bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Target, FString& Error, bool bCheckMovement) const
+{ return CheckActivation(A,Target,Error,bCheckMovement,true); }
+bool UWarAbilityRuntime::CanPrepareStationaryCast(const FWarAbilityDefinition& A,AActor* Target,FString& Error) const
+{
+    Error.Reset();
+    if (!A.RequiresStationary()) return false;
+    if (A.TargetKind==TEXT("ground"))
+    { Error=TEXT("A stationary ground cast requires an explicit validated ground point.");return false; }
+    return CheckActivation(A,Target,Error,true,false);
+}
+bool UWarAbilityRuntime::CheckActivation(const FWarAbilityDefinition& A,AActor* Target,FString& Error,bool bCheckMovement,bool bCheckMovementIntent) const
 {
     Error.Reset(); const auto* Pawn = Avatar(); const auto* State = Cast<AWarPlayerState>(GetOwner());
     const auto Fail = [&Error](const FString& Message) { Error = Message; return false; };
@@ -153,7 +163,7 @@ bool UWarAbilityRuntime::CanActivate(const FWarAbilityDefinition& A, AActor* Tar
     if (!A.UnavailableReason.IsEmpty()) return Fail(A.UnavailableReason);
     if (State->GetAbilityUnlockLevel() < A.UnlockLevel) return Fail(FString::Printf(TEXT("Unlocks at level %d."), A.UnlockLevel));
     if (Cooldown(A.Id) > 0 || IsBusy()) return Fail(TEXT("Wait for the current action or cooldown."));
-    if (A.RequiresStationary() && (bMovementIntent || !Pawn->GetCharacterMovement()->GetCurrentAcceleration().IsNearlyZero())) return Fail(TEXT("Stop moving before casting."));
+    if (bCheckMovementIntent && A.RequiresStationary() && (bMovementIntent || !Pawn->GetCharacterMovement()->GetCurrentAcceleration().IsNearlyZero())) return Fail(TEXT("Stop moving before casting."));
     const auto* Status = UWarCombatStatus::On(Pawn);
     TArray<FName> Cleanses;
     for (const auto& E : A.Effects) Cleanses.Append(E.Cleanse);
