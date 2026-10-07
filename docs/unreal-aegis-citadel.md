@@ -1,5 +1,114 @@
 # Aegis reference citadel
 
+The 7 October performance repair retains the accepted city and uses virtual
+shadow maps with full practical and sun/fill shadows. In the final normal-default
+run on Ryzen 7 7700 / RX 7700 XT, four settled ten-second views measured:
+
+| View | Before FPS | Repaired FPS | Before p95 frame ms | Repaired p95 frame ms |
+| --- | ---: | ---: | ---: | ---: |
+| Lower approach | 69.95 | 116.15 | 17.93 | 10.44 |
+| Gate approach | 26.99 | 83.84 | 43.19 | 13.92 |
+| Courtyard keep | 13.19 | 88.28 | 84.15 | 13.00 |
+| Forehall | 14.72 | 72.65 | 77.47 | 15.62 |
+
+Both runs use a 2560×1440 viewport, actual 1552×873 render rectangle, quality 3,
+uncapped timing and identical camera poses. The final launch omits a map argument
+and shadow-isolation overrides. Source reports are `baseline-1/report.json`
+(`30f0dd39…`) and `repaired-baseline-2/report.json` (`07335963…`) under native
+`Saved/CitadelPerformance`; the comparison and raw log bindings are retained in
+`artifacts/unreal/citadel-performance-20261007/repaired-comparison-2.json`.
+Earlier VSM runs overflowed their light/page capacities and remain diagnostic
+evidence. The final run has neither shadow-quality overflow. The non-Nanite
+marking-job queue still invokes Unreal's complete-page fallback and logs a
+performance notice. Populated siege, other platforms and full visual acceptance
+remain open.
+
+The private repair changes only `CampaignCandidate` and `CampaignSiegeOverlay`:
+remove the untagged stationary template sun, retain the authored 12,500/800-lux
+sun/fill, remove identical duplicate bounds and rebuild both static agent
+profiles. Cold reload preserves exact tile snapshots; game readback finds
+5,763 pedestrian and 2,519 convoy tile headers, clean navigation, 17 connected
+pedestrian anchors and three connected convoy legs, with zero lighting and
+reflection rebuild counts. All 13,124 other Content files and 23,179 retained
+actor states are exact. Historical transfer/integration receipts remain unchanged.
+
+The fresh normal-startup physical proof binds this repaired campaign hash and
+the unchanged city revision. All 92 directed walks, 27,680 full-width samples,
+288 gate sweeps, 88 objective samples and 150 spawn samples pass without route
+or physical failures. Its raw report is
+`Saved/CitadelRouteProof/repaired-campaign-1/report.json` (`ac00e1c1…`), with
+receipt `artifacts/unreal/citadel-performance-20261007/full-routes/receipt.json`.
+All 782 source/config/tooling files, the tested DLL and 13 original GM documents
+remain exact. Full siege admission, visual approval and release acceptance stay
+closed.
+
+The post-repair normal-startup portal proof also passes all 70 directed routes,
+20 resource gathers, 64 deferred routes, two streaming recovery controls and
+full inventory/GM draft/history checks. Receipt and preserved native report are
+under `artifacts/unreal/citadel-performance-20261007/normal-portals/`; the native
+report hash is `8ec92301…`. The prior report and all 13 original GM documents
+remain exact; network and visual acceptance stay open.
+
+Castle performance diagnostics require `-WarCitadelPerformanceDiagnostic` and
+an explicit views-only citadel configuration under project `Saved`. They retain
+ordinary graphics for `baseline`; allowlisted shadow, cache-budget, virtual-shadow,
+SSGI and reflection isolation modes use temporary console-variable history and
+restore it on completion. Point-shadow isolation temporarily changes only native
+point-light shadow flags and restores every previous value without saving.
+Shader readiness checks and scene inventory readback
+run outside each measured window. Each view records at least ten seconds of
+uncapped wall, Game, Draw, RHI and GPU timing, plus a separately owned GPU CSV.
+The lighting witness records rebuild counts, registered navigation data, actual
+Recast active tile counts, rebuild state, agent dimensions, bounds and
+streaming state. Exact scaled render rectangles use a guarded `FViewInfo` read
+at the installed Unreal 5.8 renderer extension boundary; this diagnostic has a
+private Renderer header dependency and requires verification on engine upgrades.
+
+Analyze native reports with
+`python -B scripts/unreal/citadel_gameplay_performance.py BEFORE.json AFTER.json`.
+For subsystem isolation, append `--isolation`; a shadow-disabled experiment is
+not a delivered performance improvement. The analysis rejects mismatched cameras,
+viewport/render rectangles, scale or quality, capped timing, unavailable GPU
+timers, unfinished streaming and short windows. It leaves reports untouched and
+prints their SHA-256 bindings with recalculated FPS and nearest-rank p95 timing.
+These diagnostics do not certify populated siege performance or release readiness.
+
+For the delivered baseline comparison, append `--require-repair`. This requires
+resolved lighting/reflection counts, enabled preview reporting, retained practical
+and authored sun shadow casters and photometry, both registered static
+pedestrian/convoy profiles with positive loaded tile-header counts and no rebuild
+requirement, and connected native queries for 17 character anchors and three
+convoy legs. `GetNumActiveTiles` counts a build generator and returns zero for
+static game worlds without one; runtime evidence uses `GetNavMeshTileXY` to
+exclude empty pool slots. An allocated tile pool or global `built` flag alone
+cannot pass. The adjacent `game.log` must also have no VSM physical-page or
+per-pixel light-capacity overflow. Native path queries do not grant physical
+AI traversal or competitive siege acceptance.
+
+Editor navigation repair uses `RebuildCampaignNavigation` for an exact private
+campaign/overlay pair, shared city revision and complete attachment/loaded-layer
+inventories. It retains the two static agent profiles, authored bounds, five
+objective exclusions, services, router and residents; only the identical
+redundant overlay bounds may be removed. Bounds inspection includes noncolliding
+components, matching Unreal's navigation system for `ANavMeshBoundsVolume`.
+Back up both maps before calling it, save only after complete positive tile
+payloads, and verify exact tile snapshots in a separate editor process and
+actual tile/path readbacks in a fresh game. In-memory rebuilding alone does
+not establish that navigation survived serialization.
+
+`citadel_development_repair.py REPAIR_JOURNAL RECEIPT_DIRECTORY` updates only
+the three active shared-city/portal/partition manifests after the independent
+cold reload. It preserves original manifest bytes and a frozen repair journal,
+checks actual repaired maps and their rollback hashes, and keeps runtime/visual/
+production acceptance closed. Prior integration, transfer and proof receipts
+remain historical. Existing unrelated stale package entries remain unchanged
+and are recorded explicitly instead of being refreshed under this two-map repair.
+
+Dense practical shadows use 32 packed filtered lights per pixel. Shadow quality
+3 has an 8,192-page VSM pool; lower graphics qualities inherit their smaller
+engine pools. Resolution, light power, authored shadow flags and the conventional
+shadow-cache budget are unchanged.
+
 Current private decor revision `62df5e965e66` retains the accepted exterior and
 all 52 earlier mesh placements, native mesh references, collision and actor
 states. Four complete approved floor models add two paired lantern fixtures

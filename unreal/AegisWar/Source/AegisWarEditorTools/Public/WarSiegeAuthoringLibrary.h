@@ -15,6 +15,10 @@ public:
     static FString OwnCampaignNavigation(UWorld* World, const FString& OverlayPackage);
     UFUNCTION(BlueprintCallable, Category="War|Siege")
     static FString DescribeBakedNavigation(UWorld* World);
+    /** Rebuilds only the exact receipted campaign pair; save/reload and runtime proofs remain separate. */
+    UFUNCTION(BlueprintCallable, Category="War|Siege")
+    static FString RebuildCampaignNavigation(UWorld* World, const FString& OverlayPackage,
+        const FString& CityRevision, const TArray<FString>& ExpectedAttachments, const TArray<FString>& ExpectedLoadedPackages);
     UFUNCTION(BlueprintCallable, Category="War|Siege")
     static bool BuildNavigation(UWorld* World, FVector Center, FVector Extent);
     UFUNCTION(BlueprintCallable, Category="War|Siege")

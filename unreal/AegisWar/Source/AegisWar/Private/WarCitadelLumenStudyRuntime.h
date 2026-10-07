@@ -7,6 +7,8 @@ class IConsoleVariable;
 namespace WarCitadelLumenStudyRuntime
 {
     bool Recipe(const FString& Mode,TMap<FString,int32>& Values);
+    /** Allowlisted isolation only; baseline leaves ordinary graphics untouched. */
+    bool PerformanceRecipe(const FString& Mode,TMap<FString,int32>& Values);
     void ReviewRecipe(TMap<FString,int32>& Values);
 
     /** Temporary, tagged CVar history; restores earlier settings without saving them. */

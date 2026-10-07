@@ -31,6 +31,21 @@ bool WarCitadelLumenStudyRuntime::Recipe(const FString& Mode,TMap<FString,int32>
     return true;
 }
 
+bool WarCitadelLumenStudyRuntime::PerformanceRecipe(const FString& Mode,TMap<FString,int32>& Values)
+{
+    Values.Reset();
+    if (Mode==TEXT("baseline") || Mode==TEXT("point_shadows_off")) return true;
+    if (Mode==TEXT("preview_shadows_off")) Values.Add(TEXT("r.Shadow.UnbuiltPreviewInGame"),0);
+    else if (Mode==TEXT("shadows_off")) Values.Add(TEXT("r.ShadowQuality"),0);
+    else if (Mode==TEXT("ssgi_off")) Values.Add(TEXT("r.SSGI.Quality"),0);
+    else if (Mode==TEXT("reflections_off")) Values.Add(TEXT("r.SSR.Quality"),0);
+    else if (Mode==TEXT("shadow_cache_512")) Values.Add(TEXT("r.Shadow.WholeSceneShadowCacheMb"),512);
+    else if (Mode==TEXT("shadow_cache_1024")) Values.Add(TEXT("r.Shadow.WholeSceneShadowCacheMb"),1024);
+    else if (Mode==TEXT("virtual_shadow_maps")) Values.Add(TEXT("r.Shadow.Virtual.Enable"),1);
+    else return false;
+    return true;
+}
+
 WarCitadelLumenStudyRuntime::FOverride::FOverride()
     : Tag(*FString::Printf(TEXT("WarCitadelLumenStudy_%s"),*FGuid::NewGuid().ToString())) {}
 WarCitadelLumenStudyRuntime::FOverride::~FOverride() { Restore(); }

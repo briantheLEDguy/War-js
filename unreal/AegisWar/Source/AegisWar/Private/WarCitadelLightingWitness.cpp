@@ -25,6 +25,18 @@
 #include "StaticMeshResources.h"
 #include "NavigationSystem.h"
 #include "UObject/UnrealType.h"
+#include "Engine/World.h"
+#include "Engine/LevelStreaming.h"
+#include "GameFramework/WorldSettings.h"
+#include "NavigationData.h"
+#include "UnrealClient.h"
+#include "Engine/Engine.h"
+#include "Misc/App.h"
+#include "NavMesh/NavMeshBoundsVolume.h"
+#include "NavMesh/RecastNavMesh.h"
+#include "WarSiegeBattlefield.h"
+#include "WarSiegeEquipment.h"
+#include "NavigationPath.h"
 
 namespace
 {
@@ -286,18 +298,144 @@ TSharedPtr<FJsonObject> WarCitadelLightingWitness::Capture(UWorld* World,const A
     if (!World || !IsInGameThread()) return J;
     J->SetStringField(TEXT("map"),World->GetOutermost()->GetName());
     J->SetNumberField(TEXT("worldSeconds"),World->GetTimeSeconds());
+    J->SetNumberField(TEXT("lightingUnbuiltObjects"),World->NumLightingUnbuiltObjects);
+    J->SetNumberField(TEXT("unbuiltReflectionCaptures"),World->NumUnbuiltReflectionCaptures);
+    J->SetBoolField(TEXT("forceNoPrecomputedLighting"),World->GetWorldSettings()->bForceNoPrecomputedLighting);
+    J->SetNumberField(TEXT("worldTimeDilation"),World->GetWorldSettings()->GetEffectiveTimeDilation());
+    J->SetBoolField(TEXT("fixedTimeStep"),FApp::UseFixedTimeStep());
+    if (GEngine)
+    {
+        J->SetBoolField(TEXT("frameSmoothing"),GEngine->bSmoothFrameRate);
+        J->SetBoolField(TEXT("useFixedFrameRate"),GEngine->bUseFixedFrameRate);
+        J->SetNumberField(TEXT("fixedFrameRate"),GEngine->FixedFrameRate);
+    }
     J->SetBoolField(TEXT("viewportAvailable"),World->GetGameViewport()!=nullptr);
     if (const auto* V=World->GetGameViewport())
     {
+        if (V->Viewport)
+        {
+            const auto Size=V->Viewport->GetSizeXY();
+            J->SetNumberField(TEXT("viewportWidth"),Size.X);J->SetNumberField(TEXT("viewportHeight"),Size.Y);
+        }
         J->SetBoolField(TEXT("showAtmosphere"),V->EngineShowFlags.Atmosphere);
         J->SetBoolField(TEXT("showCloud"),V->EngineShowFlags.Cloud);
         J->SetBoolField(TEXT("showFog"),V->EngineShowFlags.Fog);
         J->SetBoolField(TEXT("showLighting"),V->EngineShowFlags.Lighting);
     }
     auto CVars=MakeShared<FJsonObject>();
-    for (const TCHAR* Name:{TEXT("r.VolumetricCloud.Support"),TEXT("r.VolumetricCloud"),TEXT("r.VolumetricCloud.ViewRaySampleCountMax"),TEXT("r.Fog"),TEXT("r.VolumetricFog"),TEXT("r.EyeAdaptationQuality"),TEXT("r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange")})
+    for (const TCHAR* Name:{TEXT("r.VolumetricCloud.Support"),TEXT("r.VolumetricCloud"),TEXT("r.VolumetricCloud.ViewRaySampleCountMax"),TEXT("r.Fog"),TEXT("r.VolumetricFog"),TEXT("r.EyeAdaptationQuality"),TEXT("r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange"),
+        TEXT("t.MaxFPS"),TEXT("r.VSync"),TEXT("r.ScreenPercentage"),TEXT("r.DynamicRes.OperationMode"),
+        TEXT("r.Shadow.UnbuiltPreviewInGame"),TEXT("r.ShadowQuality"),TEXT("r.Shadow.Virtual.Enable"),
+        TEXT("r.Shadow.CacheWholeSceneShadows"),TEXT("r.Shadow.WholeSceneShadowCacheMb"),
+        TEXT("r.Shadow.MaxNumPointShadowCacheUpdatesPerFrame"),TEXT("r.Shadow.MaxNumSpotShadowCacheUpdatesPerFrame"),
+        TEXT("r.SSGI.Quality"),TEXT("r.SSR.Quality"),TEXT("r.AllowStaticLighting"),TEXT("r.GPUCsvStatsEnabled"),
+        TEXT("r.Shadow.Virtual.MaxPhysicalPages"),TEXT("r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel"),
+        TEXT("sg.ResolutionQuality"),TEXT("sg.ViewDistanceQuality"),TEXT("sg.AntiAliasingQuality"),TEXT("sg.ShadowQuality"),
+        TEXT("sg.GlobalIlluminationQuality"),TEXT("sg.ReflectionQuality"),TEXT("sg.PostProcessQuality"),TEXT("sg.TextureQuality"),
+        TEXT("sg.EffectsQuality"),TEXT("sg.FoliageQuality"),TEXT("sg.ShadingQuality"),TEXT("sg.LandscapeQuality")})
         if (const auto* C=IConsoleManager::Get().FindConsoleVariable(Name)) CVars->SetNumberField(Name,C->GetFloat());
     J->SetObjectField(TEXT("consoleVariables"),CVars);
+    auto Navigation=MakeShared<FJsonObject>();
+    const auto* Nav=FNavigationSystem::GetCurrent<UNavigationSystemV1>(World);
+    Navigation->SetBoolField(TEXT("available"),Nav!=nullptr);
+    if (Nav)
+    {
+        Navigation->SetBoolField(TEXT("dirty"),Nav->IsNavigationDirty());
+        Navigation->SetBoolField(TEXT("built"),Nav->IsNavigationBuilt(World->GetWorldSettings()));
+        Navigation->SetBoolField(TEXT("supportsGeneration"),Nav->SupportsNavigationGeneration());
+        Navigation->SetBoolField(TEXT("canRebuildDirty"),Nav->CanRebuildDirtyNavigation());
+        Navigation->SetNumberField(TEXT("registeredBounds"),Nav->GetNavigationBounds().Num());
+    }
+    TArray<TSharedPtr<FJsonValue>> NavActors,Streaming;
+    for (TActorIterator<ANavigationData> It(World);It;++It)
+    {
+        auto Row=MakeShared<FJsonObject>();Row->SetStringField(TEXT("actor"),It->GetPathName());
+        Row->SetStringField(TEXT("agent"),It->GetConfig().Name.ToString());
+        Row->SetNumberField(TEXT("runtimeGeneration"),static_cast<int32>(It->GetRuntimeGenerationMode()));
+        Row->SetNumberField(TEXT("agentRadiusCm"),It->GetConfig().AgentRadius);
+        Row->SetNumberField(TEXT("agentHeightCm"),It->GetConfig().AgentHeight);
+        Row->SetBoolField(TEXT("registeredWithNavigation"),Nav && Nav->NavDataSet.Contains(*It));
+        Row->SetBoolField(TEXT("needsRebuild"),It->NeedsRebuild());
+        Row->SetBoolField(TEXT("needsRebuildOnLoad"),It->NeedsRebuildOnLoad());
+        if (const auto* Recast=Cast<ARecastNavMesh>(*It))
+        {
+            Row->SetNumberField(TEXT("tileCapacity"),Recast->GetNavMeshTilesCount());
+            // GetNumActiveTiles reads the build generator, which is absent in a static game world.
+            // Count populated loaded tile headers, excluding allocated but empty pool slots.
+            TArray<FNavTileRef> Tiles;Recast->GetAllNavMeshTiles(Tiles);int32 Populated=0;
+            for (const auto Ref:Tiles)
+            {
+                int32 X=0,Y=0,Layer=0;
+                if (Recast->GetNavMeshTileXY(Ref,X,Y,Layer)) ++Populated;
+            }
+            Row->SetNumberField(TEXT("activeTiles"),Populated);
+            Row->SetNumberField(TEXT("generatorActiveTiles"),Recast->GetNumActiveTiles());
+            Row->SetStringField(TEXT("tileCountSource"),TEXT("loaded Recast tile headers; public GetNavMeshTileXY"));
+        }
+        NavActors.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    Navigation->SetArrayField(TEXT("dataActors"),NavActors);J->SetObjectField(TEXT("navigation"),Navigation);
+    TArray<TSharedPtr<FJsonValue>> NavBounds;
+    for (TActorIterator<ANavMeshBoundsVolume> It(World);It;++It)
+    {
+        const auto Bounds=It->GetComponentsBoundingBox(true);
+        auto Row=MakeShared<FJsonObject>();Row->SetStringField(TEXT("actor"),It->GetPathName());
+        Row->SetArrayField(TEXT("minimumCm"),Vector(Bounds.Min));Row->SetArrayField(TEXT("maximumCm"),Vector(Bounds.Max));
+        NavBounds.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    Navigation->SetArrayField(TEXT("boundsActors"),NavBounds);
+    TArray<TSharedPtr<FJsonValue>> CharacterPaths,ConvoyPaths;
+    if (Nav) for (TActorIterator<AWarSiegeBattlefield> Field(World);Field;++Field)
+    {
+        if (Field->DefinitionVersion!=2 || !Field->bLiveCapitalOverlay || Field->Objectives.Num()!=8
+            || Field->OptionalObjectives.Num()!=3 || Field->TeamSpawns.Num()!=6) continue;
+        const auto* CharacterData=Nav->GetNavDataForProps(GetDefault<AWarCharacter>()->GetNavAgentPropertiesRef());
+        TArray<FVector> Points=Field->Objectives;Points.Append(Field->OptionalObjectives);Points.Append(Field->TeamSpawns);
+        for (int32 I=0;I<Points.Num();++I)
+        {
+            auto Row=MakeShared<FJsonObject>();Row->SetNumberField(TEXT("anchor"),I);
+            Row->SetArrayField(TEXT("requestedCm"),Vector(Points[I]));
+            FNavLocation Projected;const bool Found=CharacterData
+                && Nav->ProjectPointToNavigation(Points[I],Projected,FVector(100,100,250),CharacterData);
+            bool Connected=false,Limited=false;int32 PathPoints=0;
+            if (Found)
+            {
+                Row->SetArrayField(TEXT("projectedCm"),Vector(Projected.Location));
+                if (FVector::DistSquared(Field->Objectives[0],Projected.Location)<FMath::Square(100.f)) Connected=true;
+                else if (auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(World,Field->Objectives[0],
+                    Projected.Location,const_cast<ANavigationData*>(CharacterData),Field->NavigationFilter()))
+                {
+                    Connected=Path->IsValid() && !Path->IsPartial();PathPoints=Path->PathPoints.Num();
+                    Limited=Path->GetPath().IsValid() && Path->GetPath()->DidSearchReachedLimit();
+                }
+            }
+            Row->SetBoolField(TEXT("projected"),Found);Row->SetBoolField(TEXT("connected"),Connected);
+            Row->SetBoolField(TEXT("searchLimit"),Limited);Row->SetNumberField(TEXT("pathPoints"),PathPoints);
+            CharacterPaths.Add(MakeShared<FJsonValueObject>(Row));
+        }
+        auto* ConvoyData=WarSiegeEquipment::Navigation(World);
+        if (Field->EquipmentSpawns.Num()==2) for (int32 Step=1;Step<=3;++Step)
+        {
+            const FVector Start=Step==1 ? Field->EquipmentSpawns[0] : Field->EquipmentDestination(Step-1);
+            const FVector End=Field->EquipmentDestination(Step);
+            auto* Path=ConvoyData ? UNavigationSystemV1::FindPathToLocationSynchronously(World,Start,End,ConvoyData) : nullptr;
+            auto Row=MakeShared<FJsonObject>();Row->SetNumberField(TEXT("step"),Step);
+            Row->SetArrayField(TEXT("startCm"),Vector(Start));Row->SetArrayField(TEXT("endCm"),Vector(End));
+            Row->SetBoolField(TEXT("connected"),Path && Path->IsValid() && !Path->IsPartial());
+            Row->SetNumberField(TEXT("pathPoints"),Path ? Path->PathPoints.Num() : 0);
+            ConvoyPaths.Add(MakeShared<FJsonValueObject>(Row));
+        }
+    }
+    Navigation->SetArrayField(TEXT("characterAnchorPaths"),CharacterPaths);
+    Navigation->SetArrayField(TEXT("convoyPaths"),ConvoyPaths);
+    Navigation->SetBoolField(TEXT("physicalTraversalVerified"),false);
+    for (const auto* Level:World->GetStreamingLevels()) if (Level)
+    {
+        auto Row=MakeShared<FJsonObject>();Row->SetStringField(TEXT("package"),Level->GetWorldAssetPackageName());
+        Row->SetBoolField(TEXT("loaded"),Level->IsLevelLoaded());Row->SetBoolField(TEXT("visible"),Level->IsLevelVisible());
+        Streaming.Add(MakeShared<FJsonValueObject>(Row));
+    }
+    J->SetArrayField(TEXT("streamingLevels"),Streaming);
     if (Camera) J->SetArrayField(TEXT("cameraPositionCm"),Vector(Camera->GetActorLocation()));
     TArray<TSharedPtr<FJsonValue>> Zones,Clouds,Lights,Fogs,Post,Atmospheres,Backdrops,Surfaces;
     if (Pawn)
@@ -387,6 +525,11 @@ TSharedPtr<FJsonObject> WarCitadelLightingWitness::Capture(UWorld* World,const A
             {
                 auto Row=Component(C);Row->SetNumberField(TEXT("intensity"),Light->Intensity);
                 Row->SetArrayField(TEXT("color"),Color(Light->GetLightColor()));Row->SetBoolField(TEXT("castShadows"),Light->CastShadows);
+                Row->SetBoolField(TEXT("affectsWorld"),Light->bAffectsWorld);
+                Row->SetBoolField(TEXT("castStaticShadows"),Light->CastStaticShadows);
+                Row->SetBoolField(TEXT("castDynamicShadows"),Light->CastDynamicShadows);
+                Row->SetBoolField(TEXT("hasStaticLighting"),Light->HasStaticLighting());
+                Row->SetBoolField(TEXT("hasStaticShadowing"),Light->HasStaticShadowing());
                 if (const auto* Local=Cast<ULocalLightComponent>(C))
                 { Row->SetNumberField(TEXT("attenuationRadiusCm"),Local->AttenuationRadius);Row->SetNumberField(TEXT("intensityUnits"),static_cast<int32>(Local->IntensityUnits)); }
                 if (const auto* L=Cast<ULightComponent>(C))

@@ -7,29 +7,50 @@ scenery use the same furnished city, retaining the accepted exterior, 56 decor
 objects, 34 practical lights and eight residents. Mouse input uses full pixel
 deltas, and the complete 32-zone campaign retains all 70 directed portal routes.
 
+Normal rendering uses virtual shadow maps with bounded light/page capacity.
+The final normal-startup diagnostic on the RX 7700 XT measures courtyard FPS
+13.19 → 88.28 and forehall FPS 14.72 → 72.65 while retaining all 56 active point
+shadow casters and the authored sun/fill. Both versions use a 2560×1440 viewport,
+1552×873 rendered pixels and quality 3. Lighting/reflection rebuild counts are
+zero; both static navigation profiles load 5,763/2,519 actual tiles with clean
+state and connected queries for 17 pedestrian anchors and three convoy legs.
+See `docs/unreal-aegis-citadel.md` for raw wall/thread/GPU measurement and repair
+verification. Populated siege and other-platform performance remain unverified.
+
 Run `npm run build` for the installed private-content Editor Development build.
 Normal game startup uses the configured map; the normal-campaign proof and
 launcher reject map overrides and require its ordinary GM storage. The journaled
 `integrate-citadel-development.py` tool preserves prior bindings and rollback
 bytes; it does not grant competitive siege or release acceptance.
 
-Final consolidation checks pass 1,062 repository tests, including 454 Unreal-tool
+Final repair checks pass 1,064 repository tests, including 456 Unreal-tool
 tests, all three typechecks, migration audit and world/model validation. The
-combined native build passes all 139 Foundation tests. A fresh three-process
+combined native build passes all 142 Foundation tests. A fresh three-process
 normal-default GM run verifies Save, Load/local Publish and startup restoration,
 plus exact scene counts and the actual pixel camera handler with state restored.
+The repaired-map run binds 782 source/config/tooling files and the tested DLL;
+all 13 original GM documents remain exact and its owned proof files are archived.
 The run does not certify physical mouse hardware or ordinary Steam login.
 The strict release check still fails at its four required outstanding gates.
 
-Fresh normal-default portal execution passes all 70 routes, 20 resource gathers,
+The repaired normal-startup campaign passes all 92 directed physical walks,
+27,680 full-width samples, 288 gate sweeps, 88 objective samples and 150 spawn
+samples without failures. The source/DLL, city and original GM document bindings
+remain exact; physical traversal does not grant full siege or visual acceptance.
+
+Fresh post-repair normal-default portal execution passes all 70 routes, 20 resource gathers,
 streaming failure/cancellation controls, GM history and inventory continuity.
-Cold decor inspection passes the original mesh/material, 360 floor probes,
+The earlier cold decor inspection passes the original mesh/material, 360 floor probes,
 184 paired mount samples (368 endpoint traces),
 eight resident, four emitter and 12 light-to-floor checks after waiting for asset
 compilation with the existing read-only helper. The initial evidence-path failure
 and pre-flush exact hearth-probe miss are retained; no geometry or tolerance was
-changed. Functional frontend rendering also passes. Flat lighting and existing
-lighting/navmesh rebuild notices remain visible; visual approval stays open.
+changed. Functional frontend rendering also passes. The performance
+repair removes the stray stationary template sun, rebuilds only the campaign's
+two static navigation profiles and removes its identical duplicate bounds.
+All 13,124 other native Content files and 23,179 retained actors remain exact.
+Visual approval stays open. Unreal still logs a non-Nanite marking-queue
+performance notice; its complete-page fallback preserves rendered shadows.
 
 Native Content stays local/private. The configured companion repository has no
 approved distribution roots, so merging public source does not distribute those

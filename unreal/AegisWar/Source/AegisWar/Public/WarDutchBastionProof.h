@@ -2,12 +2,14 @@
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "Components/SlateWrapperTypes.h"
+#include "Async/Future.h"
 #include "WarDutchBastionProof.generated.h"
 
 class ACameraActor;
 class AWarCharacter;
 class AHUD;
 class UUserWidget;
+class UPointLightComponent;
 class FJsonObject;
 namespace WarCitadelCapsulePolicy { struct FKinematicsBaseline; }
 namespace WarCitadelLumenStudyRuntime { class FOverride; }
@@ -96,9 +98,13 @@ private:
     bool bArchitectureUiSuppressed=false;
     bool bCinematicView=false;
     bool bViewMaterialsReady=false;
+    bool bViewWindowStarted=false;
+    bool bOwnViewCsvCapture=false;
+    bool bPointShadowsOverridden=false;
     double ViewMaterialsWaitStarted=0,NextViewMaterialCheck=0;
     double Started=-1, Next=0, RouteStarted=0;
     double ViewSettleSeconds=6;
+    double ViewSampleSeconds=3,ViewWindowStarted=0,PreviousViewSampleWall=0;
     double LastProgress=0, BestDistance=MAX_dbl;
     int32 ViewIndex=0, RouteIndex=0, Waypoint=0;
     FString Directory, Signature;
@@ -114,6 +120,9 @@ private:
     TSharedPtr<FJsonObject> CaptureLighting;
     TSharedPtr<FJsonObject> CaptureMaterialReadiness;
     FString PrivateLumenMode, CaptureNonce;
+    FString PrivatePerformanceMode;
+    TArray<TSharedPtr<FJsonValue>> ViewTimingSamples;
+    TSharedFuture<FString> ViewCsvCapture;
     TSharedPtr<WarCitadelLumenStudyRuntime::FOverride> LightingOverride;
     TSharedPtr<WarCitadelCapsulePolicy::FKinematicsBaseline> KinematicsBaseline;
     int32 WidthRouteIndex=0;
@@ -129,7 +138,9 @@ private:
     TWeakObjectPtr<ACameraActor> Camera;
     TMap<TWeakObjectPtr<AHUD>,bool> SavedHudVisibility;
     TMap<TWeakObjectPtr<UUserWidget>,ESlateVisibility> SavedWidgetVisibility;
+    TMap<TWeakObjectPtr<UPointLightComponent>,bool> SavedPointShadows;
     void HideArchitectureUi();
     void RestoreArchitectureUi();
+    void RestorePointShadows();
     void Finish(bool Passed, const FString& Detail);
 };

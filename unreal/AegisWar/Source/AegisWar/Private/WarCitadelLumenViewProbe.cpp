@@ -10,6 +10,7 @@
 #include "SceneManagement.h"
 #include "SceneView.h"
 #include "SceneViewExtension.h"
+#include "SceneRendering.h"
 #include "Serialization/JsonSerializer.h"
 
 namespace
@@ -80,6 +81,18 @@ namespace
             J->SetArrayField(TEXT("unscaledViewRect"),{MakeShared<FJsonValueNumber>(View.UnscaledViewRect.Min.X),
                 MakeShared<FJsonValueNumber>(View.UnscaledViewRect.Min.Y),
                 MakeShared<FJsonValueNumber>(View.UnscaledViewRect.Max.X),MakeShared<FJsonValueNumber>(View.UnscaledViewRect.Max.Y)});
+            // UE 5.8's renderer supplies FViewInfo here. Check the native type
+            // marker before reading its final rect; saved preferences are not
+            // evidence of actual rendered pixel count.
+            J->SetBoolField(TEXT("scaledViewRectObserved"),View.bIsViewInfo);
+            if (View.bIsViewInfo)
+            {
+                const auto& Rect=static_cast<const FViewInfo&>(View).ViewRect;
+                J->SetArrayField(TEXT("scaledViewRect"),{MakeShared<FJsonValueNumber>(Rect.Min.X),
+                    MakeShared<FJsonValueNumber>(Rect.Min.Y),MakeShared<FJsonValueNumber>(Rect.Max.X),MakeShared<FJsonValueNumber>(Rect.Max.Y)});
+                J->SetNumberField(TEXT("effectiveResolutionFraction"),double(Rect.Width())/FMath::Max(1,View.UnscaledViewRect.Width()));
+                J->SetNumberField(TEXT("secondaryResolutionFraction"),View.Family->SecondaryViewFraction);
+            }
             J->SetBoolField(TEXT("captureBindingVerified"),false);
             J->SetBoolField(TEXT("diagnosticOnly"),true);
             J->SetBoolField(TEXT("rendererStateVerified"),false);

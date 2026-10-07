@@ -36,6 +36,10 @@
 #include "RHIStats.h"
 #include "ContentStreaming.h"
 #include "HAL/IConsoleManager.h"
+#include "RenderTimer.h"
+#include "DynamicRHI.h"
+#include "ProfilingDebugging/CsvProfiler.h"
+#include "Components/PointLightComponent.h"
 
 namespace
 {
@@ -628,18 +632,29 @@ void UWarDutchBastionProof::RestoreArchitectureUi()
     for (const auto& Pair:SavedWidgetVisibility) if (auto* Widget=Pair.Key.Get()) Widget->SetVisibility(Pair.Value);
     SavedHudVisibility.Reset();SavedWidgetVisibility.Reset();
 }
+void UWarDutchBastionProof::RestorePointShadows()
+{
+    for (const auto& Pair:SavedPointShadows) if (auto* Light=Pair.Key.Get()) Light->SetCastShadows(Pair.Value);
+    SavedPointShadows.Reset();
+}
 void UWarDutchBastionProof::Deinitialize()
-{ WarCitadelLumenViewProbe::Disarm();LightingOverride.Reset();RestoreArchitectureUi();Super::Deinitialize(); }
+{
+    if (bOwnViewCsvCapture) { ViewCsvCapture=FCsvProfiler::Get()->EndCapture();bOwnViewCsvCapture=false; }
+    WarCitadelLumenViewProbe::Disarm();LightingOverride.Reset();RestorePointShadows();RestoreArchitectureUi();Super::Deinitialize();
+}
 
 void UWarDutchBastionProof::Finish(bool Passed,const FString& Detail)
 {
     bFinished=true;
+    if (bOwnViewCsvCapture) { ViewCsvCapture=FCsvProfiler::Get()->EndCapture();bOwnViewCsvCapture=false; }
     WarCitadelLumenViewProbe::Disarm();LightingOverride.Reset();
+    RestorePointShadows();
     RestoreArchitectureUi();
     Passed=Passed && bPhysicalPassed && (!bCitadelWidth || (bWidthComplete && bWidthPassed));
     auto Report=MakeShared<FJsonObject>();
     const bool WidthDiagnostic=FParse::Param(FCommandLine::Get(),TEXT("WarCitadelWidthDiagnostic"));
-    Report->SetBoolField(TEXT("diagnosticOnly"),WidthDiagnostic);
+    Report->SetBoolField(TEXT("diagnosticOnly"),WidthDiagnostic || !PrivatePerformanceMode.IsEmpty());
+    if (!PrivatePerformanceMode.IsEmpty()) Report->SetStringField(TEXT("privatePerformanceMode"),PrivatePerformanceMode);
     Report->SetBoolField(TEXT("passed"),Passed);Report->SetStringField(TEXT("detail"),Detail);
     Report->SetStringField(TEXT("signature"),Signature);Report->SetStringField(TEXT("map"),GetWorld()->GetOutermost()->GetName());
     Report->SetNumberField(TEXT("views"),ViewIndex);Report->SetNumberField(TEXT("routesWalked"),RouteIndex);
@@ -732,6 +747,21 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
                 || !WarCitadelLumenStudyRuntime::Recipe(PrivateLumenMode,Recipe))
             { Finish(false,TEXT("Lumen diagnostic requires a private views-only citadel study"));return; }
         }
+        if (Config->TryGetStringField(TEXT("privatePerformanceMode"),PrivatePerformanceMode))
+        {
+            TMap<FString,int32> Recipe;
+            if (!Citadel || Views.IsEmpty() || !Routes.IsEmpty() || bCinematicView || !PrivateLumenMode.IsEmpty()
+                || !FParse::Param(FCommandLine::Get(),TEXT("WarCitadelPerformanceDiagnostic"))
+                || !WarCitadelLumenStudyRuntime::PerformanceRecipe(PrivatePerformanceMode,Recipe))
+            { Finish(false,TEXT("Performance isolation requires its explicit private views-only diagnostic"));return; }
+            ViewSettleSeconds=FMath::Max(10.0,ViewSettleSeconds);
+            ViewSampleSeconds=10;
+            if (Config->TryGetNumberField(TEXT("viewSampleSeconds"),ViewSampleSeconds))
+                ViewSampleSeconds=FMath::Clamp(ViewSampleSeconds,10.0,60.0);
+            const auto* GpuCsv=IConsoleManager::Get().FindConsoleVariable(TEXT("r.GPUCsvStatsEnabled"));
+            if (!GpuCsv || GpuCsv->GetInt()!=1)
+            { Finish(false,TEXT("Performance diagnostic requires native GPU CSV statistics"));return; }
+        }
         bCitadelWidth=Citadel && !Routes.IsEmpty();
         const TArray<TSharedPtr<FJsonValue>>* ConfigGates=nullptr;
         if (Citadel && Config->TryGetArrayField(TEXT("gates"),ConfigGates)) Gates=*ConfigGates;
@@ -744,12 +774,27 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
     auto* PC=GetWorld()->GetFirstPlayerController();auto* Pawn=PC?Cast<AWarCharacter>(PC->GetPawn()):nullptr;
     if (!Pawn || !Pawn->IsVisualReady())
     { if (Now-Started>60) Finish(false,TEXT("Playable character unavailable"));return; }
-    if ((!PrivateLumenMode.IsEmpty() || bCinematicView) && !LightingOverride)
+    if ((!PrivateLumenMode.IsEmpty() || bCinematicView
+            || (!PrivatePerformanceMode.IsEmpty() && PrivatePerformanceMode!=TEXT("baseline")
+                && PrivatePerformanceMode!=TEXT("point_shadows_off"))) && !LightingOverride)
     {
         TMap<FString,int32> Recipe;WarCitadelLumenStudyRuntime::Recipe(PrivateLumenMode,Recipe);
+        if (!PrivatePerformanceMode.IsEmpty()) WarCitadelLumenStudyRuntime::PerformanceRecipe(PrivatePerformanceMode,Recipe);
         if (bCinematicView) WarCitadelLumenStudyRuntime::ReviewRecipe(Recipe);
         LightingOverride=MakeShared<WarCitadelLumenStudyRuntime::FOverride>();FString Error;
         if (!LightingOverride->Apply(Recipe,Error)) { Finish(false,Error);return; }
+    }
+    if (PrivatePerformanceMode==TEXT("point_shadows_off") && !bPointShadowsOverridden)
+    {
+        // This is an explicit, isolated Game-world diagnostic. Keep light power,
+        // placement and directional shadows intact; save nothing to packages.
+        for (TActorIterator<AActor> Actor(GetWorld());Actor;++Actor)
+        {
+            TInlineComponentArray<UPointLightComponent*> Lights;Actor->GetComponents(Lights);
+            for (auto* Light:Lights)
+            { SavedPointShadows.Add(Light,Light->CastShadows!=0);Light->SetCastShadows(false); }
+        }
+        bPointShadowsOverridden=true;
     }
     if (bCitadelConfig && !WarCitadelCapsulePolicy::Matches(Pawn))
     { Finish(false,TEXT("Proof character capsule differs from the reviewed native class default"));return; }
@@ -1129,10 +1174,13 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
             if (OrthoWidth>0) Camera->GetCameraComponent()->SetOrthoWidth(OrthoWidth);
             PC->bAutoManageActiveCameraTarget=false;PC->SetViewTarget(Camera.Get());
             Next=Now+ViewSettleSeconds;bPositioned=true;bCaptured=false;
+            bViewWindowStarted=false;ViewTimingSamples.Reset();PreviousViewSampleWall=0;
             bViewMaterialsReady=false;ViewMaterialsWaitStarted=Now;NextViewMaterialCheck=Now;
             CaptureMaterialReadiness.Reset();return;
         }
-        if (!bCaptured && Now>=NextViewMaterialCheck)
+        // Resource readback flushes rendering. Keep that diagnostic outside the
+        // measured window, otherwise the observer creates repeated CPU stalls.
+        if (!bCaptured && Now>=NextViewMaterialCheck && (PrivatePerformanceMode.IsEmpty() || !bViewWindowStarted))
         {
             CaptureMaterialReadiness=WarCitadelLightingWitness::PrivateMaterialReadiness(GetWorld());
             const bool Ready=CaptureMaterialReadiness->GetBoolField(TEXT("ready"));
@@ -1150,22 +1198,55 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
             }
         }
         if (!bCaptured && !bViewMaterialsReady) return;
-        if (Now>Next-3 && DeltaTime>0)
+        if (!PrivatePerformanceMode.IsEmpty() && !bViewWindowStarted)
         {
-            Frames.Add(DeltaTime*1000);
-            ViewFrames.Add(DeltaTime*1000);ViewDrawCalls.Add(GNumDrawCallsRHI[0]);
+            if (Now<Next) return;
+            if (FCsvProfiler::IsCapturing() || FCsvProfiler::Get()->IsEndCapturePending())
+            { Finish(false,TEXT("Performance diagnostic cannot take ownership of another CSV capture"));return; }
+            FCsvProfiler::Get()->BeginCapture(-1,Directory,FString::Printf(TEXT("gpu-view_%02d.csv"),ViewIndex));
+            bOwnViewCsvCapture=true;
+            ViewWindowStarted=FPlatformTime::Seconds();PreviousViewSampleWall=ViewWindowStarted;
+            Next=Now+ViewSampleSeconds;bViewWindowStarted=true;
+            ViewFrames.Reset();ViewDrawCalls.Reset();return;
+        }
+        if (!bCaptured && Now>Next-ViewSampleSeconds && DeltaTime>0)
+        {
+            const double Wall=FPlatformTime::Seconds();
+            const double FrameMs=PrivatePerformanceMode.IsEmpty() ? DeltaTime*1000 : (Wall-PreviousViewSampleWall)*1000;
+            Frames.Add(FrameMs);ViewFrames.Add(FrameMs);ViewDrawCalls.Add(GNumDrawCallsRHI[0]);
+            if (!PrivatePerformanceMode.IsEmpty())
+            {
+                auto Sample=MakeShared<FJsonObject>();
+                Sample->SetNumberField(TEXT("elapsedSeconds"),Wall-ViewWindowStarted);
+                Sample->SetNumberField(TEXT("frameMs"),FrameMs);
+                Sample->SetNumberField(TEXT("gameThreadMs"),FPlatformTime::ToMilliseconds(GGameThreadTime));
+                Sample->SetNumberField(TEXT("renderThreadMs"),FPlatformTime::ToMilliseconds(GRenderThreadTime));
+                Sample->SetNumberField(TEXT("rhiThreadMs"),FPlatformTime::ToMilliseconds(GRHIThreadTime));
+                Sample->SetNumberField(TEXT("gpuMs"),FPlatformTime::ToMilliseconds(RHIGetGPUFrameCycles(0)));
+                Sample->SetNumberField(TEXT("drawCalls"),GNumDrawCallsRHI[0]);
+                Sample->SetNumberField(TEXT("primitives"),GNumPrimitivesDrawnRHI[0]);
+                Sample->SetNumberField(TEXT("streamingRequests"),IStreamingManager::Get().GetNumWantingResources());
+                ViewTimingSamples.Add(MakeShared<FJsonValueObject>(Sample));PreviousViewSampleWall=Wall;
+            }
             DrawCalls.Add(GNumDrawCallsRHI[0]);Primitives.Add(GNumPrimitivesDrawnRHI[0]);
             PeakStreamingRequests=FMath::Max(PeakStreamingRequests,IStreamingManager::Get().GetNumWantingResources());
         }
-        if (Now<Next) return;
+        if (PrivatePerformanceMode.IsEmpty() || bCaptured)
+        { if (Now<Next) return; }
+        else if (FPlatformTime::Seconds()-ViewWindowStarted<ViewSampleSeconds) return;
         if (!bCaptured)
         {
+            if (bOwnViewCsvCapture) { ViewCsvCapture=FCsvProfiler::Get()->EndCapture();bOwnViewCsvCapture=false; }
             // Check again at the request; an earlier ready resource may have been invalidated.
             CaptureMaterialReadiness=WarCitadelLightingWitness::PrivateMaterialReadiness(GetWorld());
             if (!CaptureMaterialReadiness->GetBoolField(TEXT("ready")))
-            { bViewMaterialsReady=false;ViewFrames.Reset();ViewDrawCalls.Reset();return; }
+            {
+                if (!PrivatePerformanceMode.IsEmpty())
+                { Finish(false,TEXT("Material readiness changed during the measured performance window"));return; }
+                bViewMaterialsReady=false;ViewFrames.Reset();ViewDrawCalls.Reset();return;
+            }
             CaptureLighting=WarCitadelLightingWitness::Capture(GetWorld(),Pawn,Camera.Get());
-            if (LightingOverride)
+            if (LightingOverride || !PrivatePerformanceMode.IsEmpty())
             {
                 const auto* Viewport=GetWorld()->GetGameViewport();
                 CaptureNonce=FGuid::NewGuid().ToString();
@@ -1175,6 +1256,7 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
             FScreenshotRequest::RequestScreenshot(Directory/FString::Printf(TEXT("view_%02d.png"),ViewIndex),false,false);
             bCaptured=true;Next=Now+1;return;
         }
+        if (!PrivatePerformanceMode.IsEmpty() && (!ViewCsvCapture.IsValid() || !ViewCsvCapture.IsReady())) return;
         ViewFrames.Sort();ViewDrawCalls.Sort();
         auto Metric=MakeShared<FJsonObject>();Metric->SetStringField(TEXT("id"),View->GetStringField(TEXT("id")));
         bool HudHidden=true,WidgetsCollapsed=true;
@@ -1195,9 +1277,17 @@ void UWarDutchBastionProof::Tick(float DeltaTime)
         if (Orthographic) Metric->SetNumberField(TEXT("orthographicWidthCm"),Camera->GetCameraComponent()->OrthoWidth);
         if (!ViewFrames.IsEmpty()) Metric->SetNumberField(TEXT("p95FrameMs"),ViewFrames[FMath::Min(ViewFrames.Num()-1,FMath::FloorToInt(ViewFrames.Num()*.95))]);
         if (!ViewDrawCalls.IsEmpty()) Metric->SetNumberField(TEXT("p95DrawCalls"),ViewDrawCalls[FMath::Min(ViewDrawCalls.Num()-1,FMath::FloorToInt(ViewDrawCalls.Num()*.95))]);
+        if (!PrivatePerformanceMode.IsEmpty())
+        {
+            Metric->SetStringField(TEXT("privatePerformanceMode"),PrivatePerformanceMode);
+            Metric->SetNumberField(TEXT("requestedSampleSeconds"),ViewSampleSeconds);
+            Metric->SetArrayField(TEXT("timingSamples"),ViewTimingSamples);
+            Metric->SetStringField(TEXT("gpuCsv"),ViewCsvCapture.Get());
+            Metric->SetStringField(TEXT("timingSource"),TEXT("wall clock; native Stat Unit previous-frame Game/Draw/RHI/GPU counters; GPU0"));
+        }
         if (CaptureLighting) Metric->SetObjectField(TEXT("lightingWitness"),CaptureLighting);
         if (CaptureMaterialReadiness) Metric->SetObjectField(TEXT("privateMaterialReadiness"),CaptureMaterialReadiness);
-        if (LightingOverride)
+        if (LightingOverride || !PrivatePerformanceMode.IsEmpty())
         {
             // This observes the capture window, not an independently identified
             // screenshot frame or renderer-owned pass/backend selection.
