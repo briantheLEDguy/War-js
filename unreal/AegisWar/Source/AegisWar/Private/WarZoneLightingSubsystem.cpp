@@ -1,5 +1,7 @@
 #include "WarZoneLightingSubsystem.h"
 #include "WarZoneAnchor.h"
+#include "WarEnvironmentState.h"
+#include "WarPracticalLight.h"
 #include "Engine/DirectionalLight.h"
 #include "Engine/ExponentialHeightFog.h"
 #include "Engine/SkyLight.h"
@@ -39,6 +41,9 @@ void UWarZoneLightingSubsystem::Tick(float DeltaTime)
         // Pawn position is authoritative for zone identity; a portal approach camera may extend outside its bounds.
         const auto* Anchor = AWarZoneAnchor::FindAt(World, Player->GetPawn()->GetActorLocation());
         if (Anchor && (Anchor->ZoneId != ActiveZone || bEnvironmentDirty)) Apply(Anchor->ZoneId, Anchor->ZoneOrigin);
+        if (Anchor && AWarEnvironmentState::IsDynamicZone(ActiveZone))
+            if (const auto* Environment=AWarEnvironmentState::Find(World); Environment && Environment->UnixSeconds()>=0)
+                ApplyRegionalTime(Environment->UnixSeconds(),Environment->WeatherStrength(ActiveZone));
         break;
     }
 }
@@ -141,6 +146,37 @@ bool UWarZoneLightingSubsystem::PreviewWorld(UWorld* World, FName Zone, FVector 
 {
     auto* Lighting = World ? World->GetSubsystem<UWarZoneLightingSubsystem>() : nullptr;
     return Lighting && Lighting->PreviewZone(Zone, Origin);
+}
+void UWarZoneLightingSubsystem::ApplyRegionalTime(double Seconds,float Weather)
+{
+    const auto* Profile=FindProfile(ActiveZone);
+    if (!Profile || !AWarEnvironmentState::IsDynamicZone(ActiveZone) || !Sun || !Grade) return;
+    const float Day=AWarEnvironmentState::Daylight(Seconds),Wet=FMath::Clamp(Weather,0.f,1.f);
+    const double Phase=AWarEnvironmentState::CycleSeconds(Seconds);
+    const FLinearColor Moon(.48f,.59f,.8f),Dawn(1.f,.64f,.4f);
+    const float Twilight=4*Day*(1-Day);
+    const FLinearColor Colour=FMath::Lerp(FMath::Lerp(Moon,Profile->SunColor,Day),Dawn,Twilight*.4f);
+    Sun->SetActorRotation(FRotator(FMath::Lerp(-12.f,Profile->SunRotation.Pitch,Day),Profile->SunRotation.Yaw+float(Phase/3600.*150),0));
+    Sun->GetLightComponent()->SetIntensity(FMath::Lerp(500.f,Profile->SunLux,Day)*(1-Wet*.3f));
+    Sun->GetLightComponent()->SetLightColor(Colour);
+    Fill->GetLightComponent()->SetIntensity(FMath::Lerp(900.f,Profile->FillLux,Day));
+    Fill->GetLightComponent()->SetLightColor(FMath::Lerp(Moon,Profile->FillColor,Day));
+    Ambient->GetLightComponent()->SetIntensity(FMath::Lerp(.12f,FMath::Clamp(Profile->FillLux/8000.f,.6f,1.5f),Day));
+    Ambient->GetLightComponent()->SetLightColor(FMath::Lerp(Moon,Profile->FillColor,Day));
+    const float RegionalFog=ActiveZone==TEXT("brightfen_approach") ? .022f : ActiveZone==TEXT("cinderfen_outskirts") ? .016f : .008f;
+    Fog->GetComponent()->SetFogDensity(Profile->FogDensity+Wet*RegionalFog);
+    Fog->GetComponent()->SetFogInscatteringColor(FMath::Lerp(Moon*.12f,Profile->FogColor,Day));
+    // Keep a fixed, readable regional exposure: daylight preserves material colour,
+    // while moonlit routes retain silhouette detail without adapting night into day.
+    Grade->Settings.AutoExposureBias=Profile->ExposureBias+FMath::Lerp(2.25f,-.5f,Day);
+}
+bool UWarZoneLightingSubsystem::PreviewEnvironment(UWorld* World,FName Zone,FVector Origin,double Seconds,float Weather)
+{
+    auto* Lighting=World ? World->GetSubsystem<UWarZoneLightingSubsystem>() : nullptr;
+    if (!Lighting || !FMath::IsFinite(Seconds) || !FMath::IsFinite(Weather) || !Lighting->PreviewZone(Zone,Origin)) return false;
+    Lighting->ApplyRegionalTime(Seconds,Weather);
+    for(TActorIterator<AWarPracticalLight> It(World);It;++It)if(It->ZoneId==Zone)It->ApplyTime(Seconds);
+    return true;
 }
 void UWarZoneLightingSubsystem::Deinitialize()
 {

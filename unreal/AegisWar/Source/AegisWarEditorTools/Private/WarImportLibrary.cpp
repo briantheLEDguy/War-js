@@ -1619,6 +1619,8 @@ void UWarImportLibrary::PreparePreviewFrame(USkeletalMeshComponent* Component)
 
 void UWarImportLibrary::PrepareWorldPreviewFrame(UWorld* World)
 {
+    // Each commandlet capture must get a fresh frame for sky, shadow and temporal caches.
+    if (World) ++GFrameCounter;
     PreparePreviewFrame(nullptr);
     // Commandlets do not tick the editor world between camera captures.
     if (World) World->SendAllEndOfFrameUpdates();

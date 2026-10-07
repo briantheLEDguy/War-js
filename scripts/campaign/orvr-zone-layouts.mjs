@@ -227,6 +227,11 @@ export function linkOrvrZoneTravel(zones) {
     if (!target?.orvrLayout) continue;
     const reverse = target.zoneTriggers?.find((candidate) => candidate.targetZoneId === source.id);
     if (!reverse) throw new Error(`Missing return portal: ${target.id} -> ${source.id}`);
+    if (target.spatial) {
+      if (!reverse.arrivalPoint) throw new Error(`Missing authored irregular-zone arrival: ${reverse.id}`);
+      trigger.targetSpawn = structuredClone(reverse.arrivalPoint);
+      continue;
+    }
     const magnitude = Math.hypot(reverse.x, reverse.z);
     const spawnRadius = magnitude - reverse.radius - 10;
     trigger.targetSpawn = { x: round(reverse.x * spawnRadius / magnitude), y: 0, z: round(reverse.z * spawnRadius / magnitude) };

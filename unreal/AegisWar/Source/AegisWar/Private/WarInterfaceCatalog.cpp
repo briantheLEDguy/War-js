@@ -33,6 +33,20 @@ FWarInterfaceCatalog FWarInterfaceCatalog::Parse(const TSharedPtr<const FJsonObj
         auto* Zone = Result.Zones.FindByPredicate([&](const auto& Entry) { return Entry.Id == String(Row, TEXT("id")); });
         if (!Zone || !Definition) continue;
         Zone->Size = FMath::Clamp(Number(Definition, TEXT("size"), 800), 1.0, 20000.0);
+        Zone->ContentBounds=FBox2D(FVector2D(-Zone->Size/2),FVector2D(Zone->Size/2));
+        const auto Spatial=Object(Definition,TEXT("spatial")), Bounds=Object(Spatial,TEXT("bounds"));
+        if (Bounds)
+        {
+            const double MinX=Number(Bounds,TEXT("minX")),MaxX=Number(Bounds,TEXT("maxX"));
+            const double MinZ=Number(Bounds,TEXT("minZ")),MaxZ=Number(Bounds,TEXT("maxZ"));
+            if (MinX<MaxX && MinZ<MaxZ)
+            {
+                Zone->bSpatialBounds=true;
+                Zone->ContentBounds=FBox2D(FVector2D(MinX,-MaxZ),FVector2D(MaxX,-MinZ));
+                for (const auto& Point:Array(Spatial,TEXT("playableOutline")))
+                    Zone->PlayableOutline.Add(FVector2D(Number(Point->AsObject(),TEXT("x")),-Number(Point->AsObject(),TEXT("z"))));
+            }
+        }
         for (const auto& Route : Array(Definition, TEXT("zoneTriggers")))
         {
             const FString Destination = String(Route->AsObject(), TEXT("targetZoneId"));

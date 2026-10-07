@@ -29,7 +29,7 @@ describe('native campaign world', () => {
     expect(() => portalPlan(source)).toThrow(/Duplicate zone/);
   });
   it('converts axes and applies each zone offset only once', () => {
-    expect(worldPoint('brightfen_approach', { x: 4, y: 2, z: 3 })).toEqual([200300,400,200]);
+    expect(worldPoint('brightfen_approach', { x: 4, y: 2, z: 3 })).toEqual([350300,400,200]);
     expect(() => worldPoint('missing', { x: 0, z: 0 })).toThrow(/Unknown zone/);
   });
   it('retains the source outdoor heightfield and valid upward normals', () => {

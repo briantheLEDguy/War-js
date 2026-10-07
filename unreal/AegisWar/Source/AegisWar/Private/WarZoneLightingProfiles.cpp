@@ -25,7 +25,7 @@ const TArray<FWarZoneLightingProfile>& UWarZoneLightingSubsystem::Profiles()
         Profile(TEXT("wardens_hollow"),TEXT("Green woodland shafts"),10500,5000,-57,-20,TEXT("DEEFC4"),TEXT("A8CCC3"),.013f,TEXT("8DA798"),4500,.4f,.85f,1.12f),
         Profile(TEXT("cindermaw_pit"),TEXT("Ember-lit mineral hollow"),8500,5000,-68,100,TEXT("FFC087"),TEXT("A5BBCC"),.016f,TEXT("A38B7C"),3500,.6f,.9f,1.15f),
         Profile(TEXT("brightfen_approach"),TEXT("Soft reed-village morning"),21000,7500,-32,120,TEXT("FFF1CD"),TEXT("BDDAD4"),.009f,TEXT("B4C7B6"),9000,.1f,.94f,1.08f),
-        Profile(TEXT("ashen_steppe"),TEXT("Dry ochre high sun"),34000,6500,-62,16,TEXT("FFE0AA"),TEXT("D2DEED"),.004f,TEXT("D4BC96"),16000,-.15f,.88f,1.04f),
+        Profile(TEXT("ashen_steppe"),TEXT("Silver ash and bleached sandstone"),34000,6500,-62,16,TEXT("F1ECD8"),TEXT("D2DEED"),.004f,TEXT("BDBCAF"),16000,-.15f,.82f,1.04f),
         Profile(TEXT("mireglass_den"),TEXT("Cool jade reflections"),9000,6000,-44,95,TEXT("CDE8D8"),TEXT("A9D8DB"),.014f,TEXT("85B7AD"),4000,.45f,.85f,1.14f),
         Profile(TEXT("ashfang_pit"),TEXT("Copper dust and cold stone"),11000,4800,-53,35,TEXT("FFD5A6"),TEXT("B8C8DB"),.011f,TEXT("AD9580"),5000,.3f,.84f,1.1f),
         Profile(TEXT("greybrook_crossing"),TEXT("Silver overcast river market"),16500,10500,-36,-110,TEXT("E4ECF2"),TEXT("BDCFD5"),.008f,TEXT("AFBEC1"),10500,.15f,.82f,1.1f),

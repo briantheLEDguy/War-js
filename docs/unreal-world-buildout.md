@@ -1,5 +1,11 @@
 # Aegis/Riftbound world buildout
 
+The [T1 redesign](t1-redesign.md) now provides four terrain/topology candidates,
+shared spatial support, a replicated regional clock and isolated first-pair
+native prototypes. Active campaign/capital packages remain preserved. Village
+completion, effects/audio, visual and live play acceptance remain open; the
+existing first-pair lair and batch sequence gates still apply.
+
 The approved scope is 32 existing zones and 70 directed portals in the main
 AegisWar project. Implementation has begun with shared foundations and
 Sunmeadow March/Cinderfen Outskirts. **No zone or batch is complete.**

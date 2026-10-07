@@ -97,7 +97,8 @@ else:
     for zone in access.manifest['zones']:
         rows = [row for row in placed if row['zone']==zone['id']]
         if rows:
-            zone['landscape'] = {'sectors':16,'surfaces':rows,'lodsAccepted':False,'visualApproved':False}
+            sectors=len(next(z['chunks'] for z in plan['zones'] if z['id']==zone['id']))
+            zone['landscape'] = {'sectors':sectors,'surfaces':rows,'lodsAccepted':False,'visualApproved':False}
     (directory/receipt['partitionManifest']).write_text(json.dumps(access.manifest,indent=2)+'\n')
     receipt.update(landscapePlanSha256=plan_sha,landscapeSurfaces=placed,runtimeTraversalVerified=False)
     (directory/'build.json').write_text(json.dumps(receipt,indent=2)+'\n')

@@ -6,9 +6,11 @@ import type { NavigationProp } from '../shared/worldNavigation';
 import type { ZoneConfig, Position, Realm } from '../shared/orvr/protocol';
 import type { OrvrZoneLayout } from '../shared/world/orvrTypes';
 import { mapPropNavigation } from './mapNavigation';
+import { resolveZoneSpatial, type ZoneSpatial } from '../shared/worldSpatial';
 
 interface CampaignMap {
   id: string; size: number; segments: number; spawnPoint?: Position; orvrLayout?: OrvrZoneLayout;
+  spatial?: ZoneSpatial;
   rvrObjectives?: Array<{ id: string; x: number; y?: number; z: number; captureRadius: number; requiresObjectiveIds?: string[] }>;
   props?: NavigationProp[];
 }
@@ -34,7 +36,7 @@ export async function loadCampaignMapConfigs(mapDirectory = resolve('public/asse
   return Promise.all(defaultZoneConfigs().map(async fallback => {
     const map = JSON.parse(await readFile(resolve(mapDirectory, `${fallback.id}.json`), 'utf8')) as CampaignMap;
     const layout = map.orvrLayout;
-    const bounds = { minX: -map.size / 2, maxX: map.size / 2, minZ: -map.size / 2, maxZ: map.size / 2 };
+    const bounds = resolveZoneSpatial(map).bounds;
     if (!layout) {
       if (fallback.kind !== 'city') throw new Error(`Regenerate expanded campaign maps before starting the server: ${fallback.id}`);
       const objectives = (map.rvrObjectives ?? []).map(objective => ({
@@ -47,7 +49,7 @@ export async function loadCampaignMapConfigs(mapDirectory = resolve('public/asse
       return { ...fallback, bounds, objectives, staging };
     }
     const config: ZoneConfig = {
-      id: map.id, kind: fallback.kind, bounds,
+      id: map.id, kind: fallback.kind, bounds, ...(map.spatial ? { spatial: map.spatial } : {}),
       staging: Object.fromEntries(layout.stagingCamps.map(camp => [camp.realm, point(camp)])) as Record<Realm, Position>,
       objectives: layout.battlefieldObjectives.map(objective => ({
         id: objective.objectiveId, position: point(objective), captureRadius: objective.captureRadius, guardCount: 2,
@@ -57,7 +59,7 @@ export async function loadCampaignMapConfigs(mapDirectory = resolve('public/asse
       keeps: layout.keeps.map(keep => {
         const gates = Object.fromEntries(keep.gates.map(gate => [gate.stage, campaignGateNavigation(gate,
           map.props?.find(prop => prop.id === gate.propId),
-          (x, z) => orvrGridHeightAt(layout.terrain, map.size, map.segments, x, z))]));
+          (x, z) => orvrGridHeightAt(layout.terrain, map.size, map.segments, x, z, map.spatial))]));
         return {
         id: keep.objectiveId, realm: keep.realm, position: point(keep.commander),
         outerGate: gates.outer.position, innerGate: gates.inner.position, quartermaster: point(keep.quartermaster),
@@ -79,7 +81,7 @@ export async function loadCampaignMapConfigs(mapDirectory = resolve('public/asse
     // Retain separate collision footprints. Dynamic siege gates are handled by the simulation.
     const dynamicGateProps = new Set(layout.keeps.flatMap(keep => keep.gates.map(gate => gate.propId)));
     Object.assign(config, mapPropNavigation(map.props ?? [],
-      (x, z) => orvrGridHeightAt(layout.terrain, map.size, map.segments, x, z), dynamicGateProps));
+      (x, z) => orvrGridHeightAt(layout.terrain, map.size, map.segments, x, z, map.spatial), dynamicGateProps));
     return config;
   }));
 }

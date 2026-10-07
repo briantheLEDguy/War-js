@@ -3,6 +3,7 @@ import { campaignColliderBlocksHeight, campaignColliderContains, campaignGroundH
 import { CAPITAL_SIEGE_RULES, validateNativeCapitalSiegeLease } from '../siege/contract';
 import { validateNativeCharacterCheckpoint, validateNativeCharacterAck } from '../siege/character';
 import { ORVR_PROTOCOL_VERSION } from './protocol';
+import { containsZoneDestination, resolveZoneSpatial, spatialSegmentInside } from '../worldSpatial';
 import { keepPosterns, nearbyKeepPostern, posternExitFor } from './postern';
 import { equipmentFacing, equipmentLocalPosition, equipmentOperatorPosition, equipmentOperatorSeat, equipmentOperatorSeats, RAM_OPERATOR_SEATS } from './equipment';
 import type {
@@ -32,6 +33,17 @@ function validateZoneConfig(config: ZoneConfig): void {
   const { bounds } = config;
   if (!config.id || !bounds || ![bounds.minX, bounds.maxX, bounds.minZ, bounds.maxZ].every(finite)
     || bounds.minX >= bounds.maxX || bounds.minZ >= bounds.maxZ) throw new Error(`Invalid bounds: ${config.id}`);
+  if (config.spatial) {
+    resolveZoneSpatial({ size: config.terrainSize ?? bounds.maxX - bounds.minX, segments: config.terrainSegments ?? 128, spatial: config.spatial });
+    if (Object.keys(bounds).some(key => bounds[key as keyof typeof bounds] !== config.spatial!.bounds[key as keyof typeof bounds]))
+      throw new Error(`Spatial ownership bounds differ: ${config.id}`);
+    const positions = [...Object.values(config.staging), ...config.objectives.map(o => o.position),
+      ...config.keeps.flatMap(k => [k.position, k.outerGate, k.innerGate, k.quartermaster, ...(k.deliveryPoint ? [k.deliveryPoint] : [])])];
+    if (positions.some(p => !containsZoneDestination(config, p))) throw new Error(`Gameplay anchor outside playable outline: ${config.id}`);
+    for (const objective of config.objectives) for (const route of Object.values(objective.routes ?? {}))
+      if (route?.some((p, i) => !containsZoneDestination(config, p, 9) || (i > 0 && !spatialSegmentInside(config.spatial!, route[i - 1], p, 9))))
+        throw new Error(`Supply route leaves playable ground: ${objective.id}`);
+  }
   if (!positionValid(config.staging.aegis) || !positionValid(config.staging.riftbound)) throw new Error(`Invalid staging: ${config.id}`);
   const ids = [...config.objectives.map(o => o.id), ...config.keeps.map(k => k.id)];
   if (new Set(ids).size !== ids.length || config.objectives.length !== 3) throw new Error(`Expected three unique objectives: ${config.id}`);
@@ -56,7 +68,7 @@ function validateZoneConfig(config: ZoneConfig): void {
     if (![keep.position, keep.outerGate, keep.innerGate, keep.quartermaster].every(positionValid)) throw new Error(`Invalid keep: ${keep.id}`);
     for (const [kind, positions] of Object.entries(keep.siegeOperatorPositions ?? {})) {
       if ((kind !== 'oil' && kind !== 'catapult') || !positions.length || positions.length !== keep.siegePositions?.[kind]?.length
-        || positions.some(point => !positionValid(point) || point.x < bounds.minX + .5 || point.x > bounds.maxX - .5 || point.z < bounds.minZ + .5 || point.z > bounds.maxZ - .5)) {
+        || positions.some(point => !positionValid(point) || !containsZoneDestination(config, point))) {
         throw new Error(`Invalid siege operator positions: ${keep.id}`);
       }
     }
@@ -68,7 +80,7 @@ function validateZoneConfig(config: ZoneConfig): void {
       const { outside, inside, interactionRadius } = postern;
       if (![outside, inside].every(positionValid) || !finite(interactionRadius) || interactionRadius <= 0 || interactionRadius > 4
         || distance(outside, inside) <= interactionRadius * 2 || distance(outside, inside) > 12
-        || [outside, inside].some(point => point.x < bounds.minX + .5 || point.x > bounds.maxX - .5 || point.z < bounds.minZ + .5 || point.z > bounds.maxZ - .5)) {
+        || [outside, inside].some(point => !containsZoneDestination(config, point))) {
         throw new Error(`Invalid postern: ${keep.id}`);
       }
     }
@@ -173,6 +185,7 @@ export function createCampaign(config: CampaignConfig = {}): CampaignState {
 
 /** Boarding and dismounting are short traversals, never teleports through a keep wall. */
 function equipmentPathClear(zone: ZoneState, from: Position, to: Position): boolean {
+  if (zone.config.spatial && !spatialSegmentInside(zone.config.spatial, from, to, .5)) return false;
   const steps = Math.max(1, Math.ceil(distance(from, to) / .2));
   for (let step = 1; step <= steps; step++) {
     const t = step / steps;
@@ -204,9 +217,7 @@ function unboard(state: CampaignState, player: PlayerState, requireSafeExit = fa
         for (const offset of candidates) {
           const position = equipmentLocalPosition(equipment, offset);
           position.y = campaignGroundHeight(zone.config, position);
-          const bounds = zone.config.bounds;
-          if (position.x >= bounds.minX + .5 && position.x <= bounds.maxX - .5
-            && position.z >= bounds.minZ + .5 && position.z <= bounds.maxZ - .5 && equipmentPathClear(zone, player.position, position)) {
+          if (containsZoneDestination(zone.config, position) && equipmentPathClear(zone, player.position, position)) {
             player.position = position; landed = true; break;
           }
         }
@@ -788,8 +799,7 @@ export function submitCommand(state: CampaignState, playerId: string, command: P
 }
 
 function blocked(zone: ZoneState, position: Position, radius = 0.5): boolean {
-  const b = zone.config.bounds;
-  if (position.x < b.minX + radius || position.x > b.maxX - radius || position.z < b.minZ + radius || position.z > b.maxZ - radius) return true;
+  if (!containsZoneDestination(zone.config, position, radius)) return true;
   for (const box of zone.config.collision ?? []) {
     if (!campaignColliderBlocksHeight(box, position.y, radius > 1 ? 3.5 : 1.8)) continue;
     if (campaignColliderContains(box, position, radius)) return true;
@@ -815,10 +825,10 @@ function moveBy(zone: ZoneState, position: Position, x: number, z: number, radiu
   const next = { ...position };
   const xStep = { ...next, x: next.x + x };
   xStep.y = campaignGroundHeight(zone.config, xStep);
-  if (!blocked(zone, xStep, radius)) Object.assign(next, xStep);
+  if (!blocked(zone, xStep, radius) && (!zone.config.spatial || spatialSegmentInside(zone.config.spatial, next, xStep, radius))) Object.assign(next, xStep);
   const zStep = { ...next, z: next.z + z };
   zStep.y = campaignGroundHeight(zone.config, zStep);
-  if (!blocked(zone, zStep, radius)) Object.assign(next, zStep);
+  if (!blocked(zone, zStep, radius) && (!zone.config.spatial || spatialSegmentInside(zone.config.spatial, next, zStep, radius))) Object.assign(next, zStep);
   next.y = campaignGroundHeight(zone.config, next);
   return next;
 }

@@ -1,6 +1,7 @@
 /** Shared, JSON-safe authority contract. Clients request actions; only the simulation emits outcomes. */
 import type { OrvrTerrainControls } from '../orvrTerrain';
 import type { WalkableSurface } from '../worldNavigation';
+import type { ZoneSpatial } from '../worldSpatial';
 export const ORVR_PROTOCOL_VERSION = 1 as const;
 export type Realm = 'aegis' | 'riftbound';
 export type Position = { x: number; y: number; z: number };
@@ -44,6 +45,7 @@ export interface ZoneConfig {
   id: string;
   kind: 'battlefield' | 'fortress' | 'city';
   bounds: { minX: number; maxX: number; minZ: number; maxZ: number };
+  spatial?: ZoneSpatial;
   staging: Record<Realm, Position>;
   objectives: ObjectiveConfig[];
   keeps: KeepConfig[];

@@ -1,6 +1,7 @@
 import type { WorldLifeDefinition } from './worldLifeTypes';
 import type { CanalDefinition } from './CityWater';
 import type { OrvrZoneArtDirection, OrvrZoneLayout } from './orvrTypes';
+import type { ZoneSpatial } from '../worldSpatial';
 import type {
   CampaignLane,
   CampaignNodeRole,
@@ -172,6 +173,8 @@ export interface ZoneTrigger {
   radius: number;
   targetZoneId: string;
   targetSpawn?: { x: number; y: number; z: number };
+  /** Authored local landing for the reciprocal route; required by irregular T1 layouts. */
+  arrivalPoint?: { x: number; y: number; z: number };
 }
 
 /** A static NPC (vendor, trainer, banker, etc.) — no combat AI. */
@@ -266,6 +269,7 @@ export interface ZoneDefinition {
   name: string;
   size: number;
   segments: number;
+  spatial?: ZoneSpatial;
   skybox?: string;         // .hdr file
   terrainTexture?: string; // .png/.jpg
   /** Optional .glb under /public/assets/models/ used as the visible terrain. */
@@ -372,6 +376,6 @@ export interface PathDefinition {
   /** Disable inferred joins for authored streets separated by water or walls. */
   autoConnect?: boolean;
   width: number;
-  points: Array<{ x: number; z: number }>;
+  points: Array<{ x: number; z: number; y?: number }>;
   y?: number;
 }

@@ -11,6 +11,9 @@ struct FWarMapZone
 {
     FString Id, Name, Realm, Lane, Tier, Role;
     double Size = 800;
+    bool bSpatialBounds = false;
+    FBox2D ContentBounds = FBox2D(FVector2D(-400,-400),FVector2D(400,400));
+    TArray<FVector2D> PlayableOutline;
     TArray<FString> Destinations;
     TArray<TArray<FVector2D>> Paths;
     TArray<FWarMapMarker> Markers;

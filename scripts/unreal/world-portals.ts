@@ -5,16 +5,19 @@ import { CAMPAIGN_NODES } from '../../shared/data/campaign.generated';
 import type { ZoneDefinition } from '../../shared/world/ZoneDefinition';
 import { roadSurfaceGeometry } from '../../shared/world/RoadSurface';
 import { orvrHeightAt } from '../../shared/orvrTerrain';
+import { containsSpatialPoint, resolveZoneSpatial, spatialSegmentInside } from '../../shared/worldSpatial';
 import { canonicalJson, sha256, sourcePointToUnreal } from './content-contract';
 import { isMain, repoRoot } from './toolchain';
 
 // Stable development coordinates; adjacency is defined exclusively by the campaign graph.
 export const worldOrigins: Record<string, [number, number, number]> = {
-  aegis_capital: [0, 0, 0], brightfen_approach: [200000, 0, 0], sunmeadow_march: [-200000, 0, 0],
+  aegis_capital: [0, 0, 0], brightfen_approach: [350000, 0, 0], sunmeadow_march: [-350000, 0, 0],
 };
 CAMPAIGN_NODES.map(node => node.id).filter(id => !worldOrigins[id]).sort().forEach((id, index) => {
   worldOrigins[id] = [600000 + (index % 6) * 200000, Math.floor(index / 6) * 200000, 0];
 });
+worldOrigins.cinderfen_outskirts=[-350000,280000,0];
+worldOrigins.ashen_steppe=[350000,280000,0];
 export function worldPoint(zone: string, point: { x: number; y?: number; z: number }): number[] {
   const origin = worldOrigins[zone];
   if (!origin) throw new Error(`Unknown zone: ${zone}`);
@@ -31,18 +34,19 @@ export function sourceHeight(map: ZoneDefinition, x: number, z: number): number 
 }
 /** Sample the same triangles exported to Unreal, keeping roads on the actual collision surface. */
 export function terrainHeight(map: ZoneDefinition, x: number, z: number): number {
-  const s = map.segments;
-  const fx = Math.max(0, Math.min(s, (x / map.size + 0.5) * s));
-  const fz = Math.max(0, Math.min(s, (z / map.size + 0.5) * s));
-  const ix = Math.min(s - 1, Math.floor(fx)), iz = Math.min(s - 1, Math.floor(fz));
+  const { bounds: b, terrainGrid: g } = resolveZoneSpatial(map);
+  const fx = Math.max(0, Math.min(g.segmentsX, (x - b.minX) / (b.maxX - b.minX) * g.segmentsX));
+  const fz = Math.max(0, Math.min(g.segmentsZ, (z - b.minZ) / (b.maxZ - b.minZ) * g.segmentsZ));
+  const ix = Math.min(g.segmentsX - 1, Math.floor(fx)), iz = Math.min(g.segmentsZ - 1, Math.floor(fz));
   const tx = fx - ix, tz = fz - iz;
-  const at = (dx: number, dz: number) => Math.fround(sourceHeight(map, (ix + dx) / s * map.size - map.size / 2, (iz + dz) / s * map.size - map.size / 2));
+  const at = (dx: number, dz: number) => Math.fround(sourceHeight(map, b.minX + (ix + dx) / g.segmentsX * (b.maxX - b.minX), b.minZ + (iz + dz) / g.segmentsZ * (b.maxZ - b.minZ)));
   return tx + tz <= 1 ? at(0, 0) + tx * (at(1, 0) - at(0, 0)) + tz * (at(0, 1) - at(0, 0))
     : at(1, 1) + (1 - tx) * (at(0, 1) - at(1, 1)) + (1 - tz) * (at(1, 0) - at(1, 1));
 }
 export function portalPlan(maps: ZoneDefinition[]) {
   const zones = new Map(maps.map(map => [map.id, map]));
   if (zones.size !== maps.length) throw new Error('Duplicate zone ID');
+  validateContentSeparation(maps);
   const ids = new Set<string>();
   const routes = maps.flatMap(map => (map.zoneTriggers ?? []).map(trigger => {
     if (!trigger.id || ids.has(trigger.id)) throw new Error('Duplicate or empty route ID');
@@ -52,8 +56,10 @@ export function portalPlan(maps: ZoneDefinition[]) {
     if (!target || target.id === map.id || reverse?.length !== 1) throw new Error(`Missing or ambiguous reverse route: ${trigger.id}`);
     if (!Number.isFinite(trigger.radius) || trigger.radius < 1 || trigger.radius > 20) throw new Error('Invalid portal radius');
     if (!trigger.targetSpawn) throw new Error(`Missing arrival: ${trigger.id}`);
-    if (Math.abs(trigger.x) > map.size / 2 || Math.abs(trigger.z) > map.size / 2
-      || Math.abs(trigger.targetSpawn.x) > target.size / 2 || Math.abs(trigger.targetSpawn.z) > target.size / 2) throw new Error(`Route outside zone: ${trigger.id}`);
+    if (!containsSpatialPoint(resolveZoneSpatial(map), trigger, trigger.radius)
+      || !containsSpatialPoint(resolveZoneSpatial(target), trigger.targetSpawn, .5)) throw new Error(`Route outside zone: ${trigger.id}`);
+    if (target.spatial && !spatialSegmentInside(target.spatial, reverse[0], trigger.targetSpawn, .5))
+      throw new Error(`Arrival crosses an unplayable boundary: ${trigger.id}`);
     const arrival = { ...trigger.targetSpawn };
     if (!target.craterCity && !target.cityElevation) arrival.y = terrainHeight(target, arrival.x, arrival.z);
     return { id: trigger.id, zoneId: map.id, targetZoneId: target.id, reverseId: reverse[0].id,
@@ -62,10 +68,22 @@ export function portalPlan(maps: ZoneDefinition[]) {
   }));
   return { schemaVersion: 2, developmentOnly: true, productionTravelAccepted: false,
     zones: maps.map(map => ({ id: map.id, name: map.name, origin: worldOrigins[map.id], size: map.size,
+      ...(map.spatial ? { spatial: map.spatial } : {}),
       status: map.id === 'aegis_capital' ? 'existing-capital-sublevel' : map.craterCity ? 'authored-crater' : 'source-terrain',
       palette: map.orvrLayout?.biome.palette ?? map.artDirection?.palette ?? ['#756b59', '#514a3d', '#b4a68a'],
       spawn: worldPoint(map.id, map.spawnPoint!),
       sourceSha256: sha256(canonicalJson(map)) })), routes };
+}
+export function validateContentSeparation(maps:ZoneDefinition[]):void {
+  const envelopes=maps.map(map=>{
+    const b=resolveZoneSpatial(map).bounds,o=worldOrigins[map.id];
+    if(!o)throw new Error(`Unknown zone origin: ${map.id}`);
+    return {id:map.id,minX:o[0]+b.minZ*100,maxX:o[0]+b.maxZ*100,minY:o[1]+b.minX*100,maxY:o[1]+b.maxX*100};
+  });
+  for(let i=0;i<envelopes.length;i++)for(let j=i+1;j<envelopes.length;j++){
+    const a=envelopes[i],b=envelopes[j];
+    if(a.minX<=b.maxX&&a.maxX>=b.minX&&a.minY<=b.maxY&&a.maxY>=b.minY)throw new Error(`Overlapping content ownership: ${a.id}, ${b.id}`);
+  }
 }
 function exportGeometry(geometry: BufferGeometry) {
   geometry.computeVertexNormals();
@@ -84,11 +102,14 @@ function exportGeometry(geometry: BufferGeometry) {
 export function outdoorTerrain(map: ZoneDefinition) {
   if (!worldOrigins[map.id] || map.craterCity || map.cityElevation) throw new Error('Unsupported heightfield terrain');
   if (!Number.isFinite(map.size) || map.size <= 0 || !Number.isInteger(map.segments) || map.segments < 1 || map.segments > 512) throw new Error('Invalid terrain grid');
-  const geometry = new PlaneGeometry(map.size, map.size, map.segments, map.segments).rotateX(-Math.PI / 2);
+  const { bounds: b, terrainGrid: g } = resolveZoneSpatial(map);
+  const width = b.maxX - b.minX, depth = b.maxZ - b.minZ;
+  const geometry = new PlaneGeometry(width, depth, g.segmentsX, g.segmentsZ).rotateX(-Math.PI / 2)
+    .translate((b.minX + b.maxX) / 2, 0, (b.minZ + b.maxZ) / 2);
   const positions = geometry.getAttribute('position'), uv = geometry.getAttribute('uv');
   for (let i = 0; i < positions.count; i++) {
     positions.setY(i, sourceHeight(map, positions.getX(i), positions.getZ(i)));
-    uv.setXY(i, uv.getX(i) * map.size / 4, uv.getY(i) * map.size / 4);
+    uv.setXY(i, uv.getX(i) * width / 4, uv.getY(i) * depth / 4);
   }
   return { zoneId: map.id, ...exportGeometry(geometry) };
 }

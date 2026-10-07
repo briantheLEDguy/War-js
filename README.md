@@ -1,5 +1,16 @@
 # AegisWar
 
+T1 redesign work on `codex/t1-terrain-story-rvr` adds irregular/rectangular spatial
+support, four terrain/RvR topology candidates and a replicated 60-minute native
+clock with regional lighting/fog. Modular village and scenery recipes reserve
+twenty buildings, services, circulation, terrain support and road clearances;
+local lanterns follow the clock. Run `npm run unreal:t1-plan` for private
+candidate maps and topology drawings. Sunmeadow/Cinderfen native prototypes are
+isolated from the accepted capital and active campaign. Interiors/gameplay integration,
+weather/audio effects, camera approval, walking/driving/18v18, GM/network proof
+and platform performance remain open; batch two retains the lair gate. See
+[implementation and reproduction](docs/t1-redesign.md).
+
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both
 `GameDefaultMap` and `EditorStartupMap`. Campaign, frontend and canonical siege

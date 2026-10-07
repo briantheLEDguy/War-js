@@ -17,7 +17,7 @@ namespace WarPortalLanding
         const auto* Movement=Character ? Character->GetCharacterMovement() : nullptr;
         if (!World || !Capsule || !Movement || !Zone || Zone->GetWorld()!=World || Arrival.ContainsNaN()
             || !FMath::IsFinite(SearchRadius) || SearchRadius<0 || SearchRadius>600
-            || AWarZoneAnchor::FindAt(World,Arrival)!=Zone)
+            || AWarZoneAnchor::FindAt(World,Arrival)!=Zone || !Zone->ContainsPlayablePoint(Arrival,Capsule ? Capsule->GetScaledCapsuleRadius() : 0))
         { Error=TEXT("Destination has no unambiguous validated arrival area.");return false; }
         const float Radius=Capsule->GetScaledCapsuleRadius(),Half=Capsule->GetScaledCapsuleHalfHeight();
         if (!FMath::IsFinite(Radius) || !FMath::IsFinite(Half) || Radius<=0 || Half<Radius)
@@ -31,7 +31,7 @@ namespace WarPortalLanding
             return World->LineTraceSingleByObjectType(Hit,Seed+FVector(0,0,Range),Seed-FVector(0,0,Range),
                 FCollisionObjectQueryParams(ECC_WorldStatic),GroundQuery) && Hit.GetComponent()
                 && Hit.GetComponent()->GetCollisionResponseToChannel(ECC_Pawn)==ECR_Block && Hit.ImpactNormal.Z>=.7
-                && AWarZoneAnchor::FindAt(World,Hit.ImpactPoint)==Zone;
+                && AWarZoneAnchor::FindAt(World,Hit.ImpactPoint)==Zone && Zone->ContainsPlayablePoint(Hit.ImpactPoint,Radius);
         };
         FHitResult Reference;
         if (!Floor(Arrival,5000,Reference))

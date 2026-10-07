@@ -123,6 +123,7 @@ private:
     FWarCameraState* GetCameraState() const;
     void StartJump();
     void UpdateMovementInput();
+    UFUNCTION() void EnforceZoneOutline(float DeltaSeconds, FVector OldLocation, FVector OldVelocity);
     void RequestStrike();
 
     UPROPERTY(Transient) TObjectPtr<UInputMappingContext> MappingContext;

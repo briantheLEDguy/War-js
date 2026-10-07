@@ -1,4 +1,5 @@
 import type { OrvrTerrainControls, TerrainPoint } from '../orvrTerrain';
+import type { ZoneSpatial } from '../worldSpatial';
 
 type Realm = 'aegis' | 'riftbound';
 
@@ -38,6 +39,8 @@ export interface OrvrZoneArtDirection {
 }
 
 export interface OrvrKeepLayout extends TerrainPoint {
+  /** Source yaw in radians; all fitted anchors and geometry share this transform. */
+  heading?: number;
   objectiveId: string;
   realm: Realm;
   quartermaster: TerrainPoint;
@@ -55,6 +58,7 @@ export interface OrvrKeepLayout extends TerrainPoint {
 export interface OrvrZoneLayout {
   version: string;
   size: number;
+  spatial?: ZoneSpatial;
   status: 'layout-ready-art-pending' | 'review-ready' | 'complete';
   assetPolicy: {
     mode: 'legacy-transition' | 'authored-required';

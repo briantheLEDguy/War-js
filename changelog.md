@@ -1,3 +1,33 @@
+## 2026-10-07 - T1 terrain and atmosphere foundations
+
+- Add shared rectangular bounds, irregular playable outlines, per-axis terrain
+  grids, native triangle grounding and concave movement/arrival checks. Update
+  Node authority, native ownership/portal landings and atlas projection; retain
+  legacy square behavior and separate enlarged T1 content envelopes.
+- Author four regional terrain/route candidates, staggered objectives, two
+  rotation areas and six physical 350–750 m supply itineraries per zone. Move
+  keep assemblies coherently, reserve scenery clearance and rebase absolute
+  heights while retaining gameplay identities.
+- Replace fixed sixteen-sector assumptions with terrain coverage validation.
+  Export topology SVGs and private candidates with saved-content reconciliation
+  and Generated/Authored preservation; build first-pair native prototypes.
+- Add a replicated 60-minute native clock and deterministic regional weather
+  driving local T1 lighting/fog. Preserve Bastion lighting and static non-T1
+  presentation; add clock-driven local lantern fixtures and native exposure
+  studies. Retain local weather/audio, interior and visual work.
+- Add reusable village/scenery assemblies with twenty reserved building roles,
+  two required interiors, military frontage, connected walking approaches,
+  scaled source-envelope verification and recipe fingerprints. First-pair
+  private candidates contain twenty shells/lanterns per village and regional
+  field, grove, basalt and reed prototypes; gameplay integration remains open.
+- Repair overlapping route grades, fractional tile coverage validation and
+  commandlet sky/shadow frame advancement. Native route samples measure maximum
+  rise/run about .180/.158; this is not vehicle or 18v18 acceptance.
+- Pass 1,080 repository tests, 472 Unreal tooling tests, three typechecks, four
+  Python terrain checks, migration/world/model validation and 144 native tests.
+  Retain animated door/banner gaps, walk/drive/18v18, persistence/network,
+  performance/platform and release gates. Batch two remains lair-gated.
+
 ## 2026-10-07 - Citadel performance and navigation repairs
 
 - Enable virtual shadow maps with 32 packed filtered lights and an 8,192-page pool at shadow quality 3; lower qualities inherit smaller engine pools. Final normal-startup courtyard FPS improves 13.19 → 88.28 and forehall 14.72 → 72.65 on the local RX 7700 XT at identical actual render pixels and graphics quality, retaining all 56 point shadow casters and authored sun/fill. Populated siege and other-platform performance remain open.

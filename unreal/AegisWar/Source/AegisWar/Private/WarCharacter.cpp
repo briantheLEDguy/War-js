@@ -16,6 +16,7 @@
 #include "WarStrikeAbility.h"
 #include "WarEnemy.h"
 #include "WarTypes.h"
+#include "WarZoneAnchor.h"
 #include "AbilitySystemComponent.h"
 #include "Animation/AnimSequence.h"
 #include "Camera/CameraComponent.h"
@@ -40,6 +41,7 @@
 
 AWarCharacter::AWarCharacter()
 {
+    OnCharacterMovementUpdated.AddDynamic(this,&ThisClass::EnforceZoneOutline);
     CombatStatus = CreateDefaultSubobject<UWarCombatStatus>(TEXT("CombatStatus"));
     bReplicates = true;
     PrimaryActorTick.bCanEverTick = true;
@@ -242,6 +244,16 @@ void AWarCharacter::Tick(const float DeltaSeconds)
         : Speed > 300.f ? TEXT("run") : Speed > 5.f ? TEXT("walk") : TEXT("idle"), true);
 }
 
+void AWarCharacter::EnforceZoneOutline(float DeltaSeconds,FVector OldLocation,FVector OldVelocity)
+{
+    if ((!HasAuthority() && !IsLocallyControlled()) || bDevelopmentFlying) return;
+    const auto* Anchor=AWarZoneAnchor::FindAt(GetWorld(),OldLocation);
+    if (!Anchor || !Anchor->bUseSpatialBounds) return;
+    const double Radius=GetCapsuleComponent()->GetScaledCapsuleRadius();
+    // Streaming ownership includes scenery beyond the legal movement outline.
+    if (Anchor->ContainsPlayablePoint(OldLocation,Radius) && !Anchor->ContainsPlayableSegment(OldLocation,GetActorLocation(),Radius))
+    { SetActorLocation(OldLocation,false,nullptr,ETeleportType::TeleportPhysics);GetCharacterMovement()->StopMovementImmediately(); }
+}
 void AWarCharacter::UpdateNativeAnimation(float Delta)
 {
     auto* Instance = Cast<UWarAnimationInstance>(GetMesh()->GetAnimInstance());

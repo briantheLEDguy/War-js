@@ -5,6 +5,7 @@ import type { Position, ZoneConfig } from './protocol';
 // Derived samples stay outside saved campaign state. Static map controls are replaced as a revision.
 const groundSamplers = new WeakMap<ZoneConfig, {
   terrain: OrvrTerrainControls; version: string; size: number; segments: number;
+  spatial: ZoneConfig['spatial'];
   at: (x: number, z: number) => number;
 }>();
 
@@ -16,9 +17,9 @@ export function campaignGroundHeight(config: ZoneConfig, position: Position): nu
     const segments = config.terrainSegments ?? 128;
     let sampler = groundSamplers.get(config);
     if (!sampler || sampler.terrain !== config.terrain || sampler.version !== config.terrain.sourceVersion
-      || sampler.size !== size || sampler.segments !== segments) {
-      sampler = { terrain: config.terrain, version: config.terrain.sourceVersion, size, segments,
-        at: createOrvrGridHeightSampler(config.terrain, size, segments) };
+      || sampler.size !== size || sampler.segments !== segments || sampler.spatial !== config.spatial) {
+      sampler = { terrain: config.terrain, version: config.terrain.sourceVersion, size, segments, spatial: config.spatial,
+        at: createOrvrGridHeightSampler(config.terrain, size, segments, config.spatial) };
       groundSamplers.set(config, sampler);
     }
     ground = sampler.at(position.x, position.z);

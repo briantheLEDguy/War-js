@@ -29,9 +29,11 @@ public:
     UFUNCTION(BlueprintPure, Category="World") FName GetActiveZone() const { return ActiveZone; }
     UFUNCTION(BlueprintCallable, Category="World") bool PreviewZone(FName Zone, FVector Origin);
     UFUNCTION(BlueprintCallable, Category="World") static bool PreviewWorld(UWorld* World, FName Zone, FVector Origin);
+    UFUNCTION(BlueprintCallable, Category="World") static bool PreviewEnvironment(UWorld* World, FName Zone, FVector Origin, double CycleSeconds, float WeatherStrength);
     UFUNCTION(BlueprintPure, Category="World") static FString DescribeProfiles();
 private:
     bool Apply(FName Zone, FVector Origin);
+    void ApplyRegionalTime(double Seconds, float Weather);
     bool CreateEnvironment();
     void HideAuthoredEnvironment();
     void RestoreAuthoredEnvironment();

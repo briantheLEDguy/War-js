@@ -116,7 +116,7 @@ namespace
             for (TActorIterator<AActor> It(Owner->GetWorld());It;++It)
             {
                 if (It->IsHidden()) continue;
-                if (CurrentAnchor && !AWarZoneAnchor::ContainsPoint(CurrentAnchor->ZoneOrigin,CurrentAnchor->HalfSize,It->GetActorLocation())) continue;
+                if (CurrentAnchor && !CurrentAnchor->ContainsOwnedPoint(It->GetActorLocation())) continue;
                 FString Label,Layer;
                 if (const auto* Npc=Cast<AWarCityNpc>(*It)) { Label=Npc->DisplayName;Layer=TEXT("People"); }
                 else if (const auto* Quest=Cast<AWarQuestNpc>(*It)) { Label=Quest->NpcId.ToString();Layer=TEXT("Quests"); }
@@ -184,6 +184,12 @@ namespace
             {
                 const auto* Zone=State->Catalog.FindZone(State->Selected);
                 if (!Zone) { Text(TEXT("Map data unavailable"),FVector2D(16,16),WarInterfaceStyle::Text);return Layer+4; }
+                if (!Zone->PlayableOutline.IsEmpty())
+                {
+                    TArray<FVector2D> Outline;
+                    for (const auto& Point:Zone->PlayableOutline) Outline.Add(Project(Point,Size));
+                    Outline.Add(Outline[0]);Line(Outline,WarInterfaceStyle::Gold);
+                }
                 if (State->Native())
                     for (const auto& Box:State->Buildings)
                     {
@@ -257,6 +263,7 @@ namespace
             {
                 const auto* Zone=State->Catalog.FindZone(State->Selected);
                 const double Half=Zone ? Zone->Size/2 : 400;
+                if (Zone && Zone->bSpatialBounds) return Zone->ContentBounds;
                 if (State->Native() && !State->Buildings.IsEmpty())
                 {
                     FBox2D Loaded(ForceInit);

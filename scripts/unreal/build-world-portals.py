@@ -154,6 +154,12 @@ for zone in plan['zones']:
     anchor.set_actor_label(zone['name']+' arrival')
     for key,value in {'zone_id':zone['id'],'zone_name':zone['name'],'zone_origin':unreal.Vector(*zone['origin']),'half_size':zone['size']*50}.items():
         anchor.set_editor_property(key,value)
+    if zone.get('spatial'):
+        bounds=zone['spatial']['bounds']
+        anchor.set_editor_property('use_spatial_bounds',True)
+        anchor.set_editor_property('content_min',unreal.Vector2D(bounds['minZ']*100,bounds['minX']*100))
+        anchor.set_editor_property('content_max',unreal.Vector2D(bounds['maxZ']*100,bounds['maxX']*100))
+        anchor.set_editor_property('playable_outline',[unreal.Vector2D(p['z']*100,p['x']*100) for p in zone['spatial']['playableOutline']])
     anchors.append(zone['id'])
 for route in plan['routes']:
     point=ground(world,unreal.Vector(*route['position']))+unreal.Vector(0,0,100)

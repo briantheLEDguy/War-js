@@ -45,6 +45,7 @@
     "test:orvr": "vitest run orvr expandedOrvrZones",
     "unreal:doctor": "tsx scripts/unreal/toolchain.ts",
     "unreal:world-plan": "tsx scripts/unreal/world-portals.ts",
+    "unreal:t1-plan": "tsx scripts/unreal/t1-candidate.ts",
     "unreal:zone-network-proof": "tsx scripts/unreal/zone-network-proof.ts",
     "unreal:export": "tsx scripts/unreal/export-content.ts",
     "unreal:assets": "tsx scripts/unreal/asset-ledger.ts --output artifacts/unreal/asset-ledger.json",

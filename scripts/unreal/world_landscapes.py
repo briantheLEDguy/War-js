@@ -1,10 +1,40 @@
 """Export the complete, source-approved first pair of authored terrain sectors."""
 import json
+import math
 from pathlib import Path
 from world_static import read_glb, digest
 
 ROOT = Path(__file__).resolve().parents[2]
 PAIR = ('sunmeadow_march', 'cinderfen_outskirts')
+
+
+def validate_chunk_coverage(definition):
+    chunks = definition['orvrLayout']['terrain']['chunks']
+    bounds = definition.get('spatial', {}).get('bounds') or {
+        'minX': -definition['size']/2, 'maxX': definition['size']/2,
+        'minZ': -definition['size']/2, 'maxZ': definition['size']/2}
+    if not chunks or len({c['id'] for c in chunks}) != len(chunks):
+        raise ValueError('Missing or duplicate terrain tiles')
+    rectangles=[]
+    for chunk in chunks:
+        if not all(math.isfinite(chunk[k]) for k in ('x','z','width','depth')) or chunk['width']<=0 or chunk['depth']<=0:
+            raise ValueError('Invalid terrain tile dimensions')
+        rectangle=(chunk['x']-chunk['width']/2,chunk['x']+chunk['width']/2,chunk['z']-chunk['depth']/2,chunk['z']+chunk['depth']/2)
+        if rectangle[0]<bounds['minX']-1e-6 or rectangle[1]>bounds['maxX']+1e-6 or rectangle[2]<bounds['minZ']-1e-6 or rectangle[3]>bounds['maxZ']+1e-6:
+            raise ValueError('Terrain tile leaves its content bounds')
+        rectangles.append(rectangle)
+    xs=sorted({bounds['minX'],bounds['maxX'],*(v for r in rectangles for v in r[:2])})
+    zs=sorted({bounds['minZ'],bounds['maxZ'],*(v for r in rectangles for v in r[2:])})
+    for left,right in zip(xs,xs[1:]):
+        for bottom,top in zip(zs,zs[1:]):
+            # Fractional tile thirds can differ at machine precision. Ignore only
+            # sub-micrometre partition slivers; real gaps/overlaps still fail.
+            if right-left<=1e-6 or top-bottom<=1e-6:
+                continue
+            x,z=(left+right)/2,(bottom+top)/2
+            if sum(a<x<b and c<z<d for a,b,c,d in rectangles)!=1:
+                raise ValueError('Terrain coverage has a gap or overlap')
+    return chunks
 
 
 def surface_kind(part):
@@ -26,9 +56,7 @@ def main():
     for zone in PAIR:
         source = ROOT/'public/assets/maps'/(zone+'.json')
         definition = json.loads(source.read_text())
-        chunks = definition['orvrLayout']['terrain']['chunks']
-        if len(chunks) != 16 or len({row['id'] for row in chunks}) != 16:
-            raise ValueError('Expected a complete 4x4 terrain set')
+        chunks = validate_chunk_coverage(definition)
         rows = []
         for chunk in chunks:
             binding = registry[chunk['assetKey']]
