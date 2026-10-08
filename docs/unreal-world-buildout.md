@@ -267,3 +267,12 @@ provides parent/refit native eave witnesses; `review-t1-homes.py -WarT1Shells`
 provide independent saved-scene clearance, rendered and walking evidence.
 These fixtures retain ordinary GM, campaign/network, appearance, vehicles,
 competitive, licensed distribution, platform and release acceptance gates.
+
+`build-t1-ceiling-studies.py` extends fresh shell copies with separately merged
+kit timber bays and a bounded interior fill, preserving every existing actor
+binding. `review-t1-ceilings.py` records ceiling-only upward grid witnesses;
+foreground house hits remain explicit and the independent capsule review uses
+all furniture collision. `review-t1-homes.py -WarT1Ceilings` and
+`run-t1-traversal.py --candidate ceilings` produce independent saved-scene and
+normal walking/camera evidence. Source kit assets and accepted capital/campaign
+layers remain private and unchanged; these studies grant no additional gates.

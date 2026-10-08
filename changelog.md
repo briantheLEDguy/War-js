@@ -1,3 +1,25 @@
+## 2026-10-08 - T1 modular timber ceilings and interior fill
+
+- Build six/nine measured timber bays from the already staged private plank
+  module in fresh first-pair candidates. Face the source surface downward,
+  retain its material channels through regional tint instances, merge each
+  ceiling separately and generate three native LODs. Refuse unmeasured rooms,
+  upper floors, duplicate installations and insufficient headroom.
+- Preserve existing house/door/floor/furniture/scenery/light bindings; add one
+  bounded clock-driven interior fill per home. Native overhead sampling passes
+  120 witnesses with about 275 cm minimum bounds clearance. Record/isolate four
+  foreground house hits for ceiling-only rays; full home capsules retain every
+  furniture blocker and pass 4,218 checks with 34 swept step transitions.
+- Add independent ceiling candidate selection, day/dusk/night native pictures,
+  a labeled bay schematic and focused recipe/witness tests. Repeat all 80 normal
+  walking routes and four live home walks on the new copies; add 48 native
+  pictures and one drawing to the private gallery. Pass 1,081 repository tests,
+  473 Unreal tooling tests, 29 focused Python tests and all three typechecks;
+  migration/world/model validation passes with four release blockers retained.
+  Retain dark shading,
+  regional appearance, gameplay integration, lair, drive/siege/18v18, GM/network,
+  hardware audio, performance/platform, Steam and release gates.
+
 ## 2026-10-08 - T1 modular furnished-home roof refits
 
 - Reassemble the four first-pair furnished homes from fingerprinted kit parts

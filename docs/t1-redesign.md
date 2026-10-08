@@ -539,3 +539,74 @@ Ordinary candidate gameplay/services/Node collision, GM persistence, network
 travel/clock, vehicle/siege/human traversal, 18v18, full first-batch lairs,
 hardware audio, regional appearance, platform performance, Steam and release
 acceptance remain open. Later native batches remain gated by those lairs.
+
+## Modular timber-ceiling checkpoint, 2026-10-08
+
+`t1_home_ceiling.py` derives six or nine 300 cm bays from each frozen furnished
+home's measured room footprint. It admits only the first-pair, single-storey
+homes, refuses a second installation and rejects changed timber dimensions or
+less than 250 cm bounds clearance. The staged `SM_MH_02_Wood_Floor_01` is rotated
+180 degrees so its original textured plank face looks into the room; no
+two-sided override or visible primitive is introduced. Its measured 25.2 cm
+depth fits below the 310.2 cm wall/eave top, retaining about 275 cm minimum
+clearance above the original floor.
+
+`build-t1-ceiling-studies.py` checks the roof/capsule parent receipts, freezes
+89 source-kit dependencies against the original staging inventory and creates
+new Review/Generated/empty Authored layers. Four ceiling meshes retain separate
+source-derived material instances and three native LODs: 2,256/1,128/452
+triangles for the smaller rooms and 3,384/1,692/676 for the larger ones. Every
+existing house mesh, doorway, furniture, scenery, practical light and room
+volume binding stays exact. One new shadowless interior fill per home follows
+the existing authority clock, at 5,000 day/3,000 night lumens, a 700 cm radius
+and regional warm colour. This improves some plank readability; perimeter
+darkness, light spill, overall contrast and performance still need review.
+
+Native overhead review passes 120 upward triangle witnesses on a 150 cm grid.
+Each home has one foreground hit on its unchanged merged house. The receipt
+records those hits, then ignores that house only to inspect the ceiling behind
+it. This is ceiling surface sampling, not full roof/weather sealing or global
+headroom acceptance. The independent home capsule review ignores no furniture
+and passes all 4,218 checks and 34 swept step transitions. Day/dusk/night
+reviews capture 12 ceiling details plus 24 normal interior/exterior views.
+
+Reproduce after saving/closing Editor and game processes:
+
+1. Run `build-t1-ceiling-studies.py` through the rendering commandlet with
+   `-AllowCommandletRendering -RenderOffscreen -NoTextureStreaming`.
+2. Run `review-t1-ceilings.py` in a fresh rendering process. Then run
+   `review-t1-homes.py` with the Unreal command-line flag `-WarT1Ceilings`.
+3. Run `python scripts/unreal/run-t1-traversal.py --candidate ceilings --headless`
+   for all road/supply/home walks; omit `--headless` for real-time home cameras
+   and local clock/weather shelter observations.
+4. Use the bundled Pillow Python to run `t1-ceiling-pictures.py`, then regenerate
+   the gallery with `t1-progress-gallery.py`. Drawings are labeled schematics;
+   native captures remain the actual appearance evidence.
+
+The final isolated ceiling study is `7ee15f64ea52`, recorded separately in
+`ceilings-latest.json`. The initial transform comparison failure, the first dark
+ceiling study and unsaved fill-light diagnostic remain private history. Existing
+maps, source assets and all owner GM documents are preserved. No native C++ or
+binary change is required; prior native Foundation/build results are retained
+as prior evidence rather than claimed as new runs.
+
+The new saved copies independently complete all 80 configured normal-character
+routes, 36,994.42 m, with zero airborne time, jumps or in-route teleports. Their
+headless receipt is `traversal/1791433257531651500-13604`; it verifies 11,293 saved
+bindings and preserves all 13 owner GM documents. This is fixed-timestep walking
+evidence, retaining human traversal, vehicle and gameplay acceptance gates.
+
+The separate live receipt is `traversal/1791433468443562700-19576`: four home
+routes, 646.93 m, zero airborne time and 12 normal gameplay-camera captures.
+Local authority-clock/weather shelter validation passes at the reached indoor
+waypoints. The gallery now contains 291 native captures, 16 labeled drawings
+and the existing 12 synthesized audio previews. Network synchronization and
+hardware audio remain unverified; these are local development fixtures.
+
+Repository tests pass 1,081, Unreal tooling passes 473 and focused Python passes
+29, along with all three typechecks. The migration audit retains four blockers,
+33 world maps and 906 model records validate, and strict release checking still
+fails as required. Cultural architecture, shading/ceiling LOD appearance,
+ordinary gameplay/services/Node collision, GM persistence, reciprocal network
+travel/clock, vehicle/siege/human traversal, 18v18, full first-pair lairs, actual
+audio, platform performance, Steam and release acceptance remain open.

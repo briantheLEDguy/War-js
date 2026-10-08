@@ -65,6 +65,18 @@ and the same command without `--headless` for independent live home cameras.
 Private receipts/gallery retain their own signatures; regional architecture,
 roof underside shading, distant LOD appearance and all release gates remain open.
 
+`build-t1-ceiling-studies.py` adds separate measured timber assemblies to fresh
+copies of those verified shells. Six or nine reviewed 3 m plank bays face the
+room, with source-derived regional tint instances and a bounded, clock-driven
+interior fill. Existing house, furniture, floor, doorway, scenery and light
+bindings remain exact. `review-t1-ceilings.py` checks overhead triangle witnesses
+and captures player-height details; `review-t1-homes.py -WarT1Ceilings` selects
+their full capsule/image review. Use `run-t1-traversal.py --candidate ceilings`
+with and without `--headless` for independent walking and gameplay cameras.
+The private gallery also includes a labeled bay/clearance schematic. Dark
+perimeter shading, regional cultural architecture, distant ceiling LODs,
+performance and all outstanding gameplay/release acceptance remain open.
+
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both
 `GameDefaultMap` and `EditorStartupMap`. Campaign, frontend and canonical siege

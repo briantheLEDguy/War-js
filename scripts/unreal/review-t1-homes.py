@@ -9,9 +9,10 @@ import unreal
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 DIRECTORY = ROOT/'artifacts/unreal/t1-redesign'
-shells = '-wart1shells' in unreal.SystemLibrary.get_command_line().lower()
-receipt = json.loads((DIRECTORY/('shells-latest.json' if shells else 'homes-latest.json')).read_text())
-output = DIRECTORY/('shell-views' if shells else 'home-views')/receipt['signature'][:12]
+command_line = unreal.SystemLibrary.get_command_line().lower()
+study = 'ceiling' if '-wart1ceilings' in command_line else 'shell' if '-wart1shells' in command_line else 'home'
+receipt = json.loads((DIRECTORY/({'ceiling':'ceilings','shell':'shells','home':'homes'}[study]+'-latest.json')).read_text())
+output = DIRECTORY/(study+'-views')/receipt['signature'][:12]
 output.mkdir(parents=True, exist_ok=True)
 levels = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
 actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
@@ -133,7 +134,7 @@ for package, digest in {**receipt['inputs']['parentPackages'], **receipt['packag
 result = dict(signature=receipt['signature'], parentPlanSha256=receipt['inputs']['parentPlanSha256'], homes=checks,
     pictureDirectory=output.relative_to(ROOT).as_posix(), savedCandidatesUnchanged=True,
     capsuleClear=all(p['capsuleClear'] for p in checks), walkingAccepted=False, furnishedHomesAccepted=0, visualApproved=False)
-(DIRECTORY/('shell-home-review.json' if shells else 'home-review.json')).write_text(json.dumps(result, indent=2)+'\n')
+(DIRECTORY/('home-review.json' if study=='home' else study+'-home-review.json')).write_text(json.dumps(result, indent=2)+'\n')
 unreal.log('WAR_T1_HOMES_REVIEWED=4')
 if not result['capsuleClear']:
     raise RuntimeError('Home collision review failed; see home-review.json')
