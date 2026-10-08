@@ -610,3 +610,103 @@ fails as required. Cultural architecture, shading/ceiling LOD appearance,
 ordinary gameplay/services/Node collision, GM persistence, reciprocal network
 travel/clock, vehicle/siege/human traversal, 18v18, full first-pair lairs, actual
 audio, platform performance, Steam and release acceptance remain open.
+
+## Retained population and stronger-relief checkpoint, 2026-10-08
+
+The owner found the previous screenshots unreadable and the terrain too flat.
+Progress images are now attached directly through native image output rather
+than relying on the broken local-image links. The latest native captures still
+show overly dark daylight, sparse villages, broad smooth slopes and generic
+architecture. They are prototypes, not visual approval or completed regions.
+
+`t1_population.py` reconciles frozen first-pair candidates against canonical
+content, saved native actors, exact profile imports and reviewed resource
+catalogs. It permits coordinates/orientations to change while refusing changed
+names, roles, quest/resource rules, rewards, visual identities or material slot
+order. Six staged camp additions absent from the canonical content manifest stay
+pending; they cannot admit themselves through an imported profile. The two
+preexisting generated-map hash mismatches are recorded against the installed
+source, without rewriting the active manifest or canonical maps.
+
+`build-t1-population-studies.py` freezes the native dependency closure and copies
+six exact retained `WarCityNpc` actors plus four `WarResourceNode` herb patches
+into new private ceiling candidates. Existing replacement idle clips and the
+Cinderfen officer's catalog sidearm are preserved, without activating paused
+procedural animation studies. NPCs/resources keep their authored NoCollision;
+terrain, scenery and the normal player capsule still provide the measured
+approach collision. Grounding traces ignore every actor except the actual
+terrain; foot support and swept capsules ignore no scenery. Bounds sit 2 cm
+above measured ground. All ten admitted actors retain their authored horizontal
+coordinates, source rules and exact mesh/material/equipment state.
+
+Cinderfen herb nodes 04 and 07 failed access within the bounded local search and
+remain pending. A proposed shoulder relocation was rejected by automatic
+approval review as exceeding the local adjustment scope; it was not performed.
+The builder proceeds with independently verified actors and records the failed
+terrain/capsule witnesses. Thirteen NPCs, twenty resource sites including these
+two, and all six complete crafting stations remain pending across the first
+pair. Native placement does not prove vendor/trainer/quest services or harvest
+transactions. Node geometry is not synchronized with these private overrides.
+
+The isolated population study is `e3beee613ed7`. Cold-load review verifies all
+ten bindings and 1,412 approach samples, with forty native dawn/day/dusk/night
+views. Normal character walking completes 90 routes, 38,343.91 m, with no jumps
+or in-route teleports. The separate live diagnostic was rejected by its source
+guard when relief selection changed the launcher while it was running; no
+verified population live receipt is claimed. Two measured population topology
+drawings label ready actors, connected roads and failed access sites.
+
+`t1_relief.py` responds to the requested stronger landscapes with elongated
+valley ridges, escarpments and broken geothermal rim masses. It preserves the
+terrain's XY vertices, triangle topology and UVs, then recalculates upward
+area-weighted normals, including the existing clockwise native winding.
+Road corridors have a 20 m protection pad and 85 m relief transition. Anchor
+terraces, 209 Sunmeadow/233 Cinderfen content bounds and all ten verified actor
+approaches are protected separately. Fresh terrain meshes retain the exact
+regional source-derived material; other terrain/road, house, furniture, light,
+room, population and atmosphere bindings are unchanged.
+
+The isolated dramatic-relief study is `f1cbf55b2c6e`: 29,403 Sunmeadow vertices
+and 19,096 Cinderfen vertices gain height, up to 164.98 m and 134.99 m respectively.
+Native comparison passes 17,343 full-width road samples with exactly zero
+parent/child height difference and unchanged actor approach floors. Forty-eight
+native before/after day/dusk/night pictures use identical player-height camera
+positions/directions, clock settings and original lighting. The taller terrain
+is present, but erosion, cliff treatment, vegetation, culturally distinct village
+composition, lighting and additional traversable off-road relief remain
+unfinished. No off-road, siege sight-line, competitive or visual gate is granted.
+
+Reproduce after saving/closing Editor and game processes:
+
+1. Run `build-t1-population-studies.py` through the Python commandlet, then
+   `review-t1-population.py` with rendering enabled. Use `t1-population-pictures.py`
+   with the bundled Pillow Python for measured drawings.
+2. Run `python scripts/unreal/run-t1-traversal.py --candidate population --headless`
+   for the isolated population movement proof.
+3. Run `build-t1-relief-studies.py` through the commandlet. Run
+   `review-t1-relief.py` with rendering enabled for saved-ground comparisons and
+   matched views. Use `run-t1-traversal.py --candidate relief` with/without
+   `--headless` for normal walking and real-time cameras.
+4. Regenerate `t1-progress-gallery.py`. Private maps/meshes/receipts and licensed
+   source assets stay out of the public repository; accepted capitals, active
+   campaign layers and all owner GM documents remain exact.
+
+First-pair full lairs, later native batches, service/resource/Node integration,
+ordinary GM persistence, reciprocal network travel/clock, human walk/drive,
+vehicle/siege/18v18, hardware audio, platform performance, Steam and release
+acceptance remain held. Prior native Foundation and Editor/Game build results
+remain prior evidence; this increment changes authoring code and private scenes,
+not native C++ or binaries.
+
+The raised copies separately complete all 90 configured normal-character
+routes, 38,343.91 m, with zero airborne time, jumps or in-route teleports. The
+headless receipt is `traversal/1791438414902167500-30912`, verifying 11,624 saved
+bindings and preserving all 13 owner GM documents. Full suites pass 1,081
+repository and 473 Unreal tooling tests; all 41 focused Python tests and three
+typechecks pass. Two persistence tests initially timed out in concurrent full
+runs; all 106 persistence cases pass in isolation and both full suites pass
+when repeated serially. The migration audit retains 39 contracts/four blockers,
+33 world maps and 906 model records validate, and strict release still fails
+as required. No timeout or assertion was weakened. Additional read-only herb
+shoulder/road-centre probes found no verified alternative within 50 m; neither
+pending resource was spawned or relocated.

@@ -1,3 +1,33 @@
+## 2026-10-08 - T1 retained population and stronger native terrain
+
+- Reconcile exact canonical NPC/resource identities, rules and native imports
+  before cloning six retained NPCs and four herb patches into private first-pair
+  ceiling candidates. Preserve body/animation/material slots and catalog gear;
+  keep missing roles, visuals, complete crafting stations and two Cinderfen
+  terrain-access failures explicit. Canonical content/catalogs and owner maps
+  remain unchanged; service/harvest transactions and Node geometry stay pending.
+- Build higher enclosing Sunmeadow ridges and broken Cinderfen basin-rim masses
+  in fresh terrain meshes, adding up to 164.98/134.99 m. Protect road/anchor
+  terraces, existing content bounds and admitted actor approaches. Preserve XY,
+  triangle topology, UVs and source-derived materials; recalculate upward
+  normals with the retained clockwise native winding.
+- Compare 17,343 full-width native route samples against the parent with zero
+  height change. Repeat 90 configured normal-character routes, 38,343.91 m,
+  with zero airborne time, jumps or in-route teleports. Add forty native
+  population views, forty-eight matched before/after terrain views, measured
+  population topology drawings and focused identity/relief/approach tests.
+  Attach chat pictures directly after local image links failed to render.
+- Retain broad-slope/cliff/erosion, vegetation, sparse/generic village, dark
+  daylight, off-road and siege sight-line review; all first-pair lair, ordinary
+  gameplay/GM/network, vehicle/18v18, platform, Steam and release gates remain.
+  Record the rejected shoulder relocation and source-guard-rejected live
+  diagnostic rather than accepting either result.
+- Pass 1,081 repository tests, 473 Unreal tooling tests, 41 focused Python
+  tests and three typechecks. Repeat the full suites serially after two
+  concurrent persistence-case timeouts; isolated persistence also passes all
+  106 cases without weakening assertions/timeouts. World/model validation and
+  the migration audit pass with four release blockers still held.
+
 ## 2026-10-08 - T1 modular timber ceilings and interior fill
 
 - Build six/nine measured timber bays from the already staged private plank

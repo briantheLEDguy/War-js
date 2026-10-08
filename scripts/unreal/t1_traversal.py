@@ -20,6 +20,19 @@ def traversal_config(receipt, zone, source, headless):
                        capture=i in (home['approachPoints'], home['approachPoints']+3, count-1))
                   for i, p in enumerate(home['route'])]
         routes.append(dict(id=home['id'], kind='home', points=points))
+    if receipt.get('study') in ('retained-population', 'dramatic-relief'):
+        for actor in zone['population']:
+            if not actor['sourceRulesUnchanged'] or actor['gameplayAccepted'] is not False:
+                raise ValueError('Population walking cannot admit changed rules or gameplay acceptance')
+            # Stop about two metres from the actor, then walk back to the
+            # connected road. NPC bodies retain their authored NoCollision;
+            # the fixture must not walk through them for a close-up.
+            approach = actor['approach'][:-4]
+            if len(approach) < 2: raise ValueError('Population approach needs room for a player stand-off')
+            ordered = approach+list(reversed(approach[:-1]))
+            captures = {max(1,len(approach)//2),len(approach)-1,len(ordered)-1}
+            points = [dict(position=p,terrain=True,indoor=False,capture=i in captures) for i,p in enumerate(ordered)]
+            routes.append(dict(id=actor['id']+'_approach',kind='road',points=points))
     if headless:
         for route in source['paths']+source['orvrLayout']['caravanRoutes']:
             points = [dict(position=[p['z']*100, p['x']*100, p.get('y', 0)*100], terrain=True, indoor=False)

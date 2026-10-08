@@ -276,3 +276,17 @@ all furniture collision. `review-t1-homes.py -WarT1Ceilings` and
 `run-t1-traversal.py --candidate ceilings` produce independent saved-scene and
 normal walking/camera evidence. Source kit assets and accepted capital/campaign
 layers remain private and unchanged; these studies grant no additional gates.
+
+`build-t1-population-studies.py` preserves canonical NPC/resource rules and
+catalogs while installing exact ready native actor classes in fresh copies.
+`review-t1-population.py` cold-loads bindings/equipment, samples ground and
+checks supported capsule approaches. Failed terrain access stays pending;
+native actor placement does not accept service/harvest actions or Node geometry.
+`build-t1-relief-studies.py` then raises enclosing ridges and basin walls in
+separate terrain meshes. Masks preserve roads, anchor terraces, existing content
+bounds and those actor approaches. `review-t1-relief.py` compares full-width
+road heights against the parent and captures matched native player-height
+vistas; `run-t1-traversal.py --candidate relief` proves normal walking in the
+new copies. Source normals retain the original clockwise triangle topology.
+Unverified cliffs/erosion, lighting, off-road movement, siege/vehicle/sight-line
+fairness, ordinary GM/network, first-pair lairs and release gates remain open.

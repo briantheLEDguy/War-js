@@ -64,6 +64,17 @@ class T1TraversalTest(unittest.TestCase):
         zone['id'] = source['id'] = 'brightfen_approach'
         with self.assertRaises(ValueError): traversal_config(receipt, zone, source, False)
 
+    def test_population_approach_stops_before_actor_and_returns_to_road(self):
+        receipt,zone,source=self.fixture(); receipt.update(kind='atmosphere',study='retained-population')
+        zone['map']=zone['map'].replace('T1Redesign_Homes_', 'T1Redesign_Atmosphere_')
+        zone['population']=[dict(id='scout',sourceRulesUnchanged=True,gameplayAccepted=False,approach=[[i*50,0,0] for i in range(11)])]
+        config=traversal_config(receipt,zone,source,False); route=config['routes'][1]
+        self.assertEqual(route['id'],'scout_approach'); self.assertEqual(len(route['points']),13)
+        self.assertEqual(route['points'][6]['position'],[300,0,0]); self.assertEqual(route['points'][-1]['position'],[0,0,0])
+        self.assertEqual(sum(p['capture'] for p in route['points']),3)
+        zone['population'][0]['sourceRulesUnchanged']=False
+        with self.assertRaises(ValueError): traversal_config(receipt,zone,source,False)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -77,6 +77,28 @@ The private gallery also includes a labeled bay/clearance schematic. Dark
 perimeter shading, regional cultural architecture, distant ceiling LODs,
 performance and all outstanding gameplay/release acceptance remain open.
 
+`build-t1-population-studies.py` clones exact retained `WarCityNpc` and
+`WarResourceNode` actors into fresh ceiling candidates. Identity, rules,
+body/animation/material bindings and catalog equipment remain exact. Native
+ground/capsule review currently admits six NPCs and four herb patches; two
+Cinderfen herb sites retain explicit access failures, and unsupported roles,
+resource visuals and complete crafting stations remain pending. Use
+`review-t1-population.py` and `run-t1-traversal.py --candidate population`.
+Native class placement does not prove service/harvest transactions or Node
+geometry synchronization; canonical content/catalogs stay unchanged.
+
+`t1_relief.py` raises stronger enclosing valley ridges and geothermal basin
+walls while protecting full-width roads, settlement/keep/objective terraces,
+existing scenery bounds and admitted actor approaches. `build-t1-relief-studies.py`
+creates separate terrain meshes and fresh population copies; all other bindings
+stay exact. `review-t1-relief.py` compares native route ground and captures
+matched before/after player-height vistas. Use `run-t1-traversal.py --candidate
+relief` with/without `--headless` for the fresh copies. Erosion/cliff treatment,
+regional vegetation, lighting, off-road traversal/sight lines, driving, 18v18
+and appearance acceptance remain open. The local gallery labels native
+pictures and measured topology drawings separately; chat progress images are
+attached directly after earlier local image links failed to render.
+
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both
 `GameDefaultMap` and `EditorStartupMap`. Campaign, frontend and canonical siege

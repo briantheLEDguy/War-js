@@ -20,6 +20,57 @@ landscape materials, vehicle/camera acceptance, 18v18 and visual approval remain
 def picture(file,caption):
     relative=file.relative_to(DIRECTORY).as_posix()
     return f'<figure><a href="{html.escape(relative)}"><img loading="lazy" src="{html.escape(relative)}" alt="{html.escape(caption)}"></a><figcaption>{html.escape(caption)}</figcaption></figure>'
+relief_review_file=DIRECTORY/'relief-review.json'
+if relief_review_file.exists():
+    relief_review=json.loads(relief_review_file.read_text(encoding='utf-8'))
+    relief_native=json.loads((DIRECTORY/'relief-latest.json').read_text(encoding='utf-8'))
+    if (relief_review['signature']!=relief_native['signature'] or not relief_review['savedCandidatesUnchanged']
+        or not relief_review['routeGroundPreserved'] or not relief_review['playerHeightCamerasMatched']):
+        raise RuntimeError('Relief gallery requires matched native road/vista witnesses')
+    parts.append('<h2>Stronger terrain — matched native before/after</h2><p>Sunmeadow enclosing ridges add up to 165 m; Cinderfen caldera/basalt masses add up to 135 m. These copies preserve exact full-width road ground, village/content footprints and ten admitted actor approaches. Each pair uses the same player-height camera, clock and existing lighting. Broad slopes still need erosion/detail, source-derived cliff treatment, vegetation, stronger cultural composition and daylight/shading work. Off-road traversal, siege sight lines, vehicles and competitive/visual acceptance remain open.</p><div class="grid">')
+    for row in relief_review['pictures']:
+        file=ROOT/row['file']
+        if not file.exists(): raise RuntimeError('Native relief comparison picture missing')
+        parts.append(picture(file,row['zone'].replace('_',' ').title()+' / '+row['view'].replace('_',' ')+' / '+row['version']+' / '+row['phase']+' — matched native prototype'))
+    parts.append('</div>')
+    camera_file=DIRECTORY/'relief-traversal-camera-latest.json'
+    if camera_file.exists():
+        camera=json.loads(camera_file.read_text(encoding='utf-8'))
+        if camera['signature']!=relief_native['signature'] or not camera['savedCandidatesUnchanged']:
+            raise RuntimeError('Relief live cameras refer to another candidate')
+        parts.append('<h2>Dramatic terrain — live normal walking cameras</h2><p>Reached actor/home waypoints, normal character collision and local authority-clock/weather observations. This is isolated development evidence, retaining human camera, transaction, network and release gates.</p><div class="grid">')
+        for zone in camera['zones']:
+            for route in zone['routes']:
+                for file in sorted((ROOT/camera['output']).glob(route['id']+'_*.png')):
+                    parts.append(picture(file,route['id'].replace('_',' ').title()+' — live relief prototype, waypoint '+file.stem.rsplit('_',1)[-1]))
+        parts.append('</div>')
+population_review_file=DIRECTORY/'population-review.json'
+if population_review_file.exists():
+    population_review=json.loads(population_review_file.read_text(encoding='utf-8'))
+    population_native=json.loads((DIRECTORY/'population-latest.json').read_text(encoding='utf-8'))
+    if (population_review['signature']!=population_native['signature'] or not population_review['savedCandidatesUnchanged']
+        or not population_review['exactBindingsVerified'] or not population_review['capsuleClear']):
+        raise RuntimeError('Population gallery requires matching native binding/access witnesses')
+    parts.append('<h2>Retained village population — isolated native integration</h2><p>Six exact retained NPCs and four reviewed herb nodes, with unchanged identities, rules, animations, material slots and equipment. Two Cinderfen herb sites remain pending after terrain/capsule access failures. No service or resource transaction, Node geometry synchronization, vehicle or appearance acceptance is granted. Daylight contrast, sparse village dressing and cultural architecture remain unfinished.</p><div class="grid">')
+    for zone in population_native['zones']:
+        file=ROOT/population_review['pictureDirectory']/(zone['id']+'_population_topology.png')
+        if file.exists(): parts.append(picture(file,zone['id'].replace('_',' ').title()+' — measured topology drawing, not a native render'))
+    for row in population_review['pictures']:
+        file=ROOT/row['file']
+        if not file.exists(): raise RuntimeError('Native retained population picture missing')
+        parts.append(picture(file,row['id'].replace('_',' ').title()+' / '+row['phase']+' — actual native prototype, appearance unapproved'))
+    parts.append('</div>')
+    camera_file=DIRECTORY/'population-traversal-camera-latest.json'
+    if camera_file.exists():
+        camera=json.loads(camera_file.read_text(encoding='utf-8'))
+        if camera['signature']!=population_native['signature'] or not camera['savedCandidatesUnchanged']:
+            raise RuntimeError('Population live cameras refer to another candidate')
+        parts.append('<h2>Retained actors — normal walking cameras</h2><p>Live character walks stop about two metres from each actor and return to the connected road. These show local movement, nameplates and atmosphere, retaining interaction, network, camera and human approval gates.</p><div class="grid">')
+        for zone in camera['zones']:
+            for route in zone['routes']:
+                for file in sorted((ROOT/camera['output']).glob(route['id']+'_*.png')):
+                    parts.append(picture(file,route['id'].replace('_',' ').title()+' — live native prototype, waypoint '+file.stem.rsplit('_',1)[-1]))
+        parts.append('</div>')
 ceiling_review_file=DIRECTORY/'ceiling-review.json'
 if ceiling_review_file.exists():
     ceiling_review=json.loads(ceiling_review_file.read_text())
