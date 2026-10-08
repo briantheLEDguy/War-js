@@ -1,3 +1,28 @@
+## 2026-10-08 - Safe T1 walkthrough entry and local GM recovery
+
+- Correct the interactive T1 launch: raw authoring reviews had an anchor at
+  native zero below terrain, and were outside supported GM maps. Stage separate
+  walkthrough routing at measured village arrivals while preserving every
+  parent content level, accepted capital, startup setting and owner draft.
+- Admit only exact selected, revision-qualified Sunmeadow/Cinderfen walkthroughs
+  to the existing standalone development GM policy. Isolate their draft paths
+  by revision and region; retain network and Shipping denial.
+- Add a guarded launch helper, focused contract/native admission tests and an
+  opt-in runtime fixture using normal character creation, terrain grounding,
+  GM flight and recovery from below ground. The fixture writes private evidence
+  and a gameplay screenshot, without saving a GM draft or granting release/art
+  acceptance.
+- Verify both ordinary-entry/recovery fixtures against 543 saved bindings and
+  thirteen owner GM documents each; retain two real gameplay captures. Pass
+  Windows Editor/Game builds and all 146 native Foundation tests. Retain full
+  environment, persistence, network, platform and release acceptance gates.
+- Pass 473 Unreal tooling tests with one worker, four focused Python tests,
+  three typechecks and world/model validation. Record the full-suite result
+  honestly: 1,080 pass and the existing reference-citadel test hits its unchanged
+  75-second timeout; that case passes in the complete one-worker Unreal selection.
+  Do not weaken timeouts or alter unrelated citadel behavior. Strict release
+  retains its four outstanding blockers.
+
 ## 2026-10-08 - T1 retained population and stronger native terrain
 
 - Reconcile exact canonical NPC/resource identities, rules and native imports

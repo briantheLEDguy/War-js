@@ -21,6 +21,33 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarPrivateReviewMapTest, "AegisWar.Foundation.
 
 bool FWarPrivateReviewMapTest::RunTest(const FString& Parameters)
 {
+    const FString T1 = TEXT("/Game/WorldRebuild/T1HumanReview_abcdef123456/sunmeadow_march/Walkthrough");
+    const FString Cinder = T1.Replace(TEXT("sunmeadow_march"), TEXT("cinderfen_outskirts"));
+    TestTrue(TEXT("Selected T1 walkthrough supports local recovery tools"), WarWorldEditMap::IsSupported(T1, T1));
+    TestTrue(TEXT("Cinder walkthrough has its own local recovery entry"), WarWorldEditMap::IsSupported(Cinder, Cinder));
+    TestFalse(TEXT("Another selected region cannot admit this walkthrough"), WarWorldEditMap::IsSupported(T1, Cinder));
+    TestEqual(TEXT("T1 draft is isolated from capital storage"), WarWorldEditMap::PrivateReviewDraftRelativePath(T1),
+        FString(TEXT("WorldEdit/PrivateReviews/T1HumanReview_abcdef123456/sunmeadow_march/Walkthrough/draft.json")));
+    TestNotEqual(TEXT("T1 regions cannot share drafts"), WarWorldEditMap::OrdinaryDraftRelativePath(T1),
+        WarWorldEditMap::OrdinaryDraftRelativePath(Cinder));
+    for (const FString Invalid : {
+        TEXT("/Game/WorldRebuild/T1HumanReview_ABCDEF123456/sunmeadow_march/Walkthrough"),
+        TEXT("/Game/WorldRebuild/T1HumanReview_abcdef12345/sunmeadow_march/Walkthrough"),
+        TEXT("/Game/WorldRebuild/T1HumanReview_abcdef123456/brightfen_approach/Walkthrough"),
+        TEXT("/Game/WorldRebuild/T1HumanReview_abcdef123456/sunmeadow_march/../Walkthrough"),
+        TEXT("/Game/WorldRebuild/T1HumanReview_abcdef123456/sunmeadow_march/Review"),
+        TEXT("/Game/WorldRebuild/T1HumanReview_abcdef123456/sunmeadow_march/Walkthrough.Walkthrough"),
+        TEXT("/Game/WorldRebuild/T1Redesign_Atmosphere_abcdef123456/sunmeadow_march/Review") })
+    {
+        TestFalse(TEXT("Unstaged review maps cannot acquire local GM admission"), WarWorldEditMap::IsT1HumanReview(Invalid));
+        TestTrue(TEXT("Unstaged review maps cannot select private draft storage"), WarWorldEditMap::PrivateReviewDraftRelativePath(Invalid).IsEmpty());
+        TestFalse(TEXT("Selection alone cannot admit an unstaged T1 map"), WarWorldEditMap::IsSupported(Invalid, Invalid));
+    }
+    for (ENetMode Mode : { NM_Client, NM_ListenServer, NM_DedicatedServer })
+        TestFalse(TEXT("T1 review never authorizes network GM"), WarWorldEditMap::IsSupported(T1, T1)
+            && WarGmRules::AllowsDevelopmentSession(false, Mode, EWorldType::Game, true, true));
+    TestFalse(TEXT("T1 review never authorizes Shipping GM"), WarWorldEditMap::IsSupported(T1, T1)
+        && WarGmRules::AllowsDevelopmentSession(true, NM_Standalone, EWorldType::Game, true, true));
     const FString Map = TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006/Walkthrough");
     const FString Revised = TEXT("/Game/WorldRebuild/CitadelHumanReview_20261006_abcdef123456/Walkthrough");
     const FString Other = TEXT("/Game/WorldRebuild/CitadelHumanReview_20261007/Walkthrough");

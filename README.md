@@ -1,5 +1,16 @@
 # AegisWar
 
+For interactive T1 inspection, stage safe walkthroughs with
+`scripts/unreal/stage-t1-review.py` in the native Python commandlet, then run
+`python scripts/unreal/launch-t1-review.py --zone sunmeadow_march` (or
+`cinderfen_outskirts`). These wrappers use the authored village arrival after
+native ground/capsule checks, normal character entry and an explicit local GM
+launch. Their process-local map selection and per-region/revision draft storage
+preserve the accepted capital and owner drafts. Raw T1 `Review` maps are
+authoring/test inputs and do not provide interactive spawn/GM admission. Add
+`--proof` to verify entry, ground support, GM flight and return from below terrain
+without writing a GM draft. Network/Shipping GM stays closed.
+
 T1 redesign work on `codex/t1-terrain-story-rvr` adds irregular/rectangular spatial
 support, four terrain/RvR topology candidates and a replicated 60-minute native
 clock with regional lighting/fog. Modular village and scenery recipes reserve

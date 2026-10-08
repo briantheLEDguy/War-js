@@ -4,6 +4,17 @@
 
 namespace WarWorldEditMap
 {
+    inline bool IsT1HumanReview(const FString& Package)
+    {
+        const FString Prefix = TEXT("/Game/WorldRebuild/T1HumanReview_");
+        if (!Package.StartsWith(Prefix, ESearchCase::CaseSensitive)) return false;
+        const FString Tail = Package.RightChop(Prefix.Len());
+        if (Tail.Len() < 13 || Tail[12] != TEXT('/')) return false;
+        for (TCHAR C : Tail.Left(12))
+            if (!((C >= TEXT('0') && C <= TEXT('9')) || (C >= TEXT('a') && C <= TEXT('f')))) return false;
+        return Tail.Mid(13).Equals(TEXT("sunmeadow_march/Walkthrough"), ESearchCase::CaseSensitive)
+            || Tail.Mid(13).Equals(TEXT("cinderfen_outskirts/Walkthrough"), ESearchCase::CaseSensitive);
+    }
     inline bool IsCitadelHumanReview(const FString& Package)
     {
         const FString Prefix = TEXT("/Game/WorldRebuild/CitadelHumanReview_");
@@ -26,7 +37,7 @@ namespace WarWorldEditMap
     // A fresh wrapper revision gets its own storage; never import or migrate a shared capital draft.
     inline FString PrivateReviewDraftRelativePath(const FString& Package)
     {
-        return IsCitadelHumanReview(Package)
+        return (IsCitadelHumanReview(Package) || IsT1HumanReview(Package))
             ? TEXT("WorldEdit/PrivateReviews/") + Package.RightChop(FString(TEXT("/Game/WorldRebuild/")).Len()) + TEXT("/draft.json")
             : FString();
     }
@@ -60,6 +71,7 @@ namespace WarWorldEditMap
             || (SelectedMap.StartsWith(TEXT("/Game/WorldRebuild/DutchBastion_"))
                 && SelectedMap.EndsWith(TEXT("/Bastion_Campaign_v3")) && Package == SelectedMap)
             || (IsCitadelCampaign(SelectedMap) && Package == SelectedMap)
-            || (IsCitadelHumanReview(Package) && Package.Equals(SelectedMap, ESearchCase::CaseSensitive));
+            || ((IsCitadelHumanReview(Package) || IsT1HumanReview(Package))
+                && Package.Equals(SelectedMap, ESearchCase::CaseSensitive));
     }
 }

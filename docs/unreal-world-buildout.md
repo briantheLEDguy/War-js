@@ -1,5 +1,15 @@
 # Aegis/Riftbound world buildout
 
+Interactive T1 launches must use the isolated `T1HumanReview_<revision>`
+walkthroughs and `launch-t1-review.py`. The raw terrain studies retain their
+technical anchor at zero; ordinary Play there could spawn below ground and
+cannot use the GM workbench. `stage-t1-review.py` duplicates only routing and
+places its regional anchor at a native ground/capsule-verified village arrival.
+The launcher selects that map only for its process and opts into local GM.
+Normal character entry and recovery are verified by `--proof`; GM draft storage
+is isolated from capital/owner documents. Broader T1 world-builder catalog,
+ordinary persistence, network and gameplay acceptance remain open.
+
 The [T1 redesign](t1-redesign.md) now provides four terrain/topology candidates,
 shared spatial support, a replicated regional clock and isolated first-pair
 native prototypes. Active campaign/capital packages remain preserved. Village

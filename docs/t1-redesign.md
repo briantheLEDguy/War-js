@@ -721,3 +721,69 @@ still unverified. The refreshed gallery contains 421 native captures, eighteen
 labeled drawings and the existing twelve synthesized audio previews. Dark
 daylight/night readability, camera acceptance, actual hardware audio, network
 synchronization and all other held gates remain open.
+
+## Interactive walkthrough repair
+
+The first interactive launch incorrectly opened the raw dramatic-relief
+`Review` map. Its `WarZoneAnchor` was still at native `[0,0,0]`, below the actual
+terrain, and the map was not admitted to local GM tools. Configured traversal
+tests explicitly placed their own pawn, so they did not cover ordinary entry.
+Those movement receipts remain valid within their stated scope; they did not
+establish a usable owner walkthrough.
+
+`stage-t1-review.py` creates fresh `T1HumanReview_<revision>/<zone>/Walkthrough`
+routing wrappers. They reference the exact parent content layers and change
+only the regional anchor's safe arrival/orientation and explicit game mode.
+Arrival uses the retained `spawnPoint`, terrain-only height, full foot support,
+playable outline and unobstructed native 42/96 cm capsule checks. Source maps,
+meshes, materials, population, startup configuration and owner GM documents are
+fingerprinted before/after; partial failed wrappers are preserved as diagnostics
+and never accepted or reused by the launcher.
+
+`WarWorldEditMap` admits these two exact region/revision identities only when
+the process selects the same map. Existing local authority, possessed-character,
+development-world and non-Shipping conditions still apply. Each walkthrough has
+its own `WorldEdit/PrivateReviews/.../draft.json` path; it never falls back to the
+capital draft. The existing GM recovery/flight functions remain in use.
+
+Reproduce with saved Editor/game sessions closed: run `stage-t1-review.py` in
+the main project's native Python commandlet, then
+`python scripts/unreal/launch-t1-review.py --zone sunmeadow_march --proof` and
+the equivalent Cinderfen command. The opt-in runtime fixture invokes ordinary
+character creation through the retained frontend controller path, requires
+grounded arrival, enables GM flight, moves its disposable pawn below terrain,
+uses Return to spawn, resumes walking and checks stable terrain support. It
+does not write drafts. Omit `--proof` to launch interactive play, with normal
+login/character entry and the explicit local GM flag. Selected-map configuration
+is process-local; the accepted campaign/default capital stays unchanged.
+
+This fixes review entry/recovery only. T1 world-builder catalog expansion,
+save/load persistence, normal online admission, network roles, performance,
+appearance, services/resources, full lairs, vehicle/siege/18v18 and release
+acceptance remain unverified.
+
+The verified wrapper revision is `4db1efef0aff`, based on relief `f1cbf55b2c6e`.
+Sunmeadow's anchor centre is native `[-28000,-58500,599.49]` cm over ground
+`500.49` cm; Cinderfen uses `[-29000,38000,1299.49]` cm over `1200.49` cm.
+Both rendered ordinary-entry/recovery fixtures pass, including stable ground
+after returning from 25 m below the arrival. Each verifies 543 saved bindings
+and all 13 existing owner GM documents, without writing a draft. Native captures
+and reports are in `interactive/a30638079ecf45bbb703faeb7a1bc0c7` and
+`interactive/981bce54a45f48a1b3b35316e11a8e4b`. Windows Editor and Game builds
+pass, as do all 146 native Foundation tests, including the expanded map/draft
+admission checks. The first fixture used a name with a digit and was rejected
+by ordinary name validation; only the corrected, passing runs are accepted.
+The two staging exceptions were likewise repaired in fresh copies, preserving
+their partial diagnostic packages and all source content. Older terrain walking
+receipts retain their original binary scope; these recovery checks do not
+reclassify vehicle, persistence, camera or gameplay acceptance.
+
+Four focused Python launch/arrival tests and all three typechecks pass. World
+validation covers 33 maps and model validation 906 records; the migration audit
+retains 39 contracts/four blockers, and strict release still fails as required.
+Both full repository runs pass 1,080 tests and time out only the existing
+reference-citadel generation test at its unchanged 75-second limit. The exact
+Unreal selection passes all 473 tests/85 files when run directly with
+`npx vitest run unreal --maxWorkers=1`, including that case, while the owner game
+stays open. Do not report either full repository run as green. No assertion or
+timeout was weakened, and no unrelated citadel implementation was changed.
