@@ -53,6 +53,18 @@ Development proof binary bindings use `WarProofBinary.h` to identify the loaded
 module in Editor and the executable in monolithic Game builds. Cooked builds use
 runtime Blueprint class flags and omit Editor-only material IDs from witnesses.
 
+`build-t1-shell-studies.py` reassembles the four reserved furnished homes from
+frozen kit parts in separate atmosphere candidates. The roof skirt's negative
+bounds no longer lift its eave off the walls; porch roofs and attached chimneys
+follow the corrected datum. Floors, doorways, furniture pivots, material slots
+and surrounding scenery remain exact. `review-t1-shells.py` compares native eave
+rays against the parent. Run `review-t1-homes.py` with the Unreal command-line
+flag `-WarT1Shells` for the new collision/picture review, then
+`python scripts/unreal/run-t1-traversal.py --candidate shells --headless`
+and the same command without `--headless` for independent live home cameras.
+Private receipts/gallery retain their own signatures; regional architecture,
+roof underside shading, distant LOD appearance and all release gates remain open.
+
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both
 `GameDefaultMap` and `EditorStartupMap`. Campaign, frontend and canonical siege

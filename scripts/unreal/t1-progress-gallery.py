@@ -20,6 +20,35 @@ landscape materials, vehicle/camera acceptance, 18v18 and visual approval remain
 def picture(file,caption):
     relative=file.relative_to(DIRECTORY).as_posix()
     return f'<figure><a href="{html.escape(relative)}"><img loading="lazy" src="{html.escape(relative)}" alt="{html.escape(caption)}"></a><figcaption>{html.escape(caption)}</figcaption></figure>'
+shell_review_file=DIRECTORY/'shell-home-review.json'
+if shell_review_file.exists():
+    shell_review=json.loads(shell_review_file.read_text())
+    shell_native=json.loads((DIRECTORY/'shells-latest.json').read_text())
+    seam_review=json.loads((DIRECTORY/'shell-seam-review.json').read_text())
+    if (shell_review['signature']!=shell_native['signature'] or seam_review['signature']!=shell_native['signature']
+        or not shell_review['savedCandidatesUnchanged'] or not seam_review['savedCandidatesUnchanged'] or not seam_review['seamRaysClosed']):
+        raise RuntimeError('Home shell gallery requires matching unchanged native witnesses')
+    parts.append('<h2>Latest furnished homes — roof attachment repair</h2><p>Fresh private copies correct the kit eave pivot while retaining wall, doorway, floor, furniture, material and room-lighting state. Native eave rays: '+str(seam_review['openParentRays'])+' open in the parent, '+str(seam_review['openRefitRays'])+' open after the repair. Regional architecture, dark shading, distant roof LODs and visual approval remain unfinished. Earlier pictures below retain the old gaps as historical studies.</p><div class="grid">')
+    schematic=ROOT/shell_review['pictureDirectory']/'roof_attachment_schematic.png'
+    if schematic.exists(): parts.append(picture(schematic,'Measured roof attachment datum — schematic, offsets exaggerated'))
+    for home in shell_review['homes']:
+        for phase in ('day','dusk','night'):
+            for view in ('interior','exterior'):
+                file=ROOT/shell_review['pictureDirectory']/(home['id']+'_'+view+'_'+phase+'.png')
+                if not file.exists(): raise RuntimeError('Native shell capture missing')
+                parts.append(picture(file,home['id'].replace('_',' ').title()+' / '+view+' / '+phase+' — unapproved roof-refit prototype'))
+    parts.append('</div>')
+    shell_camera_file=DIRECTORY/'shell-traversal-camera-latest.json'
+    if shell_camera_file.exists():
+        shell_camera=json.loads(shell_camera_file.read_text())
+        if shell_camera['signature']!=shell_native['signature'] or not shell_camera['savedCandidatesUnchanged']:
+            raise RuntimeError('Shell gameplay-camera evidence refers to another candidate')
+        parts.append('<h2>Repaired homes — live walking cameras</h2><p>Normal character movement and live follow/indoor cameras using the authority clock. Vehicle, campaign, GM, network, performance and human visual acceptance remain open.</p><div class="grid">')
+        for zone in shell_camera['zones']:
+            for route in zone['routes']:
+                for file in sorted((ROOT/shell_camera['output']).glob(route['id']+'_*.png')):
+                    parts.append(picture(file,route['id'].replace('_',' ').title()+' — live roof-refit prototype, waypoint '+file.stem.rsplit('_',1)[-1]))
+        parts.append('</div>')
 atmosphere_review_file=DIRECTORY/'atmosphere-review.json'
 if atmosphere_review_file.exists():
     atmosphere_review=json.loads(atmosphere_review_file.read_text())

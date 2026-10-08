@@ -1,3 +1,17 @@
+## 2026-10-08 - T1 modular furnished-home roof refits
+
+- Reassemble the four first-pair furnished homes from fingerprinted kit parts
+  into fresh private atmosphere copies. Correct the roof's eave datum, preserve
+  porch/roof attachments and prevent accidentally applying the repair twice.
+  Preserve shared bed pivots, floor/door geometry, material slots and the exact
+  surrounding scene, lighting and weather bindings.
+- Add parent/refit native eave ray witnesses, a separate home clearance/render
+  review and an explicit shell candidate selection for ordinary character
+  traversal. Keep source kit packages, accepted capitals, owner documents and
+  previous candidates unchanged. Add actual day/dusk/night and live home
+  screenshots to the private gallery; appearance and full gameplay acceptance
+  remain open.
+
 ## 2026-10-08 - T1 native regional atmosphere prototypes
 
 - Add opt-in local cosmetic weather and original synthesized sound beds driven

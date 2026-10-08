@@ -253,3 +253,17 @@ changing saved maps or authored environment settings. Saved-scene checks cover
 70 portal labels, six source NPCs and six frontier herb patches. Later zones
 remain sparse and some shaded views need further tuning; visual acceptance and
 all zone/batch completion remain pending.
+
+## Isolated T1 assembly studies
+
+The T1 terrain/story/RvR candidates and their exact verification commands are
+documented in [T1 redesign](t1-redesign.md). Furnished-home shell studies use
+fresh Review/Generated/Authored copies of the first-pair atmosphere maps.
+`build-t1-shell-studies.py` reconstructs frozen modular parts with corrected
+roof attachment datums, retaining source packages, doorway/floor/furniture
+geometry, material slots and surrounding scene state. `review-t1-shells.py`
+provides parent/refit native eave witnesses; `review-t1-homes.py -WarT1Shells`
+(flag on the Unreal command line) and `run-t1-traversal.py --candidate shells`
+provide independent saved-scene clearance, rendered and walking evidence.
+These fixtures retain ordinary GM, campaign/network, appearance, vehicles,
+competitive, licensed distribution, platform and release acceptance gates.

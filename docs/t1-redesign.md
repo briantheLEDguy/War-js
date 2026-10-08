@@ -474,3 +474,68 @@ or licensed source kit is changed or published. Native gameplay/services/Node
 collision integration, ordinary GM persistence, reciprocal network travel/clock,
 hardware audio, visual approval, driving, 18v18, full first-batch lairs, three
 platforms, Steam and release acceptance remain incomplete.
+
+## Modular furnished-home roof checkpoint, 2026-10-08
+
+`build-t1-shell-studies.py` constructs new assemblies from the frozen capital
+catalog's final component placements. It references 88 fingerprinted kit
+dependencies, reconciled against the original staging receipt, and never edits
+the source templates or capital scenes. All wall, doorway, floor and furniture
+transforms/material bindings remain exact. Shared bed-frame, mattress, pillow
+and sheet pivots are resolved as one bounds group, preserving their assembly.
+
+The kit slate roof uses Z=0 as its eave datum and extends its decorative skirt
+10 cm below that plane. Normalizing the skirt's bottom to the wall top lifted
+the 1.5-scaled main roofs by 15 cm and the porch roofs by 10 cm. The reusable
+refit repairs those attachments and lowers each roof's chimney by the same
+15 cm. It refuses an unexpected skirt, a changed attachment datum, a second
+repair or a multi-storey/non-home recipe. Four source LODs and the original
+material slot ordering are retained; distant LOD appearance remains unverified.
+
+Fresh first-pair copies preserve terrain, road/scenery transforms and collision,
+22 practical lights, two room volumes and the frozen local weather/audio
+settings per region. Their separate `shells-latest.json` receipt identifies the
+study as `home-shell-refit`; its native map remains an isolated atmosphere
+candidate in the existing first-pair fixture namespace. Active campaign
+admission and default capital maps are unchanged. Previous candidates and
+failed authoring attempts remain private historical data.
+
+Reproduce after saving/closing Editor and game processes:
+
+1. Run `build-t1-shell-studies.py` through the rendering commandlet, using
+   `-AllowCommandletRendering -RenderOffscreen -NoTextureStreaming`.
+2. Run `review-t1-shells.py` in a fresh process. Its LOD0 triangle witnesses
+   compare both parents and refits: 60 sampled rays escaped the original eave
+   strips; zero escape the refits. This is sampled seam evidence, not full roof,
+   window, weather-sealing or distant LOD acceptance.
+3. Run `review-t1-homes.py` with the Unreal command-line flag `-WarT1Shells` and
+   rendering enabled. All four homes pass 4,218 native capsule checks and 34
+   swept step transitions. Its 24 day/dusk/night interior/exterior pictures
+   retain unapproved dark roof undersides and generic stone architecture.
+4. Run `python scripts/unreal/run-t1-traversal.py --candidate shells --headless`.
+   The independent saved copies complete all 80 normal-character routes,
+   36,994.42 m, with zero airborne time, jumps or in-route teleports. The receipt
+   is `traversal/1791430240123320200-9668` under the private T1 directory.
+5. Run the same command without `--headless` for live home walks, authority
+   clock/weather shelter observations and normal gameplay-camera screenshots.
+   Regenerate the local gallery with `t1-progress-gallery.py`.
+
+The final live receipt is `traversal/1791430444252484500-24572`: four home
+routes, 646.97 m, zero airborne time and 12 normal-camera pictures. Authority
+daylight progresses through dusk in Sunmeadow and into night in Cinderfen;
+indoor waypoints suppress local weather particles. These are local clock and
+shelter observations, not network synchronization or hardware audio acceptance.
+The refreshed private gallery contains 243 native captures, 15 labeled drawings
+and the existing 12 synthesized audio previews. A roof datum schematic labels
+its exaggerated offset; the native images remain the appearance evidence.
+
+The headless run verifies 11,257 saved bindings and preserves all 13 owner GM
+documents. Repository and Unreal tooling suites pass 1,081 and 473 tests;
+focused Python passes 24, along with all three typechecks. The migration audit retains four
+blockers; 33 world maps and 906 model records validate. Strict release checking
+still fails as required. No native C++ changes or new binary build are needed
+for these assembly adapters; they bind the previously verified Editor DLL.
+Ordinary candidate gameplay/services/Node collision, GM persistence, network
+travel/clock, vehicle/siege/human traversal, 18v18, full first-batch lairs,
+hardware audio, regional appearance, platform performance, Steam and release
+acceptance remain open. Later native batches remain gated by those lairs.
