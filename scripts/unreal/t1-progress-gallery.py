@@ -20,6 +20,36 @@ landscape materials, vehicle/camera acceptance, 18v18 and visual approval remain
 def picture(file,caption):
     relative=file.relative_to(DIRECTORY).as_posix()
     return f'<figure><a href="{html.escape(relative)}"><img loading="lazy" src="{html.escape(relative)}" alt="{html.escape(caption)}"></a><figcaption>{html.escape(caption)}</figcaption></figure>'
+material_review_file=DIRECTORY/'material-review.json'
+if material_review_file.exists():
+    material_review=json.loads(material_review_file.read_text())
+    material_native=json.loads((DIRECTORY/'materials-latest.json').read_text())
+    if material_review['signature']!=material_native['signature'] or not material_review['savedCandidatesUnchanged']:
+        raise RuntimeError('Material gallery requires matching unchanged private studies')
+    parts.append('<h2>Regional terrain material studies</h2><p>Reviewed repository meadow, peat and road textures on fresh private candidates, at physical metre scales. Native compiled shaders and unchanged static geometry/room lighting verified. Regional composition, driving, gameplay and visual approval remain open.</p><div class="grid">')
+    for row in material_review['pictures']:
+        file=ROOT/row['file']
+        if not file.exists():raise RuntimeError('Native material capture missing')
+        parts.append(picture(file,row['zone'].replace('_',' ').title()+' / '+row['view'].replace('_',' ')+' / '+row['phase']+' — unapproved material study'))
+    parts.append('</div>')
+    material_walk_file=DIRECTORY/'material-traversal-headless-latest.json'
+    material_camera_file=DIRECTORY/'material-traversal-camera-latest.json'
+    if material_walk_file.exists():
+        material_walk=json.loads(material_walk_file.read_text())
+        if material_walk['signature']!=material_native['signature'] or not material_walk['savedCandidatesUnchanged']:
+            raise RuntimeError('Material walking evidence refers to another candidate')
+        count=sum(z['routesCompleted'] for z in material_walk['zones'])
+        parts.append(f'<p>These material copies separately pass {count} configured normal-character walking routes. Zero airborne time during travel; static movement proof does not grant driving, live gameplay or appearance acceptance.</p>')
+    if material_camera_file.exists():
+        material_camera=json.loads(material_camera_file.read_text())
+        if material_camera['signature']!=material_native['signature'] or not material_camera['savedCandidatesUnchanged']:
+            raise RuntimeError('Material gameplay-camera evidence refers to another candidate')
+        parts.append('<h2>Material studies — live home walking cameras</h2><p>Normal character, follow camera and indoor mode at reached waypoints. Unapproved prototypes.</p><div class="grid">')
+        for zone in material_camera['zones']:
+            for route in zone['routes']:
+                for file in sorted((ROOT/material_camera['output']).glob(route['id']+'_*.png')):
+                    parts.append(picture(file,route['id'].replace('_',' ').title()+' — live material study, reached waypoint '+file.stem.rsplit('_',1)[-1]))
+        parts.append('</div>')
 walking_file=DIRECTORY/'traversal-headless-latest.json'
 camera_file=DIRECTORY/'traversal-camera-latest.json'
 if walking_file.exists():

@@ -70,7 +70,8 @@ bool UWarT1TraversalProof::ValidSelector(const FString& Selector)
 bool UWarT1TraversalProof::ValidCandidate(const FString& Package, const FString& Identity)
 {
     if (Identity != TEXT("sunmeadow_march") && Identity != TEXT("cinderfen_outskirts")) return false;
-    if (!Package.StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Homes_")) || Package.Contains(TEXT(".."))) return false;
+    if ((!Package.StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Homes_"))
+        && !Package.StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Materials_"))) || Package.Contains(TEXT(".."))) return false;
     TArray<FString> Parts; Package.ParseIntoArray(Parts, TEXT("/"), true);
     return Parts.Num() == 5 && Parts[3] == Identity && Parts[4] == TEXT("Review");
 }

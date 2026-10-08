@@ -8,9 +8,11 @@ def traversal_config(receipt, zone, source, headless):
     identity = zone['id']
     if identity not in ZONES or source['id'] != identity:
         raise ValueError('Only matching first-batch zones admit traversal')
-    expected = '/Game/WorldRebuild/T1Redesign_Homes_'+receipt['signature'][:12]+'_'
+    kind = receipt.get('kind', 'homes')
+    if kind not in ('homes', 'materials'): raise ValueError('Unknown private traversal candidate kind')
+    expected = '/Game/WorldRebuild/T1Redesign_'+kind.capitalize()+'_'+receipt['signature'][:12]+'_'
     if not zone['map'].startswith(expected) or not zone['map'].endswith('/'+identity+'/Review'):
-        raise ValueError('Traversal requires the exact private home candidate')
+        raise ValueError('Traversal requires the exact private candidate')
     routes = []
     for home in zone['homes']:
         count = len(home['route'])

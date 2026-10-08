@@ -47,6 +47,15 @@ class T1TraversalTest(unittest.TestCase):
             invalid = copy.deepcopy(report); invalid['routes'][0][field] = value
             with self.assertRaises(ValueError): validate_traversal(invalid, config)
 
+    def test_material_candidate_requires_its_own_signature_and_namespace(self):
+        receipt, zone, source = self.fixture()
+        receipt['kind'] = 'materials'
+        with self.assertRaises(ValueError): traversal_config(receipt, zone, source, True)
+        zone['map'] = zone['map'].replace('T1Redesign_Homes_', 'T1Redesign_Materials_')
+        self.assertEqual(traversal_config(receipt, zone, source, True)['map'], zone['map'])
+        receipt['signature'] = 'b'*64
+        with self.assertRaises(ValueError): traversal_config(receipt, zone, source, True)
+
 
 if __name__ == '__main__':
     unittest.main()

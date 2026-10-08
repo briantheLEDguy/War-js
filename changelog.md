@@ -1,3 +1,20 @@
+## 2026-10-08 - T1 regional terrain material studies
+
+- Trace meadow, peat and road colour/normal channels to exact approved repository
+  GLBs, external texture hashes and source review receipts. Build reusable
+  native surface graphs with physical metre scales, broad colour variation,
+  slope rock and soft road verges in fresh private candidate layers.
+- Preserve saved mesh/collision transforms, 22 practical lights and two bounded
+  room volumes per region. Verify compiled shaders, 17,343 full-width ground
+  samples and 52 unmodified native day/dusk/night views. Add the pictures to
+  the local progress gallery; appearance remains unapproved.
+- Repeat all 80 normal-character road/supply/home walking routes on the new
+  material maps, with zero airborne time. Bind their own receipts rather than
+  transferring evidence from parent maps. Repeat the four home walks in real
+  time and add 12 normal gameplay-camera pictures. Keep owner documents/capital packages
+  exact and production admission closed. Day colour, night navigation cues,
+  cultural architecture, scenery density and road shader cost need more work.
+
 ## 2026-10-08 - T1 native character traversal
 
 - Add a bounded development traversal fixture for the isolated first-pair home

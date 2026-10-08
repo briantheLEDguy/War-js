@@ -12,6 +12,10 @@ bool FWarT1TraversalFixtureTest::RunTest(const FString& Parameters)
         TestFalse(TEXT("Cannot select another file"), UWarT1TraversalProof::ValidSelector(Selector));
     TestTrue(TEXT("Private home study"), UWarT1TraversalProof::ValidCandidate(
         TEXT("/Game/WorldRebuild/T1Redesign_Homes_abc_123/sunmeadow_march/Review"), TEXT("sunmeadow_march")));
+    TestTrue(TEXT("Private material study"), UWarT1TraversalProof::ValidCandidate(
+        TEXT("/Game/WorldRebuild/T1Redesign_Materials_abc_123/cinderfen_outskirts/Review"), TEXT("cinderfen_outskirts")));
+    TestFalse(TEXT("Unrecognized study excluded"), UWarT1TraversalProof::ValidCandidate(
+        TEXT("/Game/WorldRebuild/T1Redesign_Unknown_abc_123/sunmeadow_march/Review"), TEXT("sunmeadow_march")));
     TestFalse(TEXT("Capital excluded"), UWarT1TraversalProof::ValidCandidate(TEXT("/Game/WorldRebuild/aegis_capital/Review"), TEXT("sunmeadow_march")));
     TestFalse(TEXT("Another zone excluded"), UWarT1TraversalProof::ValidCandidate(
         TEXT("/Game/WorldRebuild/T1Redesign_Homes_abc_123/cinderfen_outskirts/Review"), TEXT("sunmeadow_march")));

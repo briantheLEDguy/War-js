@@ -19,8 +19,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--headless', action='store_true', help='Both directions of all roads/supply routes plus homes; fixed simulation timestep')
     parser.add_argument('--zone', choices=ZONES)
+    parser.add_argument('--candidate', choices=('homes', 'materials'), default='homes')
     args = parser.parse_args()
-    receipt = json.loads((DIRECTORY/'homes-latest.json').read_text())
+    receipt = json.loads((DIRECTORY/(args.candidate+'-latest.json')).read_text())
     plan = json.loads((DIRECTORY/'plan.json').read_text())
     sha = lambda file: hashlib.sha256(file.read_bytes()).hexdigest()
     baseline = {PROJECT/'Content'/(package.removeprefix('/Game/')+'.umap'): digest
@@ -28,6 +29,9 @@ def main():
     baseline.update({PROJECT/'Content'/(package.removeprefix('/Game/')+'.uasset'): digest
                      for package, digest in receipt['inputs']['dependencyHashes'].items()})
     baseline.update({ROOT/file: digest for file, digest in plan['privateMapHashes'].items()})
+    if args.candidate == 'materials':
+        baseline.update({ROOT/file: digest for file, digest in receipt['inputs']['protectedHashes'].items()})
+        baseline.update({ROOT/file: digest for file, digest in receipt['assetHashes'].items()})
     owner_directory = PROJECT/'Saved/WorldEdit'
     owner_files = set(owner_directory.rglob('*.json'))
     baseline.update({file: sha(file) for file in owner_files})
@@ -87,12 +91,13 @@ def main():
                 shutil.copy2(file, output/file.name)
         results.append(report)
         print('WAR_T1_WALK_VERIFIED '+zone['id']+' routes='+str(report['routesCompleted']), flush=True)
-    summary = dict(signature=receipt['signature'], headless=args.headless, output=output.relative_to(ROOT).as_posix(), zones=results,
+    summary = dict(signature=receipt['signature'], candidate=args.candidate, headless=args.headless, output=output.relative_to(ROOT).as_posix(), zones=results,
                    toolHashes=tool_hashes, ownerDocumentsPreserved=len(owner_files),
                    savedPackagesVerified=len(baseline), savedCandidatesUnchanged=True, visualApproved=False, drivingAccepted=False,
                    cameraAccepted=False, gameplayAccepted=False)
     (output/'summary.json').write_text(json.dumps(summary, indent=2)+'\n')
-    (DIRECTORY/('traversal-headless-latest.json' if args.headless else 'traversal-camera-latest.json')).write_text(json.dumps(summary, indent=2)+'\n')
+    prefix = 'material-' if args.candidate == 'materials' else ''
+    (DIRECTORY/(prefix+('traversal-headless-latest.json' if args.headless else 'traversal-camera-latest.json'))).write_text(json.dumps(summary, indent=2)+'\n')
     print(json.dumps(dict(nativeWalkingPassed=True, output=str(output), routes=sum(r['routesCompleted'] for r in results))), flush=True)
 
 

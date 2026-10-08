@@ -16,6 +16,15 @@ captures use the normal follow camera. These receipts establish configured
 walking/collision evidence; driving, full camera and gameplay acceptance remain
 outstanding. See the T1 reproduction commands and private coverage/gallery receipts.
 
+The next isolated copies add source-reviewed regional ground materials, with
+world-space metre scales and compiled native colour/normal graphs. Their saved
+mesh/collision, practical-light and furnished-room inventories match the parent
+home studies. Read-only material reviews retain player-height day/dusk/night
+pictures and full-width ground samples. Material copies have their own normal
+walking receipts; no parent movement or appearance acceptance transfers to them.
+Lighting calibration, translucent road cost and denser regional dressing remain
+open. The active campaign continues to use its accepted capital bindings.
+
 The approved scope is 32 existing zones and 70 directed portals in the main
 AegisWar project. Implementation has begun with shared foundations and
 Sunmeadow March/Cinderfen Outskirts. **No zone or batch is complete.**

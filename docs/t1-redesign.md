@@ -311,3 +311,74 @@ tests pass. The rebuilt Foundation suite passes 145 tests at
 `artifacts/unreal/editor/test-1791416889279-11120`. Migration audit, 33-map world
 validation and 906 model records pass; strict release checking still fails with
 the four retained release gates. No candidate or zone is accepted for release.
+
+## Regional native material studies — 2026-10-08
+
+`t1_materials.py` resolves the meadow/peat substrate and regional road channels
+from exact reviewed repository GLBs. It verifies the binary, external texture,
+render-receipt and approval hashes before importing colour and analytical
+microrelief normals. Source review permits reuse; it does not approve their new
+T1 composition. Both substrates and roads repeat at two physical metres using
+world-space source X/-Z axes, independent of rectangular sampling UVs. Broad
+53/91 m shade variation and a slope-normal rock tint frame the substrate;
+roads retain vertex-alpha verges. No displacement or collision changes occur.
+
+`build-t1-material-studies.py` creates a fresh private
+`T1Redesign_Materials_<signature>_<time>` collection with Review, Generated and
+reserved Authored layers. Its bounded clone copies static mesh/material
+bindings, transforms, collision profiles, tags, 22 practical lights and two
+interior volumes per region. Only the terrain/road material overrides change.
+Comparison tolerates at most 0.000001 cm/degree numeric reconstruction rounding;
+bindings, colours, collision and boolean settings remain exact. All existing
+WorldRebuild packages and owner GM documents are fingerprinted and checked even
+after failure. Existing private kit dependencies remain frozen and private.
+
+The first material study is
+`8ab0d264508e75029b5b2a1be1d564738968090ccbde78d8c1da2319590a3c0e`,
+at `/Game/WorldRebuild/T1Redesign_Materials_8ab0d264508e_024400_600929`.
+`review-t1-materials.py` verifies saved clone state and compiled shaders before
+capturing 52 unmodified 1280 × 800 native day/dusk/night views, including road
+detail, village, advance, ridge, scenery and both furnished homes. It repeats
+8,712/8,631 full-width native ground samples; maximum route grades remain
+0.179626/0.151356. Saved maps remain unchanged and capital lighting restores.
+
+The terrain shader reports 365 pixel instructions and five texture samples;
+the translucent road shader reports 1,226 instructions and five samples. These
+are compiler statistics, not measured frame time or platform performance.
+Road cost needs investigation. Actual pictures also expose yellow daytime
+Sunmeadow ground, dark village nights, sparse scenery and unfinished cultural
+architecture/roof connections. Keep appearance and camera approval open.
+
+After the Editor build, run
+`python scripts/unreal/run-t1-traversal.py --candidate materials --headless`.
+The material namespace is separately admitted by the same bounded local fixture;
+other study types, capitals, owner layers and later batches remain excluded.
+The complete rerun passes 80 configured routes with zero airborne travel and
+36,994.42 m total normal movement. Receipt
+`traversal/1791420441042931500-15244` binds the implementation/DLL, 11,177 saved
+files and all 13 owner documents. It does not transfer parent-map evidence or
+grant driving, gameplay, visual, performance or release acceptance. Omitting
+`--headless` runs the four real-time home camera walks on these material maps.
+Material movement/camera receipts use separate `material-traversal-*-latest.json`
+files; parent home receipts remain intact. Material build/review evidence lives
+in `materials-latest.json` and `material-review.json`; the local progress gallery
+retains all old pictures and adds the new studies.
+
+The rendered material-map rerun also passes all four home approaches/interiors
+in real time, covering 646.95 m with zero airborne travel. Its 12 normal follow
+camera/indoor-mode pictures are retained at
+`traversal/1791420853693274600-28028`, again with unchanged saved packages and
+owner documents. The expanded gallery contains 150 actual native pictures and
+14 schematic drawings. The live camera and commandlet atmosphere views show
+different ground colour/exposure; calibrate against the gameplay camera before
+appearance approval. Fixture-controlled indoor mode is not automatic room
+camera acceptance, and these movement fixtures do not prove network clock or
+live campaign behavior.
+
+The native build and all 145 Foundation tests pass at
+`artifacts/unreal/editor/test-1791420644815-23572`. All three typechecks,
+1,081 repository tests, 473 Unreal tooling tests and 14 focused Python tests
+pass. Migration audit, 33-map world and 906 model validation pass; strict release
+checking still returns exit 1 with four retained gates. Active campaign/capital
+bindings, first-batch lair acceptance, normal GM/network proof, 18v18, platform
+and Steam acceptance remain unchanged and incomplete.

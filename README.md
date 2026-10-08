@@ -26,6 +26,18 @@ and unmodified gameplay-camera screenshots. Receipt/DLL bindings, private packag
 hashes and existing owner GM documents are checked; production admission remains
 closed. Camera, materials, lighting and competitive acceptance remain open.
 
+Regional surface authoring now reads the exact reviewed Sunmeadow/Cinderfen
+repository terrain material channels. `build-t1-material-studies.py` creates
+fresh private Review/Generated/Authored layers with metre-scaled colour/normal
+textures, broad variation, slope rock and road verges. Mesh/collision bindings,
+furnished rooms and practical light settings are preserved. Run
+`review-t1-materials.py` in the rendering commandlet for compiled-shader checks,
+full-width ground sampling and unmodified day/dusk/night pictures; run
+`python scripts/unreal/run-t1-traversal.py --candidate materials --headless`
+for the independent 80-route movement proof on these copies. Gallery output
+remains private under `artifacts/unreal/t1-redesign/`. Lighting colour, night
+guidance, denser scenery and translucent road performance need further work.
+
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both
 `GameDefaultMap` and `EditorStartupMap`. Campaign, frontend and canonical siege
