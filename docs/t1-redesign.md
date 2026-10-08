@@ -382,3 +382,95 @@ pass. Migration audit, 33-map world and 906 model validation pass; strict releas
 checking still returns exit 1 with four retained gates. Active campaign/capital
 bindings, first-batch lair acceptance, normal GM/network proof, 18v18, platform
 and Steam acceptance remain unchanged and incomplete.
+
+## Native regional atmosphere checkpoint
+
+`AWarRegionalAtmosphere` is an opt-in scenery actor on fresh first-pair copies.
+It reads `AWarEnvironmentState` for time and regional weather strength; the
+server retains control of conditions. Local effect geometry and original
+synthesized audio do not change capture rules, collision, navigation, saves or
+campaign admission. Dedicated servers disable the actor's tick. Capital maps,
+music and environment remain outside this actor's admitted zones.
+
+Rain uses at most 192 short soft quads, geothermal steam at most 24 and the dry
+wind/ash profile at most 96. Only Sunmeadow/Cinderfen are generated in native
+candidates. Later-batch metadata/rules do not bypass the first-batch lair gate.
+Geothermal vent sites derive from existing basalt/mineral scenes, projected onto
+ground or their exposed saved rock tops. Bounded room volumes and overhead
+visibility queries shelter the observer. These queries affect local presentation
+only; weather sections never have collision or navigation influence.
+
+The regional mix combines nature, cosmetic weather, village work and distant
+military pressure. Village work quietens at night; frontage proximity and existing
+local combat notices influence military intensity. Sound beds are original
+deterministic native synthesis, mono 24 kHz PCM, with continuous sample indexing
+across quarter-second chunks and less than half a second queued. Master mute
+stops/reset the bed. No capital music or licensed recording is reused. Listening,
+hardware playback and sound-design acceptance remain open.
+
+Reproduction uses the saved/closed editor workflow above. Run the following
+Python scripts in `UnrealEditor-Cmd` with `-run=pythonscript -script=<absolute
+script path>` and `-unattended -nop4 -nosplash -nosound`:
+
+- `scripts/unreal/build-t1-atmosphere-studies.py` with `-nullrhi`: validate parent
+  material maps/source hashes/private kit, clone the complete mesh/light/room
+  inventory into fresh Review/Generated/Authored layers, and add one local actor.
+- `scripts/unreal/review-t1-atmosphere.py` with `-AllowCommandletRendering
+  -RenderOffscreen -NoTextureStreaming`: check saved bindings and shader, capture
+  native dawn/day/dusk/night/strong-weather views and export eight-second WAV data
+  previews. These are synthesized studies, not hardware playback recordings.
+- `python scripts/unreal/run-t1-traversal.py --candidate atmosphere --headless`:
+  independently walk both directions of every configured road/supply itinerary
+  plus home routes. Omit `--headless` for four real-time home walks, normal cameras
+  and effect/shelter observations at reached waypoints. Atmosphere copies use the
+  actual local authoritative clock rather than the parent fixture's day preview.
+
+The fresh collection signature is `3915005bbaf3`; private build/review evidence
+lives in `atmosphere-latest.json` and `atmosphere-review.json`. The review retains
+45 native pictures and 12 synthesized WAV studies, with exact preserved parent
+scenery/rooms/lights and saved packages. The initial shader-pin failure and first
+placement study remain in private logs/candidates. The revised study shortened
+rain streaks and moved buried vents to exposed rock tops. Steam remains visually
+weak. The refreshed mineral camera searches grounded viewpoints and rejects
+terrain-occluded views and positions inside scenery bounds. These are unfinished
+prototypes requiring another visibility pass. Dark shaded scenery, sparse
+dressing, generic furnished-house culture and roof/wall gaps also remain open.
+
+The independent fixed-timestep traversal passes all 80 configured routes on the
+atmosphere copies, covering 36,994.42 m with zero airborne travel. Its receipt
+`traversal/1791425807306220400-22156` binds source/DLL state, 11,198 saved files and
+13 unchanged owner GM documents. Static walking does not grant vehicle, camera,
+gameplay, visual, persistence, network, platform or release acceptance. First-pair
+full lairs and 18v18 remain incomplete.
+
+The four real-time atmosphere home routes also pass, covering 646.93 m with zero
+airborne travel and 12 normal-camera pictures at reached waypoints. Receipt
+`traversal/1791426053017861300-31748` observes one active, non-replicated,
+non-colliding atmosphere actor, zero effect quads indoors and bounded queued audio
+bytes. Both zones are sampled in daylight using their authority clocks. Sunmeadow's
+strong spell fades during travel: exterior frames show 154 then 123 quads;
+Cinderfen's sampled mild conditions show 12. `-nosound` intentionally leaves
+`audioPlaying=false`; this proves queued-data bounds, not audible hardware playback.
+The expanded gallery has 207 native pictures, 14 drawings and 12 WAV controls.
+
+A Windows Development Game build exposed existing Editor-only API use in city
+classification, shader witnesses and proof binary checks. The bounded repair
+uses `CLASS_CompiledFromBlueprint`, guards `BaseMaterialId` with `WITH_EDITOR`,
+and introduces `WarProofBinary.h`: modular Editor builds bind their actual loaded
+module, while monolithic Game builds bind the executable. Receipt hashes/path
+checks and production admission remain strict; no package or authored lighting
+is edited. Game and Editor builds pass. The refreshed atmosphere copies bind the
+new Editor DLL; their movement/camera evidence must be generated independently.
+The independent reruns above pass against that DLL. The earlier atmosphere copies
+and their nighttime movement evidence remain private as historical studies.
+
+Final verification passes both Windows Development targets, all 146 native
+Foundation tests (`artifacts/unreal/editor/test-1791426966600-21836`), 1,081
+repository tests, 473 Unreal tooling tests, 19 focused Python tests and all three
+typechecks. The migration audit retains 39 feature contracts and four blockers;
+33-map world and 906 model validation pass. Strict release checking returns exit
+1 as required. No active campaign package, accepted capital scene, owner document
+or licensed source kit is changed or published. Native gameplay/services/Node
+collision integration, ordinary GM persistence, reciprocal network travel/clock,
+hardware audio, visual approval, driving, 18v18, full first-batch lairs, three
+platforms, Steam and release acceptance remain incomplete.

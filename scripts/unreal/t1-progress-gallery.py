@@ -20,6 +20,35 @@ landscape materials, vehicle/camera acceptance, 18v18 and visual approval remain
 def picture(file,caption):
     relative=file.relative_to(DIRECTORY).as_posix()
     return f'<figure><a href="{html.escape(relative)}"><img loading="lazy" src="{html.escape(relative)}" alt="{html.escape(caption)}"></a><figcaption>{html.escape(caption)}</figcaption></figure>'
+atmosphere_review_file=DIRECTORY/'atmosphere-review.json'
+if atmosphere_review_file.exists():
+    atmosphere_review=json.loads(atmosphere_review_file.read_text())
+    atmosphere_native=json.loads((DIRECTORY/'atmosphere-latest.json').read_text())
+    if atmosphere_review['signature']!=atmosphere_native['signature'] or not atmosphere_review['savedCandidatesUnchanged']:
+        raise RuntimeError('Atmosphere gallery requires matching unchanged private studies')
+    parts.append('<h2>Regional weather and activity audio prototypes</h2><p>Actual native dawn/day/dusk/night and stronger-weather views. Local rain/steam geometry has no collision or navigation influence. These studies retain sparse scenery, dark shading and house roof gaps. Vent cameras now reject terrain occlusion and positions inside scenery bounds; steam visibility still needs correction. Appearance and audio remain unapproved.</p><div class="grid">')
+    for row in atmosphere_review['pictures']:
+        file=ROOT/row['file']
+        if not file.exists():raise RuntimeError('Native atmosphere capture missing')
+        caption=row['zone'].replace('_',' ').title()+' / '+row['view'].replace('_',' ')+' / '+row['phase'].replace('_',' ')
+        caption+=' — unapproved weather study; '+str(row['particles'])+' effect quads'
+        parts.append(picture(file,caption))
+    parts.append('</div><p>Original native synthesized sound beds, eight seconds each. These are data previews, not hardware playback recordings. Listening, spatial mix and sound-design approval remain open.</p>')
+    for row in atmosphere_review['audioStudies']:
+        relative=(ROOT/row['file']).relative_to(DIRECTORY).as_posix()
+        label=row['zone'].replace('_',' ').title()+' / '+row['study'].replace('_',' ')
+        parts.append('<p>'+html.escape(label)+' <audio controls preload="none" src="'+html.escape(relative)+'"></audio></p>')
+    atmosphere_camera_file=DIRECTORY/'atmosphere-traversal-camera-latest.json'
+    if atmosphere_camera_file.exists():
+        atmosphere_camera=json.loads(atmosphere_camera_file.read_text())
+        if atmosphere_camera['signature']!=atmosphere_native['signature'] or not atmosphere_camera['savedCandidatesUnchanged']:
+            raise RuntimeError('Atmosphere gameplay-camera evidence refers to another candidate')
+        parts.append('<h2>Atmosphere — live home walking cameras</h2><p>Normal walking and follow/indoor cameras using the authoritative local world clock. Reached-waypoint reports verify active cosmetic weather and indoor shelter. This isolated fixture does not prove network synchronization, hardware audio, campaign integration or appearance approval.</p><div class="grid">')
+        for zone in atmosphere_camera['zones']:
+            for route in zone['routes']:
+                for file in sorted((ROOT/atmosphere_camera['output']).glob(route['id']+'_*.png')):
+                    parts.append(picture(file,route['id'].replace('_',' ').title()+' — live atmosphere prototype, waypoint '+file.stem.rsplit('_',1)[-1]))
+        parts.append('</div>')
 material_review_file=DIRECTORY/'material-review.json'
 if material_review_file.exists():
     material_review=json.loads(material_review_file.read_text())

@@ -38,6 +38,21 @@ for the independent 80-route movement proof on these copies. Gallery output
 remains private under `artifacts/unreal/t1-redesign/`. Lighting colour, night
 guidance, denser scenery and translucent road performance need further work.
 
+`AWarRegionalAtmosphere` adds opt-in local rain, geothermal steam and bounded
+regional sound beds to fresh private first-pair atmosphere copies. It reads the
+replicated clock/weather state, fades activity with proximity and daylight,
+shelters the observer indoors and respects master mute. Intentional effect
+geometry has no collision/navigation influence; original procedural audio is
+queued in bounded chunks. `build-t1-atmosphere-studies.py` preserves the complete
+parent scenery/light/room inventory, and `review-t1-atmosphere.py` exports native
+weather views and synthesized WAV previews. Use `run-t1-traversal.py --candidate
+atmosphere` for real-time clock/effect/shelter checks during normal home walking,
+or add `--headless` for all configured road/supply/home routes. These fixtures
+keep visual, hardware audio, network synchronization and campaign acceptance open.
+Development proof binary bindings use `WarProofBinary.h` to identify the loaded
+module in Editor and the executable in monolithic Game builds. Cooked builds use
+runtime Blueprint class flags and omit Editor-only material IDs from witnesses.
+
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both
 `GameDefaultMap` and `EditorStartupMap`. Campaign, frontend and canonical siege

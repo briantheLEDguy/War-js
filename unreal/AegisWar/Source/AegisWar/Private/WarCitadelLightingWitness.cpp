@@ -210,7 +210,9 @@ TArray<TSharedPtr<FJsonObject>> WarCitadelLightingWitness::CapturePrivateSurface
                 Read.Json->SetNumberField(TEXT("materialDomain"),static_cast<int32>(Effective.GetMaterialDomain()));
                 Read.Json->SetBoolField(TEXT("shaderMapPresent"),ShaderMap!=nullptr);
                 Read.Json->SetBoolField(TEXT("shaderMapValidForRendering"),ShaderMap && ShaderMap->IsValidForRendering());
+#if WITH_EDITOR
                 if (ShaderMap) Read.Json->SetStringField(TEXT("baseMaterialId"),ShaderMap->GetShaderMapId().BaseMaterialId.ToString());
+#endif
             }
         });
         FlushRenderingCommands();

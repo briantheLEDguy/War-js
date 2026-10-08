@@ -44,7 +44,7 @@ bool UWarCityDefinition::IsSceneryActor(const AActor* Actor)
     // Exact native classes prevent a gameplay Blueprint from entering the presentation world.
     if (!Actor) return true;
     const UClass* Class = Actor->GetClass();
-    if (Class->ClassGeneratedBy) return false;
+    if (Class->HasAnyClassFlags(CLASS_CompiledFromBlueprint)) return false;
     return Class == AStaticMeshActor::StaticClass() || Actor->IsA<ALight>()
         || Class == ASkyLight::StaticClass() || Actor->IsA<AReflectionCapture>()
         || Class == AExponentialHeightFog::StaticClass() || Class == ASkyAtmosphere::StaticClass()

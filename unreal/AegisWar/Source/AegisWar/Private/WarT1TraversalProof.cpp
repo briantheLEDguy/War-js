@@ -5,6 +5,8 @@
 #include "WarPlayerController.h"
 #include "WarZoneAnchor.h"
 #include "WarZoneLightingSubsystem.h"
+#include "WarRegionalAtmosphere.h"
+#include "WarEnvironmentState.h"
 #include "AIController.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -71,7 +73,8 @@ bool UWarT1TraversalProof::ValidCandidate(const FString& Package, const FString&
 {
     if (Identity != TEXT("sunmeadow_march") && Identity != TEXT("cinderfen_outskirts")) return false;
     if ((!Package.StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Homes_"))
-        && !Package.StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Materials_"))) || Package.Contains(TEXT(".."))) return false;
+        && !Package.StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Materials_"))
+        && !Package.StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Atmosphere_"))) || Package.Contains(TEXT(".."))) return false;
     TArray<FString> Parts; Package.ParseIntoArray(Parts, TEXT("/"), true);
     return Parts.Num() == 5 && Parts[3] == Identity && Parts[4] == TEXT("Review");
 }
@@ -223,6 +226,12 @@ void UWarT1TraversalProof::Finish(bool Passed, const FString& Detail)
     Report->SetBoolField(TEXT("fixedTimeStep"), FParse::Param(FCommandLine::Get(), TEXT("benchmark")));
     Report->SetBoolField(TEXT("drivingAccepted"), false); Report->SetBoolField(TEXT("visualApproved"), false);
     Report->SetBoolField(TEXT("cameraAccepted"), false); Report->SetBoolField(TEXT("gameplayAccepted"), false);
+    if (const auto* Clock = AWarEnvironmentState::Find(GetWorld()))
+    {
+        Report->SetNumberField(TEXT("environmentUnixSeconds"), Clock->UnixSeconds());
+        Report->SetNumberField(TEXT("environmentDaylight"), AWarEnvironmentState::Daylight(Clock->UnixSeconds()));
+        Report->SetNumberField(TEXT("environmentWeatherStrength"), Clock->WeatherStrength(FName(Zone)));
+    }
     if (Pawn.IsValid())
     {
         Report->SetBoolField(TEXT("visibleCharacterReady"), Pawn->IsVisualReady());
@@ -264,7 +273,8 @@ void UWarT1TraversalProof::Tick(float Delta)
     const auto* Anchor = AWarZoneAnchor::FindAt(GetWorld(), Feet);
     if (Airborne > .75 || !Anchor || !Anchor->ContainsPlayablePoint(Feet, 42))
     { Finish(false, TEXT("Traversal lost ground support or left its playable outline.")); return; }
-    if (bCapture) UWarZoneLightingSubsystem::PreviewEnvironment(GetWorld(), FName(Zone), FVector::ZeroVector, 1200, 0);
+    const bool AtmosphereCandidate = GetWorld()->GetPackage()->GetName().StartsWith(TEXT("/Game/WorldRebuild/T1Redesign_Atmosphere_"));
+    if (bCapture && !AtmosphereCandidate) UWarZoneLightingSubsystem::PreviewEnvironment(GetWorld(), FName(Zone), FVector::ZeroVector, 1200, 0);
     if (FVector::Dist2D(Feet, Targets[Waypoint]) < 28 && FMath::Abs(Feet.Z-Targets[Waypoint].Z) < 50
         && Pawn->GetCharacterMovement()->IsMovingOnGround())
     {
@@ -275,6 +285,21 @@ void UWarT1TraversalProof::Tick(float Delta)
             if (Now < CaptureUntil) return;
             if (!bScreenshotRequested)
             {
+                if (AtmosphereCandidate)
+                {
+                    TArray<TSharedPtr<FJsonValue>> States;
+                    if (Row->HasField(TEXT("atmosphereFrames"))) States = Row->GetArrayField(TEXT("atmosphereFrames"));
+                    for (TActorIterator<AWarRegionalAtmosphere> It(GetWorld()); It; ++It)
+                    {
+                        TSharedPtr<FJsonObject> State;
+                        if (FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(It->DescribeLocalState()), State))
+                        {
+                            State->SetNumberField(TEXT("waypoint"), Waypoint);
+                            States.Add(MakeShared<FJsonValueObject>(State));
+                        }
+                    }
+                    Row->SetArrayField(TEXT("atmosphereFrames"), States);
+                }
                 FScreenshotRequest::RequestScreenshot(FPaths::Combine(Directory,
                     Row->GetStringField(TEXT("id")) + FString::Printf(TEXT("_%d.png"), Waypoint)), false, false);
                 bScreenshotRequested = true; CaptureUntil = Now + .5; return;

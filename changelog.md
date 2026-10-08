@@ -1,3 +1,23 @@
+## 2026-10-08 - T1 native regional atmosphere prototypes
+
+- Add opt-in local cosmetic weather and original synthesized sound beds driven
+  by the authoritative regional clock. Bound effect quads and audio allocation,
+  preserve chunk continuity, mute with master volume and shelter observers
+  indoors. Village work quietens at night; military sound responds to frontage
+  proximity and existing local combat notices.
+- Build fresh private first-pair atmosphere maps with exact parent mesh,
+  collision, practical-light and furnished-room state. Vent sites derive from
+  authored basalt/mineral placements; saved rock tops keep emitters exposed.
+  Add native weather captures and synthesized WAV studies to the local gallery.
+- Extend the isolated walking fixture to admit only these first-pair Review
+  maps, use their actual world clock and record local effects at home camera
+  waypoints. Retain all visual/audio, gameplay, vehicle, network, platform and
+  release gates; steam visibility, dark shading and house gaps remain unfinished.
+- Repair pre-existing Windows Game compilation blockers: use runtime Blueprint
+  class flags, guard Editor-only material IDs, and resolve proof binary bindings
+  to the executable in monolithic targets. Preserve strict receipt matching and
+  production admission; the Windows Development Game build passes.
+
 ## 2026-10-08 - T1 regional terrain material studies
 
 - Trace meadow, peat and road colour/normal channels to exact approved repository

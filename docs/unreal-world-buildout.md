@@ -25,6 +25,16 @@ walking receipts; no parent movement or appearance acceptance transfers to them.
 Lighting calibration, translucent road cost and denser regional dressing remain
 open. The active campaign continues to use its accepted capital bindings.
 
+Fresh first-pair atmosphere layers now opt into local bounded weather geometry
+and original synthesized activity sound beds. The actor consumes the authoritative
+regional clock/weather without mutating campaign state, disables itself on
+dedicated servers and fades nature/work/military pressure according to location,
+daylight and shelter. Authoring preserves the parent room/light/scenery inventory;
+read-only native captures and WAV previews remain private. Normal home traversal
+can record actual effect activation and sheltered interiors using the world clock.
+Steam readability, some mineral camera views, listening approval, hardware audio,
+network synchronization and performance remain unverified.
+
 The approved scope is 32 existing zones and 70 directed portals in the main
 AegisWar project. Implementation has begun with shared foundations and
 Sunmeadow March/Cinderfen Outskirts. **No zone or batch is complete.**

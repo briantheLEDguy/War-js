@@ -1,4 +1,5 @@
 #include "WarCitadelSiegeProof.h"
+#include "WarProofBinary.h"
 #include "WarSiegeEncounter.h"
 #include "WarSiegeNavigation.h"
 #include "WarSiegeBattlefield.h"
@@ -333,7 +334,7 @@ bool UWarCitadelSiegeProof::CheckRecoveryBindings(FString& Error) const
     { Error=TEXT("The native recovery configuration changed.");return false; }
     FString Binary,Hash,MapFile;
     if (!RecoveryConfig->TryGetStringField(TEXT("binaryPath"),Binary) || !RecoveryConfig->TryGetStringField(TEXT("binarySha256"),Hash)
-        || !Hex(Hash,64) || !FPaths::IsSamePath(FPaths::ConvertRelativePathToFull(Binary),FPaths::ConvertRelativePathToFull(FModuleManager::Get().GetModuleFilename(TEXT("AegisWar"))))
+        || !Hex(Hash,64) || !FPaths::IsSamePath(FPaths::ConvertRelativePathToFull(Binary),FPaths::ConvertRelativePathToFull(WarProofBinary::LoadedAegisWar()))
         || FileHash(Binary)!=Hash || !FPackageName::DoesPackageExist(Map,&MapFile) || FileHash(MapFile)!=MapHash)
     { Error=TEXT("The real recovery binary or candidate package differs from its binding.");return false; }
     const TSharedPtr<FJsonObject>* Sources=nullptr;
@@ -673,7 +674,7 @@ bool UWarCitadelSiegeProof::CheckPerformanceBindings(FString& Error) const
         || !BoundFile(TEXT("blueprintPath"),TEXT("blueprintSha256"),Repository/TEXT("artifacts/unreal/aegis-citadel")))
     { Error=TEXT("The active isolated performance settings or signed blueprint differ from the receipt.");return false; }
     FString Binary,Expected;
-    const FString LoadedBinary=FPaths::ConvertRelativePathToFull(FModuleManager::Get().GetModuleFilename(TEXT("AegisWar")));
+    const FString LoadedBinary=FPaths::ConvertRelativePathToFull(WarProofBinary::LoadedAegisWar());
     if (!PerformanceBindings->TryGetStringField(TEXT("binaryPath"),Binary) || !PerformanceBindings->TryGetStringField(TEXT("binarySha256"),Expected)
         || !FPaths::IsSamePath(FPaths::ConvertRelativePathToFull(Binary),LoadedBinary) || !Hex(Expected,64) || FileHash(Binary)!=Expected)
     { Error=TEXT("The loaded native module does not match the performance binary receipt.");return false; }

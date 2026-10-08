@@ -56,6 +56,14 @@ class T1TraversalTest(unittest.TestCase):
         receipt['signature'] = 'b'*64
         with self.assertRaises(ValueError): traversal_config(receipt, zone, source, True)
 
+    def test_atmosphere_namespace_requires_first_batch_and_own_signature(self):
+        receipt, zone, source = self.fixture(); receipt['kind'] = 'atmosphere'
+        with self.assertRaises(ValueError): traversal_config(receipt, zone, source, False)
+        zone['map'] = zone['map'].replace('T1Redesign_Homes_', 'T1Redesign_Atmosphere_')
+        self.assertEqual(traversal_config(receipt, zone, source, False)['map'], zone['map'])
+        zone['id'] = source['id'] = 'brightfen_approach'
+        with self.assertRaises(ValueError): traversal_config(receipt, zone, source, False)
+
 
 if __name__ == '__main__':
     unittest.main()

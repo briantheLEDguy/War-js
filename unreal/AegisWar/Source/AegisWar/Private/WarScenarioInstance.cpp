@@ -1,4 +1,5 @@
 #include "WarScenarioInstance.h"
+#include "WarProofBinary.h"
 #include "WarScenarioTransport.h"
 #include "WarPlayerController.h"
 #include "WarSiegeGameMode.h"
@@ -98,7 +99,7 @@ bool WarScenarioCandidateProof::Bindings(const TSharedPtr<FJsonObject>& Proof,FS
     if (!BoundFile(TEXT("candidateReceiptPath"),TEXT("candidateReceiptSha256"),Directory/TEXT("candidate.json"),CandidatePath)
         || !BoundFile(TEXT("blueprintPath"),TEXT("blueprintSha256"),Directory/TEXT("blueprint.json"),BlueprintPath)
         || !BoundFile(TEXT("binaryPath"),TEXT("binarySha256"),FPaths::ConvertRelativePathToFull(FPaths::ProjectDir()/TEXT("Binaries/Win64/UnrealEditor-AegisWar.dll")),BinaryPath)
-        || !FPaths::IsSamePath(FPaths::ConvertRelativePathToFull(BinaryPath),FPaths::ConvertRelativePathToFull(FModuleManager::Get().GetModuleFilename(TEXT("AegisWar")))))
+        || !FPaths::IsSamePath(FPaths::ConvertRelativePathToFull(BinaryPath),FPaths::ConvertRelativePathToFull(WarProofBinary::LoadedAegisWar())))
     { Error=TEXT("The exact private queue candidate receipts or loaded Win64 development binary changed.");return false; }
     const auto Receipt=WarScenarioTransport::ReadConfig(CandidatePath),Blueprint=WarScenarioTransport::ReadConfig(BlueprintPath);
     const TSharedPtr<FJsonObject>* City=nullptr;FString Payload;

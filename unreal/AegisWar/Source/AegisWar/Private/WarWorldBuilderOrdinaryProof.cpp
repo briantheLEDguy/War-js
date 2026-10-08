@@ -1,4 +1,5 @@
 #include "WarInterfaceProof.h"
+#include "WarProofBinary.h"
 #include "WarCitadelSiegeProof.h"
 #include "WarWorldEditSubsystem.h"
 #include "WarWorldEditWidget.h"
@@ -349,7 +350,7 @@ bool UWarInterfaceProof::CheckOrdinaryBuilderBindings(FString& Error) const
         return OrdinaryBuilder::Fail(Error, TEXT("Native publication is not the exact ordinary map publication."));
     const FString Binary = OrdinaryBuilder::String(OrdinaryBuilderConfig, TEXT("binaryPath"));
     if (!OrdinaryBuilder::AbsolutePath(Binary) || !FPaths::IsUnderDirectory(Binary, OrdinaryBuilder::Absolute(FPaths::ProjectDir() / TEXT("Binaries")))
-        || !FPaths::IsSamePath(Binary, OrdinaryBuilder::Absolute(FModuleManager::Get().GetModuleFilename(TEXT("AegisWar"))))
+        || !FPaths::IsSamePath(Binary, OrdinaryBuilder::Absolute(WarProofBinary::LoadedAegisWar()))
         || !OrdinaryBuilder::Hash(Binary, OrdinaryBuilder::String(OrdinaryBuilderConfig, TEXT("binarySha256")), Error))
         return OrdinaryBuilder::Fail(Error, TEXT("The loaded AegisWar module does not match the explicit byte binding."));
     const FString ReceiptPath = OrdinaryBuilder::String(OrdinaryBuilderConfig, TEXT("receiptPath"));
