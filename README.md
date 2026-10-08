@@ -15,7 +15,16 @@ The isolated T1 checks now include bidirectional native obstacle sweeps, repaire
 keep/staging approaches and fixture-aware village circulation. Private furnished
 home studies reuse fingerprinted existing kit templates, with explicit door
 routes, floor/step probes and bounded interior exposure. These studies retain
-their license, regional appearance, live walking and ordinary GM acceptance gates.
+their license, regional appearance and ordinary GM acceptance gates.
+
+`python scripts/unreal/run-t1-traversal.py --headless` now walks both directions
+of every configured first-pair road and supply itinerary with the normal native
+character, plus four furnished-home approaches/interiors. Its fixed simulation
+timestep proves movement/collision, without granting vehicle or performance
+acceptance. Run the same helper without `--headless` for real-time home walks
+and unmodified gameplay-camera screenshots. Receipt/DLL bindings, private package
+hashes and existing owner GM documents are checked; production admission remains
+closed. Camera, materials, lighting and competitive acceptance remain open.
 
 The combined local Development build selects
 `/Game/WorldRebuild/AegisCitadel_62df5e965e66/CampaignCandidate` through both

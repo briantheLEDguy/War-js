@@ -247,3 +247,67 @@ candidate gameplay/collision registration, regional terrain materials,
 weather/audio and live native traversal/persistence/network proof. The owner's
 request to continue does not certify appearance or advance the unfinished lair
 and release gates.
+
+## Native walking checkpoint — 2026-10-08
+
+`WarT1TraversalGameMode` and `WarT1TraversalProof` provide an opt-in, non-Shipping
+local fixture. Both development networking and traversal flags are required.
+Configuration selects only a bounded Saved/T1Traversal run and the exact private
+Sunmeadow/Cinderfen home Review map. Other zones, owner layers, capitals and
+remote admission are excluded. It assigns the existing Sunfire Templar/Warbrute
+visual definitions and spawns a normal visible, animated `WarCharacter`; no
+frontend, campaign recovery or GM publication is invoked.
+
+The fixture uses native CharacterMovement and repeated movement input. Only
+independent route starts are repositioned; subsequent waypoints are walked.
+Capsule radius/half-height 42/96 cm, step height 45 cm and maximum movement
+speed 600 cm/s remain unchanged. Home input is reduced to normal walking.
+Floor traces resolve saved terrain and interior floors separately; feet must
+reach each waypoint on walkable ground. Stalls, unsupported movement, outline
+departure, flight, missing character models or altered movement geometry fail.
+
+The first complete two-zone receipt passes 80 routes (40 each): both directions
+of every configured road and all six physical supply itineraries per region,
+plus two village-to-furnished-home/interior/return walks per region. Native
+distance totals 18,173.55 m Sunmeadow and 18,820.87 m Cinderfen. Both record zero
+airborne time during travel. These runs use a fixed 1/60 simulation timestep
+with null RHI; their wall time is neither frame-time nor platform performance
+evidence. They exercise static saved collision, while animated gates/banner
+bindings and candidate gameplay registration remain incomplete.
+
+The separate rendered home pass completes all four routes in real time:
+312.89 m Sunmeadow and 334.07 m Cinderfen, with 12 native screenshots of reached
+doorway/interior/return waypoints. The normal local follow camera, indoor mode
+and spring-arm collision remain active. Actual renderer output was 888 × 500,
+selected by normal graphics settings despite requested window dimensions.
+Sunmeadow stone walls remain too dark, source roof/wall gaps remain visible,
+and both kit studies still need regional architecture/material review. These
+images are unmodified prototypes and grant no camera or appearance approval.
+
+Run `python scripts/unreal/run-t1-traversal.py --headless` after a native build
+for all configured routes, or omit `--headless` for rendered real-time home
+walks. An optional `--zone` selects one admitted first-pair region. The helper
+verifies candidate/source receipt hashes, original WorldRebuild packages,
+parent/home maps, frozen kit dependencies, existing Saved/WorldEdit documents
+and its implementation/DLL binding. It retains each unique run under
+`artifacts/unreal/t1-redesign/traversal/`, then updates the appropriate
+`traversal-headless-latest.json` or `traversal-camera-latest.json` only after
+all requested routes pass. Failure still checks owner/package preservation.
+
+Use `t1-traversal-pictures.py` with Pillow for two labeled coverage drawings.
+They show configured polylines reached, rather than reconstructed footstep
+tracks. `t1-progress-gallery.py` adds these and the 12 live screenshots to the
+earlier room/terrain views: 86 actual native captures and 14 schematic drawings.
+Driving, complete camera clearance, live campaign/services, ordinary GM
+persistence, network travel/clock, 18v18, lairs, platform, Steam and release
+acceptance remain open.
+
+The final traversal receipts bind the compiled module and implementation hashes,
+with 9,361 saved packages and all 13 existing owner GM documents unchanged.
+Headless run: `traversal/1791417059002101500-33244`; rendered run:
+`traversal/1791417264527414300-9568`. All three typechecks, 1,081 repository
+tests, 473 Unreal tooling tests and ten focused Python terrain/adapter/traversal
+tests pass. The rebuilt Foundation suite passes 145 tests at
+`artifacts/unreal/editor/test-1791416889279-11120`. Migration audit, 33-map world
+validation and 906 model records pass; strict release checking still fails with
+the four retained release gates. No candidate or zone is accepted for release.

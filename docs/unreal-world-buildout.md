@@ -9,7 +9,12 @@ existing first-pair lair and batch sequence gates still apply.
 Read-only T1 obstacle checks now cover retained keep approaches and village
 circulation. Separate private furnished-home studies provide measured doorway,
 floor and step routes with local interior exposure; their regional appearance,
-live movement, GM persistence and license acceptance remain outstanding.
+GM persistence and license acceptance remain outstanding. A separate development
+fixture now walks first-pair roads/supply routes in both directions and four
+furnished-home routes with normal native CharacterMovement. Real-time home
+captures use the normal follow camera. These receipts establish configured
+walking/collision evidence; driving, full camera and gameplay acceptance remain
+outstanding. See the T1 reproduction commands and private coverage/gallery receipts.
 
 The approved scope is 32 existing zones and 70 directed portals in the main
 AegisWar project. Implementation has begun with shared foundations and

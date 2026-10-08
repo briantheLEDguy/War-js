@@ -1,3 +1,19 @@
+## 2026-10-08 - T1 native character traversal
+
+- Add a bounded development traversal fixture for the isolated first-pair home
+  candidates. Use the actual reviewed character definitions, normal capsule,
+  step height and movement component; prohibit flight, alternate models and
+  waypoint teleports. Keep production/remote admission closed.
+- Complete 80 configured road, supply and home routes across Sunmeadow/Cinderfen,
+  including both directions of roads and supply itineraries: about 37 km of
+  fixed-timestep native movement with continuous ground support. Separately
+  walk the four homes in real time and capture 12 normal gameplay-camera views.
+- Bind receipts to implementation/DLL hashes, unchanged private packages and
+  preserved owner GM documents. Add route-coverage drawings, focused fixture
+  validation tests and the native Foundation requirement. Retain vehicle,
+  camera, appearance, gameplay, persistence, network, 18v18 and release gates;
+  live views expose dark Sunmeadow walls and unfinished regional architecture.
+
 ## 2026-10-07 - T1 terrain and atmosphere foundations
 
 - Add shared rectangular bounds, irregular playable outlines, per-axis terrain
