@@ -710,3 +710,14 @@ when repeated serially. The migration audit retains 39 contracts/four blockers,
 as required. No timeout or assertion was weakened. Additional read-only herb
 shoulder/road-centre probes found no verified alternative within 50 m; neither
 pending resource was spawned or relocated.
+
+The final live relief receipt is `traversal/1791438703650517100-16128`: fourteen
+normal-character home/actor approach-and-return routes, 1,996.33 m, zero
+airborne time, jumps or in-route teleports and forty-two native gameplay-camera
+pictures. The stable launcher/source guards pass, along with reached-waypoint
+local authority-clock/weather and indoor shelter checks. Nameplates and the
+retained native actors run in the live world; their service/harvest actions are
+still unverified. The refreshed gallery contains 421 native captures, eighteen
+labeled drawings and the existing twelve synthesized audio previews. Dark
+daylight/night readability, camera acceptance, actual hardware audio, network
+synchronization and all other held gates remain open.

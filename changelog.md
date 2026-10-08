@@ -27,6 +27,11 @@
   concurrent persistence-case timeouts; isolated persistence also passes all
   106 cases without weakening assertions/timeouts. World/model validation and
   the migration audit pass with four release blockers still held.
+- Pass the final stable-source live relief run: fourteen normal-character
+  home/actor walks, 1,996.33 m, zero airborne time and forty-two real gameplay
+  captures with local clock/weather/shelter checks. The private gallery now
+  holds 421 native captures and eighteen labeled drawings; camera, sound and
+  network acceptance remain unverified.
 
 ## 2026-10-08 - T1 modular timber ceilings and interior fill
 
