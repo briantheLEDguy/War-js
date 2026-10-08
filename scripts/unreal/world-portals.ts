@@ -87,17 +87,18 @@ export function validateContentSeparation(maps:ZoneDefinition[]):void {
 }
 function exportGeometry(geometry: BufferGeometry) {
   geometry.computeVertexNormals();
-  const pos = geometry.getAttribute('position'), normal = geometry.getAttribute('normal'), uv = geometry.getAttribute('uv');
-  const positions: number[][] = [], normals: number[][] = [], uvs: number[][] = [];
+  const pos = geometry.getAttribute('position'), normal = geometry.getAttribute('normal'), uv = geometry.getAttribute('uv'), color = geometry.getAttribute('color');
+  const positions: number[][] = [], normals: number[][] = [], uvs: number[][] = [], colors: number[][] = [];
   for (let i = 0; i < pos.count; i++) {
     positions.push([pos.getZ(i) * 100, pos.getX(i) * 100, pos.getY(i) * 100]);
     normals.push([normal.getZ(i), normal.getX(i), normal.getY(i)]);
     uvs.push([uv.getX(i), uv.getY(i)]);
+    if (color) colors.push([color.getX(i), color.getY(i), color.getZ(i), color.getW(i)]);
   }
   const indices = Array.from(geometry.index!.array);
   for (let i = 0; i < indices.length; i += 3) [indices[i + 1], indices[i + 2]] = [indices[i + 2], indices[i + 1]];
   geometry.dispose();
-  return { positions, normals, uvs, indices };
+  return { positions, normals, uvs, indices, ...(color ? { colors } : {}) };
 }
 export function outdoorTerrain(map: ZoneDefinition) {
   if (!worldOrigins[map.id] || map.craterCity || map.cityElevation) throw new Error('Unsupported heightfield terrain');
@@ -114,7 +115,8 @@ export function outdoorTerrain(map: ZoneDefinition) {
   return { zoneId: map.id, ...exportGeometry(geometry) };
 }
 export function outdoorRoads(map: ZoneDefinition) {
-  const geometry = roadSurfaceGeometry(map.paths ?? [], (x, z) => terrainHeight(map, x, z));
+  const geometry = roadSurfaceGeometry(map.paths ?? [], (x, z) => terrainHeight(map, x, z),
+    map.orvrLayout?.terrain.naturalField ? { vergeWidth: 3 } : undefined);
   if (!geometry.index?.count) { geometry.dispose(); return null; }
   return { zoneId: map.id, ...exportGeometry(geometry) };
 }

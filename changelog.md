@@ -1,3 +1,33 @@
+## 2026-10-08 - Connected T1 battlefield terrain prototypes
+
+- Replace road-preserving perimeter relief in new first-pair candidates with
+  connected ridge fingers/shelves, cut drainage and deterministic rolling ground.
+  Share the serialized field between Node grounding and native triangle export,
+  while preserving legacy terrain behavior and active campaign content.
+- Give the advance and flanks vertical profiles, retain staggered battle spaces
+  and two rotations, and grade three unpainted off-road links per zone at their
+  actual road crossings. Export separate immutable candidate map/terrain bundles.
+- Rebase complete keep and furnished-home assemblies vertically together, preserve
+  local collisions and identity bindings, and give home/settlement footing explicit
+  priority over nearby road shoulders. Fix a Cinderfen home-approach regression
+  found by ordinary native walking; keep interior routes aligned with the floor.
+- Add four bounded scenery cells from retained regional source assets, with
+  embedded rocks, irregular grove/reed clusters and private source-channel material
+  adaptations. Preserve roads, rotation spaces, objectives and off-road clearance.
+- Preserve road vertex alpha through native export, widen first-pair verges and
+  add rotated, mixed-scale detail and irregular macro/verge variation using the
+  admitted textures. Retain earlier material behavior outside these candidates.
+- Check combined surface slope across each lane, fixing a Cinderfen village-front
+  bank missed by longitudinal checks. Reject rendered shader fallbacks even when
+  the commandlet exits successfully; repair the new road-alpha graph connection.
+- Add focused field/grounding/footing/assembly/scene tests, measured drawings,
+  native terrain correspondence and player-height captures, and optional safe
+  walkthrough staging. Keep appearance, vehicle/18v18, full lair, GM persistence,
+  network, platform/Steam and release acceptance open.
+- Bind preserved source parents by immutable revision, preventing walkthrough
+  staging from invalidating itself. Verify fresh local entry/GM recovery in both
+  regions; preserve all 13 existing owner documents and accepted capital scenes.
+
 ## 2026-10-08 - Safe T1 walkthrough entry and local GM recovery
 
 - Correct the interactive T1 launch: raw authoring reviews had an anchor at

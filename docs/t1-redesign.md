@@ -787,3 +787,128 @@ Unreal selection passes all 473 tests/85 files when run directly with
 `npx vitest run unreal --maxWorkers=1`, including that case, while the owner game
 stays open. Do not report either full repository run as green. No assertion or
 timeout was weakened, and no unrelated citadel implementation was changed.
+
+## Connected battlefield terrain prototype
+
+The perimeter-only relief study remains historical evidence. The new first-pair
+prototype changes terrain within the route network: open battle spaces, a middle
+saddle/reveal, ridge back slopes and gentler cross-country links. Broad ridge
+fingers, variable-width basalt shelves and authored drainage share a coherent
+heightfield; seeded rolls provide smaller variation. This is authored landform
+construction, not a simulated erosion solver or accepted landscape composition.
+The first native views still show overly smooth, sparse terrain. Scenery cells
+and material adaptations are camera-review prototypes; broad dressing remains open.
+
+`shared/terrainField.ts` is a bounded, serializable source contract used by
+`shared/orvrTerrain.ts`. Ridge branches share height rather than stacking into
+cones. Explicit grids retain Float32 triangle correspondence; first-pair sampling
+uses four-metre spacing. Legacy square/bilinear terrain and unmodified maps retain
+their previous evaluation. Settlement/home pads can explicitly preserve footing
+against nearby road shoulders. Their blends remain graded; objective pads retain
+the established route-priority behavior.
+
+`t1-battlefield-landscape.ts` retains XY gameplay identities and routes, changes
+their elevation profiles, moves keep anchors as complete assemblies and rebases
+absolute scenery onto the new ground. Three deliberate off-road links per region
+share road-intersection heights without painted overlays. Retained furnished-home
+approaches are part of the ground contract. The initial Cinderfen native walk
+failed on a home approach: a neighboring road shoulder raised settlement ground.
+Explicit footing priority and graded entrance links repair that regression;
+outside route targets now use actual new ground, while interiors move rigidly.
+
+`prepare-t1-battlefield.ts` writes immutable signature-qualified bundles under
+`artifacts/unreal/t1-redesign/battlefield`, including all 32 candidate maps and
+reciprocal arrivals. `build-t1-battlefield.py` creates fresh private native copies
+from preserved retained-content receipts. Prior source bundles, old native
+packages, accepted capitals and every existing owner draft remain unchanged.
+Owner-authored content is never merged into or overwritten by these prototypes.
+
+`t1-battlefield-scenes.ts` reserves four small camera-review cells, admitting 71
+Sunmeadow and 52 Cinderfen sockets from existing source models. Grove, limestone,
+basalt and reed clusters keep the road/off-road corridors, objectives and keeps
+clear. Broad rock bases embed beneath surrounding ground without flattening the
+hillside. These conservative reservations do not certify combat cover, camera
+collision, visual quality, native foliage performance or asset distribution.
+Private source-channel adaptations change grass/peat/rock balance while retaining
+the exact reviewed texture inputs; materials and daylight readability remain open.
+
+The road exporter previously omitted the ribbon's vertex alpha, leaving native
+verges opaque. Export now retains that channel and the first pair uses a three-metre
+transition with intermediate fade bands, preserving the solid nine-metre centre
+on twelve-metre roads. Render-only roads keep collision on the terrain. Rotated
+detail at 1.83 times the primary texture scale, irregular macro variation and
+verge breakup reuse the reviewed color/normal channels. Outside this optional
+recipe, earlier material behavior remains unchanged; no source bitmap is edited.
+
+`t1-battlefield-grades.ts` measures combined climb and sideways bank in two-metre
+lanes. The original three-lane longitudinal check missed a Cinderfen village-front
+bank. Broader settlement transitions and a lower frontage junction correct it
+without moving XY identities or keep assemblies independently. Native review
+checks actual collision-face normals as well as source correspondence. The .22
+surface-grade target is an authoring limit; it does not certify driving.
+
+Rendered review also checks the committed native road's corner alpha and rejects
+shader fallback warnings through `t1_render_log.py`. Null-RHI material construction
+alone does not prove shader compilation. The first variation graph connected an
+alpha mask to VertexColor's RGB output and fell back on SM6; that private receipt
+is explicitly rejected and a fresh candidate fixes the alpha pin.
+
+Reproduce with saved Editor/game processes closed:
+
+1. Run `npm run unreal:t1-battlefield`, then `build-t1-battlefield.py` through the
+   project's native Python commandlet. Preserve existing source revisions; reuse
+   a verified bundle for native copies, or generate a fresh revision after changes.
+2. Run `npm run unreal:t1-battlefield-scenes`, then
+   `build-t1-battlefield-scenes.py` for fresh private scene candidates.
+3. Run `review-t1-battlefield.py -WarT1BattlefieldScenes` with commandlet rendering,
+   then `python scripts/unreal/run-t1-traversal.py --candidate battlefield-scenes
+   --headless`. Review checks full-width native ground, source correspondence,
+   arrivals and retained bindings. Walking uses the unchanged normal character.
+4. Run `t1-battlefield-pictures.py` with NumPy/Pillow for measured contour/profile
+   PNGs. The drawings are authoring diagrams; native images remain unmodified.
+5. After matching native review/walking receipts, run `stage-t1-review.py
+   -WarT1BattlefieldScenes`. Launch with `launch-t1-review.py` and use `--proof`
+   to verify ordinary entry/GM recovery before interactive inspection.
+
+Source checks retain the .22 grade target, six 350–750 m supply itineraries,
+two uncapturable staging camps, two keeps, three objectives and campaign/lair
+identities. Native ground/capsule checks, configured walking and pictures grant
+no vehicle, 18v18, online gameplay, persistence or appearance acceptance. Full
+Warden's Hollow/Cindermaw environments still gate batch progression. Brightfen/
+Ashen native buildout and all platform/Steam/release gates remain outstanding.
+
+The final source bundle is `fcb02f40d24d`, native core `e0e713ba3347`, scene cells
+`12cc9a6e4683` and safe walkthrough `c8b15f5ac634`. Source preparation binds the
+qualified original walkthrough and scene-parent receipts. Staging now changes
+only the latest routing pointer; it cannot invalidate a dependency on itself.
+No source/native asset, capital or owner document was overwritten.
+
+Rendered review passes 35,378 Sunmeadow and 36,918 Cinderfen ground samples,
+including native collision-face slopes across two-metre lanes. Maximum combined
+grades are .208023 and .211396; main advances are .208023 and .191891. Source/native
+ground error stays below .000371 cm. All 163,815/163,167 native road corner colors
+match the exported fade. Sixty-four player-height dawn/day/dusk/night PNGs and
+the rendered D3D12/SM6 log pass without shader fallback. Landscape appearance
+remains unapproved: broad slopes are still too smooth/sparse and Cinderfen daylight
+remains too dark. The texture/road improvements do not finish regional art.
+
+`traversal/1791454724817444700-4008/summary.json` records all 110 configured routes:
+56 Sunmeadow (20,732.86 m) and 54 Cinderfen (21,779.81 m). Normal character movement
+retains the 42/96 cm capsule, 45 cm step and 600 cm/s speed, with no jumps or
+in-route teleports. It checks 11,768 saved bindings and preserves 13 owner documents.
+The fresh walkthrough fixtures in `interactive/22e05113fd814660b0733fe9a81df7c1`
+and `interactive/8dc5a074898b44bbbccaf559547c1fcf` pass ordinary character entry,
+GM flight, return from 25 m below terrain and stable walking afterward. Each
+verifies 660 bindings and writes no owner draft. Ordinary persistence and online
+GM admission remain separate gates.
+
+Final repository verification passes 1,097 tests/169 files, the explicit Unreal
+selection 479 tests/88 files, 23 focused Python tests and all three typechecks.
+World/model validation passes 33 maps/906 records. The migration audit retains
+39 contracts/four blockers; strict release exits 1 as required. No C++ changed in
+this pass. Existing Windows builds/146 Foundation checks retain their earlier
+binary/report scope; native terrain/render/walking/entry proofs above are fresh.
+The private `progress-report.html` labels actual native pictures, gameplay
+recovery images and authoring diagrams separately. Native/licensed content stays
+private, and every outstanding visual, lair, vehicle/combat, service/resource,
+persistence, network, audio, platform/Steam and release gate remains open.

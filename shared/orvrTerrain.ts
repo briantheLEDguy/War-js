@@ -1,10 +1,13 @@
 import { resolveZoneSpatial, type ZoneSpatial } from './worldSpatial';
+import { terrainFieldHeight, validateTerrainField, type TerrainField } from './terrainField';
 export interface TerrainPoint { x: number; z: number; y?: number }
 
 export interface OrvrTerrainControls {
   sourceVersion: string;
   /** Graded route graphs blend overlapping supports continuously; legacy authored surfaces retain priority selection. */
   gradedRoutes?: boolean;
+  /** Optional connected ridge/drainage field. Absent on legacy terrain. */
+  naturalField?: TerrainField;
   landforms: Array<TerrainPoint & {
     id: string;
     kind: 'ridge' | 'basin' | 'terrace';
@@ -12,7 +15,7 @@ export interface OrvrTerrainControls {
     radiusZ: number;
     height: number;
   }>;
-  flattenAreas: Array<TerrainPoint & { id: string; radius: number; height: number; feather: number }>;
+  flattenAreas: Array<TerrainPoint & { id: string; radius: number; height: number; feather: number; preserveFooting?: boolean }>;
   clearCorridors: Array<{
     id: string;
     points: TerrainPoint[];
@@ -40,16 +43,18 @@ function flattenWeight(distance: number, radius: number, feather: number): numbe
 /** Pure source-surface evaluation shared by the client and authoritative server. */
 export function orvrHeightAt(terrain: OrvrTerrainControls, x: number, z: number): number {
   if (!Number.isFinite(x) || !Number.isFinite(z)) return 0;
-  let height = 0;
+  let height = terrain.naturalField ? terrainFieldHeight(terrain.naturalField, x, z) : 0;
   for (const landform of terrain.landforms) {
     const d2 = ((x - landform.x) / landform.radiusX) ** 2 + ((z - landform.z) / landform.radiusZ) ** 2;
     if (d2 < 1) height += landform.height * (1 - d2) ** 2;
   }
   let weight = 0;
   let target = 0;
+  let footingWeight = 0, footingTarget = 0;
   for (const area of terrain.flattenAreas) {
     const candidate = flattenWeight(Math.hypot(x - area.x, z - area.z), area.radius, area.feather);
     if (candidate > weight) { weight = candidate; target = area.height; }
+    if (area.preserveFooting && candidate > footingWeight) { footingWeight = candidate; footingTarget = area.height; }
   }
   let corridorWeight = 0, corridorTotal = 0, corridorTarget = 0;
   for (const corridor of terrain.clearCorridors) {
@@ -69,7 +74,8 @@ export function orvrHeightAt(terrain: OrvrTerrainControls, x: number, z: number)
     }
   }
   const supported = height + (target - height) * weight;
-  return corridorTotal ? supported + (corridorTarget / corridorTotal - supported) * corridorWeight : supported;
+  const ground = corridorTotal ? supported + (corridorTarget / corridorTotal - supported) * corridorWeight : supported;
+  return ground + (footingTarget - ground) * footingWeight;
 }
 
 /** Explicit spatial grids match native triangles; untouched grids retain legacy bilinear grounding. */
@@ -79,6 +85,7 @@ export function orvrGridHeightAt(terrain: OrvrTerrainControls, size: number, seg
 
 /** Lazily sample a fixed terrain revision; callers replace the sampler when its controls change. */
 export function createOrvrGridHeightSampler(terrain: OrvrTerrainControls, size: number, segments: number, spatial?: ZoneSpatial): (x: number, z: number) => number {
+  if (terrain.naturalField) validateTerrainField(terrain.naturalField);
   if (!spatial && (!Number.isFinite(size) || size <= 0 || !Number.isInteger(segments) || segments < 1)) return () => 0;
   const grid = resolveZoneSpatial({ size, segments, spatial });
   const { bounds: b, terrainGrid: g } = grid;

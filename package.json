@@ -46,6 +46,8 @@
     "unreal:doctor": "tsx scripts/unreal/toolchain.ts",
     "unreal:world-plan": "tsx scripts/unreal/world-portals.ts",
     "unreal:t1-plan": "tsx scripts/unreal/t1-candidate.ts",
+    "unreal:t1-battlefield": "tsx scripts/unreal/prepare-t1-battlefield.ts",
+    "unreal:t1-battlefield-scenes": "tsx scripts/unreal/prepare-t1-battlefield-scenes.ts",
     "unreal:zone-network-proof": "tsx scripts/unreal/zone-network-proof.ts",
     "unreal:export": "tsx scripts/unreal/export-content.ts",
     "unreal:assets": "tsx scripts/unreal/asset-ledger.ts --output artifacts/unreal/asset-ledger.json",

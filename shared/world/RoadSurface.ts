@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import type { PathDefinition } from './ZoneDefinition';
 
 type Point = { x: number; z: number };
+export interface RoadSurfaceOptions { vergeWidth?: number }
 const HEIGHT_OFFSET = .045;
 const MAX_EDGE_SPACING = 2;
 const pointKey = (point: Point) => `${point.x.toFixed(5)},${point.z.toFixed(5)}`;
@@ -24,7 +25,10 @@ function uniqueRuns(path: PathDefinition, seen: Set<string>): Point[][] {
 }
 
 /** Fit authored bend joins before subdivision, so short resampled edges cannot fold behind a miter. */
-export function roadSurfaceGeometry(paths: readonly PathDefinition[], heightAt: (x: number, z: number) => number): THREE.BufferGeometry {
+export function roadSurfaceGeometry(paths: readonly PathDefinition[], heightAt: (x: number, z: number) => number, options: RoadSurfaceOptions = {}): THREE.BufferGeometry {
+  if (options.vergeWidth !== undefined && (!Number.isFinite(options.vergeWidth) || options.vergeWidth < .3 || options.vergeWidth > 6)) throw new Error('Invalid road verge width');
+  const edges = (half: number) => ({ inner: half - Math.min(options.vergeWidth === undefined ? .35 : options.vergeWidth / 3, half * .25),
+    outer: half + (options.vergeWidth === undefined ? Math.min(.6, half * .5) : options.vergeWidth * 2 / 3) });
   const positions: number[] = [], uvs: number[] = [], colors: number[] = [], indices: number[] = [];
   const seen = new Set<string>();
   const runs = paths.flatMap((path, owner) => uniqueRuns(path, seen).map(points => ({ path, points, owner })));
@@ -61,9 +65,11 @@ export function roadSurfaceGeometry(paths: readonly PathDefinition[], heightAt: 
       const a = points[i], length = Math.hypot(b.x - a.x, b.z - a.z);
       return { x: -(b.z - a.z) / length, z: (b.x - a.x) / length };
     });
-    const half = path.width / 2, inner = half - Math.min(.35, half * .25), outer = half + Math.min(.6, half * .5);
+    const half = path.width / 2, { inner, outer } = edges(half);
     const interiorCount = Math.max(1, Math.ceil(inner * 2 / MAX_EDGE_SPACING));
-    const bands = [-outer, ...Array.from({ length: interiorCount + 1 }, (_, index) => -inner + index * inner * 2 / interiorCount), outer];
+    const vergeSteps = Math.ceil((outer - inner) / MAX_EDGE_SPACING);
+    const verge = Array.from({ length: vergeSteps }, (_, i) => inner + (i + 1) / vergeSteps * (outer - inner));
+    const bands = [...verge.slice().reverse().map(n => -n), ...Array.from({ length: interiorCount + 1 }, (_, index) => -inner + index * inner * 2 / interiorCount), ...verge];
     const sections = points.map((point, index) => {
       const a = normals[Math.max(0, index - 1)], b = normals[Math.min(normals.length - 1, index)];
       const denominator = 1 + a.x * b.x + a.z * b.z;
@@ -78,7 +84,7 @@ export function roadSurfaceGeometry(paths: readonly PathDefinition[], heightAt: 
     const row = (section: Point[]) => {
       const start = positions.length / 3;
       for (const [band, point] of section.entries()) {
-        vertex(point, band === 0 || band === bands.length - 1 ? 0 : 1);
+        vertex(point, Math.max(0, Math.min(1, (outer - Math.abs(bands[band])) / (outer - inner))));
       }
       if (previous >= 0) for (let band = 0; band < bands.length - 1; band++) {
         triangle(previous + band, previous + band + 1, start + band + 1);
@@ -98,17 +104,19 @@ export function roadSurfaceGeometry(paths: readonly PathDefinition[], heightAt: 
   const ribbonIndexCount = indices.length;
   // One feathered apron rounds each junction or physical dead end; interior alignment samples get none.
   for (const { point, halfWidth } of caps) {
-    const inner = halfWidth - Math.min(.35, halfWidth * .25), outer = halfWidth + Math.min(.6, halfWidth * .5);
+    const { inner, outer } = edges(halfWidth);
     // Leave room for the roughly 1m circumferential edge so ring diagonals also stay below 2m.
     const rings = Math.max(1, Math.ceil(inner / Math.sqrt(MAX_EDGE_SPACING ** 2 - 1)));
-    const radii = [...Array.from({ length: rings }, (_, index) => inner * (index + 1) / rings), outer];
+    const vergeRings = Math.ceil((outer - inner) / Math.sqrt(MAX_EDGE_SPACING ** 2 - 1));
+    const radii = [...Array.from({ length: rings }, (_, index) => inner * (index + 1) / rings),
+      ...Array.from({ length: vergeRings }, (_, index) => inner + (index + 1) / vergeRings * (outer - inner))];
     const segments = Math.max(24, Math.ceil(Math.PI * 2 * outer));
     const center = vertex(point, 1);
     let previous: number[] | null = null;
-    for (const [ring, radius] of radii.entries()) {
+    for (const radius of radii) {
       const current = Array.from({ length: segments }, (_, index) => {
         const angle = index * Math.PI * 2 / segments;
-        return vertex({ x: point.x + Math.cos(angle) * radius, z: point.z + Math.sin(angle) * radius }, ring === radii.length - 1 ? 0 : 1);
+        return vertex({ x: point.x + Math.cos(angle) * radius, z: point.z + Math.sin(angle) * radius }, Math.max(0, Math.min(1, (outer - radius) / (outer - inner))));
       });
       for (let index = 0; index < segments; index++) {
         const next = (index + 1) % segments;

@@ -75,6 +75,14 @@ class T1TraversalTest(unittest.TestCase):
         zone['population'][0]['sourceRulesUnchanged']=False
         with self.assertRaises(ValueError): traversal_config(receipt,zone,source,False)
 
+    def test_battlefield_adds_both_directions_of_unpainted_vehicle_links(self):
+        receipt,zone,source=self.fixture(); receipt.update(kind='atmosphere',study='battlefield-landscape')
+        zone['map']=zone['map'].replace('T1Redesign_Homes_', 'T1Redesign_Atmosphere_'); zone['population']=[]
+        source['orvrLayout']['terrain']=dict(clearCorridors=[dict(id='advance',points=[]),dict(id='field_cut',points=[dict(x=1,z=2,y=4),dict(x=2,z=3,y=5)])])
+        config=traversal_config(receipt,zone,source,True)
+        self.assertEqual([r['id'] for r in config['routes']][-2:],['field_cut_forward','field_cut_reverse'])
+        self.assertEqual(config['routes'][-2]['points'],list(reversed(config['routes'][-1]['points'])))
+
 
 if __name__ == '__main__':
     unittest.main()

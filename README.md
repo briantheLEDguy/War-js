@@ -1,5 +1,36 @@
 # AegisWar
 
+The next first-pair terrain prototype uses connected ridge fingers, drainage cuts,
+rolling ground and elevated route profiles. `shared/terrainField.ts` supplies the
+same serializable field to Node grounding and native mesh export; legacy terrain
+keeps its previous behavior. `npm run unreal:t1-battlefield` exports a fresh,
+immutable Sunmeadow/Cinderfen source bundle, including candidate reciprocal
+arrivals, three unpainted off-road vehicle links per zone and retained home
+footing. Run `build-t1-battlefield.py` in the native Python commandlet for new
+private maps with complete keep/home assemblies rebased together.
+
+`npm run unreal:t1-battlefield-scenes` prepares four small regional camera-review
+cells using retained source assets. `build-t1-battlefield-scenes.py` creates fresh
+private copies with embedded rock, grove/reed clusters and source-channel material
+adaptations. `review-t1-battlefield.py -WarT1BattlefieldScenes` checks native
+triangle/grade correspondence, saved road fade and rendered shader logs, and
+captures dawn/day/dusk/night. Road export retains vertex alpha; first-pair
+verges blend over three metres. Rotated detail at a second physical scale and
+irregular macro/verge variation reuse the admitted source textures. Source
+grade checks cover both climb and sideways bank across two-metre lanes. Use
+`run-t1-traversal.py --candidate battlefield-scenes --headless` for configured
+normal walking, then `stage-t1-review.py -WarT1BattlefieldScenes` for safe GM
+walkthrough routing after matching native reviews. These are unfinished terrain
+and scenery prototypes; appearance, driving, combat, persistence and release
+acceptance remain open. Previous source bundles, owner work and capitals remain
+preserved. See [T1 implementation](docs/t1-redesign.md).
+
+Source preparation binds revision-qualified baseline/walkthrough receipts, so
+staging a newer walkthrough does not invalidate its own dependencies. The latest
+first-pair pass verifies 110 configured walking routes and ordinary character
+entry/local GM recovery in both regions. See the private `progress-report.html`
+under `artifacts/unreal/t1-redesign` for labeled native views and measured drawings.
+
 For interactive T1 inspection, stage safe walkthroughs with
 `scripts/unreal/stage-t1-review.py` in the native Python commandlet, then run
 `python scripts/unreal/launch-t1-review.py --zone sunmeadow_march` (or

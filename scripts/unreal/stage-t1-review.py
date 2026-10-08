@@ -17,10 +17,16 @@ DIRECTORY = ROOT/'artifacts/unreal/t1-redesign'
 CONTENT = ROOT/'unreal/AegisWar/Content'
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 read = lambda p: json.loads(p.read_text(encoding='utf-8-sig'))
-parent = read(DIRECTORY/'relief-latest.json')
-if parent.get('study') != 'dramatic-relief': raise RuntimeError('Expected the verified dramatic-relief candidates')
+scene_cells = '-wart1battlefieldscenes' in unreal.SystemLibrary.get_command_line().lower()
+parent = read(DIRECTORY/('battlefield-scenes-latest.json' if scene_cells else 'relief-latest.json'))
+if parent.get('study') != ('battlefield-landscape' if scene_cells else 'dramatic-relief'): raise RuntimeError('Expected the matching verified first-pair candidates')
+if scene_cells:
+    views = read(DIRECTORY/'battlefield-scenes-review.json')
+    walking = read(DIRECTORY/'battlefield-scenes-traversal-headless-latest.json')
+    if views['signature'] != parent['signature'] or walking['signature'] != parent['signature'] or not views['savedCandidatesUnchanged'] or not walking['savedCandidatesUnchanged'] or not views.get('materialShaderCompilationPassed'):
+        raise RuntimeError('Walkthrough staging needs matching native ground/views and configured walking evidence')
 source_packages = {**parent['inputs']['parentPackages'], **parent['packageHashes']}
-source_assets = {**parent['inputs']['parentAssetHashes'], **parent['assetHashes']}
+source_assets = {**parent['inputs'].get('parentAssetHashes',{}), **parent['assetHashes']}
 source_assets.update({'unreal/AegisWar/Content/'+p.removeprefix('/Game/')+'.uasset': h
                      for p,h in parent['inputs']['dependencyHashes'].items()})
 source_assets.update(parent['inputs']['sourceHashes'])
@@ -57,7 +63,7 @@ try:
         anchor = anchors[0]
         if anchor.get_outer().get_path_name().split('.')[0] != target: raise RuntimeError('Anchor belongs to a parent layer')
         before = {a.get_path_name():snapshot(a) for a in actors.get_all_level_actors() if a != anchor}
-        source = read(DIRECTORY/(identity+'.json'))
+        source = read(ROOT/zone['sourceDirectory']/(identity+'.json')) if scene_cells else read(DIRECTORY/(identity+'.json'))
         reviewer = GroundReview(world,actors,identity,source['spatial']['playableOutline'])
         support = reviewer.center(arrival_point(source))
         if not support: raise RuntimeError('Authored arrival is obstructed: '+json.dumps(reviewer.failures))

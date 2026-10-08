@@ -300,3 +300,41 @@ vistas; `run-t1-traversal.py --candidate relief` proves normal walking in the
 new copies. Source normals retain the original clockwise triangle topology.
 Unverified cliffs/erosion, lighting, off-road movement, siege/vehicle/sight-line
 fairness, ordinary GM/network, first-pair lairs and release gates remain open.
+
+The next first-pair battlefield pass uses `shared/terrainField.ts` and
+`t1-battlefield-landscape.ts` for connected ridge/drainage mass, elevated roads
+and three unpainted off-road links per zone. `prepare-t1-battlefield.ts` writes
+new immutable Node/terrain source bundles; `build-t1-battlefield.py` creates
+fresh private copies with complete keep/home assemblies rebased vertically.
+Explicit home footing and approach grading repair a Cinderfen walking regression
+from a neighboring road shoulder. Old source/native scenes and owner drafts
+remain preserved; active campaign/native acceptance stays unchanged.
+
+`t1-battlefield-scenes.ts` prepares four small camera-review cells from retained
+source assets. `build-t1-battlefield-scenes.py` clones private candidates with
+embedded rocks, grove/reed groups and source-channel material adaptations.
+`review-t1-battlefield.py -WarT1BattlefieldScenes` verifies native ground/grades
+and renders player-height views. `run-t1-traversal.py --candidate battlefield-scenes`
+with `--headless` checks configured normal walking, including all unpainted ground
+links and retained homes. After matching native review/walking receipts,
+`stage-t1-review.py -WarT1BattlefieldScenes` stages safe interactive GM routing.
+These prototypes do not accept appearance, cover balance, vehicle/siege/18v18,
+ordinary GM persistence, network, full lairs, platform/Steam or release gates.
+
+Road surface export must retain vertex alpha. First-pair terrain-field candidates
+use three-metre verges and mixed-scale, rotated source-channel detail; the optional
+variation graph preserves legacy material recipes elsewhere. Validate combined
+surface slope across two-metre lanes, including sideways bank, and compare native
+collision normals against the .22 target. Rendered review checks committed road
+corner alpha and the explicit `-abslog` for shader fallbacks before publishing a
+usable review receipt. A successful null-RHI build or commandlet exit cannot grant
+shader/render acceptance. See `tests/unrealT1RoadVerge.test.ts` and the focused
+surface-variation/render-log Python checks.
+
+Preserve baseline references by qualified receipt, rather than `review-latest`
+or a mutable scene-parent pointer. The final first-pair scene `12cc9a6e4683`
+passes 72,296 ground samples, saved road fades, rendered shader checks and 110
+configured normal walking routes. Walkthrough `c8b15f5ac634` passes ordinary entry
+and local GM recovery for both regions, preserving all 13 owner documents.
+These results leave landscape appearance, driving/combat and other release gates
+open. Exact receipt paths and test scope are recorded in `docs/t1-redesign.md`.

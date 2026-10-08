@@ -8,6 +8,7 @@ import { regionalSceneModules } from './t1-scene-modules';
 import { outdoorTerrain, outdoorRoads, portalPlan, terrainHeight } from './world-portals';
 import { canonicalJson, sha256 } from './content-contract';
 import { isMain, repoRoot } from './toolchain';
+import { offRoadLinks } from './t1-battlefield-landscape';
 
 const escape = (value: string) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
 export function topologyDrawing(zone: ZoneDefinition): string {
@@ -16,10 +17,15 @@ export function topologyDrawing(zone: ZoneDefinition): string {
   const xy = (p: number[]) => project({ x: p[0], z: p[1] });
   const text = (p: { x: number; z: number }, label: string) => `<text x="${project(p).split(',')[0]}" y="${Number(project(p).split(',')[1]) - 14}" class="label">${escape(label)}</text>`;
   const parts = [`<svg xmlns="http://www.w3.org/2000/svg" width="1020" height="840" viewBox="0 0 1020 840"><style>text{font-family:Segoe UI,Arial;fill:#e8e7db}.label{font-size:12px;paint-order:stroke;stroke:#172227;stroke-width:3px}.title{font-size:27px}.note{font-size:13px}</style><rect width="1020" height="840" fill="#172227"/><text x="30" y="38" class="title">${escape(zone.name)} — topology candidate</text><text x="30" y="66" class="note">${escape(r.theme)}</text><polygon points="${zone.spatial!.playableOutline.map(project).join(' ')}" fill="${r.palette[0]}" stroke="#d4c99d" stroke-width="2"/>`];
-  for (const [x, z, rx, rz, h] of r.landforms) if (h > 0) parts.push(`<ellipse cx="${xy([x, z]).split(',')[0]}" cy="${xy([x, z]).split(',')[1]}" rx="${rx / (b.maxX - b.minX) * 960}" ry="${rz / (b.maxZ - b.minZ) * 620}" fill="#ddd6b1" opacity=".13"/>`);
+  const field = zone.orvrLayout!.terrain.naturalField;
+  if (field) {
+    for (const ridge of field.ridges) parts.push(`<polyline points="${ridge.points.map(project).join(' ')}" fill="none" stroke="#ddd6b1" stroke-width="45" stroke-linecap="round" opacity=".18"/>`, text(ridge.points[Math.floor(ridge.points.length / 2)], ridge.id.replaceAll('_', ' ')));
+    for (const channel of field.channels) parts.push(`<polyline points="${channel.points.map(project).join(' ')}" fill="none" stroke="#5f8c9a" stroke-width="12" opacity=".4"/>`);
+  } else for (const [x, z, rx, rz, h] of r.landforms) if (h > 0) parts.push(`<ellipse cx="${xy([x, z]).split(',')[0]}" cy="${xy([x, z]).split(',')[1]}" rx="${rx / (b.maxX - b.minX) * 960}" ry="${rz / (b.maxZ - b.minZ) * 620}" fill="#ddd6b1" opacity=".13"/>`);
   for (const [i, route] of (zone.paths ?? []).entries()) parts.push(`<polyline points="${route.points.map(project).join(' ')}" fill="none" stroke="${i === 0 ? '#ffe5a1' : i < 3 ? '#83d4e1' : i < 5 ? '#eea4e2' : '#c9c8ae'}" stroke-width="${i < 3 ? 5 : 3}" stroke-linejoin="round"/>`);
+  if (field) for (const link of offRoadLinks(zone.id)) parts.push(`<polyline points="${link.points.map(project).join(' ')}" fill="none" stroke="#a8f1bb" stroke-width="3" stroke-dasharray="7 5"/>`);
   for (const keep of zone.orvrLayout!.keeps) parts.push(`<rect x="${Number(project(keep).split(',')[0]) - 14}" y="${Number(project(keep).split(',')[1]) - 12}" width="28" height="24" fill="${keep.realm === 'aegis' ? '#244e7b' : '#842c38'}" stroke="#fff"/>`, text(keep, `${keep.realm} keep`));
-  for (const [i, bo] of zone.orvrLayout!.battlefieldObjectives.entries()) parts.push(`<circle cx="${project(bo).split(',')[0]}" cy="${project(bo).split(',')[1]}" r="10" fill="#ffe5a1" stroke="#172227"/>`, text(bo, `Objective ${i + 1}`));
+  for (const [i, bo] of zone.orvrLayout!.battlefieldObjectives.entries()) parts.push(`<circle cx="${project(bo).split(',')[0]}" cy="${project(bo).split(',')[1]}" r="10" fill="#ffe5a1" stroke="#172227"/>`, text(bo, `Objective ${i + 1}${field ? [': battle space', ': saddle', ': counterpush space'][i] : ''}`));
   for (const camp of zone.orvrLayout!.stagingCamps) parts.push(`<circle cx="${project(camp).split(',')[0]}" cy="${project(camp).split(',')[1]}" r="15" fill="none" stroke="#fff" stroke-dasharray="3 3"/>`, text(camp, `${camp.realm} staging`));
   const v = { x: r.village[0], z: r.village[1] };
   for (const module of villagePlan(zone).modules) parts.push(`<polygon points="${[[-1, -1], [-1, 1], [1, 1], [1, -1]].map(([x, z]) => project(moduleLocalPoint(module, { x: x * module.reservation.width / 2, z: z * module.reservation.depth / 2 }))).join(' ')}" fill="${module.interiorRequired ? '#91e0c4' : '#eed6b1'}"/>`);

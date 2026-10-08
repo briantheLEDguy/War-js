@@ -63,6 +63,9 @@ describe('native campaign world', () => {
   it('places source road ribbons directly above the exported ground triangles', () => {
     const map=maps().find(map=>map.id==='brightfen_approach')!, roads=outdoorRoads(map)!;
     expect(roads.indices.length).toBeGreaterThan(0);
+    expect(roads.colors).toHaveLength(roads.positions.length);
+    expect(roads.colors!.some(c => c[3] === 0)).toBe(true);
+    expect(roads.colors!.some(c => c[3] === 1)).toBe(true);
     for (let i=0;i<roads.positions.length;i+=137) {
       const [x,y,z]=roads.positions[i];
       expect(z/100-terrainHeight(map,y/100,x/100)).toBeCloseTo(.045,3);

@@ -227,5 +227,6 @@ export function validateT1(zone: ZoneDefinition): void {
   for (const route of layout.caravanRoutes) if (length(route.points) < 350 || length(route.points) > 750) throw new Error('Supply pacing outside target band');
   for (const trigger of zone.zoneTriggers ?? []) if (!trigger.arrivalPoint || !containsSpatialPoint(spatial, trigger, trigger.radius) || !spatialSegmentInside(spatial, trigger, trigger.arrivalPoint, 1)) throw new Error(`Unsafe authored arrival: ${trigger.id}`);
   const terrain = layout.terrain;
-  if (Math.max(...terrain.landforms.map(p => orvrHeightAt(terrain, p.x, p.z))) < 25) throw new Error('Terrain relief is insufficient');
+  const relief = [...terrain.landforms, ...terrain.naturalField?.ridges.flatMap(r => r.points) ?? []];
+  if (Math.max(...relief.map(p => orvrHeightAt(terrain, p.x, p.z))) < 25) throw new Error('Terrain relief is insufficient');
 }
