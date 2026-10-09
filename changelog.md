@@ -2024,3 +2024,41 @@ online/network/audio, platform/performance/Steam and release gates remain open.
   Foundation tests plus three typechecks, audit and world/model validation.
   Retain collision-export performance warnings and all art, driving/18v18,
   lair, persistence, network/platform/Steam and release gates.
+
+
+## T1 foliage and shallow-water checkpoint (9 October 2026)
+
+Private scene `76b47c33f5d8`, navigation `e716cd49820d` and safe walkthrough
+`266b62bcfce3` retain source `83b37fc34b68` and the existing battlefield terrain.
+Fresh private grass assets preserve exact original LOD-zero geometry/source
+channels and add three descending native detail levels. Deterministic short-grass
+colonies produce 9,106 Sunmeadow and 6,375 Cinderfen instances, retaining the
+12,000-instance ceiling, local-only/no-collision policy and 35-120m culling.
+Leaf-only private overrides adapt 331 Sunmeadow tree/shrub actors while preserving
+bark, geometry and collision. More instances alone did not solve sparse scenery.
+
+Bounded water normals and optical coefficients make shallow pools more readable
+through the normal gameplay camera. Terrain, surface geometry and collision are
+unchanged. Twelve actual follow-camera images cover all six exploration pockets;
+three have water. Uniform banks, repeated ground and harsh small-tree silhouettes
+remain unfinished. No visual or performance acceptance is claimed.
+
+Fresh verification passes 102 rendered views, 138 configured normal walking
+routes, 88 pedestrian/convoy navigation queries before save and after reload,
+exact safe-copy tile payloads, and both ordinary entry/local GM recovery fixtures
+without draft writes. Entry runs are `833e2ecd85f34964beaf0642a5e8c1b5` and
+`dbe7255bac964b128563a7b4939643d9`. All 13 owner documents and pinned parent /
+capital maps remain preserved. The additional navigation-copy walking rerun
+belongs to earlier `d54e08045a9e`, not the current navigation copy.
+
+Repository tests pass 1108/172 files, Unreal selection 487/91, focused Python
+90/24 and all three typechecks. Migration audit and world/model validation pass;
+strict release exits 1 as required. No C++ changed; earlier Windows Editor/Game
+builds and 151 native Foundation tests retain their documented earlier scope.
+Private `progress-report-foliage-76b47c33f5d8.html` embeds fourteen actual native
+images/labeled drawings; `foliage-checkpoint-76b47c33f5d8.json` records their hashes.
+
+Retain human visual, full first-batch lairs, actual vehicle driving/turning,
+closed animated gates, 18v18, service/resource behavior, ordinary GM persistence,
+online/network/audio, frame/memory/travel, three-platform/Steam and release gates.
+Later-pair native environments and underground environments remain unbuilt.

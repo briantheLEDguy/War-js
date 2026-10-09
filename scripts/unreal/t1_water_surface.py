@@ -7,11 +7,11 @@ def water_surface(identity):
         raise ValueError('No admitted shallow-water region')
     sun=identity=='sunmeadow_march'
     return dict(waves=[dict(angle=a,wavelengthMetres=w,cyclesPerSecond=s,slope=v,phase=p)
-        for a,w,s,v,p in ((.21,4.6,.016,.009,.17),(1.13,7.3,-.011,.006,.61),(2.41,2.9,.023,.005,.38))],
-        noiseMetres=11.7,phaseWarp=.23,roughness=.26,opacity=.18,specular=.35,
-        color=[.045,.065,.055] if sun else [.045,.043,.034],
-        scattering=[.0012,.0016,.0014] if sun else [.0024,.0021,.0014],
-        absorption=[.006,.002,.004] if sun else [.004,.0045,.005])
+        for a,w,s,v,p in ((.21,4.6,.016,.023,.17),(1.13,7.3,-.011,.016,.61),(2.41,2.9,.023,.014,.38))],
+        noiseMetres=11.7,phaseWarp=.23,roughness=.16,opacity=.18,specular=.5,
+        color=[.025,.045,.055] if sun else [.045,.043,.034],
+        scattering=[.0008,.001,.0014] if sun else [.0024,.0021,.0014],
+        absorption=[.003,.0016,.0008] if sun else [.004,.0045,.005])
 
 
 def ripple_normal(x_metres,y_metres,seconds,noise,recipe):

@@ -17,6 +17,9 @@ from t1_population_native import spawn_population,population_actor,GroundReview
 from t1_surface_variation import surface_variation
 from t1_rock_surface import rock_surface
 from t1_landscape_ecology import admitted_cover,cover_layout,pocket_water
+from t1_ecology_clusters import clustered_cover
+from t1_canopy import canopy_sources
+from t1_canopy_native import adapt_canopies
 from t1_ecology_native import ground_cover,water_material,cover_inventory
 from t1_water_surface import water_surface
 from t1_pocket_dressing import pocket_dressing
@@ -55,10 +58,11 @@ for r in recipes.values():
 cover_sources={}
 for z in parent['zones']:
     data,cover_inputs=admitted_cover(ROOT,z['id']); cover_sources[z['id']]=data; files.update(cover_inputs)
+canopies,canopy_inputs=canopy_sources(ROOT);files.update(canopy_inputs)
 verify_sources()
 
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
@@ -100,6 +104,8 @@ try:
                 state['location']=[p['z']*100,p['x']*100,h]; state['tags']+=['WarT1BattlefieldSceneCell']
                 if p['id'] in states: raise RuntimeError('Duplicate scene actor identity')
                 states[p['id']]=state
+        if identity=='sunmeadow_march':
+            states,materials['canopy']=adapt_canopies(assets,states,canopies)
         if identity=='cinderfen_outskirts':
             rock=recipes[identity]['layers']['terrain']['rockLayer']
             basalt=assets.material(identity+'_charcoal_basalt',dict(textures={k:rock[k] for k in ('color','normal')},color=[*rock['tint'],1],roughness=.92,metallic=0))
@@ -127,7 +133,7 @@ try:
         if not generated: raise RuntimeError('Cannot create scene generated layer')
         unreal.EditorLevelUtils.make_level_current(generated)
         population_ids={r['id'] for r in original['population']}; clone(actors,{k:v for k,v in states.items() if k not in population_ids},{})
-        native_cover=ground_cover(actors,assets,identity,cover_sources[identity],cover_layout(source,surface.height_cm,original['landscapePockets']))
+        native_cover=ground_cover(actors,assets,identity,cover_sources[identity],clustered_cover(source,surface.height_cm,original['landscapePockets'],cover_layout(source,surface.height_cm,original['landscapePockets'])))
         for row in original['population']:
             actor=spawn_population(actors,row)
             if not same_state(population_actor(actor),row['savedState']): raise RuntimeError('Scene copy changed population')

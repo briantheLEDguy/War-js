@@ -2,10 +2,12 @@
 import math
 import unreal
 from t1_water_surface import water_surface
+from t1_foliage_native import foliage_detail,foliage_inventory
 
 
 def ground_cover(actors,assets,identity,data,layout):
     mesh=assets.composite(identity+'_regional_ground_cover',data,False)
+    foliage_detail(assets,identity,mesh)
     for i in range(mesh.get_num_sections(0)):
         material=mesh.get_material(i); material.set_editor_property('used_with_instanced_static_meshes',True)
         unreal.MaterialEditingLibrary.recompile_material(material); unreal.EditorAssetLibrary.save_loaded_asset(material,only_if_is_dirty=False)
@@ -34,7 +36,7 @@ def cover_inventory(actors):
             p=t.translation; q=t.rotation; s=t.scale3d
             rows.append(dict(location=[p.x,p.y,p.z],quaternion=[q.x,q.y,q.z,q.w],scale=[s.x,s.y,s.z]))
         result[actor.get_actor_label()]=dict(mesh=c.static_mesh.get_path_name(),materials=[c.get_material(i).get_path_name() for i in range(c.get_num_materials())],
-            instances=rows,count=len(rows),collision='NoCollision',localCosmetic=True,appearanceApproved=False)
+            instances=rows,count=len(rows),foliageDetail=foliage_inventory(c.static_mesh),collision='NoCollision',localCosmetic=True,appearanceApproved=False)
     return result
 
 
