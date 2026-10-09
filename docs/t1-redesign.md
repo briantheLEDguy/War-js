@@ -1023,3 +1023,45 @@ below terrain and stable walking, with no draft writes. The private checkpoint
 `natural-checkpoint-e6eaa25eb1f7.json` links exact receipts; the matching qualified
 HTML progress report embeds unmodified native PNGs and measured drawings directly,
 fixing dependence on relative image links. It explicitly labels unfinished art.
+
+
+## 2026-10-09 shoreline and texture iteration
+
+`t1_water_surface.py` replaces the two regular cardinal ripple axes with three
+unequal oblique wavelengths (4.6/7.3/2.9m), gentle opposing phase speeds and a
+bounded total normal slope below .021. A fingerprinted regional color channel
+perturbs phase. This changes only local shading; collision, terrain and gameplay
+remain unchanged. Pure checks cover slope, continuity and finite inputs. The
+fresh native render removes the obvious grid, but the shallow water still needs
+composition and color work; no appearance acceptance is granted.
+
+Dark source color had been used directly in macro/detail masks, suppressing
+variation. `t1_surface_variation.py` now admits an explicit bounded linear-channel
+range; the material graph clamps and smoothsteps that range before mixing scales
+and macro brightness. Sunmeadow uses .04–.24 and Cinderfen .008–.075, informed by
+measured source PNG channels after sRGB decoding. Terrain and road shaders retain
+world-space scale and their original reviewed textures. Sunmeadow's green tint
+is reduced, with stronger soft substrate patches rather than hard color borders.
+
+`t1_pocket_dressing.py` builds uneven elevation-following bank patches from the
+already admitted parent shrub/reed/rock meshes. It rejects full corridor widths,
+services, preserved footings and overlapping reservations. Fresh private scene
+`66ce92c05559` admits 125/143 additional bank placements and 4,470/2,740 saved
+cosmetic ground-cover instances in Sunmeadow/Cinderfen. Three wet and three dry
+pockets remain; no new quest, encounter, hazard or underground environment is
+implied. All 98 fresh native captures pass saved bindings, source/native grade
+and shader-fallback checks. Normal walking and ordinary-entry receipts must match
+this exact candidate before it replaces the safe walkthrough.
+
+
+Candidate `66ce92c05559` passes all 122 configured normal walking routes in
+`traversal/1791562764861658000-1688/summary.json`. Its twelve actual gameplay-camera
+captures in `ecology-gameplay/1791562848406262800-17228/summary.json` cover all six
+pockets with visible normal characters. Safe walkthrough `cd0c11467c46` separately
+passes ordinary entry and local GM flight/below-terrain recovery for both regions,
+with no draft writes. All 13 owner documents and pinned saved bindings remain
+unchanged. The matching private checkpoint/report embeds ten unedited PNGs and
+labeled drawings. Sixty-five focused Python checks pass; the Unreal regression
+selection passes 484 checks across 90 files. Previous build/native Foundation and
+three-platform/release results keep their previously documented scope; no new
+C++ build or release acceptance is inferred from this shading/scenery iteration.

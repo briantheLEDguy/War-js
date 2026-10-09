@@ -4,16 +4,19 @@ import math
 
 def surface_variation():
     return dict(secondaryScale=1.83, secondaryAngle=.63, maskMetres=31, macroMetres=94,
-                vergeMetres=7, minimumMix=.25, maximumMix=.65, macroMinimum=.84)
+                vergeMetres=7, minimumMix=.25, maximumMix=.65, macroMinimum=.76, channelRange=[.04,.24])
 
 
 def validate_variation(row):
     limits = dict(secondaryScale=(1.2, 4), secondaryAngle=(-math.pi, math.pi), maskMetres=(12, 120),
                   macroMetres=(40, 250), vergeMetres=(2, 15), minimumMix=(0, .45),
                   maximumMix=(.5, .9), macroMinimum=(.65, 1))
-    if set(row) != set(limits) or any(not isinstance(row[k], (float, int)) or not math.isfinite(row[k])
+    if set(row) != set(limits)|{'channelRange'} or any(not isinstance(row[k], (float, int)) or not math.isfinite(row[k])
         or not lo <= row[k] <= hi for k, (lo, hi) in limits.items()):
         raise ValueError('Invalid regional surface variation')
+    bounds=row['channelRange']
+    if not isinstance(bounds,list) or len(bounds)!=2 or any(not isinstance(v,(int,float)) or not math.isfinite(v) for v in bounds) or not 0<=bounds[0]<bounds[1]<=1:
+        raise ValueError('Invalid reviewed variation channel range')
 
 
 def rotated_uv(native_cm, metres, angle):
@@ -68,3 +71,11 @@ def shoreline_weight(row,x,z,y):
     radial=max(0,min(1,(row['radius']-math.sqrt((x-row['x'])**2+(z-row['z'])**2+(y-row['waterY'])**2))/12))
     vertical=max(0,1-abs(y-row['waterY'])/.8)
     return radial*vertical*vertical*(3-2*vertical)*.65
+
+
+def channel_weight(row,value):
+    """Rescale dark linear colour channels before using them as macro blend masks."""
+    validate_variation(row)
+    if not math.isfinite(value):raise ValueError('Invalid colour sample')
+    low,high=row['channelRange'];t=max(0,min(1,(value-low)/(high-low)))
+    return t*t*(3-2*t)

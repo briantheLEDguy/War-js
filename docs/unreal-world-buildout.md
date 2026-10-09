@@ -365,3 +365,12 @@ Later-pair native environments and underground spaces are still outstanding.
 See `docs/t1-redesign.md` and private signature-qualified receipts for precise
 verification; retain all human, combat, persistence, network/platform and release
 gates. Close saved Editor/game processes before any native module/content rebuild.
+
+
+The isolated shoreline iteration `66ce92c05559` / safe walkthrough `cd0c11467c46`
+adds terrain-following bank groups, denser cosmetic sedge/grass, corrected source
+mask ranges and gentle oblique water ripples. Fresh native render, 122 configured
+walking routes, twelve actual gameplay-camera views and both ordinary-entry/local
+GM recovery fixtures pass. The private report embeds images directly. This is a
+verified technical checkpoint with unfinished terrain and shoreline art; every
+human, vehicle/combat, lair, persistence/network/platform and release gate remains.

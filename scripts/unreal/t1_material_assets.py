@@ -55,8 +55,12 @@ def regional_material(assets, key, recipe):
         rotated_v = binary('Add', binary('Multiply', y, constant(math.sin(angle))), binary('Multiply', negative_x, constant(math.cos(angle))))
         secondary_uv = binary('Divide', binary('AppendVector', rotated_u, rotated_v), constant(recipe['tileMetres']*variation_recipe['secondaryScale']*100))
         mask_sample = texture('color', binary('Divide', axes, constant(variation_recipe['maskMetres']*100)))
-        mask = binary('Add', constant(variation_recipe['minimumMix']), binary('Multiply', mask_sample,
-            constant(variation_recipe['maximumMix']-variation_recipe['minimumMix']), 'R'))
+        def channel_mask(sample):
+            low,high=variation_recipe['channelRange']
+            weight=clamp(binary('Divide',binary('Subtract',sample,constant(low),'R'),constant(high-low)))
+            return binary('Multiply',binary('Multiply',weight,weight),binary('Subtract',constant(3),binary('Multiply',weight,constant(2))))
+        mask = binary('Add', constant(variation_recipe['minimumMix']), binary('Multiply', channel_mask(mask_sample),
+            constant(variation_recipe['maximumMix']-variation_recipe['minimumMix'])))
         color = binary('Multiply', lerp(samples['color'], texture('color', secondary_uv), mask, 'RGB', 'RGB'), tint)
         normal_detail = node('Normalize'); wire(lerp(samples['normal'], texture('normal', secondary_uv), mask, 'RGB', 'RGB'), '', normal_detail, 'VectorInput')
         normal_pin = ''
@@ -101,7 +105,7 @@ def regional_material(assets, key, recipe):
         if variation_recipe:
             macro_sample = texture('color', binary('Divide', axes, constant(variation_recipe['macroMetres']*100)))
             minimum = variation_recipe['macroMinimum']
-            variation = binary('Add', constant(minimum), binary('Multiply', macro_sample, constant(1-minimum), 'R'))
+            variation = binary('Add', constant(minimum), binary('Multiply', channel_mask(macro_sample), constant(1-minimum)))
         else:
             waves = []
             for coordinate, metres in zip((x, y), recipe['macroMetres']):

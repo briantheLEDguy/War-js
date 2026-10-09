@@ -18,6 +18,8 @@ from t1_surface_variation import surface_variation
 from t1_rock_surface import rock_surface
 from t1_landscape_ecology import admitted_cover,cover_layout,pocket_water
 from t1_ecology_native import ground_cover,water_material,cover_inventory
+from t1_water_surface import water_surface
+from t1_pocket_dressing import pocket_dressing
 from world_build_assets import WorldAssets
 
 BASE=ROOT/'artifacts/unreal/t1-redesign'; CONTENT=ROOT/'unreal/AegisWar/Content'; read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
@@ -33,16 +35,19 @@ def verify_sources():
 verify_sources(); protected=protected_saved(ROOT)
 recipes={z['id']:terrain_recipe(ROOT,z['id']) for z in parent['zones']}
 for identity,r in recipes.items():
-    r['layers']['terrain']['tint']=[.55,1.22,.8,1] if identity=='sunmeadow_march' else [.8,1.04,.87,1]
+    r['layers']['terrain']['tint']=[.62,.98,.72,1] if identity=='sunmeadow_march' else [.8,1.04,.87,1]
     r['layers']['terrain']['rockColor']=[.3,.29,.26] if identity=='sunmeadow_march' else [.13,.135,.14]
     r['layers']['terrain']['macroMinimum']=.75
-    for layer in r['layers'].values(): layer['surfaceVariation']=surface_variation()
+    for layer in r['layers'].values():
+        layer['surfaceVariation']=surface_variation()
+        if identity=='cinderfen_outskirts':layer['surfaceVariation']['channelRange']=[.008,.075]
     r['layers']['terrain']['rockLayer']=rock_surface(ROOT,identity)
     if identity=='cinderfen_outskirts': r['layers']['terrain']['rockLayer']['tint']=[.48,.56,.64]
+    r['waterSurface']=dict(**water_surface(identity),phaseChannel=r['layers']['terrain']['color'])
     r['layers']['terrain']['shorelines']=[dict(x=p['x'],z=p['z'],waterY=p['waterY'],radius=p['radius']+60) for p in next(z for z in parent['zones'] if z['id']==identity)['landscapePockets'] if p['cosmeticWater']]
     r['layers']['terrain']['substrate']=dict(color=r['layers']['roads']['color'],normal=r['layers']['roads']['normal'],
         tint=[.5,.65,.5] if identity=='sunmeadow_march' else [.68,.6,.48],tileMetres=2.8,patchMetres=43 if identity=='sunmeadow_march' else 37,
-        patchStrength=.24,slopeStrength=.18,maskRange=[.025,.18] if identity=='sunmeadow_march' else [.01,.09])
+        patchStrength=.34,slopeStrength=.24,maskRange=[.025,.18] if identity=='sunmeadow_march' else [.01,.09])
 for r in recipes.values():
     rock=r['layers']['terrain']['rockLayer']; files.update(rock['reviewInputs'])
     for channel in ('color','normal'): files[rock[channel]['path']]=rock[channel]['sha256']
@@ -52,7 +57,7 @@ for z in parent['zones']:
 verify_sources()
 
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
@@ -76,7 +81,9 @@ try:
             states[identity+'_'+role]['materials']=[material.get_path_name()]
             materials[role]=dict(asset=material.get_path_name(),expressions=expressions,sourceChannelsVerified=True,appearanceApproved=False)
         cells=next(z['scenes'] for z in recipe['zones'] if z['id']==identity)
-        for cell in cells:
+        dressing=pocket_dressing(source,surface.height_cm,original['landscapePockets'],[p for c in cells for p in c['placements']])
+        all_cells=[*cells,dict(placements=dressing)]
+        for cell in all_cells:
             for p in cell['placements']:
                 state=copy.deepcopy(original['actorInventory'][p['sourceLabel']])
                 if state['kind']!='mesh': raise RuntimeError('Scene socket requires its admitted static source')
@@ -102,7 +109,7 @@ try:
         water_surfaces=[]
         wet=[p for p in original['landscapePockets'] if p['cosmeticWater']]
         if wet:
-            material=water_material(assets,identity)
+            material=water_material(assets,identity,recipes[identity]['waterSurface']['phaseChannel'])
             for pocket in wet:
                 mesh=assets.mesh(pocket['id']+'_water',pocket_water(pocket,surface.height_cm),material,False)
                 states[pocket['id']+'_water']=dict(kind='mesh',location=[0,0,0],rotation=[0,0,0],scale=[1,1,1],tags=['WarT1CosmeticShallowWater'],
@@ -149,7 +156,7 @@ try:
         if not levels.save_current_level(): raise RuntimeError('Cannot save scene review')
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append({**original,'map':destination+'/Review','parentMap':original['map'],'actorInventory':states,'materials':materials,
-                      'sceneCells':cells,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
+                      'sceneCells':cells,'pocketDressing':dressing,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
         unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT_ZONE='+identity)
 finally: verify_sources(); verify_protected(ROOT,protected)
 result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',inputs=inputs,zones=zones,

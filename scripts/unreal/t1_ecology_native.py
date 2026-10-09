@@ -1,6 +1,7 @@
 """Native cosmetic detail construction and exact saved-instance verification."""
 import math
 import unreal
+from t1_water_surface import water_surface
 
 
 def ground_cover(actors,assets,identity,data,layout):
@@ -37,7 +38,8 @@ def cover_inventory(actors):
     return result
 
 
-def water_material(assets,identity):
+def water_material(assets,identity,noise_channel):
+    recipe=water_surface(identity)
     material=assets.tools.create_asset('M_'+identity+'_shallow_water',assets.folder+'/Materials',unreal.Material,unreal.MaterialFactoryNew())
     if not material: raise RuntimeError('Cannot create native shallow water')
     material.set_editor_property('shading_model',unreal.MaterialShadingModel.MSM_SINGLE_LAYER_WATER)
@@ -48,7 +50,7 @@ def water_material(assets,identity):
         else:
             n=lib.create_material_expression(material,unreal.MaterialExpressionConstant);n.set_editor_property('r',value)
         return n
-    for value,pin in [([.035,.055,.045] if identity=='sunmeadow_march' else [.07,.045,.018],unreal.MaterialProperty.MP_BASE_COLOR),(.15,unreal.MaterialProperty.MP_ROUGHNESS),(.4,unreal.MaterialProperty.MP_SPECULAR),(.35,unreal.MaterialProperty.MP_OPACITY)]:
+    for value,pin in [(recipe['color'],unreal.MaterialProperty.MP_BASE_COLOR),(recipe['roughness'],unreal.MaterialProperty.MP_ROUGHNESS),(recipe['specular'],unreal.MaterialProperty.MP_SPECULAR),(recipe['opacity'],unreal.MaterialProperty.MP_OPACITY)]:
         if not lib.connect_material_property(constant(value),'',pin): raise RuntimeError('Cannot bind shallow water surface')
     def expr(kind,**properties):
         n=lib.create_material_expression(material,getattr(unreal,'MaterialExpression'+kind))
@@ -58,18 +60,33 @@ def water_material(assets,identity):
         n=expr(kind)
         if not lib.connect_material_expressions(a,'',n,'A') or not lib.connect_material_expressions(b,'',n,'B'):raise RuntimeError('Cannot bind ripple arithmetic')
         return n
-    world=expr('WorldPosition');time=expr('Time');waves=[]
-    for axis,scale,period,strength in [('r',170,7,.045),('g',230,-11,.06)]:
+    world=expr('WorldPosition');time=expr('Time');components=[]
+    for axis in ('r','g'):
         component=expr('ComponentMask',r=axis=='r',g=axis=='g',b=False,a=False)
-        lib.connect_material_expressions(world,'',component,'')
-        phase=binary('Add',binary('Divide',component,constant(scale)),binary('Divide',time,constant(period)))
+        if not lib.connect_material_expressions(world,'',component,''):raise RuntimeError('Cannot bind water coordinates')
+        components.append(component)
+    uv=binary('Divide',binary('AppendVector',*components),constant(recipe['noiseMetres']*100))
+    noise=expr('TextureSample',texture=assets.texture(noise_channel,False),sampler_type=unreal.MaterialSamplerType.SAMPLERTYPE_COLOR)
+    if not lib.connect_material_expressions(uv,'',noise,'UVs'):raise RuntimeError('Cannot bind reviewed water phase channel')
+    channel=expr('ComponentMask',r=True,g=False,b=False,a=False)
+    if not lib.connect_material_expressions(noise,'',channel,''):raise RuntimeError('Cannot select water phase channel')
+    # Reviewed terrain colour is dark; normalize its range before gently perturbing wave phase.
+    remap=binary('Divide',channel,constant(.18));clamped=expr('Clamp',min_default=0,max_default=1)
+    lib.connect_material_expressions(remap,'',clamped,'')
+    warp=binary('Multiply',clamped,constant(recipe['phaseWarp']))
+    slopes=[constant(0),constant(0)]
+    for w in recipe['waves']:
+        direction=[math.cos(w['angle']),math.sin(w['angle'])]
+        projection=binary('Add',*[binary('Multiply',c,constant(d)) for c,d in zip(components,direction)])
+        phase=binary('Add',binary('Divide',projection,constant(w['wavelengthMetres']*100)),
+            binary('Add',binary('Multiply',time,constant(w['cyclesPerSecond'])),binary('Add',constant(w['phase']),warp)))
         wave=expr('Sine',period=1);lib.connect_material_expressions(phase,'',wave,'')
-        waves.append(binary('Multiply',wave,constant(strength)))
-    normal=binary('AppendVector',binary('AppendVector',waves[0],waves[1]),constant(1))
+        for i,d in enumerate(direction):slopes[i]=binary('Add',slopes[i],binary('Multiply',wave,constant(w['slope']*d)))
+    normal=binary('AppendVector',binary('AppendVector',*slopes),constant(1))
     normalized=expr('Normalize');lib.connect_material_expressions(normal,'',normalized,'VectorInput')
     if not lib.connect_material_property(normalized,'',unreal.MaterialProperty.MP_NORMAL):raise RuntimeError('Cannot bind water ripple normal')
     output=lib.create_material_expression(material,unreal.MaterialExpressionSingleLayerWaterMaterialOutput)
-    for value,pin in [([.003,.0045,.0035] if identity=='sunmeadow_march' else [.008,.005,.0015],'ScatteringCoefficients'),([.012,.004,.006] if identity=='sunmeadow_march' else [.002,.008,.025],'AbsorptionCoefficients'),(.2,'PhaseG'),([1,1,1],'ColorScaleBehindWater')]:
+    for value,pin in [(recipe['scattering'],'ScatteringCoefficients'),(recipe['absorption'],'AbsorptionCoefficients'),(.2,'PhaseG'),([1,1,1],'ColorScaleBehindWater')]:
         if not lib.connect_material_expressions(constant(value),'',output,pin): raise RuntimeError('Cannot bind water volume: '+pin)
     lib.recompile_material(material);unreal.EditorAssetLibrary.save_loaded_asset(material,only_if_is_dirty=False)
     return material

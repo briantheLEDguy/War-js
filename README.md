@@ -7,7 +7,11 @@ pools only on closed, graded ground; three other seasonal hollows remain dry.
 `AWarLandscapeDetail` bounds cosmetic batches, disables collision/navigation and
 uses 120m culling. Native reload checks verify saved instance transforms. Water
 uses terrain-clipped geometry, a native water shader, local ripples and a smooth
-wet-soil transition. Source-channel rock projection and charcoal basalt adaptation
+wet-soil transition. `t1_water_surface.py` supplies gentle oblique waves perturbed
+by reviewed source noise; `t1_pocket_dressing.py` follows bank elevation with
+admitted shrubs and embedded rocks while reserving approaches. Terrain masks
+rescale dark linear source channels before smooth interpolation.
+Source-channel rock projection and charcoal basalt adaptation
 retain their reviewed inputs. These remain visibly unfinished prototypes.
 
 `npx tsx scripts/unreal/prepare-t1-second-pair.ts` creates immutable Brightfen

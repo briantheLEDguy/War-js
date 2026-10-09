@@ -63,6 +63,23 @@ def cover_layout(source, height_cm, pockets):
             if math.hypot(gx,gz)>.4: continue
             scale=.48+random_unit(ix,iz,4)*.38
             result.append(dict(location=[z*100,x*100,y-2],yaw=random_unit(ix,iz,5)*360,scale=scale))
+    for pocket_index,pocket in enumerate(pockets):
+        for ix in range(-18,19):
+            for iz in range(-18,19):
+                salt=71+pocket_index*13
+                x=pocket['x']+(ix+.6*random_unit(ix,iz,salt))*2.8;z=pocket['z']+(iz+.6*random_unit(ix,iz,salt+1))*2.8;p=dict(x=x,z=z)
+                if math.hypot(x-pocket['x'],z-pocket['z'])>pocket['radius']+45 or not inside(p,outline):continue
+                y=height_cm(x,z);relative=y/100-(pocket['waterY'] if pocket['cosmeticWater'] else pocket['bedY'])
+                if not (.02 if pocket['cosmeticWater'] else .1)<relative<1.5:continue
+                if random_unit(ix,iz,salt+2)>(math.sin(x/8+math.cos(z/13))+math.cos(z/10)+2)/4:continue
+                if any(segment_distance(p,a,c)<road['width']/2+2 for road in source['paths'] for a,c in zip(road['points'],road['points'][1:])):continue
+                if any(segment_distance(p,a,c)<3.5 for a,c in zip(pocket['approach'],pocket['approach'][1:])):continue
+                if any(math.hypot(x-a['x'],z-a['z'])<10 for a in anchors):continue
+                if any(a.get('preserveFooting') and '_pocket_' not in a['id'] and math.hypot(x-a['x'],z-a['z'])<a['radius']+5 for a in terrain['flattenAreas']):continue
+                gx=(height_cm(x+1,z)-height_cm(x-1,z))/200;gz=(height_cm(x,z+1)-height_cm(x,z-1))/200
+                if math.hypot(gx,gz)>.4:continue
+                scale=.42+random_unit(ix,iz,salt+3)*.44
+                result.append(dict(location=[z*100,x*100,y-2],yaw=random_unit(ix,iz,salt+4)*360,scale=scale))
     if not result or len(result)>12000: raise ValueError('Ground cover exceeds native batch bounds or is empty')
     return result
 

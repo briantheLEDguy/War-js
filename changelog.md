@@ -1,3 +1,16 @@
+## 2026-10-09 - T1 shoreline and surface iteration
+
+- Replace regular cardinal water ripples with gentler oblique waves perturbed by
+  fingerprinted regional source color. Restrain mineral absorption and roughen
+  shallow water reflections; appearance remains unfinished.
+- Rescale dark linear source color into useful smooth terrain macro/detail masks,
+  soften Sunmeadow's bright green and strengthen gradual substrate variation.
+- Add terrain-following bank planting and embedded rock groups to existing
+  exploration pockets. Reserve full movement corridors, services and owner footing;
+  add denser cosmetic shoreline grass/sedge with native culling unchanged.
+- Keep previous candidates, active maps, capitals and owner documents immutable.
+  Walking, visual/combat and release gates remain evidence-bound and incomplete.
+
 ## 2026-10-09 - T1 landscape weathering and cosmetic ecology studies
 
 - Add optional deterministic watershed warping, multiscale surface breakup and

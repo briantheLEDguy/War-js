@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_surface_variation import surface_variation, validate_variation, rotated_uv, validate_substrate, substrate_weight, validate_shorelines, shoreline_weight
+from t1_surface_variation import surface_variation, validate_variation, rotated_uv, validate_substrate, substrate_weight, validate_shorelines, shoreline_weight, channel_weight
 
 
 class SurfaceVariationTest(unittest.TestCase):
@@ -19,6 +19,18 @@ class SurfaceVariationTest(unittest.TestCase):
         for field, value in [('secondaryScale', 0), ('macroMinimum', math.nan), ('vergeMetres', 50)]:
             with self.assertRaises(ValueError): validate_variation({**surface_variation(), field: value})
         with self.assertRaises(ValueError): rotated_uv([0, 0, 0], 0, 0)
+
+    def test_dark_reviewed_channel_rescales_to_full_smooth_mask(self):
+        row=surface_variation()
+        self.assertEqual(channel_weight(row,.04),0)
+        self.assertEqual(channel_weight(row,.24),1)
+        self.assertAlmostEqual(channel_weight(row,.14),.5)
+        for i in range(100):
+            value=.04+i*.002
+            self.assertLess(abs(channel_weight(row,value+.00001)-channel_weight(row,value)),.0001)
+        for bounds in ([.2,.1],[0,math.nan],[0,2],[]):
+            with self.assertRaises(ValueError):validate_variation({**row,'channelRange':bounds})
+        with self.assertRaises(ValueError):channel_weight(row,math.inf)
 
     def test_substrate_patches_blend_continuously_and_expose_sloped_ground(self):
         row = dict(color=dict(path='public/assets/reviewed-color.png',sha256='a'*64),normal=dict(path='public/assets/reviewed-normal.png',sha256='b'*64),
