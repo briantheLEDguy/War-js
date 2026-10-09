@@ -98,6 +98,10 @@ try:
         if zone.get('beddedOutcrops'):
             scarp=[p for p in zone['beddedOutcrops'] if p['sourceRidge'].endswith('_scarp')]
             if scarp:views += neighborhood_views(source['paths'],[dict(id=zone['id']+'_cell_bedded_scarp',placements=scarp)])
+        for shelter in zone.get('rockShelters',[]):
+            first,last=shelter['portals'];centre=shelter['centre']
+            views.append(('pocket_shelter_entry',first,centre))
+            views.append(('pocket_shelter_inside',centre,last))
         for pocket in zone.get('landscapePockets',[]):
             p=pocket['approach'][-2]
             views.append(('pocket_'+pocket['id'].split('_pocket_')[-1],p,dict(x=pocket['x'],z=pocket['z'])))

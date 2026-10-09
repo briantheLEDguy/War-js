@@ -27,6 +27,7 @@ from t1_water_surface import water_surface
 from t1_pocket_dressing import pocket_dressing
 from t1_bedded_outcrops import bedded_outcrops,outcrop_footing
 from t1_placement_axes import source_scale_to_native
+from t1_rock_shelters import rock_shelter
 from t1_landscape_walks import landscape_walks
 from world_build_assets import WorldAssets
 
@@ -67,7 +68,7 @@ canopies,canopy_inputs=canopy_sources(ROOT);files.update(canopy_inputs)
 verify_sources()
 
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_stone_material.py','scripts/unreal/t1_strata_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
@@ -91,9 +92,15 @@ try:
             states[identity+'_'+role]['materials']=[material.get_path_name()]
             materials[role]=dict(asset=material.get_path_name(),expressions=expressions,sourceChannelsVerified=True,appearanceApproved=False)
         cells=next(z['scenes'] for z in recipe['zones'] if z['id']==identity)
-        dressing=pocket_dressing(source,surface.height_cm,original['landscapePockets'],[p for c in cells for p in c['placements']])
-        bedding=bedded_outcrops(source,surface.height_cm,[*[p for c in cells for p in c['placements']],*dressing])
-        all_cells=[*cells,dict(placements=dressing),dict(placements=bedding)]
+        occupied=[p for c in cells for p in c['placements']]
+        shelter_source=original['actorInventory'][identity+('_barrow_ridge_8' if identity=='sunmeadow_march' else '_basalt_shelf_1')]['mesh']
+        committed=json.loads(unreal.WarImportLibrary.describe_static_mesh_source_data(unreal.load_asset(shelter_source),0))
+        if not committed.get('valid'):raise RuntimeError('Shelter lacks admitted committed source geometry')
+        positions=committed['data']['positions'];bounds=[[fn(p[i] for p in positions) for i in range(3)] for fn in (min,max)]
+        shelter=rock_shelter(source,surface.height_cm,original['landscapePockets'],occupied,bounds)
+        dressing=pocket_dressing(source,surface.height_cm,original['landscapePockets'],[*occupied,*shelter['placements']])
+        bedding=bedded_outcrops(source,surface.height_cm,[*occupied,*shelter['placements'],*dressing])
+        all_cells=[*cells,dict(placements=shelter['placements']),dict(placements=dressing),dict(placements=bedding)]
         for cell in all_cells:
             for p in cell['placements']:
                 state=copy.deepcopy(original['actorInventory'][p['sourceLabel']])
@@ -108,7 +115,7 @@ try:
                     radius=math.hypot(p['width'],p['depth'])/2
                     h=(outcrop_footing(surface.height_cm,{**p,'yawDegrees':yaw}) if p.get('embedding')=='orientedFootprint' else
                         min(surface.height_cm(p['x']+radius*x/3,p['z']+radius*z/3) for x in range(-3,4) for z in range(-3,4)) - 20)
-                state['location']=[p['z']*100,p['x']*100,h]; state['tags']+=['WarT1BattlefieldSceneCell']
+                state['location']=p.get('authoredLocationCm',[p['z']*100,p['x']*100,h]); state['tags']+=['WarT1BattlefieldSceneCell']
                 if p['id'] in states: raise RuntimeError('Duplicate scene actor identity')
                 states[p['id']]=state
         if identity=='sunmeadow_march':
@@ -167,13 +174,24 @@ try:
         unreal.log('WAR_T1_COUNTER_PLANNING='+identity)
         counters=landscape_walks(source,surface.height_cm,[p for c in all_cells for p in c['placements']],
             lambda x,z:ground.center([z*100,x*100,0]) is not None)
+        # Check the retained terrain floor under the roof, including full player capsule support.
+        for a,b in zip(shelter['points'],shelter['points'][1:]):
+            count=max(1,math.ceil(math.dist(a,b)/100))
+            for i in range(count+1):
+                point=[a[k]+(b[k]-a[k])*i/count for k in range(3)]
+                if not ground.center(point):raise RuntimeError('Shelter blocks normal walking: '+json.dumps(ground.failures))
+                camera=unreal.Vector(point[0],point[1],point[2]+420)
+                hit=unreal.SystemLibrary.sphere_trace_single(world,camera,camera+unreal.Vector(0,0,.1),42,unreal.TraceTypeQuery.ECC_VISIBILITY,True,[],unreal.DrawDebugTrace.NONE,True)
+                if hit and hit.to_tuple()[0]:raise RuntimeError('Shelter blocks its bounded 4.2m camera-height sample')
+        shelter['terrainAndCapsuleChecked']=True;shelter['cameraHeightSamplesChecked']=True
+        counters.append(dict(id=shelter['id']+'_walk',points=shelter['points'],maximumSourceGrade=.22,terrainAndCapsuleChecked=True,walkingAccepted=False,drivingAccepted=False,appearanceApproved=False))
         unreal.log('WAR_T1_COUNTER_CAPSULE_CHECKED='+identity+' routes='+str(len(counters)))
         _,centre=support; anchor.set_actor_location(centre,False,True)
         world.get_world_settings().set_editor_property('default_game_mode',unreal.WarGameMode)
         if not levels.save_current_level(): raise RuntimeError('Cannot save scene review')
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append({**original,'map':destination+'/Review','parentMap':original['map'],'actorInventory':states,'materials':materials,
-                      'sceneCells':cells,'pocketDressing':dressing,'beddedOutcrops':bedding,'landscapeWalks':counters,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'sceneScaleAxesVerified':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
+                      'sceneCells':cells,'rockShelters':[shelter],'pocketDressing':dressing,'beddedOutcrops':bedding,'landscapeWalks':counters,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'sceneScaleAxesVerified':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
         unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT_ZONE='+identity)
 finally: verify_sources(); verify_protected(ROOT,protected)
 result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',inputs=inputs,zones=zones,

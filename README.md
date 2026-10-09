@@ -990,3 +990,43 @@ Retain appearance, full first-batch lairs, physical vehicle driving/turning,
 closed animated gates, 18v18, services/resources, ordinary GM persistence,
 online/network/audio, frame/memory/travel, platform/Steam and release gates.
 Later-pair native environments and underground environments remain unbuilt.
+
+
+## T1 two-ended rock shelter studies (9 October 2026)
+
+Private scene `e611847abf0b`, navigation `9779f302d3d3` and safe walkthrough
+`e5ff10dc58eb` retain source terrain `83b37fc34b68`. `t1_rock_shelters.py` derives
+Hearthroot Fallen Chamber and Rustsedge Fracture Shelter from exact native source
+rock bounds, accounting for off-centre roots and width/depth axis conversion.
+Each study has two unequal piers, one fallen cap, two open ends and a six-metre
+walking lane. Roof bounds sit >=5.7m above the highest sampled walking floor.
+No terrain holes, rewards, quests or lair completion are introduced.
+
+Native full-capsule support and bounded 4.2m camera-height samples pass. These do
+not grant full camera acceptance. Fresh checks pass 108 rendered views, 142
+configured normal walking routes (including both directions through shelters),
+88 navigation queries before save/after reload, exact safe-copy tile payloads,
+both ordinary entry/local GM recovery fixtures without draft writes, and four
+actual follow-camera shelter captures. All 13 owner documents and pinned parent /
+capital maps remain preserved. Additive prop collision still requires Node
+synchronization; the current navigation copies have not separately repeated the
+complete walking suite. Repository tests pass 1108/172 files, Unreal selection
+487/91, focused Python 109/29 and all three typechecks. Migration audit and
+world/model validation pass; strict release exits 1. Earlier native builds and
+151 Foundation tests retain earlier scope; no C++ changed.
+
+Private `progress-report-shelters-e611847abf0b.html` embeds fourteen unedited native
+images/labeled drawings; `shelter-checkpoint-e611847abf0b.json` records hashes.
+The shelters currently read as oversized monumental assemblies. Natural cave
+composition, lighting, bare surroundings and appearance remain unfinished.
+Full underground and later-pair native environments remain unbuilt.
+
+An original meadow colour study generated with the built-in image_gen tool stays
+private under `artifacts/unreal/t1-redesign/material-studies/`. Its JSON records
+the exact prompt and source hash. A non-power-of-two import exposed distant noise;
+a separate native import verifies twelve mip levels at 2048x2048. Three-way native
+comparisons isolate colour versus slope-to-rock coverage. The study is not
+integrated into this scene and has no seamlessness, art or performance approval.
+Retain first-batch full-lair, visual, actual driving/turning/closed gates, 18v18,
+services/resources, ordinary GM persistence, online/network/audio, performance,
+three-platform/Steam and release gates.

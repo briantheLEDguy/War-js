@@ -2071,3 +2071,11 @@ Later-pair native environments and underground environments remain unbuilt.
 - Verify 104 native views, 138 walking routes, 88 navigation queries/save-reload, two entry/GM fixtures and 12 actual follow-camera captures; retain art/combat/release gates.
 - Explicitly mark additive native scene collision as pending Node synchronization; preserve parent terrain and all owner documents.
 - Record 105 focused Python checks, existing full JS/TS suite results and all required validation; save private embedded-image progress report.
+
+
+### 2026-10-09 - Optional T1 rock shelter prototypes
+
+- Add source-rock shelter authoring with exact native bounds, off-centre root correction, preserved ground, two entrances and bounded walk/camera-height samples.
+- Verify 142 walking routes, 108 native views, 88 saved/reloaded navigation queries, two entry/GM fixtures and four actual follow-camera shelter views.
+- Pass 109 focused Python checks and required repository suites/validation; retain Node prop collision, visual, lair, vehicle/combat and release gates.
+- Save a private report with fourteen embedded images; keep the separate original meadow texture comparison unintegrated and unapproved.
