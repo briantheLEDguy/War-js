@@ -95,6 +95,9 @@ try:
         if scene_cells:
             covered={'barrow_finger','field_back_slope','fractured_shelf','dyke_edge'}
             views += neighborhood_views(source['paths'],[c for c in zone['sceneCells'] if c['id'].split('_cell_')[-1] not in covered])
+        if zone.get('beddedOutcrops'):
+            scarp=[p for p in zone['beddedOutcrops'] if p['sourceRidge'].endswith('_scarp')]
+            if scarp:views += neighborhood_views(source['paths'],[dict(id=zone['id']+'_cell_bedded_scarp',placements=scarp)])
         for pocket in zone.get('landscapePockets',[]):
             p=pocket['approach'][-2]
             views.append(('pocket_'+pocket['id'].split('_pocket_')[-1],p,dict(x=pocket['x'],z=pocket['z'])))

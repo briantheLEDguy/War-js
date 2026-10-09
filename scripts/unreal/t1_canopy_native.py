@@ -1,17 +1,28 @@
-"""Scoped leaf-only private material overrides; trunks, mesh and collision are retained."""
-import copy
+"""Private leaf shading/normal adaptation; source geometry, bark and collision are retained."""
+import copy,json
+from t1_canopy import softened_leaf_normals,retained_native_canopy
 import unreal
 
 
 def adapt_canopies(assets,states,sources):
-    result=copy.deepcopy(states);cache={};adapted=[];lib=unreal.MaterialEditingLibrary
+    if not assets.folder.startswith('/Game/WorldRebuild/T1Redesign_'):raise RuntimeError('Canopy adaptation requires fresh private T1 assets')
+    result=copy.deepcopy(states);cache={};meshes={};adapted=[];lib=unreal.MaterialEditingLibrary
     for label,state in result.items():
         if state['kind']!='mesh':continue
         name=state['mesh'].rsplit('/',1)[-1].split('.')[0]
         if name not in sources:continue
         recipe=sources[name]
         if len(state['materials'])!=recipe['materialCount']:raise RuntimeError('Native canopy slots differ from reviewed source')
-        old=state['materials'][:]
+        old=state['materials'][:];old_mesh=state['mesh'];mesh_key=(name,old_mesh)
+        if mesh_key not in meshes:
+            original_mesh=unreal.load_asset(old_mesh)
+            before=json.loads(unreal.WarImportLibrary.describe_static_mesh_source_data(original_mesh,0))
+            mesh=assets.composite('soft_canopy_'+name,softened_leaf_normals(recipe['data'],recipe['leafSlots']),True)
+            after=json.loads(unreal.WarImportLibrary.describe_static_mesh_source_data(mesh,0))
+            retained_native_canopy(before,after,recipe['leafSlots'])
+            if original_mesh.get_editor_property('body_setup').get_editor_property('collision_trace_flag')!=mesh.get_editor_property('body_setup').get_editor_property('collision_trace_flag'):raise RuntimeError('Canopy collision policy differs')
+            meshes[mesh_key]=mesh.get_path_name()
+        state['mesh']=meshes[mesh_key]
         for slot in recipe['leafSlots']:
             original=state['materials'][slot];key=(name,slot,original)
             if key not in cache:
@@ -33,6 +44,6 @@ def adapt_canopies(assets,states,sources):
                 cache[key]=material.get_path_name()
             state['materials'][slot]=cache[key]
         if state['materials'][0]!=old[0]:raise RuntimeError('Canopy adaptation changed bark')
-        adapted.append(dict(id=label,sourceModel=recipe['sourceModel'],originalMaterials=old,materials=state['materials'][:],leafSlots=recipe['leafSlots'],barkPreserved=True,meshAndCollisionPreserved=True))
+        adapted.append(dict(id=label,sourceModel=recipe['sourceModel'],originalMaterials=old,materials=state['materials'][:],leafSlots=recipe['leafSlots'],barkPreserved=True,originalMesh=old_mesh,mesh=state['mesh'],sourceGeometryAndCollisionPreserved=True,leafNormalsAdapted=True))
     if not adapted:raise RuntimeError('No reviewed canopy bindings were adapted')
-    return result,dict(actors=adapted,materials=len(cache),sourceChannelsPreserved=True,worldDisplacement=False,visualApproved=False)
+    return result,dict(actors=adapted,materials=len(cache),meshes=len(meshes),sourceChannelsPreserved=True,worldDisplacement=False,visualApproved=False)

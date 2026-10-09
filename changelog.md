@@ -2062,3 +2062,12 @@ Retain human visual, full first-batch lairs, actual vehicle driving/turning,
 closed animated gates, 18v18, service/resource behavior, ordinary GM persistence,
 online/network/audio, frame/memory/travel, three-platform/Steam and release gates.
 Later-pair native environments and underground environments remain unbuilt.
+
+
+### 2026-10-09 - T1 habitat and source-axis correction
+
+- Add private continuous habitat/moisture masks, soft regional strata, source-preserving canopy normal adaptations and reserved bedrock bands.
+- Correct source width/depth mapping into native placement axes and use oriented rock footing samples.
+- Verify 104 native views, 138 walking routes, 88 navigation queries/save-reload, two entry/GM fixtures and 12 actual follow-camera captures; retain art/combat/release gates.
+- Explicitly mark additive native scene collision as pending Node synchronization; preserve parent terrain and all owner documents.
+- Record 105 focused Python checks, existing full JS/TS suite results and all required validation; save private embedded-image progress report.

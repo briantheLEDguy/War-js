@@ -15,7 +15,9 @@ from t1_material_clone import inventory,clone
 from t1_material_assets import regional_material
 from t1_population_native import spawn_population,population_actor,GroundReview
 from t1_surface_variation import surface_variation
+from t1_habitat_surface import habitat_recipe
 from t1_rock_surface import rock_surface
+from t1_stone_material import stone_material
 from t1_landscape_ecology import admitted_cover,cover_layout,pocket_water
 from t1_ecology_clusters import clustered_cover
 from t1_canopy import canopy_sources
@@ -23,6 +25,8 @@ from t1_canopy_native import adapt_canopies
 from t1_ecology_native import ground_cover,water_material,cover_inventory
 from t1_water_surface import water_surface
 from t1_pocket_dressing import pocket_dressing
+from t1_bedded_outcrops import bedded_outcrops,outcrop_footing
+from t1_placement_axes import source_scale_to_native
 from t1_landscape_walks import landscape_walks
 from world_build_assets import WorldAssets
 
@@ -45,6 +49,7 @@ for identity,r in recipes.items():
     for layer in r['layers'].values():
         layer['surfaceVariation']=surface_variation()
         if identity=='cinderfen_outskirts':layer['surfaceVariation']['channelRange']=[.008,.075]
+    r['layers']['terrain']['habitat']=habitat_recipe(identity)
     r['layers']['terrain']['rockLayer']=rock_surface(ROOT,identity)
     if identity=='cinderfen_outskirts': r['layers']['terrain']['rockLayer']['tint']=[.48,.56,.64]
     r['waterSurface']=dict(**water_surface(identity),phaseChannel=r['layers']['terrain']['color'])
@@ -61,9 +66,9 @@ for z in parent['zones']:
 canopies,canopy_inputs=canopy_sources(ROOT);files.update(canopy_inputs)
 verify_sources()
 
-tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
-       'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
+tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_stone_material.py','scripts/unreal/t1_strata_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
     sourceHashes=files,parentPackages=packages,tools={p:sha(ROOT/p) for p in tools},protectedHashes=protected,
@@ -87,7 +92,8 @@ try:
             materials[role]=dict(asset=material.get_path_name(),expressions=expressions,sourceChannelsVerified=True,appearanceApproved=False)
         cells=next(z['scenes'] for z in recipe['zones'] if z['id']==identity)
         dressing=pocket_dressing(source,surface.height_cm,original['landscapePockets'],[p for c in cells for p in c['placements']])
-        all_cells=[*cells,dict(placements=dressing)]
+        bedding=bedded_outcrops(source,surface.height_cm,[*[p for c in cells for p in c['placements']],*dressing])
+        all_cells=[*cells,dict(placements=dressing),dict(placements=bedding)]
         for cell in all_cells:
             for p in cell['placements']:
                 state=copy.deepcopy(original['actorInventory'][p['sourceLabel']])
@@ -95,24 +101,24 @@ try:
                 # Python's Rotator properties are float32; freeze that admitted precision before cloning.
                 yaw=struct.unpack('<f',struct.pack('<f',(p['yawDegrees']+180)%360-180))[0]
                 f32=lambda value: struct.unpack('<f',struct.pack('<f',value))[0]
-                state['scale']=p['scaleAxes']; state['rotation']=[f32(p['tiltDegrees'][0]),yaw,f32(p['tiltDegrees'][1])]
+                state['scale']=source_scale_to_native(p['scaleAxes']); state['rotation']=[f32(p['tiltDegrees'][0]),yaw,f32(p['tiltDegrees'][1])]
                 h=surface.height_cm(p['x'],p['z'])
                 if p['grounding']=='embed':
                     # Bury broad rock feet below the lowest surrounding ground instead of levelling the hillside.
                     radius=math.hypot(p['width'],p['depth'])/2
-                    h=min(surface.height_cm(p['x']+radius*x/3,p['z']+radius*z/3) for x in range(-3,4) for z in range(-3,4)) - 20
+                    h=(outcrop_footing(surface.height_cm,{**p,'yawDegrees':yaw}) if p.get('embedding')=='orientedFootprint' else
+                        min(surface.height_cm(p['x']+radius*x/3,p['z']+radius*z/3) for x in range(-3,4) for z in range(-3,4)) - 20)
                 state['location']=[p['z']*100,p['x']*100,h]; state['tags']+=['WarT1BattlefieldSceneCell']
                 if p['id'] in states: raise RuntimeError('Duplicate scene actor identity')
                 states[p['id']]=state
         if identity=='sunmeadow_march':
             states,materials['canopy']=adapt_canopies(assets,states,canopies)
-        if identity=='cinderfen_outskirts':
-            rock=recipes[identity]['layers']['terrain']['rockLayer']
-            basalt=assets.material(identity+'_charcoal_basalt',dict(textures={k:rock[k] for k in ('color','normal')},color=[*rock['tint'],1],roughness=.92,metallic=0))
-            admitted_mesh=original['actorInventory'][identity+'_basalt_shelf_1']['mesh']
-            for state in states.values():
-                if state['kind']=='mesh' and state['mesh']==admitted_mesh:state['materials']=[basalt.get_path_name()]
-            materials['regionalBasalt']=dict(asset=basalt.get_path_name(),sourceChannelsVerified=True,appearanceApproved=False)
+        rock=recipes[identity]['layers']['terrain']['rockLayer']
+        stone=stone_material(assets,identity,rock)
+        admitted_mesh=original['actorInventory'][identity+('_barrow_ridge_8' if identity=='sunmeadow_march' else '_basalt_shelf_1')]['mesh']
+        for state in states.values():
+            if state['kind']=='mesh' and state['mesh']==admitted_mesh:state['materials']=[stone.get_path_name()]
+        materials['regionalStone']=dict(asset=stone.get_path_name(),sourceColorChannelVerified=True,sourceGeometryAndCollisionPreserved=True,appearanceApproved=False)
         water_surfaces=[]
         wet=[p for p in original['landscapePockets'] if p['cosmeticWater']]
         if wet:
@@ -167,7 +173,7 @@ try:
         if not levels.save_current_level(): raise RuntimeError('Cannot save scene review')
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append({**original,'map':destination+'/Review','parentMap':original['map'],'actorInventory':states,'materials':materials,
-                      'sceneCells':cells,'pocketDressing':dressing,'landscapeWalks':counters,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
+                      'sceneCells':cells,'pocketDressing':dressing,'beddedOutcrops':bedding,'landscapeWalks':counters,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'sceneScaleAxesVerified':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
         unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT_ZONE='+identity)
 finally: verify_sources(); verify_protected(ROOT,protected)
 result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',inputs=inputs,zones=zones,
@@ -175,7 +181,7 @@ result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',
     packageHashes={p:sha(CONTENT/(p.removeprefix('/Game/')+'.umap')) for p in saved},
     assetHashes={p.relative_to(ROOT).as_posix():sha(p) for p in (CONTENT/'WorldRebuild'/assets.collection).rglob('*.uasset')},
     activeCampaignChanged=False,parentCandidatesUnchanged=True,ownerDocumentsPreserved=True,appearanceApproved=False,
-    walkDriveAccepted=False,eighteenVersusEighteenAccepted=False,nodeCandidateGeometrySynchronized=True,nodePlaytestAccepted=False)
+    walkDriveAccepted=False,eighteenVersusEighteenAccepted=False,nodeCandidateGeometrySynchronized=False,nodeTerrainGeometrySynchronized=True,additiveSceneCollisionPending=True,nodePlaytestAccepted=False)
 (BASE/('battlefield-scenes-'+signature[:12]+'.json')).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
 (BASE/'battlefield-scenes-latest.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
 unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT='+signature[:12])

@@ -1,5 +1,5 @@
 """Identify leaf slots only from fingerprint-matched reviewed regional source models."""
-import hashlib,json
+import copy,hashlib,json,math
 from world_static import read_glb,combine_parts
 
 MODELS=('frontier_sunmeadow_oak_hedgerow_lod0.glb','frontier_sunmeadow_oak_pasture_lod0.glb','frontier_sunmeadow_hawthorn_lod0.glb')
@@ -25,5 +25,35 @@ def canopy_sources(root):
             for channel in material.get('textures',{}).values():
                 if sha(root/channel['path'])!=channel['sha256']:raise ValueError('Canopy source texture changed')
                 inputs[channel['path']]=channel['sha256']
-        result[model.removesuffix('.glb')]=dict(leafSlots=slots,materialCount=len(data['materials']),sourceModel=model,sourceSha256=fingerprint)
+        result[model.removesuffix('.glb')]=dict(leafSlots=slots,materialCount=len(data['materials']),sourceModel=model,sourceSha256=fingerprint,data=data)
     return result,inputs
+
+
+def softened_leaf_normals(data,slots):
+    """Retain every source attribute except leaf normals; bark/leaf vertex sets must be disjoint."""
+    if len(data['triangleMaterials'])*3!=len(data['indices']) or len(data['normals'])!=len(data['positions']):raise ValueError('Invalid canopy source topology')
+    leaves=set();bark=set()
+    for i,slot in enumerate(data['triangleMaterials']):
+        (leaves if slot in slots else bark).update(data['indices'][i*3:i*3+3])
+    if not leaves or leaves&bark:raise ValueError('Leaf normals must not alter shared bark vertices')
+    centre=[(min(data['positions'][i][a] for i in leaves)+max(data['positions'][i][a] for i in leaves))/2 for a in range(3)]
+    result=copy.deepcopy(data)
+    for i in leaves:
+        radial=[p-c for p,c in zip(data['positions'][i],centre)];length=math.sqrt(sum(v*v for v in radial))
+        if not math.isfinite(length):raise ValueError('Nonfinite canopy source')
+        if length<1e-6:continue
+        n=[v/length*.65+old*.35 for v,old in zip(radial,data['normals'][i])];length=math.sqrt(sum(v*v for v in n))
+        if not math.isfinite(length) or length<1e-6:raise ValueError('Invalid canopy shading normal')
+        result['normals'][i]=[v/length for v in n]
+    return result
+
+
+def retained_native_canopy(before,after,slots):
+    if not before.get('valid') or not after.get('valid'):raise ValueError('Missing committed native canopy geometry')
+    a,b=before['data'],after['data']
+    for key in ('positions','indices','uvs','uvChannels','triangleMaterials','vertexColors'):
+        if a.get(key)!=b.get(key):raise ValueError('Canopy adaptation changed source '+key)
+    if len(a['normals'])!=len(b['normals']) or len(a['normals'])!=len(a['indices']):raise ValueError('Native canopy normal inventory differs')
+    for i,slot in enumerate(a['triangleMaterials']):
+        if slot not in slots and a['normals'][i*3:i*3+3]!=b['normals'][i*3:i*3+3]:raise ValueError('Canopy adaptation changed bark normals')
+    return True

@@ -947,3 +947,46 @@ Retain human visual, full first-batch lairs, actual vehicle driving/turning,
 closed animated gates, 18v18, service/resource behavior, ordinary GM persistence,
 online/network/audio, frame/memory/travel, three-platform/Steam and release gates.
 Later-pair native environments and underground environments remain unbuilt.
+
+
+## T1 habitat and geology checkpoint (9 October 2026)
+
+Private scene `b99d62c9cd25`, navigation `eedfcb75c61a` and safe walkthrough
+`5321f9e28380` retain source `83b37fc34b68` and the original battlefield terrain.
+Continuous world-space habitat masks vary soil, macro colour and shoreline
+moisture. Soft regional strata fade below pixel scale; normals do not displace
+terrain. Fresh canopy assets preserve source positions, topology, UVs, colours,
+bark normals/materials and collision policy while adapting leaf normals.
+
+Source width/depth/height must map to native depth/width/height. Correcting this
+mapping makes nonuniform outcrops follow the intended ridge direction. The
+superseded `19e40f345b04` experiment was deliberately stopped during read-only
+walking before navigation/entry admission. The corrected candidate places 13
+Sunmeadow and 23 Cinderfen broken outcrops, reserving routes, anchors and overlooks.
+Oriented footing samples embed rock feet; estimated centre exposure is an
+authoring filter, not a measured minimum visible height.
+
+Fresh checks pass 104 rendered views, 138 configured normal walking routes,
+88 pedestrian/convoy navigation queries before save and after reload, exact safe
+navigation payloads, both ordinary entry/local GM recovery fixtures without draft
+writes, and 12 actual follow-camera pocket captures. All 13 owner documents and
+pinned parent/capital maps remain preserved. Current navigation copies have not
+separately repeated the walking suite. Repository tests pass 1108/172 files,
+Unreal selection 487/91 and focused Python 105/28. Three typechecks, migration
+audit and world/model validation pass; strict release exits 1. Full JS/TS suites
+ran during the Python-only v4/v5 iteration. Earlier native builds and 151
+Foundation tests retain their earlier scope; no C++ changed.
+
+Private `progress-report-habitat-b99d62c9cd25.html` embeds 14 actual native images
+and labeled authoring drawings; `habitat-checkpoint-b99d62c9cd25.json` records hashes.
+Pale smooth hills, bare foregrounds and harsh trees remain visibly unfinished.
+Node terrain matches the source, but additive scene prop collision is not yet
+synchronized with Node authority; receipts explicitly retain this integration gate.
+Navigation distances remain within 350-750m for all six convoy itineraries per
+zone. Sunmeadow's east objective measures about 609m Aegis versus 368m Riftbound;
+reinforcement time, exposure/counterplay and combat fairness remain unverified.
+
+Retain appearance, full first-batch lairs, physical vehicle driving/turning,
+closed animated gates, 18v18, services/resources, ordinary GM persistence,
+online/network/audio, frame/memory/travel, platform/Steam and release gates.
+Later-pair native environments and underground environments remain unbuilt.

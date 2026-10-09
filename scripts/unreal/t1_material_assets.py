@@ -3,6 +3,8 @@ import math
 import unreal
 from t1_surface_variation import validate_variation, validate_substrate, validate_shorelines
 from t1_geology_surface import NORMAL_SHADER, bump_controls
+from t1_habitat_surface import HABITAT_SHADER, validate_habitat
+from t1_stone_material import strata_nodes
 
 
 def regional_material(assets, key, recipe):
@@ -47,6 +49,21 @@ def regional_material(assets, key, recipe):
     tint = node('Constant3Vector', constant=unreal.LinearColor(*recipe['tint'][:3], 1))
     color = binary('Multiply', samples['color'], tint, 'RGB')
     normal_detail, normal_pin = samples['normal'], 'RGB'
+    roughness = constant(recipe['roughness'])
+    habitat_recipe = recipe.get('habitat')
+    habitat = None
+    if habitat_recipe:
+        validate_habitat(habitat_recipe)
+        if recipe['softVerge']:raise ValueError('Habitat masks belong to solid regional ground')
+        habitat=node('Custom',description='T1 continuous regional habitat',output_type=unreal.CustomMaterialOutputType.CMOT_FLOAT3,code=HABITAT_SHADER)
+        pins=[]
+        for name in ('P','Seed'):
+            entry=unreal.CustomInput();entry.set_editor_property('input_name',name);pins.append(entry)
+        habitat.set_editor_property('inputs',pins)
+        if habitat.get_editor_property('code')!=HABITAT_SHADER:raise RuntimeError('Habitat shader readback differs')
+        wire(binary('Divide',axes,constant(100)),'',habitat,'P');wire(constant(habitat_recipe['seed']),'',habitat,'Seed')
+    def habitat_channel(axis):
+        result=node('ComponentMask',r=axis==0,g=axis==1,b=axis==2,a=False);wire(habitat,'',result,'');return result
     variation_recipe = recipe.get('surfaceVariation')
     if variation_recipe:
         validate_variation(variation_recipe)
@@ -79,6 +96,7 @@ def regional_material(assets, key, recipe):
         low, high = substrate['maskRange']
         patch = clamp(binary('Divide', binary('Subtract', patch, constant(low)), constant(high-low)))
         patch = binary('Multiply', binary('Multiply', patch, patch), binary('Subtract', constant(3), binary('Multiply', patch, constant(2))))
+        if habitat is not None:patch=habitat_channel(0)
         normal = node('VertexNormalWS')
         nz = node('ComponentMask', r=False, g=False, b=True, a=False); wire(normal, '', nz, 'Input')
         slope = clamp(binary('Divide', binary('Subtract', constant(.98), nz), constant(.18)))
@@ -97,16 +115,21 @@ def regional_material(assets, key, recipe):
             distance=binary('Distance',world,centre)
             radial=clamp(binary('Divide',binary('Subtract',constant(shore['radius']*100),distance),constant(1200)))
             delta=binary('Max',constant(0),binary('Subtract',world_height,constant(shore['waterY']*100)))
-            band=clamp(binary('Subtract',constant(1),binary('Divide',delta,constant(90))))
+            width=constant(90)
+            if habitat is not None:
+                width=binary('Add',constant(habitat_recipe['shoreMinimumMetres']*100),binary('Multiply',habitat_channel(2),constant((habitat_recipe['shoreMaximumMetres']-habitat_recipe['shoreMinimumMetres'])*100)))
+            band=clamp(binary('Subtract',constant(1),binary('Divide',delta,width)))
             band=binary('Multiply',binary('Multiply',band,band),binary('Subtract',constant(3),binary('Multiply',band,constant(2))))
             wet=binary('Max',wet,binary('Multiply',radial,band))
         color=lerp(color,binary('Multiply',soil_color,constant(.72)),binary('Multiply',wet,constant(.9)))
+        if habitat is not None:roughness=lerp(roughness,constant(habitat_recipe['wetRoughness']),wet)
     if not recipe['softVerge']:
 
         if variation_recipe:
             macro_sample = texture('color', binary('Divide', axes, constant(variation_recipe['macroMetres']*100)))
             minimum = variation_recipe['macroMinimum']
-            variation = binary('Add', constant(minimum), binary('Multiply', channel_mask(macro_sample), constant(1-minimum)))
+            macro_mask=habitat_channel(1) if habitat is not None else channel_mask(macro_sample)
+            variation = binary('Add', constant(minimum), binary('Multiply', macro_mask, constant(1-minimum)))
         else:
             waves = []
             for coordinate, metres in zip((x, y), recipe['macroMetres']):
@@ -148,10 +171,12 @@ def regional_material(assets, key, recipe):
                 macro=binary('Add',constant(geology['macroMinimum']),binary('Multiply',clamp(coarse),constant(geology['macroMaximum']-geology['macroMinimum'])))
                 grain=binary('Add',constant(geology['fineMinimum']),binary('Multiply',clamp(fine),constant(1-geology['fineMinimum'])))
                 rock=binary('Multiply',rock,binary('Multiply',macro,grain))
+                strata_color,strata_height=strata_nodes(lib,material,world,coarse,geology['strata']);rock=binary('Multiply',rock,strata_color)
                 # Atlas-painted joint normals are appropriate on source meshes, not projected cliff faces.
                 bump=bump_controls(geology)
                 height=binary('Add',binary('Multiply',binary('Subtract',clamp(coarse),constant(.5)),constant(bump[0])),
                     binary('Multiply',binary('Subtract',clamp(fine),constant(.5)),constant(bump[1])))
+                height=binary('Add',height,strata_height)
                 face_normal=node('Custom',description='T1 bounded differential stone normal',
                     output_type=unreal.CustomMaterialOutputType.CMOT_FLOAT3,code=NORMAL_SHADER)
                 pins=[]
@@ -186,7 +211,7 @@ def regional_material(assets, key, recipe):
         lib.connect_material_property(alpha, '', unreal.MaterialProperty.MP_OPACITY)
     for value, pin, output in [(color, unreal.MaterialProperty.MP_BASE_COLOR, ''),
         (normal_detail, unreal.MaterialProperty.MP_NORMAL, normal_pin),
-        (constant(recipe['roughness']), unreal.MaterialProperty.MP_ROUGHNESS, ''),
+        (roughness, unreal.MaterialProperty.MP_ROUGHNESS, ''),
         (constant(recipe['metallic']), unreal.MaterialProperty.MP_METALLIC, '')]:
         if not lib.connect_material_property(value, output, pin):
             raise RuntimeError('Cannot connect regional material property')
