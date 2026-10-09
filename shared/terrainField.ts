@@ -6,7 +6,7 @@ export interface TerrainField {
   /** Bounded authored weathering; absent recipes preserve their original field exactly. */
   weathering?: { warpMetres: number; warpScale: number; detailScale: number; detailAmplitude: number; terraceHeight: number; terraceStrength: number };
   rolls: Array<{ scale: number; amplitude: number }>;
-  ridges: Array<{ id: string; profile: 'rounded' | 'shelf'; points: FieldPoint[] }>;
+  ridges: Array<{ id: string; profile: 'rounded' | 'shelf' | 'escarpment'; points: FieldPoint[] }>;
   channels: Array<{ id: string; points: FieldPoint[] }>;
 }
 export interface FieldPoint { x: number; z: number; width: number; height: number }
@@ -23,15 +23,22 @@ function roll(x: number, z: number, seed: number): number {
   const c = lattice(ix, iz + 1, seed), d = lattice(ix + 1, iz + 1, seed);
   return (a + (b - a) * u) * (1 - v) + (c + (d - c) * u) * v;
 }
-function ribbon(x: number, z: number, points: FieldPoint[], shelf: boolean): number {
+function ribbon(x: number, z: number, points: FieldPoint[], profile: 'rounded' | 'shelf' | 'escarpment'): number {
   let result = 0;
   for (let i = 1; i < points.length; i++) {
     const a = points[i - 1], b = points[i], dx = b.x - a.x, dz = b.z - a.z;
     const t = Math.max(0, Math.min(1, ((x - a.x) * dx + (z - a.z) * dz) / (dx * dx + dz * dz)));
-    const q = Math.hypot(x - a.x - t * dx, z - a.z - t * dz) / (a.width + (b.width - a.width) * t);
+    let q = Math.hypot(x - a.x - t * dx, z - a.z - t * dz) / (a.width + (b.width - a.width) * t);
+    // Directed scarps have a shorter exposed face and a broader back; graded counters remain separate.
+    if (profile === 'escarpment') {
+      const length = Math.hypot(dx, dz), across = (dx * (z - a.z) - dz * (x - a.x)) / length;
+      const along = ((x - a.x) * dx + (z - a.z) * dz) / length - t * length;
+      // Scale only the cross-section: radial end caps stay continuous across the extended crest.
+      q = Math.hypot(along, across / (across < 0 ? .5 : 1.65)) / (a.width + (b.width - a.width) * t);
+    }
     // Long shoulders join into a mass; variable-width spurs and cut drainage break its silhouette.
-    const profile = shelf ? 1 / (1 + q ** 6) : 1 / (1 + q * q) ** 2;
-    result = Math.max(result, (a.height + (b.height - a.height) * t) * profile);
+    const section = profile === 'rounded' ? 1 / (1 + q * q) ** 2 : 1 / (1 + q ** 6);
+    result = Math.max(result, (a.height + (b.height - a.height) * t) * section);
   }
   return result;
 }
@@ -47,8 +54,8 @@ export function terrainFieldHeight(field: TerrainField, x: number, z: number): n
     pz += roll(x / w.warpScale, z / w.warpScale, field.seed + 1301) * w.warpMetres;
   }
   let ridge = 0, cut = 0;
-  for (const row of field.ridges) ridge = Math.max(ridge, ribbon(px, pz, row.points, row.profile === 'shelf'));
-  for (const row of field.channels) cut = Math.max(cut, ribbon(px, pz, row.points, false));
+  for (const row of field.ridges) ridge = Math.max(ridge, ribbon(px, pz, row.points, row.profile));
+  for (const row of field.channels) cut = Math.max(cut, ribbon(px, pz, row.points, 'rounded'));
   if (w) {
     const detail = .6 * roll(px / w.detailScale, pz / w.detailScale, field.seed + 1901)
       + .4 * roll(px / (w.detailScale * .43), pz / (w.detailScale * .43), field.seed + 2503);
@@ -80,7 +87,7 @@ export function validateTerrainField(field: TerrainField): void {
     if (!Array.isArray(rows) || rows.length > 64) throw new Error('Invalid terrain ribbon inventory');
     for (const row of rows) {
       if (!row.id || ids.has(row.id) || !Array.isArray(row.points) || row.points.length < 2 || row.points.length > 64
-        || ('profile' in row && row.profile !== 'rounded' && row.profile !== 'shelf')) throw new Error('Invalid terrain ribbon identity');
+        || ('profile' in row && row.profile !== 'rounded' && row.profile !== 'shelf' && row.profile !== 'escarpment')) throw new Error('Invalid terrain ribbon identity');
       ids.add(row.id);
       for (const [i, p] of row.points.entries()) {
         if (!finite(p.x, -10000, 10000) || !finite(p.z, -10000, 10000) || !finite(p.width, 6, 500)

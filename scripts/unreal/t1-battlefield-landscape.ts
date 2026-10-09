@@ -12,6 +12,7 @@ export function battlefieldField(id: string): TerrainField {
     weathering: { warpMetres: 19, warpScale: 93, detailScale: 43, detailAmplitude: 5.5, terraceHeight: 7, terraceStrength: 0 },
     rolls: [{ scale: 175, amplitude: 4 }, { scale: 71, amplitude: 1.4 }, { scale: 27, amplitude: .35 }],
     ridges: [
+      { id: 'barrow_limestone_scarp', profile: 'escarpment', points: points([[-225, 65, 27, 29], [-145, 75, 33, 34], [-75, 100, 30, 33]]) },
       { id: 'north_watershed', profile: 'rounded', points: points([[-850, 490, 180, 68], [-520, 510, 210, 101], [-225, 440, 180, 82], [120, 540, 220, 115], [520, 435, 190, 79], [850, 520, 220, 123]]) },
       { id: 'barrow_finger', profile: 'rounded', points: points([[-260, 425, 110, 70], [-220, 280, 100, 49], [-180, 150, 84, 30], [-175, 40, 70, 17]]) },
       { id: 'oak_saddle', profile: 'rounded', points: points([[70, 450, 120, 82], [95, 270, 98, 57], [20, 105, 84, 31], [0, 0, 100, 19]]) },
@@ -31,6 +32,7 @@ export function battlefieldField(id: string): TerrainField {
     weathering: { warpMetres: 26, warpScale: 79, detailScale: 34, detailAmplitude: 8, terraceHeight: 6, terraceStrength: .68 },
     rolls: [{ scale: 150, amplitude: 3 }, { scale: 61, amplitude: 1.8 }, { scale: 23, amplitude: .7 }],
     ridges: [
+      { id: 'western_fault_scarp', profile: 'escarpment', points: points([[-225, -35, 26, 28], [-145, -25, 32, 34], [-70, 0, 30, 33]]) },
       { id: 'west_broken_shelf', profile: 'shelf', points: points([[-650, 420, 135, 68], [-470, 375, 110, 98], [-330, 315, 90, 73], [-225, 195, 85, 51], [-205, 25, 70, 28], [-180, -95, 62, 16]]) },
       { id: 'inner_shelf', profile: 'shelf', points: points([[55, 580, 145, 91], [5, 430, 120, 80], [60, 300, 95, 57], [30, 160, 86, 44], [45, 30, 75, 28], [10, -100, 88, 17]]) },
       { id: 'east_basalt_mass', profile: 'shelf', points: points([[650, 540, 140, 106], [415, 395, 120, 88], [345, 235, 100, 57], [250, 70, 85, 33]]) },
@@ -91,6 +93,20 @@ export function offRoadLinks(id: string): OffRoadLink[] {
   return rows.map(([id, purpose, p]) => ({ id: id as string, purpose: purpose as string, points: (p as number[][]).map(([x, z]) => ({ x, z })), width: 12 }));
 }
 
+/** Unpainted walking climbs shape the backs of the exposed scarps; existing vehicle links stay separate. */
+export function scarpClimbs(id: string): OffRoadLink[] {
+  const rows: Array<[string, number[][]]> | undefined = id === 'sunmeadow_march' ? [
+    ['west', [[-275, 137], [-240, 120], [-200, 105], [-145, 75]]],
+    ['east', [[-100, 172], [-110, 135], [-120, 100], [-145, 75]]],
+  ] : id === 'cinderfen_outskirts' ? [
+    ['west', [[-240, 30], [-225, 15], [-190, -5], [-145, -25]]],
+    ['east', [[-105, 52.5], [-110, 25], [-120, 0], [-145, -25]]],
+  ] : undefined;
+  if (!rows) throw new Error('Scarp climbs require a first-pair region');
+  return rows.map(([side, points]) => ({ id: id + '_scarp_' + side + '_climb', purpose: 'Unpainted back climb',
+    width: 12, points: points.map(([x, z]) => ({ x, z })) }));
+}
+
 /** Fresh source candidate, retaining XY identities and moving complete keeps vertically together. */
 export function battlefieldLandscape(source: ZoneDefinition, homeApproaches: Array<{ id: string; points: Array<{ x: number; z: number; y: number }> }> = []): ZoneDefinition {
   const field = battlefieldField(source.id); validateTerrainField(field);
@@ -135,7 +151,7 @@ export function battlefieldLandscape(source: ZoneDefinition, homeApproaches: Arr
   }
   for (const p of zone.paths!.flatMap(p => p.points)) if (heights.has(key(p))) p.y = heights.get(key(p));
   for (const route of layout.caravanRoutes) for (const p of route.points) if (heights.has(key(p))) p.y = heights.get(key(p));
-  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v7';
+  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v10';
   for (const area of terrain.flattenAreas) if (area.id === 'village' || area.id.includes('_village_')) {
     area.preserveFooting = true;
     area.feather = area.id === 'village' ? 120 : Math.max(area.feather, 72);
@@ -153,6 +169,13 @@ export function battlefieldLandscape(source: ZoneDefinition, homeApproaches: Arr
     if (link.points.some((p, i) => i && !spatialSegmentInside(zone.spatial!, link.points[i - 1], p, 9))) throw new Error('Unsupported off-road link');
     const h = createOrvrGridHeightSampler(terrain, zone.size, zone.segments, zone.spatial);
     terrain.clearCorridors.push({ id: link.id, points: gradedLink(link, zone.paths!, h), radius: link.width / 2 + 7, height: 0, feather: 40 });
+  }
+  const climbs = scarpClimbs(zone.id), crest=climbs[0].points.at(-1)!;
+  terrain.flattenAreas.push({ id: zone.id + '_scarp_overlook', ...crest, radius: 10, feather: 24, height: 44 });
+  for (const climb of climbs) {
+    if (climb.points.some((p,i) => i && !spatialSegmentInside(zone.spatial!,climb.points[i-1],p,9))) throw new Error('Unsupported scarp climb');
+    const h = createOrvrGridHeightSampler(terrain, zone.size, zone.segments, zone.spatial);
+    terrain.clearCorridors.push({ id: climb.id, points: gradedLink(climb, zone.paths!, h), radius: 12, height: 0, feather: 40 });
   }
   const height = createOrvrGridHeightSampler(terrain, zone.size, zone.segments, zone.spatial);
   for (const prop of zone.props ?? []) if (prop.heightMode === 'absolute') prop.y = (prop.y ?? 0) + height(prop.x, prop.z) - oldHeight(prop.x, prop.z);

@@ -23,6 +23,8 @@ export function battlefieldScenes(zone: ZoneDefinition): BattlefieldScene[] {
   if (!sun && zone.id !== 'cinderfen_outskirts') throw new Error('Scene cells admit the first pair only');
   const height = createOrvrGridHeightSampler(zone.orvrLayout.terrain, zone.size, zone.segments, zone.spatial);
   const specifications: SceneSpec[] = sun ? [
+    { id: 'western_scarp_foot', purpose: 'Broken limestone and oak screen the exposed scarp foot; both ends and the graded rotation remain open', x: -155, z: 15, reach: 38, density: 38 },
+    { id: 'eastern_reverse_slope', purpose: 'Loose field-edge cover gives the eastern push a contestable reverse slope without blocking the advance', x: 110, z: -40, reach: 40, density: 34 },
     { id: 'barrow_finger', purpose: 'Broken oak cover above the western field; both counterclimbs remain open', x: -220, z: 85, reach: 72, density: 76 },
     { id: 'field_back_slope', purpose: 'Limestone and hawthorn on the lee side, with open meadow toward the advance', x: 15, z: -105, reach: 70, density: 62 },
     { id: 'north_barrow_wood', purpose: 'Branching upland grove follows drainage around a clear woodland pocket', x: -280, z: 290, reach: 100, density: 92 },
@@ -32,6 +34,8 @@ export function battlefieldScenes(zone: ZoneDefinition): BattlefieldScene[] {
     { id: 'eastern_farm_edge', purpose: 'Small oak copses and broken field-edge cover leave broad grazing lanes', x: 345, z: -320, reach: 105, density: 74 },
     { id: 'village_woodland_edge', purpose: 'Oak and thorn clusters transition working outskirts to the barrow woods', x: -470, z: 155, reach: 74, density: 58 },
   ] : [
+    { id: 'western_fault_foot', purpose: 'Fractured basalt frames the fault face, with open approaches around both ends', x: -170, z: -95, reach: 40, density: 40 },
+    { id: 'east_counter_shelf', purpose: 'Low basalt and sedge frame a counterpush between advance and outer flank', x: 150, z: -140, reach: 42, density: 36 },
     { id: 'fractured_shelf', purpose: 'Bedded basalt beside the basin advance; the climb and open bowl remain clear', x: -215, z: -85, reach: 76, density: 74 },
     { id: 'dyke_edge', purpose: 'Reeds collect in lower pockets beside exposed rock, leaving the peat crossing open', x: 10, z: -210, reach: 74, density: 72 },
     { id: 'west_vent_shoulder', purpose: 'Broken basalt talus grades down from the western shelf', x: -355, z: 150, reach: 80, density: 66 },
@@ -67,7 +71,7 @@ export function battlefieldScenes(zone: ZoneDefinition): BattlefieldScene[] {
       const radius = Math.hypot(p.width, p.depth) / 2;
       const clear = containsSpatialPoint(zone.spatial!, p, radius + 3)
         && zone.orvrLayout!.terrain.clearCorridors.every(c => c.points.slice(1).every((b, j) => distanceToSpatialSegment(p, c.points[j], b) > radius + Math.max(12, c.radius)))
-        && !zone.orvrLayout!.terrain.flattenAreas.some(a => a.preserveFooting && Math.hypot(a.x-x,a.z-z) < radius+a.radius+8)
+        && !zone.orvrLayout!.terrain.flattenAreas.some(a => (a.preserveFooting || a.id.endsWith('_scarp_overlook')) && Math.hypot(a.x-x,a.z-z) < radius+a.radius+8)
         && ![...(zone.npcs ?? []), ...zone.enemies, ...(zone.resourceNodes ?? []), ...(zone.craftingStations ?? []), ...(zone.zoneTriggers ?? [])].some(a => Math.hypot(a.x-x,a.z-z) < radius+12)
         && !zone.orvrLayout!.keeps.some(k => Math.hypot(k.x - x, k.z - z) < radius + 64)
         && !zone.orvrLayout!.battlefieldObjectives.some(k => Math.hypot(k.x - x, k.z - z) < radius + 42)

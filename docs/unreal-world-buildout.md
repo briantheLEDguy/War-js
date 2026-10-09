@@ -374,3 +374,17 @@ walking routes, twelve actual gameplay-camera views and both ordinary-entry/loca
 GM recovery fixtures pass. The private report embeds images directly. This is a
 verified technical checkpoint with unfinished terrain and shoreline art; every
 human, vehicle/combat, lair, persistence/network/platform and release gate remains.
+
+
+The counterable-scarp checkpoint `f27c9bdf8572` / safe walkthrough `d2edaa5c27c8`
+adds two full-width graded back climbs per region, native capsule admission and
+continuous radial ridge ends. The initial taller scarp and discontinuous end cap
+were rejected/repaired before this checkpoint. Fresh source/native full-width
+ground/grade, 102 rendered views, 138 normal walking routes, twenty gameplay-camera
+pictures and both ordinary-entry/local GM recovery fixtures pass. All 13 owner
+documents and saved bindings remain unchanged. The private report embeds PNGs.
+Repository: 1,105 tests; Unreal selection: 484; focused Python: 70; three typechecks;
+33 maps/906 model records. A timed-out fixture passed unchanged on retry and full
+rerun; prior native build/Foundation results retain their scope. Terrain/art remain
+unfinished, later native batches/underground remain unbuilt, and every existing
+lair, human, combat, persistence/network/platform and release gate remains open.

@@ -33,6 +33,12 @@ def traversal_config(receipt, zone, source, headless):
             captures = {max(1,len(approach)//2),len(approach)-1,len(ordered)-1}
             points = [dict(position=p,terrain=True,indoor=False,capture=i in captures) for i,p in enumerate(ordered)]
             routes.append(dict(id=actor['id']+'_approach',kind='road',points=points))
+    for route in zone.get('landscapeWalks',[]):
+        if route.get('walkingAccepted') is not False or route.get('drivingAccepted') is not False or not route.get('terrainAndCapsuleChecked'):
+            raise ValueError('Counter walks require their own native movement acceptance')
+        for direction,ordered in [('forward',route['points']),('reverse',list(reversed(route['points'])))] if headless else [('forward',route['points'])]:
+            points=[dict(position=p,terrain=True,indoor=False,capture=not headless and i in (len(ordered)//2,len(ordered)-1)) for i,p in enumerate(ordered)]
+            routes.append(dict(id=route['id']+'_'+direction,kind='road',points=points))
     if headless:
         cross_country = [dict(id=c['id'],points=c['points']) for c in source['orvrLayout']['terrain']['clearCorridors']
                          if c['id'] not in {p['id'] for p in source['paths']}] if receipt.get('study') == 'battlefield-landscape' else []

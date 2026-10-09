@@ -29,9 +29,12 @@ def render(bundle,identity,output):
     d.line([p(r) for r in source['spatial']['playableOutline']]+[p(source['spatial']['playableOutline'][0])],fill='#eee5cf',width=3)
     colors=['#ffe1a1','#76d3e4','#76d3e4','#ed9ec8','#ed9ec8']
     for i,path in enumerate(source['paths']):d.line([p(v) for v in path['points']],fill=colors[i] if i<5 else '#b5b3a7',width=5 if i<3 else 3)
+    climbs=[c for c in source['orvrLayout']['terrain']['clearCorridors'] if c['id'].endswith('_climb') and '_scarp_' in c['id']]
+    for climb in climbs:d.line([p(v) for v in climb['points']],fill='#b8db89',width=4)
     def mark(row,label,color,r=8,offset=(12,-25)):
         x,y=p(row);d.ellipse((x-r,y-r,x+r,y+r),fill=color,outline='#f5ebd5',width=2)
         d.text((x+offset[0],y+offset[1]),label,font=font(18),fill='#fff3d5',stroke_width=2,stroke_fill='#17252b')
+    if climbs:mark(climbs[0]['points'][-1],'Overlook / 2 back climbs','#92b267',6,(-75,-34))
     for i,bo in enumerate(source['orvrLayout']['battlefieldObjectives']):mark(bo,'BO '+str(i+1),'#cfb069',offset=(-25,17 if i!=1 else -45))
     for keep in source['orvrLayout']['keeps']:mark(keep,keep['realm'].capitalize()+' keep','#365f85' if keep['realm']=='aegis' else '#943f4a',12,(-65,-35))
     for camp in source['orvrLayout']['stagingCamps']:mark(camp,'Staging','#313f43',6,(-35,-27))
@@ -44,7 +47,7 @@ def render(bundle,identity,output):
     d.text((45,22),source['name']+' - measured landscape study',font=font(34),fill='#f1e6d0')
     d.text((45,75),'AUTHORING DIAGRAM | 10m contours | source '+bundle['signature'][:12]+' | appearance and combat unapproved',font=font(20),fill='#c8cec4')
     d.text((45,891),'Gold: advance   Cyan: vehicle flanks   Pink: rotations R1/R2   Pale outline: playable ground',font=font(21),fill='#f1e6d0')
-    d.text((45,932),'Two keeps, three objectives, two independent staging camps; six retained physical supply itineraries.',font=font(21),fill='#c8cec4')
+    d.text((45,932),'Two keeps, three objectives, two staging camps, six supply itineraries. Lime: gentle scarp back climbs.',font=font(21),fill='#c8cec4')
     d.text((45,973),'First-pair views are separate native renders. Brightfen/Ashen are source studies; native environments are pending.',font=font(19),fill='#c8cec4')
     d.text((45,1017),'No underground environment, vehicle/18v18, human visual, lair, platform, Steam or release acceptance is implied.',font=font(18),fill='#c8cec4')
     target=output/(identity+'_landscape.png');panel.save(target);return target
@@ -52,6 +55,6 @@ def render(bundle,identity,output):
 
 if __name__=='__main__':
     bundles=[read(BASE/'battlefield-source-latest.json'),read(BASE/'second-pair-source-latest.json')]
-    signature=hashlib.sha256(''.join(b['signature'] for b in bundles).encode()).hexdigest()[:12];output=BASE/'landscape-atlas'/signature;output.mkdir(parents=True,exist_ok=True)
+    signature=hashlib.sha256(''.join(b['signature'] for b in bundles).encode()+Path(__file__).read_bytes()).hexdigest()[:12];output=BASE/'landscape-atlas'/signature;output.mkdir(parents=True,exist_ok=True)
     for bundle,identities in zip(bundles,[['sunmeadow_march','cinderfen_outskirts'],['brightfen_approach','ashen_steppe']]):
         for identity in identities:print(render(bundle,identity,output))

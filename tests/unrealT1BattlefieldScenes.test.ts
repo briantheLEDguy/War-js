@@ -9,7 +9,7 @@ describe('first-pair battlefield scene cells', () => {
   for (const id of ['sunmeadow_march', 'cinderfen_outskirts']) it(`${id} keeps open roads, objective spaces and off-road choices`, () => {
     const z = battlefieldLandscape(redesignT1(JSON.parse(readFileSync(`public/assets/maps/${id}.json`, 'utf8')) as ZoneDefinition)), before = JSON.stringify(z);
     const cells = battlefieldScenes(z);
-    expect(JSON.stringify(z)).toBe(before); expect(cells).toHaveLength(8);
+    expect(JSON.stringify(z)).toBe(before); expect(cells).toHaveLength(10);
     expect(cells.flatMap(c => c.placements).length).toBeGreaterThan(100);
     for (const c of cells) {
       expect(c.visualApproved).toBe(false); expect(c.combatCoverAccepted).toBe(false);

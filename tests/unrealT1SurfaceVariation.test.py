@@ -49,8 +49,9 @@ class SurfaceVariationTest(unittest.TestCase):
 
     def test_shore_fade_is_local_continuous_and_never_a_hard_waterline(self):
         row=dict(x=20,z=-30,waterY=10,radius=70)
-        self.assertEqual(shoreline_weight(row,20,-30,10),.65)
+        self.assertEqual(shoreline_weight(row,20,-30,10),.9)
         self.assertEqual(shoreline_weight(row,200,-30,10),0)
+        self.assertEqual(shoreline_weight(row,20,-30,9.55),.9)
         self.assertEqual(shoreline_weight(row,20,-30,11),0)
         for i in range(81):
             y=10+i/100

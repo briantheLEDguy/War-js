@@ -1,7 +1,7 @@
 /** Immutable terrain/Node source bundle; never rewrites previous plans, active maps or private scenes. */
 import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { battlefieldLandscape, BATTLEFIELD_ZONES, offRoadLinks } from './t1-battlefield-landscape';
+import { battlefieldLandscape, BATTLEFIELD_ZONES, offRoadLinks, scarpClimbs } from './t1-battlefield-landscape';
 import { landscapePockets } from './t1-landscape-pockets';
 import { battlefieldGrades } from './t1-battlefield-grades';
 import { outdoorRoads, outdoorTerrain } from './world-portals';
@@ -60,10 +60,10 @@ export function prepareBattlefield(): void {
     save(z.id + '.json', z); save(z.id + '_terrain.json', outdoorTerrain(z)); save(z.id + '_roads.json', outdoorRoads(z));
     const links = offRoadLinks(z.id); save(z.id + '_links.json', links);
     const h = createOrvrGridHeightSampler(z.orvrLayout!.terrain, z.size, z.segments, z.spatial);
-    const routeGrades = battlefieldGrades([...z.paths!, ...links, ...pocketPlans.find(p=>p.zone.id===z.id)!.pockets.map(p=>({id:p.id,width:6,points:p.approach}))], h);
+    const routeGrades = battlefieldGrades([...z.paths!, ...links, ...scarpClimbs(z.id), ...pocketPlans.find(p=>p.zone.id===z.id)!.pockets.map(p=>({id:p.id,width:6,points:p.approach}))], h);
     const maximumGrade = Math.max(...routeGrades.map(r => r.maximumGrade)), samples = routeGrades.reduce((sum, r) => sum + r.samples, 0);
     if (maximumGrade > .22) throw new Error(`Battlefield grades fail: ${z.id} ${JSON.stringify(routeGrades.filter(r => r.maximumGrade > .22))}`);
-    reports.push({ zone: z.id, maximumGrade, fullWidthSamples: samples, routeGrades, offRoadLinks: links.length, routeElevationsChanged: true,
+    reports.push({ zone: z.id, maximumGrade, fullWidthSamples: samples, routeGrades, offRoadLinks: links.length, scarpClimbs: 2, routeElevationsChanged: true,
       appearanceApproved: false, drivingAccepted: false, eighteenVersusEighteenAccepted: false });
   }
   for (const z of maps) save('maps/' + z.id + '.json', z);

@@ -1065,3 +1065,57 @@ labeled drawings. Sixty-five focused Python checks pass; the Unreal regression
 selection passes 484 checks across 90 files. Previous build/native Foundation and
 three-platform/release results keep their previously documented scope; no new
 C++ build or release acceptance is inferred from this shading/scenery iteration.
+
+
+## 2026-10-09 counterable scarps and continuous ends
+
+The shared `escarpment` profile gives directed ridges a shorter exposed face and
+broader back. Scaling only the cross-section keeps radial end caps continuous.
+The initial profile produced a 12.36m jump across an extended crest in a regression
+fixture; that prototype is superseded. Rounded/shelf recipes retain exact legacy
+formulas. Sunmeadow limestone and Cinderfen fault studies now have two explicit
+12m back climbs each, joining an unpainted overlook. The initial taller scarp
+failed two-access admission and was lowered/regraded; no clearance or grade limit
+was relaxed. Existing main routes, keep assemblies, objectives and identities stay
+aligned. Source export now grades both climbs with roads, off-road links and pocket
+approaches. Native checks independently cover full-width triangle support below .22.
+
+`t1_landscape_walks.py` bounds source search and tests actual saved native capsule
+clearance. The admitted authored pair takes precedence; a blocked/steep/incomplete
+pair fails rather than granting access acceptance. `t1_traversal.py` includes both
+normal walking directions. Ten scenery neighborhoods per region preserve full
+corridors, services and the overlook. Cliff shading restrains painted source-atlas
+joints with bounded geological color variation; it is still too smooth in places.
+Soft-verge noise uses the normalized source channel, and wet-bed soil now extends
+below shallow water rather than exposing bright grass under the pool.
+
+Source `5b00d5211792` produces private native scene `f27c9bdf8572`, with safe
+walkthrough `d2edaa5c27c8`. All 102 fresh native captures pass saved bindings,
+shader-fallback rejection, source/native triangle correspondence and full-width
+grade checks. Maximum native grade is .213926/.205313 for Sunmeadow/Cinderfen.
+Normal-character traversal `1791565384921369000-24504` passes 138 configured routes
+(68/70). Counter gameplay run `1791565380262943000-19920` provides eight real climb
+camera images; pocket run `1791565670787699900-28872` supplies twelve images of six
+pockets. Ordinary entry/local GM fixtures `8864bb84af7b4b5a8e580400e632cc12` and
+`49416dbf54d24d41abad0e40906de9e8` prove grounded spawn, flight, below-terrain recovery
+and stable walking with no draft writes. All 13 owner documents and pinned saved
+bindings are preserved. Cosmetic cover counts are 4,447/2,740; bank placements are
+129/151. The qualified private HTML report embeds fourteen images, combining unedited
+native PNGs and labeled drawings; it grants no art acceptance.
+
+The full repository rerun passes 1,105 tests/171 files, the Unreal selection passes
+484/90 and all three typechecks pass. Seventy focused Python checks pass. One
+5-second persistence tamper fixture timed out during concurrent work; both cases
+passed unchanged on focused retry, then the full suites passed on rerun. World/model
+validation passes 33 maps/906 records. Audit retains 39 contracts/four blockers;
+strict release exits 1 as required. No C++ changes occurred; earlier Windows
+Editor/Game builds and 147 native Foundation tests keep their documented scope.
+
+Brightfen/Ashen source `5501fff6e60c` refreshes its shared-input bindings without
+altering legacy profile geometry. Atlas `8a861b9d103d` labels all four measured
+layouts, with first-pair back climbs distinguished from vehicle routes. Later-pair
+native environments and underground environments remain unbuilt. Preserve the
+first-batch full-lair gate and every human visual, vehicle, 18v18, service/resource
+behavior, ordinary GM persistence, online/network/audio, frame/memory/travel,
+platform/Steam and release requirement. Continue rock-face, ecology, settlement
+and exploration work; technical traversal is not appearance or combat approval.

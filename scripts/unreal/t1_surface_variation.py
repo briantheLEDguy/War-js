@@ -69,8 +69,8 @@ def shoreline_weight(row,x,z,y):
     validate_shorelines([row])
     if any(not math.isfinite(v) for v in (x,z,y)):raise ValueError('Invalid shore sample')
     radial=max(0,min(1,(row['radius']-math.sqrt((x-row['x'])**2+(z-row['z'])**2+(y-row['waterY'])**2))/12))
-    vertical=max(0,1-abs(y-row['waterY'])/.8)
-    return radial*vertical*vertical*(3-2*vertical)*.65
+    vertical=max(0,min(1,1-max(0,y-row['waterY'])/.9))
+    return radial*vertical*vertical*(3-2*vertical)*.9
 
 
 def channel_weight(row,value):

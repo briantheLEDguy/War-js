@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_rock_surface import rock_surface,rock_projection_weights,MODELS
+from t1_rock_surface import rock_surface,rock_projection_weights,MODELS,geological_color
 
 
 class RockSurfaceTest(unittest.TestCase):
@@ -28,6 +28,16 @@ class RockSurfaceTest(unittest.TestCase):
             source.write_bytes(b'admitted original');geometry.write_text('{}')
             with self.assertRaises(ValueError):rock_surface(root,'sunmeadow_march')
         with self.assertRaises(ValueError):rock_surface(Path('.'),'other_region')
+
+    def test_geological_color_softens_source_atlas_joints_and_stays_bounded(self):
+        recipe=dict(geological=dict(baseColor=[.22,.235,.215],sourceMix=.14,macroMinimum=.72,macroMaximum=1.12,fineMinimum=.88))
+        light=geological_color(recipe,[1,1,1],.5,.5);dark=geological_color(recipe,[0,0,0],.5,.5)
+        self.assertLess(max(a-b for a,b in zip(light,dark)),.13)
+        for i in range(101):
+            c=geological_color(recipe,[.1,.2,.3],i/100,1-i/100)
+            self.assertTrue(all(0<v<.4 for v in c))
+        with self.assertRaises(ValueError):geological_color(recipe,[math.nan,0,0],0,0)
+        with self.assertRaises(ValueError):geological_color(recipe,[0,0,0],2,0)
 
     def test_projection_has_continuous_normalized_weights_across_face_seams(self):
         self.assertEqual(rock_projection_weights([1,0,0]),[1,0,0])

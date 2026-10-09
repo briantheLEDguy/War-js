@@ -92,7 +92,9 @@ try:
         if scene_cells:
             views += [('regional_cell',dict(x=-280,z=-70 if zone['id']=='sunmeadow_march' else -190),dict(x=-220,z=85 if zone['id']=='sunmeadow_march' else -85)),
                       ('counterpush_cell',dict(x=-65,z=-170 if zone['id']=='sunmeadow_march' else -290),dict(x=15,z=-105 if zone['id']=='sunmeadow_march' else -210))]
-        if scene_cells: views += neighborhood_views(source['paths'], zone['sceneCells'][2:])
+        if scene_cells:
+            covered={'barrow_finger','field_back_slope','fractured_shelf','dyke_edge'}
+            views += neighborhood_views(source['paths'],[c for c in zone['sceneCells'] if c['id'].split('_cell_')[-1] not in covered])
         for pocket in zone.get('landscapePockets',[]):
             p=pocket['approach'][-2]
             views.append(('pocket_'+pocket['id'].split('_pocket_')[-1],p,dict(x=pocket['x'],z=pocket['z'])))

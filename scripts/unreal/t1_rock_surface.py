@@ -32,6 +32,8 @@ def rock_surface(root, identity):
             raise ValueError('Rock texture escaped or changed from its admitted channel')
     return dict(color=textures['color'],normal=textures['normal'],tileMetres=3.6 if identity=='sunmeadow_march' else 3,
                 tint=materials[0]['color'][:3],sourceModel=model,
+                geological=dict(baseColor=[.22,.235,.215] if identity=='sunmeadow_march' else [.075,.085,.09],sourceMix=.14,
+                    noiseMetres=6.3,fineMetres=.8,macroMinimum=.72,macroMaximum=1.12,fineMinimum=.88),
                 reviewInputs={p.relative_to(root).as_posix():sha(p) for p in (source,manifest_file,registry_file,geometry)})
 
 
@@ -41,3 +43,13 @@ def rock_projection_weights(normal):
     weights=[n**4 for n in normal]; total=sum(weights)
     if total<=0: raise ValueError('Rock projection needs a nonzero normal')
     return [w/total for w in weights]
+
+
+def geological_color(recipe,projected,macro_noise,fine_noise):
+    """Bounded source-derived cliff color without magnifying atlas seams or painted joint normals."""
+    g=recipe['geological']
+    if len(projected)!=3 or any(not math.isfinite(v) or not 0<=v<=1 for v in [*projected,macro_noise,fine_noise]):
+        raise ValueError('Invalid geological color sample')
+    macro=g['macroMinimum']+(g['macroMaximum']-g['macroMinimum'])*macro_noise
+    fine=g['fineMinimum']+(1-g['fineMinimum'])*fine_noise
+    return [(a*(1-g['sourceMix'])+b*g['sourceMix'])*macro*fine for a,b in zip(g['baseColor'],projected)]

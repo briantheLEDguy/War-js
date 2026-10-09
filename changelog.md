@@ -1,3 +1,20 @@
+## 2026-10-09 - T1 counterable scarp and geological surface studies
+
+- Add directed exposed faces and broader backs to the shared terrain field while
+  preserving the exact rounded/shelf formulas. Close radial ends continuously;
+  a regression fixture catches the initial 12.36m endpoint discontinuity.
+- Add two 12m graded back climbs and a contestable overlook per first-pair region.
+  Check the full route width in source export and native terrain; admit separate
+  capsule-clear counter-walks and verify both normal walking directions.
+- Expand to ten scenery neighborhoods per region, retaining road, objective,
+  service and overlook reservations. Blend source-derived cliff color with bounded
+  geological variation, suppress atlas-painted joint normals on terrain faces,
+  normalize soft-verge noise and extend gradual mud shading across submerged beds.
+- Preserve previous candidates, active maps, capitals and owner documents. Fresh
+  technical checks cover 102 rendered views, 138 walking routes, 20 gameplay-camera
+  pictures and ordinary entry/local GM recovery; appearance and release remain
+  incomplete. Keep native/licensed assets and embedded image reports private.
+
 ## 2026-10-09 - T1 shoreline and surface iteration
 
 - Replace regular cardinal water ripples with gentler oblique waves perturbed by

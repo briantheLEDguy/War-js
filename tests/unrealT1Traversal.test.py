@@ -75,6 +75,15 @@ class T1TraversalTest(unittest.TestCase):
         zone['population'][0]['sourceRulesUnchanged']=False
         with self.assertRaises(ValueError): traversal_config(receipt,zone,source,False)
 
+    def test_counter_climbs_require_native_capsule_admission_and_both_walking_directions(self):
+        receipt,zone,source=self.fixture()
+        zone['landscapeWalks']=[dict(id='counter',points=[[0,0,0],[100,0,20]],terrainAndCapsuleChecked=True,walkingAccepted=False,drivingAccepted=False)]
+        config=traversal_config(receipt,zone,source,True)
+        a,b=[r for r in config['routes'] if r['id'].startswith('counter_')]
+        self.assertEqual(a['points'],list(reversed(b['points'])))
+        zone['landscapeWalks'][0]['walkingAccepted']=True
+        with self.assertRaises(ValueError):traversal_config(receipt,zone,source,True)
+
     def test_battlefield_adds_both_directions_of_unpainted_vehicle_links(self):
         receipt,zone,source=self.fixture(); receipt.update(kind='atmosphere',study='battlefield-landscape')
         zone['map']=zone['map'].replace('T1Redesign_Homes_', 'T1Redesign_Atmosphere_'); zone['population']=[]

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { terrainFieldHeight, validateTerrainField, type TerrainField } from '../shared/terrainField';
 import { createOrvrGridHeightSampler, orvrHeightAt } from '../shared/orvrTerrain';
 import { readFileSync } from 'node:fs';
-import { battlefieldLandscape, offRoadLinks } from '../scripts/unreal/t1-battlefield-landscape';
+import { battlefieldLandscape, offRoadLinks, scarpClimbs } from '../scripts/unreal/t1-battlefield-landscape';
 import { battlefieldGrades } from '../scripts/unreal/t1-battlefield-grades';
 import { redesignT1 } from '../scripts/unreal/t1-layouts';
 import type { ZoneDefinition } from '../shared/world/ZoneDefinition';
@@ -27,6 +27,33 @@ describe('shared connected terrain field', () => {
     for (const invalid of [{ ...weathering, warpMetres: 41 }, { ...weathering, detailScale: 0 },
       { ...weathering, terraceHeight: 0 }, { ...weathering, terraceStrength: NaN }]) {
       expect(() => validateTerrainField({ ...field, weathering: invalid })).toThrow('weathering');
+    }
+  });
+  it('gives directed scarps an exposed face and broader counterable back without changing old profiles', () => {
+    const ridge = { id: 'face', profile: 'escarpment' as const, points: [{ x: -100, z: 0, width: 40, height: 30 }, { x: 100, z: 0, width: 40, height: 30 }] };
+    const f: TerrainField = { ...field, baseHeight: 0, ridges: [ridge] }; validateTerrainField(f);
+    expect(terrainFieldHeight(f, 0, 0)).toBe(30);
+    expect(terrainFieldHeight(f, 0, -40)).toBeLessThan(1);
+    expect(terrainFieldHeight(f, 0, 40)).toBeGreaterThan(28);
+    const gradient = (z: number) => Math.abs(terrainFieldHeight(f, 0, z+.01)-terrainFieldHeight(f, 0, z-.01))/.02;
+    expect(gradient(-20)).toBeGreaterThan(gradient(66)*3);
+    for (let z=-80; z<=80; z+=2) expect(Math.abs(terrainFieldHeight(f, 0, z-.0001)-terrainFieldHeight(f, 0, z+.0001))).toBeLessThan(.001);
+    const reverse = { ...f, ridges: [{ ...ridge, points: [...ridge.points].reverse() }] };
+    expect(terrainFieldHeight(reverse, 0, -40)).toBe(terrainFieldHeight(f, 0, 40));
+    for (const profile of ['rounded','shelf'] as const) {
+      const legacy={...f,ridges:[{...ridge,profile}]};
+      const q=27/40;const expected=30*(profile==='rounded'?1/(1+q*q)**2:1/(1+q**6));
+      expect(terrainFieldHeight(legacy,0,27)).toBe(expected);
+    }
+  });
+  it('closes directed scarp ends continuously on both sides of the extended crest line', () => {
+    const f: TerrainField = { ...field, baseHeight: 0, ridges: [{ id: 'face', profile: 'escarpment',
+      points: [{ x: -100, z: 0, width: 40, height: 30 }, { x: 100, z: 0, width: 40, height: 30 }] }] };
+    for (const x of [-170, -140, -101, 101, 140, 170]) {
+      expect(Math.abs(terrainFieldHeight(f, x, -.0001) - terrainFieldHeight(f, x, .0001))).toBeLessThan(.001);
+    }
+    for (const x of [-100, 100]) for (let z=-80; z<=80; z+=2) {
+      expect(Math.abs(terrainFieldHeight(f, x-.0001, z)-terrainFieldHeight(f, x+.0001, z))).toBeLessThan(.001);
     }
   });
   it('cuts drainage within the ridge mass and survives JSON serialization deterministically', () => {
@@ -75,7 +102,7 @@ for (const id of ['sunmeadow_march', 'cinderfen_outskirts']) describe(`${id} bat
   });
   it('grades full-width roads and deliberate off-road vehicle links below the .22 target', () => {
     const z = battlefieldLandscape(source), h = createOrvrGridHeightSampler(z.orvrLayout!.terrain, z.size, z.segments, z.spatial);
-    const paths = [...z.paths!, ...offRoadLinks(id)];
+    const paths = [...z.paths!, ...offRoadLinks(id), ...scarpClimbs(id).map(p=>({...p,width:12}))];
     let maximum = 0;
     for (const path of paths) for (let i = 1; i < path.points.length; i++) {
       const a = path.points[i - 1], b = path.points[i], dx = b.x - a.x, dz = b.z - a.z, length = Math.hypot(dx, dz), steps = Math.ceil(length / 2);
@@ -90,6 +117,9 @@ for (const id of ['sunmeadow_march', 'cinderfen_outskirts']) describe(`${id} bat
     }
     expect(maximum).toBeLessThan(.22);
     expect(Math.max(...battlefieldGrades(paths, h).map(p => p.maximumGrade))).toBeLessThan(.22);
+    const climbs=scarpClimbs(id);expect(climbs).toHaveLength(2);
+    expect(climbs[0].points.at(-1)).toEqual(climbs[1].points.at(-1));
+    expect(Math.abs(climbs[0].points[0].x-climbs[1].points[0].x)).toBeGreaterThan(120);
     const main = z.paths![0].points;
     expect(Math.max(...main.map(p => h(p.x, p.z))) - Math.min(...main.map(p => h(p.x, p.z)))).toBeGreaterThan(12);
     // The middle saddle masks a direct ground-level sightline between the outer battle spaces.

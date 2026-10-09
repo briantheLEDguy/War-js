@@ -20,6 +20,7 @@ from t1_landscape_ecology import admitted_cover,cover_layout,pocket_water
 from t1_ecology_native import ground_cover,water_material,cover_inventory
 from t1_water_surface import water_surface
 from t1_pocket_dressing import pocket_dressing
+from t1_landscape_walks import landscape_walks
 from world_build_assets import WorldAssets
 
 BASE=ROOT/'artifacts/unreal/t1-redesign'; CONTENT=ROOT/'unreal/AegisWar/Content'; read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
@@ -57,7 +58,7 @@ for z in parent['zones']:
 verify_sources()
 
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
@@ -151,12 +152,16 @@ try:
         ground=GroundReview(world,actors,identity,source['spatial']['playableOutline']); spawn=source['spawnPoint']
         support=ground.center([spawn['z']*100,spawn['x']*100,0])
         if not support: raise RuntimeError('Scene copy obstructs village arrival')
+        unreal.log('WAR_T1_COUNTER_PLANNING='+identity)
+        counters=landscape_walks(source,surface.height_cm,[p for c in all_cells for p in c['placements']],
+            lambda x,z:ground.center([z*100,x*100,0]) is not None)
+        unreal.log('WAR_T1_COUNTER_CAPSULE_CHECKED='+identity+' routes='+str(len(counters)))
         _,centre=support; anchor.set_actor_location(centre,False,True)
         world.get_world_settings().set_editor_property('default_game_mode',unreal.WarGameMode)
         if not levels.save_current_level(): raise RuntimeError('Cannot save scene review')
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append({**original,'map':destination+'/Review','parentMap':original['map'],'actorInventory':states,'materials':materials,
-                      'sceneCells':cells,'pocketDressing':dressing,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
+                      'sceneCells':cells,'pocketDressing':dressing,'landscapeWalks':counters,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
         unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT_ZONE='+identity)
 finally: verify_sources(); verify_protected(ROOT,protected)
 result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',inputs=inputs,zones=zones,

@@ -95,11 +95,11 @@ def regional_material(assets, key, recipe):
             centre=node('Constant3Vector',constant=unreal.LinearColor(shore['z']*100,shore['x']*100,shore['waterY']*100,1))
             distance=binary('Distance',world,centre)
             radial=clamp(binary('Divide',binary('Subtract',constant(shore['radius']*100),distance),constant(1200)))
-            delta=node('Abs');wire(binary('Subtract',world_height,constant(shore['waterY']*100)),'',delta,'Input')
-            band=clamp(binary('Subtract',constant(1),binary('Divide',delta,constant(80))))
+            delta=binary('Max',constant(0),binary('Subtract',world_height,constant(shore['waterY']*100)))
+            band=clamp(binary('Subtract',constant(1),binary('Divide',delta,constant(90))))
             band=binary('Multiply',binary('Multiply',band,band),binary('Subtract',constant(3),binary('Multiply',band,constant(2))))
             wet=binary('Max',wet,binary('Multiply',radial,band))
-        color=lerp(color,binary('Multiply',soil_color,constant(.72)),binary('Multiply',wet,constant(.65)))
+        color=lerp(color,binary('Multiply',soil_color,constant(.72)),binary('Multiply',wet,constant(.9)))
     if not recipe['softVerge']:
 
         if variation_recipe:
@@ -134,8 +134,25 @@ def regional_material(assets, key, recipe):
             # Blend projections over face directions, so steep slopes do not stretch into flat colour bands.
             rock=binary('Divide',binary('Add',binary('Add',values[0],values[1]),values[2]),binary('Add',binary('Add',weights[0],weights[1]),weights[2]))
             rock_tint=node('Constant3Vector',constant=unreal.LinearColor(*rock_layer['tint'],1)); rock=binary('Multiply',rock,rock_tint)
-            rock_uv=binary('Divide',axes,constant(rock_layer['tileMetres']*100))
-            mixed_normal=lerp(normal_detail,texture('normal',rock_uv,rock_layer),clamped,normal_pin,'RGB')
+            geology=rock_layer.get('geological')
+            if geology:
+                coarse=node('Noise',quality=1,levels=2,turbulence=False,output_min=0,output_max=1,
+                    noise_function=unreal.NoiseFunction.NOISEFUNCTION_GRADIENT_TEX3D)
+                wire(binary('Divide',world,constant(geology['noiseMetres']*100)),'',coarse,'')
+                fine=node('Noise',quality=1,levels=1,turbulence=False,output_min=0,output_max=1,
+                    noise_function=unreal.NoiseFunction.NOISEFUNCTION_GRADIENT_TEX3D)
+                wire(binary('Divide',world,constant(geology['fineMetres']*100)),'',fine,'')
+                base=node('Constant3Vector',constant=unreal.LinearColor(*geology['baseColor'],1))
+                rock=lerp(base,rock,constant(geology['sourceMix']))
+                macro=binary('Add',constant(geology['macroMinimum']),binary('Multiply',clamp(coarse),constant(geology['macroMaximum']-geology['macroMinimum'])))
+                grain=binary('Add',constant(geology['fineMinimum']),binary('Multiply',clamp(fine),constant(1-geology['fineMinimum'])))
+                rock=binary('Multiply',rock,binary('Multiply',macro,grain))
+                # Atlas-painted joint normals are appropriate on source meshes, not projected cliff faces.
+                face_normal=node('Constant3Vector',constant=unreal.LinearColor(0,0,1,1))
+                mixed_normal=lerp(normal_detail,face_normal,clamped,normal_pin,'')
+            else:
+                rock_uv=binary('Divide',axes,constant(rock_layer['tileMetres']*100))
+                mixed_normal=lerp(normal_detail,texture('normal',rock_uv,rock_layer),clamped,normal_pin,'RGB')
             normal_detail=node('Normalize');wire(mixed_normal,'',normal_detail,'VectorInput');normal_pin=''
         elif variation_recipe:
             grain = binary('Add', constant(.8), binary('Multiply', samples['color'], constant(.4), 'R'))
@@ -150,7 +167,7 @@ def regional_material(assets, key, recipe):
         verge = binary('Multiply', vertex, constant(1), 'A')
         if variation_recipe:
             noise = texture('color', binary('Divide', axes, constant(variation_recipe['vergeMetres']*100)))
-            perturbation = binary('Multiply', binary('Subtract', noise, constant(.5), 'R'),
+            perturbation = binary('Multiply', binary('Subtract', channel_mask(noise), constant(.5)),
                 binary('Multiply', verge, binary('Subtract', constant(1), verge)))
             verge = clamp(binary('Add', verge, binary('Multiply', perturbation, constant(1.6))))
         alpha = binary('Multiply', verge, samples['color'], '', 'A')

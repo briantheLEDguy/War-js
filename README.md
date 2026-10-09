@@ -11,6 +11,10 @@ wet-soil transition. `t1_water_surface.py` supplies gentle oblique waves perturb
 by reviewed source noise; `t1_pocket_dressing.py` follows bank elevation with
 admitted shrubs and embedded rocks while reserving approaches. Terrain masks
 rescale dark linear source channels before smooth interpolation.
+Directed scarps add two gentle back climbs per region with continuous radial
+end caps. `t1_landscape_walks.py` admits both routes against saved native capsule
+clearance before normal-character movement proof. Source/native full-width grade
+checks include the climbs, and measured atlas drawings label them explicitly.
 Source-channel rock projection and charcoal basalt adaptation
 retain their reviewed inputs. These remain visibly unfinished prototypes.
 
@@ -30,7 +34,7 @@ arrivals, three unpainted off-road vehicle links per zone and retained home
 footing. Run `build-t1-battlefield.py` in the native Python commandlet for new
 private maps with complete keep/home assemblies rebased together.
 
-`npm run unreal:t1-battlefield-scenes` prepares eight landscape
+`npm run unreal:t1-battlefield-scenes` prepares ten landscape
 neighborhoods per zone using retained source assets. `build-t1-battlefield-scenes.py`
 creates fresh
 private copies with embedded rock, grove/reed clusters and source-channel material
@@ -49,7 +53,7 @@ preserved. See [T1 implementation](docs/t1-redesign.md).
 
 Source preparation binds revision-qualified baseline/walkthrough receipts, so
 staging a newer walkthrough does not invalidate its own dependencies. The latest
-first-pair pass verifies 122 configured walking routes and ordinary character
+first-pair pass verifies 138 configured walking routes and ordinary character
 entry/local GM recovery in both regions. See the private `progress-report.html`
 under `artifacts/unreal/t1-redesign` for labeled native views and measured drawings.
 
