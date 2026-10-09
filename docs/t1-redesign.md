@@ -1494,3 +1494,40 @@ gates, 18v18, services/resources, ordinary GM persistence, Node additive-prop
 collision/live playtest, network/audio, performance, platforms/Steam and release
 gates. Shared terrain-sampler parity is not live Node playtest acceptance. Later-pair
 native and full underground environments remain unbuilt.
+
+
+## T1 terrain-conformed cosmetic roads (9 October 2026)
+
+Source `cbc1c13f223b`, core `676151d36b96`, scene `db75d41d4864`, navigation
+`8cbc1cf8593e` and safe walkthrough `ec800afac2d0` have fresh native proof.
+Cosmetic road ribbons now follow each rectangular terrain cell and diagonal,
+preserving interpolated UVs and soft verge alpha. Terrain and gameplay routes
+remain byte-preserved. Microscopic clipping slivers are omitted; clockwise
+native front faces and upward normals have a regression test. Initial import
+slivers and a manually rejected backface-culled candidate were repaired before
+admission. Automated renders alone did not catch the wrong winding.
+
+Fresh checks pass 114 rendered views, 150 normal walking routes, 92 navigation
+queries before save/after reload, exact safe-copy payloads, both grounded entry
+and local-GM recovery fixtures without draft writes, and twelve actual pocket
+follow-camera captures. All thirteen owner documents and parent/capital maps
+remain preserved. Navigation copies have not separately repeated all walking.
+Road triangles increase to 246228 Sunmeadow / 255434 Cinderfen; vertices to
+129066 / 133710. Triangle centroids and edge midpoints clear ground by 0.045m
+within 1e-5m. Increased mesh cost remains unaccepted for performance.
+
+Repository suites pass 1125 tests/176 files, Unreal 504/95, Python 125/32.
+All three typechecks, migration audit and world/model validation pass; strict
+release exits 1. No C++ changed. Earlier native build/Foundation scope remains.
+Private `progress-report-road-conformance-db75d41d4864.html` embeds 22 actual
+native images and measured source drawings; its matching checkpoint records
+signatures and hashes. Unsaved installed-rock geometry/palette studies retain
+four LODs but use NoCollision and remain unintegrated/unapproved. Source rock
+packages are preserved; original rocks lack simple collision.
+
+Natural composition, repeated ground, harsh foliage and saved blocky rocks remain
+unfinished. Preserve appearance, first-batch full lairs, physical vehicle drive
+and turning, closed gates, 18v18, services/resources, ordinary GM persistence,
+Node additive-prop collision/live playtest, network/audio, performance, platforms,
+Steam and release gates. Shared terrain parity is not live Node proof. Later-pair
+native and full underground environments remain unbuilt.
