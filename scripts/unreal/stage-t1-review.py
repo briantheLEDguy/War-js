@@ -9,6 +9,7 @@ import unreal
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).parent))
 from t1_review import review_map, arrival_point
+from t1_navigation import navigation_payload, validate_navigation_parent
 from t1_materials import protected_saved, verify_protected
 from t1_population_native import GroundReview
 from world_actor_state import snapshot
@@ -17,13 +18,16 @@ DIRECTORY = ROOT/'artifacts/unreal/t1-redesign'
 CONTENT = ROOT/'unreal/AegisWar/Content'
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 read = lambda p: json.loads(p.read_text(encoding='utf-8-sig'))
-scene_cells = '-wart1battlefieldscenes' in unreal.SystemLibrary.get_command_line().lower()
-parent = read(DIRECTORY/('battlefield-scenes-latest.json' if scene_cells else 'relief-latest.json'))
-if parent.get('study') != ('battlefield-landscape' if scene_cells else 'dramatic-relief'): raise RuntimeError('Expected the matching verified first-pair candidates')
+navigation = '-wart1navigation' in unreal.SystemLibrary.get_command_line().lower()
+scene_cells = navigation or '-wart1battlefieldscenes' in unreal.SystemLibrary.get_command_line().lower()
+landscape = read(DIRECTORY/('battlefield-scenes-latest.json' if scene_cells else 'relief-latest.json'))
+parent = read(DIRECTORY/'battlefield-navigation-latest.json') if navigation else landscape
+if navigation: validate_navigation_parent(parent,landscape['signature'])
+if landscape.get('study') != ('battlefield-landscape' if scene_cells else 'dramatic-relief'): raise RuntimeError('Expected the matching verified first-pair candidates')
 if scene_cells:
     views = read(DIRECTORY/'battlefield-scenes-review.json')
     walking = read(DIRECTORY/'battlefield-scenes-traversal-headless-latest.json')
-    if views['signature'] != parent['signature'] or walking['signature'] != parent['signature'] or not views['savedCandidatesUnchanged'] or not walking['savedCandidatesUnchanged'] or not views.get('materialShaderCompilationPassed'):
+    if views['signature'] != landscape['signature'] or walking['signature'] != landscape['signature'] or not views['savedCandidatesUnchanged'] or not walking['savedCandidatesUnchanged'] or not views.get('materialShaderCompilationPassed'):
         raise RuntimeError('Walkthrough staging needs matching native ground/views and configured walking evidence')
 source_packages = {**parent['inputs']['parentPackages'], **parent['packageHashes']}
 source_assets = {**parent['inputs'].get('parentAssetHashes',{}), **parent['assetHashes']}
@@ -39,7 +43,7 @@ def verify_sources():
 verify_sources()
 protected = protected_saved(ROOT)
 inputs = dict(parent=parent['signature'], createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
-              tools={p:sha(ROOT/p) for p in ('scripts/unreal/stage-t1-review.py','scripts/unreal/t1_review.py',
+              tools={p:sha(ROOT/p) for p in ('scripts/unreal/stage-t1-review.py','scripts/unreal/t1_review.py','scripts/unreal/t1_navigation.py',
                     'scripts/unreal/t1_population_native.py','scripts/unreal/world_actor_state.py',
                     'unreal/AegisWar/Source/AegisWar/Public/WarWorldEditMap.h',
                     'unreal/AegisWar/Source/AegisWar/Private/WarT1ReviewProof.cpp',
@@ -62,6 +66,9 @@ try:
             raise RuntimeError('Walkthrough requires its unique regional anchor')
         anchor = anchors[0]
         if anchor.get_outer().get_path_name().split('.')[0] != target: raise RuntimeError('Anchor belongs to a parent layer')
+        if navigation:
+            copied_navigation = navigation_payload(json.loads(unreal.WarSiegeAuthoringLibrary.describe_baked_navigation(world)))
+            if copied_navigation != navigation_payload(zone['navigation']['reloaded']): raise RuntimeError('Routing copy changed baked navigation')
         before = {a.get_path_name():snapshot(a) for a in actors.get_all_level_actors() if a != anchor}
         source = read(ROOT/zone['sourceDirectory']/(identity+'.json')) if scene_cells else read(DIRECTORY/(identity+'.json'))
         reviewer = GroundReview(world,actors,identity,source['spatial']['playableOutline'])
@@ -77,8 +84,16 @@ try:
         if not levels.set_current_level_by_name('Walkthrough') or not levels.save_current_level():
             raise RuntimeError('Cannot save private routing arrival')
         packages[target] = sha(CONTENT/(target.removeprefix('/Game/')+'.umap'))
+        if navigation:
+            unreal.EditorLoadingAndSavingUtils.new_blank_map(False)
+            if not levels.load_level(target): raise RuntimeError('Cannot reload safe navigation walkthrough')
+            world = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world()
+            unreal.GameplayStatics.flush_level_streaming(world); unreal.WarImportLibrary.prepare_world_preview_frame(world)
+            if navigation_payload(json.loads(unreal.WarSiegeAuthoringLibrary.describe_baked_navigation(world))) != copied_navigation:
+                raise RuntimeError('Saved safe walkthrough changed baked navigation')
+            if packages[target] != sha(CONTENT/(target.removeprefix('/Game/')+'.umap')): raise RuntimeError('Reload changed saved walkthrough bytes')
         rows.append(dict(id=identity,map=target,parentMap=zone['map'],arrivalCm=[centre.x,centre.y,centre.z],
-                    terrainGroundCm=ground,previousUnsafeAnchorCm=old,nativeArrivalClear=True,parentContentUnchanged=True,
+                    terrainGroundCm=ground,navigationSaveReloadVerified=navigation,previousUnsafeAnchorCm=old,nativeArrivalClear=True,parentContentUnchanged=True,
                     streamingDeclarations=list(unreal.WarImportLibrary.get_streaming_level_package_names(world))))
 finally:
     verify_sources(); verify_protected(ROOT,protected)

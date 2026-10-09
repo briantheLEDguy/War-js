@@ -2007,3 +2007,20 @@ scenery and larger landscape composition still need work. Later-pair native and
 all underground environments remain unbuilt; first-batch lairs, human visual,
 actual vehicle driving/18v18, service/resource behavior, ordinary GM persistence,
 online/network/audio, platform/performance/Steam and release gates remain open.
+
+
+### 2026-10-09 - Isolated T1 navigation and aligned convoy gate passages
+
+- Add editor-only exact convex exclusions for concave T1 footprints, bounded
+  static pedestrian/convoy navigation baking, saved tile readback and complete
+  route probes without changing existing agent dimensions or query budgets.
+- Widen only private first-batch gate assemblies and their source colliders to
+  7.5m, with 8m approach roads; retain complete assembly positions and gameplay
+  identities. All 88 navigation queries now pass, including four previously
+  blocked convoy keep approaches. Native animated gate leaves remain pending.
+- Preserve baked tiles in safe terrain-aware launch copies; verify ordinary
+  spawn/local GM recovery, 102 views and 138 normal landscape walking routes.
+- Pass 1108 repository, 487 Unreal-selection, 85 focused Python and 151 native
+  Foundation tests plus three typechecks, audit and world/model validation.
+  Retain collision-export performance warnings and all art, driving/18v18,
+  lair, persistence, network/platform/Steam and release gates.

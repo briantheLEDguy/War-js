@@ -9,6 +9,7 @@ import unreal
 
 ROOT = Path(__file__).resolve().parents[2]; sys.path.insert(0,str(Path(__file__).parent))
 from t1_battlefield import Surface,rebase_inventory,rebase_population,rebase_homes
+from t1_vehicle_passages import adapt_gate_passages
 from t1_material_clone import inventory,clone
 from t1_population_native import population_actor,spawn_population,GroundReview
 from t1_materials import protected_saved,verify_protected,sha,same_state
@@ -28,7 +29,7 @@ def verify_sources():
     for p,h in packages.items():
         if sha(CONTENT/(p.removeprefix('/Game/')+'.umap')) != h: raise RuntimeError('Preserve changed native parent: '+p)
 verify_sources(); protected = protected_saved(ROOT)
-tools = ['scripts/unreal/build-t1-battlefield.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py',
+tools = ['scripts/unreal/build-t1-battlefield.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_vehicle_passages.py','scripts/unreal/t1_material_clone.py',
          'scripts/unreal/t1_population_native.py','scripts/unreal/world_build_assets.py','unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs = dict(sourceSignature=bundle['signature'],createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
               tools={p:sha(ROOT/p) for p in tools},sourceHashes=files,parentPackages=packages,protectedHashes=protected,
@@ -48,6 +49,7 @@ try:
             if not same_state(population_actor(actor),row['savedState']): raise RuntimeError('Parent population changed')
         old_surface = Surface(previous,read(BASE/(identity+'_terrain.json'))); surface = Surface(source,read(directory/(identity+'_terrain.json')))
         states,rebase = rebase_inventory(definition['actorInventory'],previous,source,old_surface,surface)
+        states,gate_passages = adapt_gate_passages(states,previous,source)
         population = rebase_population(definition['population'],old_surface,surface)
         for role in ('terrain','roads'):
             state = states[identity+'_'+role]
@@ -95,7 +97,7 @@ try:
             map=destination+'/Review',parentMap=definition['map'],sourceDirectory=bundle['directory'],
             landscapePockets=read(directory/(identity+'_pockets.json')),
             homes=rebase_homes(definition['homes'],rebase['completeAssemblyDeltasCm'],old_surface,surface),
-            actorInventory=states,population=population,atmosphere=atmosphere,rebase=rebase,arrivalCm=[centre.x,centre.y,centre.z],
+            actorInventory=states,population=population,atmosphere=atmosphere,rebase=rebase,nativeGatePassages=gate_passages,arrivalCm=[centre.x,centre.y,centre.z],
             nativeArrivalClear=True,geometryPreserved=False,appearanceApproved=False,gameplayAccepted=False))
         unreal.log('WAR_T1_BATTLEFIELD_BUILT_ZONE='+identity)
 finally:

@@ -46,7 +46,7 @@ export function prepareBattlefield(): void {
     t.targetSpawn = { ...maps.find((m: ZoneDefinition) => m.id === t.targetZoneId)!.zoneTriggers!.find(r => r.targetZoneId === z.id)!.arrivalPoint! };
   }
   const tools = ['shared/terrainField.ts', 'shared/orvrTerrain.ts', 'shared/world/RoadSurface.ts', 'scripts/unreal/t1-battlefield-grades.ts',
-    'scripts/unreal/t1-battlefield-landscape.ts', 'scripts/unreal/t1-landscape-pockets.ts', 'scripts/unreal/prepare-t1-battlefield.ts', 'scripts/unreal/world-portals.ts'];
+    'scripts/unreal/t1-battlefield-landscape.ts', 'scripts/unreal/t1-vehicle-passages.ts', 'scripts/unreal/t1-landscape-pockets.ts', 'scripts/unreal/prepare-t1-battlefield.ts', 'scripts/unreal/world-portals.ts'];
   for (const file of tools) bindings[file] = sha256(readFileSync(path.join(repoRoot, file)));
   const signature = sha256(canonicalJson({ bindings, zones })), directory = path.join(base, 'battlefield', signature.slice(0, 12));
   if (existsSync(directory)) throw new Error('Preserve an existing battlefield source revision');

@@ -92,6 +92,14 @@ class T1TraversalTest(unittest.TestCase):
         self.assertEqual([r['id'] for r in config['routes']][-2:],['field_cut_forward','field_cut_reverse'])
         self.assertEqual(config['routes'][-2]['points'],list(reversed(config['routes'][-1]['points'])))
 
+    def test_navigation_study_keeps_population_and_offroad_walking_inventory(self):
+        receipt,zone,source=self.fixture();receipt.update(kind='atmosphere',study='battlefield-navigation')
+        zone['map']='/Game/WorldRebuild/T1Redesign_Atmosphere_aaaaaaaaaaaa_Navigation/sunmeadow_march/Review'
+        zone['population']=[dict(id='scout',sourceRulesUnchanged=True,gameplayAccepted=False,approach=[[i*50,0,0] for i in range(11)])]
+        source['orvrLayout']['terrain']=dict(clearCorridors=[dict(id='field_cut',points=[dict(x=1,z=2,y=4),dict(x=2,z=3,y=5)])])
+        routes=traversal_config(receipt,zone,source,True)['routes']
+        self.assertIn('scout_approach',[r['id'] for r in routes]);self.assertIn('field_cut_reverse',[r['id'] for r in routes])
+
 
 if __name__ == '__main__':
     unittest.main()

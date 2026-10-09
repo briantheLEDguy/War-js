@@ -2,6 +2,7 @@ import type { ZoneDefinition } from '../../shared/world/ZoneDefinition';
 import { createOrvrGridHeightSampler } from '../../shared/orvrTerrain';
 import { validateTerrainField, type TerrainField, type FieldPoint } from '../../shared/terrainField';
 import { spatialSegmentInside } from '../../shared/worldSpatial';
+import { widenVehicleGatePassages } from './t1-vehicle-passages';
 import { validateT1 } from './t1-layouts';
 
 export const BATTLEFIELD_ZONES = ['sunmeadow_march', 'cinderfen_outskirts'] as const;
@@ -151,13 +152,14 @@ export function battlefieldLandscape(source: ZoneDefinition, homeApproaches: Arr
   }
   for (const p of zone.paths!.flatMap(p => p.points)) if (heights.has(key(p))) p.y = heights.get(key(p));
   for (const route of layout.caravanRoutes) for (const p of route.points) if (heights.has(key(p))) p.y = heights.get(key(p));
-  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v11';
+  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v12';
   for (const area of terrain.flattenAreas) if (area.id === 'village' || area.id.includes('_village_')) {
     area.preserveFooting = true;
     area.feather = area.id === 'village' ? 120 : Math.max(area.feather, 72);
   }
   for (const area of terrain.flattenAreas) if (!area.preserveFooting) area.feather = Math.max(area.feather, area.id.includes('objective') ? 60 : 50);
   layout.version = terrain.sourceVersion;
+  widenVehicleGatePassages(zone);
   terrain.clearCorridors = zone.paths!.map(p => ({ id: p.id, points: p.points.map(p => ({ ...p })), radius: p.width / 2 + 7, height: 0, feather: 72 }));
   for (const home of homeApproaches) {
     if (!home.id.startsWith(zone.id + '_village_furnished_home_') || home.points.length < 2 || home.points.length > 40

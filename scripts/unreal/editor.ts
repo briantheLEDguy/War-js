@@ -4,7 +4,7 @@ import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
 export const requiredNativeTests = [
-  'LandscapeDetail','RegionalEnvironment','RegionalAtmosphere','SpatialOutline','T1TraversalFixture',
+  'T1NavigationPrism','T1NavigationFootprint','T1NavigationIsolation','T1NavigationProbeGuards','LandscapeDetail','RegionalEnvironment','RegionalAtmosphere','SpatialOutline','T1TraversalFixture',
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary', 'WorldSync', 'CombatFluidity', 'CombatLocomotion',
   'PlayerStateAbilityOwnership', 'SpawnFailureReporting', 'ImportedPopulation', 'FloatingCombatText', 'OverheadHealth', 'CombatUiSettings', 'CombatUiPreview',

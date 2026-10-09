@@ -20,7 +20,7 @@ def traversal_config(receipt, zone, source, headless):
                        capture=i in (home['approachPoints'], home['approachPoints']+3, count-1))
                   for i, p in enumerate(home['route'])]
         routes.append(dict(id=home['id'], kind='home', points=points))
-    if receipt.get('study') in ('retained-population', 'dramatic-relief', 'battlefield-landscape'):
+    if receipt.get('study') in ('retained-population', 'dramatic-relief', 'battlefield-landscape', 'battlefield-navigation'):
         for actor in zone['population']:
             if not actor['sourceRulesUnchanged'] or actor['gameplayAccepted'] is not False:
                 raise ValueError('Population walking cannot admit changed rules or gameplay acceptance')
@@ -41,7 +41,7 @@ def traversal_config(receipt, zone, source, headless):
             routes.append(dict(id=route['id']+'_'+direction,kind='road',points=points))
     if headless:
         cross_country = [dict(id=c['id'],points=c['points']) for c in source['orvrLayout']['terrain']['clearCorridors']
-                         if c['id'] not in {p['id'] for p in source['paths']}] if receipt.get('study') == 'battlefield-landscape' else []
+                         if c['id'] not in {p['id'] for p in source['paths']}] if receipt.get('study') in ('battlefield-landscape','battlefield-navigation') else []
         for route in source['paths']+source['orvrLayout']['caravanRoutes']+cross_country:
             points = [dict(position=[p['z']*100, p['x']*100, p.get('y', 0)*100], terrain=True, indoor=False)
                       for p in route['points']]

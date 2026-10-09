@@ -1151,3 +1151,53 @@ scenery and larger landscape composition still need work. Later-pair native and
 all underground environments remain unbuilt; first-batch lairs, human visual,
 actual vehicle driving/18v18, service/resource behavior, ordinary GM persistence,
 online/network/audio, platform/performance/Steam and release gates remain open.
+
+
+## T1 private navigation and gate passage checkpoint (9 October 2026)
+
+Source `83b37fc34b68`, core `d1be86347dfc` and landscape scene
+`581f4f8c8327` add candidate-only 7.5m gate openings and 8m approach roads.
+Gatehouses, leaves, source collision and gate metadata receive the same lateral
+adaptation; IDs, positions, height, depth, interaction state and assembly anchors
+remain retained. Four native gatehouses are adapted. Four animated native gate
+leaf assemblies remain pending, so closed-gate behavior is not verified.
+
+New editor-only T1 navigation tooling bakes both retained profiles in isolated
+routing copies. Convex nonblocking exclusions exactly cover the exterior of
+rectangular or concave playable outlines. Existing bounds, modifiers and Recast
+data are never replaced. Static tile inventories are bounded and compared across
+save/reload, using the existing default query budget and original agent sizes.
+The earlier diagnostic passed 84/88 queries; all four failures were convoy keep
+approaches through 6m gates, narrower than the retained 6.4m agent diameter.
+After the aligned passage repair, navigation `d54e08045a9e` passes all 88 route /
+profile queries before save and after reload. This proves navigation connectivity,
+not physical driving, turning clearance, closed gates or combat fairness.
+
+Safe walkthrough `7318b5347d1a` preserves both exact baked tile payloads after
+routing-copy save/reload. Ordinary entry/local GM recovery fixtures
+`3b4097e2846f4720b8423be3febfbfd4` and `68fa1cb65398431ba4359f2998fba091`
+pass without draft writes. Fresh landscape checks pass 102 rendered views and
+138 normal walking routes. Full-width grades remain below the unchanged 0.22
+limit. All 13 owner documents and pinned parent/capital maps remain preserved.
+
+Verification: 1,108 repository tests / 172 files, Unreal selection 487 / 91,
+85 focused Python checks / 22 files, and 151 native Foundation tests pass.
+The current Windows Editor build passes; the earlier Windows Game build retains
+its editor-only-change scope. Three typechecks, migration audit and world/model
+validation pass. Strict release still exits 1. Heavy native collision export
+warnings remain unresolved performance work; warnings were not suppressed.
+
+Ground repetition, sparse scenery and harsh foliage shading remain unfinished.
+A separate private foliage experiment preserves original LOD-zero geometry and
+creates three descending native detail levels; this is not integrated landscape,
+visual or performance acceptance. Later-pair native environments and underground
+environments remain unbuilt. Preserve first-batch full-lair progression, human
+visual, actual walk/drive/18v18, service/resource behavior, ordinary GM persistence,
+network/audio, platform/performance/Steam and release gates.
+
+
+The navigation copies additionally pass all 138 normal walking routes in run
+`1791569592501202300-20396`. Private report
+`progress-report-navigation-d54e08045a9e.html` embeds fourteen fresh, unedited
+native images/labeled topology drawings. Its qualified receipt is
+`navigation-checkpoint-d54e08045a9e.json`; it grants no art/driving acceptance.

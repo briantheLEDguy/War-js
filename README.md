@@ -899,3 +899,13 @@ scenery and larger landscape composition still need work. Later-pair native and
 all underground environments remain unbuilt; first-batch lairs, human visual,
 actual vehicle driving/18v18, service/resource behavior, ordinary GM persistence,
 online/network/audio, platform/performance/Steam and release gates remain open.
+
+
+T1 navigation checkpoint (9 October 2026): isolated candidate routing now bakes
+and reloads both retained pedestrian/convoy profiles, with exact concave-footprint
+exclusions and bounded tile inventories. Candidate gatehouse/leaf/collider widths
+align at 7.5m with 8m approach roads. All 88 navigation queries pass; private safe
+entry/GM recovery and 138 configured landscape walking routes pass. Native gate
+leaves, actual vehicle driving, art/combat approval and release remain unverified.
+See `docs/t1-redesign.md` and `docs/unreal-world-buildout.md` for private receipts,
+verification scope and retained gates. Native/licensed assets remain private.

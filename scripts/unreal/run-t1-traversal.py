@@ -19,7 +19,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--headless', action='store_true', help='Both directions of all roads/supply routes plus homes; fixed simulation timestep')
     parser.add_argument('--zone', choices=ZONES)
-    parser.add_argument('--candidate', choices=('homes', 'materials', 'atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes'), default='homes')
+    parser.add_argument('--candidate', choices=('homes', 'materials', 'atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes', 'battlefield-navigation'), default='homes')
     args = parser.parse_args()
     receipt = json.loads((DIRECTORY/(args.candidate+'-latest.json')).read_text())
     plan = json.loads((DIRECTORY/'plan.json').read_text())
@@ -29,7 +29,7 @@ def main():
     baseline.update({PROJECT/'Content'/(package.removeprefix('/Game/')+'.uasset'): digest
                      for package, digest in receipt['inputs']['dependencyHashes'].items()})
     baseline.update({ROOT/file: digest for file, digest in plan['privateMapHashes'].items()})
-    if args.candidate in ('materials', 'atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes'):
+    if args.candidate in ('materials', 'atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes', 'battlefield-navigation'):
         baseline.update({ROOT/file: digest for file, digest in receipt['inputs']['protectedHashes'].items()})
         baseline.update({ROOT/file: digest for file, digest in receipt['assetHashes'].items()})
     owner_directory = PROJECT/'Saved/WorldEdit'
@@ -51,7 +51,7 @@ def main():
              'unreal/AegisWar/Source/AegisWar/Private/WarT1TraversalProof.cpp',
              'unreal/AegisWar/Source/AegisWar/Public/WarT1TraversalProof.h',
              'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
-    if args.candidate in ('atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes'):
+    if args.candidate in ('atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes', 'battlefield-navigation'):
         tools += ['unreal/AegisWar/Source/AegisWar/Private/WarRegionalAtmosphere.cpp',
                   'unreal/AegisWar/Source/AegisWar/Private/WarRegionalAtmosphereRules.cpp',
                   'unreal/AegisWar/Source/AegisWar/Public/WarRegionalAtmosphere.h']
@@ -87,7 +87,7 @@ def main():
         if process.returncode != 0:
             raise RuntimeError('Native traversal failed: '+report.get('detail', 'missing detail')+'; '+str(output))
         validate_traversal(report, config)
-        if args.candidate in ('atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes') and not args.headless:
+        if args.candidate in ('atmosphere', 'shells', 'ceilings', 'population', 'relief', 'battlefield', 'battlefield-scenes', 'battlefield-navigation') and not args.headless:
             from t1_atmosphere import validate_live_atmosphere
             validate_live_atmosphere(report, config)
         if not args.headless:
@@ -104,7 +104,7 @@ def main():
                    savedPackagesVerified=len(baseline), savedCandidatesUnchanged=True, visualApproved=False, drivingAccepted=False,
                    cameraAccepted=False, gameplayAccepted=False)
     (output/'summary.json').write_text(json.dumps(summary, indent=2)+'\n')
-    prefix = dict(homes='', materials='material-', atmosphere='atmosphere-', shells='shell-', ceilings='ceiling-', population='population-', relief='relief-', battlefield='battlefield-', **{'battlefield-scenes':'battlefield-scenes-'})[args.candidate]
+    prefix = dict(homes='', materials='material-', atmosphere='atmosphere-', shells='shell-', ceilings='ceiling-', population='population-', relief='relief-', battlefield='battlefield-', **{'battlefield-scenes':'battlefield-scenes-', 'battlefield-navigation':'battlefield-navigation-'})[args.candidate]
     (DIRECTORY/(prefix+('traversal-headless-latest.json' if args.headless else 'traversal-camera-latest.json'))).write_text(json.dumps(summary, indent=2)+'\n')
     print(json.dumps(dict(nativeWalkingPassed=True, output=str(output), routes=sum(r['routesCompleted'] for r in results))), flush=True)
 
