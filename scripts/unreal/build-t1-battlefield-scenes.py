@@ -25,6 +25,7 @@ from t1_ecology_native import ground_cover,water_material,cover_inventory
 from t1_water_surface import water_surface
 from t1_understorey_native import spawn_understorey
 from t1_focal_planting_native import spawn_focal_plants
+from t1_rock_clusters_native import adapt_rock_clusters,verify_rock_surfaces
 from t1_forest_floor_native import forest_floor_sources,forest_floor_material
 from t1_pocket_dressing import pocket_dressing
 from t1_bedded_outcrops import bedded_outcrops,outcrop_footing
@@ -72,7 +73,7 @@ forest_textures,forest_inputs=forest_floor_sources(ROOT);files.update(forest_inp
 verify_sources()
 
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_nature_kit.py','scripts/unreal/t1_nature_canopy.py','scripts/unreal/t1_nature_canopy_native.py','scripts/unreal/t1_focal_planting.py','scripts/unreal/t1_focal_planting_native.py','scripts/unreal/t1_forest_floor.py','scripts/unreal/t1_forest_floor_native.py','scripts/unreal/t1_understorey.py','scripts/unreal/t1_understorey_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_nature_kit.py','scripts/unreal/t1_nature_canopy.py','scripts/unreal/t1_nature_canopy_native.py','scripts/unreal/t1_rock_clusters.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_focal_planting.py','scripts/unreal/t1_focal_planting_native.py','scripts/unreal/t1_forest_floor.py','scripts/unreal/t1_forest_floor_native.py','scripts/unreal/t1_understorey.py','scripts/unreal/t1_understorey_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_stone_material.py','scripts/unreal/t1_strata_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
@@ -130,6 +131,8 @@ try:
         for state in states.values():
             if state['kind']=='mesh' and state['mesh']==admitted_mesh:state['materials']=[stone.get_path_name()]
         materials['regionalStone']=dict(asset=stone.get_path_name(),sourceColorChannelVerified=True,sourceGeometryAndCollisionPreserved=True,appearanceApproved=False)
+        rock_parents=[p for cell in [*cells,dict(placements=dressing),dict(placements=bedding)] for p in cell['placements'] if p['sourceLabel'].endswith(('_barrow_ridge_8','_basalt_shelf_1'))]
+        states,rock_clusters=adapt_rock_clusters(assets,identity,states,rock_parents,canopies,surface.height_cm)
         if identity=='sunmeadow_march':
             floor,materials['forestFloor']=forest_floor_material(assets,unreal.load_asset(states[identity+'_terrain']['materials'][0]),source,states,forest_textures,BASE)
             states[identity+'_terrain']['materials']=[floor.get_path_name()]
@@ -153,6 +156,8 @@ try:
         if not generated: raise RuntimeError('Cannot create scene generated layer')
         unreal.EditorLevelUtils.make_level_current(generated)
         population_ids={r['id'] for r in original['population']}; clone(actors,{k:v for k,v in states.items() if k not in population_ids},{})
+        unreal.WarImportLibrary.prepare_world_preview_frame(unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world())
+        rock_clusters['nativeSurfaces']=verify_rock_surfaces(actors,rock_clusters,surface.height_cm)
         cover_rows=clustered_cover(source,surface.height_cm,original['landscapePockets'],cover_layout(source,surface.height_cm,original['landscapePockets']))
         ground_cover(actors,assets,identity,cover_sources[identity],cover_rows)
         understorey=spawn_understorey(actors,identity,source,surface.height_cm,original['landscapePockets'],cover_rows,states,canopies)
@@ -202,7 +207,7 @@ try:
         if not levels.save_current_level(): raise RuntimeError('Cannot save scene review')
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append({**original,'map':destination+'/Review','parentMap':original['map'],'actorInventory':states,'materials':materials,
-                      'sceneCells':cells,'rockShelters':[shelter],'pocketDressing':dressing,'beddedOutcrops':bedding,'landscapeWalks':counters,'groundCover':native_cover,'understorey':understorey,'focalPlanting':focal,'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'sceneScaleAxesVerified':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
+                      'sceneCells':cells,'rockShelters':[shelter],'pocketDressing':dressing,'beddedOutcrops':bedding,'landscapeWalks':counters,'groundCover':native_cover,'understorey':understorey,'focalPlanting':focal,'rockClusters':rock_clusters,'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'sceneScaleAxesVerified':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
         unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT_ZONE='+identity)
 finally: verify_sources(); verify_protected(ROOT,protected)
 result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',inputs=inputs,zones=zones,

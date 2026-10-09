@@ -2210,3 +2210,55 @@ and 18v18 play, services/resources, ordinary GM persistence and recovery
 repeatability, Node additive geometry/live play, network/audio, performance,
 platforms/Steam and release gates. Later native pairs/full underground remain
 unbuilt. Shared terrain parity is not a live Node playtest.
+
+
+## Collision rock clusters and offline sky review (10 October 2026)
+
+Scene `c53c9611204b`, navigation `3e3926be9ff0` and walkthrough `df033792d07f`
+retain source `cbc1c13f223b` and core `676151d36b96`. New pure/native helpers
+`t1_rock_clusters.py` / `t1_rock_clusters_native.py` fit three exact installed
+rock shapes inside retained parent reserves. Rotated full bounds, modest yaw
+variation, native pivot offsets, minimum-of-25 terrain footing and exposed-height
+checks replace 88 Sunmeadow parents with 163 bodies and 116 Cinderfen parents
+with 217 bodies. One/four unscalable or buried parents retain their previous
+assemblies. Shelters, original core outcrops, terrain, roads and gameplay
+assemblies retain their bindings. The clones preserve committed LOD0 geometry,
+four LODs and source thresholds. Private material copies zero inspected pixel
+depth offsets; source packages remain exact. Complex-as-simple triangle collision
+is explicit. Nine component-only rays per body prove matching simple/complex
+surfaces and exposed actual geometry; saved reload repeats those checks.
+
+Initial commandlet clones returned zeroed transient LOD thresholds even though
+reloaded packages matched the source. Explicit copied thresholds and saved-mesh
+rechecks repair that construction path. Earlier failed build logs are retained.
+`t1_sky_preview.py` explicitly updates the one tagged local regional skylight for
+offline captures, whose engine path skips real-time sky capture. It restores
+transient rig modes on exit/failure and refuses missing/ambiguous rigs. Authored
+regional/capital lighting profiles remain unchanged.
+
+Fresh checks pass 114 rendered phase/weather views, 150 normal walking routes,
+92 navigation queries before save/after reload, exact safe navigation copies,
+two grounded entry/local-GM fixtures without draft writes, twelve actual pocket
+follow-camera pictures and sixteen saved-rock day/night views. All thirteen owner
+documents, parent candidates, capitals and seventy nature source packages remain
+preserved. Navigation copies have not separately repeated the full walking suite.
+Full-width grade maxima remain 0.21757068 Sunmeadow and 0.21648207 Cinderfen.
+Both entries pass now; the previous concurrent Cinderfen recovery failure remains
+unresolved, with repeatability and ordinary GM persistence still gated.
+
+Repository suites pass 1125/176 files, Unreal 504/95 and Python 140/36, including
+seven new fitting/reserve/pivot/burial/input and sky-restoration/order tests.
+Three typechecks, migration audit and world/model validation pass. Strict release
+exits 1; no C++ changed. Earlier native build/Foundation scope remains. The private
+`progress-report-rock-clusters-c53c9611204b.html` embeds 24 actual native pictures
+and measured source drawings; its checkpoint records signatures and image hashes.
+
+Distant slopes remain smooth, foliage harsh and rock colour insufficiently
+regional. Increased actor/material/collision cost and existing heavy collision
+export warnings remain unaccepted. Eroded owned-kit backdrop inspection/staging
+is private; any unsaved composition study remains outside admitted ownership
+bounds and is not an integrated landscape. Preserve human appearance, first-batch
+full lairs, physical vehicle driving/turning/closed gates, 18v18, services/resources,
+Node additive geometry/live play, network/audio, performance, three platforms,
+Steam and release gates. Later-pair native and full underground environments
+remain unbuilt. Shared sampler parity is not a live Node playtest.

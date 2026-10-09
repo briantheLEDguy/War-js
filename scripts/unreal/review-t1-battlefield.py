@@ -13,6 +13,8 @@ from t1_population_native import GroundReview,population_actor
 from t1_render_log import validate_render_log
 from t1_battlefield_views import neighborhood_views,terrain_camera_sample
 from t1_ecology_native import cover_inventory
+from t1_sky_preview import captured_sky
+from t1_rock_clusters_native import verify_rock_surfaces
 
 BASE=ROOT/'artifacts/unreal/t1-redesign'; CONTENT=ROOT/'unreal/AegisWar/Content'
 read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
@@ -38,6 +40,7 @@ try:
         unreal.GameplayStatics.flush_level_streaming(world); unreal.WarImportLibrary.prepare_world_preview_frame(world)
         if not same_state(inventory(actors),zone['actorInventory']): raise RuntimeError('Battlefield inventory changed')
         if zone.get('groundCover') and not same_state(cover_inventory(actors),zone['groundCover']): raise RuntimeError('Saved native ground cover differs from its admitted batch')
+        rock_surfaces=verify_rock_surfaces(actors,zone['rockClusters'],surface.height_cm) if zone.get('rockClusters') else None
         road_source=read(ROOT/zone['sourceDirectory']/(zone['id']+'_roads.json'))
         road_mesh=unreal.load_asset(zone['actorInventory'][zone['id']+'_roads']['mesh'])
         road_native=json.loads(unreal.WarImportLibrary.describe_static_mesh_source_data(road_mesh,0))
@@ -110,29 +113,31 @@ try:
             views.append(('pocket_'+pocket['id'].split('_pocket_')[-1],p,dict(x=pocket['x'],z=pocket['z'])))
         effects=[a for a in actors.get_all_level_actors() if isinstance(a,unreal.WarRegionalAtmosphere)]
         if len(effects)!=1 or str(effects[0].zone_id)!=zone['id']: raise RuntimeError('Regional effect owner differs from candidate')
-        for phase,seconds,strength in [('dawn',150,0),('day',1200,0),('dusk',2250,0),('night',2700,0),('strong_weather',1200,.8)]:
-            if not unreal.WarZoneLightingSubsystem.preview_environment(world,zone['id'],unreal.Vector(),seconds,strength): raise RuntimeError('Regional clock lighting unavailable')
-            for label,p,target in views:
-                if label.startswith(('landscape_','pocket_')) and phase!='day': continue
-                floor=ground.ground([p['z']*100,p['x']*100,0])
-                focus=unreal.SystemLibrary.line_trace_single(world,unreal.Vector(target['z']*100,target['x']*100,20000),
-                    unreal.Vector(target['z']*100,target['x']*100,-20000),unreal.TraceTypeQuery.ECC_VISIBILITY,True,ground.ignored,unreal.DrawDebugTrace.NONE,True)
-                focus_parts=focus.to_tuple() if focus else None
-                if floor is None or not focus_parts or not focus_parts[0] or focus_parts[9]!=ground.terrain:raise RuntimeError('Camera lacks native footing/focus: '+label)
-                hit_point,hit_normal=focus_parts[5],focus_parts[7]
-                target_floor=terrain_camera_sample([hit_point.x,hit_point.y,hit_point.z],[hit_normal.x,hit_normal.y,hit_normal.z],surface.height_cm(target['x'],target['z']),False)
-                eye=unreal.Vector(*floor)+unreal.Vector(0,0,170); aim=unreal.Vector(*target_floor)+unreal.Vector(0,0,20 if label.startswith('pocket_') else 170)
-                capture.set_actor_location_and_rotation(eye,unreal.MathLibrary.find_look_at_rotation(eye,aim),False,True)
-                for frame in range(48):
-                    if not effects[0].preview_frame(eye, capture.get_actor_forward_vector(), seconds+frame/60, strength): raise RuntimeError('Regional effect preview failed')
-                    unreal.WarImportLibrary.prepare_world_preview_frame(world); component.capture_scene()
-                file=output/(zone['id']+'_'+label+'_'+phase+'.png')
-                unreal.RenderingLibrary.export_render_target(world,component.texture_target,str(output),file.name)
-                if not file.exists() or file.stat().st_size<10000: raise RuntimeError('Native view did not export')
-                pictures.append(dict(file=file.relative_to(ROOT).as_posix(),sha256=sha(file),zone=zone['id'],view=label,phase=phase,
-                                     eye=[eye.x,eye.y,eye.z],target=[aim.x,aim.y,aim.z],playerHeightMetres=1.7,weatherStrength=strength,visibleWeatherParticles=effects[0].get_particle_count(),prototype=True,visualApproved=False))
+        with captured_sky(world,unreal) as update_sky:
+            for phase,seconds,strength in [('dawn',150,0),('day',1200,0),('dusk',2250,0),('night',2700,0),('strong_weather',1200,.8)]:
+                if not unreal.WarZoneLightingSubsystem.preview_environment(world,zone['id'],unreal.Vector(),seconds,strength): raise RuntimeError('Regional clock lighting unavailable')
+                update_sky()
+                for label,p,target in views:
+                    if label.startswith(('landscape_','pocket_')) and phase!='day': continue
+                    floor=ground.ground([p['z']*100,p['x']*100,0])
+                    focus=unreal.SystemLibrary.line_trace_single(world,unreal.Vector(target['z']*100,target['x']*100,20000),
+                        unreal.Vector(target['z']*100,target['x']*100,-20000),unreal.TraceTypeQuery.ECC_VISIBILITY,True,ground.ignored,unreal.DrawDebugTrace.NONE,True)
+                    focus_parts=focus.to_tuple() if focus else None
+                    if floor is None or not focus_parts or not focus_parts[0] or focus_parts[9]!=ground.terrain:raise RuntimeError('Camera lacks native footing/focus: '+label)
+                    hit_point,hit_normal=focus_parts[5],focus_parts[7]
+                    target_floor=terrain_camera_sample([hit_point.x,hit_point.y,hit_point.z],[hit_normal.x,hit_normal.y,hit_normal.z],surface.height_cm(target['x'],target['z']),False)
+                    eye=unreal.Vector(*floor)+unreal.Vector(0,0,170); aim=unreal.Vector(*target_floor)+unreal.Vector(0,0,20 if label.startswith('pocket_') else 170)
+                    capture.set_actor_location_and_rotation(eye,unreal.MathLibrary.find_look_at_rotation(eye,aim),False,True)
+                    for frame in range(48):
+                        if not effects[0].preview_frame(eye, capture.get_actor_forward_vector(), seconds+frame/60, strength): raise RuntimeError('Regional effect preview failed')
+                        unreal.WarImportLibrary.prepare_world_preview_frame(world); component.capture_scene()
+                    file=output/(zone['id']+'_'+label+'_'+phase+'.png')
+                    unreal.RenderingLibrary.export_render_target(world,component.texture_target,str(output),file.name)
+                    if not file.exists() or file.stat().st_size<10000: raise RuntimeError('Native view did not export')
+                    pictures.append(dict(file=file.relative_to(ROOT).as_posix(),sha256=sha(file),zone=zone['id'],view=label,phase=phase,
+                                         eye=[eye.x,eye.y,eye.z],target=[aim.x,aim.y,aim.z],playerHeightMetres=1.7,weatherStrength=strength,visibleWeatherParticles=effects[0].get_particle_count(),prototype=True,visualApproved=False))
         actors.destroy_actor(capture); unreal.WarZoneLightingSubsystem.preview_world(world,'aegis_capital',unreal.Vector())
-        reports.append(dict(zone=zone['id'],fullWidthSamples=route_samples,maximumNativeGrade=maximum_grade,
+        reports.append(dict(zone=zone['id'],offlineSkyExplicitlyUpdated=True,nativeRockSurfaces=rock_surfaces,fullWidthSamples=route_samples,maximumNativeGrade=maximum_grade,
                             maximumSourceErrorCm=maximum_error,routeGrades=route_grades,nativeRoadAlphaCornersVerified=len(expected_colors),
                             clearArrivals=arrivals,groundCoverInstances=sum(r['count'] for r in zone.get('groundCover',{}).values()),groundCoverReloadVerified=True,waterSurfaces=zone.get('waterSurfaces',[]),bindingsVerified=True,drivingAccepted=False,visualApproved=False))
         unreal.log('WAR_T1_BATTLEFIELD_REVIEWED_ZONE='+zone['id'])
@@ -142,7 +147,7 @@ log_argument=re.search(r'-abslog=(?:"([^"]+)"|\x27([^\x27]+)\x27|(\S+))',unreal.
 if not log_argument: raise RuntimeError('Rendered review requires an explicit native log')
 native_log=Path(next(v for v in log_argument.groups() if v is not None))
 validate_render_log(native_log.read_text(encoding='utf-8-sig',errors='replace'))
-result=dict(signature=receipt['signature'],checks=reports,pictures=pictures,verificationTools={p:sha(ROOT/p) for p in ('scripts/unreal/review-t1-battlefield.py','scripts/unreal/t1_battlefield_views.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/t1_render_log.py')},savedCandidatesUnchanged=True,
+result=dict(signature=receipt['signature'],checks=reports,pictures=pictures,verificationTools={p:sha(ROOT/p) for p in ('scripts/unreal/review-t1-battlefield.py','scripts/unreal/t1_battlefield_views.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/t1_render_log.py','scripts/unreal/t1_sky_preview.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_rock_clusters.py')},savedCandidatesUnchanged=True,
             ownerDocumentsPreserved=True,materialShaderCompilationPassed=True,appearanceApproved=False,drivingAccepted=False,eighteenVersusEighteenAccepted=False)
 prefix='battlefield-scenes' if scene_cells else 'battlefield'
 (BASE/(prefix+'-review-'+receipt['signature'][:12]+'.json')).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
