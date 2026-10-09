@@ -2,6 +2,7 @@
 import math
 import unreal
 from t1_water_surface import water_surface
+from t1_understorey_native import TAG,installed_detail_inventory
 from t1_foliage_native import foliage_detail,foliage_inventory
 
 
@@ -36,7 +37,7 @@ def cover_inventory(actors):
             p=t.translation; q=t.rotation; s=t.scale3d
             rows.append(dict(location=[p.x,p.y,p.z],quaternion=[q.x,q.y,q.z,q.w],scale=[s.x,s.y,s.z]))
         result[actor.get_actor_label()]=dict(mesh=c.static_mesh.get_path_name(),materials=[c.get_material(i).get_path_name() for i in range(c.get_num_materials())],
-            instances=rows,count=len(rows),foliageDetail=foliage_inventory(c.static_mesh),collision='NoCollision',localCosmetic=True,appearanceApproved=False)
+            instances=rows,count=len(rows),foliageDetail=installed_detail_inventory(c.static_mesh) if TAG in list(map(str,actor.tags)) else foliage_inventory(c.static_mesh),collision='NoCollision',localCosmetic=True,appearanceApproved=False)
     return result
 
 

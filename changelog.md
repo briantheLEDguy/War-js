@@ -2095,3 +2095,18 @@ Later-pair native environments and underground environments remain unbuilt.
   density. Native comparisons remain unsaved; broad terrain/lighting need more work.
 - Preserve accepted capitals, parent maps, owner documents, purchased originals and
   all first-batch lair, gameplay, platform, performance and release gates.
+
+
+### 2026-10-09 - Saved T1 understorey and local terrain transitions
+
+- Save four bounded private installed-plant batches in Sunmeadow. Verify exact
+  native geometry/material/LOD inventories, transforms and nonblocking cosmetic
+  policy; retain performance and appearance gates for the increased density.
+- Add local source-only terrain transition tools. Preserve the advance/rotation
+  support that prevents steep crossing regressions; check all route widths,
+  unchanged military pads, retained pocket beds and closed water before export.
+- Reverify 108 native views, 142 normal walking routes, 88 saved/reloaded navigation
+  queries, two entry/local GM recovery fixtures and twelve gameplay-camera images.
+  Pass fresh repository suites and required validation; strict release stays blocked.
+- Keep separate installed ground-channel and neutral-daylight comparisons unsaved;
+  preserve capitals, owner documents, purchased originals and outstanding gates.

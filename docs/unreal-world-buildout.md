@@ -591,3 +591,21 @@ integrated into this scene and has no seamlessness, art or performance approval.
 Retain first-batch full-lair, visual, actual driving/turning/closed gates, 18v18,
 services/resources, ordinary GM persistence, online/network/audio, performance,
 three-platform/Steam and release gates.
+
+
+## Local T1 terrain transition studies
+
+`prepare-t1-local-terrain-transitions.ts` reads the exact qualified immutable
+battlefield source, exports a separate first-pair terrain/map bundle and rejects
+an already revised parent. `t1-local-terrain-transitions.ts` changes eligible
+transition widths while preserving advance/first-rotation supports, military
+pads and route identities. Full-width source grades retain the 0.22 limit.
+The exporter checks retained pocket beds, closed water and reciprocal arrivals.
+
+This export alone does not change native scenes. A fresh `build-t1-battlefield.py`
+core, `prepare-t1-battlefield-scenes.ts` recipe and scene build/review must precede
+new walking/navigation/safe-stage/entry proofs. Never transfer old native receipts
+to new terrain geometry. Use `launch-t1-review.py` only after that full chain.
+Installed cosmetic understorey batches use `t1_understorey_native.py`; their exact
+selected mesh/bounds/LOD/material inventories remain separate from source-derived
+three-LOD grass. Licensed packages, comparisons and reports stay private.

@@ -1072,3 +1072,46 @@ Retain appearance, first-batch full lairs, physical driving/turning, closed gate
 18v18, services/resources, ordinary GM persistence, Node additive-prop collision
 synchronization, network/audio, performance, three-platform/Steam and release
 gates. Later-pair native and full underground environments remain unbuilt.
+
+
+## T1 saved understorey and local terrain studies (9 October 2026)
+
+Private scene `8cccccfea202`, navigation `2875ce2b59ed` and safe walkthrough
+`f4c008c8ba9b` save four installed-plant batches: 6538 grass, 4912 long-grass,
+4112 fern and 410 oak seedlings. Sunmeadow now has 25078 cosmetic instances;
+Cinderfen retains 6375. Exact native bounds, LOD/material bindings, transforms,
+source fingerprints and the retained local/nonblocking/culling policy are checked
+on fresh reload. This density has no performance or appearance acceptance.
+
+Fresh checks pass 108 native views, 142 configured normal walking routes,
+88 navigation queries before save/after reload, exact safe-copy tile payloads,
+both ordinary entry/local GM recovery fixtures without draft writes, and twelve
+actual follow-camera pocket captures. All thirteen owner documents and pinned
+parent/capital maps remain preserved. Current navigation copies have not
+separately repeated the complete walking suite. Repository suites pass 1111/173
+files and Unreal selection 490/92; Python passes 119/32. All three typechecks,
+migration audit and world/model validation pass; strict release exits 1.
+No C++ changed; earlier native builds/Foundation checks retain earlier scope.
+
+Source-only `366c962d85ea` narrows eleven eligible terrain transition bands per
+region while retaining the main advance and first rotation. Full-width source
+grade maxima are 0.217571 Sunmeadow and 0.216482 Cinderfen. Military pad heights,
+route identities, pocket beds and closed water are checked. Native geometry,
+collision/walking/navigation, arrivals and appearance for this revision remain
+pending; the saved scene still uses source terrain `83b37fc34b68`.
+
+Separate unsaved native comparisons inspect installed grass/forest substrate
+and neutral transient daylight. Twelve exact ground texture channels remain
+private; neither their use nor daylight overrides are integrated into the saved
+candidate. Sky recapture alone does not resolve the harsh look. The first daylight
+diagnostic failed to enumerate transient lights; the repaired GameplayStatics
+version completes twelve captures while preserving source packages/maps.
+`progress-report-understorey-8cccccfea202.html` embeds sixteen actual native images
+and labeled source topology drawings; its matching checkpoint JSON records hashes.
+
+Broad smooth terrain, repeated/bare ground, harsh foliage shadows and regional
+composition remain unfinished. Retain first-batch full lairs, human appearance,
+physical driving/turning, closed gates, 18v18, services/resources, ordinary GM
+persistence, Node additive-prop collision synchronization, network/audio,
+performance, three-platform/Steam and release gates. Later-pair native and full
+underground environments remain unbuilt.
