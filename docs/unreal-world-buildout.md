@@ -338,3 +338,30 @@ configured normal walking routes. Walkthrough `c8b15f5ac634` passes ordinary ent
 and local GM recovery for both regions, preserving all 13 owner documents.
 These results leave landscape appearance, driving/combat and other release gates
 open. Exact receipt paths and test scope are recorded in `docs/t1-redesign.md`.
+
+
+### 2026-10-09 T1 landscape/ecology iteration
+
+First-pair candidate `e6eaa25eb1f7` adds broader terrain transitions, optional
+watershed weathering, eight scenery neighborhoods per region, source-channel
+substrate/rock variation, bounded native HISM cover and three shallow cosmetic
+pools. `review-t1-battlefield.py -WarT1BattlefieldScenes` verifies saved instances,
+98 rendered views/shaders and full-width native ground; configured normal walking
+passes 122 routes. Keep raw Review maps as authoring inputs; stage fresh safe
+Walkthrough routing and use `launch-t1-review.py --proof` for each final revision.
+All work is isolated from accepted capitals, active maps and owner-authored layers.
+
+The native detail actor has no collision/navigation/replication and uses 120m
+culling; this is not a frame/memory budget acceptance. Source grass remains high
+detail. Water is a terrain-supported cosmetic study, not new swimming/hazard
+behavior. Water, terrain composition, regional scenery and all appearance remain
+unfinished despite successful technical checks. First-pair full-lair gates remain.
+
+`npx tsx scripts/unreal/prepare-t1-second-pair.ts` prepares source-only Brightfen
+island-chain/causeway and Ashen layered-plateau/wash experiments. It does not
+advance native batch acceptance. After both first/second source bundles exist,
+`python scripts/unreal/t1-landscape-atlas.py` writes labeled measured drawings.
+Later-pair native environments and underground spaces are still outstanding.
+See `docs/t1-redesign.md` and private signature-qualified receipts for precise
+verification; retain all human, combat, persistence, network/platform and release
+gates. Close saved Editor/game processes before any native module/content rebuild.

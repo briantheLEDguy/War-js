@@ -912,3 +912,114 @@ The private `progress-report.html` labels actual native pictures, gameplay
 recovery images and authoring diagrams separately. Native/licensed content stays
 private, and every outstanding visual, lair, vehicle/combat, service/resource,
 persistence, network, audio, platform/Steam and release gate remains open.
+
+
+## 2026-10-09 landscape and ecology checkpoint
+
+The owner authorized continued reversible iteration while AFK, including later
+source studies, without questions or waiting for a visual response. That does not
+approve the appearance or close the formal batch/release gates. The drawings and
+screenshots still show sparse dressing and smooth terrain; the first pair is not
+finished, and no zone is described as nailed.
+
+Optional `TerrainField.weathering` warps ridges and drainage together, adds
+multiscale height breakup masked by the ridge mass, and smooths basalt bedding
+into ledges. This is bounded authored weathering, not a physical erosion
+simulation. Omitted controls retain the legacy field exactly. Broader road/pad
+feathers reduce abrupt cut bowls while preserved village/home footing stays fixed.
+
+Eight landscape neighborhoods per region now reserve groves, field edges,
+basalt shoulders, peat margins and reed pockets. Embedded rock varies horizontal
+proportions and bedding angle; trees remain upright. Roads, objectives, keeps,
+services, arrivals and unpainted counterclimbs retain conservative exclusions.
+This admits sockets; it does not certify combat cover, line of sight or camera
+collision. Reviewed rock color channels use three-axis projection on steep ground;
+normal mixing, rotated detail and irregular substrate patches retain source hashes.
+Cinderfen alone receives more readable daylight and charcoal basalt adaptations.
+
+`t1-landscape-pockets.ts` reserves two Sunmeadow and four Cinderfen pockets on
+sampled ground. Every admission rechecks the new approach together with existing
+roads, home entries and off-road links at the unchanged .22 combined-grade limit.
+Initial site choices damaged the peat counterclimb; candidate-wide rechecking
+rejects those choices. A closed basin is required for active water. Brookmeadow,
+Amber Runoff and Cinderreed contain water; Hearthroot, Rustsedge and Embervein are
+seasonal dry hollows in this revision. Their labels describe design targets, not
+new quests, hazards, encounters or completed exploration gameplay.
+
+`t1_landscape_ecology.py` exports terrain-clipped shallow water and deterministic,
+road/service-aware cosmetic source-model clumps. `AWarLandscapeDetail` admits
+1–12,000 finite bounded transforms atomically, preserves existing instances when
+rejected, and disables collision, overlaps, navigation, ticking and replication.
+Native HISM culling ends at 120m; high-detail source grass is still subject to
+runtime frame/memory review. Dedicated servers hide the local visuals. Actual
+terrain retains grounding and all gameplay actors remain separate. Native reload
+verification covers every saved instance transform, source mesh and material,
+plus the identity actor frame, non-replication, no shadows and exact cull distances.
+
+Three pools use the native single-layer water shader, local small ripple normals
+and smooth wet-substrate blending around their measured elevation. Water is
+cosmetic, with a .45m authored shallow bed; no swimming or new hazard mechanics
+are added. Native winding initially culled the water from above. Correct clockwise
+front faces and a focused regression check repair it. Water appearance remains
+unfinished: dark, flat-looking views and shoreline composition still need work.
+
+The immutable first-pair source is `c6e02c216f4b`, native core `8aa73d07bd01` and
+scene candidate `0a8a35baca3a` (preserved render/walking checkpoint). The fresh rendered review checks 35,682/37,638
+full-width Sunmeadow/Cinderfen samples, with maximum native grades .213925/.205313
+and maximum source error below .000217cm. It verifies 4,133/2,271 saved cosmetic
+instances and three water surfaces. All 98 unedited player-height captures across
+four clock phases, stronger weather, landscape neighborhoods and pockets export
+without shader fallback. Render and source checks grant no human art approval.
+
+`traversal/1791561257244359900-6172/summary.json` passes all 122 configured normal
+walking routes (60 Sunmeadow, 62 Cinderfen), including the new pocket approaches,
+with unchanged capsule/step/speed and no route jumps or teleports. Safe routing,
+ordinary entry and local GM recovery are re-proved separately for each final
+revision. Headless movement is not vehicle, performance or 18v18 acceptance.
+
+`t1-second-pair-landscape.ts` adds source-only Brightfen limestone islands,
+inter-island channels and narrow causeway shoulders, plus Ashen layered sandstone
+plateaus, a bending wash and tributary gullies. `prepare-t1-second-pair.ts` exports
+immutable map/terrain/road bundles without active-map changes. Brightfen's first
+broad embankments merged its islands; narrower shoulders, smaller relief widths
+and water divides repair the source study. Ashen's rectangular sampling respects
+the shared 512-segment limit. Source `fa4505c39eb6` checks 32,529/33,852 full-width
+samples at maximum grades .100346/.155696. Three focused tests preserve original
+keeps, six itineraries, objective IDs, services, encounters and resource identities.
+Native later-pair architecture, scenery, collision and gameplay remain unbuilt.
+
+`t1-landscape-atlas.py` draws all four measured layouts, with keeps, objectives,
+rotations, villages, staging and optional lair branches. Blue Brightfen areas are
+proposed water in an authoring diagram. Native screenshots, real gameplay-camera
+captures and these diagrams are explicitly separate in the private progress report.
+No underground environment has been built; that request remains outstanding.
+
+Windows Editor and Game builds succeed; the fresh Foundation suite passes 147
+checks, including new atomic detail admission and Cinderfen lighting/night checks.
+The repository suite passes 1,103 tests/171 files and the Unreal selection 484/90.
+The final second-pair revision additionally passes its three focused tests; the
+three typechecks pass. Sixty focused T1 Python checks pass. World/model validation
+passes 33 maps/906 records; audit retains 39 contracts/four blockers and strict
+release exits 1. Preserve every outstanding full-lair, human visual, vehicle,
+18v18, service/resource behavior, ordinary GM persistence, online authority,
+network/audio, frame/memory/travel, platform/Steam and release gate.
+
+
+The stricter saved-detail check produces scene `e6eaa25eb1f7`, with the same
+geometry and fresh 98-view/native-ground/shader checks. Its normal walking run
+`traversal/1791561821442281900-20276/summary.json` passes all 122 routes.
+`ecology-gameplay/1791561829890042300-34864/summary.json` adds twelve actual
+gameplay-camera PNGs while a normal visible character walks all six pockets.
+The replicated clock reaches dawn/daylight during this run; a previous preserved
+revision covers actual night. All 13 owner documents and saved candidate bindings
+remain unchanged. These checks confirm movement and rendering, not appearance.
+The daylight water reveals overly regular ripple patterns and strong amber
+color; organic wave variation and shoreline art remain explicit next work.
+
+
+Final safe walkthrough `c59d9f80a94a` retains scene `e6eaa25eb1f7`. Its fresh
+ordinary-entry/local-GM fixtures verify grounded spawn, flight, return from 25m
+below terrain and stable walking, with no draft writes. The private checkpoint
+`natural-checkpoint-e6eaa25eb1f7.json` links exact receipts; the matching qualified
+HTML progress report embeds unmodified native PNGs and measured drawings directly,
+fixing dependence on relative image links. It explicitly labels unfinished art.

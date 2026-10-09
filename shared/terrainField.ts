@@ -3,6 +3,8 @@ export interface TerrainField {
   version: 1;
   baseHeight: number;
   seed: number;
+  /** Bounded authored weathering; absent recipes preserve their original field exactly. */
+  weathering?: { warpMetres: number; warpScale: number; detailScale: number; detailAmplitude: number; terraceHeight: number; terraceStrength: number };
   rolls: Array<{ scale: number; amplitude: number }>;
   ridges: Array<{ id: string; profile: 'rounded' | 'shelf'; points: FieldPoint[] }>;
   channels: Array<{ id: string; points: FieldPoint[] }>;
@@ -37,9 +39,27 @@ export function terrainFieldHeight(field: TerrainField, x: number, z: number): n
   let height = field.baseHeight;
   for (const [i, layer] of field.rolls.entries()) height += roll(x / layer.scale, z / layer.scale, field.seed + i * 1013) * layer.amplitude;
   // Adjacent branches share a watershed instead of stacking into conical mounds.
+  const w = field.weathering;
+  let px = x, pz = z;
+  if (w) {
+    // Warp the whole watershed together so spurs and their drainage remain related.
+    px += roll(x / w.warpScale, z / w.warpScale, field.seed + 701) * w.warpMetres;
+    pz += roll(x / w.warpScale, z / w.warpScale, field.seed + 1301) * w.warpMetres;
+  }
   let ridge = 0, cut = 0;
-  for (const row of field.ridges) ridge = Math.max(ridge, ribbon(x, z, row.points, row.profile === 'shelf'));
-  for (const row of field.channels) cut = Math.max(cut, ribbon(x, z, row.points, false));
+  for (const row of field.ridges) ridge = Math.max(ridge, ribbon(px, pz, row.points, row.profile === 'shelf'));
+  for (const row of field.channels) cut = Math.max(cut, ribbon(px, pz, row.points, false));
+  if (w) {
+    const detail = .6 * roll(px / w.detailScale, pz / w.detailScale, field.seed + 1901)
+      + .4 * roll(px / (w.detailScale * .43), pz / (w.detailScale * .43), field.seed + 2503);
+    ridge = Math.max(0, ridge + detail * w.detailAmplitude * Math.min(1, ridge / 22));
+    if (w.terraceStrength > 0) {
+      const layer = ridge / w.terraceHeight, base = Math.floor(layer), fraction = layer - base;
+      // Smooth bedding ledges give basalt shelves a different section from limestone downs.
+      const ledge = smooth(Math.max(0, Math.min(1, (fraction - .22) / .56)));
+      ridge += ((base + ledge) * w.terraceHeight - ridge) * w.terraceStrength;
+    }
+  }
   return height + ridge - cut;
 }
 
@@ -49,6 +69,12 @@ export function validateTerrainField(field: TerrainField): void {
   if (field.version !== 1 || !finite(field.baseHeight, -100, 250) || !Number.isInteger(field.seed)
     || !finite(field.seed, 0, 2147483647) || !Array.isArray(field.rolls) || field.rolls.length > 6
     || field.rolls.some(r => !finite(r.scale, 12, 2000) || !finite(r.amplitude, 0, 20))) throw new Error('Invalid terrain field controls');
+  if (field.weathering) {
+    const w = field.weathering;
+    if (!finite(w.warpMetres, 0, 40) || !finite(w.warpScale, 30, 300)
+      || !finite(w.detailScale, 16, 150) || !finite(w.detailAmplitude, 0, 12)
+      || !finite(w.terraceHeight, 2, 15) || !finite(w.terraceStrength, 0, .85)) throw new Error('Invalid terrain weathering');
+  }
   const ids = new Set<string>();
   for (const [rows, maximum] of [[field.ridges, 250], [field.channels, 50]] as const) {
     if (!Array.isArray(rows) || rows.length > 64) throw new Error('Invalid terrain ribbon inventory');

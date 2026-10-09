@@ -2,6 +2,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { battlefieldLandscape, BATTLEFIELD_ZONES, offRoadLinks } from './t1-battlefield-landscape';
+import { landscapePockets } from './t1-landscape-pockets';
 import { battlefieldGrades } from './t1-battlefield-grades';
 import { outdoorRoads, outdoorTerrain } from './world-portals';
 import { createOrvrGridHeightSampler } from '../../shared/orvrTerrain';
@@ -30,12 +31,13 @@ export function prepareBattlefield(): void {
   })), parent.signature);
   if (parent.study !== 'dramatic-relief' || !baseline) throw new Error('Expected a preserved relief/walkthrough baseline');
   const parentWalkthroughFile = 'artifacts/unreal/t1-redesign/' + baseline.name, walkthrough = read(parentWalkthroughFile);
-  const zones = BATTLEFIELD_ZONES.map(id => {
+  const pocketPlans = BATTLEFIELD_ZONES.map(id => {
     const homes = parent.zones.find((z: { id: string }) => z.id === id).homes.map((h: { id: string; route: number[][]; approachPoints: number }) => ({
       id: h.id, points: h.route.slice(0, h.approachPoints).map(p => ({ x: p[1] / 100, z: p[0] / 100, y: p[2] / 100 }))
     }));
-    return battlefieldLandscape(read(`artifacts/unreal/t1-redesign/${id}.json`) as ZoneDefinition, homes);
+    return landscapePockets(battlefieldLandscape(read(`artifacts/unreal/t1-redesign/${id}.json`) as ZoneDefinition, homes));
   });
+  const zones = pocketPlans.map(p=>p.zone);
   // Reciprocal arrivals remain explicit in the candidate-only 32-map bundle.
   const maps: ZoneDefinition[] = read('artifacts/unreal/t1-redesign/plan.json').zones.map((z: { id: string }) => read(`artifacts/unreal/t1-redesign/maps/${z.id}.json`) as ZoneDefinition);
   for (const z of zones) maps[maps.findIndex((m: ZoneDefinition) => m.id === z.id)] = z;
@@ -44,7 +46,7 @@ export function prepareBattlefield(): void {
     t.targetSpawn = { ...maps.find((m: ZoneDefinition) => m.id === t.targetZoneId)!.zoneTriggers!.find(r => r.targetZoneId === z.id)!.arrivalPoint! };
   }
   const tools = ['shared/terrainField.ts', 'shared/orvrTerrain.ts', 'shared/world/RoadSurface.ts', 'scripts/unreal/t1-battlefield-grades.ts',
-    'scripts/unreal/t1-battlefield-landscape.ts', 'scripts/unreal/prepare-t1-battlefield.ts', 'scripts/unreal/world-portals.ts'];
+    'scripts/unreal/t1-battlefield-landscape.ts', 'scripts/unreal/t1-landscape-pockets.ts', 'scripts/unreal/prepare-t1-battlefield.ts', 'scripts/unreal/world-portals.ts'];
   for (const file of tools) bindings[file] = sha256(readFileSync(path.join(repoRoot, file)));
   const signature = sha256(canonicalJson({ bindings, zones })), directory = path.join(base, 'battlefield', signature.slice(0, 12));
   if (existsSync(directory)) throw new Error('Preserve an existing battlefield source revision');
@@ -54,12 +56,13 @@ export function prepareBattlefield(): void {
   };
   const reports = [];
   for (const z of zones) {
+    save(z.id + '_pockets.json', pocketPlans.find(p=>p.zone.id===z.id)!.pockets);
     save(z.id + '.json', z); save(z.id + '_terrain.json', outdoorTerrain(z)); save(z.id + '_roads.json', outdoorRoads(z));
     const links = offRoadLinks(z.id); save(z.id + '_links.json', links);
     const h = createOrvrGridHeightSampler(z.orvrLayout!.terrain, z.size, z.segments, z.spatial);
-    const routeGrades = battlefieldGrades([...z.paths!, ...links], h);
+    const routeGrades = battlefieldGrades([...z.paths!, ...links, ...pocketPlans.find(p=>p.zone.id===z.id)!.pockets.map(p=>({id:p.id,width:6,points:p.approach}))], h);
     const maximumGrade = Math.max(...routeGrades.map(r => r.maximumGrade)), samples = routeGrades.reduce((sum, r) => sum + r.samples, 0);
-    if (maximumGrade > .22) throw new Error(`Battlefield grades fail: ${z.id} ${maximumGrade}`);
+    if (maximumGrade > .22) throw new Error(`Battlefield grades fail: ${z.id} ${JSON.stringify(routeGrades.filter(r => r.maximumGrade > .22))}`);
     reports.push({ zone: z.id, maximumGrade, fullWidthSamples: samples, routeGrades, offRoadLinks: links.length, routeElevationsChanged: true,
       appearanceApproved: false, drivingAccepted: false, eighteenVersusEighteenAccepted: false });
   }

@@ -1,7 +1,7 @@
 """Native metre-scaled regional surface graphs; no mesh or shared material mutation."""
 import math
 import unreal
-from t1_surface_variation import validate_variation
+from t1_surface_variation import validate_variation, validate_substrate, validate_shorelines
 
 
 def regional_material(assets, key, recipe):
@@ -31,8 +31,8 @@ def regional_material(assets, key, recipe):
     negative_x = binary('Multiply', x, constant(-1))
     axes = binary('AppendVector', y, negative_x)
     uv = binary('Divide', axes, constant(recipe['tileMetres']*100))
-    def texture(kind, coordinates):
-        sample = node('TextureSample', texture=assets.texture(recipe[kind], kind == 'normal'),
+    def texture(kind, coordinates, channels=None):
+        sample = node('TextureSample', texture=assets.texture((channels or recipe)[kind], kind == 'normal'),
             sampler_type=unreal.MaterialSamplerType.SAMPLERTYPE_NORMAL if kind == 'normal' else unreal.MaterialSamplerType.SAMPLERTYPE_COLOR)
         wire(coordinates, '', sample, 'UVs')
         return sample
@@ -60,7 +60,44 @@ def regional_material(assets, key, recipe):
         color = binary('Multiply', lerp(samples['color'], texture('color', secondary_uv), mask, 'RGB', 'RGB'), tint)
         normal_detail = node('Normalize'); wire(lerp(samples['normal'], texture('normal', secondary_uv), mask, 'RGB', 'RGB'), '', normal_detail, 'VectorInput')
         normal_pin = ''
+    substrate = recipe.get('substrate')
+    if substrate:
+        if recipe['softVerge'] or not variation_recipe: raise ValueError('Substrate requires a varied opaque terrain')
+        validate_substrate(substrate)
+        soil_uv = binary('Divide', axes, constant(substrate['tileMetres']*100))
+        soil_color = texture('color', soil_uv, substrate)
+        soil_tint = node('Constant3Vector', constant=unreal.LinearColor(*substrate['tint'], 1))
+        soil_color = binary('Multiply', soil_color, soil_tint, 'RGB')
+        patch_uv = binary('Divide', axes, constant(substrate['patchMetres']*100))
+        secondary_patch_uv = binary('Divide', binary('AppendVector', rotated_u, rotated_v), constant(substrate['patchMetres']*1.73*100))
+        patch = lerp(texture('color', patch_uv), texture('color', secondary_patch_uv), constant(.4), 'R', 'R')
+        low, high = substrate['maskRange']
+        patch = clamp(binary('Divide', binary('Subtract', patch, constant(low)), constant(high-low)))
+        patch = binary('Multiply', binary('Multiply', patch, patch), binary('Subtract', constant(3), binary('Multiply', patch, constant(2))))
+        normal = node('VertexNormalWS')
+        nz = node('ComponentMask', r=False, g=False, b=True, a=False); wire(normal, '', nz, 'Input')
+        slope = clamp(binary('Divide', binary('Subtract', constant(.98), nz), constant(.18)))
+        coating = clamp(binary('Add', binary('Multiply', patch, constant(substrate['patchStrength'])), binary('Multiply', slope, constant(substrate['slopeStrength']))))
+        color = lerp(color, soil_color, coating)
+        mixed_normal = lerp(normal_detail, texture('normal', soil_uv, substrate), coating, normal_pin, 'RGB')
+        normal_detail = node('Normalize'); wire(mixed_normal, '', normal_detail, 'VectorInput'); normal_pin = ''
+    shores=recipe.get('shorelines')
+    if shores:
+        validate_shorelines(shores)
+        if not substrate:raise ValueError('Shore transitions need the admitted regional substrate')
+        world_height=node('ComponentMask',r=False,g=False,b=True,a=False);wire(world,'',world_height,'Input')
+        wet=constant(0)
+        for shore in shores:
+            centre=node('Constant3Vector',constant=unreal.LinearColor(shore['z']*100,shore['x']*100,shore['waterY']*100,1))
+            distance=binary('Distance',world,centre)
+            radial=clamp(binary('Divide',binary('Subtract',constant(shore['radius']*100),distance),constant(1200)))
+            delta=node('Abs');wire(binary('Subtract',world_height,constant(shore['waterY']*100)),'',delta,'Input')
+            band=clamp(binary('Subtract',constant(1),binary('Divide',delta,constant(80))))
+            band=binary('Multiply',binary('Multiply',band,band),binary('Subtract',constant(3),binary('Multiply',band,constant(2))))
+            wet=binary('Max',wet,binary('Multiply',radial,band))
+        color=lerp(color,binary('Multiply',soil_color,constant(.72)),binary('Multiply',wet,constant(.65)))
     if not recipe['softVerge']:
+
         if variation_recipe:
             macro_sample = texture('color', binary('Divide', axes, constant(variation_recipe['macroMetres']*100)))
             minimum = variation_recipe['macroMinimum']
@@ -80,7 +117,23 @@ def regional_material(assets, key, recipe):
         slope = binary('Divide', binary('Subtract', constant(high), nz), constant(high-low))
         clamped = node('Clamp', min_default=0, max_default=1); wire(slope, '', clamped, 'Input')
         rock = node('Constant3Vector', constant=unreal.LinearColor(*recipe['rockColor'], 1))
-        if variation_recipe:
+        rock_layer = recipe.get('rockLayer')
+        if rock_layer:
+            z = node('ComponentMask', r=False, g=False, b=True, a=False); wire(world, '', z, 'Input')
+            coordinates = [binary('AppendVector', y, z), binary('AppendVector', negative_x, z), axes]
+            weights=[]; values=[]
+            for axis, coordinates_for_axis in enumerate(coordinates):
+                n = node('ComponentMask', r=axis==0, g=axis==1, b=axis==2, a=False); wire(normal, '', n, 'Input')
+                squared=binary('Multiply',n,n); weights.append(binary('Multiply',squared,squared))
+                stone=texture('color',binary('Divide',coordinates_for_axis,constant(rock_layer['tileMetres']*100)),rock_layer)
+                values.append(binary('Multiply',stone,weights[-1],'RGB'))
+            # Blend projections over face directions, so steep slopes do not stretch into flat colour bands.
+            rock=binary('Divide',binary('Add',binary('Add',values[0],values[1]),values[2]),binary('Add',binary('Add',weights[0],weights[1]),weights[2]))
+            rock_tint=node('Constant3Vector',constant=unreal.LinearColor(*rock_layer['tint'],1)); rock=binary('Multiply',rock,rock_tint)
+            rock_uv=binary('Divide',axes,constant(rock_layer['tileMetres']*100))
+            mixed_normal=lerp(normal_detail,texture('normal',rock_uv,rock_layer),clamped,normal_pin,'RGB')
+            normal_detail=node('Normalize');wire(mixed_normal,'',normal_detail,'VectorInput');normal_pin=''
+        elif variation_recipe:
             grain = binary('Add', constant(.8), binary('Multiply', samples['color'], constant(.4), 'R'))
             rock = binary('Multiply', rock, grain)
         blend = node('LinearInterpolate'); wire(color, '', blend, 'A'); wire(rock, '', blend, 'B'); wire(clamped, '', blend, 'Alpha')

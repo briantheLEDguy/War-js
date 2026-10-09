@@ -15,6 +15,9 @@ from t1_material_clone import inventory,clone
 from t1_material_assets import regional_material
 from t1_population_native import spawn_population,population_actor,GroundReview
 from t1_surface_variation import surface_variation
+from t1_rock_surface import rock_surface
+from t1_landscape_ecology import admitted_cover,cover_layout,pocket_water
+from t1_ecology_native import ground_cover,water_material,cover_inventory
 from world_build_assets import WorldAssets
 
 BASE=ROOT/'artifacts/unreal/t1-redesign'; CONTENT=ROOT/'unreal/AegisWar/Content'; read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
@@ -30,12 +33,27 @@ def verify_sources():
 verify_sources(); protected=protected_saved(ROOT)
 recipes={z['id']:terrain_recipe(ROOT,z['id']) for z in parent['zones']}
 for identity,r in recipes.items():
-    r['layers']['terrain']['tint']=[.55,.95,1.1,1] if identity=='sunmeadow_march' else [1.65,1.65,1.6,1]
+    r['layers']['terrain']['tint']=[.55,1.22,.8,1] if identity=='sunmeadow_march' else [.8,1.04,.87,1]
     r['layers']['terrain']['rockColor']=[.3,.29,.26] if identity=='sunmeadow_march' else [.13,.135,.14]
     r['layers']['terrain']['macroMinimum']=.75
     for layer in r['layers'].values(): layer['surfaceVariation']=surface_variation()
+    r['layers']['terrain']['rockLayer']=rock_surface(ROOT,identity)
+    if identity=='cinderfen_outskirts': r['layers']['terrain']['rockLayer']['tint']=[.48,.56,.64]
+    r['layers']['terrain']['shorelines']=[dict(x=p['x'],z=p['z'],waterY=p['waterY'],radius=p['radius']+60) for p in next(z for z in parent['zones'] if z['id']==identity)['landscapePockets'] if p['cosmeticWater']]
+    r['layers']['terrain']['substrate']=dict(color=r['layers']['roads']['color'],normal=r['layers']['roads']['normal'],
+        tint=[.5,.65,.5] if identity=='sunmeadow_march' else [.68,.6,.48],tileMetres=2.8,patchMetres=43 if identity=='sunmeadow_march' else 37,
+        patchStrength=.24,slopeStrength=.18,maskRange=[.025,.18] if identity=='sunmeadow_march' else [.01,.09])
+for r in recipes.values():
+    rock=r['layers']['terrain']['rockLayer']; files.update(rock['reviewInputs'])
+    for channel in ('color','normal'): files[rock[channel]['path']]=rock[channel]['sha256']
+cover_sources={}
+for z in parent['zones']:
+    data,cover_inputs=admitted_cover(ROOT,z['id']); cover_sources[z['id']]=data; files.update(cover_inputs)
+verify_sources()
+
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
     sourceHashes=files,parentPackages=packages,tools={p:sha(ROOT/p) for p in tools},protectedHashes=protected,
@@ -64,7 +82,8 @@ try:
                 if state['kind']!='mesh': raise RuntimeError('Scene socket requires its admitted static source')
                 # Python's Rotator properties are float32; freeze that admitted precision before cloning.
                 yaw=struct.unpack('<f',struct.pack('<f',(p['yawDegrees']+180)%360-180))[0]
-                state['scale']=[p['scale']]*3; state['rotation']=[0,yaw,0]
+                f32=lambda value: struct.unpack('<f',struct.pack('<f',value))[0]
+                state['scale']=p['scaleAxes']; state['rotation']=[f32(p['tiltDegrees'][0]),yaw,f32(p['tiltDegrees'][1])]
                 h=surface.height_cm(p['x'],p['z'])
                 if p['grounding']=='embed':
                     # Bury broad rock feet below the lowest surrounding ground instead of levelling the hillside.
@@ -73,6 +92,22 @@ try:
                 state['location']=[p['z']*100,p['x']*100,h]; state['tags']+=['WarT1BattlefieldSceneCell']
                 if p['id'] in states: raise RuntimeError('Duplicate scene actor identity')
                 states[p['id']]=state
+        if identity=='cinderfen_outskirts':
+            rock=recipes[identity]['layers']['terrain']['rockLayer']
+            basalt=assets.material(identity+'_charcoal_basalt',dict(textures={k:rock[k] for k in ('color','normal')},color=[*rock['tint'],1],roughness=.92,metallic=0))
+            admitted_mesh=original['actorInventory'][identity+'_basalt_shelf_1']['mesh']
+            for state in states.values():
+                if state['kind']=='mesh' and state['mesh']==admitted_mesh:state['materials']=[basalt.get_path_name()]
+            materials['regionalBasalt']=dict(asset=basalt.get_path_name(),sourceChannelsVerified=True,appearanceApproved=False)
+        water_surfaces=[]
+        wet=[p for p in original['landscapePockets'] if p['cosmeticWater']]
+        if wet:
+            material=water_material(assets,identity)
+            for pocket in wet:
+                mesh=assets.mesh(pocket['id']+'_water',pocket_water(pocket,surface.height_cm),material,False)
+                states[pocket['id']+'_water']=dict(kind='mesh',location=[0,0,0],rotation=[0,0,0],scale=[1,1,1],tags=['WarT1CosmeticShallowWater'],
+                    mesh=mesh.get_path_name(),materials=[material.get_path_name()],collision='NoCollision')
+                water_surfaces.append(pocket['id'])
         destination=assets.folder+'/'+identity
         if not levels.new_level(destination+'/Review'): raise RuntimeError('Cannot create fresh scene review')
         anchor=actors.spawn_actor_from_class(unreal.WarZoneAnchor,unreal.Vector(*original['arrivalCm']))
@@ -84,6 +119,7 @@ try:
         if not generated: raise RuntimeError('Cannot create scene generated layer')
         unreal.EditorLevelUtils.make_level_current(generated)
         population_ids={r['id'] for r in original['population']}; clone(actors,{k:v for k,v in states.items() if k not in population_ids},{})
+        native_cover=ground_cover(actors,assets,identity,cover_sources[identity],cover_layout(source,surface.height_cm,original['landscapePockets']))
         for row in original['population']:
             actor=spawn_population(actors,row)
             if not same_state(population_actor(actor),row['savedState']): raise RuntimeError('Scene copy changed population')
@@ -113,7 +149,7 @@ try:
         if not levels.save_current_level(): raise RuntimeError('Cannot save scene review')
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append({**original,'map':destination+'/Review','parentMap':original['map'],'actorInventory':states,'materials':materials,
-                      'sceneCells':cells,'terrainMeshPreserved':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
+                      'sceneCells':cells,'groundCover':{identity+'_landscape_ground_cover':native_cover},'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
         unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT_ZONE='+identity)
 finally: verify_sources(); verify_protected(ROOT,protected)
 result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',inputs=inputs,zones=zones,

@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_surface_variation import surface_variation, validate_variation, rotated_uv
+from t1_surface_variation import surface_variation, validate_variation, rotated_uv, validate_substrate, substrate_weight, validate_shorelines, shoreline_weight
 
 
 class SurfaceVariationTest(unittest.TestCase):
@@ -20,5 +20,32 @@ class SurfaceVariationTest(unittest.TestCase):
             with self.assertRaises(ValueError): validate_variation({**surface_variation(), field: value})
         with self.assertRaises(ValueError): rotated_uv([0, 0, 0], 0, 0)
 
+    def test_substrate_patches_blend_continuously_and_expose_sloped_ground(self):
+        row = dict(color=dict(path='public/assets/reviewed-color.png',sha256='a'*64),normal=dict(path='public/assets/reviewed-normal.png',sha256='b'*64),
+                   tint=[.8,.87,.77],tileMetres=2.8,patchMetres=43,patchStrength=.52,slopeStrength=.38,maskRange=[.025,.18])
+        validate_substrate(row)
+        self.assertEqual(substrate_weight(row, 0, 1), 0)
+        self.assertEqual(substrate_weight(row, 1, 1), .52)
+        self.assertAlmostEqual(substrate_weight(row, 0, .8), .38)
+        for n in range(101):
+            mask=n/100
+            self.assertLess(abs(substrate_weight(row,mask+.00001,.91)-substrate_weight(row,mask,.91)),.001)
+            self.assertTrue(0 <= substrate_weight(row,mask,.91) <= 1)
+        for bad in [{**row,'maskRange':[.18,.025]},{**row,'tileMetres':float('nan')},{**row,'color':dict(path='x',sha256='wrong')}]:
+            with self.assertRaises(ValueError): validate_substrate(bad)
+        with self.assertRaises(ValueError): substrate_weight(row,float('nan'),1)
+
+    def test_shore_fade_is_local_continuous_and_never_a_hard_waterline(self):
+        row=dict(x=20,z=-30,waterY=10,radius=70)
+        self.assertEqual(shoreline_weight(row,20,-30,10),.65)
+        self.assertEqual(shoreline_weight(row,200,-30,10),0)
+        self.assertEqual(shoreline_weight(row,20,-30,11),0)
+        for i in range(81):
+            y=10+i/100
+            self.assertLess(abs(shoreline_weight(row,20,-30,y)-shoreline_weight(row,20,-30,y+.00001)),.0001)
+        for bad in [{**row,'radius':1000},{**row,'waterY':math.nan}]:
+            with self.assertRaises(ValueError):validate_shorelines([bad])
+        with self.assertRaises(ValueError):validate_shorelines([row]*9)
+        with self.assertRaises(ValueError):shoreline_weight(row,math.nan,0,10)
 
 if __name__ == '__main__': unittest.main()

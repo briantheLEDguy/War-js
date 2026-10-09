@@ -15,6 +15,20 @@ describe('shared connected terrain field', () => {
     expect(terrainFieldHeight(f, 100, 30)).toBe(terrainFieldHeight(field, 100, 30));
     for (const x of [0, 200]) expect(Math.abs(terrainFieldHeight(field, x - .001, 0) - terrainFieldHeight(field, x + .001, 0))).toBeLessThan(.003);
   });
+  it('weathers a connected watershed continuously and preserves optional legacy behavior', () => {
+    const weathering = { warpMetres: 24, warpScale: 71, detailScale: 31, detailAmplitude: 6, terraceHeight: 6, terraceStrength: .65 };
+    const f = { ...field, weathering }; validateTerrainField(f);
+    expect(terrainFieldHeight({ ...field, weathering: { ...weathering, warpMetres: 0, detailAmplitude: 0, terraceStrength: 0 } }, 77, 17)).toBe(terrainFieldHeight(field, 77, 17));
+    expect(terrainFieldHeight(f, 77, 17)).not.toBe(terrainFieldHeight(field, 77, 17));
+    for (let x = -50; x <= 250; x += 5) {
+      expect(terrainFieldHeight(JSON.parse(JSON.stringify(f)), x, 17)).toBe(terrainFieldHeight(f, x, 17));
+      expect(Math.abs(terrainFieldHeight(f, x - .001, 17) - terrainFieldHeight(f, x + .001, 17))).toBeLessThan(.01);
+    }
+    for (const invalid of [{ ...weathering, warpMetres: 41 }, { ...weathering, detailScale: 0 },
+      { ...weathering, terraceHeight: 0 }, { ...weathering, terraceStrength: NaN }]) {
+      expect(() => validateTerrainField({ ...field, weathering: invalid })).toThrow('weathering');
+    }
+  });
   it('cuts drainage within the ridge mass and survives JSON serialization deterministically', () => {
     const f = { ...field, rolls: [{ scale: 61, amplitude: 2 }], channels: [{ id: 'drain', points: [{ x: 0, z: 0, width: 25, height: 8 }, { x: 200, z: 60, width: 35, height: 10 }] }] };
     expect(terrainFieldHeight(f, 100, 30)).toBeLessThan(terrainFieldHeight({ ...f, channels: [] }, 100, 30));

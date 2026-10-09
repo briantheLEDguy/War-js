@@ -1,5 +1,22 @@
 # AegisWar
 
+The current first-pair candidates add shared watershed warping, multiscale surface
+breakup, basalt bedding, broader road/pad transitions, shallow exploration hollows
+and locally instanced source-model vegetation. `t1-landscape-pockets.ts` admits
+pools only on closed, graded ground; three other seasonal hollows remain dry.
+`AWarLandscapeDetail` bounds cosmetic batches, disables collision/navigation and
+uses 120m culling. Native reload checks verify saved instance transforms. Water
+uses terrain-clipped geometry, a native water shader, local ripples and a smooth
+wet-soil transition. Source-channel rock projection and charcoal basalt adaptation
+retain their reviewed inputs. These remain visibly unfinished prototypes.
+
+`npx tsx scripts/unreal/prepare-t1-second-pair.ts` creates immutable Brightfen
+island/causeway and Ashen plateau/wash source studies; it does not build native
+later-batch environments or change active maps. `python scripts/unreal/t1-landscape-atlas.py`
+draws all four measured layouts after both source exports. Native/licensed content
+and screenshots stay private. Full lair, human visual, driving/18v18, underground,
+performance, persistence, network/platform/Steam and release acceptance remain open.
+
 The next first-pair terrain prototype uses connected ridge fingers, drainage cuts,
 rolling ground and elevated route profiles. `shared/terrainField.ts` supplies the
 same serializable field to Node grounding and native mesh export; legacy terrain
@@ -9,8 +26,9 @@ arrivals, three unpainted off-road vehicle links per zone and retained home
 footing. Run `build-t1-battlefield.py` in the native Python commandlet for new
 private maps with complete keep/home assemblies rebased together.
 
-`npm run unreal:t1-battlefield-scenes` prepares four small regional camera-review
-cells using retained source assets. `build-t1-battlefield-scenes.py` creates fresh
+`npm run unreal:t1-battlefield-scenes` prepares eight landscape
+neighborhoods per zone using retained source assets. `build-t1-battlefield-scenes.py`
+creates fresh
 private copies with embedded rock, grove/reed clusters and source-channel material
 adaptations. `review-t1-battlefield.py -WarT1BattlefieldScenes` checks native
 triangle/grade correspondence, saved road fade and rendered shader logs, and
@@ -27,7 +45,7 @@ preserved. See [T1 implementation](docs/t1-redesign.md).
 
 Source preparation binds revision-qualified baseline/walkthrough receipts, so
 staging a newer walkthrough does not invalidate its own dependencies. The latest
-first-pair pass verifies 110 configured walking routes and ordinary character
+first-pair pass verifies 122 configured walking routes and ordinary character
 entry/local GM recovery in both regions. See the private `progress-report.html`
 under `artifacts/unreal/t1-redesign` for labeled native views and measured drawings.
 

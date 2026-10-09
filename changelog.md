@@ -1,3 +1,25 @@
+## 2026-10-09 - T1 landscape weathering and cosmetic ecology studies
+
+- Add optional deterministic watershed warping, multiscale surface breakup and
+  smooth rock bedding to the shared terrain field, preserving legacy recipes.
+- Broaden first-pair road/pad transitions and expand to eight source-model landscape
+  neighborhoods per zone, with varied embedded rock proportions and bedding angles.
+- Blend reviewed substrate channels into terrain and project source-derived rock
+  over steep faces. Adapt Cinderfen basalt toward charcoal and improve its daylight
+  readability while preserving other regional/capital profiles and dark nights.
+- Reserve six shallow exploration pockets, checking new approaches and all retained
+  routes together. Render three contained pools; keep three uncontained seasonal
+  hollows dry. Add clipped native water, subtle ripple normals and soft wet shores.
+- Add bounded native instanced ground cover with no collision, overlaps, navigation
+  or replication. Verify saved mesh/material/instance bindings in a fresh process.
+- Expand native review to neighborhood, pocket and stronger-weather views and
+  retain shader-fallback rejection, full-width grades and ordinary walking checks.
+- Add separate Brightfen island-chain/causeway and Ashen plateau/wash source studies
+  and measured four-region drawings. No later-batch native environment or underground
+  environment is completed; retain first-pair lair and every release gate.
+- Preserve immutable previous candidates, active campaign maps, accepted capitals,
+  purchased source assets and owner drafts. All landscape appearance remains open.
+
 ## 2026-10-08 - Connected T1 battlefield terrain prototypes
 
 - Replace road-preserving perimeter relief in new first-pair candidates with

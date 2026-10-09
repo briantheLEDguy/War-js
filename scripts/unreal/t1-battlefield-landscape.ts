@@ -9,6 +9,7 @@ const points = (rows: number[][]): FieldPoint[] => rows.map(([x, z, width, heigh
 export function battlefieldField(id: string): TerrainField {
   if (id === 'sunmeadow_march') return {
     version: 1, baseHeight: 7, seed: 14713,
+    weathering: { warpMetres: 19, warpScale: 93, detailScale: 43, detailAmplitude: 5.5, terraceHeight: 7, terraceStrength: 0 },
     rolls: [{ scale: 175, amplitude: 4 }, { scale: 71, amplitude: 1.4 }, { scale: 27, amplitude: .35 }],
     ridges: [
       { id: 'north_watershed', profile: 'rounded', points: points([[-850, 490, 180, 68], [-520, 510, 210, 101], [-225, 440, 180, 82], [120, 540, 220, 115], [520, 435, 190, 79], [850, 520, 220, 123]]) },
@@ -20,12 +21,14 @@ export function battlefieldField(id: string): TerrainField {
       { id: 'east_farmland_fold', profile: 'rounded', points: points([[445, -470, 115, 58], [370, -280, 95, 29], [245, -145, 75, 14]]) },
     ],
     channels: [
+      { id: 'meadow_swale', points: points([[-390, -150, 26, 3.4], [-280, -125, 33, 3.8], [-175, -150, 35, 2.6], [-80, -175, 42, 1.2]]) },
       { id: 'barrow_drain', points: points([[-395, 450, 58, 12], [-365, 270, 50, 9], [-305, 55, 62, 6], [-215, -85, 80, 3]]) },
       { id: 'east_drain', points: points([[300, 420, 58, 13], [300, 235, 55, 9], [205, 75, 55, 6], [230, -70, 65, 4]]) },
     ],
   };
   if (id === 'cinderfen_outskirts') return {
     version: 1, baseHeight: 13, seed: 27431,
+    weathering: { warpMetres: 26, warpScale: 79, detailScale: 34, detailAmplitude: 8, terraceHeight: 6, terraceStrength: .68 },
     rolls: [{ scale: 150, amplitude: 3 }, { scale: 61, amplitude: 1.8 }, { scale: 23, amplitude: .7 }],
     ridges: [
       { id: 'west_broken_shelf', profile: 'shelf', points: points([[-650, 420, 135, 68], [-470, 375, 110, 98], [-330, 315, 90, 73], [-225, 195, 85, 51], [-205, 25, 70, 28], [-180, -95, 62, 16]]) },
@@ -35,6 +38,7 @@ export function battlefieldField(id: string): TerrainField {
       { id: 'peat_dyke', profile: 'rounded', points: points([[-75, -490, 95, 29], [-60, -355, 75, 19], [-10, -235, 70, 12]]) },
     ],
     channels: [
+      { id: 'basin_runoff', points: points([[-370, -255, 29, 4.5], [-245, -235, 36, 4], [-145, -265, 45, 2.7], [-40, -320, 52, 1.5]]) },
       { id: 'west_vent_cut', points: points([[-365, 445, 52, 19], [-345, 245, 48, 16], [-305, 45, 50, 10], [-260, -140, 65, 5]]) },
       { id: 'east_vent_cut', points: points([[185, 480, 47, 22], [185, 290, 50, 16], [135, 155, 48, 11], [150, -30, 65, 6]]) },
       { id: 'southern_peat_cut', points: points([[-230, -565, 60, 15], [-220, -390, 57, 10], [-155, -235, 66, 5]]) },
@@ -131,13 +135,14 @@ export function battlefieldLandscape(source: ZoneDefinition, homeApproaches: Arr
   }
   for (const p of zone.paths!.flatMap(p => p.points)) if (heights.has(key(p))) p.y = heights.get(key(p));
   for (const route of layout.caravanRoutes) for (const p of route.points) if (heights.has(key(p))) p.y = heights.get(key(p));
-  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v3';
+  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v7';
   for (const area of terrain.flattenAreas) if (area.id === 'village' || area.id.includes('_village_')) {
     area.preserveFooting = true;
     area.feather = area.id === 'village' ? 120 : Math.max(area.feather, 72);
   }
+  for (const area of terrain.flattenAreas) if (!area.preserveFooting) area.feather = Math.max(area.feather, area.id.includes('objective') ? 60 : 50);
   layout.version = terrain.sourceVersion;
-  terrain.clearCorridors = zone.paths!.map(p => ({ id: p.id, points: p.points.map(p => ({ ...p })), radius: p.width / 2 + 7, height: 0, feather: 32 }));
+  terrain.clearCorridors = zone.paths!.map(p => ({ id: p.id, points: p.points.map(p => ({ ...p })), radius: p.width / 2 + 7, height: 0, feather: 72 }));
   for (const home of homeApproaches) {
     if (!home.id.startsWith(zone.id + '_village_furnished_home_') || home.points.length < 2 || home.points.length > 40
       || home.points.some((p, i) => !Number.isFinite(p.y) || i && !spatialSegmentInside(zone.spatial!, home.points[i - 1], p, 7))) throw new Error('Invalid retained home footing');
