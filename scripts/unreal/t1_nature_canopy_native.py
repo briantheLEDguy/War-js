@@ -4,7 +4,7 @@ from pathlib import Path
 import unreal
 from t1_materials import sha
 from t1_nature_kit import select_nature_meshes
-from t1_nature_canopy import MAPPING,canopy_transform
+from t1_nature_canopy import MAPPING,canopy_transform,canopy_identities
 
 
 def nature_sources(root):
@@ -21,7 +21,7 @@ def nature_sources(root):
 
 def adapt_nature_canopies(assets,states,sources):
     if not assets.folder.startswith('/Game/WorldRebuild/T1Redesign_Atmosphere_'):raise RuntimeError('Installed nature study requires fresh private T1 atmosphere candidates')
-    result=copy.deepcopy(states);adapted=[]
+    expected=canopy_identities(states);result=copy.deepcopy(states);adapted=[]
     for label,state in result.items():
         if state['kind']!='mesh':continue
         name=state['mesh'].rsplit('/',1)[-1].split('.')[0]
@@ -37,5 +37,5 @@ def adapt_nature_canopies(assets,states,sources):
         state.update(mesh=replacement.get_path_name(),materials=materials,scale=placement['scale'],location=placement['location'])
         state['tags']+=['WarT1PrivateInstalledNatureStudy']
         adapted.append(dict(id=label,original=before,mesh=state['mesh'],materials=materials,placement=placement,lodCount=recipe['lodCount'],sourceGeometryPreserved=False,collisionAccepted=False))
-    if len(adapted)!=331:raise RuntimeError('Installed oak study requires the exact 331 retained canopy actor identities')
-    return result,dict(actors=adapted,meshes=3,installedSourcePackagesPreserved=True,sourceGeometryPreserved=False,licenseReviewed=False,distributionApproved=False,collisionAccepted=False,appearanceApproved=False,performanceAccepted=False)
+    if tuple(sorted(row['id'] for row in adapted))!=expected:raise RuntimeError('Installed oak study changed its exact source canopy identities')
+    return result,dict(actors=adapted,sourceCanopyIds=expected,meshes=3,installedSourcePackagesPreserved=True,sourceGeometryPreserved=False,licenseReviewed=False,distributionApproved=False,collisionAccepted=False,appearanceApproved=False,performanceAccepted=False)

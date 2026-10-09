@@ -609,3 +609,45 @@ to new terrain geometry. Use `launch-t1-review.py` only after that full chain.
 Installed cosmetic understorey batches use `t1_understorey_native.py`; their exact
 selected mesh/bounds/LOD/material inventories remain separate from source-derived
 three-LOD grass. Licensed packages, comparisons and reports stay private.
+
+
+## T1 verified local terrain transitions (9 October 2026)
+
+Source `366c962d85ea`, native core `34d1d21ece98`, scene `9e58646034c1`,
+navigation `dce65a371320` and safe walkthrough `d703c535e7fc` now have fresh
+native proof. Eleven transition bands per zone narrow while the main advance
+and first rotation retain broad grading support. Native full-width maxima are
+0.21757068 Sunmeadow and 0.21648207 Cinderfen, below the retained 0.22 limit.
+Military pads, route identities, pocket beds and closed water remain checked.
+
+Fresh checks pass 108 rendered views, 142 configured normal walking routes,
+88 pedestrian/convoy navigation queries before save/after reload, exact safe-copy
+tile payloads, both grounded ordinary-entry/local-GM recovery fixtures without
+draft writes, and twelve actual follow-camera pocket captures. All thirteen
+owner documents and pinned parent/capital maps remain preserved. Navigation
+copies have not separately repeated the complete walking suite.
+
+The first scenery attempt stopped at an obsolete fixed 331-canopy guard.
+The repair freezes exact source-derived identities for each revision and checks
+a bounded 200-500 inventory. Five focused canopy tests pass. Revised terrain
+produces 329 canopies, 24722 Sunmeadow cosmetic cover instances and 6221 Cinderfen
+instances. Installed Sunmeadow understorey is 6345 grass, 4816 long-grass,
+4092 fern and 429 seedlings. No density performance acceptance is implied.
+Repository tests pass 1111/173 files, Unreal selection 490/92 and Python 121/32.
+All three typechecks, migration audit and world/model validation pass; strict
+release exits 1. No C++ changed; earlier native builds/Foundation retain scope.
+
+`progress-report-local-terrain-9e58646034c1.html` embeds fourteen actual native
+images and labeled topology drawings; the matching local-terrain checkpoint JSON
+records signatures, hashes and exact results. An unsaved twelve-image foliage
+parameter comparison gives little visible improvement and remains unintegrated.
+Installed foliage already has masked two-sided subsurface shading. Engine setter
+return values are unreliable here; the study validates exact parameter readback.
+A separate spatial forest-floor/data-mask study remains outside the saved scene.
+
+Smooth empty ground, harsh trees, repeated materials and blocky rock assemblies
+remain unfinished. Retain human appearance, first-batch full lairs, physical
+vehicle driving/turning, closed gates, 18v18, services/resources, ordinary GM
+persistence, Node additive-prop collision synchronization, network/audio,
+performance, three-platform/Steam and release gates. Later-pair native and full
+underground environments remain unbuilt.

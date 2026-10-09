@@ -2110,3 +2110,5 @@ Later-pair native environments and underground environments remain unbuilt.
   Pass fresh repository suites and required validation; strict release stays blocked.
 - Keep separate installed ground-channel and neutral-daylight comparisons unsaved;
   preserve capitals, owner documents, purchased originals and outstanding gates.
+
+- Verified isolated T1 local terrain transitions: native grades below 0.22, 108 views, 142 walking routes, 88 navigation checks and both entry/GM fixtures. Replaced obsolete canopy count with exact per-revision identities; 1111 repository, 490 Unreal-selection and 121 Python tests pass. Natural composition, physical driving/combat, full lairs and release gates remain open.

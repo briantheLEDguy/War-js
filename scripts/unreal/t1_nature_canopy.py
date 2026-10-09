@@ -13,3 +13,10 @@ def canopy_transform(source_bounds,target_bounds,scale,location,rotation):
     root=bottom-(target_bounds[0][2]-target_bounds[1][2])*value
     if any(abs(n)>300000 for n in [*location[:2],root]):raise ValueError('Canopy replacement leaves bounded native coordinates')
     return dict(scale=[value]*3,location=[location[0],location[1],root],retainedHeightCm=source_bounds[1][2]*2*scale[2],retainedBottomCm=bottom)
+
+
+def canopy_identities(states):
+    """Freeze exact admitted source identities for this revision, not a previous terrain's count."""
+    identities=tuple(sorted(label for label,state in states.items() if state['kind']=='mesh' and state['mesh'].rsplit('/',1)[-1].split('.')[0] in MAPPING))
+    if not 200<=len(identities)<=500:raise ValueError('Canopy source inventory escapes the bounded first-pair study')
+    return identities
