@@ -11,7 +11,7 @@ from t1_materials import protected_saved,verify_protected,sha,same_state
 from t1_material_clone import inventory
 from t1_population_native import GroundReview,population_actor
 from t1_render_log import validate_render_log
-from t1_battlefield_views import neighborhood_views
+from t1_battlefield_views import neighborhood_views,terrain_camera_sample
 from t1_ecology_native import cover_inventory
 
 BASE=ROOT/'artifacts/unreal/t1-redesign'; CONTENT=ROOT/'unreal/AegisWar/Content'
@@ -98,6 +98,9 @@ try:
         if zone.get('beddedOutcrops'):
             scarp=[p for p in zone['beddedOutcrops'] if p['sourceRidge'].endswith('_scarp')]
             if scarp:views += neighborhood_views(source['paths'],[dict(id=zone['id']+'_cell_bedded_scarp',placements=scarp)])
+        counters=[p for p in source['paths'] if '_western_spur_counter_' in p['id']]
+        for i,path in enumerate(counters):views.append(('landscape_spur_approach_'+str(i),path['points'][0],path['points'][-1]))
+        if counters:views.append(('landscape_spur_overlook',counters[0]['points'][-1],main[2]))
         for shelter in zone.get('rockShelters',[]):
             first,last=shelter['portals'];centre=shelter['centre']
             views.append(('pocket_shelter_entry',first,centre))
@@ -111,8 +114,13 @@ try:
             if not unreal.WarZoneLightingSubsystem.preview_environment(world,zone['id'],unreal.Vector(),seconds,strength): raise RuntimeError('Regional clock lighting unavailable')
             for label,p,target in views:
                 if label.startswith(('landscape_','pocket_')) and phase!='day': continue
-                floor=ground.ground([p['z']*100,p['x']*100,0]); target_floor=ground.ground([target['z']*100,target['x']*100,0])
-                if floor is None or target_floor is None: raise RuntimeError('Camera point lacks native terrain')
+                floor=ground.ground([p['z']*100,p['x']*100,0])
+                focus=unreal.SystemLibrary.line_trace_single(world,unreal.Vector(target['z']*100,target['x']*100,20000),
+                    unreal.Vector(target['z']*100,target['x']*100,-20000),unreal.TraceTypeQuery.ECC_VISIBILITY,True,ground.ignored,unreal.DrawDebugTrace.NONE,True)
+                focus_parts=focus.to_tuple() if focus else None
+                if floor is None or not focus_parts or not focus_parts[0] or focus_parts[9]!=ground.terrain:raise RuntimeError('Camera lacks native footing/focus: '+label)
+                hit_point,hit_normal=focus_parts[5],focus_parts[7]
+                target_floor=terrain_camera_sample([hit_point.x,hit_point.y,hit_point.z],[hit_normal.x,hit_normal.y,hit_normal.z],surface.height_cm(target['x'],target['z']),False)
                 eye=unreal.Vector(*floor)+unreal.Vector(0,0,170); aim=unreal.Vector(*target_floor)+unreal.Vector(0,0,20 if label.startswith('pocket_') else 170)
                 capture.set_actor_location_and_rotation(eye,unreal.MathLibrary.find_look_at_rotation(eye,aim),False,True)
                 for frame in range(48):

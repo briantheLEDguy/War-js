@@ -1157,3 +1157,15 @@ vehicle driving/turning, closed gates, 18v18, services/resources, ordinary GM
 persistence, Node additive-prop collision synchronization, network/audio,
 performance, three-platform/Steam and release gates. Later-pair native and full
 underground environments remain unbuilt.
+
+
+T1 tactical terrain now includes bounded contour-path authoring in
+`scripts/unreal/t1-contour-routes.ts`, regional recipes in `t1-tactical-spurs.ts`
+and immutable exports in `prepare-t1-tactical-spurs.ts`. Source `a2d01beb1da7` /
+scene `4420b969b33d` passes 114 native views, 150 walking routes, 92 saved/reloaded
+navigation queries, both grounded entry/GM fixtures and twelve follow-camera
+captures. Pedestrian paths do not claim convoy access. Tests pass 1119 repository,
+498 Unreal selection and 125 Python; three typechecks/audit/world/models pass,
+strict release remains blocked. Private progress reports embed actual pictures.
+Natural composition, road fitting, material studies and all retained acceptance
+gates remain unfinished; see `docs/t1-redesign.md` for exact scope and failures.

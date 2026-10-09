@@ -1449,3 +1449,48 @@ vehicle driving/turning, closed gates, 18v18, services/resources, ordinary GM
 persistence, Node additive-prop collision synchronization, network/audio,
 performance, three-platform/Steam and release gates. Later-pair native and full
 underground environments remain unbuilt.
+
+
+## T1 tactical spurs and contour walking counters (9 October 2026)
+
+Source `a2d01beb1da7`, native core `8db842585edd`, scene `4420b969b33d`,
+navigation `06977d038ac7` and safe walkthrough `264e8c31ec86` have fresh native
+proof. Two original regional terrain ribbons per zone add a western overlook
+and eastern low shoulder. Two four-metre pedestrian counters per overlook follow
+existing contours without grading the ground. Existing military assembly heights,
+vehicle routes, six supply itineraries, pocket beds and closed water stay checked.
+Painted walking paths reserve scenery sockets independently of grading corridors.
+
+Fresh checks pass 114 rendered views, 150 configured normal walking routes,
+92 navigation queries before save/after reload, exact safe-copy navigation payloads,
+both ordinary grounded entry/local-GM recovery fixtures without draft writes,
+and twelve actual follow-camera pocket captures. Native full-width maxima remain
+0.21757068 Sunmeadow and 0.21648207 Cinderfen. Four-metre paths use pedestrian
+navigation probes; they do not claim the retained 6.4-metre convoy envelope.
+All thirteen owner documents and pinned parent/capital maps remain preserved.
+Navigation copies have not separately repeated the complete walking suite.
+
+The first native attempt failed a Cinderfen grade of 0.231697, underestimated by
+a centred source derivative at a triangle boundary. The repaired contour sampler
+checks adjacent faces and segment grades. The next render failed because a camera
+focus was on a steep face. Camera footing remains walkable; focus uses a separate
+native terrain-only height/normal check. Failed candidates were not admitted.
+Repository tests pass 1119/175 files, Unreal selection 498/94 and Python 125/32.
+All three typechecks, migration audit and world/model validation pass; strict
+release exits 1. No C++ changed; earlier native builds/Foundation retain scope.
+
+`progress-report-tactical-spurs-4420b969b33d.html` embeds nineteen actual native
+images and measured topology drawings; its matching checkpoint JSON records
+signatures and hashes. Saved cosmetic cover totals 23859 Sunmeadow / 6268 Cinderfen.
+Separate unsaved comparisons combine spatial forest-floor blending, stochastic
+near/far texture sampling, 7829 focal plants and transient neutral daylight. These
+preserve purchased source packages/maps and remain unintegrated/unapproved.
+
+Smooth bare hills, harsh foliage, repeated ground and blocky rocks remain unfinished.
+Road triangles can dip below terrain between samples, producing visible grass
+cutouts; exact triangle fitting is a separate private study, not this checkpoint.
+Retain human appearance, first-batch full lairs, physical driving/turning, closed
+gates, 18v18, services/resources, ordinary GM persistence, Node additive-prop
+collision/live playtest, network/audio, performance, platforms/Steam and release
+gates. Shared terrain-sampler parity is not live Node playtest acceptance. Later-pair
+native and full underground environments remain unbuilt.

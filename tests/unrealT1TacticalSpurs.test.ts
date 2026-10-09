@@ -1,0 +1,28 @@
+import { readFileSync } from 'node:fs';
+import { expect, it } from 'vitest';
+import type { ZoneDefinition } from '../shared/world/ZoneDefinition';
+import { redesignT1 } from '../scripts/unreal/t1-layouts';
+import { battlefieldLandscape } from '../scripts/unreal/t1-battlefield-landscape';
+import { landscapePockets } from '../scripts/unreal/t1-landscape-pockets';
+import { localTerrainTransitions } from '../scripts/unreal/t1-local-terrain-transitions';
+import { tacticalSpurs, tacticalSpurRecipes } from '../scripts/unreal/t1-tactical-spurs';
+import { createOrvrGridHeightSampler } from '../shared/orvrTerrain';
+for (const id of ['sunmeadow_march', 'cinderfen_outskirts']) it(id + ' adds regional spurs and two grounded counters while preserving gameplay anchors', () => {
+  const base = JSON.parse(readFileSync('public/assets/maps/' + id + '.json', 'utf8')) as ZoneDefinition;
+  const pockets = landscapePockets(battlefieldLandscape(redesignT1(base)));
+  const original = localTerrainTransitions(pockets.zone).zone, before = structuredClone(original), result = tacticalSpurs(original), zone = result.zone;
+  expect(original).toEqual(before); expect(zone.orvrLayout!.keeps).toEqual(original.orvrLayout!.keeps);
+  expect(zone.orvrLayout!.battlefieldObjectives).toEqual(original.orvrLayout!.battlefieldObjectives);
+  expect(zone.orvrLayout!.stagingCamps).toEqual(original.orvrLayout!.stagingCamps);
+  expect(zone.orvrLayout!.caravanRoutes).toEqual(original.orvrLayout!.caravanRoutes);
+  expect(zone.paths!.slice(0, original.paths!.length)).toEqual(original.paths);
+  expect(zone.paths!.length).toBe(original.paths!.length + 2); expect(result.ribbons).toHaveLength(2);
+  expect(result.counters[0].routes).toHaveLength(2); expect(result.counters[0].routes.every(r => r.width === 4)).toBe(true);
+  expect(Math.max(...result.grades.map(g => g.maximumGrade))).toBeLessThanOrEqual(.22);
+  const height = createOrvrGridHeightSampler(zone.orvrLayout!.terrain, zone.size, zone.segments, zone.spatial);
+  const old = createOrvrGridHeightSampler(original.orvrLayout!.terrain, original.size, original.segments, original.spatial);
+  for (const p of pockets.pockets) expect(height(p.x, p.z)).toBeCloseTo(old(p.x, p.z), 2);
+  expect(result.nativeBuilt).toBe(false); expect(result.appearanceApproved).toBe(false);
+  expect(() => tacticalSpurs(zone)).toThrow('Preserve existing');
+});
+it('rejects later-region recipes', () => { expect(() => tacticalSpurRecipes('brightfen_approach')).toThrow(); });

@@ -2112,3 +2112,19 @@ Later-pair native environments and underground environments remain unbuilt.
   preserve capitals, owner documents, purchased originals and outstanding gates.
 
 - Verified isolated T1 local terrain transitions: native grades below 0.22, 108 views, 142 walking routes, 88 navigation checks and both entry/GM fixtures. Replaced obsolete canopy count with exact per-revision identities; 1111 repository, 490 Unreal-selection and 121 Python tests pass. Natural composition, physical driving/combat, full lairs and release gates remain open.
+
+
+### T1 tactical spurs and contour counters - 2026-10-09
+- Add bounded contour searches and two regional terrain ribbons per first-pair
+  zone, with two four-metre walking approaches to a western overlook. Preserve
+  military heights, vehicle routes, supply identities and pocket/water bounds.
+- Reserve painted walking paths from scenery and classify narrow navigation
+  probes as pedestrian. Fix adjacent-face grade underestimation and separate
+  walkable camera footing from steep terrain focus checks.
+- Verify scene 4420b969b33d: 114 views, 150 walking routes, 92 navigation queries,
+  two grounded entry/GM fixtures and twelve follow-camera captures. Pass 1119
+  repository / 498 Unreal / 125 Python tests, three typechecks/audit/world/models;
+  strict release remains blocked. Preserve all thirteen owner documents/capitals.
+- Keep unsaved forest-floor, focal planting and daylight studies private and
+  unintegrated. Natural composition, road grass-cutout repair and all physical
+  vehicle/combat/lair/online/platform/Steam/release acceptance remain unfinished.

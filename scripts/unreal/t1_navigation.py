@@ -15,7 +15,7 @@ def route_inventory(source,height_cm):
     identity=source['id']
     if identity not in ZONES:raise ValueError('Later-batch native environments remain gated')
     layout=source['orvrLayout'];routes=[];seen=set()
-    candidates=[('road',r) for r in source['paths']]+[('supply',r) for r in layout['caravanRoutes']]
+    candidates=[('pedestrian' if r.get('width',12)<6.4 else 'road',r) for r in source['paths']]+[('supply',r) for r in layout['caravanRoutes']]
     road_ids={r['id'] for r in source['paths']}
     candidates += [('off-road',r) for r in layout['terrain']['clearCorridors']
         if r['id'] not in road_ids and '_ground_entry' not in r['id'] and '_scarp_' not in r['id'] and '_pocket_' not in r['id']]
@@ -30,6 +30,13 @@ def route_inventory(source,height_cm):
         routes.append(dict(id=route['id'],kind=kind,points=points))
     if sum(r['kind']=='supply' for r in routes)!=6:raise ValueError('Retain all six physical supply itineraries')
     return routes
+
+
+def probe_profiles(route):
+    """A four-metre walking counter cannot admit the retained 6.4-metre convoy envelope."""
+    if route['kind']=='pedestrian':return (False,)
+    if route['kind'] not in ('road','supply','off-road'):raise ValueError('Unknown navigation route kind')
+    return (False,True)
 
 
 def validate_probe(probe,route,convoy):

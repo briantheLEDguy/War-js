@@ -7,7 +7,7 @@ from t1_landscape_ecology import segment_distance
 class OutcropTests(unittest.TestCase):
     def source(self):
         ridge=dict(id='scarp',profile='escarpment',points=[dict(x=x,z=0,width=20,height=30) for x in [-160,160]])
-        return dict(id='sunmeadow_march',spatial=dict(playableOutline=[dict(x=x,z=z) for x,z in [(-250,-150),(250,-150),(250,150),(-250,150)]]),orvrLayout=dict(terrain=dict(naturalField=dict(ridges=[ridge]),flattenAreas=[],clearCorridors=[])),npcs=[])
+        return dict(id='sunmeadow_march',spatial=dict(playableOutline=[dict(x=x,z=z) for x,z in [(-250,-150),(250,-150),(250,150),(-250,150)]]),orvrLayout=dict(terrain=dict(naturalField=dict(ridges=[ridge]),flattenAreas=[],clearCorridors=[])),npcs=[],paths=[])
     def test_bedding_is_deterministic_exposed_and_clears_reserved_routes(self):
         s=self.source();s['orvrLayout']['terrain']['clearCorridors']=[dict(radius=8,points=[dict(x=0,z=-150),dict(x=0,z=150)])]
         before=copy.deepcopy(s);rows=bedded_outcrops(s,lambda x,z:z*35,[])
@@ -22,6 +22,13 @@ class OutcropTests(unittest.TestCase):
         s['orvrLayout']['terrain']['flattenAreas']=[dict(id='village',x=0,z=0,radius=300,preserveFooting=True)]
         self.assertEqual(bedded_outcrops(s,lambda x,z:z*35,[]),[])
         s=self.source();self.assertEqual(bedded_outcrops(s,lambda x,z:z*35,[dict(x=0,z=0,width=600,depth=600)]),[])
+    def test_painted_walking_counters_are_reserved_without_terrain_grading(self):
+        s=self.source();rows=bedded_outcrops(s,lambda x,z:z*35,[]);self.assertGreater(len(rows),5)
+        x=rows[len(rows)//2]['x'];s['paths']=[dict(width=4,points=[dict(x=x,z=-150),dict(x=x,z=150)])]
+        kept=bedded_outcrops(s,lambda x,z:z*35,[])
+        self.assertLess(len(kept),len(rows))
+        for row in kept:self.assertGreaterEqual(abs(row['x']-x),2+math.hypot(row['width'],row['depth'])/2+3)
+
     def test_embedding_samples_the_oriented_rectangle_instead_of_oversized_circle(self):
         p=dict(x=0,z=0,width=10,depth=4,yawDegrees=0);height=lambda x,z:x*50+z*20
         self.assertAlmostEqual(outcrop_footing(height,p),-310)

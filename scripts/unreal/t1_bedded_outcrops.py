@@ -39,6 +39,7 @@ def bedded_outcrops(source,height_cm,occupied):
                     if not inside(p,source['spatial']['playableOutline']):continue
                     if min(segment_distance(p,c,e) for c,e in zip(source['spatial']['playableOutline'],source['spatial']['playableOutline'][1:]+source['spatial']['playableOutline'][:1]))<radius+3:continue
                     if any(segment_distance(p,c,e)<c0['radius']+radius+3 for c0 in terrain['clearCorridors'] for c,e in zip(c0['points'],c0['points'][1:])):continue
+                    if any(segment_distance(p,c,e)<path['width']/2+radius+3 for path in source['paths'] for c,e in zip(path['points'],path['points'][1:])):continue
                     if any((q.get('preserveFooting') or q['id'].endswith('_scarp_overlook')) and math.hypot(x-q['x'],z-q['z'])<radius+q['radius']+8 for q in terrain['flattenAreas']):continue
                     if any(math.hypot(x-q['x'],z-q['z'])<radius+12 for q in anchors):continue
                     if any(math.hypot(x-q['x'],z-q['z'])<radius+math.hypot(q['width'],q['depth'])/2+2 for q in [*occupied,*result]):continue

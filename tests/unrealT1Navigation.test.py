@@ -1,7 +1,7 @@
 import copy,math,sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_navigation import navigation_map,route_inventory,validate_probe,navigation_payload,validate_navigation_parent
+from t1_navigation import navigation_map,route_inventory,validate_probe,probe_profiles,navigation_payload,validate_navigation_parent
 
 class NavigationTest(unittest.TestCase):
     def source(self):
@@ -17,6 +17,12 @@ class NavigationTest(unittest.TestCase):
         routes=route_inventory(self.source(),lambda x,z:x+z)
         self.assertEqual(len(routes),8);self.assertEqual(routes[0]['points'],[[2000,1000,50],[4000,3000,90]])
         self.assertEqual(routes[-1]['id'],'west_field_counter');self.assertEqual(sum(r['kind']=='supply' for r in routes),6)
+    def test_narrow_walking_counters_do_not_claim_convoy_access(self):
+        s=self.source();s['paths'].append(dict(id='walking_counter',width=4,points=[dict(x=0,z=0),dict(x=10,z=10)]))
+        routes=route_inventory(s,lambda x,z:0);walking=next(r for r in routes if r['id']=='walking_counter')
+        self.assertEqual(walking['kind'],'pedestrian');self.assertEqual(probe_profiles(walking),(False,))
+        self.assertEqual(probe_profiles(routes[0]),(False,True));self.assertEqual(sum(r['kind']=='supply' for r in routes),6)
+        with self.assertRaises(ValueError):probe_profiles(dict(kind='unknown'))
     def test_missing_supply_duplicate_or_nonfinite_route_fails(self):
         source=self.source();source['orvrLayout']['caravanRoutes'].pop()
         with self.assertRaises(ValueError):route_inventory(source,lambda x,z:0)

@@ -3,7 +3,7 @@ import datetime,hashlib,json,math,sys
 from pathlib import Path
 import unreal
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(Path(__file__).parent))
-from t1_navigation import navigation_map,route_inventory,validate_probe
+from t1_navigation import navigation_map,route_inventory,validate_probe,probe_profiles
 from t1_materials import protected_saved,verify_protected,same_state
 from t1_material_clone import inventory
 from t1_battlefield import Surface
@@ -55,7 +55,7 @@ def description(world):
 def probes(world,identity,routes):
     result=[];failures=[]
     for route in routes:
-        for convoy in (False,True):
+        for convoy in probe_profiles(route):
             probe=json.loads(unreal.WarT1NavigationAuthoringLibrary.probe_route(world,identity,convoy,[unreal.Vector(*p) for p in route['points']]))
             result.append(dict(id=route['id'],kind=route['kind'],convoy=convoy,probe=probe))
             try:validate_probe(probe,route,convoy)

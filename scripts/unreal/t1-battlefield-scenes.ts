@@ -71,6 +71,7 @@ export function battlefieldScenes(zone: ZoneDefinition): BattlefieldScene[] {
       const radius = Math.hypot(p.width, p.depth) / 2;
       const clear = containsSpatialPoint(zone.spatial!, p, radius + 3)
         && zone.orvrLayout!.terrain.clearCorridors.every(c => c.points.slice(1).every((b, j) => distanceToSpatialSegment(p, c.points[j], b) > radius + Math.max(12, c.radius)))
+        && zone.paths!.every(path => path.points.slice(1).every((b, j) => distanceToSpatialSegment(p, path.points[j], b) > radius + path.width / 2 + 3))
         && !zone.orvrLayout!.terrain.flattenAreas.some(a => (a.preserveFooting || a.id.endsWith('_scarp_overlook')) && Math.hypot(a.x-x,a.z-z) < radius+a.radius+8)
         && ![...(zone.npcs ?? []), ...zone.enemies, ...(zone.resourceNodes ?? []), ...(zone.craftingStations ?? []), ...(zone.zoneTriggers ?? [])].some(a => Math.hypot(a.x-x,a.z-z) < radius+12)
         && !zone.orvrLayout!.keeps.some(k => Math.hypot(k.x - x, k.z - z) < radius + 64)

@@ -27,3 +27,15 @@ describe('first-pair battlefield scene cells', () => {
     expect(new Set(cells.flatMap(c => c.placements.map(p => p.id))).size).toBe(cells.flatMap(c => c.placements).length);
   });
 });
+
+it('reserves pedestrian contour paths that do not grade the terrain', () => {
+  const z = battlefieldLandscape(redesignT1(JSON.parse(readFileSync('public/assets/maps/sunmeadow_march.json', 'utf8')) as ZoneDefinition));
+  const original = battlefieldScenes(z), p = original.flatMap(c => c.placements)[0];
+  const path = { id: 'sunmeadow_march_western_spur_counter_test', style: 'dirt_trail' as const, width: 4,
+    points: [{ x: p.x - 30, z: p.z }, { x: p.x + 30, z: p.z }] };
+  z.paths!.push(path); const terrain = JSON.stringify(z.orvrLayout!.terrain), cells = battlefieldScenes(z);
+  expect(JSON.stringify(z.orvrLayout!.terrain)).toBe(terrain);
+  expect(cells.flatMap(c => c.placements).some(q => q.id === p.id)).toBe(false);
+  for (const q of cells.flatMap(c => c.placements)) expect(distanceToSpatialSegment(q, path.points[0], path.points[1]))
+    .toBeGreaterThan(Math.hypot(q.width, q.depth) / 2 + path.width / 2 + 3);
+});

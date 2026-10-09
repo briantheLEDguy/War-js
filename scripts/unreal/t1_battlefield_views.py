@@ -26,3 +26,12 @@ def neighborhood_views(paths, cells):
             continue
         result.append(('landscape_'+cell['id'].split('_cell_')[-1], eye, target))
     return result
+
+
+def terrain_camera_sample(position, normal, expected_height, walking):
+    """Camera footing must be walkable; a terrain focus may lie on a steep upward face."""
+    if type(walking) is not bool or len(position)!=3 or len(normal)!=3 or any(not math.isfinite(v) for v in [*position,*normal,expected_height]):
+        raise ValueError('Invalid terrain camera sample')
+    if abs(position[2]-expected_height)>1 or abs(math.hypot(*normal)-1)>.02 or normal[2]<=0 or walking and normal[2]<.71:
+        raise ValueError('Unsupported terrain camera footing or focus')
+    return list(position)
