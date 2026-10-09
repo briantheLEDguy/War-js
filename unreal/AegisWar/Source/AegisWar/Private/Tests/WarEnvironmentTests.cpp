@@ -9,6 +9,8 @@
 #include "Components/PostProcessComponent.h"
 #include "Engine/World.h"
 #include "Engine/DirectionalLight.h"
+#include "Engine/SkyLight.h"
+#include "Components/SkyLightComponent.h"
 #include "Components/DirectionalLightComponent.h"
 #include "EngineUtils.h"
 
@@ -33,19 +35,31 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
     const auto Values=UWorld::InitializationValues().AllowAudioPlayback(false).RequiresHitProxies(false).CreatePhysicsScene(false).CreateNavigation(false).CreateAISystem(false).ShouldSimulatePhysics(false).SetTransactional(false);
     auto* World=UWorld::CreateWorld(EWorldType::EditorPreview,false,NAME_None,nullptr,true,ERHIFeatureLevel::Num,&Values);
     if(!TestNotNull(TEXT("Preview world"),World))return false;
+    auto* AuthoredSun=World->SpawnActor<ADirectionalLight>();
+    AuthoredSun->GetLightComponent()->SetIntensity(12700.f);
+    const auto SkyIntensity=[World]() {
+        for(TActorIterator<ASkyLight> It(World);It;++It)
+            if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment")))return It->GetLightComponent()->Intensity;
+        return -1.f;
+    };
     auto* Practical=World->SpawnActor<AWarPracticalLight>();Practical->ZoneId=TEXT("sunmeadow_march");
     TestTrue(TEXT("Night preview available"),UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2700,.8f));
     TestEqual(TEXT("Fixture illuminates night"),Practical->GetLightComponent()->Intensity,900.f);
+    TestEqual(TEXT("Diffuse daylight preserves night sky"),SkyIntensity(),.12f);
+    TestFalse(TEXT("Regional rig hides authored sun temporarily"),AuthoredSun->GetLightComponent()->IsVisible());
     float Night=0,Day=0;
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)Night=It->GetLightComponent()->Intensity;
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,1200,0);
     TestEqual(TEXT("Fixture extinguishes in daylight"),Practical->GetLightComponent()->Intensity,0.f);
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)Day=It->GetLightComponent()->Intensity;
     TestTrue(TEXT("Night stays darker with readable moonlight"),Night>0&&Night<Day*.1f);
+    TestEqual(TEXT("Farmland daylight avoids excessive direct contrast"),Day,14000.f);
+    TestEqual(TEXT("Farmland sky fills canopy shadows"),SkyIntensity(),4.f);
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("cinderfen_outskirts"),FVector::ZeroVector,1200,0);
     float FenDay=0,FenNight=0;
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)FenDay=It->GetLightComponent()->Intensity;
     TestTrue(TEXT("Fen daytime lights the dark substrate"),FenDay>=20000.f);
+    TestEqual(TEXT("Fen retains regional ambient output"),SkyIntensity(),10500.f/8000.f);
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("cinderfen_outskirts"),FVector::ZeroVector,2700,0);
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)FenNight=It->GetLightComponent()->Intensity;
     TestEqual(TEXT("Fen readability change preserves moon output"),FenNight,500.f);
@@ -62,6 +76,11 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2700,0);
     TestEqual(TEXT("Room follows night preview"),Interior->Exposure->Settings.AutoExposureBias,3.5f);
     Interior->ApplyTime(2250);TestEqual(TEXT("Room blends at dusk"),Interior->Exposure->Settings.AutoExposureBias,2.75f);
+    UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("greybrook_crossing"),FVector::ZeroVector,1200,0);
+    TestEqual(TEXT("Untouched daylight retains its fill-derived sky"),SkyIntensity(),10500.f/8000.f);
+    TestTrue(TEXT("Accepted capital preview remains available"),UWarZoneLightingSubsystem::PreviewWorld(World,TEXT("aegis_capital"),FVector::ZeroVector));
+    TestTrue(TEXT("Capital restores authored sun visibility"),AuthoredSun->GetLightComponent()->IsVisible());
+    TestEqual(TEXT("Capital restores authored sun output"),AuthoredSun->GetLightComponent()->Intensity,12700.f);
     World->DestroyWorld(false);return true;
 }
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FWarSpatialOutlineTest,"AegisWar.Foundation.SpatialOutline",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)

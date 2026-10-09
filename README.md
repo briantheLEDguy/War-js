@@ -1325,3 +1325,14 @@ footings; its immutable writer qualifies private owned-mesh derivatives. Source
 `1cd84df61040` / native scene `1e7203cb76e2` passes the first-pair checks. The private
 28-picture relief report retains unfinished appearance, live authority/additive
 collision, physical driving/18v18 and all existing release gates.
+
+
+### T1 softer daylight checkpoint (10 October 2026)
+
+Sunmeadow's native regional profile now uses softer direct light and stronger
+diffuse canopy fill. Source `1cd84df61040` / scene `8c1018ccd774` retains terrain,
+Cinderfen warmth, night output and capital lighting restoration. Editor/Game
+builds and 151 Foundation tests pass, plus the fresh first-pair candidate chain.
+The private 21-picture daylight report records unfinished composition and all
+existing gates. Balanced corridor and connected route reflow studies remain
+unintegrated; see `docs/t1-redesign.md`.

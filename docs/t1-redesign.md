@@ -1741,3 +1741,41 @@ unintegrated. Preserve earlier recovery-repeatability, appearance, first-batch
 full lairs, services/resources, ordinary GM persistence, physical vehicle/combat,
 live/network/audio, performance, platform/Steam and release gates. Later native
 pairs and full underground remain unbuilt.
+
+
+## Softer Sunmeadow daylight checkpoint (10 October 2026)
+
+Source `1cd84df61040`, core `409a2b6095c2`, scene `8c1018ccd774`,
+nav `54bb95b837a4` and safe walkthrough `9f398cd36999` retain the relief terrain.
+Sunmeadow now uses 14000 lux direct sun, 12000 lux diffuse fill and daytime sky
+intensity 4, with softer sun/fill/fog colours. The shared native rig applies this
+regional sky endpoint in static preview and the continuous cycle. Cinderfen's
+amber profile, night moon/sky output and accepted capital restoration stay intact.
+Neutral and lower-exposure Cinderfen comparisons were rejected and remain unsaved.
+
+Editor and Game builds pass. All 151 Foundation tests pass, including new
+daylight, unchanged night, untouched-region and authored capital-light assertions.
+Fresh native 114 phase/weather views, 150 walking routes, 92 navigation queries
+before save/reload, both ordinary-entry/local-GM fixtures and twelve pocket
+follow-camera pictures pass. Thirteen owner documents, source packages, parent
+maps and accepted capitals remain preserved. The navigation copies have not
+separately repeated every walking route. Repository 1141/178, Unreal 520/97,
+Python 148/38, three typechecks, audit and world/model validation pass. Strict
+release exits 1. The private daylight report embeds 21 pictures.
+
+A private connected Sunmeadow route proposal moves flank junctions, sweeps shared
+edges and reconnects pockets/overlook approaches. Broader secondary checks
+rejected earlier steep variants. A nearest-segment blending experiment was
+rejected for height discontinuities. Smooth per-corridor balanced blending passes
+the full route set at 0.219347 maximum grade; six supplies remain 350-750m, retained
+keep/staging/arrival ground passes and Brookmeadow Pool stays enclosed. These are
+unintegrated private source studies; public contract/tests and native proof are
+still required. No physical turning, driving or combat acceptance is implied.
+
+Broad green hills, sparse undersized canopy, repeated grass, empty horizons, road
+layout and Cinderfen stone remain weak. Full-height watershed, forest scale/cover,
+distant ground and underground prototypes remain next work. Preserve the earlier
+unresolved recovery-repeatability, human appearance, first-batch full-lair,
+vehicle/closed-gate/18v18, services/resources, ordinary GM persistence, live
+Node/additive collision, network/audio, performance, platform/Steam and release
+gates. Later native pairs and full underground remain unbuilt.

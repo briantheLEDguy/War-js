@@ -17,6 +17,15 @@
 #include "Engine/World.h"
 #include "EngineUtils.h"
 
+namespace
+{
+    float DaySkyIntensity(const FWarZoneLightingProfile& Profile)
+    {
+        // Diffuse farmland light softens oak canopies; every other region retains its authored fill.
+        return Profile.Zone == TEXT("sunmeadow_march") ? 4.f : FMath::Clamp(Profile.FillLux / 8000.f, .6f, 1.5f);
+    }
+}
+
 bool UWarZoneLightingSubsystem::DoesSupportWorldType(EWorldType::Type Type) const
 { return Type == EWorldType::Game || Type == EWorldType::PIE || Type == EWorldType::Editor || Type == EWorldType::EditorPreview || Type == EWorldType::GamePreview; }
 void UWarZoneLightingSubsystem::Initialize(FSubsystemCollectionBase& Collection)
@@ -120,7 +129,7 @@ bool UWarZoneLightingSubsystem::Apply(FName Zone, FVector Origin)
         Sun->GetLightComponent()->SetIntensity(Profile->SunLux); Sun->GetLightComponent()->SetLightColor(Profile->SunColor);
         Fill->GetLightComponent()->SetIntensity(Profile->FillLux); Fill->GetLightComponent()->SetLightColor(Profile->FillColor);
         Ambient->SetActorLocation(Origin + FVector(0,0,500));
-        Ambient->GetLightComponent()->SetIntensity(FMath::Clamp(Profile->FillLux / 8000.f, .6f, 1.5f));
+        Ambient->GetLightComponent()->SetIntensity(DaySkyIntensity(*Profile));
         Ambient->GetLightComponent()->SetLightColor(Profile->FillColor);
         Fog->SetActorLocation(Origin); Fog->GetComponent()->SetFogDensity(Profile->FogDensity);
         Fog->GetComponent()->SetFogInscatteringColor(Profile->FogColor); Fog->GetComponent()->SetStartDistance(Profile->FogStartCm);
@@ -162,7 +171,7 @@ void UWarZoneLightingSubsystem::ApplyRegionalTime(double Seconds,float Weather)
     Sun->GetLightComponent()->SetLightColor(Colour);
     Fill->GetLightComponent()->SetIntensity(FMath::Lerp(900.f,Profile->FillLux,Day));
     Fill->GetLightComponent()->SetLightColor(FMath::Lerp(Moon,Profile->FillColor,Day));
-    Ambient->GetLightComponent()->SetIntensity(FMath::Lerp(.12f,FMath::Clamp(Profile->FillLux/8000.f,.6f,1.5f),Day));
+    Ambient->GetLightComponent()->SetIntensity(FMath::Lerp(.12f,DaySkyIntensity(*Profile),Day));
     Ambient->GetLightComponent()->SetLightColor(FMath::Lerp(Moon,Profile->FillColor,Day));
     const float RegionalFog=ActiveZone==TEXT("brightfen_approach") ? .022f : ActiveZone==TEXT("cinderfen_outskirts") ? .016f : .008f;
     Fog->GetComponent()->SetFogDensity(Profile->FogDensity+Wet*RegionalFog);

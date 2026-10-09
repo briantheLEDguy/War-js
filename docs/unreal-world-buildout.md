@@ -883,3 +883,18 @@ The embedded 28-picture relief report records remaining art defects and all
 appearance, recovery, lair, vehicle/18v18, persistence, services, live/network,
 performance and platform/Steam/release gates. Later native/full underground,
 neutral daylight and route-curve studies remain unintegrated.
+
+
+### T1 softer daylight receipt (10 October 2026)
+
+Source `1cd84df61040` / core `409a2b6095c2` / scene `8c1018ccd774` /
+nav `54bb95b837a4` / safe `9f398cd36999` qualify Sunmeadow's softer direct/diffuse
+lighting. Cinderfen warmth, night output and capital restoration remain retained.
+Editor/Game builds, 151 Foundation tests, fresh native 114 views/150 walking
+routes/92 navigation queries, both entry/GM fixtures and twelve pocket cameras
+pass. Owner thirteen, source/parent packages and capitals remain preserved.
+Repository 1141/178, Unreal 520/97, Python 148/38, three typechecks, audit and
+world/model validation pass; strict release exits 1. The private 21-picture report
+retains unfinished landscape/forest/horizon/stone and every outstanding gate.
+Connected route reflow and balanced corridor sampling remain private source
+studies, with no native, physical vehicle/combat or human appearance acceptance.

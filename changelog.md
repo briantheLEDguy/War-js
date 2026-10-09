@@ -2302,3 +2302,19 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
 - Correct the earlier drainage extra-view total to 24 from its preserved receipt.
   Landscape composition, first-batch lairs, physical vehicles/18v18, persistence,
   live/network, performance, platform/Steam and release gates remain outstanding.
+
+
+## 2026-10-10 - Softer native Sunmeadow daylight checkpoint
+
+- Lower Sunmeadow direct sun and increase diffuse canopy/sky fill in preview and
+  the regional cycle; retain Cinderfen warmth, night output and capital lighting.
+- Extend native tests for daytime fill, unchanged night/other regions and authored
+  capital restoration. Editor/Game builds and all 151 Foundation tests pass.
+- Fresh scene `8c1018ccd774` passes 114 phase/weather views, 150 walking routes,
+  92 navigation queries before save/reload, both entry/local-GM fixtures and
+  twelve pocket cameras. Owner content and source/parent packages stay preserved.
+- Repository 1141/178, Unreal 520/97, Python 148/38, three typechecks, audit and
+  world/model validation pass; strict release exits 1. A private report embeds
+  21 images. Route reflow/balanced sampling remain unintegrated source studies.
+  Landscape, lair, vehicle/18v18, persistence, live/network, performance and all
+  platform/Steam/release gates remain open.

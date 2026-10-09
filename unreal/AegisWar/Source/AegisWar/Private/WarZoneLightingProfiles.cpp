@@ -20,7 +20,7 @@ const TArray<FWarZoneLightingProfile>& UWarZoneLightingSubsystem::Profiles()
     // Art direction follows the existing campaign. Lux, haze and grading are distinct
     // for every zone; lairs retain readable fill until authored interior lights arrive.
     static const TArray<FWarZoneLightingProfile> Values = {
-        Profile(TEXT("sunmeadow_march"),TEXT("Warm limestone farmland"),24000,6500,-38,-35,TEXT("FFE5B6"),TEXT("CCDDED"),.0035f,TEXT("CCD5BF"),12000,0,.92f,1.08f),
+        Profile(TEXT("sunmeadow_march"),TEXT("Soft limestone farmland"),14000,12000,-38,-35,TEXT("FFFCF7"),TEXT("F3F9FF"),.0035f,TEXT("C5D1CE"),12000,0,.92f,1.08f),
         Profile(TEXT("cinderfen_outskirts"),TEXT("Amber geothermal marsh"),22000,10500,-32,52,TEXT("FFE3BB"),TEXT("C5D5D1"),.0065f,TEXT("A5A88A"),9000,.9f,.9f,1.08f),
         Profile(TEXT("wardens_hollow"),TEXT("Green woodland shafts"),10500,5000,-57,-20,TEXT("DEEFC4"),TEXT("A8CCC3"),.013f,TEXT("8DA798"),4500,.4f,.85f,1.12f),
         Profile(TEXT("cindermaw_pit"),TEXT("Ember-lit mineral hollow"),8500,5000,-68,100,TEXT("FFC087"),TEXT("A5BBCC"),.016f,TEXT("A38B7C"),3500,.6f,.9f,1.15f),
