@@ -2165,3 +2165,48 @@ and turning, closed gates, 18v18, services/resources, ordinary GM persistence,
 Node additive-prop collision/live playtest, network/audio, performance, platforms,
 Steam and release gates. Shared terrain parity is not live Node proof. Later-pair
 native and full underground environments remain unbuilt.
+
+
+## Sunmeadow forest floor and focal colonies (9 October 2026)
+
+Scene `50fd67b23afc`, navigation `3c65777e5c5e`, walkthrough `d7e7d2ba1534`
+retain source `cbc1c13f223b` and core `676151d36b96`. New pure/native helpers
+`t1_forest_floor.py` / `t1_forest_floor_native.py` blend exact private installed
+grass and forest colour/normal channels with matching stochastic translations,
+soft canopy masks in rectangular bounds, and retained steep rock layers. A 1024
+data mask covers 321 installed canopies. Near tiles are 3.2m; far colour is 7.5m
+at 35 percent distance blend. Native shader compilation/rendered review pass.
+
+`t1_focal_planting.py` / `t1_focal_planting_native.py` add four bounded colonies
+with continuous edge/clump variation, road/pocket/service/military/water/grade
+reserves, and 0.6m spacing from existing and newly added plants. Exact installed
+plants retain their LOD/material inventory, NoCollision, local cosmetic behavior
+and 35-120m culling. New counts are 3574 grass, 2415 long-grass and 527 fern;
+total cover is 30375 Sunmeadow / 6268 Cinderfen. Increased cost is unaccepted.
+
+Fresh checks pass 114 rendered views, 150 walking routes, 92 navigation queries
+before save/after reload, exact safe-copy payloads, two grounded entry/local-GM
+fixtures, twelve actual pocket follow-camera pictures and eight focal views.
+The first Cinderfen recovery attempt failed during a concurrent render study:
+initial arrival was 42.125cm from its anchor. Three isolated reruns passed with
+no code/map changes. Cause remains unresolved; retain entry/recovery repeatability
+as a gate. The failed run is `dcbcb193399f4842a39880a921709851`. No runtime repair
+is claimed. All thirteen owner documents and parent/capital maps remain preserved.
+Navigation copies have not separately repeated the full walking suite.
+
+Repository suites pass 1125/176 files, Unreal 504/95 and Python 133/34, including
+eight new reserve/spacing and mask-projection/union/PNG tests. Three typechecks,
+migration audit and world/model validation pass; strict release exits 1. No C++
+changed. Earlier native build/Foundation scope remains. The private
+`progress-report-forest-focal-50fd67b23afc.html` embeds 24 native pictures and
+source drawings; its matching checkpoint records exact signatures and hashes.
+Neutral daylight and collision-enabled installed-rock comparisons remain unsaved
+and unintegrated. Original rock packages are preserved; clone-only simple/complex
+trace counts match 24/25, 23/25 and 22/25. This is not candidate collision approval.
+
+Bare slopes, harsh foliage, repeated distant ground and blocky saved rocks remain
+unfinished. Retain appearance, first-batch full lairs, actual vehicle/closed-gate
+and 18v18 play, services/resources, ordinary GM persistence and recovery
+repeatability, Node additive geometry/live play, network/audio, performance,
+platforms/Steam and release gates. Later native pairs/full underground remain
+unbuilt. Shared terrain parity is not a live Node playtest.
