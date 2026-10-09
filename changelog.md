@@ -2281,8 +2281,24 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
 - Add deterministic downhill control tracing and immutable first-pair source
   revisions; retain roads, military anchors, arrivals and closed pool basins.
 - Verify scene `93003b49b5f1`: 114 views, 150 walking routes, 92 navigation queries,
-  two entry/local-GM fixtures, twelve pocket cameras and twenty drainage captures.
+  two entry/local-GM fixtures, twelve pocket cameras and twenty-four drainage captures.
   Repository 1132/177 files, Unreal 511/96 and Python 148/38 pass, alongside three
   typechecks, audit and world/model validation. Strict release remains blocked.
 - Drainage appearance remains unfinished; new cuts lack complete walking/driving
   and combat acceptance. Preserve every earlier release gate and recovery caveat.
+
+
+### T1 private source-derived terrain relief - 10 October 2026
+- Add optional validated rectangular relief, compact edge fades and lowland
+  suppression; untouched terrain retains its original behavior.
+- Qualify private owned-mesh derivatives and protect all paths, convoy segments,
+  graded corridors and footings, including ungraded pedestrian counters.
+- Verify native scene `1e7203cb76e2`: 114 views, 150 walking routes, 92 navigation
+  queries, both entry/local-GM fixtures, twelve pocket cameras and 24 extra views
+  with 578 native terrain samples. In-process Node grounding matches exported
+  triangles within 0.031mm; live connection and additive collision remain open.
+- Repository 1141/178 files, Unreal 520/97, Python 148/38, three typechecks, audit
+  and world/model validation pass; strict release exits 1. No C++ changed.
+- Correct the earlier drainage extra-view total to 24 from its preserved receipt.
+  Landscape composition, first-batch lairs, physical vehicles/18v18, persistence,
+  live/network, performance, platform/Steam and release gates remain outstanding.

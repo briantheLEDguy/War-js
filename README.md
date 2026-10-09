@@ -1317,3 +1317,11 @@ and bounded downhill source tracing. Private scene `93003b49b5f1` verifies the f
 pair with 114 views, 150 walking routes, 92 navigation queries and both entry/GM
 fixtures. The embedded 28-picture drainage report records unfinished appearance
 and all retained gates; this does not approve gullies for driving or 18v18.
+
+
+`shared/terrainRelief.ts` adds optional bounded rectangular height detail to the
+shared terrain evaluator. `scripts/unreal/t1-source-relief.ts` protects paths and
+footings; its immutable writer qualifies private owned-mesh derivatives. Source
+`1cd84df61040` / native scene `1e7203cb76e2` passes the first-pair checks. The private
+28-picture relief report retains unfinished appearance, live authority/additive
+collision, physical driving/18v18 and all existing release gates.

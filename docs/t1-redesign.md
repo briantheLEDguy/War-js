@@ -1681,7 +1681,7 @@ scenery rebases with ground. Exact triangle-clipped roads retain their 0.045m
 support and soft alpha. Full-width route grades remain below 0.22. Native checks
 pass 114 phase/weather views, 150 walking routes, 92 navigation queries before
 save/after reload, safe copies, both entry/GM fixtures without draft writes and
-twelve pocket cameras. Twenty extra day/night captures verify 363 component-only
+twelve pocket cameras. Twenty-four extra day/night captures verify 363 component-only
 simple/complex terrain samples and clear playable review-camera footing. New
 gullies have not received complete physical exploration or vehicle acceptance.
 
@@ -1698,3 +1698,46 @@ Retain appearance, first-batch full lairs, actual driving/turning/closed gates,
 recovery failure, Node additive collision/live play, network/audio, performance,
 platform/Steam and release gates. Later native pairs and full underground remain
 unbuilt. Private owned-mesh residual studies are unintegrated licensed derivatives.
+
+
+## Private source-derived relief prototype (10 October 2026)
+
+Source `1cd84df61040`, core `bd8812c7434e`, scene `1e7203cb76e2`,
+nav `df574d641bb1` and safe copy `e4f6e9fc2090` add owned-mesh erosion residuals.
+The optional `TerrainRelief` contract admits complete finite rectangular grids,
+bounded heights, bilinear detail and compact smooth edges. Lowlands suppress
+detail; legacy fields omit it. Private extraction reads native rendered faces,
+chooses the highest triangle at every grid point and rejects missing coverage.
+Two 257x257 derivatives subtract an 80m low-pass to retain medium-scale structure.
+Original geometry, samples, packages and pictures remain private licensed content.
+
+An unprotected study failed pedestrian route grades. Revised authoring bakes
+smooth exclusion aprons around paths, convoy segments, grading corridors and
+footings, including counters without flattening controls. Retained gameplay
+anchors/arrivals stay within 1cm; road coordinates, pool beds and closed cosmetic
+basins pass. Full-width grades remain below 0.22. Exact road clipping retains
+0.045m support. Parent packages, capitals, all thirteen owner documents and the
+92-package nature/backdrop source union remain preserved.
+
+Fresh native 114 phase/weather views, 150 walking routes, 92 navigation queries
+before save/reload, safe copies, both entry/local-GM fixtures, twelve pocket
+cameras and 24 extra day/night views pass. Additional component-only simple/
+complex traces verify 578 terrain samples and playable camera footing. These
+are not complete off-route exploration, physical driving, turning or 18v18.
+Navigation copies have not separately repeated every walking route.
+
+The private Node loader admits twenty authority configurations; 4575 cached
+terrain queries match exported triangles within 0.031mm. The initial 0.01mm
+diagnostic failed on Float32 coordinate quantization; the retained passing
+tolerance is 0.1mm. Diagnostic warm-loop timings do not accept performance or
+a live Node connection. Native additive collision remains unsynchronized.
+
+Repository 1141/178, Unreal 520/97, Python 148/38, three typechecks, audit and
+world/model validation pass; strict release exits 1. No C++ changed. The private
+`progress-report-relief-1e7203cb76e2.html` embeds 28 pictures. Broad hills and the
+box-shaped road network still look artificial; foliage shading/stone remain
+unfinished. Neutral daylight, canopy surveys and simple curve studies are
+unintegrated. Preserve earlier recovery-repeatability, appearance, first-batch
+full lairs, services/resources, ordinary GM persistence, physical vehicle/combat,
+live/network/audio, performance, platform/Steam and release gates. Later native
+pairs and full underground remain unbuilt.

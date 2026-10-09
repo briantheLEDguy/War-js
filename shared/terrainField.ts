@@ -1,3 +1,5 @@
+import { sampleTerrainRelief, validateTerrainRelief, type TerrainRelief } from './terrainRelief';
+
 /** Serializable metre-space landforms. Native meshes and Node grounding evaluate the same field. */
 export interface TerrainField {
   version: 1;
@@ -5,6 +7,8 @@ export interface TerrainField {
   seed: number;
   /** Bounded authored weathering; absent recipes preserve their original field exactly. */
   weathering?: { warpMetres: number; warpScale: number; detailScale: number; detailAmplitude: number; terraceHeight: number; terraceStrength: number };
+  /** Optional private source-derived relief; evaluated before graded routes and footing supports. */
+  relief?: TerrainRelief;
   rolls: Array<{ scale: number; amplitude: number }>;
   ridges: Array<{ id: string; profile: 'rounded' | 'shelf' | 'escarpment'; points: FieldPoint[] }>;
   channels: Array<{ id: string; points: FieldPoint[] }>;
@@ -82,7 +86,8 @@ export function terrainFieldHeight(field: TerrainField, x: number, z: number): n
   }
   let erosion = 0;
   for (const row of field.incisions ?? []) erosion = Math.max(erosion, incision(x, z, row.points));
-  return height + ridge - cut - erosion;
+  const relief = field.relief ? sampleTerrainRelief(field.relief, x, z) * Math.min(1, Math.max(0, ridge - cut) / field.relief.ridgeMaskHeight) : 0;
+  return height + ridge - cut - erosion + relief;
 }
 
 /** Reject malformed/unbounded recipes before sampling or admitting a candidate revision. */
@@ -97,6 +102,7 @@ export function validateTerrainField(field: TerrainField): void {
       || !finite(w.detailScale, 16, 150) || !finite(w.detailAmplitude, 0, 12)
       || !finite(w.terraceHeight, 2, 15) || !finite(w.terraceStrength, 0, .85)) throw new Error('Invalid terrain weathering');
   }
+  if (field.relief) validateTerrainRelief(field.relief);
   const ids = new Set<string>();
   for (const [rows, maximum] of [[field.ridges, 250], [field.channels, 50], [field.incisions ?? [], 24]] as const) {
     if (!Array.isArray(rows) || rows.length > 64) throw new Error('Invalid terrain ribbon inventory');

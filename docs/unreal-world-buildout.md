@@ -854,7 +854,7 @@ Source `aae1209eb967` / core `8d344fd4519e` / scene `93003b49b5f1` /
 nav `b3fd5077cf4c` / safe `2693f53b9efc` qualify bounded first-pair incision authoring.
 Roads, military assemblies, arrivals and closed cosmetic basins remain retained.
 Native 114 views, 150 walking routes, 92 navigation queries before save/reload,
-both entry/local-GM fixtures, twelve pocket cameras and twenty day/night captures
+both entry/local-GM fixtures, twelve pocket cameras and twenty-four day/night captures
 pass. Extra terrain rays verify 363 incision controls; camera capsule footing
 is clear. This does not accept complete gully walking, physical driving or combat.
 Repository 1132/177, Unreal 511/96, Python 148/38, three typechecks, audit and
@@ -865,3 +865,21 @@ art defect. Keep prior recovery, first-batch lair, appearance, persistence, live
 Node/additive geometry, network, performance, platforms/Steam and release gates.
 Later native batches/full underground and owned-mesh residual integration remain
 unbuilt. Native/licensed candidates and receipts stay private.
+
+
+## T1 private source-derived relief checkpoint - 10 October 2026
+
+Source `1cd84df61040` / core `bd8812c7434e` / scene `1e7203cb76e2` /
+nav `df574d641bb1` / safe `e4f6e9fc2090` qualify bounded rectangular owned-mesh
+height detail and smooth route/footing exclusions. Private derivatives use exact
+native rendered faces and complete 257x257 coverage. Native 114 views, 150 walking
+routes, 92 navigation queries before save/reload, both entry/GM fixtures, twelve
+pocket cameras, 24 extra views and 578 terrain ray locations pass. Node loader
+terrain parity is within 0.031mm over 4575 samples; live/additive collision remains
+unverified. Owner thirteen, parent maps, capitals and 92 source packages remain
+preserved. Repository 1141/178, Unreal 520/97, Python 148/38, three typechecks,
+audit and world/model validation pass; strict release exits 1. No C++ changed.
+The embedded 28-picture relief report records remaining art defects and all
+appearance, recovery, lair, vehicle/18v18, persistence, services, live/network,
+performance and platform/Steam/release gates. Later native/full underground,
+neutral daylight and route-curve studies remain unintegrated.
