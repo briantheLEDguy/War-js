@@ -846,3 +846,22 @@ world/model validation pass; strict release exits 1. No C++ changed. Detailed
 evidence and limitations are in `docs/t1-redesign.md` and the private matching
 checkpoint. All previous batch/visual/vehicle/combat/persistence/network/
 performance/platform/Steam/release gates remain; drainage studies are unintegrated.
+
+
+## T1 compact drainage checkpoint - 10 October 2026
+
+Source `aae1209eb967` / core `8d344fd4519e` / scene `93003b49b5f1` /
+nav `b3fd5077cf4c` / safe `2693f53b9efc` qualify bounded first-pair incision authoring.
+Roads, military assemblies, arrivals and closed cosmetic basins remain retained.
+Native 114 views, 150 walking routes, 92 navigation queries before save/reload,
+both entry/local-GM fixtures, twelve pocket cameras and twenty day/night captures
+pass. Extra terrain rays verify 363 incision controls; camera capsule footing
+is clear. This does not accept complete gully walking, physical driving or combat.
+Repository 1132/177, Unreal 511/96, Python 148/38, three typechecks, audit and
+world/model validation pass; strict release exits 1. No C++ changed. Owner thirteen,
+parent maps, capitals and seventy nature source packages remain preserved.
+The private drainage report embeds 28 images; smooth/regular slopes remain an
+art defect. Keep prior recovery, first-batch lair, appearance, persistence, live
+Node/additive geometry, network, performance, platforms/Steam and release gates.
+Later native batches/full underground and owned-mesh residual integration remain
+unbuilt. Native/licensed candidates and receipts stay private.

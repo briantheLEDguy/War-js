@@ -1310,3 +1310,10 @@ bounded native-vertex bedding; original natural outcrops use the retained cluste
 reserves. Scene `0d633e30966b`, navigation `ff8835fb85c3` and safe copy
 `b056429b854e` pass fresh native checks. See `docs/t1-redesign.md`; all visual,
 combat, vehicle, persistence, network, platform and release gates remain open.
+
+
+T1 compact drainage authoring (10 October 2026) adds optional shared-field incisions
+and bounded downhill source tracing. Private scene `93003b49b5f1` verifies the first
+pair with 114 views, 150 walking routes, 92 navigation queries and both entry/GM
+fixtures. The embedded 28-picture drainage report records unfinished appearance
+and all retained gates; this does not approve gullies for driving or 18v18.

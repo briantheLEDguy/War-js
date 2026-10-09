@@ -1661,3 +1661,40 @@ and every existing appearance, lair, physical vehicle/18v18, service/resource,
 GM persistence, Node additive collision/live play, network/audio, performance,
 platform/Steam and release gate. Later native pairs/full underground remain
 unbuilt. Proposed drainage cuts remain private source studies, unintegrated.
+
+
+## Compact drainage source and native prototype (10 October 2026)
+
+Source `aae1209eb967`, core `8d344fd4519e`, scene `93003b49b5f1`,
+navigation `b3fd5077cf4c` and safe copy `2693f53b9efc` integrate ten Sunmeadow and six
+Cinderfen drainage-inspired cuts. `TerrainField.incisions` is optional, bounded to
+64 courses, 64 controls each and 24m depth; compact kernels contribute exactly
+zero outside their widths and use maximum union. Untouched fields retain their
+original behavior. Authoring tracing follows descending sampled ground, bounds
+search and local roughness, and caps depth against downstream controls. This is
+not hydrology: nearby radial caps and intersecting kernels can retain uphill
+sections despite bounded one-metre sampled steps.
+
+The immutable writer preserves qualified parents, gameplay routes, complete
+military anchors, arrivals, pocket beds and closed cosmetic basins. Absolute
+scenery rebases with ground. Exact triangle-clipped roads retain their 0.045m
+support and soft alpha. Full-width route grades remain below 0.22. Native checks
+pass 114 phase/weather views, 150 walking routes, 92 navigation queries before
+save/after reload, safe copies, both entry/GM fixtures without draft writes and
+twelve pocket cameras. Twenty extra day/night captures verify 363 component-only
+simple/complex terrain samples and clear playable review-camera footing. New
+gullies have not received complete physical exploration or vehicle acceptance.
+
+Repository 1132/177 files, Unreal 511/96, Python 148/38, three typechecks, audit
+and world/model validation pass. Strict release exits 1; no C++ changed. The
+private `progress-report-drainage-93003b49b5f1.html` embeds 28 pictures. Parent
+packages, capitals, seventy nature packages and all thirteen owner documents
+remain preserved. Navigation copies have not repeated the full walking suite.
+
+Outer cuts remain too smooth and regular; Sunmeadow's inner cut is suppressed
+by route supports. Distant ground, foliage and regional stone remain unfinished.
+Retain appearance, first-batch full lairs, actual driving/turning/closed gates,
+18v18, services/resources, ordinary GM persistence, the earlier unresolved
+recovery failure, Node additive collision/live play, network/audio, performance,
+platform/Steam and release gates. Later native pairs and full underground remain
+unbuilt. Private owned-mesh residual studies are unintegrated licensed derivatives.

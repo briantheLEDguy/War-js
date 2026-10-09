@@ -8,6 +8,8 @@ export interface TerrainField {
   rolls: Array<{ scale: number; amplitude: number }>;
   ridges: Array<{ id: string; profile: 'rounded' | 'shelf' | 'escarpment'; points: FieldPoint[] }>;
   channels: Array<{ id: string; points: FieldPoint[] }>;
+  /** Compact, bounded drainage-inspired cuts; omitted on legacy fields. */
+  incisions?: Array<{ id: string; points: FieldPoint[] }>;
 }
 export interface FieldPoint { x: number; z: number; width: number; height: number }
 
@@ -42,6 +44,17 @@ function ribbon(x: number, z: number, points: FieldPoint[], profile: 'rounded' |
   }
   return result;
 }
+/** Compact drainage cuts have no tails outside their authored width. */
+function incision(x: number, z: number, points: FieldPoint[]): number {
+  let result = 0;
+  for (let i = 1; i < points.length; i++) {
+    const a = points[i - 1], b = points[i], dx = b.x - a.x, dz = b.z - a.z;
+    const t = Math.max(0, Math.min(1, ((x - a.x) * dx + (z - a.z) * dz) / (dx * dx + dz * dz)));
+    const q = Math.hypot(x - a.x - t * dx, z - a.z - t * dz) / (a.width + (b.width - a.width) * t);
+    if (q < 1) result = Math.max(result, (a.height + (b.height - a.height) * t) * (1 - q * q) ** 3);
+  }
+  return result;
+}
 export function terrainFieldHeight(field: TerrainField, x: number, z: number): number {
   let height = field.baseHeight;
   for (const [i, layer] of field.rolls.entries()) height += roll(x / layer.scale, z / layer.scale, field.seed + i * 1013) * layer.amplitude;
@@ -67,7 +80,9 @@ export function terrainFieldHeight(field: TerrainField, x: number, z: number): n
       ridge += ((base + ledge) * w.terraceHeight - ridge) * w.terraceStrength;
     }
   }
-  return height + ridge - cut;
+  let erosion = 0;
+  for (const row of field.incisions ?? []) erosion = Math.max(erosion, incision(x, z, row.points));
+  return height + ridge - cut - erosion;
 }
 
 /** Reject malformed/unbounded recipes before sampling or admitting a candidate revision. */
@@ -83,7 +98,7 @@ export function validateTerrainField(field: TerrainField): void {
       || !finite(w.terraceHeight, 2, 15) || !finite(w.terraceStrength, 0, .85)) throw new Error('Invalid terrain weathering');
   }
   const ids = new Set<string>();
-  for (const [rows, maximum] of [[field.ridges, 250], [field.channels, 50]] as const) {
+  for (const [rows, maximum] of [[field.ridges, 250], [field.channels, 50], [field.incisions ?? [], 24]] as const) {
     if (!Array.isArray(rows) || rows.length > 64) throw new Error('Invalid terrain ribbon inventory');
     for (const row of rows) {
       if (!row.id || ids.has(row.id) || !Array.isArray(row.points) || row.points.length < 2 || row.points.length > 64

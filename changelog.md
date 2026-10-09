@@ -2273,3 +2273,16 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   grounded entry/local-GM fixtures, twelve pocket cameras and sixteen closeups.
   Repository 1125/176 files; Unreal 504/95; Python 148/38; three typechecks, audit
   and world/model validation pass. Strict release remains blocked as intended.
+
+
+### T1 compact drainage prototypes - 10 October 2026
+- Add bounded, compact shared-field incisions with legacy behavior preserved when
+  omitted, maximum-union crossings and zero contribution outside authored widths.
+- Add deterministic downhill control tracing and immutable first-pair source
+  revisions; retain roads, military anchors, arrivals and closed pool basins.
+- Verify scene `93003b49b5f1`: 114 views, 150 walking routes, 92 navigation queries,
+  two entry/local-GM fixtures, twelve pocket cameras and twenty drainage captures.
+  Repository 1132/177 files, Unreal 511/96 and Python 148/38 pass, alongside three
+  typechecks, audit and world/model validation. Strict release remains blocked.
+- Drainage appearance remains unfinished; new cuts lack complete walking/driving
+  and combat acceptance. Preserve every earlier release gate and recovery caveat.
