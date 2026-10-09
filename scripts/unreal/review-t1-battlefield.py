@@ -147,7 +147,7 @@ log_argument=re.search(r'-abslog=(?:"([^"]+)"|\x27([^\x27]+)\x27|(\S+))',unreal.
 if not log_argument: raise RuntimeError('Rendered review requires an explicit native log')
 native_log=Path(next(v for v in log_argument.groups() if v is not None))
 validate_render_log(native_log.read_text(encoding='utf-8-sig',errors='replace'))
-result=dict(signature=receipt['signature'],checks=reports,pictures=pictures,verificationTools={p:sha(ROOT/p) for p in ('scripts/unreal/review-t1-battlefield.py','scripts/unreal/t1_battlefield_views.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/t1_render_log.py','scripts/unreal/t1_sky_preview.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_rock_clusters.py')},savedCandidatesUnchanged=True,
+result=dict(signature=receipt['signature'],checks=reports,pictures=pictures,verificationTools={p:sha(ROOT/p) for p in ('scripts/unreal/review-t1-battlefield.py','scripts/unreal/t1_battlefield_views.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/t1_render_log.py','scripts/unreal/t1_sky_preview.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_rock_clusters.py','scripts/unreal/t1_rock_contact.py')},savedCandidatesUnchanged=True,
             ownerDocumentsPreserved=True,materialShaderCompilationPassed=True,appearanceApproved=False,drivingAccepted=False,eighteenVersusEighteenAccepted=False)
 prefix='battlefield-scenes' if scene_cells else 'battlefield'
 (BASE/(prefix+'-review-'+receipt['signature'][:12]+'.json')).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')

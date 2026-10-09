@@ -2,6 +2,7 @@
 import copy,hashlib,json,struct
 import unreal
 from t1_rock_clusters import NAMES,rock_clusters
+from t1_rock_contact import rock_contact
 
 TAG='WarT1PrivateInstalledRockCluster'
 f32=lambda x:struct.unpack('<f',struct.pack('<f',x))[0]
@@ -10,6 +11,17 @@ def geometry(mesh):
     data=json.loads(unreal.WarImportLibrary.describe_static_mesh_source_data(mesh,0))
     if not data.get('valid'):raise RuntimeError('Missing committed rock source geometry')
     return hashlib.sha256(json.dumps(data['data'],sort_keys=True).encode()).hexdigest()
+
+
+def surface_vertices(mesh):
+    policy=json.loads(unreal.WarImportLibrary.describe_static_mesh_native_policy(mesh))
+    if not policy.get('valid') or policy['policy']['mesh']['lod_for_collision']!=0:raise RuntimeError('Rock contact requires native LOD0 collision')
+    data=json.loads(unreal.WarImportLibrary.describe_static_mesh_rendered_faces(mesh,0))
+    if not data.get('valid'):raise RuntimeError('Missing actual rendered rock surface')
+    # Expanded triangle corners must not bias the vertex contact surrogate.
+    points=sorted({tuple(p) for face in data['triangles'] for p in face['positions']})
+    if not 4<=len(points)<=20000:raise RuntimeError('Rock surface vertex budget exceeded')
+    return points
 
 
 def adapt_rock_clusters(assets,identity,states,placements,sources,height_cm):
@@ -46,7 +58,7 @@ def adapt_rock_clusters(assets,identity,states,placements,sources,height_cm):
         original_geometry,adapted_geometry=geometry(mesh),geometry(clone)
         original_screens,adapted_screens=list(editor.get_lod_screen_sizes(mesh)),list(editor.get_lod_screen_sizes(clone))
         if original_geometry!=adapted_geometry or clone.get_num_lods()!=4 or original_screens!=adapted_screens:raise RuntimeError('Rock adaptation differs: '+json.dumps(dict(name=name,originalGeometry=original_geometry,adaptedGeometry=adapted_geometry,lods=clone.get_num_lods(),originalScreens=original_screens,adaptedScreens=adapted_screens)))
-        native[name]=clone;meshes[name]=dict(boundsOrigin=source['boundsOrigin'],boundsExtent=source['boundsExtent'])
+        native[name]=clone;meshes[name]=dict(boundsOrigin=source['boundsOrigin'],boundsExtent=source['boundsExtent'],positions=surface_vertices(clone))
         proofs.append(dict(source=mesh.get_path_name(),adapted=clone.get_path_name(),geometrySha256=geometry(clone),lods=4,lodScreenSizes=original_screens,collisionTraceFlag='CTF_USE_COMPLEX_AS_SIMPLE',pixelDepthOffsetCm=0))
     result=copy.deepcopy(states);layout=rock_clusters(placements,meshes,height_cm)
     for label in layout['replacedIds']:
@@ -64,12 +76,16 @@ def verify_rock_surfaces(actors,layout,height_cm):
     for row in layout['meshes']:
         mesh=unreal.load_asset(row['adapted'])
         if geometry(mesh)!=row['geometrySha256'] or mesh.get_num_lods()!=4 or list(editor.get_lod_screen_sizes(mesh))!=row['lodScreenSizes']:raise RuntimeError('Saved rock geometry or LOD thresholds differ')
-    actual={a.get_actor_label():a for a in actors.get_all_level_actors() if TAG in map(str,a.tags)};rows=[]
+    actual={a.get_actor_label():a for a in actors.get_all_level_actors() if TAG in map(str,a.tags)};rows=[];surfaces={}
     if set(actual)!={b['id'] for b in layout['bodies']}:raise RuntimeError('Rock body inventory differs')
     for body in layout['bodies']:
         actor=actual[body['id']];component=actor.static_mesh_component;mesh=component.static_mesh
         if component.get_collision_profile_name()!='BlockAll' or mesh.get_editor_property('body_setup').get_editor_property('collision_trace_flag')!=unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE:raise RuntimeError('Rock collision binding changed')
         bounds=mesh.get_bounds();p=actor.get_actor_location();scale=actor.get_actor_scale3d().x
+        key=mesh.get_path_name()
+        if key not in surfaces:surfaces[key]=surface_vertices(mesh)
+        contact=rock_contact(surfaces[key],[bounds.origin.x,bounds.origin.y,bounds.origin.z],[p.x,p.y,p.z],scale,actor.get_actor_rotation().yaw,height_cm)
+        if contact['buriedFraction']<.08 or contact['contactQuadrants']<2:raise RuntimeError('Saved rock lacks bounded native vertex bedding: '+body['id'])
         centre=body['footprintCentre'];hits=0;exposed=0;highest=-1e30
         # Component-only rays avoid accepting the terrain or neighbouring rocks as support.
         for ix in (-1,0,1):
@@ -84,5 +100,5 @@ def verify_rock_surfaces(actors,layout,height_cm):
                     hits+=1;clearance=simple[0].z-height_cm(x,z);highest=max(highest,clearance)
                     if clearance>1:exposed+=1
         if not hits or not exposed:raise RuntimeError('Rock body lacks exposed native collision surface: '+body['id'])
-        rows.append(dict(id=body['id'],traceSamples=9,simpleComplexHits=hits,exposedHits=exposed,maximumExposedCm=highest))
+        rows.append(dict(id=body['id'],traceSamples=9,simpleComplexHits=hits,exposedHits=exposed,maximumExposedCm=highest,vertexBeddingSurrogate=contact))
     return dict(bodies=rows,simpleComplexTraceVerified=True,actualExposedSurfaceVerified=True,walkingAccepted=False,drivingAccepted=False,navigationAccepted=False)

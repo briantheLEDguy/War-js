@@ -830,3 +830,19 @@ full lairs, physical vehicle driving/turning/closed gates, 18v18, services/resou
 Node additive geometry/live play, network/audio, performance, three platforms,
 Steam and release gates. Later-pair native and full underground environments
 remain unbuilt. Shared sampler parity is not a live Node playtest.
+
+
+### Private rock contact checkpoint - 10 October 2026
+
+Scene `0d633e30966b` / navigation `ff8835fb85c3` / safe copy `b056429b854e`
+add bounded unique-LOD0-vertex bedding and five/seven selected original outcrop
+replacements. Source/core terrain and gameplay assemblies remain retained.
+Native reload repeats bedding, source geometry/LOD thresholds and component
+simple/complex surface checks. Fresh 114 views, 150 walks, 92 navigation queries,
+two entry/local-GM fixtures, twelve pocket cameras and sixteen closeups pass.
+Thirteen owner documents and parent/capital/source packages remain preserved.
+Python 148/38, repository 1125/176, Unreal 504/95 and required typechecks/audit/
+world/model validation pass; strict release exits 1. No C++ changed. Detailed
+evidence and limitations are in `docs/t1-redesign.md` and the private matching
+checkpoint. All previous batch/visual/vehicle/combat/persistence/network/
+performance/platform/Steam/release gates remain; drainage studies are unintegrated.

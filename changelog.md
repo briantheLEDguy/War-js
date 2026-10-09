@@ -2262,3 +2262,14 @@ full lairs, physical vehicle driving/turning/closed gates, 18v18, services/resou
 Node additive geometry/live play, network/audio, performance, three platforms,
 Steam and release gates. Later-pair native and full underground environments
 remain unbuilt. Shared sampler parity is not a live Node playtest.
+
+
+### T1 rock bedding and selected core outcrops - 10 October 2026
+- Fit private collision-rock clones using unique native LOD0 surface vertices,
+  bounded burial and retained footprint/exposed-height limits. Replace five
+  original Sunmeadow and seven eligible Cinderfen outcrops; retain unsupported
+  assemblies, landmarks and shelters. Original packages and owner work preserved.
+- Fresh checks: 114 views, 150 walking routes, 92 navigation queries/reload, both
+  grounded entry/local-GM fixtures, twelve pocket cameras and sixteen closeups.
+  Repository 1125/176 files; Unreal 504/95; Python 148/38; three typechecks, audit
+  and world/model validation pass. Strict release remains blocked as intended.

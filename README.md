@@ -1303,3 +1303,10 @@ full lairs, physical vehicle driving/turning/closed gates, 18v18, services/resou
 Node additive geometry/live play, network/audio, performance, three platforms,
 Steam and release gates. Later-pair native and full underground environments
 remain unbuilt. Shared sampler parity is not a live Node playtest.
+
+
+T1 private rock bedding checkpoint (10 October 2026): `t1_rock_contact.py` adds
+bounded native-vertex bedding; original natural outcrops use the retained cluster
+reserves. Scene `0d633e30966b`, navigation `ff8835fb85c3` and safe copy
+`b056429b854e` pass fresh native checks. See `docs/t1-redesign.md`; all visual,
+combat, vehicle, persistence, network, platform and release gates remain open.

@@ -6,7 +6,7 @@ from t1_rock_clusters import rock_clusters,NAMES
 class RockClusterTests(unittest.TestCase):
  def fixture(self,yaw=37):
   parents=[dict(id='ridge',x=20,z=-30,width=30,depth=7,height=5,yawDegrees=yaw)]
-  meshes={name:dict(boundsOrigin=[13,-7,11],boundsExtent=[150,90,70]) for name in NAMES}
+  meshes={name:dict(boundsOrigin=[13,-7,11],boundsExtent=[150,90,70],positions=[[13+x,-7+y,11+z] for x in (-150,150) for y in (-90,90) for z in (-70,70)]) for name in NAMES}
   return parents,meshes
  def test_rotated_clusters_fit_parent_reserve_and_preserve_inputs(self):
   for yaw in (0,37,90,-167,327):
@@ -26,7 +26,7 @@ class RockClusterTests(unittest.TestCase):
    self.assertAlmostEqual(p[1]+(math.sin(angle)*origin[0]+math.cos(angle)*origin[1])*scale,body['footprintCentre'][0]*100)
    heading=math.radians(90-body['yawDegrees']);x,z=body['footprintCentre'];w,d=body['footprintWidth'],body['footprintDepth']
    samples=[height(x+math.cos(heading)*w*u/4-math.sin(heading)*d*v/4,z+math.sin(heading)*w*u/4+math.cos(heading)*d*v/4) for u in range(-2,3) for v in range(-2,3)]
-   self.assertAlmostEqual(p[2]+(origin[2]-extent[2])*scale,min(samples)-15)
+   self.assertAlmostEqual(p[2]+(origin[2]-extent[2])*scale,min(samples)-body['burialDepthCm'])
    self.assertGreaterEqual(body['centreExposureCm'],extent[2]*2*scale*.2)
  def test_buried_or_unscalable_bodies_retain_original_parent(self):
   parents,meshes=self.fixture();result=rock_clusters(parents,meshes,lambda x,z:abs(x-20)*10000)

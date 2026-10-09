@@ -26,6 +26,7 @@ from t1_water_surface import water_surface
 from t1_understorey_native import spawn_understorey
 from t1_focal_planting_native import spawn_focal_plants
 from t1_rock_clusters_native import adapt_rock_clusters,verify_rock_surfaces
+from t1_rock_clusters import core_rock_parents
 from t1_forest_floor_native import forest_floor_sources,forest_floor_material
 from t1_pocket_dressing import pocket_dressing
 from t1_bedded_outcrops import bedded_outcrops,outcrop_footing
@@ -73,7 +74,7 @@ forest_textures,forest_inputs=forest_floor_sources(ROOT);files.update(forest_inp
 verify_sources()
 
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_nature_kit.py','scripts/unreal/t1_nature_canopy.py','scripts/unreal/t1_nature_canopy_native.py','scripts/unreal/t1_rock_clusters.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_focal_planting.py','scripts/unreal/t1_focal_planting_native.py','scripts/unreal/t1_forest_floor.py','scripts/unreal/t1_forest_floor_native.py','scripts/unreal/t1_understorey.py','scripts/unreal/t1_understorey_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_nature_kit.py','scripts/unreal/t1_nature_canopy.py','scripts/unreal/t1_nature_canopy_native.py','scripts/unreal/t1_rock_clusters.py','scripts/unreal/t1_rock_contact.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_focal_planting.py','scripts/unreal/t1_focal_planting_native.py','scripts/unreal/t1_forest_floor.py','scripts/unreal/t1_forest_floor_native.py','scripts/unreal/t1_understorey.py','scripts/unreal/t1_understorey_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_stone_material.py','scripts/unreal/t1_strata_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
@@ -132,7 +133,11 @@ try:
             if state['kind']=='mesh' and state['mesh']==admitted_mesh:state['materials']=[stone.get_path_name()]
         materials['regionalStone']=dict(asset=stone.get_path_name(),sourceColorChannelVerified=True,sourceGeometryAndCollisionPreserved=True,appearanceApproved=False)
         rock_parents=[p for cell in [*cells,dict(placements=dressing),dict(placements=bedding)] for p in cell['placements'] if p['sourceLabel'].endswith(('_barrow_ridge_8','_basalt_shelf_1'))]
-        states,rock_clusters=adapt_rock_clusters(assets,identity,states,rock_parents,canopies,surface.height_cm)
+        core_bounds=unreal.load_asset(admitted_mesh).get_bounds()
+        core_parents=core_rock_parents(identity,states,admitted_mesh,[core_bounds.origin.x,core_bounds.origin.y,core_bounds.origin.z],[core_bounds.box_extent.x,core_bounds.box_extent.y,core_bounds.box_extent.z])
+        states,rock_clusters=adapt_rock_clusters(assets,identity,states,[*rock_parents,*core_parents['placements']],canopies,surface.height_cm)
+        rock_clusters['coreParentIds']=[p['id'] for p in core_parents['placements']]
+        rock_clusters['unsupportedCoreParentIds']=core_parents['retainedIds']
         if identity=='sunmeadow_march':
             floor,materials['forestFloor']=forest_floor_material(assets,unreal.load_asset(states[identity+'_terrain']['materials'][0]),source,states,forest_textures,BASE)
             states[identity+'_terrain']['materials']=[floor.get_path_name()]

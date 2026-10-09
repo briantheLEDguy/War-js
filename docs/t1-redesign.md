@@ -1628,3 +1628,36 @@ full lairs, physical vehicle driving/turning/closed gates, 18v18, services/resou
 Node additive geometry/live play, network/audio, performance, three platforms,
 Steam and release gates. Later-pair native and full underground environments
 remain unbuilt. Shared sampler parity is not a live Node playtest.
+
+
+## Contact-aware rocks and selected core outcrops (10 October 2026)
+
+Scene `0d633e30966b`, navigation `ff8835fb85c3`, safe copy `b056429b854e`
+retain source `cbc1c13f223b` and core `676151d36b96`. `t1_rock_contact.py`
+uses unique native rendered LOD0 vertices with exact transforms and shared
+triangle grounding. At least eight percent of vertices must be buried two
+centimetres in two source quadrants. This is a vertex-contact surrogate, not
+contact-area or stability proof. Additional burial is capped at 1.5m, one quarter
+of full height and the remaining exposed-height reserve. Scaled minimum bedding
+seats broader silhouettes while retaining horizontal footprints and yaw.
+
+Five original Sunmeadow outcrops and seven eligible Cinderfen outcrops now use
+the installed clusters. Two unsupported Cinderfen core parents remain. Saved
+totals are 168/227 bodies, 93/123 replaced parents and 1/6 retained parents.
+Unmatched source meshes, landmarks and shelters remain. Reload repeats committed
+LOD0 geometry/four-LOD thresholds, native vertex bedding and component-only
+simple/complex exposed-surface traces. Original kit packages remain exact.
+
+Fresh native checks pass 114 views, 150 walking routes, 92 navigation queries
+before save/after reload, exact safe navigation copies, both grounded entry/GM
+fixtures without draft writes, twelve actual pocket cameras and sixteen saved
+rock closeups. All thirteen owner documents, parents and capitals are preserved.
+Navigation copies have not separately repeated every walking route. Repository
+1125/176 files, Unreal 504/95, Python 148/38, three typechecks, audit and world/
+model validation pass; strict release exits 1. No C++ changed. The private
+`progress-report-rock-contact-0d633e30966b.html` embeds 24 pictures; its checkpoint
+records hashes and signatures. Retain the unresolved earlier recovery failure
+and every existing appearance, lair, physical vehicle/18v18, service/resource,
+GM persistence, Node additive collision/live play, network/audio, performance,
+platform/Steam and release gate. Later native pairs/full underground remain
+unbuilt. Proposed drainage cuts remain private source studies, unintegrated.
