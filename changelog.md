@@ -2079,3 +2079,19 @@ Later-pair native environments and underground environments remain unbuilt.
 - Verify 142 walking routes, 108 native views, 88 saved/reloaded navigation queries, two entry/GM fixtures and four actual follow-camera shelter views.
 - Pass 109 focused Python checks and required repository suites/validation; retain Node prop collision, visual, lair, vehicle/combat and release gates.
 - Save a private report with fourteen embedded images; keep the separate original meadow texture comparison unintegrated and unapproved.
+
+
+### 2026-10-09 - Private installed nature and planting studies
+
+- Inspect the installed house kit's separate nature folder without executing
+  Blueprints. Fingerprint source packages and stage an exact bounded static-mesh
+  dependency inventory into ignored private Content; refuse changed destinations.
+- Replace 331 Sunmeadow canopy bindings in fresh candidates with installed oak
+  variants, retaining height, root bottom, actor identity and yaw. Reverify normal
+  walking, navigation save/reload and ordinary entry/local GM recovery because
+  geometry changes. License, distribution, art and runtime acceptance remain open.
+- Reduce rock coverage on gentle ground. Add a separate deterministic understorey
+  authoring study with road/service, shoreline and grade reserves and tapered path
+  density. Native comparisons remain unsaved; broad terrain/lighting need more work.
+- Preserve accepted capitals, parent maps, owner documents, purchased originals and
+  all first-batch lair, gameplay, platform, performance and release gates.

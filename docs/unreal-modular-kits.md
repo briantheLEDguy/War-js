@@ -220,3 +220,24 @@ Its construction script and interactive door behavior are not ported. Triangle
 collision configuration alone is not evidence of traversable doors or stairs;
 visual review, traversal, runtime GM integration, performance, licensing and
 platform checks remain required before city deployment.
+
+
+## Private installed nature inspection
+
+The Medieval Houses Modular Vol2 installation also contains
+`/Game/Medieval_Environment/Real_Landscape`. `inspect-nature-kit.py` inspects its
+73 static meshes in CityKitStaging and verifies 602 source packages unchanged.
+`t1_nature_kit.py` admits an exact fifteen-mesh inspection selection and a bounded
+same-pack dependency closure; Engine/Script leaves are ignored and other game
+packs/path traversal are rejected. `stage-nature-kit.py` preflights all destination
+bytes before copying missing files. Seventy packages (419.2 MiB) remain ignored
+private native Content. No source mutation, Blueprint execution, purchase or
+public distribution occurs. License, distribution and runtime approval remain
+open. Other installed folders are not admitted by this selection.
+
+`t1_nature_canopy.py` retains original canopy height/root bottom using exact
+native bounds. Its private adapter replaces 331 Sunmeadow actor mesh/material
+bindings in fresh candidates only. Fresh walking/navigation/entry checks are
+required because geometry changes; inspection alone grants no collision, art,
+performance, gameplay or release approval. Separate `t1_understorey.py` planting
+studies remain unsaved until explicitly verified in a fresh candidate.

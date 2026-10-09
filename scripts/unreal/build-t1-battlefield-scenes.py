@@ -20,8 +20,7 @@ from t1_rock_surface import rock_surface
 from t1_stone_material import stone_material
 from t1_landscape_ecology import admitted_cover,cover_layout,pocket_water
 from t1_ecology_clusters import clustered_cover
-from t1_canopy import canopy_sources
-from t1_canopy_native import adapt_canopies
+from t1_nature_canopy_native import nature_sources,adapt_nature_canopies
 from t1_ecology_native import ground_cover,water_material,cover_inventory
 from t1_water_surface import water_surface
 from t1_pocket_dressing import pocket_dressing
@@ -47,6 +46,7 @@ for identity,r in recipes.items():
     r['layers']['terrain']['tint']=[.62,.98,.72,1] if identity=='sunmeadow_march' else [.8,1.04,.87,1]
     r['layers']['terrain']['rockColor']=[.3,.29,.26] if identity=='sunmeadow_march' else [.13,.135,.14]
     r['layers']['terrain']['macroMinimum']=.75
+    r['layers']['terrain']['slopeNormalRange']=[.6,.86] if identity=='sunmeadow_march' else [.64,.9]
     for layer in r['layers'].values():
         layer['surfaceVariation']=surface_variation()
         if identity=='cinderfen_outskirts':layer['surfaceVariation']['channelRange']=[.008,.075]
@@ -64,11 +64,11 @@ for r in recipes.values():
 cover_sources={}
 for z in parent['zones']:
     data,cover_inputs=admitted_cover(ROOT,z['id']); cover_sources[z['id']]=data; files.update(cover_inputs)
-canopies,canopy_inputs=canopy_sources(ROOT);files.update(canopy_inputs)
+canopies,canopy_inputs=nature_sources(ROOT);files.update(canopy_inputs)
 verify_sources()
 
 tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
-       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
+       'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_nature_kit.py','scripts/unreal/t1_nature_canopy.py','scripts/unreal/t1_nature_canopy_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_stone_material.py','scripts/unreal/t1_strata_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
 inputs=dict(createdUtc=datetime.datetime.now(datetime.timezone.utc).isoformat(),sourceSignature=recipe['signature'],
@@ -119,7 +119,7 @@ try:
                 if p['id'] in states: raise RuntimeError('Duplicate scene actor identity')
                 states[p['id']]=state
         if identity=='sunmeadow_march':
-            states,materials['canopy']=adapt_canopies(assets,states,canopies)
+            states,materials['canopy']=adapt_nature_canopies(assets,states,canopies)
         rock=recipes[identity]['layers']['terrain']['rockLayer']
         stone=stone_material(assets,identity,rock)
         admitted_mesh=original['actorInventory'][identity+('_barrow_ridge_8' if identity=='sunmeadow_march' else '_basalt_shelf_1')]['mesh']

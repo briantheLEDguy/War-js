@@ -1322,3 +1322,45 @@ integrated into this scene and has no seamlessness, art or performance approval.
 Retain first-batch full-lair, visual, actual driving/turning/closed gates, 18v18,
 services/resources, ordinary GM persistence, online/network/audio, performance,
 three-platform/Steam and release gates.
+
+
+## T1 installed nature studies (9 October 2026)
+
+The installed Medieval Houses kit contains a separate Real_Landscape folder.
+Native inspection finds 73 static meshes and preserves 602 purchased source
+packages. A bounded fifteen-mesh selection stages seventy dependency packages
+(419.2 MiB) byte-for-byte into ignored private Content. Inspection/staging never
+executes purchased Blueprint behavior or grants license/distribution approval.
+
+Fresh scene `da8d24dc6eb3`, navigation `c5b86a74d12c` and safe walkthrough
+`5792eee29cca` replace 331 Sunmeadow canopy bindings with three installed oaks.
+Exact native bounds retain each original height and lowest point; actor identity
+and yaw remain. Geometry/materials change, so old collision or appearance
+acceptance does not transfer. Source terrain `83b37fc34b68` remains unchanged.
+Slope-to-rock coverage is reduced on gentle ground; generated meadow colour
+remains outside this candidate.
+
+Fresh checks pass 108 rendered views, 142 configured normal walking routes,
+88 pedestrian/convoy navigation queries before save/after reload, exact safe-copy
+tile payloads, both ordinary entry/local GM recovery fixtures without draft
+writes, and twelve actual normal follow-camera pocket captures. All thirteen
+owner documents and pinned parent/capital maps remain preserved. Current
+navigation copies have not separately repeated the complete walking suite.
+Repository tests pass 1108/172 files, Unreal selection 487/91 and Python 119/32
+(including three tests for the separate planting study). All three typechecks,
+migration audit and world/model validation pass; strict release exits 1.
+Earlier native builds/Foundation tests retain earlier scope; no C++ changed.
+
+`t1_understorey.py` is a separate cosmetic authoring study. An unsaved native
+comparison renders 6538 grass, 4912 long-grass, 4112 fern and 410 seedling instances,
+reserving roads/services and tapering density near paths. This planting has not
+been saved/admitted into the candidate. Source-only transition diagnostics reject
+globally narrowed grading bands because existing routes exceed the 0.22 grade
+limit. Broad smooth terrain, bare ground, harsh lighting and regional composition
+remain unfinished. `progress-report-nature-da8d24dc6eb3.html` embeds fourteen
+actual native images; `nature-checkpoint-da8d24dc6eb3.json` records exact results.
+
+Retain appearance, first-batch full lairs, physical driving/turning, closed gates,
+18v18, services/resources, ordinary GM persistence, Node additive-prop collision
+synchronization, network/audio, performance, three-platform/Steam and release
+gates. Later-pair native and full underground environments remain unbuilt.
