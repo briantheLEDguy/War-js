@@ -2,6 +2,7 @@
 import math
 import unreal
 from t1_surface_variation import validate_variation, validate_substrate, validate_shorelines
+from t1_geology_surface import NORMAL_SHADER, bump_controls
 
 
 def regional_material(assets, key, recipe):
@@ -148,7 +149,18 @@ def regional_material(assets, key, recipe):
                 grain=binary('Add',constant(geology['fineMinimum']),binary('Multiply',clamp(fine),constant(1-geology['fineMinimum'])))
                 rock=binary('Multiply',rock,binary('Multiply',macro,grain))
                 # Atlas-painted joint normals are appropriate on source meshes, not projected cliff faces.
-                face_normal=node('Constant3Vector',constant=unreal.LinearColor(0,0,1,1))
+                bump=bump_controls(geology)
+                height=binary('Add',binary('Multiply',binary('Subtract',clamp(coarse),constant(.5)),constant(bump[0])),
+                    binary('Multiply',binary('Subtract',clamp(fine),constant(.5)),constant(bump[1])))
+                face_normal=node('Custom',description='T1 bounded differential stone normal',
+                    output_type=unreal.CustomMaterialOutputType.CMOT_FLOAT3,code=NORMAL_SHADER)
+                pins=[]
+                for name in ('P','N','H'):
+                    entry=unreal.CustomInput();entry.set_editor_property('input_name',name);pins.append(entry)
+                face_normal.set_editor_property('inputs',pins)
+                if face_normal.get_editor_property('code')!=NORMAL_SHADER or [str(p.get_editor_property('input_name')) for p in face_normal.get_editor_property('inputs')]!=['P','N','H']:
+                    raise RuntimeError('Geological normal shader readback differs from its source')
+                for source,pin in ((world,'P'),(normal,'N'),(height,'H')):wire(source,'',face_normal,pin)
                 mixed_normal=lerp(normal_detail,face_normal,clamped,normal_pin,'')
             else:
                 rock_uv=binary('Divide',axes,constant(rock_layer['tileMetres']*100))

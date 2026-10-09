@@ -33,7 +33,7 @@ def rock_surface(root, identity):
     return dict(color=textures['color'],normal=textures['normal'],tileMetres=3.6 if identity=='sunmeadow_march' else 3,
                 tint=materials[0]['color'][:3],sourceModel=model,
                 geological=dict(baseColor=[.22,.235,.215] if identity=='sunmeadow_march' else [.075,.085,.09],sourceMix=.14,
-                    noiseMetres=6.3,fineMetres=.8,macroMinimum=.72,macroMaximum=1.12,fineMinimum=.88),
+                    noiseMetres=6.3,fineMetres=.8,bumpHeightCm=[60,8],macroMinimum=.72,macroMaximum=1.12,fineMinimum=.88),
                 reviewInputs={p.relative_to(root).as_posix():sha(p) for p in (source,manifest_file,registry_file,geometry)})
 
 

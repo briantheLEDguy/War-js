@@ -151,7 +151,7 @@ export function battlefieldLandscape(source: ZoneDefinition, homeApproaches: Arr
   }
   for (const p of zone.paths!.flatMap(p => p.points)) if (heights.has(key(p))) p.y = heights.get(key(p));
   for (const route of layout.caravanRoutes) for (const p of route.points) if (heights.has(key(p))) p.y = heights.get(key(p));
-  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v10';
+  terrain.naturalField = field; terrain.landforms = []; terrain.sourceVersion = 't1-battlefield-landscape-v11';
   for (const area of terrain.flattenAreas) if (area.id === 'village' || area.id.includes('_village_')) {
     area.preserveFooting = true;
     area.feather = area.id === 'village' ? 120 : Math.max(area.feather, 72);
@@ -175,7 +175,7 @@ export function battlefieldLandscape(source: ZoneDefinition, homeApproaches: Arr
   for (const climb of climbs) {
     if (climb.points.some((p,i) => i && !spatialSegmentInside(zone.spatial!,climb.points[i-1],p,9))) throw new Error('Unsupported scarp climb');
     const h = createOrvrGridHeightSampler(terrain, zone.size, zone.segments, zone.spatial);
-    terrain.clearCorridors.push({ id: climb.id, points: gradedLink(climb, zone.paths!, h), radius: 12, height: 0, feather: 40 });
+    terrain.clearCorridors.push({ id: climb.id, points: gradedLink(climb, zone.paths!, h), radius: 12, height: 0, feather: zone.id === 'cinderfen_outskirts' ? 20 : 40 });
   }
   const height = createOrvrGridHeightSampler(terrain, zone.size, zone.segments, zone.spatial);
   for (const prop of zone.props ?? []) if (prop.heightMode === 'absolute') prop.y = (prop.y ?? 0) + height(prop.x, prop.z) - oldHeight(prop.x, prop.z);

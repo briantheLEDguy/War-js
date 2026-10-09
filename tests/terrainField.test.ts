@@ -120,6 +120,8 @@ for (const id of ['sunmeadow_march', 'cinderfen_outskirts']) describe(`${id} bat
     const climbs=scarpClimbs(id);expect(climbs).toHaveLength(2);
     expect(climbs[0].points.at(-1)).toEqual(climbs[1].points.at(-1));
     expect(Math.abs(climbs[0].points[0].x-climbs[1].points[0].x)).toBeGreaterThan(120);
+    // The exposed basalt face stays distinct from its gentle back climbs.
+    if (id === 'cinderfen_outskirts') expect((h(-155, -42) - h(-155, -50)) / 8).toBeGreaterThan(.75);
     const main = z.paths![0].points;
     expect(Math.max(...main.map(p => h(p.x, p.z))) - Math.min(...main.map(p => h(p.x, p.z)))).toBeGreaterThan(12);
     // The middle saddle masks a direct ground-level sightline between the outer battle spaces.

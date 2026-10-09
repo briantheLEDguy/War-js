@@ -1975,3 +1975,35 @@ Civilian leather garments now have a contoured waist/chest, belt tension folds, 
   migration/world/model validation, eight Python checks and 144 native
   Foundation tests. Retain all batch, persistence/network,
   performance/platform, Steam and release gates.
+
+
+## Development checkpoint: T1 geological detail and sharper Cinderfen face (9 October 2026)
+
+Private checkpoint `07b8d1ada507` uses source `708c945e1304`, core
+`98a83452c28b` and safe walkthrough `23a7dff0f18d`. Its qualified private HTML
+report embeds fourteen unedited native images/labeled drawings, with no external
+image links. Source-derived rock normals are bounded cosmetic detail, with a
+20-120cm pixel-footprint fade; collision geometry is unchanged by the shader.
+Cinderfen counter-climb transitions narrow to 20m while Sunmeadow keeps 40m:
+Sunmeadow's narrower variants failed grade admission. Cinderfen's measured exposed
+section rises from grade 0.312 to 0.809; full-width native route maxima remain
+0.213925/0.205313 against the unchanged 0.22 limit.
+
+Fresh checks pass 102 rendered views, all 138 configured normal walking routes,
+eight scarp-camera and twelve pocket-camera images. Ordinary entry/GM recovery
+fixtures `3d7d91b194d344cd9dfe453a1675026c` and
+`e2b303c4ccec4a749e3651f1a256705e` pass without draft writes. All 13 owner
+documents and saved candidate bindings remain preserved. Atlas `32e39b35c7a9`
+labels all four source studies. Repository verification passes 1105 tests/171
+files, Unreal 484/90, focused Python 76/20 and three typechecks; world/models
+remain 33/906 and strict release exits 1 as required. No C++ changed in this
+checkpoint; earlier native build/Foundation evidence retains its earlier scope.
+
+Read-only `current-navigation-inventory.json` verifies zero bounds and zero
+Recast actors in both current candidates. Native AI and convoy navigation is
+missing; walking success grants no driving acceptance. Dedicated private T1
+navigation copies are the next integration step. Ground repetition, sparse
+scenery and larger landscape composition still need work. Later-pair native and
+all underground environments remain unbuilt; first-batch lairs, human visual,
+actual vehicle driving/18v18, service/resource behavior, ordinary GM persistence,
+online/network/audio, platform/performance/Steam and release gates remain open.
