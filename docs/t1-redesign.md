@@ -2034,3 +2034,60 @@ unintegrated and do not supersede scene `b06f83f1f499` or grant appearance,
 walking, driving, authority, hydrology, performance or release acceptance.
 All first-batch full-lair, underground/later-pair, combat, persistence/network,
 licensing/platform/Steam and other outstanding gates remain open.
+
+
+## Natural meadow and local relief studies (10 October 2026)
+
+`scripts/unreal/t1_meadow_patches.py` is an opt-in cosmetic authoring system.
+Continuous radial masks use smooth noise to form irregular meadow edges and
+worn verges. Deterministic placements respect playable outlines, retained route
+widths, foundations, services and terrain grades. Explicit narrower visual
+tracks can receive cosmetic verge planting without changing authoritative
+vehicle ground widths. Sampling and instance inventories are bounded; overlapping
+patch order does not change the output. Four behavior tests cover these contracts.
+This generator is not connected to saved candidate generation yet.
+
+The isolated native comparison contains six player-height views. Its irregular
+patch uses 7246 installed source grass instances, versus 13843 in the denser
+rectangular study. Collision remains disabled; original geometry, materials,
+parent maps, accepted capitals and owner documents remain preserved. This does
+not approve rendering cost, combat cover, complete regional dressing or ordinary
+persistence. Actual native pictures are embedded in the private progress report.
+
+Strong isolated peak prototypes were rejected for artificial silhouettes. Lower
+elongated spurs and asymmetric scarps retain explicit graded walking counters;
+the latter passes source full-width grades at 0.17942 against the unchanged 0.22
+limit. Native unsaved comparisons pass 289 simple/complex terrain height probes
+and retain exact distant-skirt seams, with eighteen pictures per comparison.
+Installed rock colour/normal projections and narrower visual tracks remain
+private experiments. These studies do not supersede source `03ec8464c80c` or saved
+scene `b06f83f1f499`. Complete anchor/source relocation, native walking/driving,
+authority integration and appearance acceptance remain outstanding. The terrain
+still needs more convincing local detail and content.
+
+Keep all first-batch full-lair, underground/later native pair, human appearance,
+actual vehicles/turning/closed gates, 18v18, services/resources, ordinary GM
+persistence, unresolved earlier Cinderfen recovery repeatability, live streaming
+and additive collision, network/audio, licensing/distribution, performance,
+three-platform/Steam and release gates open. No C++ changed in this pass.
+
+The opt-in `t1_meadow_native.py` adapter now verifies the exact staged mesh,
+material, bounds and LOD inventory before spawning anything. It rejects occupied
+actor identities and per-species inventories above the native 12000-instance
+limit, rolls back new actors on configuration failure, and verifies NoCollision
+and 80-180m culling. Four adapter tests cover units, rollback, owner preservation
+and native limits. A fresh six-view native run reproduces 7246 instances (5836
+short grass, 1410 long grass), verifies both bindings and preserves saved maps,
+accepted capitals and owner documents. This remains an unsaved prototype and is
+not wired into saved candidate generation or approved for performance/persistence.
+
+Verification for the meadow authoring/adapter pass: all 1193 repository tests in
+190 files, 562 Unreal tooling tests in 107 files and 174 T1 Python tests in 44
+files pass. All three typechecks, migration audit, world and model validation
+pass. The initial concurrent suites timed out in the same five-second ordinary
+GM persistence test; isolated reruns of that file and each full suite pass with
+the original time limits unchanged. Strict release still fails as required by
+outstanding native/platform/Steam gates. No C++ changed; no fresh native module
+build or C++ automation result is claimed for this pass.
+
+The meadow adapter also rejects unrelated loaded worlds before reading assets or spawning actors, even when a caller supplies a fresh output folder. The guarded native rerun verifies the isolated Sunmeadow map binding; 174 Python tests in 44 files pass.

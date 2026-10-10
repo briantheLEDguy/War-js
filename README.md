@@ -1465,3 +1465,8 @@ Python 166/42, three typechecks, audit and world/model validation; strict releas
 exits 1. Private unsaved native comparisons preserve parent maps, owner content
 and boundary seams, but remain visually unfinished and unintegrated. The saved
 road candidate remains `b06f83f1f499`; all outstanding acceptance gates persist.
+
+
+T1 meadow authoring: `scripts/unreal/t1_meadow_patches.py` provides opt-in bounded, deterministic irregular ground-cover patches with soft verges and movement/service reserves. Four behavior tests and an isolated six-view native comparison verify the prototype recipe; it is not wired into saved candidates. Local scarp/track/material studies remain private and unintegrated. Source `03ec8464c80c` and saved scene `b06f83f1f499` remain current. See `docs/t1-redesign.md`; all appearance, first-batch lair, gameplay, persistence, performance and release gates stay open.
+
+The isolated `t1_meadow_native.py` adapter verifies staged plant bindings, native batch limits, cosmetic culling and transactional actor rollback; it remains opt-in and is not connected to saved candidate generation.

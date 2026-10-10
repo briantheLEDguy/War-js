@@ -2431,3 +2431,11 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   boundary seams pass, but smooth/empty composition and all broader terrain,
   first-batch lair, gameplay/network, licensing/platform and release gates remain
   open. Preserve rejected steep-route and excessive-cut studies as evidence.
+
+
+## 2026-10-10 - Natural meadow authoring studies
+
+- Add an opt-in deterministic meadow generator with irregular continuous edges, soft visual-track verges, foundation/service reserves, grade rejection and bounded sampling/instance counts. Add four behavior tests.
+- Verify a private six-view native grass comparison with 7246 instances. Prototype scarps retain explicit gentle walking counters and pass source/native ground checks; isolated conical peaks were rejected. These studies remain unintegrated; current saved scenes and all outstanding acceptance gates remain retained.
+
+- Added an opt-in native meadow adapter with exact staged mesh/LOD/material verification, occupied-identity protection, native species limits, nonblocking collision/culling checks and rollback tests. Its unsaved six-view native proof retains saved maps and 13 owner documents; performance, persistence and appearance remain unapproved.
