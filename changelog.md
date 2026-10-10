@@ -1,3 +1,17 @@
+## 2026-10-10 - Private Sunmeadow farmstead prototype
+
+- Save a separate western farm-country scene with a farmhouse, requisition yard,
+  source wagon, low stone boundaries, groves and feathered access/walking paths.
+  Follow retained contours instead of cutting straight through steep ground.
+- Repair a native wall/path intersection and flooded worksite roots; preserve
+  exact installed sources, parent maps, capital content and owner drafts.
+- Verify saved static/grass bindings and four configured normal-character walks
+  over 243.35m. Record a private 15-picture report with pixel-verified PNG copies.
+  Landscape and architecture remain visibly unfinished; navigation, authority,
+  contact, interiors, driving, multiplayer and release gates remain open.
+
+Farmstead checkpoint verification: 1197 repository and 566 Unreal tooling tests, three typechecks, migration audit and world/model validation pass; strict release correctly remains blocked. Parked-wagon source contact diagnostics still require a pose correction.
+
 ## 2026-10-09 - T1 counterable scarp and geological surface studies
 
 - Add directed exposed faces and broader backs to the shared terrain field while

@@ -1476,3 +1476,6 @@ The isolated `t1_meadow_native.py` adapter verifies staged plant bindings, nativ
 `t1_rest_scene.py` adapts reviewed unskinned prop hierarchies at their authored resting pose for static scenery; `t1_landscape_walks.py` now connects authored climbs independently of flank sampling density. Both are bounded and tested. Private connected-spur scenes pass configured native walking/ground/reload checks but remain visually unaccepted; see `docs/t1-redesign.md`.
 
 Opt-in `scripts/unreal/t1_ground_detail.py` authors bounded source-derived small folds with explicit rendered-sampling seam support; five focused tests protect buffered/nonaligned boundaries. Private village/architecture and small-fold native comparisons remain unsaved and visually unaccepted; see `docs/t1-redesign.md`.
+
+
+A private Sunmeadow farmstead copy joins contour-following paths, a requisition yard, farmhouse and boundary cover on retained terrain. Saved binding/foliage checks and four normal-character route directions pass; 15 native/gameplay/source-plan pictures document its unfinished appearance. It remains separate from active launch, with navigation, authoritative scenery, full contact/interior and all existing acceptance gates open. See `docs/t1-redesign.md`.

@@ -1325,3 +1325,54 @@ later native batch, human appearance, driving/turning/closed-gate/siege, 18v18,
 services/resources, ordinary persistence/live authority/streaming/network/audio,
 license/distribution, performance/platform/Steam and release gates. Technical
 probes and before/after pictures do not establish multiplayer fun or fairness.
+
+
+## Western farmstead prototype (10 October 2026)
+
+Private recipe `5ebf940bdf96` adds a connected Sunmeadow farm-country section
+to a separate copy of scene `7c35d60eb8ab`: a kit farmhouse, approved-source
+parked wagon, six worksite props, low stone boundaries, six oaks, a feathered
+yard and two contour-following paths. Existing terrain, campaign source,
+objectives, main routes, accepted capitals and owner content remain unchanged.
+This is a saved prototype, not a finished zone or active campaign launch.
+
+The initial straight approaches failed the full-width grade cap at 0.569.
+Following existing contours reduces the maximum to 0.114 without editing ground.
+Native sweeps caught a boundary wall clipping the orchard path; the repaired gap
+passes 804 configured three-lane capsule samples across the new paths. Nearby
+retained main-route sweeps pass too. No population fixture lies within the site's
+130m review radius, so this does not add service/resource acceptance.
+
+Player-height images exposed an oak in flooded ground. Conservative basin
+envelopes now screen new roots and path lanes; the tree, working props and
+wagon were moved onto dry ground. Full foundation/wheel contact remains open.
+Fresh private collision clones preserve source materials and actual rendered
+LODs. A saved/reloaded copy verifies static bindings, 4987 new nonblocking grass
+transforms and 268 centreline capsule samples. An initial reload verifier
+misclassified the new grass as base foliage; the repaired adapter checks the
+inventories independently without relaxing either strict culling policy. Raw
+failed studies and logs remain private.
+
+Four configured normal-character walks cover both directions of both paths over
+243.348m with zero airborne travel, jumps or in-route teleports. Six native
+player-height views, eight actual gameplay-camera captures and one labeled source
+drawing are embedded in the private farmstead report. Standalone lossless PNG
+copies verify identical decoded pixels. The pictures still show smooth/sparse
+terrain, repeated surfaces and unaccepted architecture. These checks do not
+certify the intended look, entertaining battles, interiors or ordinary entry/GM.
+
+Additional navigation and authoritative scenery registration remain unaccepted.
+Retain full contact/interiors, first-pair lairs/underground, later native zones,
+visual approval, real vehicle/turning/gate/siege and 18v18 play, services, ordinary
+GM persistence/recovery, live authority/streaming/network/audio, licensing,
+performance/platform/Steam and release gates. Next: qualify worksite contact and
+navigation, then improve the enclosing geology and field/grove composition using
+this saved section for consistent comparisons.
+
+Required repository checks pass: 1197 tests in 191 files, 566 Unreal tooling
+tests in 108 files, all three typechecks, migration audit and world/model
+validation. Strict release correctly exits 1. No C++ changed; prior 186 Python
+tests remain retained evidence, not a rerun in this checkpoint. An additional
+source-only four-wheel bottom/pivot diagnostic finds up to 24.69cm of vertical
+contact error on the parked wagon. Its pose needs correction and actual native
+contact checks before that detail can be accepted.
