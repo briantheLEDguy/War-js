@@ -1,12 +1,12 @@
 """Deterministic Sunmeadow understorey studies; cosmetic planting preserves travel and service reserves."""
-import math
+import copy,heapq,math
 from t1_landscape_ecology import inside, random_unit, segment_distance
 from t1_habitat_surface import habitat_masks
 
 PLANTS=('SM_Grass_01','SM_Grass_Long_01','SM_Fern_01','SM_White_Oak_Sapling_01')
 
 
-def understorey_layout(source,height_cm,pockets,meadow,canopies):
+def understorey_layout(source,height_cm,pockets,meadow,canopies,with_report=False):
     if source['id']!='sunmeadow_march' or len(meadow)>12000 or len(canopies)>500:
         raise ValueError('Understorey requires a bounded Sunmeadow ecology study')
     outline=source['spatial']['playableOutline'];terrain=source['orvrLayout']['terrain']
@@ -48,5 +48,23 @@ def understorey_layout(source,height_cm,pockets,meadow,canopies):
             scale=(.5+random_unit(index,sample,229)*.6) if plant=='SM_Fern_01' else (.85+random_unit(index,sample,229)*.9)
             result[plant].append(dict(location=[z*100,x*100,y],yaw=random_unit(index,sample,233)*360,scale=scale,shade=shade))
             occupied.setdefault(cell,[]).append((x,z))
-    if sum(len(v) for v in result.values())>24000:raise ValueError('Understorey exceeds the native study budget')
-    return result
+    result,budget=budget_understorey(result)
+    return (result,budget) if with_report else result
+
+
+def budget_understorey(layout,limit=24000):
+    # Stable species quotas retain the route exclusions of the admitted input layout.
+    if set(layout)!=set(PLANTS) or isinstance(limit,bool) or not isinstance(limit,int) or not 64<=limit<=24000:raise ValueError('Invalid understorey budget')
+    total=sum(map(len,layout.values()))
+    if total>60000:raise ValueError('Understorey authoring inventory exceeds admission')
+    for rows in layout.values():
+        for row in rows:
+            if len(row['location'])!=3 or any(not math.isfinite(v) for v in row['location']):raise ValueError('Invalid understorey budget location')
+    if total<=limit:return copy.deepcopy(layout),dict(candidates=total,retained=total,limit=limit,thinned=0)
+    exact={name:len(rows)*limit/total for name,rows in layout.items()};quotas={name:math.floor(n) for name,n in exact.items()}
+    for name in sorted(PLANTS,key=lambda name:(-(exact[name]-quotas[name]),name))[:limit-sum(quotas.values())]:quotas[name]+=1
+    result={}
+    for name,rows in layout.items():
+        selected=set(heapq.nsmallest(quotas[name],range(len(rows)),key=lambda i:(random_unit(rows[i]['location'][1]/100,rows[i]['location'][0]/100,257),*rows[i]['location'])))
+        result[name]=[copy.deepcopy(row) for i,row in enumerate(rows) if i in selected]
+    return result,dict(candidates=total,retained=limit,limit=limit,thinned=total-limit,speciesQuotas=quotas)

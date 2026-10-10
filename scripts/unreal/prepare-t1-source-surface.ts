@@ -4,12 +4,13 @@ import path from 'node:path';
 import type {ZoneDefinition} from '../../shared/world/ZoneDefinition';
 import {createOrvrGridHeightSampler} from '../../shared/orvrTerrain';
 import {sourceTerrainSurface} from './t1-source-surface';
+import {landformFirst} from './t1-landform-first';
 import {qualifySurfaceBake} from './t1-surface-bake';
 import {outdoorTerrain,outdoorRoads} from './world-portals';
 import {canonicalJson,sha256} from './content-contract';
 import {repoRoot,isMain} from './toolchain';
 
-export function prepareSourceSurface(parentRevision?:string,bakeRevision?:string,supportParent?:string):void {
+export function prepareSourceSurface(parentRevision?:string,bakeRevision?:string,supportParent?:string,terrainFirst=false):void {
  const base=path.join(repoRoot,'artifacts/unreal/t1-redesign');
  if(parentRevision&&!/^[a-f0-9]{12}$/.test(parentRevision))throw new Error('Invalid qualified surface parent');
  const bytes=readFileSync(parentRevision?path.join(base,'battlefield',parentRevision,'source.json'):path.join(base,'battlefield-source-latest.json'));
@@ -42,10 +43,16 @@ export function prepareSourceSurface(parentRevision?:string,bakeRevision?:string
   if(sha256(readFileSync(path.join(repoRoot,file)))!==digest)throw new Error('Retained native approach package changed');inputs[file]=digest;
  }
  const support=native.zones[0].population.map((p:{id:string;approach:number[][]})=>({id:p.id+'_retained_support',width:4,points:p.approach.map(a=>({x:a[1]/100,z:a[0]/100}))}));
- const study=sourceTerrainSurface(read(parent.directory+'/sunmeadow_march.json'),surface,apron,support);
+ const original=read(parent.directory+'/sunmeadow_march.json');
+ const keepFrames=terrainFirst?original.props.filter((p:{id?:string})=>original.orvrLayout.keeps.some((k:{objectiveId:string})=>p.id?.startsWith(k.objectiveId+'_'))).flatMap((p:{id:string})=>{
+  const state=native.zones[0].actorInventory[p.id];
+  if(!state){if(!original.orvrLayout.keeps.some((k:{gates:Array<{propId:string}>;postern?:{propId:string}})=>k.gates.some(g=>g.propId===p.id)||k.postern&&[k.postern.propId,k.postern.propId.replace(/_outside$/,'_inside')].includes(p.id)))throw new Error('Retained keep prop lacks its qualified native frame');return [];}
+  return [{id:p.id,x:state.location[1]/100,z:state.location[0]/100,y:state.location[2]/100}];
+ }):[];
+ const study=terrainFirst?landformFirst(original,surface,{pockets:read(parent.directory+'/sunmeadow_march_pockets.json'),support,keepFrames,links:read(parent.directory+'/sunmeadow_march_links.json')}):sourceTerrainSurface(original,surface,apron,support);
  const zones:ZoneDefinition[]=[study.zone,read(parent.directory+'/cinderfen_outskirts.json')];
  const pockets=Object.fromEntries(zones.map(z=>{
-  const rows=read(parent.directory+'/'+z.id+'_pockets.json');
+  const rows=terrainFirst&&z.id===study.zone.id&&'pockets' in study?study.pockets:read(parent.directory+'/'+z.id+'_pockets.json');
   const height=createOrvrGridHeightSampler(z.orvrLayout!.terrain,z.size,z.segments,z.spatial);
   for(const p of rows) {
    const corridor=z.orvrLayout!.terrain.clearCorridors.find(c=>c.id===p.id+'_approach');
@@ -55,7 +62,11 @@ export function prepareSourceSurface(parentRevision?:string,bakeRevision?:string
   }
   return [z.id,rows];
  }));
- const links=Object.fromEntries(zones.map(z=>[z.id,read(parent.directory+'/'+z.id+'_links.json')]));
+ const links=Object.fromEntries(zones.map(z=>{
+  const rows=terrainFirst&&z.id===study.zone.id&&'links' in study?study.links:read(parent.directory+'/'+z.id+'_links.json');
+  if(terrainFirst&&z.id===study.zone.id){const height=createOrvrGridHeightSampler(z.orvrLayout!.terrain,z.size,z.segments,z.spatial);for(const link of rows)for(const p of link.points)p.y=height(p.x,p.z);}
+  return [z.id,rows];
+ }));
  const maps:ZoneDefinition[]=read('artifacts/unreal/t1-redesign/plan.json').zones.map((z:{id:string})=>read(parent.directory+'/maps/'+z.id+'.json'));
  for(const z of zones)maps[maps.findIndex(m=>m.id===z.id)]=z;
  for(const z of maps)for(const trigger of z.zoneTriggers??[]) {
@@ -64,6 +75,7 @@ export function prepareSourceSurface(parentRevision?:string,bakeRevision?:string
   if(!reciprocal?.arrivalPoint)throw new Error('Surface lacks a reciprocal arrival');trigger.targetSpawn={...reciprocal.arrivalPoint};
  }
  for(const file of ['shared/terrainField.ts','shared/terrainSurface.ts','scripts/unreal/t1-source-surface.ts','scripts/unreal/t1-surface-bake.ts','scripts/unreal/prepare-t1-source-surface.ts'])inputs[file]=sha256(readFileSync(path.join(repoRoot,file)));
+ if(terrainFirst)for(const file of ['scripts/unreal/t1-grade-network.ts','scripts/unreal/t1-landform-first.ts','scripts/unreal/t1-pocket-grounding.ts','scripts/unreal/t1-route-reserves.ts'])inputs[file]=sha256(readFileSync(path.join(repoRoot,file)));
  const signature=sha256(canonicalJson({parent:parent.signature,inputs,zones,pockets,links,surface:study.zone.orvrLayout!.terrain.naturalField!.surface}));
  const directory=path.join(base,'battlefield',signature.slice(0,12));
  if(existsSync(directory))throw new Error('Preserve existing surface revision');mkdirSync(path.join(directory,'maps'),{recursive:true});
@@ -74,8 +86,8 @@ export function prepareSourceSurface(parentRevision?:string,bakeRevision?:string
  }
  for(const z of maps)save('maps/'+z.id+'.json',z);
  const rows=parent.zones.map((row:{zone:string})=>row.zone===study.zone.id?{zone:row.zone,maximumGrade:Math.max(...study.grades.map(g=>g.maximumGrade)),routeGrades:study.grades,absoluteSurfaceSamples:surface.samples.length,supportRoutes:support.length,supportGrades:study.supportGrades,appearanceApproved:false,drivingAccepted:false}:row);
- const receipt={...parent,signature,directory:path.relative(repoRoot,directory).replaceAll('\\','/'),parentTerrain:parent.signature,study:'absolute-landform-surface',previousFieldSha256,inputs,files,zones:rows,bakeFile,groundingApronMetres:apron,retainedNativeApproachParent:native.signature,routeCoordinatesChanged:false,terrainChanged:true,nativeBuilt:false,activeMapsChanged:false,appearanceApproved:false};
+ const receipt={...parent,signature,directory:path.relative(repoRoot,directory).replaceAll('\\','/'),parentTerrain:parent.signature,study:terrainFirst?'terrain-first-landform':'absolute-landform-surface',previousFieldSha256,inputs,files,zones:rows,bakeFile,groundingApronMetres:apron,retainedNativeApproachParent:native.signature,retainedNativeKeepPropFrames:keepFrames.length,terrainFirstGrading:'network' in study?study.network:undefined,basins:'basins' in study?study.basins:undefined,routeCoordinatesChanged:terrainFirst,terrainChanged:true,nativeBuilt:false,activeMapsChanged:false,appearanceApproved:false};
  writeFileSync(path.join(directory,'source.json'),canonicalJson(receipt));writeFileSync(path.join(base,'battlefield-source-latest.json'),canonicalJson(receipt));
  console.log(JSON.stringify({signature:signature.slice(0,12),maximumGrade:rows[0].maximumGrade,nativeBuilt:false}));
 }
-if(isMain(import.meta.url))prepareSourceSurface(process.argv.find(a=>a.startsWith('--parent='))?.slice(9),process.argv.find(a=>a.startsWith('--bake='))?.slice(7),process.argv.find(a=>a.startsWith('--support-parent='))?.slice(17));
+if(isMain(import.meta.url))prepareSourceSurface(process.argv.find(a=>a.startsWith('--parent='))?.slice(9),process.argv.find(a=>a.startsWith('--bake='))?.slice(7),process.argv.find(a=>a.startsWith('--support-parent='))?.slice(17),process.argv.includes('--terrain-first'));

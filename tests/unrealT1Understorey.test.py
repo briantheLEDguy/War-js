@@ -1,7 +1,7 @@
 import copy,math,sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_understorey import understorey_layout,PLANTS
+from t1_understorey import understorey_layout,PLANTS,budget_understorey
 
 class UnderstoreyTests(unittest.TestCase):
  def fixture(self):
@@ -21,6 +21,17 @@ class UnderstoreyTests(unittest.TestCase):
   for height,pockets in [(lambda x,z:0,water),(lambda x,z:x*50,[])]:self.assertEqual(sum(map(len,understorey_layout(s,height,pockets,m,c).values())),0)
   s['orvrLayout']['terrain']['flattenAreas']=[dict(id='objective',x=0,z=0,radius=200,preserveFooting=True)]
   self.assertEqual(sum(map(len,understorey_layout(s,lambda x,z:0,[],m,c).values())),0)
+ def test_budget_retains_species_ratios_and_is_independent_of_traversal_order(self):
+  layout={name:[dict(location=[i*117.3,index*913.7,0],yaw=i,scale=1,shade=True) for i in range(count)] for index,(name,count) in enumerate(zip(PLANTS,[600,300,180,60]))};before=copy.deepcopy(layout)
+  result,report=budget_understorey(layout,128)
+  self.assertEqual(layout,before);self.assertEqual(sum(map(len,result.values())),128);self.assertEqual(report['thinned'],1012)
+  reverse,_=budget_understorey({k:list(reversed(v)) for k,v in layout.items()},128)
+  for name in PLANTS:
+   self.assertEqual(sorted(r['location'] for r in result[name]),sorted(r['location'] for r in reverse[name]))
+   self.assertLessEqual(abs(len(result[name])-len(layout[name])*128/1140),1)
+  retained,_=budget_understorey(result,128);self.assertEqual(retained,result);retained[PLANTS[0]][0]['scale']=99;self.assertNotEqual(retained,result)
+  for bad in [63,24001,True]:
+   with self.assertRaises(ValueError):budget_understorey(layout,bad)
  def test_invalid_region_seeds_and_nonfinite_footing_fail(self):
   s,m,c=self.fixture()
   with self.assertRaises(ValueError):understorey_layout({**s,'id':'cinderfen_outskirts'},lambda x,z:0,[],m,c)

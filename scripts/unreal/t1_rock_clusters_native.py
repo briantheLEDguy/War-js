@@ -3,6 +3,7 @@ import copy,hashlib,json,struct
 import unreal
 from t1_rock_clusters import NAMES,rock_clusters
 from t1_rock_contact import rock_contact
+from t1_habitat_palette import installed_rock_palette
 
 TAG='WarT1PrivateInstalledRockCluster'
 f32=lambda x:struct.unpack('<f',struct.pack('<f',x))[0]
@@ -48,6 +49,13 @@ def adapt_rock_clusters(assets,identity,states,placements,sources,height_cm):
                     if parameter not in names:raise RuntimeError('Missing inspected rock depth-offset parameter')
                     unreal.MaterialEditingLibrary.set_material_instance_scalar_parameter_value(adapted,parameter,0)
                     if unreal.MaterialEditingLibrary.get_material_instance_scalar_parameter_value(adapted,parameter)!=0:raise RuntimeError('Cannot align rendered rock and triangle collision')
+                if identity=='cinderfen_outskirts':
+                    lib=unreal.MaterialEditingLibrary
+                    if 'Base_Color_Tint' not in set(map(str,lib.get_vector_parameter_names(original))) or 'Base_Color_Desaturation' not in names:raise RuntimeError('Missing inspected regional rock colour parameters')
+                    old=lib.get_material_instance_vector_parameter_value(original,'Base_Color_Tint');palette=installed_rock_palette(identity,[old.r,old.g,old.b,old.a])
+                    lib.set_material_instance_vector_parameter_value(adapted,'Base_Color_Tint',unreal.LinearColor(*palette['tint']));lib.set_material_instance_scalar_parameter_value(adapted,'Base_Color_Desaturation',palette['desaturation'])
+                    observed=lib.get_material_instance_vector_parameter_value(adapted,'Base_Color_Tint')
+                    if any(abs(a-b)>1e-6 for a,b in zip([observed.r,observed.g,observed.b,observed.a],palette['tint'])) or abs(lib.get_material_instance_scalar_parameter_value(adapted,'Base_Color_Desaturation')-palette['desaturation'])>1e-6:raise RuntimeError('Regional rock colour differs from bounded palette')
                 if not unreal.EditorAssetLibrary.save_loaded_asset(adapted,only_if_is_dirty=False):raise RuntimeError('Cannot save fresh rock material')
                 materials[path]=adapted
             clone.set_material(i,materials[path])
@@ -59,7 +67,7 @@ def adapt_rock_clusters(assets,identity,states,placements,sources,height_cm):
         original_screens,adapted_screens=list(editor.get_lod_screen_sizes(mesh)),list(editor.get_lod_screen_sizes(clone))
         if original_geometry!=adapted_geometry or clone.get_num_lods()!=4 or original_screens!=adapted_screens:raise RuntimeError('Rock adaptation differs: '+json.dumps(dict(name=name,originalGeometry=original_geometry,adaptedGeometry=adapted_geometry,lods=clone.get_num_lods(),originalScreens=original_screens,adaptedScreens=adapted_screens)))
         native[name]=clone;meshes[name]=dict(boundsOrigin=source['boundsOrigin'],boundsExtent=source['boundsExtent'],positions=surface_vertices(clone))
-        proofs.append(dict(source=mesh.get_path_name(),adapted=clone.get_path_name(),geometrySha256=geometry(clone),lods=4,lodScreenSizes=original_screens,collisionTraceFlag='CTF_USE_COMPLEX_AS_SIMPLE',pixelDepthOffsetCm=0))
+        proofs.append(dict(source=mesh.get_path_name(),adapted=clone.get_path_name(),geometrySha256=geometry(clone),lods=4,lodScreenSizes=original_screens,collisionTraceFlag='CTF_USE_COMPLEX_AS_SIMPLE',pixelDepthOffsetCm=0,regionalTintFactor=.35 if identity=='cinderfen_outskirts' else 1,regionalDesaturation=.35 if identity=='cinderfen_outskirts' else None))
     result=copy.deepcopy(states);layout=rock_clusters(placements,meshes,height_cm)
     for label in layout['replacedIds']:
         if label not in result:raise RuntimeError('Rock parent identity missing')

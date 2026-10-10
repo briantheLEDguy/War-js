@@ -1384,3 +1384,27 @@ physical driving, combat, additive collision synchronization or performance.
 First-batch full-lair, ordinary GM persistence, the earlier Cinderfen recovery
 repeatability failure, live/network/audio, platform/Steam and release gates remain
 open. Later native pairs and full underground remain unbuilt.
+
+
+### Terrain-first T1 authoring checkpoint
+
+`scripts/unreal/t1-grade-network.ts` grades shared route junctions and foundations
+against private full-height landforms; `t1-landform-first.ts` coordinates complete
+military elevations, qualified keep prop frames, full-width grades and retained
+population approaches. `t1-pocket-grounding.ts` reconciles closed shallow pools;
+`t1-route-reserves.ts` detours explicit exploration paths around shelters so
+scenery and walking checks share their reservations. `t1_habitat_palette.py`
+provides soft dry-soil variation and private darker Cinderfen rock adaptation.
+Understorey thinning preserves the existing 24000-instance admission limit.
+
+Private source `bceed4031308`, scene `4f514cc02cc3`, nav `21d93d390a99` and safe
+walkthrough `ba81710cca60` pass 114 phase/weather views, 150 native walks, 92
+navigation queries before save/reload, two isolated entry/local-GM fixtures and
+twelve pocket gameplay-camera views. Repository 1181/187, Unreal 550/104, Python
+158/40, three typechecks, audit and world/model validation pass; strict release
+exits 1. No C++ changed; builds and 151 Foundation tests remain prior evidence.
+Owner/source/capital preservation is verified; the live owner server is untouched.
+Empty horizons, uniform roads, sparse fields and Cinderfen landforms remain weak.
+Appearance, full lairs/underground/later native pairs, driving/closed gates/18v18,
+ordinary GM persistence, earlier Cinderfen recovery repeatability, live/additive
+collision, network/audio, performance, platform/Steam and release remain open.

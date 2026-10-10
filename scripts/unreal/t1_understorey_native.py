@@ -28,7 +28,7 @@ def spawn_understorey(actors,identity,source,height_cm,pockets,meadow,states,sou
     if identity!='sunmeadow_march':return dict(instances={},localCosmetic=True,appearanceApproved=False)
     # Canopies have their own stable study tag; cosmetic plants use a separate batch tag.
     canopies=[s for s in states.values() if 'WarT1PrivateInstalledNatureStudy' in s.get('tags',[])]
-    layout=understorey_layout(source,height_cm,pockets,meadow,canopies);counts={}
+    layout,budget=understorey_layout(source,height_cm,pockets,meadow,canopies,with_report=True);counts={}
     for name,rows in layout.items():
         if not rows:continue
         mesh=unreal.load_asset(sources[name]['path'])
@@ -41,4 +41,4 @@ def spawn_understorey(actors,identity,source,height_cm,pockets,meadow,states,sou
         if not actor.configure(mesh,transforms):raise RuntimeError('Native understorey rejects bounded instance layout')
         if actor.details.get_collision_enabled()!=unreal.CollisionEnabled.NO_COLLISION:raise RuntimeError('Understorey must remain nonblocking')
         counts[name]=len(rows)
-    return dict(instances=counts,localCosmetic=True,collision='NoCollision',licenseReviewed=False,distributionApproved=False,appearanceApproved=False,performanceAccepted=False)
+    return dict(instances=counts,budget=budget,localCosmetic=True,collision='NoCollision',licenseReviewed=False,distributionApproved=False,appearanceApproved=False,performanceAccepted=False)

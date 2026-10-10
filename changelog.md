@@ -2361,3 +2361,23 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   persistence, earlier Cinderfen recovery repeatability, live authority/additive
   collision, network/audio, performance, platform/Steam and release gates remain
   unaccepted.
+
+
+### 2026-10-10 - Terrain-first T1 route and habitat iteration
+
+- Grade Sunmeadow route junctions and foundations against private full-height
+  landforms; retain complete keep translations and ninety qualified source prop
+  frames. Reconcile closed shallow pools and retained population approaches.
+- Promote three exploration links to explicit dirt paths and scenery reserves.
+  Detour the eastern counterroute after real walking exposed a shelter pier
+  collision. Movement criteria remain unchanged; all 150 native routes now pass.
+- Add soft dry-soil habitat variation and private darker Cinderfen rock materials.
+  Deterministically thin planting within the existing 24000-instance limit.
+- Verify native 114 phase/weather views, 92 navigation queries before save/reload,
+  two isolated entry/GM fixtures and twelve pocket camera views. Repository
+  1181/187, Unreal 550/104, Python 158/40, three typechecks, audit and world/model
+  validation pass; strict release exits 1. Owner/capital/source preservation holds.
+- Keep appearance, full lairs/underground/later native pairs, actual driving and
+  closed gates, 18v18, ordinary GM persistence, earlier Cinderfen recovery
+  repeatability, live/additive collision, network/audio, performance, platform,
+  Steam and release gates open. Distant mountain studies remain unsaved prototypes.

@@ -1,6 +1,7 @@
 """Exact privately staged ground channels and a fresh native forest-floor material; no source edits."""
 import json
 import unreal
+from t1_habitat_palette import HABITAT,NOISE_HLSL,habitat_hlsl
 from t1_materials import sha
 from t1_forest_floor import forest_floor_mask,mask_png
 
@@ -77,6 +78,9 @@ return normalize(lerp(n,Fallback,rock));
 '''
 
 
+SHADER=SHADER.replace(' float3 sample(Texture2D T',NOISE_HLSL+' float3 sample(Texture2D T').replace('float macro=.93+.07*sin(p.x/37+sin(p.y/23));',habitat_hlsl('floorWeight')).replace('lerp(grass,forest,floorWeight*.92)*macro','lerp(grass,forest,habitatForest)*habitatMacro').replace('return lerp(colour,Fallback,rock);',f"colour=lerp(colour,Fallback,{HABITAT['regionalMix']}*(1-floorWeight));\nreturn lerp(colour,Fallback,rock);")
+NORMAL_SHADER=NORMAL_SHADER.replace(' float3 sample(Texture2D T',NOISE_HLSL+' float3 sample(Texture2D T').replace('float forestWeight=Texture2DSample(Mask,MaskSampler,maskUv).r*.92;','float canopy=Texture2DSample(Mask,MaskSampler,maskUv).r;\n'+habitat_hlsl('canopy')+'float forestWeight=habitatForest;')
+
 def forest_floor_material(assets,original,source,states,textures,base):
     if source['id']!='sunmeadow_march' or not assets.folder.startswith('/Game/WorldRebuild/T1Redesign_Atmosphere_'):
         raise RuntimeError('Forest-floor study requires a fresh private Sunmeadow scene')
@@ -116,4 +120,4 @@ def forest_floor_material(assets,original,source,states,textures,base):
     errors=lib.recompile_material(mat)
     if errors:raise RuntimeError('Forest-floor material compile failed: '+str(errors))
     if not unreal.EditorAssetLibrary.save_loaded_asset(mat,only_if_is_dirty=False):raise RuntimeError('Cannot save fresh forest-floor material')
-    return mat,dict(asset=mat.get_path_name(),mask=texture.get_path_name(),maskFile=output.relative_to(assets.root).as_posix(),maskSha256=sha(output),maskSize=[size,size],treeCount=len(trees),maskCoverage=sum(v>25 for v in mask)/len(mask),nearTileMetres=3.2,farTileMetres=7.5,farBlend=.35,matchedNormalSampling=True,shaderCompileErrors=list(errors),sourcePackagesPreserved=True,geometryAndCollisionPreserved=True,licenseReviewed=False,distributionApproved=False,appearanceApproved=False,performanceAccepted=False)
+    return mat,dict(asset=mat.get_path_name(),mask=texture.get_path_name(),maskFile=output.relative_to(assets.root).as_posix(),maskSha256=sha(output),maskSize=[size,size],treeCount=len(trees),maskCoverage=sum(v>25 for v in mask)/len(mask),nearTileMetres=3.2,farTileMetres=7.5,farBlend=.35,matchedNormalSampling=True,habitatPalette=HABITAT,extraTextureLookups=0,shaderCompileErrors=list(errors),sourcePackagesPreserved=True,geometryAndCollisionPreserved=True,licenseReviewed=False,distributionApproved=False,appearanceApproved=False,performanceAccepted=False)

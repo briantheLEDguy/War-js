@@ -1874,3 +1874,51 @@ services/resources, ordinary GM persistence, the earlier unresolved Cinderfen
 recovery-repeatability failure, live Node/additive collision, network/audio,
 performance, platform/Steam and release gates. Full underground and later native
 pairs remain unbuilt. Scripted checks do not establish enjoyable or fair combat.
+
+
+## Terrain-first habitat checkpoint (10 October 2026)
+
+Source `bceed4031308`, core `1b060443009e`, scene `4f514cc02cc3`,
+nav `21d93d390a99` and safe walkthrough `ba81710cca60` qualify a terrain-first
+Sunmeadow iteration. Routes and foundations now follow the full landform through
+`scripts/unreal/t1-grade-network.ts` and `t1-landform-first.ts`. Shared and nearby
+route constraints keep the elevation graph coherent. Complete keeps receive one
+vertical translation; ninety source keep props use qualified native parent
+frames. Eight registered gate/postern props remain unbuilt and physical gate
+behavior remains unaccepted.
+
+`t1-pocket-grounding.ts` reconciles retained shallow beds and approaches, checking
+closed cosmetic-water rims. `t1-route-reserves.ts` gives exploration links bounded
+tangent detours around shelter footprints. Three retained cross-country links
+are now explicit dirt paths and scenery reservations. The previous native run
+hit Hearthroot's rock pier on the eastern counterroute; the corrected route
+passes without relaxing movement criteria. Full-width route grade peaks at
+0.21399721; six retained population approaches peak at 0.12348266.
+
+`t1_habitat_palette.py` adds smoothly blended dry soil and broad colour variation
+with no extra forest-floor texture lookups. Private Cinderfen rock materials gain
+a darker regional adaptation with original geometry/LODs and source packages
+preserved. Planting is deterministically thinned within the existing 24000-instance
+limit after the first candidate exceeded that limit. Cinderfen source region,
+terrain, roads, pockets and links remain byte-exact to the qualified parent.
+
+Fresh native 114 phase/weather views, 150 walking routes, 92 navigation queries
+before save/reload, both isolated ordinary-entry/local-GM fixtures and twelve
+pocket follow-camera views pass. Thirteen owner documents, accepted capitals,
+source packages and parent maps remain preserved. Navigation copies have not
+separately repeated all walking routes. Repository 1181/187 files, Unreal 550/104,
+Python 158/40, three typechecks, audit and world/model validation pass; strict
+release exits 1. No C++ changed: Editor/Game builds and 151 Foundation tests are
+prior-checkpoint evidence. In-process Node admits twenty configurations and
+4575 samples match exported triangles within 0.031mm at 0.1mm tolerance; the live
+owner server is untouched. Ninety source keep frame positions match the qualified
+native parent plus assembly translation within floating-point precision.
+
+Appearance remains unfinished: empty horizons, uniform roads, sparse fields and
+Cinderfen's rounded barren terrain need further work. Exact installed mountain
+studies remain private unsaved prototypes. Preserve human appearance, first-batch
+full-lair progression, actual vehicles/turning/closed gates, 18v18, services and
+resources, ordinary GM persistence, the earlier unresolved Cinderfen recovery
+repeatability failure, live authority/additive collision, network/audio,
+performance, platform/Steam and release gates. Full underground and later native
+pairs remain unbuilt. Scripted checks do not establish enjoyable or fair combat.
