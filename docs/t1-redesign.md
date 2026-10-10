@@ -2682,3 +2682,13 @@ battlefield driving, human appearance approval, full lairs, authority integratio
 Road verge blending and sparse town detail also remain unfinished. Character
 authoring continues in its separate owner checkout; these foundations are not
 implicitly activated in the native roster by the terrain checkpoint.
+
+
+The final private walkthrough `9b8b978e47f4` passes actual ordinary frontend
+character entry, grounded arrival, local GM flight and below-terrain return.
+Proof `30d14eacf61a42809d1d999bedfad6b7` preserves 47 exact saved bindings and
+13 owner documents; its actual grounded gameplay image was inspected. This
+accepts that run only: initial wrapper `3300c329d04d` failed the grounded-entry
+check, and the difference remains unexplained. Cold-entry reproducibility is
+still open. The qualified walkthrough is launched for owner inspection, while
+all household walking, appearance and full-zone gates above remain unchanged.
