@@ -2456,3 +2456,67 @@ Preservation checks verify all 9281 originally recorded private packages and
 13 owner WorldEdit documents unchanged. `sunmeadow-yard-continuation-latest.json`
 records exact source/runtime/package hashes, failures, verification and next
 steps; compact frontage, material scale and landscape composition remain next.
+
+
+## 2026-10-10 - Compact Main Street and source rock detail
+
+A separate compact-town recipe moves seven complete frontages closer to Main
+Street, preserving all twenty uses, two furnished homes, nine streets, six rear
+working yards, the arrival courtyard and retained service identities. The new
+bounded village visibility graph resolves all connections before updating its
+caller, rejecting unreachable doors without leaving a partially rewritten plan.
+Full-width military and supply reservations are checked independently.
+
+Private saved candidate `bea914438cce_20261010_115345_233233_CompactFrontage`
+translates complete building assemblies, including the furnished home's rooms,
+lights and garden walls. Five cosmetic actors move to clear the changed
+frontages: three stalls, one bench and one oak. The main earth surface is
+reconformed to the exact terrain triangles. Only the prior cosmetic town-verge
+batches are regenerated, yielding 3763 plants. All 54754 original vegetation
+transforms, rotations, scales and culling policies remain exact; six population
+bindings and complete keep gameplay assemblies remain unchanged.
+
+A second private saved copy,
+`d91bd2a2cd72_20261010_115832_573031_RockDetail`, adapts the exact whole-rock
+Atlas_02 channels for twenty building walls. Colour, normal and RMA use the same
+UV0 factor of two. Atlas_01/03 contain fixed roof, floor or timber regions and
+are explicitly rejected. Source meshes, physics, other materials, texture
+bindings and effective parameter values remain retained. Material parent chains
+are duplicated privately; native graph readback verifies only the intended UV
+edges change. Native snapshots are still visibly unfinished: source roofs and
+gables, repeated cottage silhouettes, sparse working detail and the enclosing
+mountain surface need further work.
+
+The first material attempt fails because Unreal Python does not expose the
+customized-UV property enum; the corrected graph connects one explicit UV node
+to all three admitted texture inputs. Its saved native build passes shader-log,
+source-preservation, exact inventory and strict town ground/capsule checks before
+save and after reload, with 72588 ground queries. Twelve direct day/night scene
+captures remain private. A stale walking-receipt lookup fails before launching
+Unreal and is corrected separately. Failed artifacts remain recorded.
+
+Preserve all visual, first-pair/full-lair, underground, ordinary entry/GM,
+authoritative scenery/navigation, vehicle/gate/siege, 18v18, service/resource,
+persistence/network/audio, licensing, platform/Steam and release gates. No zone
+is finished, no active startup is replaced, and native binaries are unchanged.
+
+
+The final rock-detail map separately passes twenty-four actual normal-character
+route directions over 2392.50m: Main Street, both service lanes, courtyard link,
+both furnished-home interiors and all six other translated frontages in both
+directions. Airborne time, jumps and in-route teleports are zero. Its thirty-four
+gameplay captures and twelve day/night scene captures form a self-contained
+46-picture private report with a labeled source village drawing. Pixel transport
+is lossless. `sunmeadow-compact-progress-latest.json` identifies the report;
+`sunmeadow-compact-continuation-latest.json` binds exact package/runtime/source
+hashes, failures, preservation and verification to that same map.
+
+Required verification passes: 1216 repository tests in 196 files, 585 Unreal
+tooling tests in 113 files, all three typechecks, migration audit and world/model
+validation. Strict release correctly exits 1 with readiness false. All 9281
+original private packages and thirteen owner documents remain byte-identical.
+Unchanged binaries retain earlier 152-success Foundation evidence; no new C++
+build or Foundation run is claimed here. Walking captures are 888x500 at actual
+authoritative daytime and weather strength 0.28, and do not establish a platform
+budget, network synchronization, sound approval or resolution of the previous
+night VSM warning. Landscape and town appearance remain unaccepted.

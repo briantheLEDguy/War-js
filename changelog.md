@@ -1,3 +1,22 @@
+## 2026-10-10 - Compact Sunmeadow frontages and coherent stone channels
+
+- Add an opt-in seven-frontage town revision and transactional bounded door
+  connections, retaining twenty uses, two furnished homes, six working yards,
+  services, arrival court and full military/supply reservations.
+- Duplicate private material chains to scale only admitted whole-rock colour,
+  normal and RMA channels together. Preserve fixed-feature mixed atlases,
+  original meshes, collision, unrelated parameters and source packages.
+- Save isolated native copies, verify full town clearance after reload and
+  retain direct day/night pictures. Town and landscape composition remain
+  unfinished; ordinary launch, authority, vehicles and release stay unaccepted.
+
+Compact checkpoint: 24 normal-character directions over 2392.50m pass with no
+airborne travel, jumps or in-route teleports. The private report embeds 46 native
+pictures and a labeled source plan. Repository 1216/196 and Unreal tooling
+585/113 pass, as do three typechecks, audit and world/model validation; release
+remains blocked. All 9281 original private packages and thirteen owner documents
+remain exact. No zone is finished or promoted.
+
 ## 2026-10-10 - T1 ground moonlight and Sunmeadow town/fort prototypes
 
 - Add a local shadow-casting moon that fades with the authoritative day/night

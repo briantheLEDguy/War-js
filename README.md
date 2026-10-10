@@ -1498,3 +1498,16 @@ approaches, services and the arrival court. Private native yard copies verify
 soft earth triangles, source mesh LOD/material preservation and collision both
 before saving and after reload; they remain separate from ordinary launch.
 See `docs/t1-redesign.md` for current native evidence and unfinished gates.
+
+
+`scripts/unreal/sunmeadow-compact-town.ts` adds a separate seven-frontage
+translation study around the existing Main Street. Its reusable bounded
+`village-street-connections.ts` visibility graph resolves all door approaches
+before updating a caller. Twenty building uses, two furnished homes, six working
+yards, nine streets, services and military/supply widths remain reserved.
+`t1_building_materials.py` privately duplicates material parent chains and
+coherently scales only an exactly admitted continuous rock atlas; mixed timber,
+roof and window atlases retain source coordinates. Saved native copies pass
+strict town collision checks after reload. Appearance, ordinary launch/GM,
+authority, driving and the existing release gates remain open; see
+`docs/t1-redesign.md` for exact candidate and walking evidence.
