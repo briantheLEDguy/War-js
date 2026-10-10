@@ -2390,3 +2390,69 @@ full-suite totals above are retained rather than presented as a new full run.
 The night walk averages 59.91 frames/s in its capped, 888x500 diagnostic window;
 this excludes proper GPU percentiles, required-resolution/platform memory and
 multiplayer load, so it does not close any performance gate.
+
+
+### Sunmeadow working yards: saved collision and soft ground
+
+The next opt-in source plan is `scripts/unreal/sunmeadow-town-yards.ts`. Six
+working/domestic spaces belong to the furnished household, forge, granary,
+joinery, stable and warehouse. Twenty-eight reviewed kit props and six low
+backing-wall segments give them different uses. Source validation reserves
+all town and retained military/supply widths, door approaches, interaction
+points and the arrival courtyard. The original town helper and campaign source
+are unchanged. Five new focused behavior tests cover immutable/deterministic
+output, circulation obstructions, wall placement, bounds and regional scope.
+
+Private source `a20ffca608c9` retains the complete saved town/fort copy and adds
+triangle-conformed feathered earth, 18 stone wall instances and 3513 cosmetic
+meadow instances. The final native tool `build-sunmeadow-yards-v7.py` verifies
+all original 54754 vegetation transforms/cull policies, six population bindings,
+162 source packages, source prop geometry/materials/LOD thresholds and exact
+saved/reloaded bindings. Every new yard centre, nine full-width town streets,
+twenty door approaches and retained services passes strict support/capsule
+checks before save and after reload. Retained military/supply checks remain
+new-detail-only and do not qualify gates, siege or driving.
+
+The saved-reload check exposes two inherited decorative obstructions in the
+previous fort candidate: `sunmeadow_town_yard_SM_Bench_3` at the west service
+lane and `sunmeadow_town_yard_SM_Market_Stall_0` at the general-shop diagonal
+approach. Only the new private copy moves them to sheltered open positions.
+The prior candidate's broad clearance claim is therefore insufficient for
+those two locations; actual saved physics must be rechecked after reload.
+An earlier yard prototype passes sixteen normal-character route directions
+over 725.46m, including all six yard connections and both repaired circulation
+routes, with thirty direct gameplay captures. The final meadow copy is checked
+separately; do not transfer walking acceptance across map hashes.
+
+Native pictures confirm readable ground at night and softer worn-earth edges.
+The settlement remains too sparse; stone/roof texture scale, repeated building
+silhouettes, enclosing terrain and believable working clutter need further
+iteration. Meadow distribution deliberately preserves movement/service margins
+and does not yet solve every bare green. The previous VSM marking overflow
+remains an unresolved performance observation. Preserve all regional visual,
+first-pair/full-lair, underground, ordinary entry/GM, authoritative scenery/nav,
+vehicle/gate/siege, 18v18, service/persistence/network/audio, licensing, platform,
+Steam and release gates. No zone is finished and no active startup is promoted.
+
+The final meadow copy at `20261010_112803_806955` separately passes sixteen
+normal-character route directions over 725.41m with thirty gameplay captures.
+Its fourteen player-height day/night scene captures and labeled source village
+drawing form a self-contained private report with 44 native pictures. Transport
+recompression verifies identical decoded pixels, avoiding external image links.
+`sunmeadow-yard-progress-latest.json` points to that report. Final native and
+walking receipts are `sunmeadow-yards-native-latest.json` and
+`sunmeadow-yard-gameplay-latest.json`; the earlier no-meadow walk remains
+separately recorded. All outstanding gates above remain open.
+
+Verification for this pass: 1211 repository tests in 194 files and 580 Unreal
+tooling tests in 111 files pass. All three typechecks, migration audit and
+world/model validation pass; strict release remains blocked with exit 1.
+Unchanged native binaries retain the preceding 152-success Foundation evidence;
+this source/asset pass does not claim a new C++ build or Foundation run.
+The final daytime walk has zero airborne time, jumps and in-route teleports,
+and no VSM overflow warning in that log. It does not reproduce or resolve the
+earlier night warning, and its capped 888x500 window is not a platform budget.
+Preservation checks verify all 9281 originally recorded private packages and
+13 owner WorldEdit documents unchanged. `sunmeadow-yard-continuation-latest.json`
+records exact source/runtime/package hashes, failures, verification and next
+steps; compact frontage, material scale and landscape composition remain next.

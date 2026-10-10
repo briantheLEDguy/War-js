@@ -1489,3 +1489,12 @@ moon provides readable night terrain without illuminating the atmosphere;
 native Editor/game builds and Foundation tests pass. Town/fort appearance,
 ordinary launch/GM, full navigation, authority, driving, multiplayer and release
 remain unaccepted. See `docs/t1-redesign.md` for exact evidence and retained gates.
+
+
+`scripts/unreal/sunmeadow-town-yards.ts` adds an opt-in six-yard authoring plan
+for household, forge, harvest, joinery, stable and warehouse uses. Reviewed
+props and low backing walls reserve full town/military/supply widths, door
+approaches, services and the arrival court. Private native yard copies verify
+soft earth triangles, source mesh LOD/material preservation and collision both
+before saving and after reload; they remain separate from ordinary launch.
+See `docs/t1-redesign.md` for current native evidence and unfinished gates.

@@ -2477,3 +2477,12 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
 - Fixed authored counter-climb connectors that depended on unstable resampled waypoint indices. Added bounded, tested resting-scene adaptation for reviewed hierarchical props, with an exact native parked-wagon study. A separate connected-spur candidate passes 150 walking routes and regional ground/light/weather checks; active scenes and all unfinished acceptance gates remain retained.
 
 - Added opt-in small-fold terrain authoring with bounded source sampling, protected rendered-terrain seams, immutable zero-strength output and five focused regressions; retained private native/village studies and all acceptance gates.
+
+
+- Added a separate Sunmeadow working-yard recipe with six useful courts, bounded
+  prop inventories, low stone backing walls and circulation validation. Private
+  native studies add feathered earth and irregular meadow verges. Saved-reload
+  checks uncover and repair a retained bench/lane and stall/shop obstruction in
+  the new copy only; accepted capitals, original packages and active startup stay
+  unchanged. Regional appearance and ordinary gameplay/release acceptance remain
+  open.
