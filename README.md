@@ -782,6 +782,12 @@ source geometry; long benches may turn within their measured footprints while
 keeping bed axes fixed. This does not grant collision or movement acceptance.
 See [T1 implementation](docs/t1-redesign.md) for candidate limitations.
 
+Opt-in `scripts/unreal/village-street-network.ts` joins short door accesses to
+actual street topology, with optional centre/edge grade and cross-slope checks.
+It preserves the current native review; the owner rejected its housing seams,
+landscape transitions, empty areas and grid layout. Those visual repairs remain
+open and are tracked in `docs/t1-redesign.md`.
+
 Sunmeadow owner-review checkpoint `a08ae2cf4241` freezes furnished source houses
 and repaired floors for private inspection. Repository tests (1218), Unreal
 tooling tests (587), three typechecks, migration audit and world/model validation

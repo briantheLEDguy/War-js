@@ -1,3 +1,15 @@
+## 2026-10-10 - Owner review feedback and shared street topology
+
+- Record the owner rejection of housing seams, abrupt mountain transitions, empty
+  space and the grid village; preserve the open native review and existing gates.
+- Add an opt-in shared street graph with short door accesses, real intersections
+  and unreachable-lane rejection. Optional ground sampling checks centre/edges,
+  gentle longitudinal grades and cross slope. Native integration remains pending.
+- Prepare a private terrain-led valley-town source study with winding streets,
+  unequal building elevations and a labeled drawing; native reconstruction is pending.
+- Add focused behavior coverage and retain read-only private facade diagnostics.
+  These source changes do not claim repaired houses or a completed town layout.
+
 ## 2026-10-10 - Grounded candidate assemblies and overlay corner safety
 
 - Add transactional vertical plans for complete native town/keep namespaces and

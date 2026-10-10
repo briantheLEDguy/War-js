@@ -2692,3 +2692,87 @@ accepts that run only: initial wrapper `3300c329d04d` failed the grounded-entry
 check, and the difference remains unexplained. Cold-entry reproducibility is
 still open. The qualified walkthrough is launched for owner inspection, while
 all household walking, appearance and full-zone gates above remain unchanged.
+
+
+### Owner inspection rejection and corrective source work
+
+The owner rejects the furnished prototype visually: visible housing gaps, abrupt
+mountain/grass contacts, empty terrain without gameplay purpose and an unnatural
+grid village. Earlier static ground, movement or entry passes do not override
+this feedback. The open review scene, owner drafts and capital packages are
+unchanged; the overnight heartbeat stays paused during inspection.
+
+`village-street-network.ts` provides opt-in circulation for the next candidate.
+Short door accesses join a shared graph of declared streets, including actual
+intersections and T-junctions. Door nodes cannot become shortcuts across yards.
+Disconnected lanes fail rather than drawing a new shortcut. Optional terrain
+sampling rejects nonfinite ground, longitudinal grades and cross slopes above
+12 percent along the centre and both edges. Its output grants no native traversal
+acceptance. Four behavior tests cover real twenty-lot Sunmeadow routing, retained
+identities, unreachable lanes, steep shoulders, obstruction and bounded inputs.
+Existing lot coordinates and roads are deliberately retained in this first source
+correction; it does not establish a natural settlement layout or alter the game.
+
+Read-only native scans use actual facade planes on all five imported houses,
+plus the two older furnished shells. The first whole-mesh-bounds scan includes
+exterior furniture and is superseded by wall-plane scans. The three instances
+of source variant 09 show uncovered collision bands above their front walls;
+rendered LODs, masked materials and the full enclosed shell still require review.
+This variant remains unqualified for inhabited housing until rebuilt or replaced.
+No collider result alone certifies the visible roof/wall seam.
+
+The corrective art pass must rebuild complete house shells with measured wall,
+gable, roof, floor and trim joints while retaining intentional door/window holes.
+The village should grow around one bending through-road, a market widening,
+short household accesses and shared delivery yards. Back lanes serve real lots
+and connect where traffic requires them; avoid a repeated cross-street grid.
+Foothills need a connected transition of weathered rock, scree, exposed soil and
+grass, shaped by slope and drainage rather than a hard green edge.
+
+Retain clear open RvR space deliberately: fields carry convoy interception and
+large fights; groves screen rotations; a ford or mill approach narrows a push;
+quarry shelves provide contestable overlooks and counterclimbs. Orchards, farm
+yards, a modest woodland worksite and a safe optional cellar branch should give
+exploration identifiable destinations. These are next-candidate authoring goals,
+not new quest rules, relocated live objectives or completed environments.
+
+
+The owner further rejects roads made from straight runs on flat ground. The next
+settlement must be terrain-led: a shallow winding valley, unequal slopes, small
+terraces and hollows precede road and lot placement. Main Street should follow
+the easier contour, widening at the market and curving around a low knoll. Short
+branching lanes reach homes and shared working yards on different elevations.
+Do not substitute decorative bends on the same level platform.
+
+The current landform recipe explicitly equalizes village, arrival and household
+pad heights. Its native-bound source has a 95m village pad with a 120m feather,
+and twenty household pads each with 72m feathers at the same 44.745m elevation.
+These overlapping controls explain the excessive settlement flattening; they
+are retained for reproduction, not a pattern to carry into the replacement.
+The next candidate needs small fitted foundations, gently graded full-width
+roads and short entrances while leaving terrain between lots intact. The
+arrival courtyard may stay level. Foundation edges need fitted plinths or
+retaining details rather than floating corners. Terrain/road/surface generation
+and complete building relocation must change together, followed by actual
+walking, driving and gameplay-camera inspection. These changes are pending;
+the street-graph correction does not implement this terrain-led layout.
+
+
+Private terrain-led town study v6 reserves the same twenty building identities
+and two furnished-home requirements on a continuous sampled valley/knoll field.
+The five curving streets connect all twenty doors through the shared topology
+helper with terrain sampling enabled. Estimated street surface grades range
+from 7.5 to 9.4 percent; lot elevations span about 11m. No lot blocks the retained
+military or supply-route reservations. The labeled contour drawing is a source
+study, not native scenery. The first inventory/surface-contract failures and
+two subsequently cleared village-road conflicts remain recorded. Regional seam
+fitting, independent foundations/plinths, service access, complete house shells,
+native scene integration, walking/driving and appearance remain unverified.
+
+
+Verification for the feedback source checkpoint passes: 1222 repository tests
+in 199 files, 591 Unreal tooling tests in 116 files, all three typechecks,
+migration audit and world/model validation. Strict release correctly exits 1
+with readiness false. All 9281 original private packages, thirteen owner
+documents and both frozen candidate packages remain byte-identical. No native
+asset rebuild, C++ build, new Foundation run or appearance acceptance is claimed.
