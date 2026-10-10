@@ -2418,3 +2418,16 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   prior evidence because no C++ changed. Preserve all outstanding appearance,
   first-batch full-lair, driving/combat, persistence/network, performance/platform,
   licensing/Steam and release gates. Terrain banks and sparse fields need work.
+
+
+### 2026-10-10 - Opt-in balanced terrain authoring
+
+- Add cut/fill network grading by averaging feasible lower/upper envelopes;
+  retain existing constraints, metadata, bounded inputs and cut-only defaults.
+  Add five meaningful valley, footing, slope, translation and rejection tests.
+- Verify repository 1193/190, Unreal tooling 562/107, Python 166/42, three
+  typechecks, audit and world/model validation; strict release exits 1.
+- Keep private native terrain comparisons unintegrated: collision probes and
+  boundary seams pass, but smooth/empty composition and all broader terrain,
+  first-batch lair, gameplay/network, licensing/platform and release gates remain
+  open. Preserve rejected steep-route and excessive-cut studies as evidence.

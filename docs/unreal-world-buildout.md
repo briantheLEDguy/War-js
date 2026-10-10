@@ -1105,3 +1105,32 @@ underground/later native pairs, actual driving/turning/closed gates, 18v18,
 services/resources, ordinary GM persistence, earlier unresolved Cinderfen recovery
 repeatability, live streaming/authority/additive collision, network/audio,
 licensing/distribution, performance, platform/Steam and release gates.
+
+
+## Opt-in balanced terrain grading studies (10 October 2026)
+
+`t1-balanced-grade.ts` computes the midpoint of feasible lower/upper network
+height envelopes. It preserves the existing centreline grade, shared junctions,
+flat footings, metadata and bounded inventories while allowing cut and fill.
+Source fields are sampled once per graph node. The original cut-only grader and
+all admitted terrain sources remain unchanged. The correction metrics describe
+graph nodes; full terrain, route width and native movement require separate checks.
+
+Five behavior tests cover a known valley, feasible ground and height limits,
+shared footings/input preservation, deterministic translation/slope invariants
+and rejected malformed inputs. Repository 1193/190, Unreal tooling 562/107,
+Python 166/42, three typechecks, audit and world/model validation pass; strict
+release exits 1. No C++ or saved native candidates changed in this authoring pass.
+
+Private unsaved comparisons retain exact source fingerprints, complete keep
+translations, individual foliage rebasing and conformed cosmetic roads. Both
+studies pass 289 native terrain collision-height probes and retain exact distant
+skirt boundary heights. The first provides twelve native views; a later natural
+fold/drainage study provides fourteen. Owner documents, accepted capitals and
+parent maps remain preserved. Narrower smoothing variants with steep pool or
+counterroute grades were rejected. Coherent pool grading repairs source grades,
+but the captures still look smooth and empty. These terrain studies remain
+unintegrated and do not supersede scene `b06f83f1f499` or grant appearance,
+walking, driving, authority, hydrology, performance or release acceptance.
+All first-batch full-lair, underground/later-pair, combat, persistence/network,
+licensing/platform/Steam and other outstanding gates remain open.

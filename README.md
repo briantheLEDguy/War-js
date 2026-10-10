@@ -1452,3 +1452,16 @@ composition, first-batch full lairs, underground/later native pairs, actual
 vehicles/gates/18v18, persistence/network, licensing, performance/platform/Steam
 and release remain open. Native screenshot reports and licensed derivatives stay
 private; failed and rejected studies do not grant acceptance.
+
+
+### Balanced terrain authoring experiments
+
+`scripts/unreal/t1-balanced-grade.ts` is an opt-in cut/fill alternative to the
+unchanged cut-only grader. The midpoint of feasible height envelopes retains
+centreline constraints and shared flat footings. Graph correction metrics do
+not replace full-width terrain or native movement checks. Five focused behavior
+tests and required verification pass: repository 1193/190, Unreal 562/107,
+Python 166/42, three typechecks, audit and world/model validation; strict release
+exits 1. Private unsaved native comparisons preserve parent maps, owner content
+and boundary seams, but remain visually unfinished and unintegrated. The saved
+road candidate remains `b06f83f1f499`; all outstanding acceptance gates persist.
