@@ -10,7 +10,7 @@ from pathlib import Path
 import sys
 import unreal
 sys.path.insert(0,str(Path(__file__).parent))
-from animation_replacement import ROOT, OUT, PROFILES, RECIPES, locomotion, selected
+from animation_replacement import ROOT, OUT, PROFILES, RECIPES, locomotion, selected, visual_path
 from supplied_stow import bake_stowing,stored_transform
 
 retarget=json.loads((OUT/"retarget.json").read_text())
@@ -192,7 +192,7 @@ for profile,entry in retarget["profiles"].items():
                 transferred=transfer_airborne_lift(normalized,skeleton_component,root_pose)
                 if choreography!='smash': heights=transferred
             if equipment=='stowed' and style!='spell':
-                visual=unreal.load_asset('/Game/MigrationProof/Visual_'+profile)
+                visual=unreal.load_asset(visual_path(profile))
                 ref_pose=unreal.AnimPoseExtensions.get_anim_pose_at_time(sources[idle_key],0,options)
                 chest=unreal.AnimPoseExtensions.get_ref_bone_pose(ref_pose,'upper_chest',unreal.AnimPoseSpaces.WORLD)
                 for slot in ('weapon','shield'):

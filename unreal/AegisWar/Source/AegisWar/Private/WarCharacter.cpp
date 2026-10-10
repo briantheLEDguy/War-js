@@ -130,7 +130,7 @@ bool AWarCharacter::ApplyVisual(FString& OutError)
 }
 
 FName AWarCharacter::GetCareerId() const { return VisualDefinition ? VisualDefinition->ClassId : NAME_None; }
-FName AWarCharacter::GetAnimationProfile() const { return VisualDefinition ? VisualDefinition->ProfileKey : NAME_None; }
+FName AWarCharacter::GetAnimationProfile() const { return VisualDefinition ? VisualDefinition->GetPlayableProfileKey() : NAME_None; }
 float AWarCharacter::GetAbilityAnimationDuration(FName MotionRole) const
 {
     const auto* Ref = VisualDefinition ? VisualDefinition->ImportedAnimations.Find(MotionRole) : nullptr;

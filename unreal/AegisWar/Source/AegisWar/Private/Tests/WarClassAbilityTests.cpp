@@ -40,7 +40,8 @@ bool FWarClassAbilityTest::RunTest(const FString& Parameters)
         if (A.Slot == 0) { TestEqual(TEXT("Litany builds Zeal"), WarAbilities::ResourceAfter(A, 20), 32.f); TestEqual(TEXT("Starter has no mana cost"), A.Mana, 0.f); }
         if (A.Slot == 3) { TestEqual(TEXT("Penance movement parsed"), A.Effects.Last().Direction, FName(TEXT("toward_target"))); TestEqual(TEXT("Travel in centimeters"), A.Effects.Last().Distance, 1200.f); }
         if (A.Slot == 9) TestEqual(TEXT("Finisher consumes all Zeal"), WarAbilities::ResourceAfter(A, 80), 0.f);
-        if (A.Slot == 2) TestEqual(TEXT("Unreviewed Prelate variants retain their own cast role"), WarAbilities::Motion(A, TEXT("civic_battle_prelate_f")), FName(TEXT("cast")));
+        TestEqual(TEXT("Female Prelate resolves its separately retargeted recipe"), WarAbilities::Motion(A, TEXT("civic_battle_prelate_f")), A.Id);
+        if (A.Slot == 2) TestEqual(TEXT("Another class cannot inherit Prelate choreography"), WarAbilities::Motion(A, TEXT("mire_warbrute_f")), FName(TEXT("cast")));
         if (A.Slot == 0)
         {
             TestEqual(TEXT("Contact timing is not copied to another character rig"), WarAbilities::ReleaseFraction(A, TEXT("civic_battle_prelate_f")), A.ReleaseFraction);

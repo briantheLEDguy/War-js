@@ -180,9 +180,60 @@ Native motion continues through `scripts/unreal/animation-pipeline.py` and the
 decisions remain character-specific. Equipped clearance, twist/corrective
 quality, foot locking, facial deformation, final hair/anatomy/material polish,
 LOD1/LOD2, performance and native/platform/Steam acceptance remain open.
-No script in this workflow records human approval, publishes a runtime registry,
-imports native Content or changes the active four-profile development roster.
+The source-authoring stages do not grant human approval or native admission.
+The separate native development recipe below installs the selected revisions.
 
 Verification uses `tests/unrealClassCharacters.test.ts` and its Python numerical
 fixtures, plus the normal repository/Unreal tooling checks. Actual local binary
 and render validation is separate from those source-level regression tests.
+
+## Native development installation
+
+Build the Editor module first, close running game/Editor processes, then run:
+
+```powershell
+python scripts/unreal/animation-pipeline.py class-bodies --review
+```
+
+`prepare-class-character-native.py` verifies the complete 48-body checkpoint,
+uses `dentition-v1` for all eight Greenskins and `optimized-v2` for other races,
+and checks FBX roundtrip geometry and bind positions. Each body gets a distinct
+`classbody_<class>_<body>_<source-hash>` revision. `PlayableProfileKey` retains
+the stable catalog identity; source validation still rejects a different class,
+race, body or hash. Native assets remain in ignored private Content.
+
+`class-character-native-stage.py` reuses the supplied 44-FBX importer and
+retarget/composition recipes without changing their historical source contract.
+Each revision has its own skeleton and animations. Native verification compares
+all 56 source joints with imported bind positions, then samples raw/compressed
+clips and unchanged limb lengths. The importer also retains four attachment
+nodes and its armature ancestor. Three PBR material sections remain assigned.
+
+The six existing equipped careers reuse their own weapon and ability recipes,
+retargeted separately to both variants. Prelate fitting measures each new palm
+and solves the support arm without stretching segments. Other careers currently
+have basic supplied movement/combat states and no equipped meshes. The native
+`ClearClassBodyEquipment` helper resets serialized soft paths; assigning Python
+`None` alone can leave an unloaded donor reference intact.
+
+Equipment checks evaluate every LOD0 vertex at 30 Hz. Native review writes 304
+front/side body and mouth frames. Mouth closeups hide equipment so shields
+cannot obscure the dentition; full-body frames retain equipped meshes.
+Generate overview sheets with
+`render-class-character-native-sheets.ps1`. Inspect the images before recording
+`review/inspection.json` with `developmentAccepted`, the current `framesSha256`
+and all 48 `inspectedProfiles`. Resume with `--from-stage install`. Installation
+requires matching native package fingerprints, pose/equipment receipts and frame
+hashes. The inspection admits local development only; `artApproval` stays false.
+
+The install stage appends revision entries to the native import registry and
+replaces `DefaultGame.ini`'s playable roster with all 48 visuals. Existing NPC,
+capital, terrain and historical proof bindings are retained. Local backups and
+receipts live under `artifacts/unreal/class-character-native/anatomy-v10/`.
+`verify-class-character-entry.py` exercises ordinary login RPCs in temporary
+realm-fixed PIE sessions and records real possession, selected mesh, animation
+instance and login closure. It does not save maps or persistent characters.
+
+Fitted armor/body masks, other careers' equipment and individual ability
+choreography, moving equipped combat, foot locking, final facial/hair/material
+polish, LODs, performance and platform/Steam acceptance remain open.

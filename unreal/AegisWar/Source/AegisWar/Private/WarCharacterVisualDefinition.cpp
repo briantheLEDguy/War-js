@@ -66,9 +66,13 @@ bool UWarCharacterVisualDefinition::ValidateForSpawn(const EWarRealm ExpectedRea
         for (FName Required : {FName(TEXT("idle")), FName(TEXT("walk_backward")), FName(TEXT("strafe_left")), FName(TEXT("strafe_right")),
             FName(TEXT("turn_left")), FName(TEXT("turn_right")), FName(TEXT("hit_front")), FName(TEXT("hit_back")), FName(TEXT("landing"))})
             if (!ImportedAnimations.Contains(Required)) return Reject(TEXT("Native animation states are incomplete."));
-        const bool bPlayable = ProfileKey == TEXT("civic_battle_prelate_m") || ProfileKey == TEXT("civic_sunfire_templar_m")
-            || ProfileKey == TEXT("civic_ember_arcanist_m") || ProfileKey == TEXT("mire_warbrute_m")
-            || ProfileKey == TEXT("riven_ruin_oracle_m") || ProfileKey == TEXT("riven_void_magister_m");
+        FString PlayableName = GetPlayableProfileKey().ToString();
+        if (PlayableName.EndsWith(TEXT("_f")))
+        { PlayableName.LeftChopInline(2); PlayableName += TEXT("_m"); }
+        const FName Playable(*PlayableName);
+        const bool bPlayable = Playable == TEXT("civic_battle_prelate_m") || Playable == TEXT("civic_sunfire_templar_m")
+            || Playable == TEXT("civic_ember_arcanist_m") || Playable == TEXT("mire_warbrute_m")
+            || Playable == TEXT("riven_ruin_oracle_m") || Playable == TEXT("riven_void_magister_m");
         if (bPlayable && AbilityPresentations.IsEmpty()) return Reject(TEXT("Playable profile requires explicit ability presentations."));
         if (bPlayable && !WeaponMesh.LoadSynchronous()) return Reject(TEXT("Playable profile requires its authored weapon."));
         if (bPlayable && AnimationStyle == TEXT("shield") && !ShieldMesh.LoadSynchronous()) return Reject(TEXT("Sword-and-shield profile requires its authored shield."));

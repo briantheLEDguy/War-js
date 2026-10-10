@@ -250,7 +250,7 @@ bool UWarContentSubsystem::ValidatePlayableVisual(const UWarCharacterVisualDefin
         FString Key, Race, ClassName, Body;
         if (Profile->TryGetStringField(TEXT("profileKey"), Key) && Profile->TryGetStringField(TEXT("race"), Race)
             && Profile->TryGetStringField(TEXT("className"), ClassName) && Profile->TryGetStringField(TEXT("bodyVariant"), Body)
-            && Key == Visual->ProfileKey.ToString() && Race == Visual->RaceId.ToString()
+            && Key == Visual->GetPlayableProfileKey().ToString() && Race == Visual->RaceId.ToString()
             && ClassName == ExpectedClassName && Body == Visual->BodyVariant.ToString())
         { OutError.Reset(); return true; }
     }

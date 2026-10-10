@@ -36,6 +36,9 @@ assets=unreal.AssetRegistryHelpers.get_asset_registry().get_assets_by_class(unre
 installed=[]
 for data in assets:
     visual=data.get_asset()
+    # Class-body revisions own a separate recipe and registry entry. A legacy
+    # replacement run must neither rebind them nor reject their audited rigs.
+    if str(visual.playable_profile_key) not in ('None', ''): continue
     staging=visual.get_path_name().startswith('/Game/Characters/SiegeStaging/')
     if (ANIMATION_SET == 'siege-casters') != staging: continue
     source=str(visual.source_profile_key)

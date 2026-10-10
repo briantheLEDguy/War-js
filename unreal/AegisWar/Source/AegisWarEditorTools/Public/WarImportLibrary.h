@@ -14,6 +14,7 @@ class UMaterialExpressionVectorParameter;
 class USkeletalMeshComponent;
 class UBoxComponent;
 class ULevelStreaming;
+class UWarCharacterVisualDefinition;
 
 /** Editor-only import provenance, development terrain construction and render diagnostics. */
 UCLASS()
@@ -21,6 +22,9 @@ class AEGISWAREDITORTOOLS_API UWarImportLibrary : public UBlueprintFunctionLibra
 {
     GENERATED_BODY()
 public:
+    /** Clear serialized soft paths on an owned class-body revision; Python None can leave an unloaded path intact. */
+    UFUNCTION(BlueprintCallable, Category="Migration")
+    static bool ClearClassBodyEquipment(UWarCharacterVisualDefinition* Visual);
     /** Reparent existing actors without clipboard recreation; preserves identities and component state. */
     UFUNCTION(BlueprintCallable, Category="Migration")
     static bool MoveCityGameplayToLevel(const TArray<AActor*>& Actors, ULevelStreaming* Destination);

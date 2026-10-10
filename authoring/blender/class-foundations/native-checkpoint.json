@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "runId": "anatomy-v10",
+  "date": "2026-10-10",
+  "nativeDevelopmentInstalled": true,
+  "artApproval": false,
+  "productionAccepted": false,
+  "canonicalClasses": 24,
+  "bodyVariants": 48,
+  "greenskinDentitions": 8,
+  "canonicalSkinBones": 56,
+  "nativeBonesIncludingAttachmentNodes": 61,
+  "materialSections": 3,
+  "nativePosePassed": 48,
+  "nativeRenderedFrames": 304,
+  "ordinaryEntryPassed": 48,
+  "nativePackagesSha256": "3a6e92e5f33a365873964982f5fece74fa06814cde44f128c0a4e692887c7403",
+  "localEvidenceDirectory": "artifacts/unreal/class-character-native/anatomy-v10",
+  "receiptSha256": {
+    "model-sources.json": "c67b6ae080b6f384ff92e08196634d168cb39d8ced9ce5e623014ab798d1fe97",
+    "retarget.json": "44c05b99ebf387dfcb6049a19e6472421511b25e7afe92536a9c8485a9553fa1",
+    "presentations.json": "76953ce43c234b93b173b557c27c40ac93a9ea070bbe7baee042f9aa85d1c46a",
+    "equipment-fit.json": "62fd16265cb7f5e9b79afb45cfd2141157f24eb13edd3911d9565f962cf8c41f",
+    "technical-verification.json": "2dc1d398825bc9be72db0e82ef32057a661c0381b72a11ad7f4f6734c5ce3b0f",
+    "equipped-motion-measurements.json": "bf2a39225ad232eceded0498fed016ab54f46dfc80db45f9ec8ac58604a607c9",
+    "review/frames.json": "08d36d4414af8779482e7f6aae6529102d10b905a6b34ef40f916de467d6da73",
+    "review/inspection.json": "30d417ae4542af057004488ba2ca2196fdfc2c3a5f6771cf8ffd35595b93e411",
+    "installed.json": "db069094a133d7726a82aea6f9d7bd61be4445ca7ad0571b044f8ce562bf847f",
+    "runtime-entry.json": "61ccb11d695939d6b64e7a6437de95e0f79fe46f9a842594f7fa6cf5e0fe9d13"
+  },
+  "toolsSha256": {
+    "class_character_native.py": "7409674cc3ab31b55276c7b0d584a05aac45270ed388b062f436ca5e2cd44cdc",
+    "prepare-class-character-native.py": "66bf57bfd1a62e98d104f08d499a378c31f994e935beebc5f778a40f17233c5e",
+    "class-character-native-stage.py": "b65cfde964e99ad6b4a12be293ce11d946f9675485228cf825073e35ed34528d",
+    "fit-class-character-equipment.py": "c9d27e03b19f42db640ed48fe506b9db694e8fa659df8fa8ac9a3d6ab36de7a0",
+    "verify-class-character-entry.py": "660c64ee366f194b40adbf3b341ecd8c189146da27abbd2b7e1f2e22b2ad4695"
+  },
+  "remaining": [
+    "Fitted armor and body masks",
+    "Equipment and individual ability choreography for the other 18 careers",
+    "Moving equipped combat, foot locking and final deformation review",
+    "Final facial, hair and material appearance",
+    "LODs and performance",
+    "Windows, Linux, macOS, Steam and release acceptance"
+  ],
+  "profiles": [
+    {
+      "revision": "classbody_aether_sage_f_a00fd664def6",
+      "playableProfileKey": "aether_aether_sage_f",
+      "classId": "aether_sage",
+      "race": "high_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/aether_sage_f/optimized-v2/body.glb",
+      "sourceSha256": "a00fd664def65082a4f621cca837e1c97c895511b7971a8589422ff376da5a1f",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_aether_sage_m_e50a3cd77a72",
+      "playableProfileKey": "aether_aether_sage_m",
+      "classId": "aether_sage",
+      "race": "high_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/aether_sage_m/optimized-v2/body.glb",
+      "sourceSha256": "e50a3cd77a722999d58a13c8e008981b05795fbfd2fe8848c87ea87b469ce9c3",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_battle_prelate_f_674006ed71a2",
+      "playableProfileKey": "civic_battle_prelate_f",
+      "classId": "battle_prelate",
+      "race": "empire",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/battle_prelate_f/optimized-v2/body.glb",
+      "sourceSha256": "674006ed71a28cfe15ab231a6647923be4e27d765687148e5e88657584ee3ded",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_battle_prelate_m_5891d574de51",
+      "playableProfileKey": "civic_battle_prelate_m",
+      "classId": "battle_prelate",
+      "race": "empire",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/battle_prelate_m/optimized-v2/body.glb",
+      "sourceSha256": "5891d574de51ab20cee0caaee370c7b1a51d0d950b1823f55ab8bb0dda301e47",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_blade_savant_f_75ae49d7e805",
+      "playableProfileKey": "aether_blade_savant_f",
+      "classId": "blade_savant",
+      "race": "high_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/blade_savant_f/optimized-v2/body.glb",
+      "sourceSha256": "75ae49d7e80506dcf77f9d6081bbb54fc25373c4e1a2f30be6ee5b81e0471f7e",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_blade_savant_m_e7262b516c9a",
+      "playableProfileKey": "aether_blade_savant_m",
+      "classId": "blade_savant",
+      "race": "high_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/blade_savant_m/optimized-v2/body.glb",
+      "sourceSha256": "e7262b516c9ada7a1a8ba3f20cea9ff1e0350ea4d866486cd7602428e6482785",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_blood_dancer_f_5f443adaccc3",
+      "playableProfileKey": "umbra_blood_dancer_f",
+      "classId": "blood_dancer",
+      "race": "dark_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/blood_dancer_f/optimized-v2/body.glb",
+      "sourceSha256": "5f443adaccc3d4499ae4e490f4c160a6e477e41e2dee1513b22a450c0ca14ba4",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_blood_dancer_m_eaa5cb618a5b",
+      "playableProfileKey": "umbra_blood_dancer_m",
+      "classId": "blood_dancer",
+      "race": "dark_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/blood_dancer_m/optimized-v2/body.glb",
+      "sourceSha256": "eaa5cb618a5b4275749c4bdfc5bb71ecadbad7378860c4e5b3c86b292971b8be",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_bog_hexer_f_ec6a4e7cc3ad",
+      "playableProfileKey": "mire_bog_hexer_f",
+      "classId": "bog_hexer",
+      "race": "greenskin",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/bog_hexer_f/dentition-v1/body.glb",
+      "sourceSha256": "ec6a4e7cc3ad16a3dbf67c14d8de5038330a55adb791801343269662d78a556d",
+      "triangles": 40052
+    },
+    {
+      "revision": "classbody_bog_hexer_m_38099d3c07ac",
+      "playableProfileKey": "mire_bog_hexer_m",
+      "classId": "bog_hexer",
+      "race": "greenskin",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/bog_hexer_m/dentition-v1/body.glb",
+      "sourceSha256": "38099d3c07ac54305a7d0a83c113d707110e62cb3944922ced358aadb3ee5ba7",
+      "triangles": 37758
+    },
+    {
+      "revision": "classbody_cleaver_f_ea536a11fde0",
+      "playableProfileKey": "mire_cleaver_f",
+      "classId": "cleaver",
+      "race": "greenskin",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/cleaver_f/dentition-v1/body.glb",
+      "sourceSha256": "ea536a11fde022d8dbab50b090d605cde05ac9af6883bea8a7786ac7990de209",
+      "triangles": 40052
+    },
+    {
+      "revision": "classbody_cleaver_m_18ea90d6a30b",
+      "playableProfileKey": "mire_cleaver_m",
+      "classId": "cleaver",
+      "race": "greenskin",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/cleaver_m/dentition-v1/body.glb",
+      "sourceSha256": "18ea90d6a30bd184e0423dbe3ac1900bbe42ef82fd38e63fe2c0e8173bc21e61",
+      "triangles": 37758
+    },
+    {
+      "revision": "classbody_crimson_acolyte_f_e3b785355837",
+      "playableProfileKey": "umbra_crimson_acolyte_f",
+      "classId": "crimson_acolyte",
+      "race": "dark_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/crimson_acolyte_f/optimized-v2/body.glb",
+      "sourceSha256": "e3b785355837688d51ca4101b50b81373611ad8e2182ec736e7f7ea9dc750c74",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_crimson_acolyte_m_e30bd659bf4e",
+      "playableProfileKey": "umbra_crimson_acolyte_m",
+      "classId": "crimson_acolyte",
+      "race": "dark_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/crimson_acolyte_m/optimized-v2/body.glb",
+      "sourceSha256": "e30bd659bf4e67bc7dc4f37f7bac5f94e61f68de06f68f703cfbc0371819461d",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_doomseeker_f_df9b8d70daa2",
+      "playableProfileKey": "stone_doomseeker_f",
+      "classId": "doomseeker",
+      "race": "dwarf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/doomseeker_f/optimized-v2/body.glb",
+      "sourceSha256": "df9b8d70daa2f5ba0d5843669a6d20f30c57d79e9910feb00471178636cf4700",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_doomseeker_m_c3dc5426c845",
+      "playableProfileKey": "stone_doomseeker_m",
+      "classId": "doomseeker",
+      "race": "dwarf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/doomseeker_m/optimized-v2/body.glb",
+      "sourceSha256": "c3dc5426c84530042543ac1899622c1c64a2a153631b155e5e74ca51fd72da2a",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_dread_guard_f_bef8bf3dd556",
+      "playableProfileKey": "umbra_dread_guard_f",
+      "classId": "dread_guard",
+      "race": "dark_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/dread_guard_f/optimized-v2/body.glb",
+      "sourceSha256": "bef8bf3dd556ae50498e034e1719b4fe223abf0aa3e388861a86c3b592a35238",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_dread_guard_m_d8de877347f0",
+      "playableProfileKey": "umbra_dread_guard_m",
+      "classId": "dread_guard",
+      "race": "dark_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/dread_guard_m/optimized-v2/body.glb",
+      "sourceSha256": "d8de877347f069494703da48485f641b762b4344f9a44bef131428873cd85a23",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_dreadsworn_f_717360f4551d",
+      "playableProfileKey": "riven_dreadsworn_f",
+      "classId": "dreadsworn",
+      "race": "chaos",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/dreadsworn_f/optimized-v2/body.glb",
+      "sourceSha256": "717360f4551dc9b96476909a992acef759ec6171534bc2608caf5b1c3208883e",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_dreadsworn_m_4df8957d2f5c",
+      "playableProfileKey": "riven_dreadsworn_m",
+      "classId": "dreadsworn",
+      "race": "chaos",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/dreadsworn_m/optimized-v2/body.glb",
+      "sourceSha256": "4df8957d2f5cb4902af54669ea57347e4b3c7a5b4afbcc8820ff65649fc2eadb",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_dusk_weaver_f_33ae356ec252",
+      "playableProfileKey": "umbra_dusk_weaver_f",
+      "classId": "dusk_weaver",
+      "race": "dark_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/dusk_weaver_f/optimized-v2/body.glb",
+      "sourceSha256": "33ae356ec252093be494d38214f666598c00d8413d9a01fd688df932a617ba26",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_dusk_weaver_m_2ec7eba84671",
+      "playableProfileKey": "umbra_dusk_weaver_m",
+      "classId": "dusk_weaver",
+      "race": "dark_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/dusk_weaver_m/optimized-v2/body.glb",
+      "sourceSha256": "2ec7eba846713c8052044ca8284f4574be5c991921e25241d574b2e2c29a3455",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_ember_arcanist_f_456c962400c9",
+      "playableProfileKey": "civic_ember_arcanist_f",
+      "classId": "ember_arcanist",
+      "race": "empire",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/ember_arcanist_f/optimized-v2/body.glb",
+      "sourceSha256": "456c962400c99e70058452de2ed4f46bb543f5121bea00b94851f016e8293cb2",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_ember_arcanist_m_437cefec393b",
+      "playableProfileKey": "civic_ember_arcanist_m",
+      "classId": "ember_arcanist",
+      "race": "empire",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/ember_arcanist_m/optimized-v2/body.glb",
+      "sourceSha256": "437cefec393b33b5126ffc9ed7edbb507a4682ad7348cf050863567f63f909d3",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_fang_herder_f_d9fa75afbc1a",
+      "playableProfileKey": "mire_fang_herder_f",
+      "classId": "fang_herder",
+      "race": "greenskin",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/fang_herder_f/dentition-v1/body.glb",
+      "sourceSha256": "d9fa75afbc1afa8367ec5fd872d2d8411a8fcf7e480fa55db6fb4a80d4636cda",
+      "triangles": 40052
+    },
+    {
+      "revision": "classbody_fang_herder_m_52877892c694",
+      "playableProfileKey": "mire_fang_herder_m",
+      "classId": "fang_herder",
+      "race": "greenskin",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/fang_herder_m/dentition-v1/body.glb",
+      "sourceSha256": "52877892c69432259df601fa546a5e7fbab243eea6bc37210f9e5dec80c2e064",
+      "triangles": 37758
+    },
+    {
+      "revision": "classbody_glyphbinder_f_0bafaa0b7a94",
+      "playableProfileKey": "stone_glyphbinder_f",
+      "classId": "glyphbinder",
+      "race": "dwarf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/glyphbinder_f/optimized-v2/body.glb",
+      "sourceSha256": "0bafaa0b7a941b129543449fadc396507ca6a3572f3be3eac6b2bdadd1a7749a",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_glyphbinder_m_471af3492d6d",
+      "playableProfileKey": "stone_glyphbinder_m",
+      "classId": "glyphbinder",
+      "race": "dwarf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/glyphbinder_m/optimized-v2/body.glb",
+      "sourceSha256": "471af3492d6d23c0eac1f6b5e4f9ad30ab5d0d452bd435da87ceb7c598cc40eb",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_hex_inquisitor_f_5f75d4c329e3",
+      "playableProfileKey": "civic_hex_inquisitor_f",
+      "classId": "hex_inquisitor",
+      "race": "empire",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/hex_inquisitor_f/optimized-v2/body.glb",
+      "sourceSha256": "5f75d4c329e3dc7c4e93a89bcbade6f2cf444cf995fdde9ddab15845ec66bf09",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_hex_inquisitor_m_d38c586225d6",
+      "playableProfileKey": "civic_hex_inquisitor_m",
+      "classId": "hex_inquisitor",
+      "race": "empire",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/hex_inquisitor_m/optimized-v2/body.glb",
+      "sourceSha256": "d38c586225d638d6f0b507c6b50b0571b99496f494609503bd9a358a2508fafc",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_pride_warden_f_768dc771a1b3",
+      "playableProfileKey": "aether_pride_warden_f",
+      "classId": "pride_warden",
+      "race": "high_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/pride_warden_f/optimized-v2/body.glb",
+      "sourceSha256": "768dc771a1b3ec4dc9dd63662ae158c635243da6328b2719b38bcca9994583fa",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_pride_warden_m_568977ed6b8c",
+      "playableProfileKey": "aether_pride_warden_m",
+      "classId": "pride_warden",
+      "race": "high_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/pride_warden_m/optimized-v2/body.glb",
+      "sourceSha256": "568977ed6b8c27ed539a639025444f4021aedb05073acfd9db1eb11c9843257f",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_ruin_oracle_f_2827b0fe41fc",
+      "playableProfileKey": "riven_ruin_oracle_f",
+      "classId": "ruin_oracle",
+      "race": "chaos",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/ruin_oracle_f/optimized-v2/body.glb",
+      "sourceSha256": "2827b0fe41fc710e707945adc870cde545ba2b83a0ff834eb96423054807b4a3",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_ruin_oracle_m_4041be6faae9",
+      "playableProfileKey": "riven_ruin_oracle_m",
+      "classId": "ruin_oracle",
+      "race": "chaos",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/ruin_oracle_m/optimized-v2/body.glb",
+      "sourceSha256": "4041be6faae9e0728cd6d9b1d672d5db3c11d9a61e14afdad96b6c34c43cf856",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_siegewright_f_a7e3aa8a21a1",
+      "playableProfileKey": "stone_siegewright_f",
+      "classId": "siegewright",
+      "race": "dwarf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/siegewright_f/optimized-v2/body.glb",
+      "sourceSha256": "a7e3aa8a21a1630dbfbedd3e6bdf0e69d041190e6a3f7e7b0d417bfa4b4975e4",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_siegewright_m_6271447f3c64",
+      "playableProfileKey": "stone_siegewright_m",
+      "classId": "siegewright",
+      "race": "dwarf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/siegewright_m/optimized-v2/body.glb",
+      "sourceSha256": "6271447f3c6439c8e89ecb4f99faa44cd3d8a5d008520e89e19b07cb666eec14",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_stoneguard_f_306d5389ccb3",
+      "playableProfileKey": "stone_stoneguard_f",
+      "classId": "stoneguard",
+      "race": "dwarf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/stoneguard_f/optimized-v2/body.glb",
+      "sourceSha256": "306d5389ccb3d2f7826534fc17ac77bbfa9514a94e538fc1c53a2c7dd27020db",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_stoneguard_m_3898c929d59c",
+      "playableProfileKey": "stone_stoneguard_m",
+      "classId": "stoneguard",
+      "race": "dwarf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/stoneguard_m/optimized-v2/body.glb",
+      "sourceSha256": "3898c929d59c655e0687b2446f098f108dd226b4c06d96e73ff11dcf6975032a",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_sunfire_templar_f_cff8239da995",
+      "playableProfileKey": "civic_sunfire_templar_f",
+      "classId": "sunfire_templar",
+      "race": "empire",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/sunfire_templar_f/optimized-v2/body.glb",
+      "sourceSha256": "cff8239da9958c6af9c325f254ba74499f47461fcf6eaff58c0e376ce03c0294",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_sunfire_templar_m_d3978cd04cea",
+      "playableProfileKey": "civic_sunfire_templar_m",
+      "classId": "sunfire_templar",
+      "race": "empire",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/sunfire_templar_m/optimized-v2/body.glb",
+      "sourceSha256": "d3978cd04ceae8c6a5832191e222511da5699938f6fc9046d9c970a4fb1cea26",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_veil_ranger_f_f30c1d780825",
+      "playableProfileKey": "aether_veil_ranger_f",
+      "classId": "veil_ranger",
+      "race": "high_elf",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/veil_ranger_f/optimized-v2/body.glb",
+      "sourceSha256": "f30c1d780825ad1df9609c9c2ea551b54b758db02f5b539e617aecd56ff50a32",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_veil_ranger_m_c2cbae131950",
+      "playableProfileKey": "aether_veil_ranger_m",
+      "classId": "veil_ranger",
+      "race": "high_elf",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/veil_ranger_m/optimized-v2/body.glb",
+      "sourceSha256": "c2cbae1319507559c96116647c369b4000087f13b89ba044a52ec8eeaffc9ca4",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_void_magister_f_6405d73c2c1f",
+      "playableProfileKey": "riven_void_magister_f",
+      "classId": "void_magister",
+      "race": "chaos",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/void_magister_f/optimized-v2/body.glb",
+      "sourceSha256": "6405d73c2c1ff996d00b39f71481bbf33e3c6501831983269c2bfd950a2f37ed",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_void_magister_m_6d2dfbb796f8",
+      "playableProfileKey": "riven_void_magister_m",
+      "classId": "void_magister",
+      "race": "chaos",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/void_magister_m/optimized-v2/body.glb",
+      "sourceSha256": "6d2dfbb796f84feb62d6b6fcf631b5c1ac5dd35b48603847751e03e92eacb8e5",
+      "triangles": 36994
+    },
+    {
+      "revision": "classbody_warbrute_f_55839f392780",
+      "playableProfileKey": "mire_warbrute_f",
+      "classId": "warbrute",
+      "race": "greenskin",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/warbrute_f/dentition-v1/body.glb",
+      "sourceSha256": "55839f39278078b87b3b6156382e140860da8444ee7e6a4122f341b968da0907",
+      "triangles": 40052
+    },
+    {
+      "revision": "classbody_warbrute_m_03c4053fb174",
+      "playableProfileKey": "mire_warbrute_m",
+      "classId": "warbrute",
+      "race": "greenskin",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/warbrute_m/dentition-v1/body.glb",
+      "sourceSha256": "03c4053fb174ba206f89b3563da5289ef32a43038668871bb7621058468d074f",
+      "triangles": 37758
+    },
+    {
+      "revision": "classbody_warped_reaver_f_72fa8cd6f2db",
+      "playableProfileKey": "riven_warped_reaver_f",
+      "classId": "warped_reaver",
+      "race": "chaos",
+      "bodyVariant": "f",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/warped_reaver_f/optimized-v2/body.glb",
+      "sourceSha256": "72fa8cd6f2db3ed6486e4c8a4475e02ecea4ff79dc791231f63b1a23814212d7",
+      "triangles": 39288
+    },
+    {
+      "revision": "classbody_warped_reaver_m_ed5460505b33",
+      "playableProfileKey": "riven_warped_reaver_m",
+      "classId": "warped_reaver",
+      "race": "chaos",
+      "bodyVariant": "m",
+      "source": "artifacts/unreal/class-characters/anatomy-v10/warped_reaver_m/optimized-v2/body.glb",
+      "sourceSha256": "ed5460505b336d10b853e0898d3caaed06fb31be406197b9cf8ecc2d8bd54616",
+      "triangles": 36994
+    }
+  ],
+  "nativeFoundationTestsPassed": 153,
+  "nativeFoundationReport": "artifacts/unreal/editor/test-1791647034703-5484/index.json",
+  "nativeFoundationReportSha256": "6d6532895a00703b287f0fb8774c0788cbfb579d1fffc5694ac111f1c5d41948",
+  "retainedImportEntries": 13
+}

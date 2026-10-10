@@ -185,7 +185,7 @@ bool UWarAbilityWorkshopSubsystem::ValidatePresentations(const TArray<FWarAbilit
             const auto* It=Profile.LoadSynchronous();
             if (!It || It->ClassId!=A.Career) continue;
             if (!It->ValidateForSpawn(It->Realm,Error)) { Error=A.Name+TEXT(": ")+Error; return false; }
-            const FName Binding=WarAbilities::Motion(A,It->ProfileKey);
+            const FName Binding=WarAbilities::Motion(A,It->GetPlayableProfileKey());
             const auto* Recipe=It->AbilityPresentations.Find(Binding);
             Found=false;
             if (Recipe && !Recipe->VariantRoles.IsEmpty()) { Found=true; for (FName Role : Recipe->VariantRoles) if (!It->ImportedAnimations.Contains(Role) || !It->ImportedAnimations[Role].LoadSynchronous()) { Found=false; break; } }

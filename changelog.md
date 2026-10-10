@@ -1,3 +1,20 @@
+## 2026-10-10 - All-class native development bodies
+
+- Install all 24 canonical classes in both body variants into the native
+  development roster, selecting the eight corrected Greenskin dentitions.
+- Keep stable class identities separate from hash-bound body revisions; reject
+  another class, body, race or source revision at native character entry.
+- Retarget supplied animations separately to each skeleton. Preserve the six
+  equipped careers' own recipes and fit both Prelate support arms without
+  stretching bones. Other careers retain basic states pending their equipment.
+- Reset serialized donor equipment paths explicitly, verify source bind joints,
+  compressed poses and equipped motion, and require inspected native frames
+  before installation. Preserve all capital, NPC and terrain bindings.
+- Verify real possession, own mesh, animation instance and login closure for all
+  48 selections through ordinary temporary development character entry.
+- Keep generated Content private and ignored. Final armor fitting, art polish,
+  remaining ability choreography and release/platform acceptance remain open.
+
 ## 2026-10-10 - Main-checkout Sunmeadow terrain and house repair
 
 - Integrate the T1 source branch with the preserved character checkpoint in the

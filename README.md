@@ -9,8 +9,11 @@ fixes scalp intersections and uses three material draws. Follow the
 `npm run unreal:class-character-review -- anatomy-v10` for the hash-checked gallery.
 The separate Greenskin dentition pass roots curved tusks inside the lower jaw,
 restores lower-face skin weights and checks exported mouth opening and motion.
-These remain draft bodies; final appearance, equipped/native motion, LODs and
-release acceptance remain open. The [measured checkpoint](authoring/blender/class-foundations/WORK_STATE.md)
+The `class-bodies` animation recipe imports all 48 as separate native development
+revisions, including the corrected Greenskin mouths, and installs them in the
+main character-selection roster after native pose, equipment and render checks.
+Armor fitting, final appearance, moving equipped combat, LODs and release
+acceptance remain open. The [measured checkpoint](authoring/blender/class-foundations/WORK_STATE.md)
 records the 48-body result and remaining work.
 
 The current first-pair candidates add shared watershed warping, multiscale surface

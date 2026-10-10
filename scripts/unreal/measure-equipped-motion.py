@@ -6,12 +6,12 @@ from pathlib import Path
 import sys
 import unreal
 sys.path.insert(0,str(Path(__file__).parent))
-from animation_replacement import OUT,PROFILES
+from animation_replacement import OUT,PROFILES,visual_path
 
 sets=json.loads((OUT/'presentations.json').read_text())['profiles']
 rows=[]
 for profile in PROFILES:
-    entry=sets[profile]; visual=unreal.load_asset('/Game/MigrationProof/Visual_'+profile)
+    entry=sets[profile]; visual=unreal.load_asset(visual_path(profile))
     options=unreal.AnimPoseEvaluationOptions(); options.optional_skeletal_mesh=visual.skeletal_mesh
     options.evaluation_type=unreal.AnimDataEvalType.COMPRESSED
     equipment={}

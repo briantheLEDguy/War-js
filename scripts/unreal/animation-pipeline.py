@@ -64,6 +64,7 @@ def main():
                        "-AllowCommandletRendering" if stage["engine"] == "unreal-render" else "-nullrhi",
                        "-run=pythonscript", "-script=" + str(script), "-abslog=" + str(output / (stage["name"] + ".log"))]
             command.extend(recipe.get("arguments", []))
+            command.extend(stage.get("arguments", []))
         log = output / (stage["name"] + "-console.log")
         print(f'{recipe["character"]}: {stage["name"]} ({log.relative_to(ROOT)})', flush=True)
         with log.open("w", encoding="utf-8") as stream:

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "character": "48 class-body development installation",
+  "output": "artifacts/unreal/class-character-native/anatomy-v10",
+  "stages": [
+    { "name": "prepare", "engine": "blender", "script": "prepare-class-character-native.py" },
+    { "name": "import", "engine": "unreal", "script": "class-character-native-stage.py", "arguments": ["-WarClassNativeStage=import"] },
+    { "name": "retarget", "engine": "unreal", "script": "class-character-native-stage.py", "arguments": ["-WarClassNativeStage=retarget"] },
+    { "name": "compose", "engine": "unreal", "script": "class-character-native-stage.py", "arguments": ["-WarClassNativeStage=compose"] },
+    { "name": "verify", "engine": "unreal", "script": "class-character-native-stage.py", "arguments": ["-WarClassNativeStage=verify"] },
+    { "name": "equipment", "engine": "unreal", "script": "class-character-native-stage.py", "arguments": ["-WarClassNativeStage=equipment"] },
+    { "name": "review", "engine": "unreal-render", "script": "class-character-native-stage.py", "arguments": ["-WarClassNativeStage=review"] },
+    { "name": "install", "engine": "unreal", "script": "class-character-native-stage.py", "arguments": ["-WarClassNativeStage=install"] }
+  ]
+}

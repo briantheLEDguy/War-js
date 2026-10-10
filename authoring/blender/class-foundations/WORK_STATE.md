@@ -5,7 +5,8 @@ male and female, across six races. All 48 pass raw anatomy/export checks,
 the derived atlas/static-bend checks, and six supplied-motion diagnostic clips
 at 17 samples each. The derived bodies use 36,994–40,052 triangles, three
 material draws, the 56-bone canonical skeleton and at most four normalized
-influences. None is native accepted or runtime eligible.
+influences. This source checkpoint precedes the native development installation
+recorded below; final art and production acceptance remain open.
 
 The local deliverables are in
 `artifacts/unreal/class-characters/anatomy-v10/`. Open `review.html` for all
@@ -27,11 +28,11 @@ the generated binaries are local draft outputs. A changed source requires a
 new run and fresh source-bound Dwarf corrections.
 
 Final facial/hair/material appearance, twist and facial deformation, fitted
-armor/body masks, equipped clearance, native retargeting and foot locking,
+armor/body masks, moving equipped combat, foot locking,
 LOD1/LOD2, performance and Windows/Linux/macOS/Steam acceptance remain open.
 The fit envelope reserves space; it does not prove armor clearance. Source-pose
 diagnostics hold the pelvis fixed and do not approve locomotion or native clips.
-No active native roster, registry or private Content package was changed.
+The source-authoring checkpoint itself changed no native roster or Content.
 
 Greenskin dentition correction and review checkpoint:
 
@@ -50,10 +51,9 @@ body's front/three-quarter/profile views at 0, 12 and 24 degrees in the gallery.
 `greenskin-dentition-review.png` compares all eight closed mouths. This proves
 attachment in those diagnostics, not finished facial acting or native animation.
 
-The owner requested a stopping point for in-game inspection through the T1 chat.
-Character iteration is stopped at this saved local checkpoint. No draft was
-installed into native Content or the active roster; no native binary build or
-game launch was performed here. The T1 chat coordinates its separate launcher.
+The earlier stopping point preserved source drafts for the T1 chat. The owner's
+subsequent request to push the characters to the main build authorizes the
+separate native installation below.
 
 Verification (dentition refinement):
 
@@ -80,3 +80,47 @@ Local verification logs are under `artifacts/unreal/class-characters/`.
 The full-suite timeout is recorded in `tests-complete.log`; character fixtures
 are in `tests-final-focused.log`. Model evidence is bound separately in the
 tracked checkpoint and the local gallery.
+
+## Native main-build follow-up — 2026-10-10
+
+The owner requested activation in the main build. All 48 selected bodies now
+have separate native meshes, skeletons, supplied animation sets and stable
+playable identities. The roster uses all 48 hash-bound revisions. All thirteen
+previous import entries, NPCs, capitals, terrain and startup-world settings are
+preserved. Generated packages remain ignored/private; reproducible tooling,
+roster configuration and [native evidence hashes](native-checkpoint.json) are
+tracked separately from the original source checkpoint.
+
+All 48 pass FBX roundtrip, 56-source-joint bind parity and native raw/compressed
+pose checks. Native skeletons additionally retain four attachment nodes and the
+armature ancestor. Equipment checks pass at 30 Hz; both Prelate palm/support-arm
+fits preserve segment lengths. Agent inspection covers 304 native body/mouth
+frames. Mouth closeups hide equipment for visibility; body frames retain it.
+
+Ordinary development login passes for every class/body in two temporary
+realm-fixed PIE sessions: correct own mesh, native animation instance, possession,
+login closure and no arrival-floor fall. No map or persistent character is saved.
+This entry proof does not approve movement quality, combat or production play.
+
+The six retained equipped careers have separate per-body recipes; the remaining
+eighteen careers currently use basic supplied states without equipment. Armor
+fitting/body masks, remaining equipment and choreography, moving equipped combat,
+foot locking, final facial/hair/material polish, LODs, performance and platform/
+Steam acceptance remain open. Agent development admission is not human art approval.
+
+Current verification:
+
+- Six focused TypeScript cases / seventeen Python fixtures pass.
+- Unreal tooling suite: 599 tests across 120 files pass.
+- Full repository suite: 1,229 pass; the existing citadel topology wrapper times
+  out at its unchanged 75-second limit. The later Unreal suite includes a passing
+  citadel run, but does not make the full repository run green.
+- All three typechecks, 33-zone and 906-record model validation pass.
+- Installed-content audit passes; strict release check exits 1 with four blockers.
+- Editor/runtime modules build successfully; all 48 ordinary entry selections pass.
+- All 153 native Foundation tests pass, including revised source identity,
+  female ability resolution and unloaded equipment-path reset coverage.
+
+Local native receipts are under
+`artifacts/unreal/class-character-native/anatomy-v10/`; build/test logs are under
+`artifacts/unreal/class-characters/`.

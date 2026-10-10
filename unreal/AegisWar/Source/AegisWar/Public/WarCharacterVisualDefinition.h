@@ -31,6 +31,8 @@ class AEGISWAR_API UWarCharacterVisualDefinition : public UPrimaryDataAsset
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName ProfileKey;
+    /** Stable roster identity for a separately imported revision of this class/body. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName PlayableProfileKey;
     /** NPCs may explicitly reuse a source; playable visuals must use their own ProfileKey. */
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Provenance") FName SourceProfileKey;
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName RaceId;
@@ -61,8 +63,16 @@ public:
     UFUNCTION(BlueprintCallable, Category="Validation")
     bool ValidateForSpawn(EWarRealm ExpectedRealm, FString& OutError) const;
     FName GetSourceProfileKey() const { return SourceProfileKey.IsNone() ? ProfileKey : SourceProfileKey; }
+    FName GetPlayableProfileKey() const { return PlayableProfileKey.IsNone() ? ProfileKey : PlayableProfileKey; }
     /** NPC source reuse is allowed only for NPC visuals, never playable class substitutes. */
-    bool HasPlayableSourceIdentity() const { return !ProfileKey.IsNone() && GetSourceProfileKey() == ProfileKey; }
+    bool HasPlayableSourceIdentity() const
+    {
+        if (ProfileKey.IsNone() || GetSourceProfileKey() != ProfileKey) return false;
+        if (PlayableProfileKey.IsNone()) return true;
+        const FString Revision = TEXT("classbody_") + ClassId.ToString() + TEXT("_")
+            + BodyVariant.ToString() + TEXT("_") + SourceSha256.Left(12);
+        return WarValidation::IsSha256(SourceSha256) && ProfileKey.ToString() == Revision;
+    }
 
     virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 #if WITH_EDITOR

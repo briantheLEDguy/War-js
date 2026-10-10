@@ -4,6 +4,7 @@ import path from 'node:path';
 import { defaultEngineRoot, inspectToolchain, isMain, parseArguments, projectPath, repoRoot, runEngineCommand } from './toolchain';
 
 export const requiredNativeTests = [
+  'ClassBodyEquipmentReset',
   'T1NavigationPrism','T1NavigationFootprint','T1NavigationIsolation','T1NavigationProbeGuards','LandscapeDetail','RegionalEnvironment','RegionalAtmosphere','SpatialOutline','TerrainSamplingBounds','T1TraversalFixture',
   'VerifiedVisualImportBindings', 'ContentContract', 'CombatBoundaries', 'CombatPresentationTiming', 'CityServices',
   'ClosedProductionAdmission', 'NoPrimitiveVisualFallback', 'DevelopmentLoginBoundary', 'WorldSync', 'CombatFluidity', 'CombatLocomotion',

@@ -1,4 +1,5 @@
 #include "WarImportLibrary.h"
+#include "WarCharacterVisualDefinition.h"
 #include "Animation/AnimSequence.h"
 #include "Animation/AnimData/IAnimationDataController.h"
 #include "Factories/FbxAnimSequenceImportData.h"
@@ -38,6 +39,13 @@
 #include <type_traits>
 
 IMPLEMENT_MODULE(FDefaultModuleImpl, AegisWarEditorTools);
+
+bool UWarImportLibrary::ClearClassBodyEquipment(UWarCharacterVisualDefinition* Visual)
+{
+    if (!IsInGameThread() || !IsValid(Visual) || Visual->PlayableProfileKey.IsNone() || !Visual->HasPlayableSourceIdentity()) return false;
+    Visual->WeaponMesh.Reset(); Visual->ShieldMesh.Reset();
+    return Visual->WeaponMesh.IsNull() && Visual->ShieldMesh.IsNull();
+}
 
 FString UWarImportLibrary::DescribeMaterialExpressionPins(UMaterialExpression* Expression)
 {

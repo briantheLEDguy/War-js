@@ -45,6 +45,20 @@ bool FWarFrontendTest::RunTest(const FString& Parameters)
     TestFalse(TEXT("An herbalist cannot stand in for a playable Prelate"), Visual->HasPlayableSourceIdentity());
     Visual->SourceProfileKey = TEXT("civic_ember_arcanist_m");
     TestFalse(TEXT("A different class cannot stand in for a playable Prelate"), Visual->HasPlayableSourceIdentity());
+    auto* Revision = NewObject<UWarCharacterVisualDefinition>();
+    Revision->ClassId = TEXT("warbrute"); Revision->BodyVariant = TEXT("f");
+    Revision->SourceSha256 = FString::ChrN(64, TEXT('a'));
+    Revision->ProfileKey = TEXT("classbody_warbrute_f_aaaaaaaaaaaa");
+    Revision->SourceProfileKey = Revision->ProfileKey;
+    Revision->PlayableProfileKey = TEXT("mire_warbrute_f");
+    TestTrue(TEXT("A hash-bound own-class body revision retains its source identity"), Revision->HasPlayableSourceIdentity());
+    TestEqual(TEXT("Body revision resolves its stable roster identity"), Revision->GetPlayableProfileKey(), FName(TEXT("mire_warbrute_f")));
+    Revision->ClassId = TEXT("cleaver");
+    TestFalse(TEXT("A revision cannot substitute another class body"), Revision->HasPlayableSourceIdentity());
+    Revision->ClassId = TEXT("warbrute"); Revision->BodyVariant = TEXT("m");
+    TestFalse(TEXT("A revision cannot substitute another body variant"), Revision->HasPlayableSourceIdentity());
+    Revision->BodyVariant = TEXT("f"); Revision->SourceSha256[0] = TEXT('b');
+    TestFalse(TEXT("Changed source bytes require a new revision identity"), Revision->HasPlayableSourceIdentity());
     for (const FString& Name : {TEXT("Mara Vell"), TEXT("Aegis-Recruit"), TEXT("O'Rellan")})
         TestTrue(TEXT("Valid original character name"), UWarFrontendWidget::ValidateCharacterName(Name, Error));
     for (const FString& Name : {TEXT(""), TEXT("ab"), TEXT("---"), TEXT(" abc"), TEXT("abc "), TEXT("Recruit123"), TEXT("abc\nxyz"), TEXT("abcdefghijklmnopqrstuvwxyz")})

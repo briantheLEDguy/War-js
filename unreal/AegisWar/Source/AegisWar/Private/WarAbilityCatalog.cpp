@@ -115,14 +115,17 @@ bool WarAbilities::Parse(const TSharedPtr<const FJsonObject>& Manifest, TArray<F
 FName WarAbilities::Motion(const FWarAbilityDefinition& A, FName Profile)
 {
     if (const auto* Binding=A.Presentations.Find(Profile)) return *Binding;
-    // The approved playable profiles bind every ability ID to an authored recipe.
-    // Other, unimplemented profiles cannot inherit their equipment corrections.
-    if ((A.Career == TEXT("battle_prelate") && Profile == TEXT("civic_battle_prelate_m"))
-        || (A.Career == TEXT("sunfire_templar") && Profile == TEXT("civic_sunfire_templar_m"))
-        || (A.Career == TEXT("warbrute") && Profile == TEXT("mire_warbrute_m"))
-        || (A.Career == TEXT("ember_arcanist") && Profile == TEXT("civic_ember_arcanist_m"))
-        || (A.Career == TEXT("ruin_oracle") && Profile == TEXT("riven_ruin_oracle_m"))
-        || (A.Career == TEXT("void_magister") && Profile == TEXT("riven_void_magister_m"))) return A.Id;
+    // Both body variants have separately retargeted recipes and equipment fits.
+    // Resolve the stable career identity without sharing baked animation assets.
+    FString CareerProfile = Profile.ToString();
+    if (CareerProfile.EndsWith(TEXT("_f")))
+    { CareerProfile.LeftChopInline(2); CareerProfile += TEXT("_m"); }
+    if ((A.Career == TEXT("battle_prelate") && CareerProfile == TEXT("civic_battle_prelate_m"))
+        || (A.Career == TEXT("sunfire_templar") && CareerProfile == TEXT("civic_sunfire_templar_m"))
+        || (A.Career == TEXT("warbrute") && CareerProfile == TEXT("mire_warbrute_m"))
+        || (A.Career == TEXT("ember_arcanist") && CareerProfile == TEXT("civic_ember_arcanist_m"))
+        || (A.Career == TEXT("ruin_oracle") && CareerProfile == TEXT("riven_ruin_oracle_m"))
+        || (A.Career == TEXT("void_magister") && CareerProfile == TEXT("riven_void_magister_m"))) return A.Id;
     return A.Shape == TEXT("melee") || A.Shape == TEXT("dash") ? TEXT("attack_melee")
         : A.School == TEXT("physical") ? TEXT("attack_ranged") : TEXT("cast");
 }
