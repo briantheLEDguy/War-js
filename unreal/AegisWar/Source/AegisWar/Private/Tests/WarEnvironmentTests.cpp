@@ -48,16 +48,42 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
                 if(const auto* Component=It->FindComponentByClass<UPostProcessComponent>())return Component->Settings.AutoExposureBias;
         return -100.f;
     };
+    const auto GroundMoon=[World]() -> ADirectionalLight* {
+        for(TActorIterator<ADirectionalLight> It(World);It;++It)
+            if(It->ActorHasTag(TEXT("WarGroundMoonlight")))return *It;
+        return nullptr;
+    };
     auto* Practical=World->SpawnActor<AWarPracticalLight>();Practical->ZoneId=TEXT("sunmeadow_march");
     TestTrue(TEXT("Night preview available"),UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2700,.8f));
     TestEqual(TEXT("Fixture illuminates night"),Practical->GetLightComponent()->Intensity,900.f);
-    TestEqual(TEXT("Diffuse daylight preserves night sky"),SkyIntensity(),.12f);
+    TestEqual(TEXT("Moonlit sky fill remains restrained"),SkyIntensity(),.18f);
     TestEqual(TEXT("Farmland night retains readable ground exposure"),ExposureBias(),3.25f);
+    auto* Moon=GroundMoon();
+    if(!TestNotNull(TEXT("Separate ground moonlight"),Moon)){World->DestroyWorld(false);return false;}
+    const auto* MoonComponent=CastChecked<UDirectionalLightComponent>(Moon->GetLightComponent());
+    TestFalse(TEXT("Moon cannot brighten the atmospheric sky"),MoonComponent->bAtmosphereSunLight);
+    TestTrue(TEXT("Moon retains terrain and building shadows"),MoonComponent->CastShadows);
+    TestTrue(TEXT("Moon stays visible under stronger cosmetic weather"),MoonComponent->IsVisible());
+    TestTrue(TEXT("Weather gently softens ground moonlight"),FMath::IsNearlyEqual(MoonComponent->Intensity,520.f));
+    TestTrue(TEXT("Moon angle reveals broad terrain relief"),FMath::IsNearlyEqual(Moon->GetActorRotation().Pitch,-42.f));
+    TestEqual(TEXT("Soft moon shadow source"),MoonComponent->LightSourceAngle,1.2f);
+    UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2700,0);
+    TestEqual(TEXT("Clear night ground output"),MoonComponent->Intensity,650.f);
+    const auto NightMoonRotation=Moon->GetActorRotation();
+    UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,3599.99,0);
+    TestTrue(TEXT("Moon keeps its direction at the end of night"),Moon->GetActorRotation().Equals(NightMoonRotation,.001f));
+    UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,3600,0);
+    TestTrue(TEXT("Hourly wrap cannot snap moon shadows"),Moon->GetActorRotation().Equals(NightMoonRotation,.001f));
+    TestEqual(TEXT("Ground output stays continuous at dawn start"),MoonComponent->Intensity,650.f);
+
+
     TestFalse(TEXT("Regional rig hides authored sun temporarily"),AuthoredSun->GetLightComponent()->IsVisible());
     float Night=0,Day=0;
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)Night=It->GetLightComponent()->Intensity;
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,1200,0);
     TestEqual(TEXT("Fixture extinguishes in daylight"),Practical->GetLightComponent()->Intensity,0.f);
+    TestEqual(TEXT("Daylight receives no additional moon output"),MoonComponent->Intensity,0.f);
+    TestFalse(TEXT("Daylight disables moon rendering"),MoonComponent->IsVisible());
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)Day=It->GetLightComponent()->Intensity;
     TestTrue(TEXT("Night stays darker with readable moonlight"),Night>0&&Night<Day*.1f);
     TestEqual(TEXT("Farmland daylight avoids excessive direct contrast"),Day,14000.f);
@@ -65,6 +91,7 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Night readability preserves daylight exposure"),ExposureBias(),-.5f);
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2250,0);
     TestEqual(TEXT("Night readability blends continuously through dusk"),ExposureBias(),1.375f);
+    TestEqual(TEXT("Ground moon fades continuously through dusk"),MoonComponent->Intensity,325.f);
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("cinderfen_outskirts"),FVector::ZeroVector,1200,0);
     float FenDay=0,FenNight=0;
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)FenDay=It->GetLightComponent()->Intensity;
@@ -91,8 +118,11 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
     Interior->ApplyTime(2250);TestEqual(TEXT("Room blends at dusk"),Interior->Exposure->Settings.AutoExposureBias,2.75f);
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("greybrook_crossing"),FVector::ZeroVector,1200,0);
     TestEqual(TEXT("Untouched daylight retains its fill-derived sky"),SkyIntensity(),10500.f/8000.f);
+    TestFalse(TEXT("Leaving T1 disables ground moonlight"),MoonComponent->IsVisible());
+    TestEqual(TEXT("Leaving T1 clears ground moon output"),MoonComponent->Intensity,0.f);
     TestTrue(TEXT("Accepted capital preview remains available"),UWarZoneLightingSubsystem::PreviewWorld(World,TEXT("aegis_capital"),FVector::ZeroVector));
     TestTrue(TEXT("Capital restores authored sun visibility"),AuthoredSun->GetLightComponent()->IsVisible());
+    TestFalse(TEXT("Capital receives no ground moonlight"),MoonComponent->IsVisible());
     TestEqual(TEXT("Capital restores authored sun output"),AuthoredSun->GetLightComponent()->Intensity,12700.f);
     World->DestroyWorld(false);return true;
 }

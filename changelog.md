@@ -1,3 +1,21 @@
+## 2026-10-10 - T1 ground moonlight and Sunmeadow town/fort prototypes
+
+- Add a local shadow-casting moon that fades with the authoritative day/night
+  cycle, keeps the atmosphere dark and restores accepted capital lighting.
+- Author twenty Sunmeadow building uses around Main Street, rear working lanes,
+  a market green and retained capital courtyard; move two furnished homes intact
+  inside a separate private native copy. Keep service reservations clear.
+- Add optional Aegis square towers and Riftbound basalt/iron/finial themes while
+  preserving complete keep gameplay assemblies. Save separate native town/fort
+  candidates and verify all 54754 retained vegetation transforms/cull policies.
+- Verify 1.7km of normal-character town/home walking with zero airborne travel;
+  retain 22 gameplay captures and the corrected game-versus-commandlet log check.
+- Keep moon shadows stable across the hourly wrap and test dawn continuity.
+  Rebuild native targets and rerun the full Foundation automation queue.
+- Record actual day/night pictures with embedded, pixel-verified PNG transport.
+  No zone is finished; appearance, ordinary launch/GM, navigation, authority,
+  driving, 18v18 and existing release gates remain open.
+
 ## 2026-10-10 - Private Sunmeadow farmstead prototype
 
 - Save a separate western farm-country scene with a farmhouse, requisition yard,

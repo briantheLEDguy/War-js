@@ -1479,3 +1479,13 @@ Opt-in `scripts/unreal/t1_ground_detail.py` authors bounded source-derived small
 
 
 A private Sunmeadow farmstead copy joins contour-following paths, a requisition yard, farmhouse and boundary cover on retained terrain. Saved binding/foliage checks and four normal-character route directions pass; 15 native/gameplay/source-plan pictures document its unfinished appearance. It remains separate from active launch, with navigation, authoritative scenery, full contact/interior and all existing acceptance gates open. See `docs/t1-redesign.md`.
+
+
+Sunmeadow authoring now has optional `scripts/unreal/sunmeadow-town-plan.ts` and
+`sunmeadow-fort-themes.ts` recipes for a twenty-building Main Street settlement
+and different Aegis/Riftbound fort silhouettes. Isolated private native copies
+preserve terrain, keep anchors and owner/capital content. A separate T1 ground
+moon provides readable night terrain without illuminating the atmosphere;
+native Editor/game builds and Foundation tests pass. Town/fort appearance,
+ordinary launch/GM, full navigation, authority, driving, multiplayer and release
+remain unaccepted. See `docs/t1-redesign.md` for exact evidence and retained gates.

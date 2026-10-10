@@ -1376,3 +1376,108 @@ tests remain retained evidence, not a rerun in this checkpoint. An additional
 source-only four-wheel bottom/pivot diagnostic finds up to 24.69cm of vertical
 contact error on the parked wagon. Its pose needs correction and actual native
 contact checks before that detail can be accepted.
+
+
+## Sunmeadow moonlight and Main Street candidate (10 October 2026)
+
+The native regional lighting rig now includes a separate shadow-casting ground
+moon. It does not illuminate the atmosphere, fades with the existing authoritative
+cycle, softens under weather and turns off outside dynamic T1. Clear-night output
+is 650 lux with a 42-degree downward angle and restrained cool fill. Native day,
+capital restoration and exposure settings remain retained. Editor/game builds
+and the full native Foundation automation queue pass. Initial atmospheric-sun
+calibration made the sky look like daytime; a separate non-atmospheric moon and
+lower ground output replace that rejected study. Actual player-height night
+pictures now show roads and slopes; performance and human approval remain open.
+
+`scripts/unreal/sunmeadow-town-plan.ts` adds a separate optional authoring recipe
+for twenty retained building roles around a clear Main Street, market green,
+rear service lanes and the attached capital courtyard. Each lot has an explicit
+household/shop/work/storage/garrison purpose and a reviewed private asset target.
+All retained services have reserved clear space. Two furnished home assemblies
+move intact, including ceilings, room atmosphere and practical lighting. The
+recipe does not replace the accepted campaign source or regenerate capital maps.
+
+Private town source `40ba02b999e2` saves/reloads all static/light/room bindings
+and passes 44400 native support/clearance queries across nine streets, twenty
+approaches and retained services. Terrain is unchanged. Full-width new street
+grade is at most 0.005601; foundation sample spread is at most 0.006285m. Ten
+actual day/night pictures and a labeled town drawing are embedded in the private
+`progress-report-moonlight-town-20261010.html`; standalone PNG transport copies
+verify identical decoded pixels. The village is still visibly bare, with large
+setbacks and oversized/repeated masonry surfaces. It is not a finished zone.
+
+`scripts/unreal/sunmeadow-fort-themes.ts` adds optional original faction themes
+without moving keep, gate, commander, siege, ram, postern or delivery anchors.
+The first isolated native copy adds Aegis square towers, Riftbound basalt and
+iron materials, faction banners and four standing finials, plus market stalls,
+benches, worksite storage and village-green oaks. Source meshes/materials and
+installed packages remain unchanged. The initial village-prop name mismatch was
+repaired. A later diagnostic incorrectly demanded the entire eight-metre approach
+width remain terrain-only through a retained 7.5m gatehouse. The replacement
+check tests new detail against all military/supply lanes and keep anchors;
+strict all-actor support/sweeps remain on new town streets and door approaches.
+It does not qualify retained gate traversal or scenery thresholds. This scope
+is explicit in the private route receipt, and gate/vehicle acceptance stays open.
+
+Native fort source `807f83dbf8bd` saves/reloads exact static bindings and all
+54754 existing vegetation transforms/culling policies. Its 27 road/street
+inventories contain 29835 configured positions; 72374 terrain/support queries
+also cover supply routes, doors and service points. Ten actual day/night views
+show a more distinct Aegis silhouette, while Riftbound finials need more height.
+Keep terrain/collision and original gameplay assemblies are retained. Ordinary
+entry/GM and authoritative scenery registration on these new copies are not
+qualified; do not launch their raw terrain Review maps as ordinary gameplay.
+
+The base town/fort copy passes twelve normal-character route directions across
+Main Street, rear lanes, the court link and both furnished homes: 1702.81m,
+zero airborne time, jumps or in-route teleports, and 22 actual gameplay-camera
+captures. The first report wrapper incorrectly required a Python commandlet
+marker from a game run. A separate recovery validates the unchanged original
+saved config, completed native report, rendered RHI, no shader fallback and
+completion log; its original wrapper exit 1 remains recorded. Exact historical
+authoring-source snapshots are retained, including line endings and SHA-256.
+Do not infer driving, nav rebuild, multiplayer balance or appearance acceptance
+from capsule sweeps. Keep full first-pair lairs/underground, human approval,
+18v18, vehicles/gates/siege, service/resource behavior, ordinary persistence/GM,
+live roles/authority/network/streaming/audio, licensing, platform performance,
+Steam and release gates open. Work remains focused on Sunmeadow before other
+zones. Active startup, owner drafts, accepted capitals and published source
+receipts remain unchanged.
+
+A later native iteration raises Riftbound finials uniformly to 1.65 scale so
+four pointed silhouettes clear the walls. A trial flat limestone material on
+Aegis towers loses masonry detail; the next iteration retains original source
+colour/normal textures with a warmer, lighter tint. Low garden walls initially
+clipped a diagonal furnished-home approach; moving both boundaries to the rear
+yard restores strict door-approach clearance. Six retained population identities,
+transforms and equipment, all vegetation transforms/cull policies and 162 source
+packages are checked alongside static/light/room bindings on saved reload.
+
+The moon direction is now fixed per region so its shadows cannot snap at the
+hourly clock wrap. New native boundary assertions cover the end of night and
+start of dawn. Both native targets rebuild successfully and the full Foundation
+queue reruns with 152 successful report entries and zero failures. Repository
+verification passes 1205 tests in 193 files and 574 Unreal tooling tests in 110
+files; all three typechecks, migration audit and world/model validation pass.
+Strict release remains blocked with exit 1. Previous Python-suite evidence is
+retained, not claimed as a new full Python run. Final open-fort and household
+walking on the latest copy is checked separately; real gate states, vehicles,
+ordinary entry/GM and all outstanding acceptance gates remain open.
+
+Final private copy `61f23b9f97a1` at `20261010_105202_349534` binds the current
+compiled moonlight runtime, retains source tower textures with a warm tint and
+saves/reloads the repaired rear garden walls. Six additional normal-character
+route directions cover both open fort approaches and the household route over
+495.79m at live authoritative daylight 0 / cosmetic weather strength 0.28.
+All complete with zero airborne time, jumps or in-route teleports and twelve
+actual gameplay-camera captures. This does not certify closed gates, actual
+keep interactions, ordinary GM entry or production authority. The rendered
+walk logs one `[VSM] Non-Nanite Marking Job Queue overflow` warning near the
+household approach. Its cause and frame-time impact are unmeasured; retain it
+as a concrete performance investigation rather than claiming a clean budget.
+The private continuation receipt is `moonlight-town-continuation-latest.json`;
+`sunmeadow-progress-latest.json` points to the embedded native-picture report.
+Keep working on Sunmeadow: enclosing geology, field/grove composition, road
+verges, domestic/working yards, materials and navigation/entry integration.
+No active map/startup promotion or owner/capital overwrite occurred.

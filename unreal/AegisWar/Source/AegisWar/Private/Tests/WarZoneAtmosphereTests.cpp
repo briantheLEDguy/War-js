@@ -57,7 +57,7 @@ bool FWarZoneAtmosphereTest::RunTest(const FString& Parameters)
                 Component->bAtmosphereSunLight ? 1 : 0);
         }
     }
-    TestEqual(TEXT("Only one environment is resident across transitions"), TransientActors, 6);
+    TestEqual(TEXT("Only one environment is resident across transitions"), TransientActors, 7);
     TestFalse(TEXT("Unknown preview is recoverable"), Lighting->PreviewZone(TEXT("missing"), FVector::ZeroVector));
     TestEqual(TEXT("Failed preview keeps previous environment"), Lighting->GetActiveZone(), FName(TEXT("sunmeadow_march")));
     TestFalse(TEXT("Failed preview cannot expose capital clouds"), AuthoredCloudComponent->IsVisible());

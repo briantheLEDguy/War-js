@@ -66,20 +66,30 @@ void UWarZoneLightingSubsystem::Tick(float DeltaTime)
 
 bool UWarZoneLightingSubsystem::CreateEnvironment()
 {
-    if (Sun && Fill && Fog && Sky && Ambient && Grade) return true;
+    if (Sun && Fill && Moon && Fog && Sky && Ambient && Grade) return true;
     FActorSpawnParameters Params; Params.ObjectFlags |= RF_Transient;
     Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
     Sun = GetWorld()->SpawnActor<ADirectionalLight>(Params);
     Fill = GetWorld()->SpawnActor<ADirectionalLight>(Params);
+    Moon = GetWorld()->SpawnActor<ADirectionalLight>(Params);
     Fog = GetWorld()->SpawnActor<AExponentialHeightFog>(Params);
     Sky = GetWorld()->SpawnActor<ASkyAtmosphere>(Params);
     Ambient = GetWorld()->SpawnActor<ASkyLight>(Params);
     GradeActor = GetWorld()->SpawnActor<AActor>(Params);
-    if (!Sun || !Fill || !Fog || !Sky || !Ambient || !GradeActor) return false;
-    for (AActor* Actor : TArray<AActor*>{Sun.Get(), Fill.Get(), Fog.Get(), Sky.Get(), Ambient.Get(), GradeActor.Get()})
+    if (!Sun || !Fill || !Moon || !Fog || !Sky || !Ambient || !GradeActor) return false;
+    for (AActor* Actor : TArray<AActor*>{Sun.Get(), Fill.Get(), Moon.Get(), Fog.Get(), Sky.Get(), Ambient.Get(), GradeActor.Get()})
     { Actor->SetReplicates(false); Actor->Tags.Add(TEXT("WarLocalZoneEnvironment")); }
     Sun->GetLightComponent()->SetMobility(EComponentMobility::Movable);
     Fill->GetLightComponent()->SetMobility(EComponentMobility::Movable);
+    Moon->GetLightComponent()->SetMobility(EComponentMobility::Movable);
+    Moon->Tags.Add(TEXT("WarGroundMoonlight"));
+    auto* MoonComponent = CastChecked<UDirectionalLightComponent>(Moon->GetLightComponent());
+    // Illuminate terrain without turning the atmospheric night sky into daylight.
+    MoonComponent->SetAtmosphereSunLight(false);
+    MoonComponent->SetForwardShadingPriority(0);
+    MoonComponent->LightSourceAngle = 1.2f;
+    MoonComponent->SetIntensity(0);
+    MoonComponent->SetVisibility(false);
     Fog->GetComponent()->SetMobility(EComponentMobility::Movable);
     Ambient->GetLightComponent()->SetMobility(EComponentMobility::Movable);
     Ambient->GetLightComponent()->SetRealTimeCaptureEnabled(true);
@@ -127,6 +137,8 @@ bool UWarZoneLightingSubsystem::Apply(FName Zone, FVector Origin)
     Sun->GetLightComponent()->SetVisibility(bEnabled); Fill->GetLightComponent()->SetVisibility(bEnabled);
     Fog->GetComponent()->SetVisibility(bEnabled); Sky->GetComponent()->SetVisibility(bEnabled); Grade->bEnabled = bEnabled;
     Ambient->GetLightComponent()->SetVisibility(bEnabled);
+    Moon->GetLightComponent()->SetVisibility(false);
+    Moon->GetLightComponent()->SetIntensity(0);
     if (bEnabled)
     {
         HideAuthoredEnvironment();
@@ -166,22 +178,28 @@ bool UWarZoneLightingSubsystem::PreviewWorld(UWorld* World, FName Zone, FVector 
 void UWarZoneLightingSubsystem::ApplyRegionalTime(double Seconds,float Weather)
 {
     const auto* Profile=FindProfile(ActiveZone);
-    if (!Profile || !AWarEnvironmentState::IsDynamicZone(ActiveZone) || !Sun || !Grade) return;
+    if (!Profile || !AWarEnvironmentState::IsDynamicZone(ActiveZone) || !Sun || !Moon || !Grade) return;
     const float Day=AWarEnvironmentState::Daylight(Seconds),Wet=FMath::Clamp(Weather,0.f,1.f);
     const double Phase=AWarEnvironmentState::CycleSeconds(Seconds);
-    const FLinearColor Moon(.48f,.59f,.8f),Dawn(1.f,.64f,.4f);
+    const FLinearColor MoonColour(.48f,.59f,.8f),GroundFill(.62f,.72f,.9f),Dawn(1.f,.64f,.4f);
     const float Twilight=4*Day*(1-Day);
-    const FLinearColor Colour=FMath::Lerp(FMath::Lerp(Moon,Profile->SunColor,Day),Dawn,Twilight*.4f);
+    const FLinearColor Colour=FMath::Lerp(FMath::Lerp(MoonColour,Profile->SunColor,Day),Dawn,Twilight*.4f);
     Sun->SetActorRotation(FRotator(FMath::Lerp(-12.f,Profile->SunRotation.Pitch,Day),Profile->SunRotation.Yaw+float(Phase/3600.*150),0));
     Sun->GetLightComponent()->SetIntensity(FMath::Lerp(500.f,Profile->SunLux,Day)*(1-Wet*.3f));
     Sun->GetLightComponent()->SetLightColor(Colour);
-    Fill->GetLightComponent()->SetIntensity(FMath::Lerp(900.f,Profile->FillLux,Day));
-    Fill->GetLightComponent()->SetLightColor(FMath::Lerp(Moon,Profile->FillColor,Day));
-    Ambient->GetLightComponent()->SetIntensity(FMath::Lerp(.12f,DaySkyIntensity(*Profile),Day));
-    Ambient->GetLightComponent()->SetLightColor(FMath::Lerp(Moon,Profile->FillColor,Day));
+    // A broad, world-aligned moon pass keeps open combat readable without a moving player halo.
+    // Keep the moon direction stable across the hourly clock wrap.
+    Moon->SetActorRotation(FRotator(-42,Profile->SunRotation.Yaw+75.f,0));
+    Moon->GetLightComponent()->SetVisibility(Day < 1.f);
+    Moon->GetLightComponent()->SetIntensity(650.f*(1-Day)*(1-Wet*.25f));
+    Moon->GetLightComponent()->SetLightColor(FLinearColor(.48f,.6f,.85f));
+    Fill->GetLightComponent()->SetIntensity(FMath::Lerp(1100.f,Profile->FillLux,Day));
+    Fill->GetLightComponent()->SetLightColor(FMath::Lerp(GroundFill,Profile->FillColor,Day));
+    Ambient->GetLightComponent()->SetIntensity(FMath::Lerp(.18f,DaySkyIntensity(*Profile),Day));
+    Ambient->GetLightComponent()->SetLightColor(FMath::Lerp(GroundFill,Profile->FillColor,Day));
     const float RegionalFog=ActiveZone==TEXT("brightfen_approach") ? .022f : ActiveZone==TEXT("cinderfen_outskirts") ? .016f : .008f;
     Fog->GetComponent()->SetFogDensity(Profile->FogDensity+Wet*RegionalFog);
-    Fog->GetComponent()->SetFogInscatteringColor(FMath::Lerp(Moon*.12f,Profile->FogColor,Day));
+    Fog->GetComponent()->SetFogInscatteringColor(FMath::Lerp(MoonColour*.12f,Profile->FogColor,Day));
     // Keep a fixed, readable regional exposure: daylight preserves material colour,
     // while moonlit routes retain silhouette detail without adapting night into day.
     Grade->Settings.AutoExposureBias=Profile->ExposureBias+FMath::Lerp(NightExposureLift(*Profile),-.5f,Day);
@@ -199,8 +217,8 @@ void UWarZoneLightingSubsystem::Deinitialize()
 {
     FWorldDelegates::LevelAddedToWorld.Remove(AddedHandle); FWorldDelegates::LevelRemovedFromWorld.Remove(RemovedHandle);
     RestoreAuthoredEnvironment();
-    for (AActor* Actor : TArray<AActor*>{Sun.Get(), Fill.Get(), Fog.Get(), Sky.Get(), Ambient.Get(), GradeActor.Get()})
+    for (AActor* Actor : TArray<AActor*>{Sun.Get(), Fill.Get(), Moon.Get(), Fog.Get(), Sky.Get(), Ambient.Get(), GradeActor.Get()})
         if (IsValid(Actor)) Actor->Destroy();
-    Sun = nullptr; Fill = nullptr; Fog = nullptr; Sky = nullptr; Ambient = nullptr; Grade = nullptr; GradeActor = nullptr;
+    Sun = nullptr; Fill = nullptr; Moon = nullptr; Fog = nullptr; Sky = nullptr; Ambient = nullptr; Grade = nullptr; GradeActor = nullptr;
     Super::Deinitialize();
 }

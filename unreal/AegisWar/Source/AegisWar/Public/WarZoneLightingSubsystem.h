@@ -43,6 +43,7 @@ private:
     TMap<TWeakObjectPtr<class USceneComponent>, bool> AuthoredVisibility;
     UPROPERTY(Transient) TObjectPtr<class ADirectionalLight> Sun;
     UPROPERTY(Transient) TObjectPtr<class ADirectionalLight> Fill;
+    UPROPERTY(Transient) TObjectPtr<class ADirectionalLight> Moon;
     UPROPERTY(Transient) TObjectPtr<class AExponentialHeightFog> Fog;
     UPROPERTY(Transient) TObjectPtr<class ASkyAtmosphere> Sky;
     UPROPERTY(Transient) TObjectPtr<class ASkyLight> Ambient;
