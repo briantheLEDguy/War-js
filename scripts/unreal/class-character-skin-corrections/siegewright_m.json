@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "identity": "siegewright_m",
+  "sourceBodySha256": "f8c4f43f7d01f696875f98a59b8a90721784e5056b88f6812587dbdefc0c7c7b",
+  "sourceVertexCount": 13380,
+  "positionSha256": "7f6cb3a08329f2a3a889491b7b4bb683f1f781505687cffea105a557c6ad4fd3",
+  "baseline": {
+    "hipIterations": 96,
+    "shoulderIterations": 192,
+    "trunkAnchorWidth": 0.45
+  },
+  "solver": {
+    "toolSha256": "49af8b2689c3ca535dc5d2fff7d96b0c70de74999127fff65bf7c59b26f63e04",
+    "motionToolSha256": "90574c5d92fc6bba746bf302abaa9bf18ac9f53d82e5fef95deb4f0e5e710ec8",
+    "baselineLbsErrorM": 2.3733766973954573e-07,
+    "maxExtensionScore": 0.9665799333463092,
+    "maximumWeightChange": 0.02285370821175059,
+    "poseCount": 107
+  },
+  "rows": [
+    {
+      "vertex": 1404,
+      "weights": {
+        "neck": 0.05311194723119583,
+        "shoulder_R": 0.10473670704851215,
+        "upper_chest": 0.2491136272871897,
+        "upper_arm_R": 0.5930377184188531
+      }
+    },
+    {
+      "vertex": 1405,
+      "weights": {
+        "neck": 0.04965503207277725,
+        "shoulder_R": 0.10192760585643212,
+        "upper_chest": 0.2771173772278299,
+        "upper_arm_R": 0.5712999849476816
+      }
+    },
+    {
+      "vertex": 1406,
+      "weights": {
+        "neck": 0.05730507988656056,
+        "shoulder_R": 0.09174550070938425,
+        "upper_chest": 0.30749838501550286,
+        "upper_arm_R": 0.5434510344396691
+      }
+    },
+    {
+      "vertex": 1420,
+      "weights": {
+        "chest": 0.035761515541734935,
+        "shoulder_R": 0.04474193199901183,
+        "upper_arm_R": 0.37847042126752783,
+        "upper_chest": 0.5410261313186854
+      }
+    },
+    {
+      "vertex": 1440,
+      "weights": {
+        "forearm_R": 0.05749943868587005,
+        "shoulder_R": 0.08662758443351776,
+        "upper_chest": 0.25160351977012513,
+        "upper_arm_R": 0.6042694569144207
+      }
+    },
+    {
+      "vertex": 1441,
+      "weights": {
+        "forearm_R": 0.054449760173288904,
+        "shoulder_R": 0.08259385778354149,
+        "upper_chest": 0.26955382822412377,
+        "upper_arm_R": 0.5934025536575794
+      }
+    },
+    {
+      "vertex": 1442,
+      "weights": {
+        "forearm_R": 0.06750154070320112,
+        "shoulder_R": 0.07804248540506016,
+        "upper_chest": 0.2702947584264622,
+        "upper_arm_R": 0.5841612155112236
+      }
+    },
+    {
+      "vertex": 1455,
+      "weights": {
+        "neck": 0.05234885684866441,
+        "shoulder_R": 0.10451420248141156,
+        "upper_chest": 0.2564147212339473,
+        "upper_arm_R": 0.5867222195105671
+      }
+    },
+    {
+      "vertex": 1459,
+      "weights": {
+        "forearm_R": 0.056728239785632135,
+        "shoulder_R": 0.08598197700421818,
+        "upper_chest": 0.2575611783013222,
+        "upper_arm_R": 0.599728605097431
+      }
+    },
+    {
+      "vertex": 1612,
+      "weights": {
+        "chest": 0.025992067997908957,
+        "shoulder_R": 0.03944706599927214,
+        "upper_arm_R": 0.2934958786261133,
+        "upper_chest": 0.6410649874810198
+      }
+    },
+    {
+      "vertex": 1613,
+      "weights": {
+        "shoulder_R": 0.02507816875809242,
+        "chest": 0.043165917633478476,
+        "upper_arm_R": 0.20532885229684666,
+        "upper_chest": 0.7264270613317911
+      }
+    },
+    {
+      "vertex": 1627,
+      "weights": {
+        "neck": 0.059601364816226375,
+        "shoulder_R": 0.0945463234152006,
+        "upper_chest": 0.27295536394646464,
+        "upper_arm_R": 0.57289694790367
+      }
+    },
+    {
+      "vertex": 1628,
+      "weights": {
+        "neck": 0.054374464709023934,
+        "shoulder_R": 0.10365250663619545,
+        "upper_chest": 0.2539555459147064,
+        "upper_arm_R": 0.5880174828889143
+      }
+    },
+    {
+      "vertex": 1631,
+      "weights": {
+        "forearm_R": 0.03163184064836743,
+        "shoulder_R": 0.04546063457585572,
+        "upper_chest": 0.45908921031368144,
+        "upper_arm_R": 0.4638183145558359
+      }
+    },
+    {
+      "vertex": 1632,
+      "weights": {
+        "forearm_R": 0.03726376322807477,
+        "shoulder_R": 0.04295335372419481,
+        "upper_chest": 0.4557753065505761,
+        "upper_arm_R": 0.4640075764001484
+      }
+    },
+    {
+      "vertex": 1637,
+      "weights": {
+        "forearm_R": 0.06450662042965,
+        "shoulder_R": 0.07999521867417435,
+        "upper_chest": 0.24376266716825637,
+        "upper_arm_R": 0.6117354936384346
+      }
+    },
+    {
+      "vertex": 1638,
+      "weights": {
+        "forearm_R": 0.056718760671608325,
+        "shoulder_R": 0.08307729979208808,
+        "upper_chest": 0.2512656287040163,
+        "upper_arm_R": 0.6089383107420573
+      }
+    },
+    {
+      "vertex": 1653,
+      "weights": {
+        "forearm_R": 0.03471623631784797,
+        "shoulder_R": 0.04842166205626969,
+        "upper_arm_R": 0.4475944056255991,
+        "upper_chest": 0.46926769596545614
+      }
+    },
+    {
+      "vertex": 1666,
+      "weights": {
+        "chest": 0.025963175294352797,
+        "shoulder_R": 0.04257240643282608,
+        "upper_arm_R": 0.39150255790659505,
+        "upper_chest": 0.5399618605110903
+      }
+    },
+    {
+      "vertex": 1668,
+      "weights": {
+        "chest": 0.03211143622683516,
+        "shoulder_R": 0.03982041048406275,
+        "upper_arm_R": 0.38725084174380964,
+        "upper_chest": 0.540817311438583
+      }
+    },
+    {
+      "vertex": 8284,
+      "weights": {
+        "chest": 0.027793392170656288,
+        "shoulder_L": 0.03931354112091593,
+        "upper_arm_L": 0.29038606778682113,
+        "upper_chest": 0.642506998889042
+      }
+    },
+    {
+      "vertex": 8298,
+      "weights": {
+        "neck": 0.06197882499793021,
+        "shoulder_L": 0.08613853457438699,
+        "upper_chest": 0.2882833775250027,
+        "upper_arm_L": 0.5635992630404739
+      }
+    },
+    {
+      "vertex": 8299,
+      "weights": {
+        "neck": 0.0668297109480947,
+        "shoulder_L": 0.09024437399815805,
+        "upper_chest": 0.27431192423860445,
+        "upper_arm_L": 0.5686139906639287
+      }
+    },
+    {
+      "vertex": 8303,
+      "weights": {
+        "forearm_L": 0.03600035181490127,
+        "shoulder_L": 0.04454778119699588,
+        "upper_chest": 0.45062569326099217,
+        "upper_arm_L": 0.4688261735658191
+      }
+    },
+    {
+      "vertex": 8308,
+      "weights": {
+        "forearm_L": 0.0629818324716814,
+        "shoulder_L": 0.07876726900581936,
+        "upper_chest": 0.25056638247921453,
+        "upper_arm_L": 0.6076845161552854
+      }
+    },
+    {
+      "vertex": 8309,
+      "weights": {
+        "forearm_L": 0.06998352901432664,
+        "shoulder_L": 0.07990712086724962,
+        "upper_chest": 0.2379060098866263,
+        "upper_arm_L": 0.6122033403611564
+      }
+    },
+    {
+      "vertex": 8338,
+      "weights": {
+        "chest": 0.026821156504364,
+        "shoulder_L": 0.0426168947677103,
+        "upper_arm_L": 0.3900012980107544,
+        "upper_chest": 0.5405606508693787
+      }
+    },
+    {
+      "vertex": 10509,
+      "weights": {
+        "chest": 0.011591160071657537,
+        "shoulder_L": 0.05473254258696762,
+        "upper_arm_L": 0.3356839556759477,
+        "upper_chest": 0.5979923417034125
+      }
+    },
+    {
+      "vertex": 10514,
+      "weights": {
+        "forearm_L": 0.020661586033382993,
+        "shoulder_L": 0.05082491954215031,
+        "upper_arm_L": 0.40317413042772565,
+        "upper_chest": 0.5253393639345352
+      }
+    }
+  ],
+  "runtimeEligible": false,
+  "nativeAccepted": false
+}

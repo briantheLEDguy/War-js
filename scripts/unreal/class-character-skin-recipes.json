@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "defaults": { "hipIterations": 96, "shoulderIterations": 96, "trunkAnchorWidth": 0.45 },
+  "characters": {
+    "bog_hexer_m": { "hipIterations": 96, "shoulderIterations": 192 },
+    "cleaver_m": { "hipIterations": 96, "shoulderIterations": 192 },
+    "doomseeker_m": { "hipIterations": 96, "shoulderIterations": 192, "correction": "doomseeker_m.json" },
+    "dreadsworn_m": { "hipIterations": 96, "shoulderIterations": 192 },
+    "fang_herder_m": { "hipIterations": 96, "shoulderIterations": 192 },
+    "glyphbinder_m": { "hipIterations": 96, "shoulderIterations": 192, "correction": "glyphbinder_m.json" },
+    "siegewright_f": { "hipIterations": 64, "shoulderIterations": 64 },
+    "siegewright_m": { "hipIterations": 96, "shoulderIterations": 192, "correction": "siegewright_m.json" },
+    "stoneguard_m": { "hipIterations": 96, "shoulderIterations": 192, "correction": "stoneguard_m.json" },
+    "sunfire_templar_m": { "hipIterations": 128, "shoulderIterations": 128 },
+    "warbrute_m": { "hipIterations": 96, "shoulderIterations": 192 },
+    "warped_reaver_m": { "hipIterations": 128, "shoulderIterations": 128 }
+  }
+}

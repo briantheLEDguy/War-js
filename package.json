@@ -33,6 +33,8 @@
     "models:generate": "node scripts/blender-character-pipeline/tools/generate-asset.mjs",
     "models:roster": "node scripts/blender-character-pipeline/tools/generate-roster.mjs",
     "models:all": "node scripts/blender-character-pipeline/tools/generate-all.mjs",
+    "unreal:class-characters": "node scripts/unreal/build-class-characters.mjs",
+    "unreal:class-character-review": "node scripts/unreal/review-class-characters.mjs",
     "scenario:host": "tsx server/scenarios/host.ts",
     "server:dev": "tsx --env-file-if-exists=.env.orvr server/start.ts --dev-auth",
     "server:start": "tsx --env-file-if-exists=.env.orvr server/start.ts",

@@ -1,5 +1,18 @@
 # AegisWar
 
+Class character authoring now has a separate local workflow for all 24 classes
+and both body variants: `npm run unreal:class-characters -- --run-id anatomy-v10`.
+It corrects calf/thigh balance before rig fitting and preserves editable armor-fit
+sources. The derived atlas/skin pass refines joint transitions on welded topology,
+fixes scalp intersections and uses three material draws. Follow the
+[character authoring workflow](docs/unreal-class-characters.md), then run
+`npm run unreal:class-character-review -- anatomy-v10` for the hash-checked gallery.
+The separate Greenskin dentition pass roots curved tusks inside the lower jaw,
+restores lower-face skin weights and checks exported mouth opening and motion.
+These remain draft bodies; final appearance, equipped/native motion, LODs and
+release acceptance remain open. The [measured checkpoint](authoring/blender/class-foundations/WORK_STATE.md)
+records the 48-body result and remaining work.
+
 The current first-pair candidates add shared watershed warping, multiscale surface
 breakup, basalt bedding, broader road/pad transitions, shallow exploration hollows
 and locally instanced source-model vegetation. `t1-landscape-pockets.ts` admits

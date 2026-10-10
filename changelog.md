@@ -1,3 +1,25 @@
+## 2026-10-10 - Class character anatomy and rig authoring
+
+- Add a local 24-class, male/female body workflow using retained MPFB sources,
+  conservative race physiques and short, detachable race-tinted grooming.
+- Correct calf/thigh balance in the body and fitting helpers before fitting the
+  canonical skeleton; smooth skin transitions and normalize four influences.
+- Fit eyeball pivots, retain iris/sclera topology and replace oversized Greenskin
+  tusks with fitted curved lower canines. Pack portable skin/hair textures.
+- Correct the remaining Greenskin tusks resting on the chin: bury roots in the
+  lower canine sockets and curve crowns through the lip. Restore source-derived
+  lower-face jaw weights and bind lower teeth, gums and tongue to the jaw.
+  Verify three jaw openings and repeat static/supplied-pose export checks while
+  preserving body surfaces, bone pivots, triangle counts and three draws.
+- Preserve live armor-fitting sources and a separate editor-only fit envelope.
+  Derive three-draw atlas candidates with scalp clearance and joint refinement
+  on welded source topology, preserving identical weights across UV seams.
+- Tune hips and shoulders independently and retain bounded, source-bound Dwarf
+  weight corrections fitted across 107 poses without changing bone pivots.
+- Add actual exported-body anatomy/bend audits, supplied-source pose diagnostics
+  and a hash-checked local review gallery. Preserve failed draft iterations; keep
+  final art, equipped/native motion, LOD and release gates open.
+
 ## 2026-10-10 - Compact Sunmeadow frontages and coherent stone channels
 
 - Add an opt-in seven-frontage town revision and transactional bounded door

@@ -1,0 +1,2605 @@
+{
+  "schemaVersion": 1,
+  "runId": "anatomy-v10",
+  "expected": 48,
+  "built": 48,
+  "technicalPassed": 48,
+  "atlasPassed": 48,
+  "sourcePoseReviewed": 48,
+  "sourcePosePassed": 48,
+  "nativeAccepted": false,
+  "runtimeEligible": false,
+  "characters": [
+    {
+      "identity": "ember_arcanist_m",
+      "className": "Ember Arcanist",
+      "race": "empire",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.8769988362383003,
+      "staticMaxEdgeExtensionM": 0.028618526133726768,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "ember_arcanist_m/optimized-v2/body.glb",
+      "modelSha256": "437cefec393b33b5126ffc9ed7edbb507a4682ad7348cf050863567f63f909d3",
+      "receiptSha256": "cf9124abf2588c7910da0c08f4cf8edc4dbe3f9ba22feae52d2d4faec910dfa2",
+      "atlasReceiptSha256": "7c583ff26ce739097db687f919ddaece26df09a1ce473bbc565eeb3cca99009d",
+      "motionReceiptSha256": "cd8cc034c94bd059d1f93ae5de447873227523e5c090360ce98685a6a96b862f",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1943,
+        "maximumTransferDistanceM": 5.997601419949206e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "ember_arcanist_f",
+      "className": "Ember Arcanist",
+      "race": "empire",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7793993719432137,
+      "staticMaxEdgeExtensionM": 0.026690012368654474,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "ember_arcanist_f/optimized-v2/body.glb",
+      "modelSha256": "456c962400c99e70058452de2ed4f46bb543f5121bea00b94851f016e8293cb2",
+      "receiptSha256": "1808337c65c946ffa864e3533e8d6e705de383a142036fd71548ae8dd51581c4",
+      "atlasReceiptSha256": "49bc90cc90a2ecb801faa570fccaaf06f31e549cd147d0c8e5d7df2100065a19",
+      "motionReceiptSha256": "7e5e9e1118aab1ca8c1d1c518e757f7f446d2087776b4d1c60764ea4032c5511",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1913,
+        "maximumTransferDistanceM": 6.194296133799071e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "hex_inquisitor_m",
+      "className": "Hex Inquisitor",
+      "race": "empire",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.8589992313855817,
+      "staticMaxEdgeExtensionM": 0.028335672347110836,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "hex_inquisitor_m/optimized-v2/body.glb",
+      "modelSha256": "d38c586225d638d6f0b507c6b50b0571b99496f494609503bd9a358a2508fafc",
+      "receiptSha256": "2cdc098938ccd85705cdfed32c2d4e311ba9d0d777f62adaef74e5056eb773ad",
+      "atlasReceiptSha256": "535990136e3de4d960d97af5964199ec20400e8d7bc3c569fe4f2ffc6bd2c7db",
+      "motionReceiptSha256": "585e5f7ccee6fd42b14944ec4b31c80833bdfd5b93a65870adf12fbc80cc3dcd",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1947,
+        "maximumTransferDistanceM": 9.039799238053092e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "hex_inquisitor_f",
+      "className": "Hex Inquisitor",
+      "race": "empire",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7511989017920868,
+      "staticMaxEdgeExtensionM": 0.02628991759351484,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "hex_inquisitor_f/optimized-v2/body.glb",
+      "modelSha256": "5f75d4c329e3dc7c4e93a89bcbade6f2cf444cf995fdde9ddab15845ec66bf09",
+      "receiptSha256": "417b290ec0dff0f7dd3fe1dbc36ddf1e8e64f1590d1945effe341169cbfff280",
+      "atlasReceiptSha256": "6138778ab584b9e37024cfc64d9d2788c0e9b286491d77b8516976e647293d32",
+      "motionReceiptSha256": "422f90a79f7aae5058d861aa20e423ba8bb29d6c972c1bc55bb390d70cd5a6e1",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1913,
+        "maximumTransferDistanceM": 8.371217177227663e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "sunfire_templar_m",
+      "className": "Sunfire Templar",
+      "race": "empire",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.8488997916151106,
+      "staticMaxEdgeExtensionM": 0.027247432756216796,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "sunfire_templar_m/optimized-v2/body.glb",
+      "modelSha256": "d3978cd04ceae8c6a5832191e222511da5699938f6fc9046d9c970a4fb1cea26",
+      "receiptSha256": "88551a3b10fbafa10a7354aa6f4022d4271e62b8470c7267930b22e6e295387c",
+      "atlasReceiptSha256": "6d7c4cf57750fb59b562e08e3d5b900d6e42395ad43ca21990b2f39e8bc25afd",
+      "motionReceiptSha256": "fe16814965cf733798a6628ed5e4cf388612c4ff652611cf8778c242d5f29bea",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 128,
+        "shoulderIterations": 128,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1949,
+        "maximumTransferDistanceM": 1.00093222954456e-06,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "sunfire_templar_f",
+      "className": "Sunfire Templar",
+      "race": "empire",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7766995288604335,
+      "staticMaxEdgeExtensionM": 0.026393125443847257,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "sunfire_templar_f/optimized-v2/body.glb",
+      "modelSha256": "cff8239da9958c6af9c325f254ba74499f47461fcf6eaff58c0e376ce03c0294",
+      "receiptSha256": "3af056426e1a3608befcae1f91d97b457f2ac133a1fa06726ceef5143f413615",
+      "atlasReceiptSha256": "f00435768bf7d7a67f127606d61b4f84bb3e8831f013fc8cc269bd06670aa293",
+      "motionReceiptSha256": "5b6b0f35e5a513f6798e34adc2935a32a6386ef073238ac2ee34934c34959799",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1907,
+        "maximumTransferDistanceM": 5.280984964883828e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "battle_prelate_m",
+      "className": "Battle Prelate",
+      "race": "empire",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.8693014127462106,
+      "staticMaxEdgeExtensionM": 0.02819737136515578,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "battle_prelate_m/optimized-v2/body.glb",
+      "modelSha256": "5891d574de51ab20cee0caaee370c7b1a51d0d950b1823f55ab8bb0dda301e47",
+      "receiptSha256": "d2b697dd318c33d8b800452750f2032fcf824e7fa0bad519fd3632fe89063a33",
+      "atlasReceiptSha256": "842ea34af6e42aebbd81095bd4229c182590aa651535b05a2d8d9337a543a10b",
+      "motionReceiptSha256": "ce8c7e3528a25ecaa554649129167d1aa3fc33e51259cb34caca90b95da83414",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1943,
+        "maximumTransferDistanceM": 8.450417112726427e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "battle_prelate_f",
+      "className": "Battle Prelate",
+      "race": "empire",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7707002062766435,
+      "staticMaxEdgeExtensionM": 0.02643710045450665,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "battle_prelate_f/optimized-v2/body.glb",
+      "modelSha256": "674006ed71a28cfe15ab231a6647923be4e27d765687148e5e88657584ee3ded",
+      "receiptSha256": "2308fc925462f87178cd546c403c45f185e174408f3d023300b261d0bc5795f2",
+      "atlasReceiptSha256": "7068cccc1b8daad7dcfaafec46dc56a66966e7b62eccfaf0841bc59a4295b63f",
+      "motionReceiptSha256": "170d455bc35b7641ed0a228b8a75cf8c60a53cf9c8be1f0a3cbd4b36cb3b4fb2",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1910,
+        "maximumTransferDistanceM": 8.560065225537983e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "stoneguard_m",
+      "className": "Stoneguard",
+      "race": "dwarf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.4931000751984698,
+      "staticMaxEdgeExtensionM": 0.02162483103114897,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "stoneguard_m/optimized-v2/body.glb",
+      "modelSha256": "3898c929d59c655e0687b2446f098f108dd226b4c06d96e73ff11dcf6975032a",
+      "receiptSha256": "0057c85b86484f514d969dd1de047d8f8ab4b262717c644c2a85e9dc28c7c7d0",
+      "atlasReceiptSha256": "6783a156a88c859b5efbe4b5dd6d5bfa39cdbd538124b5dab79ecc264b8bb4cb",
+      "motionReceiptSha256": "bb03cddb7c037184959852508183c37e520e9cd6d6c3644cb2fad1209987aa8e",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1863,
+        "localCorrection": {
+          "sourceVertices": 28,
+          "maximumWeightChange": 0.015299006464680534,
+          "method": "fixed_bounded_skin_weights_no_pose_dependent_geometry"
+        },
+        "maximumTransferDistanceM": 5.170509780327848e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": {
+        "file": "stoneguard_m.json",
+        "sha256": "e28f2caae4d1acb3c54cd6bebb0414b4f858c3bd6e3231d0d5190ae957e03bd6",
+        "solverSha256": "49af8b2689c3ca535dc5d2fff7d96b0c70de74999127fff65bf7c59b26f63e04"
+      },
+      "dentitionPassed": null
+    },
+    {
+      "identity": "stoneguard_f",
+      "className": "Stoneguard",
+      "race": "dwarf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.414399679396496,
+      "staticMaxEdgeExtensionM": 0.02246326576931678,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "stoneguard_f/optimized-v2/body.glb",
+      "modelSha256": "306d5389ccb3d2f7826534fc17ac77bbfa9514a94e538fc1c53a2c7dd27020db",
+      "receiptSha256": "21b9d2057eadf5d4ce1453673af9326cdfe0a3595ff46fc9b74b813acdc02dd1",
+      "atlasReceiptSha256": "01a7ec51818015aeff3a1f76067a1d48d4909e3b6986ade7466a84b9c53d4c96",
+      "motionReceiptSha256": "b7684478f764d6494c8e2d46d03d1a6656398c455dea069486bd8f16c7a26e5d",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1823,
+        "maximumTransferDistanceM": 4.919428988614527e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "doomseeker_m",
+      "className": "Doomseeker",
+      "race": "dwarf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.4695988562893874,
+      "staticMaxEdgeExtensionM": 0.02098778879927312,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "doomseeker_m/optimized-v2/body.glb",
+      "modelSha256": "c3dc5426c84530042543ac1899622c1c64a2a153631b155e5e74ca51fd72da2a",
+      "receiptSha256": "911fa5c9146b3b683c598c5ef4698f69738e1188c80b0e6f4ed6c0097041f0dd",
+      "atlasReceiptSha256": "d68f797889bc525f10e7ef6951a95cdf4e17a421810ac8694bed7c5c8823715f",
+      "motionReceiptSha256": "70d26e579a581770a2e88f2f55d49eea6dbd188c1c1936be5c23dd0b157d363b",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1877,
+        "localCorrection": {
+          "sourceVertices": 16,
+          "maximumWeightChange": 0.012976493094555785,
+          "method": "fixed_bounded_skin_weights_no_pose_dependent_geometry"
+        },
+        "maximumTransferDistanceM": 3.6569090866578335e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": {
+        "file": "doomseeker_m.json",
+        "sha256": "e99310f9dba868ebb01757a2f682335be7dba81f85d122ae16e52f600e3d20a5",
+        "solverSha256": "49af8b2689c3ca535dc5d2fff7d96b0c70de74999127fff65bf7c59b26f63e04"
+      },
+      "dentitionPassed": null
+    },
+    {
+      "identity": "doomseeker_f",
+      "className": "Doomseeker",
+      "race": "dwarf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.4332995957756367,
+      "staticMaxEdgeExtensionM": 0.02249480983128484,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "doomseeker_f/optimized-v2/body.glb",
+      "modelSha256": "df9b8d70daa2f5ba0d5843669a6d20f30c57d79e9910feb00471178636cf4700",
+      "receiptSha256": "f2315a5fde9772e2317f2133626e710c2b60ba7f6824dc633c46494a80607515",
+      "atlasReceiptSha256": "a48d0af5ff70b4ec5179dfcc1267af8e4333b152b44a060b3f621d53b5ad3931",
+      "motionReceiptSha256": "95e9235a17cff2c813110cb22d990265f237603b9cc94744e5fd876175216612",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1833,
+        "maximumTransferDistanceM": 4.2252085563632136e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "glyphbinder_m",
+      "className": "Glyphbinder",
+      "race": "dwarf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.4584999264603198,
+      "staticMaxEdgeExtensionM": 0.021267261062988724,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "glyphbinder_m/optimized-v2/body.glb",
+      "modelSha256": "471af3492d6d23c0eac1f6b5e4f9ad30ab5d0d452bd435da87ceb7c598cc40eb",
+      "receiptSha256": "add21ae1b65445392c9ab68b2ef09a644a7026690e9e193658bbc05c54cdd77f",
+      "atlasReceiptSha256": "7607bd55cb5f0ac7f780756d5a8a384167664197730d0d547229f2d03f61e8db",
+      "motionReceiptSha256": "5de12f4157d75cca1f25b49c432b6ea7f8a73facfc875f2c1ee889f3a4bef482",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1885,
+        "localCorrection": {
+          "sourceVertices": 25,
+          "maximumWeightChange": 0.02302712972773613,
+          "method": "fixed_bounded_skin_weights_no_pose_dependent_geometry"
+        },
+        "maximumTransferDistanceM": 5.622874823529855e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": {
+        "file": "glyphbinder_m.json",
+        "sha256": "4f2424b1fd1b6659ece9bfe672aec446455b11d6bc4329d30546d3f8da245550",
+        "solverSha256": "49af8b2689c3ca535dc5d2fff7d96b0c70de74999127fff65bf7c59b26f63e04"
+      },
+      "dentitionPassed": null
+    },
+    {
+      "identity": "glyphbinder_f",
+      "className": "Glyphbinder",
+      "race": "dwarf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.420299423692276,
+      "staticMaxEdgeExtensionM": 0.023053381482761974,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "glyphbinder_f/optimized-v2/body.glb",
+      "modelSha256": "0bafaa0b7a941b129543449fadc396507ca6a3572f3be3eac6b2bdadd1a7749a",
+      "receiptSha256": "03ab10e3ac5a351c85dbddfa1f45f474359c85804f11b99a95e85559c1effe1d",
+      "atlasReceiptSha256": "7705825f301292f168252317c84bafa3f7e6f13c491c21217dea6d5e0f311db6",
+      "motionReceiptSha256": "56d33794a7ad0ca665e789366d2f03cea39925ea3637d2567fe0627c187892a4",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1827,
+        "maximumTransferDistanceM": 3.6026176530867815e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "siegewright_m",
+      "className": "Siegewright",
+      "race": "dwarf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.4724109825445453,
+      "staticMaxEdgeExtensionM": 0.021402061725369802,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "siegewright_m/optimized-v2/body.glb",
+      "modelSha256": "6271447f3c6439c8e89ecb4f99faa44cd3d8a5d008520e89e19b07cb666eec14",
+      "receiptSha256": "1d85a99a12f87796eed39e322ea469b5da38a17e473ee3ceb548038b7cc5473f",
+      "atlasReceiptSha256": "b54a509449f5ebd1dea1e550c6586929406bf8479d3f027dfe193c787ca074be",
+      "motionReceiptSha256": "740dbd7a33340c172efa61a9923d45a6264a03de94c6a11b4ea465f4b0b58f89",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1875,
+        "localCorrection": {
+          "sourceVertices": 29,
+          "maximumWeightChange": 0.02285370821175059,
+          "method": "fixed_bounded_skin_weights_no_pose_dependent_geometry"
+        },
+        "maximumTransferDistanceM": 3.7814908182554063e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": {
+        "file": "siegewright_m.json",
+        "sha256": "cc7ad74390cbebb3bb0b06853347b839d86e391543254b04abe55beb779a68c3",
+        "solverSha256": "49af8b2689c3ca535dc5d2fff7d96b0c70de74999127fff65bf7c59b26f63e04"
+      },
+      "dentitionPassed": null
+    },
+    {
+      "identity": "siegewright_f",
+      "className": "Siegewright",
+      "race": "dwarf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.4298997360977062,
+      "staticMaxEdgeExtensionM": 0.023702315209775986,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "siegewright_f/optimized-v2/body.glb",
+      "modelSha256": "a7e3aa8a21a1630dbfbedd3e6bdf0e69d041190e6a3f7e7b0d417bfa4b4975e4",
+      "receiptSha256": "c07bcf7167225ad239f6282083d1b0771831bb9ef1d057134664830697de7ef8",
+      "atlasReceiptSha256": "e5830aebf69b2cc5790fec044002386d8ae43f59293f7f531cae77f6c28379ef",
+      "motionReceiptSha256": "b6dd82a16ccfdc50a09205366f7e435f42876eb0fbe3b9c2225953482717fb64",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 64,
+        "shoulderIterations": 64,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1822,
+        "maximumTransferDistanceM": 3.6532662761601387e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "blade_savant_m",
+      "className": "Blade Savant",
+      "race": "high_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.9264000289805665,
+      "staticMaxEdgeExtensionM": 0.029108884704649427,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "blade_savant_m/optimized-v2/body.glb",
+      "modelSha256": "e7262b516c9ada7a1a8ba3f20cea9ff1e0350ea4d866486cd7602428e6482785",
+      "receiptSha256": "66d1de5ec03c9c46db43fe70afb20943b38e39dd900f4cd54601a27b204d8f54",
+      "atlasReceiptSha256": "96005967943eacad45d0bd0a9eb78d5bf5a5b53fd6a9294e26d4ce881fd917c0",
+      "motionReceiptSha256": "c3a20d3f4e04d19115a8b01c00a5d5976a51c9660d1cfe619320d0aff3c21257",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1940,
+        "maximumTransferDistanceM": 7.374193273790297e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "blade_savant_f",
+      "className": "Blade Savant",
+      "race": "high_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.8284000502386704,
+      "staticMaxEdgeExtensionM": 0.026588538639630864,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "blade_savant_f/optimized-v2/body.glb",
+      "modelSha256": "75ae49d7e80506dcf77f9d6081bbb54fc25373c4e1a2f30be6ee5b81e0471f7e",
+      "receiptSha256": "b5aa5f0b468d427dadc65b909b1a88d29eaa337235a5f7abde07c53c6745a9be",
+      "atlasReceiptSha256": "fbbaed024ed28809d33d42c1a3ca30f2f43022483874a29e3af60f7eee3d236c",
+      "motionReceiptSha256": "d3d19ca8913b1b3eb8dff77d2a5917f677c3853d61a04484ba3a5203712a33b6",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1904,
+        "maximumTransferDistanceM": 6.056547476873675e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "pride_warden_m",
+      "className": "Pride Warden",
+      "race": "high_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.9526997286506216,
+      "staticMaxEdgeExtensionM": 0.029344404033237664,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "pride_warden_m/optimized-v2/body.glb",
+      "modelSha256": "568977ed6b8c27ed539a639025444f4021aedb05073acfd9db1eb11c9843257f",
+      "receiptSha256": "6a56bd963b38accc58bec6e362e87410b992e8b03567f5aac0d95bc74baaf7b7",
+      "atlasReceiptSha256": "b4c86d7745511e90f7affc114981ce295263c83d340d714aa831f51f8e7717e6",
+      "motionReceiptSha256": "cd2a586ba0f7f1d026fa21a6e85ddf0d38daf9311e8ac7db05a62ee03e8d9ab6",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1939,
+        "maximumTransferDistanceM": 7.402743449347327e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "pride_warden_f",
+      "className": "Pride Warden",
+      "race": "high_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.8490009784331534,
+      "staticMaxEdgeExtensionM": 0.026793961177772056,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "pride_warden_f/optimized-v2/body.glb",
+      "modelSha256": "768dc771a1b3ec4dc9dd63662ae158c635243da6328b2719b38bcca9994583fa",
+      "receiptSha256": "9b08593dff8dbf9b8bcd9895c418b6a7862a8d574d913dea3d3a581cce1f8e65",
+      "atlasReceiptSha256": "a7433ccb95a9a20f2a5bd0ec6fddb900cfa9c0f7418ce0012c29c5bce87bf4b8",
+      "motionReceiptSha256": "a11e064a7b800f05bc052b834b40c4b79f685c000f6d2cc134aca61c54f14556",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1899,
+        "maximumTransferDistanceM": 3.734220399564947e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "aether_sage_m",
+      "className": "Aether Sage",
+      "race": "high_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.9181991397745008,
+      "staticMaxEdgeExtensionM": 0.028895458904535418,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "aether_sage_m/optimized-v2/body.glb",
+      "modelSha256": "e50a3cd77a722999d58a13c8e008981b05795fbfd2fe8848c87ea87b469ce9c3",
+      "receiptSha256": "2e034e9184ed6778d23f8be8edfe7ad6c11b4d21df87d53b27d6c08f3fb8ab91",
+      "atlasReceiptSha256": "ff312c67e79f8ec5293ee585eaafc7a08154065e82940769a626bf106565503c",
+      "motionReceiptSha256": "ae8ecde5bf30996f94c784d5ba6082359e2137609c173553de39cac518e200af",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1939,
+        "maximumTransferDistanceM": 6.542950359289534e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "aether_sage_f",
+      "className": "Aether Sage",
+      "race": "high_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.8236981594385497,
+      "staticMaxEdgeExtensionM": 0.026271050833983657,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "aether_sage_f/optimized-v2/body.glb",
+      "modelSha256": "a00fd664def65082a4f621cca837e1c97c895511b7971a8589422ff376da5a1f",
+      "receiptSha256": "3adfb99ea123735c8115c4baf5ed8a584a859f99018284bc779b1f079fb4a3c8",
+      "atlasReceiptSha256": "2639874e660450422aa542c107f7936c43c0f3b3cfa3cb6b0437a7294cf8648b",
+      "motionReceiptSha256": "2f3fe95f2186c305aed71573c578ab594b83ba15fe444b0ea0d76a5c4ad0d479",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1901,
+        "maximumTransferDistanceM": 5.997601419949206e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "veil_ranger_m",
+      "className": "Veil Ranger",
+      "race": "high_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.9639009838356287,
+      "staticMaxEdgeExtensionM": 0.029802125876832262,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "veil_ranger_m/optimized-v2/body.glb",
+      "modelSha256": "c2cbae1319507559c96116647c369b4000087f13b89ba044a52ec8eeaffc9ca4",
+      "receiptSha256": "cf07e365c32372902c57e9d4581b612cc1c9f33a80fa4777e93b26ae86b7c30f",
+      "atlasReceiptSha256": "bc424b3a60bbaa60fad23fd421d46db8a6317d41df551e089019ed9795be1897",
+      "motionReceiptSha256": "05b8a56a1f9639c02172eb1ce3ccd0ef3e3bfb916739f55592fded7376b48aa6",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1942,
+        "maximumTransferDistanceM": 1.1784171647377661e-06,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "veil_ranger_f",
+      "className": "Veil Ranger",
+      "race": "high_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.855700152233851,
+      "staticMaxEdgeExtensionM": 0.026890725583949008,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "veil_ranger_f/optimized-v2/body.glb",
+      "modelSha256": "f30c1d780825ad1df9609c9c2ea551b54b758db02f5b539e617aecd56ff50a32",
+      "receiptSha256": "9b73d4a509e564e25d80c5ba217fb184092f7dc58ce5209d14f104ffa76ab813",
+      "atlasReceiptSha256": "e8b80a1bb5416cd9fe95bf90b40f30bf7426c2fbaf4c5315f15fee9d6107c32f",
+      "motionReceiptSha256": "041a02bc3d35f00ee1e2d71fee0816cc1939ce3d2461b2617bc4de2221303f69",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1902,
+        "maximumTransferDistanceM": 4.995779363525799e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "dreadsworn_m",
+      "className": "Dreadsworn",
+      "race": "chaos",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.038899473800882,
+      "staticMaxEdgeExtensionM": 0.02780898324236063,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "dreadsworn_m/optimized-v2/body.glb",
+      "modelSha256": "4df8957d2f5cb4902af54669ea57347e4b3c7a5b4afbcc8820ff65649fc2eadb",
+      "receiptSha256": "0e2e274e8631b65b987d94e77f07e205c33042cdd9025d9e8545dcd2c0832028",
+      "atlasReceiptSha256": "155274907a2c72c70df33e015ee6dd15987b93d1ada732c3a48af3f78baf8b89",
+      "motionReceiptSha256": "c4c19ba38d2023e4691d6ca65813a737f3addaff8f59d33102dd54b3c38f1201",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1906,
+        "maximumTransferDistanceM": 5.654592882819998e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "dreadsworn_f",
+      "className": "Dreadsworn",
+      "race": "chaos",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.9152994450802652,
+      "staticMaxEdgeExtensionM": 0.02816965962140078,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "dreadsworn_f/optimized-v2/body.glb",
+      "modelSha256": "717360f4551dc9b96476909a992acef759ec6171534bc2608caf5b1c3208883e",
+      "receiptSha256": "d4d219410ab76ad9f1e62afc43d9d786fcfb4ddc4201289e0bb3b40bce6db2ba",
+      "atlasReceiptSha256": "078a86ef5a723a434fa6e947ec5b53c5661b43c40bda798b5c2f7b1f3f04161e",
+      "motionReceiptSha256": "1f410d5990057959a36cf4189202dc9a1cdce28414230cce75143e15302b1c2b",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1891,
+        "maximumTransferDistanceM": 4.777675712830387e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "warped_reaver_m",
+      "className": "Warped Reaver",
+      "race": "chaos",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.046501019634775,
+      "staticMaxEdgeExtensionM": 0.028838838084025785,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "warped_reaver_m/optimized-v2/body.glb",
+      "modelSha256": "ed5460505b336d10b853e0898d3caaed06fb31be406197b9cf8ecc2d8bd54616",
+      "receiptSha256": "0ddc1267fff6eb3de7298235142ddaa987dc1a32356d4e88f05d169d9ed99d8f",
+      "atlasReceiptSha256": "11b70f9bbf28c6176d60213d3b8dfa544b8c7a325809bffb636b9f1efe683479",
+      "motionReceiptSha256": "13e407bccf078d1df787cb92cf01848f97169e1555620524f0280ddcfa93096e",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 128,
+        "shoulderIterations": 128,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1892,
+        "maximumTransferDistanceM": 1.4223159041648614e-06,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "warped_reaver_f",
+      "className": "Warped Reaver",
+      "race": "chaos",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.9022990635043584,
+      "staticMaxEdgeExtensionM": 0.02770000220341721,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "warped_reaver_f/optimized-v2/body.glb",
+      "modelSha256": "72fa8cd6f2db3ed6486e4c8a4475e02ecea4ff79dc791231f63b1a23814212d7",
+      "receiptSha256": "4de3d4ee76f45b06fb428d0cec3dc150c1ff56db4c54d2d2ded1f66d46c9ce89",
+      "atlasReceiptSha256": "66678f7138fb75b6d6bb0c44a2151a2e024e36d675fb899700ae6874d79ce816",
+      "motionReceiptSha256": "0aa00e14b182f558c011fefaab9a981ca8bec11552fb684b8cc3c1e15e0e5fde",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1881,
+        "maximumTransferDistanceM": 7.27567396552331e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "void_magister_m",
+      "className": "Void Magister",
+      "race": "chaos",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.035300375592783,
+      "staticMaxEdgeExtensionM": 0.0301545344021307,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "void_magister_m/optimized-v2/body.glb",
+      "modelSha256": "6d2dfbb796f84feb62d6b6fcf631b5c1ac5dd35b48603847751e03e92eacb8e5",
+      "receiptSha256": "b86db6f172162beee330b96d7683291e649ff7a4881c518e61df7692fca78f2d",
+      "atlasReceiptSha256": "33ff505898ed87d1e606dd9b0b54f00b3b0afedb5705ae090d0ba9d85ddeca50",
+      "motionReceiptSha256": "fad473218d35856b68c339c80b606dbac5d4c7917d2661e15a3ec5e30bbecda7",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1913,
+        "maximumTransferDistanceM": 5.101335887047753e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "void_magister_f",
+      "className": "Void Magister",
+      "race": "chaos",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.9092984010978,
+      "staticMaxEdgeExtensionM": 0.028220016320399263,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "void_magister_f/optimized-v2/body.glb",
+      "modelSha256": "6405d73c2c1ff996d00b39f71481bbf33e3c6501831983269c2bfd950a2f37ed",
+      "receiptSha256": "6699f9a6c3b345300ab8b8a30a71dbd3c65495a2e52723c5f2715c10b7d80f71",
+      "atlasReceiptSha256": "b630f9301b8928a4dbe07dcd4f2b3abc10c74299a385461d905ed32c69e82117",
+      "motionReceiptSha256": "c389d92df3948868979b67136662a3adcc6fcdc74b8e0b059698ca73bed6c488",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1887,
+        "maximumTransferDistanceM": 8.490066534250218e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "ruin_oracle_m",
+      "className": "Ruin Oracle",
+      "race": "chaos",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.0472004648048028,
+      "staticMaxEdgeExtensionM": 0.030359660103854505,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "ruin_oracle_m/optimized-v2/body.glb",
+      "modelSha256": "4041be6faae9e0728cd6d9b1d672d5db3c11d9a61e14afdad96b6c34c43cf856",
+      "receiptSha256": "0d7d276ff44bb36bba01cc5877a9ab744177992fdbf6901f499ff7fe0862c90a",
+      "atlasReceiptSha256": "f0f7304feba782527940e01cedc9a753737974b0f2bee138dceef3249ded38f7",
+      "motionReceiptSha256": "ecfe06ce8011cbab121f232549ba3346450985c4fded0984d2d4155dcc48341d",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1917,
+        "maximumTransferDistanceM": 9.684608812676743e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "ruin_oracle_f",
+      "className": "Ruin Oracle",
+      "race": "chaos",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.9269002085391946,
+      "staticMaxEdgeExtensionM": 0.028648046961674636,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "ruin_oracle_f/optimized-v2/body.glb",
+      "modelSha256": "2827b0fe41fc710e707945adc870cde545ba2b83a0ff834eb96423054807b4a3",
+      "receiptSha256": "a59b6b7fc010b6174080e486fc375bb4b47e7a58629cd58e71a66f118cd8c2d9",
+      "atlasReceiptSha256": "7bfa52a186e49eddba2b80d4ebc6ac33059b76508a308040aa75bfc6f213741f",
+      "motionReceiptSha256": "fa515d7cc4225d66251c9aaf4b58d7cfe8c1aefb47e339ad57dc773c5e0bf771",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1892,
+        "maximumTransferDistanceM": 5.064339916316385e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "warbrute_m",
+      "className": "Warbrute",
+      "race": "greenskin",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.0449319208934895,
+      "staticMaxEdgeExtensionM": 0.027835025192562785,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 37758,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "warbrute_m/dentition-v1/body.glb",
+      "modelSha256": "03c4053fb174ba206f89b3563da5289ef32a43038668871bb7621058468d074f",
+      "receiptSha256": "d0b02ed3848f3c98e0aeb35c6cb77adc14ef49c71ed4e9c91ee61d79e03ef0f2",
+      "atlasReceiptSha256": "445fbf1127eca46146417ce1adaef855f870a904b9a5d69e471d5b2211f7d2c8",
+      "motionReceiptSha256": "99d6a9ef5e094e7575fc2acefcf58c96fa2fe26abc69aff8b5504f16b457163e",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1904,
+        "maximumTransferDistanceM": 8.353812859240861e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "4488ba09b8fe4bb40e787cfe8a49a09db76ce4ac2660497324728f6405075291",
+      "dentitionReceiptSha256": "99d6a9ef5e094e7575fc2acefcf58c96fa2fe26abc69aff8b5504f16b457163e",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 1.678498620094615e-06,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.02092055231332779,
+                -0.15823596715927124,
+                1.832638144493103
+              ],
+              "heightM": 0.0389196,
+              "lipPointM": [
+                -0.02092055231332779,
+                -0.1804049015045166,
+                1.842880129814148
+              ],
+              "rootBehindLipM": 0.02216893434524536,
+              "frontYM": -0.1926953015045166
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.020920544862747192,
+                -0.15823598206043243,
+                1.8326380252838135
+              ],
+              "heightM": 0.0389196,
+              "lipPointM": [
+                0.020920544862747192,
+                -0.18040484189987183,
+                1.8428800106048584
+              ],
+              "rootBehindLipM": 0.022168859839439392,
+              "frontYM": -0.19269524189987183
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 4.915124923727108e-07,
+            "rootBehindSurfaceM": [
+              0.023508086800575256,
+              0.023508071899414062
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.0,
+            "p01EdgeRatio": 1.0,
+            "p99EdgeRatio": 1.0,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 5.349911174480987e-07,
+            "rootBehindSurfaceM": [
+              0.029584825038909912,
+              0.029584839940071106
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005649607734608868,
+            "p01EdgeRatio": 0.887152814530264,
+            "p99EdgeRatio": 1.201975643343096,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 6.571733078718169e-07,
+            "rootBehindSurfaceM": [
+              0.035762518644332886,
+              0.03576250374317169
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.011408801269829665,
+            "p01EdgeRatio": 0.8448382865467134,
+            "p99EdgeRatio": 1.445686458930967,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 1.0936122407656512e-06
+      }
+    },
+    {
+      "identity": "warbrute_f",
+      "className": "Warbrute",
+      "race": "greenskin",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.937899481485573,
+      "staticMaxEdgeExtensionM": 0.028418198748115655,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 40052,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "warbrute_f/dentition-v1/body.glb",
+      "modelSha256": "55839f39278078b87b3b6156382e140860da8444ee7e6a4122f341b968da0907",
+      "receiptSha256": "77298d2586d6b8cfee061f6c5452f4e648706660a71ddf9cf177351629c453cf",
+      "atlasReceiptSha256": "983fee08a218fc0eb0f5be9d880e47e42370e977e6bd68553d16a7591112c6b7",
+      "motionReceiptSha256": "3c56f455b217ca30300653665446a5f6fb0839715d1b2cf13050af504a24d8b0",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1884,
+        "maximumTransferDistanceM": 4.6648014517813863e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "05276894910628c7243faae6aabea08327954aca959fc5bebb08d05cc983b6f9",
+      "dentitionReceiptSha256": "3c56f455b217ca30300653665446a5f6fb0839715d1b2cf13050af504a24d8b0",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 9.991558727051597e-07,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.020557276904582977,
+                -0.14292846620082855,
+                1.7344506978988647
+              ],
+              "heightM": 0.036875200000000004,
+              "lipPointM": [
+                -0.020557276904582977,
+                -0.1656588912010193,
+                1.744154691696167
+              ],
+              "rootBehindLipM": 0.022730425000190735,
+              "frontYM": -0.1773036912010193
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.02055727317929268,
+                -0.14292848110198975,
+                1.7344505786895752
+              ],
+              "heightM": 0.036875200000000004,
+              "lipPointM": [
+                0.02055727317929268,
+                -0.1656588315963745,
+                1.7441545724868774
+              ],
+              "rootBehindLipM": 0.022730350494384766,
+              "frontYM": -0.17730363159637452
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 6.078504936209681e-07,
+            "rootBehindSurfaceM": [
+              0.023906975984573364,
+              0.023907020688056946
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 1.1923554821529486e-07,
+            "p01EdgeRatio": 0.999999670680153,
+            "p99EdgeRatio": 1.000000417436254,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 6.02714670185944e-07,
+            "rootBehindSurfaceM": [
+              0.029764533042907715,
+              0.029764726758003235
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005261105212841951,
+            "p01EdgeRatio": 0.8879615037034013,
+            "p99EdgeRatio": 1.201189275735852,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 7.177349673981843e-07,
+            "rootBehindSurfaceM": [
+              0.03565913438796997,
+              0.035659059882164
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.010377396032232408,
+            "p01EdgeRatio": 0.8396348579239366,
+            "p99EdgeRatio": 1.4610758245903224,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 7.306128964046366e-07
+      }
+    },
+    {
+      "identity": "fang_herder_m",
+      "className": "Fang Herder",
+      "race": "greenskin",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.0749709630954385,
+      "staticMaxEdgeExtensionM": 0.028969903383520054,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 37758,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "fang_herder_m/dentition-v1/body.glb",
+      "modelSha256": "52877892c69432259df601fa546a5e7fbab243eea6bc37210f9e5dec80c2e064",
+      "receiptSha256": "d9c3c1f8ecf9f8a6408f703abe37af9662fac7c92924a3a50fa3147732d748d6",
+      "atlasReceiptSha256": "ff02adeb76df54ff65324fe2bf146eb5621ec0ce686b133d553ad0bf8f391789",
+      "motionReceiptSha256": "cb8ffe73a692ee8803fff768d634d1bcae1638238c610a95fca28106ba8e4acf",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1932,
+        "maximumTransferDistanceM": 7.478282668671454e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "cea265af2436ab9cd6959639c153855e8fbeabf3ceb8b6ab892e692a66f9ff63",
+      "dentitionReceiptSha256": "cb8ffe73a692ee8803fff768d634d1bcae1638238c610a95fca28106ba8e4acf",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 1.244581540049694e-06,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.021530186757445335,
+                -0.16205936670303345,
+                1.8576475381851196
+              ],
+              "heightM": 0.0394934,
+              "lipPointM": [
+                -0.021530186757445335,
+                -0.18480336666107178,
+                1.8680405616760254
+              ],
+              "rootBehindLipM": 0.02274399995803833,
+              "frontYM": -0.19727496666107178
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.021530184894800186,
+                -0.16205938160419464,
+                1.8576475381851196
+              ],
+              "heightM": 0.0394934,
+              "lipPointM": [
+                0.021530184894800186,
+                -0.18480336666107178,
+                1.8680405616760254
+              ],
+              "rootBehindLipM": 0.022743985056877136,
+              "frontYM": -0.19727496666107178
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 4.777675730550706e-07,
+            "rootBehindSurfaceM": [
+              0.024261221289634705,
+              0.024261146783828735
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.0,
+            "p01EdgeRatio": 1.0,
+            "p99EdgeRatio": 1.0,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 6.109476089477539e-07,
+            "rootBehindSurfaceM": [
+              0.030493050813674927,
+              0.030493035912513733
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005755730330161111,
+            "p01EdgeRatio": 0.8846714798578766,
+            "p99EdgeRatio": 1.1984253279055679,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 5.092623081992585e-07,
+            "rootBehindSurfaceM": [
+              0.0368514358997345,
+              0.03685136139392853
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.01159642877986063,
+            "p01EdgeRatio": 0.8451136046390998,
+            "p99EdgeRatio": 1.4410586819807618,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 9.043866384672583e-07
+      }
+    },
+    {
+      "identity": "fang_herder_f",
+      "className": "Fang Herder",
+      "race": "greenskin",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.9231994284784832,
+      "staticMaxEdgeExtensionM": 0.028715730707168357,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 40052,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "fang_herder_f/dentition-v1/body.glb",
+      "modelSha256": "d9fa75afbc1afa8367ec5fd872d2d8411a8fcf7e480fa55db6fb4a80d4636cda",
+      "receiptSha256": "0cebcd9997358c0bf690c3f4913d4d5ce5570ebce801247ac5dbbcb6ee953fb3",
+      "atlasReceiptSha256": "91efa74200b578f0617d1b6547d01ddeed44fd23162c04800a8e2dd9c1e9516f",
+      "motionReceiptSha256": "38278088aa479b67a938f687f876f73f216fa10d4fabf1eb7972c581845916e6",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1905,
+        "maximumTransferDistanceM": 7.57618181523867e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "19ae7e4e77b2d2830ea026cdfcc5199c170c1d6ee67817d87f776d5341eade60",
+      "dentitionReceiptSha256": "38278088aa479b67a938f687f876f73f216fa10d4fabf1eb7972c581845916e6",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 1.579241938998166e-06,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.020801305770874023,
+                -0.14346468448638916,
+                1.7189208269119263
+              ],
+              "heightM": 0.0365978,
+              "lipPointM": [
+                -0.020801305770874023,
+                -0.166387140750885,
+                1.7285518646240234
+              ],
+              "rootBehindLipM": 0.02292245626449585,
+              "frontYM": -0.177944340750885
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.020801307633519173,
+                -0.14346469938755035,
+                1.7189208269119263
+              ],
+              "heightM": 0.0365978,
+              "lipPointM": [
+                0.020801307633519173,
+                -0.166387140750885,
+                1.7285518646240234
+              ],
+              "rootBehindLipM": 0.022922441363334656,
+              "frontYM": -0.177944340750885
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 3.9935390005282775e-07,
+            "rootBehindSurfaceM": [
+              0.024296671152114868,
+              0.02429671585559845
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.0,
+            "p01EdgeRatio": 1.0,
+            "p99EdgeRatio": 1.0,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 3.41834716408088e-07,
+            "rootBehindSurfaceM": [
+              0.030190125107765198,
+              0.030190110206604004
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005241071695511794,
+            "p01EdgeRatio": 0.8886263707906903,
+            "p99EdgeRatio": 1.1985862660704911,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 3.2791020102300326e-07,
+            "rootBehindSurfaceM": [
+              0.03613939881324768,
+              0.03613932430744171
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.010338256545125848,
+            "p01EdgeRatio": 0.8344464425066754,
+            "p99EdgeRatio": 1.4527804778835998,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 7.456538924088818e-07
+      }
+    },
+    {
+      "identity": "bog_hexer_m",
+      "className": "Bog Hexer",
+      "race": "greenskin",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.0234448234220963,
+      "staticMaxEdgeExtensionM": 0.027935156240654742,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 37758,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "bog_hexer_m/dentition-v1/body.glb",
+      "modelSha256": "38099d3c07ac54305a7d0a83c113d707110e62cb3944922ced358aadb3ee5ba7",
+      "receiptSha256": "95c20cc5f8f0c8946a6131190190ebfee5c5e32bad97c2f3091a3a8de2823915",
+      "atlasReceiptSha256": "fe53ec00d958577ee92e9b1c1591aad11981d86568732b5756491954af1e86ca",
+      "motionReceiptSha256": "e7f18cd6748d2c3842854a9e536f56eceb52c6b1e2633b7c3e439735a474d11a",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1921,
+        "maximumTransferDistanceM": 7.162253723436152e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "0ec046acfc9ad4f6c13f4a25bd2969b4d77bc621590cbede1857b86dbc7be4f5",
+      "dentitionReceiptSha256": "e7f18cd6748d2c3842854a9e536f56eceb52c6b1e2633b7c3e439735a474d11a",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 1.216437112816493e-06,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.021038446575403214,
+                -0.15824782848358154,
+                1.8112481832504272
+              ],
+              "heightM": 0.038513,
+              "lipPointM": [
+                -0.021038446575403214,
+                -0.1804620623588562,
+                1.8213832378387451
+              ],
+              "rootBehindLipM": 0.022214233875274658,
+              "frontYM": -0.1926240623588562
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.021038444712758064,
+                -0.15824776887893677,
+                1.8112480640411377
+              ],
+              "heightM": 0.038513,
+              "lipPointM": [
+                0.021038444712758064,
+                -0.18046200275421143,
+                1.8213831186294556
+              ],
+              "rootBehindLipM": 0.022214233875274658,
+              "frontYM": -0.19262400275421143
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 6.47643620136402e-07,
+            "rootBehindSurfaceM": [
+              0.023716092109680176,
+              0.023716211318969727
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.0,
+            "p01EdgeRatio": 1.0,
+            "p99EdgeRatio": 1.0,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 6.9510363278929e-07,
+            "rootBehindSurfaceM": [
+              0.029802560806274414,
+              0.029802650213241577
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005615972116075518,
+            "p01EdgeRatio": 0.8848187571857002,
+            "p99EdgeRatio": 1.1979441923750147,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 7.066670478212461e-07,
+            "rootBehindSurfaceM": [
+              0.03601568937301636,
+              0.036015793681144714
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.011311104788181398,
+            "p01EdgeRatio": 0.8442660109595121,
+            "p99EdgeRatio": 1.4404825855596881,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 8.409775773543515e-07
+      }
+    },
+    {
+      "identity": "bog_hexer_f",
+      "className": "Bog Hexer",
+      "race": "greenskin",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.9395294869311641,
+      "staticMaxEdgeExtensionM": 0.02903584734136262,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 40052,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "bog_hexer_f/dentition-v1/body.glb",
+      "modelSha256": "ec6a4e7cc3ad16a3dbf67c14d8de5038330a55adb791801343269662d78a556d",
+      "receiptSha256": "9a9d7e51bbe5ea12b8db5916a35904cffdc37f5420b6d2341da3bb9248829670",
+      "atlasReceiptSha256": "0a1f209ab673cbba3ea5563844cf8671411344484afe0c6171e9ca2da7579085",
+      "motionReceiptSha256": "46a013f1dd1508497c89d71ae7c7880586547a58ea749a3c6f1b6589ea55c6a4",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1901,
+        "maximumTransferDistanceM": 4.815289003090584e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "2ecef405ab4930cf741297e60fe10b0282e0d9dc0bc0fb7a5c32a3caaf660d8d",
+      "dentitionReceiptSha256": "46a013f1dd1508497c89d71ae7c7880586547a58ea749a3c6f1b6589ea55c6a4",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 1.0893146509260987e-06,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.02113194204866886,
+                -0.14520907402038574,
+                1.7325379848480225
+              ],
+              "heightM": 0.0369094,
+              "lipPointM": [
+                -0.02113194204866886,
+                -0.16846323013305664,
+                1.7422510385513306
+              ],
+              "rootBehindLipM": 0.0232541561126709,
+              "frontYM": -0.18011883013305663
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.021131932735443115,
+                -0.14520908892154694,
+                1.7325379848480225
+              ],
+              "heightM": 0.0369094,
+              "lipPointM": [
+                0.021131932735443115,
+                -0.16846323013305664,
+                1.7422510385513306
+              ],
+              "rootBehindLipM": 0.023254141211509705,
+              "frontYM": -0.18011883013305663
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 1.4901161193847656e-07,
+            "rootBehindSurfaceM": [
+              0.024718284606933594,
+              0.024718210101127625
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.0,
+            "p01EdgeRatio": 1.0,
+            "p99EdgeRatio": 1.0,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 1.7943374184954607e-07,
+            "rootBehindSurfaceM": [
+              0.03069397807121277,
+              0.03069402277469635
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005296751150521892,
+            "p01EdgeRatio": 0.8886649260279508,
+            "p99EdgeRatio": 1.1976953666421577,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 1.5840151626966372e-07,
+            "rootBehindSurfaceM": [
+              0.03674405813217163,
+              0.03674410283565521
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.010448156949929184,
+            "p01EdgeRatio": 0.8343005662115236,
+            "p99EdgeRatio": 1.4503377975278928,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 6.028182610862132e-07
+      }
+    },
+    {
+      "identity": "cleaver_m",
+      "className": "Cleaver",
+      "race": "greenskin",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 2.0408975828147504,
+      "staticMaxEdgeExtensionM": 0.02763522398661059,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 37758,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "cleaver_m/dentition-v1/body.glb",
+      "modelSha256": "18ea90d6a30bd184e0423dbe3ac1900bbe42ef82fd38e63fe2c0e8173bc21e61",
+      "receiptSha256": "cf8dc3fd81870ccb0570d9324ae37bdeed6beba3499890cea1ce559054ad53bc",
+      "atlasReceiptSha256": "5d9599a9e3a501674201b1bcbedf6245d9ffd6f8b1ee471856a31f83660c30b1",
+      "motionReceiptSha256": "231c5c09df8980642db04cbbe0a51d8a24d36f50ad209ee2de688d2725df06f0",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 192,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1902,
+        "maximumTransferDistanceM": 1.1491192708490416e-06,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "0f32a62a8843baebd55b19090d3b5b297006c9d7ae7b82c36ffb1686e48e510e",
+      "dentitionReceiptSha256": "231c5c09df8980642db04cbbe0a51d8a24d36f50ad209ee2de688d2725df06f0",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 1.9371116195543436e-06,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.020724307745695114,
+                -0.15715549886226654,
+                1.8299999237060547
+              ],
+              "heightM": 0.03884169999999999,
+              "lipPointM": [
+                -0.020724307745695114,
+                -0.17915332317352295,
+                1.8402214050292969
+              ],
+              "rootBehindLipM": 0.02199782431125641,
+              "frontYM": -0.19141912317352294
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.020724305883049965,
+                -0.15715543925762177,
+                1.8299999237060547
+              ],
+              "heightM": 0.03884169999999999,
+              "lipPointM": [
+                0.020724305883049965,
+                -0.17915338277816772,
+                1.8402214050292969
+              ],
+              "rootBehindLipM": 0.02199794352054596,
+              "frontYM": -0.19141918277816772
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 1.3328003749250187e-07,
+            "rootBehindSurfaceM": [
+              0.023252204060554504,
+              0.02325214445590973
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.0,
+            "p01EdgeRatio": 1.0,
+            "p99EdgeRatio": 1.0,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 1.4901161193847656e-07,
+            "rootBehindSurfaceM": [
+              0.029283598065376282,
+              0.029283598065376282
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005626583292668803,
+            "p01EdgeRatio": 0.8851487625351134,
+            "p99EdgeRatio": 1.2032696531204539,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 2.497889789080651e-07,
+            "rootBehindSurfaceM": [
+              0.03540310263633728,
+              0.035403162240982056
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.011375925629263914,
+            "p01EdgeRatio": 0.8454471823273816,
+            "p99EdgeRatio": 1.4503151033523076,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 9.721223932501744e-07
+      }
+    },
+    {
+      "identity": "cleaver_f",
+      "className": "Cleaver",
+      "race": "greenskin",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.9595966433426497,
+      "staticMaxEdgeExtensionM": 0.028542470781761774,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 40052,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "cleaver_f/dentition-v1/body.glb",
+      "modelSha256": "ea536a11fde022d8dbab50b090d605cde05ac9af6883bea8a7786ac7990de209",
+      "receiptSha256": "bebcb06f301290de59f5853e0bf5138939a144e58ffc19294a4aec137c6a428e",
+      "atlasReceiptSha256": "e7e2d583aa0f77f344151d16a3b9547fb6b32c334db56a58b973c19fc52438eb",
+      "motionReceiptSha256": "b8f85c45cb483d85e1a05d3df1c44ed93e396e5210111e788692a44dbf7dac0d",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1884,
+        "maximumTransferDistanceM": 6.14390614828153e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": true,
+      "baselineMotionReceiptSha256": "f2b810ed007f7faaaafebb0bee91fc8bb445bd63bf86427349a34d0aad40f89c",
+      "dentitionReceiptSha256": "b8f85c45cb483d85e1a05d3df1c44ed93e396e5210111e788692a44dbf7dac0d",
+      "dentition": {
+        "jawWeights": {
+          "sourceSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+          "changedRuntimeVertices": 1084,
+          "maximumSourceDistanceM": 9.775889111551805e-07,
+          "method": "cc0_default_jaw_descendants_on_welded_fitting_surface"
+        },
+        "teethFit": {
+          "canines": [
+            {
+              "side": -1,
+              "rootM": [
+                -0.020693814381957054,
+                -0.14413145184516907,
+                1.7544186115264893
+              ],
+              "heightM": 0.037287499999999994,
+              "lipPointM": [
+                -0.020693814381957054,
+                -0.1670306921005249,
+                1.7642310857772827
+              ],
+              "rootBehindLipM": 0.022899240255355835,
+              "frontYM": -0.1788056921005249
+            },
+            {
+              "side": 1,
+              "rootM": [
+                0.020693819969892502,
+                -0.14413143694400787,
+                1.7544186115264893
+              ],
+              "heightM": 0.037287499999999994,
+              "lipPointM": [
+                0.020693819969892502,
+                -0.16703081130981445,
+                1.7642310857772827
+              ],
+              "rootBehindLipM": 0.02289937436580658,
+              "frontYM": -0.17880581130981446
+            }
+          ],
+          "lowerCrowns": 16,
+          "lowerGumIslands": 4,
+          "tongueIslands": 1
+        },
+        "jawReview": [
+          {
+            "degrees": 0,
+            "rigidDentalSkinErrorM": 3.725290298461914e-07,
+            "rootBehindSurfaceM": [
+              0.024040386080741882,
+              0.0240403413772583
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.0,
+            "p01EdgeRatio": 1.0,
+            "p99EdgeRatio": 1.0,
+            "passed": true
+          },
+          {
+            "degrees": 12,
+            "rigidDentalSkinErrorM": 4.805480091749757e-07,
+            "rootBehindSurfaceM": [
+              0.029945313930511475,
+              0.029945388436317444
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.005315529565864844,
+            "p01EdgeRatio": 0.8881830146662425,
+            "p99EdgeRatio": 1.2025357094365807,
+            "passed": true
+          },
+          {
+            "degrees": 24,
+            "rigidDentalSkinErrorM": 4.5491270787935696e-07,
+            "rootBehindSurfaceM": [
+              0.035885170102119446,
+              0.035885006189346313
+            ],
+            "finite": true,
+            "maxEdgeExtensionM": 0.010484784684576816,
+            "p01EdgeRatio": 0.8406597909028155,
+            "p99EdgeRatio": 1.4625072239212118,
+            "passed": true
+          }
+        ],
+        "checks": {
+          "trianglesPreserved": true,
+          "threeDrawCalls": true,
+          "canonicalBones": true,
+          "bodyGeometryPreserved": true,
+          "bonePositionsPreserved": true,
+          "allVerticesWeighted": true,
+          "fourInfluenceLimit": true,
+          "finitePositiveWeights": true,
+          "normalizedWeights": true,
+          "jawAttachmentAndDeformation": true,
+          "anatomyAndStaticBends": true,
+          "suppliedMotion": true
+        },
+        "maximumBodyRoundTripDistanceM": 6.125724780758901e-07
+      }
+    },
+    {
+      "identity": "blood_dancer_m",
+      "className": "Blood Dancer",
+      "race": "dark_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.8665992465757029,
+      "staticMaxEdgeExtensionM": 0.02902186161080588,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "blood_dancer_m/optimized-v2/body.glb",
+      "modelSha256": "eaa5cb618a5b4275749c4bdfc5bb71ecadbad7378860c4e5b3c86b292971b8be",
+      "receiptSha256": "54a1dd6c434ebd4c1e9a37cf75a5579164e66c3a6e3c69467b4ddfce772f62bb",
+      "atlasReceiptSha256": "2e4c62590cdcd2bc454c6a9188e6dd41fc2ebbff27e97f0f86cf23806c939bc2",
+      "motionReceiptSha256": "6a105d3b5adc967539f79666a52268062d574ca6ae80f061da74dfc9b1c3170a",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1953,
+        "maximumTransferDistanceM": 7.27567396552331e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "blood_dancer_f",
+      "className": "Blood Dancer",
+      "race": "dark_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7687988270723451,
+      "staticMaxEdgeExtensionM": 0.02645636625553755,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "blood_dancer_f/optimized-v2/body.glb",
+      "modelSha256": "5f443adaccc3d4499ae4e490f4c160a6e477e41e2dee1513b22a450c0ca14ba4",
+      "receiptSha256": "a3cfa1254acf5cc97d14fc8bfd3381d2a0b7bcc576475c20c177d5d6cab13ab4",
+      "atlasReceiptSha256": "d20c9fd0e0d11b869f5ac784fe193f39e59d3e080b26aa29bac3fa8e7d397def",
+      "motionReceiptSha256": "780b619468ad0844eca730c1266ec0853bf8d9a33162eed549ebb78e2c60778d",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1917,
+        "maximumTransferDistanceM": 4.924151539853483e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "dread_guard_m",
+      "className": "Dread Guard",
+      "race": "dark_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.869499859455658,
+      "staticMaxEdgeExtensionM": 0.02829777749800579,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "dread_guard_m/optimized-v2/body.glb",
+      "modelSha256": "d8de877347f069494703da48485f641b762b4344f9a44bef131428873cd85a23",
+      "receiptSha256": "a92c8387a1bb9a47a48db79e1477b8e06f3d87e53b3b4b3c574d3753980901a7",
+      "atlasReceiptSha256": "740032c107ab6eb551e3098915707fe05782c45443eda926b010f8539632f1c0",
+      "motionReceiptSha256": "e76aa95746872a26de0a7ed63f0e0de8c9f6f0456dd29dc80a323df84c30f3be",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1949,
+        "maximumTransferDistanceM": 8.444584977951308e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "dread_guard_f",
+      "className": "Dread Guard",
+      "race": "dark_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7791995558317808,
+      "staticMaxEdgeExtensionM": 0.026293253762068352,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "dread_guard_f/optimized-v2/body.glb",
+      "modelSha256": "bef8bf3dd556ae50498e034e1719b4fe223abf0aa3e388861a86c3b592a35238",
+      "receiptSha256": "a8e0aaddfef9fcdf9e6c72df06c761d68f9a72001800949568acb8853c2ff0a7",
+      "atlasReceiptSha256": "6427d886545f9d199b50c7099108fe6bdb607b77a27d55e2fd1e5a41a7bd0c26",
+      "motionReceiptSha256": "d7be378cdb278053adc94311e73ff9073d7f8f2bc9e02c70aac885c462ca3388",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1913,
+        "maximumTransferDistanceM": 4.775496904585452e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "dusk_weaver_m",
+      "className": "Dusk Weaver",
+      "race": "dark_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.8765986548169593,
+      "staticMaxEdgeExtensionM": 0.02881455641680771,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "dusk_weaver_m/optimized-v2/body.glb",
+      "modelSha256": "2ec7eba846713c8052044ca8284f4574be5c991921e25241d574b2e2c29a3455",
+      "receiptSha256": "7c011b1f97b30afce94f5e818ab1eb33a95337ac055a9975ed5900a17a2bd17a",
+      "atlasReceiptSha256": "534f189849730bf4e48da6d2d6cc6907f643133a96aca7ff216ffe93057e231e",
+      "motionReceiptSha256": "3e93b17aed0b5c4ff20cd027fdf9715c8f96d1aca71ef312d6189aa1ec3b3cb9",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1943,
+        "maximumTransferDistanceM": 4.902685759589076e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "dusk_weaver_f",
+      "className": "Dusk Weaver",
+      "race": "dark_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7837999810294605,
+      "staticMaxEdgeExtensionM": 0.02644367627983788,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "dusk_weaver_f/optimized-v2/body.glb",
+      "modelSha256": "33ae356ec252093be494d38214f666598c00d8413d9a01fd688df932a617ba26",
+      "receiptSha256": "6762e8867d3c21e1898946b25cdfbc907ce2bce47e9eb1398460c56eaf54fcb8",
+      "atlasReceiptSha256": "1f90edc280f97cf5970f7bfc10d42798a30aa83c1bfda57a93c7f186bdf734fc",
+      "motionReceiptSha256": "3fe3624ae5fa6e8e2259d3569bf99ab10eac4cb44e5165953bb8faf312c2a842",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1919,
+        "maximumTransferDistanceM": 4.850465415984218e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "crimson_acolyte_m",
+      "className": "Crimson Acolyte",
+      "race": "dark_elf",
+      "variant": "m",
+      "technicalPassed": true,
+      "heightM": 1.85689903780208,
+      "staticMaxEdgeExtensionM": 0.02848992608989856,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 36994,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "crimson_acolyte_m/optimized-v2/body.glb",
+      "modelSha256": "e30bd659bf4e67bc7dc4f37f7bac5f94e61f68de06f68f703cfbc0371819461d",
+      "receiptSha256": "8bcc11fd2ccbab2428da3de00ef67feec48aa181882d3a2b43e1fac48b2e223b",
+      "atlasReceiptSha256": "6115baa8e00bb4dcfb231dd3d599f34e62e763e1d967548a45c90b0570b4b2d9",
+      "motionReceiptSha256": "d86f18a919b40c3f9954445971385e41ae8dd6004a5e1b75e428e4dcec84878f",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1947,
+        "maximumTransferDistanceM": 6.251387958400301e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    },
+    {
+      "identity": "crimson_acolyte_f",
+      "className": "Crimson Acolyte",
+      "race": "dark_elf",
+      "variant": "f",
+      "technicalPassed": true,
+      "heightM": 1.7953999789708632,
+      "staticMaxEdgeExtensionM": 0.02653644133732588,
+      "atlasPassed": true,
+      "drawCalls": 3,
+      "triangles": 39288,
+      "failedChecks": [],
+      "suppliedPosePassed": true,
+      "suppliedPoseFailures": [],
+      "model": "crimson_acolyte_f/optimized-v2/body.glb",
+      "modelSha256": "e3b785355837688d51ca4101b50b81373611ad8e2182ec736e7f7ea9dc750c74",
+      "receiptSha256": "7bbc9f82696bb452049dbfd5c9d9bc93e1f499d18218d87110581e82840d7f12",
+      "atlasReceiptSha256": "bdd832234961c60d60faff39a1c47d1be2f49d322199f56fe24ecebc6148ceae",
+      "motionReceiptSha256": "c31e2d3c41e592a4cebc0c129de2d690e8eb9872385bff7ec221340239408c03",
+      "skinRefinement": {
+        "method": "welded_source_adjacency_with_smooth_joint_falloff_and_trunk_anchors",
+        "iterations": 96,
+        "shoulderIterations": 96,
+        "trunkAnchorWidth": 0.45,
+        "radiusHeightRatio": 0.16,
+        "relaxation": 0.55,
+        "changedSourceVertices": 1917,
+        "maximumTransferDistanceM": 5.031211003370117e-07,
+        "seamPolicy": "all_uv_duplicates_use_the_same_welded_source_weight_row"
+      },
+      "skinCorrection": null,
+      "dentitionPassed": null
+    }
+  ],
+  "lineup": {
+    "path": "race-lineup.png",
+    "sha256": "02dee8c5f4f30560a9d7223eee075f657b68406598d820600b64ff54bcd7bb58"
+  },
+  "localArtifactDirectory": "artifacts/unreal/class-characters/anatomy-v10",
+  "inputSnapshotSha256": "23a9f4f05808cd076ece3e5c7b37999a4c6a66ba4e05a50fc10bdf77ba1d5860",
+  "gallerySha256": "8047b0534fe84802a7b2e1f0af5a41b3c724e53a01d08972edbbf7668162fc65",
+  "gates": {
+    "finalArt": "open",
+    "armorAndEquipmentClearance": "open",
+    "nativeRetargetAndFootLocking": "open",
+    "facialAndTwistQuality": "open",
+    "lodsAndPerformance": "open",
+    "windowsLinuxMacSteamAcceptance": "open"
+  },
+  "verification": {
+    "characterTests": {
+      "typescriptPassed": 5,
+      "pythonFixturesPassed": 12,
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/tests-dentition-focused.log",
+        "sha256": "dc104672465ca0c51acda78c3ecc314f31bccec311e70d1bea74868d55c8e18e"
+      },
+      "pythonEvidence": {
+        "path": "artifacts/unreal/class-characters/tests-dentition-python.log",
+        "sha256": "4045b8a0df463cc7b8c61141e46b0d56c3cd9ef59242ba4aca629faa94dfe58e"
+      }
+    },
+    "repositoryTests": {
+      "passed": 1219,
+      "failed": 1,
+      "reason": "Existing unrealAegisCitadel wrapper exceeds unchanged 75000ms timeout; isolated retries also time out.",
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/tests-complete.log",
+        "sha256": "eec1ddad85ced6d8808658f4a98b9b56161591c3e56d79c14ee59ef23b2de917"
+      },
+      "isolatedRetry": {
+        "path": "artifacts/unreal/class-characters/tests-citadel-idle.log",
+        "sha256": "ba6d4d59b78222dae1fa3f37355bec9b5131f1e1a7fcc0f7c106ecfbe64584bf"
+      },
+      "scope": "Foundation verification before the dentition-only refinement; full suites not repeated at the owner-requested review checkpoint."
+    },
+    "unrealTests": {
+      "passed": 588,
+      "files": 114,
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/tests-unreal.log",
+        "sha256": "3992b99e9e98d27725ecbf37eb00ec59333c5e128de83d89e92857555cdc746d"
+      },
+      "scope": "Foundation verification before the dentition-only refinement; full suites not repeated at the owner-requested review checkpoint."
+    },
+    "typechecks": {
+      "application": "passed",
+      "server": "passed",
+      "unrealTools": "passed",
+      "evidence": [
+        {
+          "path": "artifacts/unreal/class-characters/typecheck-dentition.log",
+          "sha256": "74836b16011c75e7592471ec1dc89411163b764f5ba0a80490fc020d2d8cc5a0"
+        },
+        {
+          "path": "artifacts/unreal/class-characters/typecheck-server-dentition.log",
+          "sha256": "acb5f4cf48d41ced07f2cfee51fc998cb42b760f2039a13ad7849aa3f22afc54"
+        },
+        {
+          "path": "artifacts/unreal/class-characters/typecheck-tools-dentition.log",
+          "sha256": "d9b727a147a7eea4cf4848acec2e729389238eb160171606086529253d3b199a"
+        }
+      ]
+    },
+    "unrealAudit": {
+      "passed": true,
+      "readyForRelease": false,
+      "blockerCount": 4,
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/audit-dentition.log",
+        "sha256": "870dc5101942e71d298db0bf3d85ae106bd46469a1c8beca7d09a6100228983b"
+      }
+    },
+    "worldValidation": {
+      "passed": 33,
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/world-dentition.log",
+        "sha256": "f3d761286aafe5a8a811e92cfff4163664c955b324c168d8ee732c09a03c271b"
+      }
+    },
+    "modelValidation": {
+      "passed": 906,
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/models-dentition.log",
+        "sha256": "280a3c7ece79c5bc5856a529533fc25bddceaf2d54bfb9cc608ce15d0ba65179"
+      }
+    },
+    "releaseCheck": {
+      "exitCode": 1,
+      "readyForRelease": false,
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/release-final.log",
+        "sha256": "0b71a57fec7b575b5ded3be242bedc6a66e7807fc9a36e6be3668da9e2aa453c"
+      }
+    },
+    "dentitionExports": {
+      "passed": 8,
+      "jawPoses": 24,
+      "suppliedPoseSamples": 816,
+      "staticBends": 40,
+      "evidence": {
+        "path": "artifacts/unreal/class-characters/dentition-final.log",
+        "sha256": "32a8513dd0d6e7f071831f9a0c270c7d33c89e4edc20a41116e686c43c071f73"
+      },
+      "galleryEvidence": {
+        "path": "artifacts/unreal/class-characters/gallery-dentition.log",
+        "sha256": "3e3c7b1986e6a45347f5dc9b761a50fc6a9fe74aef0009802fd07b63030af106"
+      },
+      "lineupEvidence": {
+        "path": "artifacts/unreal/class-characters/lineup-dentition.log",
+        "sha256": "eff0ea7012a3087cde46fffec52046429195ccbc1724e42571ba18c654bff01e"
+      }
+    }
+  },
+  "dentitionPassed": 8,
+  "updatedUtc": "2026-10-10T13:01:17.897348+00:00",
+  "dentitionToolSha256": "48ed990a07cbf600c70b6b3d2b4a0b1bf3963986a34db7dae32bae3469ee5213",
+  "dentalProfileToolSha256": "f2dbfb49b3f0832f03be81c90f358584b2e445cc6bda06487295232f83415536",
+  "jawWeightAndDentalUvContractSha256": "702bed6e8e4cb1dabce5e7ff8703dc1f43328bd34504abd85d3646791332bdf3",
+  "ownerReviewCheckpoint": {
+    "furtherIterationStopped": true,
+    "nativeDraftInstallation": false,
+    "nativeBinaryBuildOrLaunchPerformed": false,
+    "coordinatingChat": "01a117f8-5ced-7511-aea1-fb28bd29e39c"
+  }
+}
