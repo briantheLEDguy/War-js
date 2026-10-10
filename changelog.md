@@ -1,3 +1,26 @@
+## 2026-10-10 - Grounded candidate assemblies and overlay corner safety
+
+- Add transactional vertical plans for complete native town/keep namespaces and
+  explicit fixed world-origin scenery, rejecting absent or ambiguous groups.
+- Rebase each expanded ground-overlay corner once, including authoring corners
+  sharing Python position lists. Preserve UVs, opacity fades and source winding.
+- Add measured household/watchhouse furnishing recipes with a reserved doorway
+  aisle, reviewed-asset dimensions, shared bed pivots and room/overlap rejection.
+- Add focused regression coverage. Reject the malformed private fine-ground copy;
+  render agreement, collision checks and shader compilation alone cannot admit it.
+  Active campaign, capitals, owner drafts and release gates remain unchanged.
+
+Sunmeadow household checkpoint: private source-house floor repairs add 27 matching
+timber modules and 54 furnishings. Bounded long-bench rotation preserves measured
+clearances and bed axes. Saved native checks pass 44684 ground queries with 44
+day/night captures; actual movement, shelter, appearance and release remain
+unaccepted on this signature. Failed unsupported layouts remain recorded.
+
+Sunmeadow review freeze: repository 1218 and Unreal tooling 587 tests pass,
+three typechecks and migration/world/model checks pass. Strict release readiness
+remains false. Overnight iteration is paused for the owner inspection; furnished
+walking, visual approval and all remaining full-zone gates remain open.
+
 ## 2026-10-10 - Compact Sunmeadow frontages and coherent stone channels
 
 - Add an opt-in seven-frontage town revision and transactional bounded door

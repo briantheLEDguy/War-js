@@ -51,6 +51,12 @@ and scenery prototypes; appearance, driving, combat, persistence and release
 acceptance remain open. Previous source bundles, owner work and capitals remain
 preserved. See [T1 implementation](docs/t1-redesign.md).
 
+Managed T1 worktrees need hydrated Git LFS objects for source/model validation.
+Keep general test/model-job artifacts local; share private native evidence only
+through `artifacts/unreal/`. A whole-artifacts junction correctly fails the model
+tools' existing path-escape guard. Consult the private source-isolation and
+hydration receipts before reproducing native candidates.
+
 Source preparation binds revision-qualified baseline/walkthrough receipts, so
 staging a newer walkthrough does not invalidate its own dependencies. The latest
 first-pair pass verifies 138 configured walking routes and ordinary character
@@ -764,6 +770,24 @@ and use separate per-wrapper draft/publication directories; their model catalog
 still requires valid authored identities and collision.
 Run `npm run unreal:builder-proof` for the isolated rendered placement/publication
 check and fresh-process restoration.
+
+Ground changes in private T1 candidates use `scripts/unreal/t1_candidate_rebase.py`
+to translate complete building/keep namespaces together and reconform soft-earth
+corners once, retaining their UVs and fades. Native reload, appearance and walking
+checks remain separate: matching malformed source data does not qualify rendering.
+Measured household recipes in `scripts/unreal/t1_household.py` reserve a 150cm
+doorway aisle, preserve shared bed-part pivots and reject room/prop overlap.
+An optional bounded native support sampler fits complete groups around retained
+source geometry; long benches may turn within their measured footprints while
+keeping bed axes fixed. This does not grant collision or movement acceptance.
+See [T1 implementation](docs/t1-redesign.md) for candidate limitations.
+
+Sunmeadow owner-review checkpoint `a08ae2cf4241` freezes furnished source houses
+and repaired floors for private inspection. Repository tests (1218), Unreal
+tooling tests (587), three typechecks, migration audit and world/model validation
+pass; strict release readiness remains false. The overnight heartbeat is paused
+for review. This checkpoint does not accept household walking or full-zone art.
+See `docs/t1-redesign.md` for the exact scope and remaining gates.
 
 ## Architecture
 
@@ -1479,7 +1503,6 @@ Opt-in `scripts/unreal/t1_ground_detail.py` authors bounded source-derived small
 
 
 A private Sunmeadow farmstead copy joins contour-following paths, a requisition yard, farmhouse and boundary cover on retained terrain. Saved binding/foliage checks and four normal-character route directions pass; 15 native/gameplay/source-plan pictures document its unfinished appearance. It remains separate from active launch, with navigation, authoritative scenery, full contact/interior and all existing acceptance gates open. See `docs/t1-redesign.md`.
-
 
 Sunmeadow authoring now has optional `scripts/unreal/sunmeadow-town-plan.ts` and
 `sunmeadow-fort-themes.ts` recipes for a twenty-building Main Street settlement

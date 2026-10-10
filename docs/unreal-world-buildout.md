@@ -49,6 +49,14 @@ The approved scope is 32 existing zones and 70 directed portals in the main
 AegisWar project. Implementation has begun with shared foundations and
 Sunmeadow March/Cinderfen Outskirts. **No zone or batch is complete.**
 
+T1 iteration uses its attached managed `codex/t1-terrain-story-rvr` worktree when
+the main checkout is in concurrent character work. Preserve the main branch and
+source. Private Content/Saved/artifact/runtime junctions retain the existing local
+assets; explicitly resolve public tools against the T1 worktree. Consult the
+private `t1-source-isolation-latest.json` before running older artifact scripts,
+whose directory-based root may resolve back to the main checkout. No movement or
+appearance receipt transfers to a newly rebased or furnished candidate.
+
 ## Saved world and ownership
 
 The owner's FinalAppearance capital retains its startup map, architecture,
@@ -1490,3 +1498,25 @@ full-suite totals above are retained rather than presented as a new full run.
 The night walk averages 59.91 frames/s in its capped, 888x500 diagnostic window;
 this excludes proper GPU percentiles, required-resolution/platform memory and
 multiplayer load, so it does not close any performance gate.
+
+
+### Owner review freeze - furnished Sunmeadow prototype
+
+At the owner request, further environment iteration and the overnight heartbeat
+are paused for in-game inspection of household signature `a08ae2cf4241`. This is
+a review checkpoint, not a completed zone. Repository verification passes 1218
+tests in 198 files; sequential Unreal tooling passes 587 tests in 115 files.
+All three typechecks, migration audit, world validation and model validation
+pass. Strict release verification still exits 1 with `readyForRelease: false`.
+The earlier parallel Unreal run exceeded the existing citadel test timeout;
+the sequential retry passes without changing test assertions or deadlines.
+
+A separate private review-only arrival wrapper retains the saved scene and
+checks terrain support independently. It intentionally does not transfer the
+older street-facing movement receipt to the newly furnished candidate. Ordinary
+entry/GM proof is recorded separately when run. Household walking, shelter,
+battlefield driving, human appearance approval, full lairs, authority integration,
+18v18, persistence/network, platform/Steam and release acceptance remain open.
+Road verge blending and sparse town detail also remain unfinished. Character
+authoring continues in its separate owner checkout; these foundations are not
+implicitly activated in the native roster by the terrain checkpoint.

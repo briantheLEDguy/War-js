@@ -2520,3 +2520,165 @@ build or Foundation run is claimed here. Walking captures are 888x500 at actual
 authoritative daytime and weather strength 0.28, and do not establish a platform
 budget, network synchronization, sound approval or resolution of the previous
 night VSM warning. Landscape and town appearance remain unaccepted.
+
+
+## 2026-10-10 - Fine-ground candidate safety and rendering diagnosis
+
+`grounded_inventory` plans complete town/keep namespace translations before
+applying them, preserves relative room/light/gate placement and explicitly fixes
+world-origin terrain, overlays, water and distant scenery. Corner conformance
+retains UVs, opacity and normal orientation. Original double-precision authoring
+positions reconcile inherited coincident native float corners; those native
+zero-area corners cannot safely be fed directly back to the surface constructor.
+
+Private fine-ground candidate `92515d9212dd_20261010_130526_152017` passes
+source/render-data agreement, shader checks, saved actor inventories and ground
+queries, but actual pictures expose severe spiking. It is rejected and must not
+be launched or used for walking qualification. Reload and surface isolation
+reproduce the fault, including an opaque material override. Expanded corners
+referenced shared Python authoring position lists; deepcopy preserved aliases
+and repeated height changes accumulated on a single position. The corrected
+helper gives every corner an independent position and tests exact-once updates.
+The fresh rebuild additionally checks each target height against its original
+corner and the two exact triangle surfaces. Nine focused Python cases pass;
+full repository/native/tooling verification is pending this checkpoint.
+
+Source studies retain small connected terrain folds and protected route grades.
+Filtered distant source albedo removes the obvious photographic tiling in native
+comparisons, but its smooth composition remains provisional. The new private
+copy rebases vegetation height while preserving its XY, rotation, scale, count,
+culling and materials; complete keep visual assemblies are not authoritative
+gameplay integration. Existing accepted capitals, startup, parent maps and owner
+documents remain preserved. No zone is complete and no appearance is approved.
+All prior entry/GM, lair, authority/navigation, driving/siege, 18v18, services,
+persistence/network/audio, platform, Steam and release gates remain open.
+
+
+### Isolated Sunmeadow source, source-house fronts and household recipes
+
+T1 work now continues on the same `codex/t1-terrain-story-rvr` branch in a managed
+worktree. The original checkout has concurrent character-foundation work and is
+not switched or edited. Private Content, Saved, artifacts and unchanged runtime
+binaries are junctions; new private scripts explicitly root public source at the
+T1 checkout rather than resolving their shared artifact directory to the original
+checkout. `t1-source-isolation-latest.json` records the source snapshot and exact
+six-file isolation. Only byte-level checkout newline differences are reconciled,
+with equal normalized source and the original expected hashes verified first.
+
+The corrected fine-ground copy `11d7bc88ac1f_20261010_131442_679120` passes saved
+reload and direct native day/night inspection without the rejected overlay spikes.
+It preserves foliage XY/rotation/scale/cull policy while rebasing vertical support.
+A numbered contour/topology drawing avoids overlapping site names. Source folds,
+contours and routes do not establish native walking or battlefield acceptance.
+
+A fresh street-facing candidate replaces four optional cottages and the
+watchhouse with two measured original kit variants; the existing furnished homes
+and complete keep assemblies remain intact. Source front orientation is corrected
+to face the street, actual wall hits place the practical fixtures, and the smaller
+cottage uses uniform scale 1.12 inside its existing reservation. Resident-texture
+captures show full source detail; they do not measure production streaming cost.
+Static entrance probes distinguish upward step contacts within the existing 45cm
+allowance from walls/lintels, then repeat the full capsule fit. Every step lift is
+recorded; this is not movement acceptance. Five bounded interior volumes add
+local shelter. Native before/after-reload checks cover all nine full-width town
+streets, twenty retained approaches, services and five new door polylines.
+The saved candidate passes 44644 ground queries and retains separate false
+entry, authority, walking, driving, appearance and zone-completion gates.
+
+`household_recipe` supplies purpose-based household/watchhouse layouts from exact
+reviewed furniture bounds. It reserves a 150cm straight doorway aisle, checks room
+and separate-group overlap, keeps all bed components on their shared authored
+pivot, and requires collision only for structural furniture. Six focused Python
+cases pass. A bounded native floor sampler can fit complete groups around
+retained source geometry, preserving their common pivots and reserved aisle. The source-only private plan contains 54 pieces across the five new
+rooms. Native floor, clearance, rendered layout, shelter and actual movement
+verification remain pending; existing two furnished homes are unchanged.
+
+
+The street-facing `8f068eb3aed3` candidate independently completes 34 actual
+normal-character route directions over 2469.60m, with zero airborne time, jumps
+and in-route teleports. This includes both directions through all five new source
+doors, as well as the earlier town streets, furnished homes and moved frontages.
+Its combined runner fails five shelter assertions at forward threshold captures:
+the character is on the interior floor while the follow camera remains outdoors.
+The camera-based weather system therefore still renders outside particles.
+`sunmeadow-street-facing-movement-latest.json` records movement separately and
+retains every failed weather frame; it does not admit shelter. Deeper interior
+captures are prepared for the furnished candidate. The self-contained movement
+gallery embeds 78 native pictures and the numbered source drawing losslessly.
+
+Furniture authoring rejects unsupported source-room corners before saving a
+candidate. A second check finds retained fused house geometry at a proposed store
+footprint; stores are moved further inboard. These rejected attempts are retained.
+Original private package (9281) and owner document (13) hashes still match the
+published baseline. New furnished-candidate native checks, walking and required
+repository verification remain pending at this checkpoint.
+
+
+### Native household floor repair checkpoint
+
+Private candidate `a08ae2cf4241_20261010_142428_245607` saves and reloads five
+source-house rooms with 54 measured furnishings, ten additional interior fixture
+actors and 27 matching timber floor modules. A read-only 25cm floor survey found
+actual missing deck strips and fused wall projections in the larger source house.
+Several bounded furnishing attempts are retained as rejected. The first repair
+attempt also rejects a catalog floor package absent from the project; the next
+uses the already staged, hash-verified floor variant with matching dimensions and
+materials. No downloaded source package is changed or implicitly admitted.
+
+The long bench may turn by 90 degrees after bounded translations fail. Its rotated
+footprint retains room, separate-group and 150cm aisle clearances; all bed parts
+retain their shared source pivots and original axes. Seven household Python cases
+pass. Native before/after-reload checks pass 44684 ground queries, twenty retained
+approaches, nine full-width streets, services and five door polylines. Dense
+furniture footprint sampling distinguishes source board bevels from raised walls
+and selects the highest retained house/deck contact. Physical furniture contact
+remains explicitly unaccepted; static fitting does not establish actual walking.
+
+Forty-four direct native day/night captures use resident textures and measured
+interior floor eye height. Inspected pictures show source beds, benches, tables,
+stores and the repaired plank deck; night interiors and outdoor road edges still
+need visual refinement. Normal walking, deep camera shelter, safe entry/GM and all
+battlefield, full-zone and release gates remain pending on this exact signature.
+No earlier movement receipt transfers. Required repository verification is running
+against the isolated public source; its final result must be read separately.
+
+
+The managed checkout needed additional environment reconciliation: 6556 Git LFS
+objects (10378211528 bytes) are restored from the existing local cache and every
+object matches its recorded size/SHA. The first pointer-only verification fails
+and remains recorded. Generic `artifacts/` is now local; only `artifacts/unreal/`
+links the private native receipts/assets. Nine model tool imports correctly reject
+the former whole-artifacts junction through their existing path-escape guard.
+That failed rerun is retained; security guards are unchanged. One reviewed
+Cinderfen source retains its required exact CRLF bytes, equal in normalized
+content to the checkout. Its raw newline-only diff is intentionally unstaged
+and is not part of Sunmeadow public changes. The owner checkout is untouched.
+
+A read-only native comparison compiles per-pixel translucent road lighting and
+restores all scene/material bindings. Sixteen day/night images show that this
+change does not resolve the bright green road fringe. It is not adopted. An
+opaque ground/road blending comparison is prepared, remains unrun at this
+checkpoint and grants no appearance or performance acceptance.
+
+
+### Owner review freeze - furnished Sunmeadow prototype
+
+At the owner request, further environment iteration and the overnight heartbeat
+are paused for in-game inspection of household signature `a08ae2cf4241`. This is
+a review checkpoint, not a completed zone. Repository verification passes 1218
+tests in 198 files; sequential Unreal tooling passes 587 tests in 115 files.
+All three typechecks, migration audit, world validation and model validation
+pass. Strict release verification still exits 1 with `readyForRelease: false`.
+The earlier parallel Unreal run exceeded the existing citadel test timeout;
+the sequential retry passes without changing test assertions or deadlines.
+
+A separate private review-only arrival wrapper retains the saved scene and
+checks terrain support independently. It intentionally does not transfer the
+older street-facing movement receipt to the newly furnished candidate. Ordinary
+entry/GM proof is recorded separately when run. Household walking, shelter,
+battlefield driving, human appearance approval, full lairs, authority integration,
+18v18, persistence/network, platform/Steam and release acceptance remain open.
+Road verge blending and sparse town detail also remain unfinished. Character
+authoring continues in its separate owner checkout; these foundations are not
+implicitly activated in the native roster by the terrain checkpoint.
