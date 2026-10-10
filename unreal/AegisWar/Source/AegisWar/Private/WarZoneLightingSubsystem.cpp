@@ -19,6 +19,12 @@
 
 namespace
 {
+    float NightExposureLift(const FWarZoneLightingProfile& Profile)
+    {
+        // First-pair camera studies retain dark skies while recovering ground detail.
+        return Profile.Zone == TEXT("sunmeadow_march") || Profile.Zone == TEXT("cinderfen_outskirts") ? 3.25f : 2.25f;
+    }
+
     float DaySkyIntensity(const FWarZoneLightingProfile& Profile)
     {
         // Diffuse farmland light softens oak canopies; every other region retains its authored fill.
@@ -178,7 +184,7 @@ void UWarZoneLightingSubsystem::ApplyRegionalTime(double Seconds,float Weather)
     Fog->GetComponent()->SetFogInscatteringColor(FMath::Lerp(Moon*.12f,Profile->FogColor,Day));
     // Keep a fixed, readable regional exposure: daylight preserves material colour,
     // while moonlit routes retain silhouette detail without adapting night into day.
-    Grade->Settings.AutoExposureBias=Profile->ExposureBias+FMath::Lerp(2.25f,-.5f,Day);
+    Grade->Settings.AutoExposureBias=Profile->ExposureBias+FMath::Lerp(NightExposureLift(*Profile),-.5f,Day);
 }
 bool UWarZoneLightingSubsystem::PreviewEnvironment(UWorld* World,FName Zone,FVector Origin,double Seconds,float Weather)
 {

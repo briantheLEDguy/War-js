@@ -33,9 +33,16 @@ def rock_surface(root, identity):
             raise ValueError('Rock texture escaped or changed from its admitted channel')
     return dict(color=textures['color'],normal=textures['normal'],tileMetres=3.6 if identity=='sunmeadow_march' else 3,
                 tint=materials[0]['color'][:3],sourceModel=model,
-                geological=dict(baseColor=[.22,.235,.215] if identity=='sunmeadow_march' else [.075,.085,.09],sourceMix=.14,
+                geological=dict(**geological_palette(identity),
                     noiseMetres=6.3,fineMetres=.8,bumpHeightCm=[60,8],strata=strata_recipe(identity),macroMinimum=.72,macroMaximum=1.12,fineMinimum=.88),
                 reviewInputs={p.relative_to(root).as_posix():sha(p) for p in (source,manifest_file,registry_file,geometry)})
+
+
+def geological_palette(identity):
+    """Regional source mixing tested in native comparisons; lighting and contact geometry stay separate."""
+    if identity not in MODELS:raise ValueError('No admitted regional stone palette')
+    return dict(baseColor=[.22,.235,.215] if identity=='sunmeadow_march' else [.012,.016,.02],
+                sourceMix=.14 if identity=='sunmeadow_march' else .04)
 
 
 def rock_projection_weights(normal):

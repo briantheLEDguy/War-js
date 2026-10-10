@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_rock_surface import rock_surface,rock_projection_weights,MODELS,geological_color
+from t1_rock_surface import rock_surface,rock_projection_weights,MODELS,geological_color,geological_palette
 
 
 class RockSurfaceTest(unittest.TestCase):
@@ -38,6 +38,18 @@ class RockSurfaceTest(unittest.TestCase):
             self.assertTrue(all(0<v<.4 for v in c))
         with self.assertRaises(ValueError):geological_color(recipe,[math.nan,0,0],0,0)
         with self.assertRaises(ValueError):geological_color(recipe,[0,0,0],2,0)
+
+    def test_regional_palette_retains_limestone_and_reduces_pale_basalt_source_mixing(self):
+        sun=geological_palette('sunmeadow_march');basalt=geological_palette('cinderfen_outskirts')
+        self.assertEqual(sun,dict(baseColor=[.22,.235,.215],sourceMix=.14))
+        self.assertEqual(basalt,dict(baseColor=[.012,.016,.02],sourceMix=.04))
+        basalt['baseColor'][0]=1
+        self.assertEqual(geological_palette('cinderfen_outskirts')['baseColor'][0],.012)
+        with self.assertRaises(ValueError):geological_palette('brightfen_approach')
+        for macro in (0,.5,1):
+            row=dict(geological=dict(**geological_palette('cinderfen_outskirts'),macroMinimum=.72,macroMaximum=1.12,fineMinimum=.88))
+            c=geological_color(row,[1,1,1],macro,.5)
+            self.assertTrue(all(0<v<.07 for v in c))
 
     def test_projection_has_continuous_normalized_weights_across_face_seams(self):
         self.assertEqual(rock_projection_weights([1,0,0]),[1,0,0])

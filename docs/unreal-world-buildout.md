@@ -943,3 +943,34 @@ closed gates, 18v18, services/resources, ordinary GM persistence, earlier unreso
 recovery-repeatability, live Node/additive collision, network/audio, performance,
 platform/Steam and release gates. Later native pairs and full underground remain
 unbuilt. None of these source or scripted checks establish fun or fair combat.
+
+
+## T1 absolute surface and woodland proof (10 October 2026)
+
+Private source `8f3fa2d0ecc2`, scene `2ba289f4c44d` and navigation
+`3ee658ec9006` integrate bounded absolute terrain sampling, protected retained
+population approaches, 190 clustered Sunmeadow oaks, darker Cinderfen
+steep-ground stone and a one-stop first-pair night exposure lift. Immutable
+source/asset fingerprints and existing owner/capital protections remain active.
+The first narrow-blend candidate failed a resource approach on approximately
+47-degree terrain; the repair extends grounding protection to six qualified
+native population approaches. Walking thresholds remain unchanged.
+
+Editor/Game builds and 151 Foundation tests pass. Fresh native 114 phase/weather
+views, 150 walks, 92 navigation queries before save/reload, both isolated
+ordinary-entry/local-GM fixtures and twelve pocket follow-camera views pass.
+Thirteen owner documents and accepted capitals/source packages/parent maps stay
+preserved. Repository 1166/184, Unreal 535/101, Python 153/39, three typechecks,
+audit and world/model validation pass; strict release exits 1. In-process Node
+triangle parity covers 4575 samples across twenty admitted configurations; it
+does not verify the running owner server or native additive tree collision.
+
+This checkpoint is unfinished. Artificial shoulders, uniform grass, distant
+billboard trees and empty horizons require further native comparison. Retain
+human appearance, first-batch full lairs, physical vehicles/turning/closed gates,
+18v18, services/resources, ordinary GM persistence, the earlier unresolved
+Cinderfen recovery-repeatability failure, live/additive collision, network/audio,
+performance, platforms/Steam and release gates. Later native pairs and full
+underground remain unbuilt; navigation copies have not separately repeated all
+walking routes. New purchased or source assets have not gained distribution
+rights through these checks.

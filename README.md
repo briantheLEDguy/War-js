@@ -1349,3 +1349,38 @@ Source `cdb9823acbd2` / scene `89ad16819d66` passes fresh native verification.
 The private 21-picture report and `docs/t1-redesign.md` record exact evidence and
 unfinished composition. Physical driving/18v18, live/additive collision, all
 existing first-batch lair, persistence, appearance and release gates remain open.
+
+
+### T1 absolute landform and woodland checkpoint (10 October 2026)
+
+`shared/terrainSurface.ts` adds a bounded optional absolute-height raster to the
+shared terrain field. Legacy zones retain the previous sampler. Private licensed
+samples stay outside tracked source; `t1-surface-bake.ts` checks exact provenance
+hashes and derivative flags. `prepare-t1-source-surface.ts` writes immutable
+first-pair candidates, preserving complete military footings, routes, arrivals,
+pocket water basins and qualified native population approaches. Exact clipped
+road meshes remain a separate final step.
+
+Sunmeadow adds deterministic irregular woodland clusters through
+`t1_woodland_clusters.py` and its native adapter, retaining source mesh/LODs/simple
+collision and keeping crown clearance around lanes. Cinderfen steep-ground stone
+is darker. First-pair night exposure rises one stop with a continuous dawn/dusk
+fade; daylight and accepted capital restoration remain retained. Installed rock
+cluster colours require separate regional work.
+
+Private source `8f3fa2d0ecc2`, scene `2ba289f4c44d`, navigation `3ee658ec9006`
+pass 114 phase/weather views, 150 native walking routes, 92 navigation queries
+before save/reload, two isolated entry/local-GM fixtures and twelve pocket
+follow-camera views. A failed resource approach in the first narrow-blend
+candidate was repaired by protecting six retained population approaches.
+Editor/Game builds and 151 Foundation tests pass. Repository 1166/184, Unreal
+535/101, Python 153/39, three typechecks, audit and world/model validation pass;
+strict release exits 1. Twenty in-process authority configurations and 4575
+triangle-ground samples agree within 0.031mm at 0.1mm tolerance. The live owner
+server is untouched. Owner documents, accepted capitals and source assets stay
+preserved. Artificial shoulders, repeated grass, distant canopy billboards and
+empty horizons remain unfinished; these checks do not approve appearance,
+physical driving, combat, additive collision synchronization or performance.
+First-batch full-lair, ordinary GM persistence, the earlier Cinderfen recovery
+repeatability failure, live/network/audio, platform/Steam and release gates remain
+open. Later native pairs and full underground remain unbuilt.

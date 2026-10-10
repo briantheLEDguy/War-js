@@ -2335,3 +2335,29 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   Editor/Game and Foundation results remain previous evidence. A private report
   embeds 21 images. Node triangle parity passes 4575 samples; live/additive
   geometry, physical vehicle/combat, appearance and existing release gates stay open.
+
+
+### 10 October 2026 - private T1 landform and woodland iteration
+
+- Added an optional bounded absolute terrain raster shared by authority and
+  export, with legacy behavior retained, provenance-checked private bakes and
+  immutable candidate authoring. Licensed samples remain private.
+- Preserved retained routes, military footings, arrival ground and native
+  population approaches. A real walking failure on a roughly 47-degree resource
+  approach exposed a missing grounding reserve; six approaches now participate
+  in the protected raster. The repaired candidate passes all 150 native routes.
+- Added 190 irregularly clustered Sunmeadow oaks with clearings, crown lane
+  reserves, retained source mesh/LODs and reviewed simple collision. Darkened
+  Cinderfen steep-ground stone and lifted first-pair night exposure one stop.
+  Capital restoration and daylight endpoints remain retained.
+- Verified Editor/Game builds, 151 Foundation tests, native 114 phase/weather
+  views, 150 walks, 92 navigation queries before save/reload, two isolated
+  entry/GM fixtures and twelve pocket follow-camera views. Repository 1166/184,
+  Unreal 535/101, Python 153/39, three typechecks, audit and world/model validation
+  pass; strict release exits 1. Owner/source/capital preservation remains verified.
+- Landscape appearance is unfinished: artificial shoulders, uniform grass,
+  distant billboards and empty horizons remain weak. Full lairs, underground,
+  later native zones, vehicle driving/turning/closed gates, 18v18, ordinary GM
+  persistence, earlier Cinderfen recovery repeatability, live authority/additive
+  collision, network/audio, performance, platform/Steam and release gates remain
+  unaccepted.

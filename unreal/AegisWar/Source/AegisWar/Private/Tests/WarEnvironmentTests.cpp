@@ -42,10 +42,17 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
             if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment")))return It->GetLightComponent()->Intensity;
         return -1.f;
     };
+    const auto ExposureBias=[World]() {
+        for(TActorIterator<AActor> It(World);It;++It)
+            if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment")))
+                if(const auto* Component=It->FindComponentByClass<UPostProcessComponent>())return Component->Settings.AutoExposureBias;
+        return -100.f;
+    };
     auto* Practical=World->SpawnActor<AWarPracticalLight>();Practical->ZoneId=TEXT("sunmeadow_march");
     TestTrue(TEXT("Night preview available"),UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2700,.8f));
     TestEqual(TEXT("Fixture illuminates night"),Practical->GetLightComponent()->Intensity,900.f);
     TestEqual(TEXT("Diffuse daylight preserves night sky"),SkyIntensity(),.12f);
+    TestEqual(TEXT("Farmland night retains readable ground exposure"),ExposureBias(),3.25f);
     TestFalse(TEXT("Regional rig hides authored sun temporarily"),AuthoredSun->GetLightComponent()->IsVisible());
     float Night=0,Day=0;
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)Night=It->GetLightComponent()->Intensity;
@@ -55,6 +62,9 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
     TestTrue(TEXT("Night stays darker with readable moonlight"),Night>0&&Night<Day*.1f);
     TestEqual(TEXT("Farmland daylight avoids excessive direct contrast"),Day,14000.f);
     TestEqual(TEXT("Farmland sky fills canopy shadows"),SkyIntensity(),4.f);
+    TestEqual(TEXT("Night readability preserves daylight exposure"),ExposureBias(),-.5f);
+    UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,2250,0);
+    TestEqual(TEXT("Night readability blends continuously through dusk"),ExposureBias(),1.375f);
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("cinderfen_outskirts"),FVector::ZeroVector,1200,0);
     float FenDay=0,FenNight=0;
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)FenDay=It->GetLightComponent()->Intensity;
@@ -63,6 +73,9 @@ bool FWarEnvironmentCycleTest::RunTest(const FString& Parameters)
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("cinderfen_outskirts"),FVector::ZeroVector,2700,0);
     for(TActorIterator<ADirectionalLight> It(World);It;++It)if(It->ActorHasTag(TEXT("WarLocalZoneEnvironment"))&&CastChecked<UDirectionalLightComponent>(It->GetLightComponent())->bAtmosphereSunLight)FenNight=It->GetLightComponent()->Intensity;
     TestEqual(TEXT("Fen readability change preserves moon output"),FenNight,500.f);
+    TestTrue(TEXT("Fen night retains its regional exposure offset"),FMath::IsNearlyEqual(ExposureBias(),4.15f));
+    UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("brightfen_approach"),FVector::ZeroVector,2700,0);
+    TestEqual(TEXT("Later batch retains its previous night exposure"),ExposureBias(),UWarZoneLightingSubsystem::FindProfile(TEXT("brightfen_approach"))->ExposureBias+2.25f);
     UWarZoneLightingSubsystem::PreviewEnvironment(World,TEXT("sunmeadow_march"),FVector::ZeroVector,1200,0);
     Practical->DayLumens=250;Practical->NightLumens=700;
     Practical->ApplyTime(1200);TestEqual(TEXT("Interior fixture retains daylight illumination"),Practical->GetLightComponent()->Intensity,250.f);

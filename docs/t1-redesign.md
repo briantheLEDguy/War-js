@@ -1824,3 +1824,53 @@ closed gates, 18v18, services/resources, ordinary GM persistence, earlier unreso
 recovery-repeatability, live Node/additive collision, network/audio, performance,
 platform/Steam and release gates. Later native pairs and full underground remain
 unbuilt. None of these source or scripted checks establish fun or fair combat.
+
+
+## Absolute landform and woodland checkpoint (10 October 2026)
+
+Source `8f3fa2d0ecc2` and scene `2ba289f4c44d` admit an optional bounded absolute
+height raster. The first full-height bake produced an artificial boundary cliff
+ring and was rejected. The current source raster extends beyond the native
+sampling rectangle, with a compact boundary fade. Immutable private receipts
+check actual sample and source-package hashes, exact parent signatures and
+licensed-derivative/no-distribution flags. Samples and private native packages are
+not public repository content. Legacy terrain remains unchanged.
+
+Old routes, complete keep/staging footings, arrivals, pockets and closed water
+basins retain their grounding. A narrow 40m blend originally missed a retained
+resource approach, causing a native walking failure on a terrain face around
+47 degrees. Six qualified native population approaches now participate in raster
+protection. The resource approach full-width source grade is 0.18459163; the main
+route maximum remains 0.21934734. Native walking criteria were not relaxed.
+
+Sunmeadow adds 190 irregularly clustered 13-22m oaks, with clearings, protected
+full-crown lane reserves, retained source geometry/five LODs/three simple
+colliders and a strict global canopy budget. The candidate contains 477 installed
+canopy actors. The forest-soil mask includes the new trees. Native additive
+collision synchronization with Node remains unaccepted. Cinderfen terrain, roads,
+pockets and links remain byte-exact; its steep-ground basalt palette is darker.
+Installed pale rock-cluster materials need a separate regional adaptation.
+
+The first pair gains one stop of night exposure, continuously fading out during
+dawn/dusk. Moon/fill/sky intensities, daytime endpoints, other regions and
+accepted capital lighting remain retained. Editor and Game targets build; all
+151 Foundation tests pass, including night values and capital restoration.
+Fresh native 114 phase/weather views, 150 walking routes, 92 navigation queries
+before save/reload, both isolated ordinary-entry/local-GM fixtures and twelve
+pocket follow-camera views pass. Thirteen owner documents, parent maps, accepted
+capitals and source packages remain preserved. Navigation copies have not
+separately repeated every walking route. Repository 1166/184, Unreal 535/101,
+Python 153/39, three typechecks, audit and world/model validation pass. Strict
+release exits 1. In-process Node admits twenty configurations; 4575 ground samples
+match exported triangles within 0.031mm at 0.1mm tolerance. Live owner Node is
+untouched, and live authority/additive collision are not established by this.
+
+The native result is still visually weak: artificial graded shoulders, uniform
+grass, distant canopy billboards and empty horizons remain. Unsaved terrain-first
+route-height, source-derived distant-ground, habitat-palette and canopy-LOD
+comparisons are the next iteration. Preserve human appearance, first-batch
+full-lair progression, actual vehicle driving/turning/closed gates, 18v18,
+services/resources, ordinary GM persistence, the earlier unresolved Cinderfen
+recovery-repeatability failure, live Node/additive collision, network/audio,
+performance, platform/Steam and release gates. Full underground and later native
+pairs remain unbuilt. Scripted checks do not establish enjoyable or fair combat.
