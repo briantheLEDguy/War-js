@@ -1472,3 +1472,5 @@ T1 meadow authoring: `scripts/unreal/t1_meadow_patches.py` provides opt-in bound
 The isolated `t1_meadow_native.py` adapter verifies staged plant bindings, native batch limits, cosmetic culling and transactional actor rollback; it remains opt-in and is not connected to saved candidate generation.
 
 `t1-terrain-anchor-revision.ts` explicitly revises existing absolute first-pair terrain and moves retained anchors/reciprocal arrivals together; it remains an opt-in source-authoring helper with native and appearance gates open.
+
+`t1_rest_scene.py` adapts reviewed unskinned prop hierarchies at their authored resting pose for static scenery; `t1_landscape_walks.py` now connects authored climbs independently of flank sampling density. Both are bounded and tested. Private connected-spur scenes pass configured native walking/ground/reload checks but remain visually unaccepted; see `docs/t1-redesign.md`.

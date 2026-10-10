@@ -61,9 +61,29 @@ def landscape_walks(source,height_cm,occupied,native_clear):
         if len(climbs)!=2:raise ValueError('Authored scarp requires exactly two climbs')
         starts=[(-285,-70),(-60,-15)] if sun else [(-280,-190),(-60,-125)];result=[]
         for i,(start,climb) in enumerate(zip(starts,climbs)):
-            vertex=source['paths'][1]['points'][2 if i==0 else 3]
-            coordinates=[start,(vertex['x'],vertex['z']),*[(p['x'],p['z']) for p in climb['points']]]
-            points=[[z*100,x*100,height_cm(x,z)] for x,z in coordinates]
+            # A resampled route has no stable semantic waypoint indices. Join the
+            # closest flank segment, then preserve the authored climb itself.
+            flank=source['paths'][1]['points'];goal=(climb['points'][0]['x'],climb['points'][0]['z'])
+            candidates=[]
+            for a,b in zip(flank,flank[1:]):
+                if not all(k in p for p in (a,b) for k in ('x','z')):continue
+                dx,dz=b['x']-a['x'],b['z']-a['z'];length=dx*dx+dz*dz
+                t=max(0,min(1,((goal[0]-a['x'])*dx+(goal[1]-a['z'])*dz)/length)) if length else 0
+                point=(a['x']+t*dx,a['z']+t*dz);candidates.append((math.dist(point,goal),point))
+            if not candidates:raise ValueError('Authored climb needs a connected flank polyline')
+            entry=min(candidates)[1];cache={}
+            def clear(x,z):
+                key=(round(x,4),round(z,4))
+                if key not in cache:cache[key]=native_clear(x,z)
+                return cache[key]
+            links=[]
+            for a,b in ((start,entry),(entry,goal)):
+                bounds=dict(minX=min(a[0],b[0])-60,maxX=max(a[0],b[0])+60,
+                            minZ=min(a[1],b[1])-60,maxZ=max(a[1],b[1])+60)
+                links.extend(ground_walk(height_cm,a,b,bounds,clear,maximum_grade=.22))
+            points=links+[[p['z']*100,p['x']*100,height_cm(p['x'],p['z'])] for p in climb['points']]
+            points=[p for j,p in enumerate(points) if j==0 or math.dist(p,points[j-1])>.01]
+            coordinates=[(p[1]/100,p[0]/100) for p in points]
             for a,b in zip(coordinates,coordinates[1:]):
                 length=math.dist(a,b)
                 if length<.001:

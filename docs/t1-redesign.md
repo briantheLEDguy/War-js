@@ -2121,3 +2121,52 @@ at 0.17895. Cinderfen source remains unchanged. No global source receipt or save
 candidate is replaced; native population/complete-assembly, walking/driving,
 18v18, appearance, persistence/network, first-batch lairs, performance/platform,
 Steam and release acceptance remain outstanding.
+
+
+## Connected-spur native prototype and resting worksite props (10 October 2026)
+
+The opt-in terrain revision now has a separate private first-pair candidate: source
+`15c2b7d20a52`, core `4d46cc30d985`, scene `7c35d60eb8ab`. Its full 32-map/70-arrow
+source bundle updates reciprocal Sunmeadow landings and retains Cinderfen source
+byte for byte. Global source `03ec8464c80c`, saved scene `b06f83f1f499` and accepted
+capital/owner content remain unchanged. This candidate is not visually accepted.
+
+The saved prototype passes 150 configured normal-character routes over 49604.08m
+with zero airborne travel, jumps or in-route teleports. Native full-width checks
+cover 86360 samples, with maximum grades 0.17895 in Sunmeadow and 0.21648 in
+Cinderfen; all eight arrivals pass. The rendered review contains 114 regional
+dawn/day/dusk/night/strong-weather views and passes material compilation checks.
+A separate reload verifies all 8798 meadow transforms, source/material bindings,
+nonblocking policy and 80-180m culling. Base vegetation retains its separate
+35-120m policy. The private review adapter checks both without loosening either.
+
+The authored counter-route planner no longer selects fixed waypoint indices from
+a resampled flank. It projects onto the nearest flank segment, then uses bounded
+ground connectors with a 0.22 grade cap and native clearance checks before the
+retained climb. A sampling-density regression test protects that behavior.
+
+`t1_rest_scene.py` provides bounded static resting-scene adaptation for reviewed
+unskinned prop hierarchies. It composes parent translations/rotations/uniform
+scales, preserves geometry/material buffers and rejects skinning, morph geometry,
+matrices, nonuniform scales, cycles/shared ownership and excessive depth. Six
+focused tests include noncommuting rotations. The private approved-source wagon
+study compares all 63892 vertices against independent hierarchy matrices with
+zero world-position error. Native committed triangle corners, normals, UVs,
+colours and six material sections match; position rounding is below 0.000016cm.
+The wagon remains unsaved scenery, not a physical convoy/vehicle acceptance.
+
+All 181 T1 Python tests in 45 files, 1197 repository tests and 566 Unreal
+tooling tests pass, alongside all three typechecks, migration audit, world
+and model validation. The strict release check still exits 1 as required.
+Navigation candidate `026e779fc971` passes 92 configured route probes before
+saving and the same 92 after reloading, across pedestrian and siege-convoy
+agents. Baked tile payloads remain exact. This is not physical driving proof. No C++ changed. Actual native pictures and a labeled
+source topology drawing are embedded in the private progress report. The images
+still show sparse/uniform terrain and a bare village; further dressing is needed.
+
+Retain all human appearance, full first-pair lair/underground and later native
+batch gates, actual driving/turning/closed gates, 18v18, services, ordinary GM
+persistence and unresolved Cinderfen recovery repeatability, live authority/
+streaming/additive collision/network/audio, licensing/distribution, performance,
+three-platform/Steam and release gates. Scripted movement does not establish fun
+or multiplayer fairness.

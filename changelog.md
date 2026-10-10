@@ -2441,3 +2441,5 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
 - Added an opt-in native meadow adapter with exact staged mesh/LOD/material verification, occupied-identity protection, native species limits, nonblocking collision/culling checks and rollback tests. Its unsaved six-view native proof retains saved maps and 13 owner documents; performance, persistence and appearance remain unapproved.
 
 - Added opt-in immutable terrain-anchor revisions with rigid keep/prop translations, retained grid/seam/foundation guards and terrain-supported reciprocal landings. Focused tests and an isolated 32-map source alignment pass; saved candidates and active sources remain retained, with native/gameplay/appearance acceptance open.
+
+- Fixed authored counter-climb connectors that depended on unstable resampled waypoint indices. Added bounded, tested resting-scene adaptation for reviewed hierarchical props, with an exact native parked-wagon study. A separate connected-spur candidate passes 150 walking routes and regional ground/light/weather checks; active scenes and all unfinished acceptance gates remain retained.

@@ -49,4 +49,17 @@ class LandscapeWalkTest(unittest.TestCase):
         source['orvrLayout']['terrain']['clearCorridors']=climbs[:1]
         with self.assertRaises(ValueError):landscape_walks(source,lambda x,z:0,[],lambda x,z:True)
 
+    def test_authored_connectors_are_independent_of_flank_sampling_density(self):
+        identity='sunmeadow_march';a=dict(x=-310,z=130);b=dict(x=-60,z=180)
+        climbs=[dict(id=identity+'_scarp_'+side+'_climb',points=[dict(x=x,z=z) for x,z in points]) for side,points in (
+            ('west',[(-275,137),(-200,105),(-145,75)]),('east',[(-100,172),(-145,75)]))]
+        source=dict(id=identity,paths=[{},dict(points=[a,b])],orvrLayout=dict(terrain=dict(clearCorridors=climbs)))
+        sparse=landscape_walks(source,lambda x,z:0,[],lambda x,z:True)
+        source['paths'][1]['points']=[dict(x=a['x']+(b['x']-a['x'])*i/100,z=a['z']+(b['z']-a['z'])*i/100) for i in range(101)]
+        dense=landscape_walks(source,lambda x,z:0,[],lambda x,z:True)
+        for original,revised in zip(sparse,dense):
+            self.assertEqual(original['id'],revised['id']);self.assertEqual(len(original['points']),len(revised['points']))
+            for p,q in zip(original['points'],revised['points']):
+                for x,y in zip(p,q):self.assertAlmostEqual(x,y,places=7)
+
 if __name__=='__main__':unittest.main()
