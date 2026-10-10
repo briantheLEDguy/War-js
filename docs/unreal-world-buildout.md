@@ -898,3 +898,48 @@ world/model validation pass; strict release exits 1. The private 21-picture repo
 retains unfinished landscape/forest/horizon/stone and every outstanding gate.
 Connected route reflow and balanced corridor sampling remain private source
 studies, with no native, physical vehicle/combat or human appearance acceptance.
+
+
+## Connected Sunmeadow route checkpoint (10 October 2026)
+
+Source `cdb9823acbd2`, core `2463ad3179f5`, scene `89ad16819d66`,
+nav `259de7f1a48b` and safe walkthrough `f21040e0c9af` integrate connected
+Sunmeadow flank/rotation curves. Shared edges are authored once and reused by
+supply itineraries; pocket/overlook branches reconnect and pedestrian counters
+are regenerated. Main advance geometry, complete keep/staging assemblies,
+arrivals and protected western overlooks remain retained. Cinderfen region,
+terrain, pockets and links remain byte-exact to the previous source revision.
+
+`balancedCorridors` is an optional shared terrain control: normalize each
+corridor before blending overlaps so densely sampled curves do not gain extra
+global influence. Legacy absent/false behavior stays unchanged. Focused tests
+cover flat-route subdivision, unequal-slope continuity, compact edges and native
+float triangle parity. Sloped re-sampling is not mathematically invariant. The
+nearest-segment study remains rejected for discontinuities. Full-width route
+grades peak at 0.21934734; six Sunmeadow supplies remain 350-750m. Exact clipped
+roads retain 0.045m support and soft alpha. Increased mesh cost is unaccepted.
+
+Fresh native 114 phase/weather views, 150 walking routes, 92 navigation queries
+before save/reload, both isolated ordinary-entry/local-GM fixtures and twelve
+pocket gameplay-camera pictures pass. Thirteen owner documents, source packages,
+parent maps and accepted capitals remain preserved. Navigation copies have not
+separately repeated every walking route. The in-process Node loader admits twenty
+configurations; 4575 samples match exported triangles within 0.031mm, at 0.1mm
+tolerance. Live Node and native additive collision are not verified by this proof.
+
+Repository 1153/181 files, Unreal 527/99, Python 148/38, three typechecks, audit
+and world/model validation pass. Strict release exits 1 as expected. No C++ changed;
+Editor/Game builds and 151 Foundation results remain prior checkpoint evidence.
+The private `progress-report-route-reflow-89ad16819d66.html` embeds 21 pictures,
+including a corrected topology drawing whose rotation labels locate shared main
+route junctions. Its receipt records exact signatures, image hashes and caveats.
+
+Haze-only Cinderfen studies offered little improvement and remain rejected,
+unsaved prototypes. Broad smooth hills, undersized sparse canopy, repeated grass,
+empty horizons and pale Cinderfen stone remain weak. Larger woodland/shadows,
+darker source-derived stone and full-height watershed studies are next. Preserve
+human appearance, first-batch full-lair progression, actual vehicle driving/turning/
+closed gates, 18v18, services/resources, ordinary GM persistence, earlier unresolved
+recovery-repeatability, live Node/additive collision, network/audio, performance,
+platform/Steam and release gates. Later native pairs and full underground remain
+unbuilt. None of these source or scripted checks establish fun or fair combat.

@@ -1336,3 +1336,16 @@ builds and 151 Foundation tests pass, plus the fresh first-pair candidate chain.
 The private 21-picture daylight report records unfinished composition and all
 existing gates. Balanced corridor and connected route reflow studies remain
 unintegrated; see `docs/t1-redesign.md`.
+
+
+### T1 connected route authoring (10 October 2026)
+
+`scripts/unreal/t1-route-network.ts` authors shared curved edges with frozen
+military approaches. `t1-sunmeadow-route-reflow.ts` requalifies complete routes,
+branches, supplies and footings using opt-in balanced corridor grading in
+`shared/orvrTerrain.ts`. `prepare-t1-route-reflow.ts --parent=<qualified-revision>`
+writes an immutable first-pair source proposal; run road conformance afterward.
+Source `cdb9823acbd2` / scene `89ad16819d66` passes fresh native verification.
+The private 21-picture report and `docs/t1-redesign.md` record exact evidence and
+unfinished composition. Physical driving/18v18, live/additive collision, all
+existing first-batch lair, persistence, appearance and release gates remain open.

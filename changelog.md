@@ -2318,3 +2318,20 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   21 images. Route reflow/balanced sampling remain unintegrated source studies.
   Landscape, lair, vehicle/18v18, persistence, live/network, performance and all
   platform/Steam/release gates remain open.
+
+
+## 2026-10-10 - Connected Sunmeadow routes and balanced terrain grading
+
+- Add opt-in per-corridor grading normalization; preserve legacy terrain behavior.
+- Author shared curved edges once, retain military approaches and reconnect
+  Sunmeadow rotations, supply itineraries, pocket links and pedestrian counters.
+- Keep full-width grades below 0.22 and supply lengths within 350-750m; retain
+  exact road support/soft verges and Cinderfen terrain/source identities.
+- Verify scene `89ad16819d66`: 114 views, 150 walking routes, 92 navigation queries,
+  both isolated entry/local-GM fixtures and twelve pocket gameplay-camera pictures.
+  Preserve thirteen owner documents, original packages, parent maps and capitals.
+- Repository 1153/181, Unreal 527/99, Python 148/38, three typechecks, audit and
+  world/model validation pass. Strict release exits 1. No C++ changed; previous
+  Editor/Game and Foundation results remain previous evidence. A private report
+  embeds 21 images. Node triangle parity passes 4575 samples; live/additive
+  geometry, physical vehicle/combat, appearance and existing release gates stay open.

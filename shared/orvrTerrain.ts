@@ -6,6 +6,8 @@ export interface OrvrTerrainControls {
   sourceVersion: string;
   /** Graded route graphs blend overlapping supports continuously; legacy authored surfaces retain priority selection. */
   gradedRoutes?: boolean;
+  /** Normalize each route before overlap blending so dense curves cannot outweigh sparse roads. */
+  balancedCorridors?: boolean;
   /** Optional connected ridge/drainage field. Absent on legacy terrain. */
   naturalField?: TerrainField;
   landforms: Array<TerrainPoint & {
@@ -58,6 +60,7 @@ export function orvrHeightAt(terrain: OrvrTerrainControls, x: number, z: number)
   }
   let corridorWeight = 0, corridorTotal = 0, corridorTarget = 0;
   for (const corridor of terrain.clearCorridors) {
+    let routeWeight = 0, routeTotal = 0, routeTarget = 0;
     for (let index = 1; index < corridor.points.length; index += 1) {
       const candidate = flattenWeight(distanceToSegment(x, z, corridor.points[index - 1], corridor.points[index]), corridor.radius, corridor.feather);
       if (candidate > 0 && (terrain.gradedRoutes || candidate > weight)) {
@@ -66,11 +69,21 @@ export function orvrHeightAt(terrain: OrvrTerrainControls, x: number, z: number)
         const t = length ? Math.max(0, Math.min(1, ((x - a.x) * dx + (z - a.z) * dz) / length)) : 0;
         const elevation = a.y === undefined || b.y === undefined ? corridor.height : a.y + (b.y - a.y) * t;
         if (terrain.gradedRoutes) {
-          corridorWeight = Math.max(corridorWeight, candidate);
           const influence = candidate ** 4;
-          corridorTotal += influence; corridorTarget += influence * elevation;
+          if (terrain.balancedCorridors) {
+            routeWeight = Math.max(routeWeight, candidate);
+            routeTotal += influence; routeTarget += influence * elevation;
+          } else {
+            corridorWeight = Math.max(corridorWeight, candidate);
+            corridorTotal += influence; corridorTarget += influence * elevation;
+          }
         } else { weight = candidate; target = elevation; }
       }
+    }
+    if (routeTotal) {
+      corridorWeight = Math.max(corridorWeight, routeWeight);
+      const influence = routeWeight ** 4;
+      corridorTotal += influence; corridorTarget += influence * routeTarget / routeTotal;
     }
   }
   const supported = height + (target - height) * weight;
