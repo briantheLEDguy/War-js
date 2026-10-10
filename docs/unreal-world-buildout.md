@@ -1481,3 +1481,12 @@ The private continuation receipt is `moonlight-town-continuation-latest.json`;
 Keep working on Sunmeadow: enclosing geology, field/grove composition, road
 verges, domestic/working yards, materials and navigation/entry integration.
 No active map/startup promotion or owner/capital overwrite occurred.
+
+A final focused regression also checks every retained military road and all six
+supply itinerary widths against the twenty town lot envelopes. Both the current
+public recipe and exact private connected-spur source are clear. Nine focused
+tests and the Unreal-tools typecheck pass after adding this guard; the preceding
+full-suite totals above are retained rather than presented as a new full run.
+The night walk averages 59.91 frames/s in its capped, 888x500 diagnostic window;
+this excludes proper GPU percentiles, required-resolution/platform memory and
+multiplayer load, so it does not close any performance gate.

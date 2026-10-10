@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { segmentCrossesModule } from '../scripts/unreal/t1-modules';
 import { redesignT1 } from '../scripts/unreal/t1-layouts';
 import { sunmeadowStreetPlan, validateSunmeadowTown } from '../scripts/unreal/sunmeadow-town-plan';
 const source = () => redesignT1(JSON.parse(readFileSync('public/assets/maps/sunmeadow_march.json', 'utf8')));
@@ -12,6 +13,18 @@ describe('Sunmeadow Main Street authoring candidate', () => {
     expect(town.streets[0].width).toBe(12); expect(town.streets.map(s => s.id)).toContain('sunmeadow_march_town_garrison_court_link');
     expect(town.modules.every(m => m.approach.length > 1 && !m.nativeInteriorAccepted)).toBe(true);
     expect(town.nativeAssetsAccepted).toBe(false); expect(town.visualApproved).toBe(false);
+  });
+  it('keeps retained military roads and all six supply itineraries clear at full width', () => {
+    const zone = source(), town = sunmeadowStreetPlan(zone);
+    expect(zone.orvrLayout!.caravanRoutes).toHaveLength(6);
+    for (const route of [...zone.paths!, ...zone.orvrLayout!.caravanRoutes]) {
+      for (let i = 1; i < route.points.length; i++) {
+        for (const lot of town.modules) {
+          expect(segmentCrossesModule(route.points[i - 1], route.points[i], lot, route.width / 2 + .6),
+            `${lot.id} blocks retained ${route.id}`).toBe(false);
+        }
+      }
+    }
   });
   it('rejects a building obstructing the main street', () => {
     const zone = source(), town = sunmeadowStreetPlan(zone);
