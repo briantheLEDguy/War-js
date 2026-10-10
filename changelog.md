@@ -2402,3 +2402,19 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   driving/gates/18v18, ordinary GM persistence, earlier Cinder recovery repeatability,
   live streaming/additive collision, network/audio, licensing/distribution,
   performance, platform/Steam and release gates open. Roads/fields remain weak.
+
+
+### 2026-10-10 - Softer varied Sunmeadow road materials
+
+- Blend retained gravel with exact installed bare earth using bounded broad
+  variation and smooth village/keep transitions; share colour/normal weights.
+  Retain the original soft verge graph, roughness, geometry and collision.
+- Add focused recipe/continuity and duplicate-helper regression tests. Preserve
+  failed shader and rejected leaf-litter/crop studies as unintegrated evidence.
+- Verify fresh native 114 phase/weather views, 150 walks, 92 navigation queries,
+  two isolated entry/GM fixtures and twelve pocket gameplay cameras. Repository
+  1188/189, Unreal 557/106, Python 166/42, three typechecks, audit and world/model
+  validation pass; strict release exits 1. Native builds/152 Foundation tests are
+  prior evidence because no C++ changed. Preserve all outstanding appearance,
+  first-batch full-lair, driving/combat, persistence/network, performance/platform,
+  licensing/Steam and release gates. Terrain banks and sparse fields need work.

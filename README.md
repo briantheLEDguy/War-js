@@ -1434,3 +1434,21 @@ first-batch full lairs, underground/later native pairs, actual driving/gates/18v
 ordinary GM persistence, earlier Cinder recovery repeatability, live streaming and
 additive collision, network/audio, performance, platform/Steam and release remain
 open. Native/licensed packages and screenshot reports stay private.
+
+
+### Soft earth/gravel T1 roads
+
+`scripts/unreal/t1_road_earth.py` defines validated road variation and smooth
+village/keep transitions with matching colour/normal weights. The native adapter
+verifies exact private installed channels, duplicates the retained verge material
+and replaces only colour/normal inputs in a fresh candidate. Source packages,
+road support, collision and Cinderfen roads remain retained. Source/core signatures
+stay unchanged; scene `b06f83f1f499` passes 114 phase/weather views, 150 walks,
+92 navigation queries, two entry/GM fixtures and twelve pocket cameras. Repository
+1188/189, Unreal 557/106, Python 166/42, three typechecks, audit and world/model
+validation pass; strict release exits 1. No C++ changed; native builds and 152
+Foundation tests are retained prior evidence. Appearance, smooth bank/field
+composition, first-batch full lairs, underground/later native pairs, actual
+vehicles/gates/18v18, persistence/network, licensing, performance/platform/Steam
+and release remain open. Native screenshot reports and licensed derivatives stay
+private; failed and rejected studies do not grant acceptance.

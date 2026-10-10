@@ -1972,3 +1972,36 @@ resources, ordinary GM persistence, earlier unresolved Cinderfen recovery
 repeatability, live streaming ownership, live/additive collision, network/audio,
 performance, platform/Steam and release gates open. Scripted checks do not establish
 enjoyable or fair combat.
+
+
+## Sunmeadow earth/gravel roads (10 October 2026)
+
+Source `03ec8464c80c`, core `53ef11ad5ac8`, scene `b06f83f1f499`,
+nav `cd5646e29d3d` and safe walkthrough `fc6ecc8bd2f3`.
+`t1_road_earth.py` supplies a bounded, separately tested recipe for smooth
+settlement-to-earth transitions, broad stochastic variation and matching colour
+and normal weights. Its native adapter fingerprints exact installed bare-earth
+channels and adapts a fresh private Sunmeadow material. Original soft verges,
+roughness, road geometry and collision remain retained. Cinderfen road materials
+remain unchanged. Twelve stochastic colour/normal lookups are additional to the
+retained opacity/roughness graph; rendered material cost remains unaccepted.
+
+Fresh native 114 phase/weather views, 150 walks, 92 navigation save/reload queries,
+two isolated entry/GM fixtures and twelve pocket follow-camera views pass. Owner
+documents, accepted capitals, parent maps and source packages remain preserved.
+Navigation copies have not separately repeated every walk. No C++ changed:
+Editor/Game builds and 152 Foundation tests are prior-checkpoint evidence.
+Repository 1188/189, Unreal tooling 557/106, Python 166/42, three typechecks, audit
+and world/model validation pass; strict release exits 1. The live Node is untouched.
+The private progress report embeds 22 actual screenshots and labeled drawings.
+
+A duplicated shader helper in the first unsaved study was repaired; darker
+leaf-litter roads and sparse crop-clump prototypes were rejected and remain
+unintegrated. Appearance is unfinished: smooth banks, empty fields and Cinderfen
+landforms need work. Source diagnosis measures excavation up to 26.27m in
+Sunmeadow and 25.94m in Cinderfen; alternative cut/fill grading remains private
+study work. Preserve human appearance, first-batch full-lair progression, full
+underground/later native pairs, actual driving/turning/closed gates, 18v18,
+services/resources, ordinary GM persistence, earlier unresolved Cinderfen recovery
+repeatability, live streaming/authority/additive collision, network/audio,
+licensing/distribution, performance, platform/Steam and release gates.

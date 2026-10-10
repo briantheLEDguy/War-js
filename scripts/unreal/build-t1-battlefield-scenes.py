@@ -30,6 +30,7 @@ from t1_focal_planting_native import spawn_focal_plants
 from t1_rock_clusters_native import adapt_rock_clusters,verify_rock_surfaces
 from t1_rock_clusters import core_rock_parents
 from t1_forest_floor_native import forest_floor_sources,forest_floor_material
+from t1_road_earth_native import road_earth_sources,road_earth_material
 from t1_pocket_dressing import pocket_dressing
 from t1_bedded_outcrops import bedded_outcrops,outcrop_footing
 from t1_placement_axes import source_scale_to_native
@@ -73,9 +74,10 @@ for z in parent['zones']:
     data,cover_inputs=admitted_cover(ROOT,z['id']); cover_sources[z['id']]=data; files.update(cover_inputs)
 canopies,canopy_inputs=nature_sources(ROOT);files.update(canopy_inputs)
 forest_textures,forest_inputs=forest_floor_sources(ROOT);files.update(forest_inputs)
+road_earth_textures,road_earth_inputs=road_earth_sources(ROOT);files.update(road_earth_inputs)
 verify_sources()
 
-tools=['scripts/unreal/t1_distant_scenery.py','scripts/unreal/t1_distant_scenery_native.py','scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
+tools=['scripts/unreal/t1_road_earth.py','scripts/unreal/t1_road_earth_native.py','scripts/unreal/t1_distant_scenery.py','scripts/unreal/t1_distant_scenery_native.py','scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
        'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_nature_kit.py','scripts/unreal/t1_nature_canopy.py','scripts/unreal/t1_nature_canopy_native.py','scripts/unreal/t1_woodland_clusters.py','scripts/unreal/t1_woodland_clusters_native.py','scripts/unreal/t1_rock_clusters.py','scripts/unreal/t1_rock_contact.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_focal_planting.py','scripts/unreal/t1_focal_planting_native.py','scripts/unreal/t1_forest_floor.py','scripts/unreal/t1_forest_floor_native.py','scripts/unreal/t1_habitat_palette.py','scripts/unreal/t1_understorey.py','scripts/unreal/t1_understorey_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_stone_material.py','scripts/unreal/t1_strata_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
@@ -144,6 +146,8 @@ try:
             states,materials['woodland']=add_woodland_canopies(assets,source,states,canopies,surface.height_cm)
             floor,materials['forestFloor']=forest_floor_material(assets,unreal.load_asset(states[identity+'_terrain']['materials'][0]),source,states,forest_textures,BASE)
             states[identity+'_terrain']['materials']=[floor.get_path_name()]
+            road,materials['roadEarth']=road_earth_material(assets,unreal.load_asset(states[identity+'_roads']['materials'][0]),source,recipes[identity]['layers']['roads'],road_earth_textures)
+            states[identity+'_roads']['materials']=[road.get_path_name()]
         water_surfaces=[]
         wet=[p for p in original['landscapePockets'] if p['cosmeticWater']]
         if wet:
