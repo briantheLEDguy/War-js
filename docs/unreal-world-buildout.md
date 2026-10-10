@@ -1270,3 +1270,58 @@ persistence and unresolved Cinderfen recovery repeatability, live authority/
 streaming/additive collision/network/audio, licensing/distribution, performance,
 three-platform/Steam and release gates. Scripted movement does not establish fun
 or multiplayer fairness.
+
+
+## Small ground folds and village worksite studies (10 October 2026)
+
+`t1_ground_detail.py` adds opt-in, bounded source-derived folds to an absolute
+terrain raster. One to four independently oriented reflected sampling layers
+share a four-metre amplitude budget. Wavelengths respect source grid resolution;
+source data is immutable and zero-strength derivatives retain serialized values.
+An explicit rendered sampling rectangle can sit inside the larger source raster.
+Its boundary interpolation support receives an explicit protected band. Five
+focused tests cover rectangular seams, nonaligned sampling boundaries, layer
+orientation, continuous reflected edges, aliasing and invalid/bounded inputs.
+
+The first private small-fold study failed its native seam guard because it had
+preserved the larger source raster boundary instead of the rendered terrain join.
+The failed evidence and tool snapshot remain private. The repaired source study
+`80e841f6fdda` preserves all 1500 sampled boundary vertices with zero error and
+passes full-width route grades at 0.17687. Its separate unsaved native comparison
+checks 289 simple/complex terrain probes and records twelve before/after views,
+then restores the saved scene's actor and foliage bindings. This is not a saved
+candidate, full walking proof, live Node geometry revision or visual acceptance.
+The source fold addition reaches 2.795m; its visual effect is still subtle and the
+large terrain forms still need stronger composition and material/outcrop work.
+
+Separate unsaved village studies add seven soft-edged footways, two irregular
+worn-earth yards, an approved-source parked wagon, three barrels and two crates.
+Native overlay triangle corners and vertex fades match their source; all 937
+configured village capsule samples clear. A measured-bound planting view adds
+13228 nonblocking grass instances without changing authoritative reservations or
+terrain. The broad village foundation remains overly flat. Three trial kit
+exteriors retain all five actual rendered LODs and source materials; committed
+mesh descriptions are unavailable for that installed asset, so the check uses
+actual rendered faces. Interior, regional architecture, collision performance,
+license/distribution and visual acceptance remain open. Original actors and
+installed packages are restored/preserved; the studies do not replace twenty
+buildings or constitute a finished settlement.
+
+Navigation candidate `026e779fc971` is wrapped by isolated safe review `7bcf41abe25a`.
+Both ordinary local entry/GM recovery proofs pass, and six configured exploration
+pocket walks produce twelve normal-gameplay-camera captures. Global launch and
+source receipts remain unchanged. Prior Cinderfen recovery repeatability is not
+closed by these additional passes. The private 26-picture report embeds actual
+native images and two labeled source drawings; a separate compact transport copy
+verifies identical decoded pixels and retains original capture files.
+
+All 186 T1 Python tests in 46 files, 1197 repository tests and 566 Unreal
+tooling tests pass, alongside all three typechecks, migration audit and world/model
+validation. The strict release check still exits 1 as required. A final formatting
+cleanup preserves the exact Python AST and reruns all five focused fold tests;
+regenerated private source folds remain byte-identical. No C++ changed. Preserve
+all full first-pair lair and
+later native batch, human appearance, driving/turning/closed-gate/siege, 18v18,
+services/resources, ordinary persistence/live authority/streaming/network/audio,
+license/distribution, performance/platform/Steam and release gates. Technical
+probes and before/after pictures do not establish multiplayer fun or fairness.

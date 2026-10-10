@@ -2443,3 +2443,5 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
 - Added opt-in immutable terrain-anchor revisions with rigid keep/prop translations, retained grid/seam/foundation guards and terrain-supported reciprocal landings. Focused tests and an isolated 32-map source alignment pass; saved candidates and active sources remain retained, with native/gameplay/appearance acceptance open.
 
 - Fixed authored counter-climb connectors that depended on unstable resampled waypoint indices. Added bounded, tested resting-scene adaptation for reviewed hierarchical props, with an exact native parked-wagon study. A separate connected-spur candidate passes 150 walking routes and regional ground/light/weather checks; active scenes and all unfinished acceptance gates remain retained.
+
+- Added opt-in small-fold terrain authoring with bounded source sampling, protected rendered-terrain seams, immutable zero-strength output and five focused regressions; retained private native/village studies and all acceptance gates.
