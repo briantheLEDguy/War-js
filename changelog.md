@@ -2381,3 +2381,24 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
   closed gates, 18v18, ordinary GM persistence, earlier Cinderfen recovery
   repeatability, live/additive collision, network/audio, performance, platform,
   Steam and release gates open. Distant mountain studies remain unsaved prototypes.
+
+
+### 2026-10-10 - Sunmeadow distant scenery and bounded navigation
+
+- Add optional terrain sampling bounds across shared authority, import, roads,
+  portals and atlas projection. Preserve legacy grids; isolate Sunmeadow's larger
+  scenery ownership with a separated world origin.
+- Add four exact private installed mountain meshes and a nonblocking boundary
+  skirt. Verify all 1500 boundary heights, exterior triangles, native component
+  policies and ownership containment; retain terrain/road/military source content.
+- Repair navigation's scenery-envelope rejection by deriving its bounded extent
+  from the validated playable outline. Retain footprint/tile limits and add
+  native regression coverage; preserve the failed receipts.
+- Verify Editor/Game builds, 152 Foundation tests, 114 phase/weather views, 150
+  walks, 92 navigation queries before save/reload, two entry/GM fixtures and twelve
+  pocket cameras. Repository 1188/189, Unreal 557/106, Python 162/41, three
+  typechecks, audit and world/model validation pass; strict release exits 1.
+- Keep appearance, first-batch full lairs, underground/later native pairs, actual
+  driving/gates/18v18, ordinary GM persistence, earlier Cinder recovery repeatability,
+  live streaming/additive collision, network/audio, licensing/distribution,
+  performance, platform/Steam and release gates open. Roads/fields remain weak.

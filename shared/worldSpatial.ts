@@ -3,8 +3,14 @@ export interface SpatialBounds { minX: number; maxX: number; minZ: number; maxZ:
 /** Content ownership includes backdrop scenery; the outline limits playable destinations. */
 export interface ZoneSpatial {
   bounds: SpatialBounds;
+  /** Sampling stays local when distant scenery expands content ownership. */
+  terrainBounds?: SpatialBounds;
   playableOutline: SpatialPoint[];
   terrainGrid: { segmentsX: number; segmentsZ: number };
+}
+/** Terrain triangles and atlas projection use this extent; ownership still uses bounds. */
+export function terrainSamplingBounds(spatial: Pick<ZoneSpatial, 'bounds' | 'terrainBounds'>): SpatialBounds {
+  return spatial.terrainBounds ?? spatial.bounds;
 }
 export interface SpatialZone { size: number; segments: number; spatial?: ZoneSpatial }
 
@@ -48,11 +54,15 @@ export function resolveZoneSpatial(zone: SpatialZone): ZoneSpatial {
     playableOutline: [{ x: -half, z: -half }, { x: half, z: -half }, { x: half, z: half }, { x: -half, z: half }],
     terrainGrid: { segmentsX: zone.segments, segmentsZ: zone.segments },
   };
-  const b = spatial.bounds, g = spatial.terrainGrid, points = spatial.playableOutline;
+  const b = spatial.bounds, t = terrainSamplingBounds(spatial), g = spatial.terrainGrid, points = spatial.playableOutline;
   if (!b || !Object.values(b).every(finite) || b.minX >= b.maxX || b.minZ >= b.maxZ
     || !g || ![g.segmentsX, g.segmentsZ].every(n => Number.isInteger(n) && n > 0 && n <= 512)
     || !Array.isArray(points) || points.length < 3 || points.length > 256
     || points.some(p => !p || !containsSpatialPoint(spatial, p, 0, false))) throw new Error('Invalid zone spatial definition');
+  if (spatial.terrainBounds === null || !t || ![t.minX,t.maxX,t.minZ,t.maxZ].every(finite) || t.minX >= t.maxX || t.minZ >= t.maxZ
+    || t.minX < b.minX || t.maxX > b.maxX || t.minZ < b.minZ || t.maxZ > b.maxZ
+    || points.some(p => p.x < t.minX || p.x > t.maxX || p.z < t.minZ || p.z > t.maxZ))
+    throw new Error('Invalid terrain sampling bounds');
   let area = 0;
   for (let i = 0;i < points.length;i++) {
     const a = points[i], c = points[(i + 1) % points.length];

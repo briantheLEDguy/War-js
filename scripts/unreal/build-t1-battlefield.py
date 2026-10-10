@@ -95,7 +95,7 @@ try:
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append(dict(**{k:v for k,v in definition.items() if k not in ('map','parentMap','actorInventory','population','atmosphere','homes','geometryPreserved')},
             map=destination+'/Review',parentMap=definition['map'],sourceDirectory=bundle['directory'],
-            landscapePockets=read(directory/(identity+'_pockets.json')),
+            landscapePockets=read(directory/(identity+'_pockets.json')),distantSceneryFile=bundle.get('distantScenery',{}).get(identity),
             homes=rebase_homes(definition['homes'],rebase['completeAssemblyDeltasCm'],old_surface,surface),
             actorInventory=states,population=population,atmosphere=atmosphere,rebase=rebase,nativeGatePassages=gate_passages,arrivalCm=[centre.x,centre.y,centre.z],
             nativeArrivalClear=True,geometryPreserved=False,appearanceApproved=False,gameplayAccepted=False))

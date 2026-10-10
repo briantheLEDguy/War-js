@@ -1,5 +1,5 @@
 /** Fit cosmetic road ribbons to the exact rectangular terrain triangles, preserving UVs and verge alpha. */
-import type { ZoneSpatial } from '../../shared/worldSpatial';
+import { terrainSamplingBounds, type ZoneSpatial } from '../../shared/worldSpatial';
 
 export interface NativeRoadSurface {
   zoneId: string; positions: number[][]; normals: number[][]; uvs: number[][]; colors?: number[][]; indices: number[];
@@ -22,9 +22,9 @@ function clip(input: Vertex[], distance: (v: Vertex) => number): Vertex[] {
   return output;
 }
 
-export function conformRoadSurface(mesh: NativeRoadSurface, grid: Pick<ZoneSpatial, 'bounds' | 'terrainGrid'>,
+export function conformRoadSurface(mesh: NativeRoadSurface, grid: Pick<ZoneSpatial, 'bounds' | 'terrainBounds' | 'terrainGrid'>,
   height: (x: number, z: number) => number): NativeRoadSurface {
-  const { bounds: b, terrainGrid: g } = grid;
+  const b = terrainSamplingBounds(grid), g = grid.terrainGrid;
   if (!mesh.zoneId || !Object.values(b).every(Number.isFinite) || b.minX >= b.maxX || b.minZ >= b.maxZ
     || ![g.segmentsX, g.segmentsZ].every(n => Number.isInteger(n) && n > 0 && n <= 512)
     || mesh.positions.length > 500000 || mesh.indices.length > 1500000 || mesh.indices.length % 3

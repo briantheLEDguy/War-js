@@ -1022,3 +1022,53 @@ resources, ordinary GM persistence, the earlier unresolved Cinderfen recovery
 repeatability failure, live authority/additive collision, network/audio,
 performance, platform/Steam and release gates. Full underground and later native
 pairs remain unbuilt. Scripted checks do not establish enjoyable or fair combat.
+
+
+## Sunmeadow distant scenery and sampling bounds (10 October 2026)
+
+Source `03ec8464c80c`, core `53ef11ad5ac8`, scene `1d2ce3f276bb`,
+nav `dc228f84565b` and safe walkthrough `5e56e6d5d1c1`.
+Four exact privately installed eroded mountains and a connecting cosmetic terrain
+skirt now frame Sunmeadow's valley. Native component verification confirms all
+five components stay inside its ownership envelope, with collision, navigation
+influence, overlap events, shadows and distance-field lighting disabled. Original
+source packages and licensed derivatives remain private. This adds distant scenery,
+not playable acreage; appearance, licensing/distribution and performance are open.
+
+`ZoneSpatial.terrainBounds` separates the retained triangle sampling rectangle
+from content ownership. Shared/Node height sampling, native terrain import, road
+fitting, portal export and atlas projection use that extent. Absent metadata
+preserves legacy behavior. Sunmeadow alone moves to a separated world origin;
+accepted capital and other region origins remain retained. Forty source content
+files remain byte-identical; the two Sunmeadow definitions differ only in spatial
+metadata. Terrain, roads and military placements remain retained.
+
+The skirt contains 13552 vertices and 24008 triangles. All 1500 playable boundary
+vertices match terrain heights exactly; every skirt triangle remains outside the
+sampling rectangle. The first scene build failed on a commandlet subsystem and
+was repaired using the established fallback. Navigation then rejected the large
+scenery envelope. `NavigationBounds` now validates the playable outline inside
+ownership and derives its bounded envelope before exterior exclusions and tile
+budgeting. The original footprint and tile limits remain unchanged. Regression
+checks cover distant ownership, legacy rectangles, escapes and oversized play.
+
+Editor/Game builds and all 152 Foundation tests pass. Only the Editor navigation
+DLL changed after scene rendering and walking; the gameplay DLL remains
+byte-identical. Fresh native evidence covers 114 phase/weather views, 150 walking
+routes, 92 navigation queries before save/reload, two isolated entry/local-GM
+fixtures and twelve pocket follow-camera views. Navigation copies have not
+separately repeated all walking routes. Thirteen owner documents, accepted
+capitals, parent maps and installed source packages remain preserved. Repository
+1188/189 files, Unreal tooling 557/106, Python 162/41, three typechecks, audit and
+world/model validation pass; strict release exits 1. In-process Node admits twenty
+configurations; 4575 ground samples match within 0.031mm at 0.1mm tolerance. The
+live owner server remains untouched.
+
+Appearance remains unfinished: broad pale roads, sparse fields, unnatural local
+shoulders and Cinderfen landforms need further work. Worn-earth/gravel comparisons
+are next. Keep human appearance, first-batch full-lair progression, full underground
+and later native pairs, actual vehicles/turning/closed gates, 18v18, services and
+resources, ordinary GM persistence, earlier unresolved Cinderfen recovery
+repeatability, live streaming ownership, live/additive collision, network/audio,
+performance, platform/Steam and release gates open. Scripted checks do not establish
+enjoyable or fair combat.

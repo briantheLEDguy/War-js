@@ -81,8 +81,9 @@ FString UWarT1NavigationAuthoringLibrary::BuildNavigation(UWorld* World,FName Zo
     if (!Region || !Region->bUseSpatialBounds || !Region->ZoneOrigin.IsNearlyZero() || Region->CityDefinition)
         return Fail(TEXT("Exactly one persistent rebased T1 spatial anchor is required"));
     TArray<TArray<FVector2D>> Cells;FString Error;
-    const FBox2D Horizontal(Region->ContentMin,Region->ContentMax);
-    if (!ExteriorCells(Horizontal,Region->PlayableOutline,Cells,Error)) return Fail(*Error);
+    FBox2D Horizontal;
+    if (!NavigationBounds(FBox2D(Region->ContentMin,Region->ContentMax),Region->PlayableOutline,Horizontal,Error)
+        || !ExteriorCells(Horizontal,Region->PlayableOutline,Cells,Error)) return Fail(*Error);
     if (!FMath::IsFinite(MinimumHeight) || !FMath::IsFinite(MaximumHeight) || MinimumHeight>=MaximumHeight
         || FMath::Abs(MinimumHeight)>2000000 || FMath::Abs(MaximumHeight)>2000000 || MaximumHeight-MinimumHeight>200000)
         return Fail(TEXT("Navigation requires finite bounded vertical sampling"));

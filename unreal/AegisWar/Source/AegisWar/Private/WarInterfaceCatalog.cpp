@@ -11,6 +11,18 @@ namespace
     { const TArray<TSharedPtr<FJsonValue>>* Values = nullptr; return Object && Object->TryGetArrayField(Key, Values) ? *Values : TArray<TSharedPtr<FJsonValue>>(); }
     TSharedPtr<FJsonObject> Object(const TSharedPtr<const FJsonObject>& Parent, const TCHAR* Key)
     { const TSharedPtr<FJsonObject>* Value = nullptr; return Parent && Parent->TryGetObjectField(Key, Value) ? *Value : nullptr; }
+    bool ReadBounds(const TSharedPtr<FJsonObject>& Bounds, FBox2D& Result)
+    {
+        double MinX, MaxX, MinZ, MaxZ;
+        if (!Bounds || !Bounds->TryGetNumberField(TEXT("minX"), MinX)
+            || !Bounds->TryGetNumberField(TEXT("maxX"), MaxX)
+            || !Bounds->TryGetNumberField(TEXT("minZ"), MinZ)
+            || !Bounds->TryGetNumberField(TEXT("maxZ"), MaxZ)
+            || !FMath::IsFinite(MinX) || !FMath::IsFinite(MaxX)
+            || !FMath::IsFinite(MinZ) || !FMath::IsFinite(MaxZ) || MinX >= MaxX || MinZ >= MaxZ) return false;
+        Result = FBox2D(FVector2D(MinX, -MaxZ), FVector2D(MaxX, -MinZ));
+        return true;
+    }
 }
 
 FWarInterfaceCatalog FWarInterfaceCatalog::Parse(const TSharedPtr<const FJsonObject>& Root)
@@ -35,18 +47,20 @@ FWarInterfaceCatalog FWarInterfaceCatalog::Parse(const TSharedPtr<const FJsonObj
         Zone->Size = FMath::Clamp(Number(Definition, TEXT("size"), 800), 1.0, 20000.0);
         Zone->ContentBounds=FBox2D(FVector2D(-Zone->Size/2),FVector2D(Zone->Size/2));
         const auto Spatial=Object(Definition,TEXT("spatial")), Bounds=Object(Spatial,TEXT("bounds"));
-        if (Bounds)
+        if (ReadBounds(Bounds, Zone->ContentBounds))
         {
-            const double MinX=Number(Bounds,TEXT("minX")),MaxX=Number(Bounds,TEXT("maxX"));
-            const double MinZ=Number(Bounds,TEXT("minZ")),MaxZ=Number(Bounds,TEXT("maxZ"));
-            if (MinX<MaxX && MinZ<MaxZ)
-            {
-                Zone->bSpatialBounds=true;
-                Zone->ContentBounds=FBox2D(FVector2D(MinX,-MaxZ),FVector2D(MaxX,-MinZ));
-                for (const auto& Point:Array(Spatial,TEXT("playableOutline")))
-                    Zone->PlayableOutline.Add(FVector2D(Number(Point->AsObject(),TEXT("x")),-Number(Point->AsObject(),TEXT("z"))));
-            }
+            Zone->bSpatialBounds=true;
+            for (const auto& Point:Array(Spatial,TEXT("playableOutline")))
+                Zone->PlayableOutline.Add(FVector2D(Number(Point->AsObject(),TEXT("x")),-Number(Point->AsObject(),TEXT("z"))));
         }
+        Zone->TerrainBounds = Zone->ContentBounds;
+        FBox2D Sampled;
+        if (Zone->bSpatialBounds && ReadBounds(Object(Spatial, TEXT("terrainBounds")), Sampled)
+            && Sampled.Min.X >= Zone->ContentBounds.Min.X && Sampled.Min.Y >= Zone->ContentBounds.Min.Y
+            && Sampled.Max.X <= Zone->ContentBounds.Max.X && Sampled.Max.Y <= Zone->ContentBounds.Max.Y
+            && !Zone->PlayableOutline.ContainsByPredicate([&](const FVector2D& Point) {
+                return Point.X < Sampled.Min.X || Point.Y < Sampled.Min.Y || Point.X > Sampled.Max.X || Point.Y > Sampled.Max.Y;
+            })) Zone->TerrainBounds = Sampled;
         for (const auto& Route : Array(Definition, TEXT("zoneTriggers")))
         {
             const FString Destination = String(Route->AsObject(), TEXT("targetZoneId"));

@@ -13,6 +13,8 @@ struct FWarMapZone
     double Size = 800;
     bool bSpatialBounds = false;
     FBox2D ContentBounds = FBox2D(FVector2D(-400,-400),FVector2D(400,400));
+    // Atlas framing follows sampled terrain; distant content retains its separate ownership envelope.
+    FBox2D TerrainBounds = FBox2D(FVector2D(-400,-400),FVector2D(400,400));
     TArray<FVector2D> PlayableOutline;
     TArray<FString> Destinations;
     TArray<TArray<FVector2D>> Paths;

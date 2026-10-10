@@ -1408,3 +1408,29 @@ Empty horizons, uniform roads, sparse fields and Cinderfen landforms remain weak
 Appearance, full lairs/underground/later native pairs, driving/closed gates/18v18,
 ordinary GM persistence, earlier Cinderfen recovery repeatability, live/additive
 collision, network/audio, performance, platform/Steam and release remain open.
+
+
+### Distant T1 scenery without expanding terrain sampling
+
+`shared/worldSpatial.ts` provides optional `terrainBounds`: content ownership may
+include distant scenery while shared/Node terrain, native import, road fitting,
+portal export and atlas projection keep the authored triangle rectangle. Legacy
+zones omit the field. `prepare-t1-distant-scenery.ts` creates immutable private
+child sources with an explicit compatible-reader inventory; `t1_distant_scenery.py`
+qualifies boundary seams and excludes triangles from playable sampling. Its native
+adapter checks original installed mountain bounds/LODs/materials, nonblocking
+component policy and ownership containment. Private navigation derives its bounded
+extent from the validated playable outline rather than the scenery envelope.
+
+Source `03ec8464c80c`, core `53ef11ad5ac8`, scene `1d2ce3f276bb`,
+nav `dc228f84565b` and safe walkthrough `5e56e6d5d1c1`.
+Native 114 phase/weather views, 150 walks, 92 navigation save/reload queries, two
+isolated entry/GM fixtures and twelve pocket gameplay-camera views pass. Editor,
+Game and 152 Foundation tests pass. Repository 1188/189, Unreal 557/106, Python
+162/41, three typechecks, audit and world/model validation pass; strict release
+exits 1. Source/owner/capital preservation is verified; the live server is untouched.
+Roads, fields and Cinderfen composition remain unfinished. Human appearance,
+first-batch full lairs, underground/later native pairs, actual driving/gates/18v18,
+ordinary GM persistence, earlier Cinder recovery repeatability, live streaming and
+additive collision, network/audio, performance, platform/Steam and release remain
+open. Native/licensed packages and screenshot reports stay private.

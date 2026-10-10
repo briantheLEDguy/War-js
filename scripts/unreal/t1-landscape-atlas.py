@@ -1,4 +1,5 @@
 """Measured four-region terrain atlas. Authoring diagrams, never native screenshots or acceptance."""
+from t1_battlefield import terrain_sampling_bounds
 import json
 import hashlib
 from pathlib import Path
@@ -11,7 +12,7 @@ font=lambda n:ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf',n)
 
 def render(bundle,identity,output):
     directory=ROOT/bundle['directory'];source=read(directory/(identity+'.json'));mesh=read(directory/(identity+'_terrain.json'))
-    b=source['spatial']['bounds'];g=source['spatial']['terrainGrid'];nx,nz=g['segmentsX'],g['segmentsZ']
+    b=terrain_sampling_bounds(source['spatial']);g=source['spatial']['terrainGrid'];nx,nz=g['segmentsX'],g['segmentsZ']
     vertices=np.asarray(mesh['positions']);ix=np.rint((vertices[:,1]/100-b['minX'])/(b['maxX']-b['minX'])*nx).astype(int)
     iz=np.rint((vertices[:,0]/100-b['minZ'])/(b['maxZ']-b['minZ'])*nz).astype(int)
     if len(vertices)!=(nx+1)*(nz+1) or np.any(ix<0) or np.any(iz<0) or np.any(ix>nx) or np.any(iz>nz):raise ValueError('Incomplete source grid')

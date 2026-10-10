@@ -24,6 +24,8 @@ def inventory(actors):
             state.update(kind='mesh', mesh=component.static_mesh.get_path_name(),
                 materials=[component.get_material(i).get_path_name() for i in range(component.get_num_materials())],
                 collision=str(component.get_collision_profile_name()))
+            if 'WarT1DistantScenery' in state['tags']:
+                state['distantPolicy']={k:component.get_editor_property(k) for k in ('cast_shadow','can_ever_affect_navigation','generate_overlap_events','affect_distance_field_lighting')}
         elif isinstance(actor, unreal.WarPracticalLight):
             component = actor.get_component_by_class(unreal.PointLightComponent)
             color = component.get_editor_property('light_color')
@@ -52,6 +54,7 @@ def clone(actors, states, overrides):
             for index, material in enumerate(state['materials']):
                 component.set_material(index, overrides[label] if label in overrides else unreal.load_asset(material))
             component.set_collision_profile_name(state['collision'])
+            for name,value in state.get('distantPolicy',{}).items():component.set_editor_property(name,value)
         elif state['kind'] == 'light':
             actor.set_editor_property('zone_id', state['zone'])
             actor.set_editor_property('day_lumens', state['day']); actor.set_editor_property('night_lumens', state['night'])

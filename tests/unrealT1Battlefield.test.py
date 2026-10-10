@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_battlefield import Surface,rebase_inventory,rebase_population,rebase_homes
+from t1_battlefield import Surface,terrain_sampling_bounds,rebase_inventory,rebase_population,rebase_homes
 
 
 class BattlefieldTests(unittest.TestCase):
@@ -17,6 +17,23 @@ class BattlefieldTests(unittest.TestCase):
         self.assertEqual(surface.height_cm(7,4),780)
         self.assertEqual(surface.height_cm(20,10),2200)
         with self.assertRaises(ValueError): surface.height_cm(-1,0)
+
+    def test_expanded_ownership_retains_the_exact_rectangular_sampling_grid(self):
+        source, local, mesh = self.setup_surface(lambda x,z: x*100+z*20)
+        source['spatial']['terrainBounds'] = copy.deepcopy(source['spatial']['bounds'])
+        source['spatial']['bounds'] = dict(minX=-3600,maxX=3600,minZ=-3400,maxZ=3400)
+        expanded = Surface(source,mesh)
+        for x,z in [(0,0),(7,4),(20,10)]: self.assertEqual(expanded.height_cm(x,z),local.height_cm(x,z))
+        with self.assertRaises(ValueError): expanded.height_cm(500,500)
+
+    def test_malformed_sampling_and_escaped_playable_outline_fail(self):
+        source,_,mesh = self.setup_surface(lambda x,z: 0)
+        for bounds in [None,{},dict(minX=0,maxX=float('nan'),minZ=0,maxZ=10),dict(minX=-1,maxX=20,minZ=0,maxZ=10)]:
+            bad=copy.deepcopy(source);bad['spatial']['terrainBounds']=bounds
+            with self.assertRaises(ValueError): Surface(bad,mesh)
+        source['spatial']['terrainBounds']=dict(minX=0,maxX=10,minZ=0,maxZ=10)
+        source['spatial']['playableOutline']=[dict(x=15,z=5)]
+        with self.assertRaises(ValueError): terrain_sampling_bounds(source['spatial'])
 
     def test_nonplanar_ground_uses_the_native_diagonal_not_bilinear_interpolation(self):
         _,surface,_=self.setup_surface(lambda x,z:10000 if x==10 and z==10 else 0)

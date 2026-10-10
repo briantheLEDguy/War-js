@@ -10,6 +10,8 @@ class AEGISWAREDITORTOOLS_API UWarT1NavigationAuthoringLibrary : public UBluepri
     GENERATED_BODY()
 public:
     static bool IsPrivateCandidate(const FString& Package, FName Zone);
+    /** Scenery ownership may be large; navigation samples only the playable outline envelope. */
+    static bool NavigationBounds(const FBox2D& Content, const TArray<FVector2D>& Outline, FBox2D& Result, FString& Error);
     /** Partitions the rectangular backdrop outside a simple, possibly concave footprint. */
     static bool ExteriorCells(const FBox2D& Bounds, const TArray<FVector2D>& Outline,
         TArray<TArray<FVector2D>>& Cells, FString& Error);

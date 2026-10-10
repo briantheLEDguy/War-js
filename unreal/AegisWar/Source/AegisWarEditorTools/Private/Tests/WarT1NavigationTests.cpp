@@ -57,6 +57,15 @@ bool FWarT1NavigationFootprintTest::RunTest(const FString& Parameters)
         int32 Covers=0;for (const auto& Cell:Cells) Covers+=Inside({X,Y},Cell) ? 1 : 0;
         TestEqual(TEXT("Exterior is covered once, playable ground never excluded"),Covers,Inside({X,Y},Concave) ? 0 : 1);
     }
+    FBox2D Sampled;
+    const FBox2D DistantOwnership(FVector2D(-360000,-340000),FVector2D(360000,340000));
+    TestTrue(TEXT("Distant scenery does not expand navigation"),UWarT1NavigationAuthoringLibrary::NavigationBounds(DistantOwnership,Concave,Sampled,Error));
+    TestTrue(TEXT("Navigation bounds equal the playable envelope"),Sampled.Min.Equals(FVector2D(100,100)) && Sampled.Max.Equals(FVector2D(900,700)));
+    TestTrue(TEXT("Legacy rectangle retains its own envelope"),UWarT1NavigationAuthoringLibrary::NavigationBounds(Bounds,{{0,0},{1000,0},{1000,800},{0,800}},Sampled,Error));
+    TestTrue(TEXT("Legacy rectangle bounds are exact"),Sampled.Min.Equals(Bounds.Min) && Sampled.Max.Equals(Bounds.Max));
+    TestFalse(TEXT("Ownership must contain navigation"),UWarT1NavigationAuthoringLibrary::NavigationBounds(Bounds,{{0,0},{1001,0},{0,800}},Sampled,Error));
+    TestFalse(TEXT("Rejected bounds leave no partial extent"),Sampled.bIsValid);
+    TestFalse(TEXT("Playable navigation keeps the original size limit"),UWarT1NavigationAuthoringLibrary::NavigationBounds(DistantOwnership,{{-300000,0},{300000,0},{0,10000}},Sampled,Error));
     auto Reverse=Concave;Algo::Reverse(Reverse);
     TestTrue(TEXT("Opposite outline winding is supported"),UWarT1NavigationAuthoringLibrary::ExteriorCells(Bounds,Reverse,Cells,Error));
     const TArray<FVector2D> Skew{{40,80},{850,20},{950,600},{500,350},{100,750}};

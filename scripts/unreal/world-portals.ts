@@ -5,7 +5,7 @@ import { CAMPAIGN_NODES } from '../../shared/data/campaign.generated';
 import type { ZoneDefinition } from '../../shared/world/ZoneDefinition';
 import { roadSurfaceGeometry } from '../../shared/world/RoadSurface';
 import { orvrHeightAt } from '../../shared/orvrTerrain';
-import { containsSpatialPoint, resolveZoneSpatial, spatialSegmentInside } from '../../shared/worldSpatial';
+import { containsSpatialPoint, resolveZoneSpatial, terrainSamplingBounds, spatialSegmentInside } from '../../shared/worldSpatial';
 import { canonicalJson, sha256, sourcePointToUnreal } from './content-contract';
 import { isMain, repoRoot } from './toolchain';
 
@@ -18,6 +18,8 @@ CAMPAIGN_NODES.map(node => node.id).filter(id => !worldOrigins[id]).sort().forEa
 });
 worldOrigins.cinderfen_outskirts=[-350000,280000,0];
 worldOrigins.ashen_steppe=[350000,280000,0];
+// Sunmeadow's distant mountain envelope is isolated from all retained campaign content.
+worldOrigins.sunmeadow_march=[-1200000,-800000,0];
 export function worldPoint(zone: string, point: { x: number; y?: number; z: number }): number[] {
   const origin = worldOrigins[zone];
   if (!origin) throw new Error(`Unknown zone: ${zone}`);
@@ -34,7 +36,7 @@ export function sourceHeight(map: ZoneDefinition, x: number, z: number): number 
 }
 /** Sample the same triangles exported to Unreal, keeping roads on the actual collision surface. */
 export function terrainHeight(map: ZoneDefinition, x: number, z: number): number {
-  const { bounds: b, terrainGrid: g } = resolveZoneSpatial(map);
+  const spatial = resolveZoneSpatial(map), b = terrainSamplingBounds(spatial), g = spatial.terrainGrid;
   const fx = Math.max(0, Math.min(g.segmentsX, (x - b.minX) / (b.maxX - b.minX) * g.segmentsX));
   const fz = Math.max(0, Math.min(g.segmentsZ, (z - b.minZ) / (b.maxZ - b.minZ) * g.segmentsZ));
   const ix = Math.min(g.segmentsX - 1, Math.floor(fx)), iz = Math.min(g.segmentsZ - 1, Math.floor(fz));
@@ -103,7 +105,7 @@ function exportGeometry(geometry: BufferGeometry) {
 export function outdoorTerrain(map: ZoneDefinition) {
   if (!worldOrigins[map.id] || map.craterCity || map.cityElevation) throw new Error('Unsupported heightfield terrain');
   if (!Number.isFinite(map.size) || map.size <= 0 || !Number.isInteger(map.segments) || map.segments < 1 || map.segments > 512) throw new Error('Invalid terrain grid');
-  const { bounds: b, terrainGrid: g } = resolveZoneSpatial(map);
+  const spatial = resolveZoneSpatial(map), b = terrainSamplingBounds(spatial), g = spatial.terrainGrid;
   const width = b.maxX - b.minX, depth = b.maxZ - b.minZ;
   const geometry = new PlaneGeometry(width, depth, g.segmentsX, g.segmentsZ).rotateX(-Math.PI / 2)
     .translate((b.minX + b.maxX) / 2, 0, (b.minZ + b.maxZ) / 2);

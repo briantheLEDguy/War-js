@@ -263,7 +263,7 @@ namespace
             {
                 const auto* Zone=State->Catalog.FindZone(State->Selected);
                 const double Half=Zone ? Zone->Size/2 : 400;
-                if (Zone && Zone->bSpatialBounds) return Zone->ContentBounds;
+                if (Zone && Zone->bSpatialBounds) return Zone->TerrainBounds;
                 if (State->Native() && !State->Buildings.IsEmpty())
                 {
                     FBox2D Loaded(ForceInit);

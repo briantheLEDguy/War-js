@@ -1,4 +1,5 @@
 """Exact privately staged ground channels and a fresh native forest-floor material; no source edits."""
+from t1_battlefield import terrain_sampling_bounds
 import json
 import unreal
 from t1_habitat_palette import HABITAT,NOISE_HLSL,habitat_hlsl
@@ -90,7 +91,7 @@ def forest_floor_material(assets,original,source,states,textures,base):
         mesh=unreal.load_asset(state['mesh']);ext=mesh.get_bounds().box_extent;scale=state['scale'];p=state['location']
         trees.append(dict(x=p[1]/100,z=p[0]/100,radius=max(ext.x*scale[0],ext.y*scale[1])/100*1.8+3))
     if not 200<=len(trees)<=500:raise RuntimeError('Forest-floor mask requires bounded installed canopy identities')
-    size=1024;b=source['spatial']['bounds'];mask=forest_floor_mask(b,trees,size)
+    size=1024;b=terrain_sampling_bounds(source['spatial']);mask=forest_floor_mask(b,trees,size)
     output=base/'material-studies'/('forest-floor-'+assets.collection+'.png');output.parent.mkdir(exist_ok=True);output.write_bytes(mask_png(mask,size))
     task=unreal.AssetImportTask();task.filename=str(output);task.destination_path=assets.folder+'/Textures';task.destination_name='T_ForestFloorMask';task.automated=True;task.save=True
     assets.tools.import_asset_tasks([task]);objects=task.get_objects()

@@ -1,3 +1,4 @@
+import {terrainSamplingBounds} from '../../shared/worldSpatial';
 /** Admit private source-derived relief without moving gameplay controls or retaining hidden fallbacks. */
 import type { ZoneDefinition } from '../../shared/world/ZoneDefinition';
 import { validateTerrainRelief,type TerrainRelief } from '../../shared/terrainRelief';
@@ -12,7 +13,7 @@ export function protectReliefGrounding(original: ZoneDefinition, relief: Terrain
   validateTerrainRelief(relief);
   const b=relief.bounds,spatial=original.spatial,terrain=original.orvrLayout.terrain;
   const buffer=2*Math.max((b.maxX-b.minX)/relief.segmentsX,(b.maxZ-b.minZ)/relief.segmentsZ,
-    (spatial.bounds.maxX-spatial.bounds.minX)/spatial.terrainGrid.segmentsX,(spatial.bounds.maxZ-spatial.bounds.minZ)/spatial.terrainGrid.segmentsZ);
+    (terrainSamplingBounds(spatial).maxX-terrainSamplingBounds(spatial).minX)/spatial.terrainGrid.segmentsX,(terrainSamplingBounds(spatial).maxZ-terrainSamplingBounds(spatial).minZ)/spatial.terrainGrid.segmentsZ);
   const routes=[...original.paths,...original.orvrLayout.caravanRoutes].map(p=>({points:p.points,radius:p.width/2}));
   routes.push(...terrain.clearCorridors.map(c=>({points:c.points,radius:c.radius})));
   const segments=routes.flatMap(r=>r.points.slice(1).map((p,i)=>({a:r.points[i],b:p,radius:r.radius})));

@@ -1,4 +1,5 @@
 """Deterministic cosmetic ecology and bounded, terrain-clipped shallow water geometry."""
+from t1_battlefield import terrain_sampling_bounds
 import hashlib
 import json
 import math
@@ -43,7 +44,7 @@ def random_unit(x,z,salt):
 
 def cover_layout(source, height_cm, pockets):
     if source['id'] not in MODELS: raise ValueError('No admitted cover region')
-    b=source['spatial']['bounds']; outline=source['spatial']['playableOutline']; terrain=source['orvrLayout']['terrain']; result=[]
+    b=terrain_sampling_bounds(source['spatial']); outline=source['spatial']['playableOutline']; terrain=source['orvrLayout']['terrain']; result=[]
     anchors=[*source.get('npcs',[]),*source.get('enemies',[]),*source.get('resourceNodes',[]),*source.get('craftingStations',[]),*source.get('zoneTriggers',[])]
     # The high-detail source clumps use bounded density and 120m native culling; no collision or harvest behavior.
     spacing=11 if source['id']=='sunmeadow_march' else 12

@@ -10,6 +10,7 @@ import sys
 import unreal
 ROOT=Path(__file__).resolve().parents[2]; sys.path.insert(0,str(Path(__file__).parent))
 from t1_battlefield import Surface
+from t1_distant_scenery_native import add_distant_scenery,verify_distant_scenery
 from t1_materials import protected_saved,verify_protected,sha,same_state,terrain_recipe
 from t1_material_clone import inventory,clone
 from t1_material_assets import regional_material
@@ -74,7 +75,7 @@ canopies,canopy_inputs=nature_sources(ROOT);files.update(canopy_inputs)
 forest_textures,forest_inputs=forest_floor_sources(ROOT);files.update(forest_inputs)
 verify_sources()
 
-tools=['scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
+tools=['scripts/unreal/t1_distant_scenery.py','scripts/unreal/t1_distant_scenery_native.py','scripts/unreal/build-t1-battlefield-scenes.py','scripts/unreal/t1_material_assets.py','scripts/unreal/t1_surface_variation.py','scripts/unreal/t1_habitat_surface.py','scripts/unreal/t1_materials.py',
        'scripts/unreal/t1_landscape_ecology.py','scripts/unreal/t1_ecology_clusters.py','scripts/unreal/t1_canopy.py','scripts/unreal/t1_canopy_native.py','scripts/unreal/t1_nature_kit.py','scripts/unreal/t1_nature_canopy.py','scripts/unreal/t1_nature_canopy_native.py','scripts/unreal/t1_woodland_clusters.py','scripts/unreal/t1_woodland_clusters_native.py','scripts/unreal/t1_rock_clusters.py','scripts/unreal/t1_rock_contact.py','scripts/unreal/t1_rock_clusters_native.py','scripts/unreal/t1_focal_planting.py','scripts/unreal/t1_focal_planting_native.py','scripts/unreal/t1_forest_floor.py','scripts/unreal/t1_forest_floor_native.py','scripts/unreal/t1_habitat_palette.py','scripts/unreal/t1_understorey.py','scripts/unreal/t1_understorey_native.py','scripts/unreal/t1_foliage_recipe.py','scripts/unreal/t1_foliage_native.py','scripts/unreal/t1_water_surface.py','scripts/unreal/t1_pocket_dressing.py','scripts/unreal/t1_bedded_outcrops.py','scripts/unreal/t1_placement_axes.py','scripts/unreal/t1_rock_shelters.py','scripts/unreal/t1_landscape_walks.py','scripts/unreal/t1_ecology_native.py','scripts/unreal/world_static.py','scripts/unreal/world_build_assets.py',
        'scripts/unreal/t1_rock_surface.py','scripts/unreal/t1_stone_material.py','scripts/unreal/t1_strata_surface.py','scripts/unreal/t1_geology_surface.py','scripts/unreal/t1_battlefield.py','scripts/unreal/t1_material_clone.py','scripts/unreal/t1_population_native.py',
        'unreal/AegisWar/Binaries/Win64/UnrealEditor-AegisWar.dll']
@@ -152,6 +153,7 @@ try:
                 states[pocket['id']+'_water']=dict(kind='mesh',location=[0,0,0],rotation=[0,0,0],scale=[1,1,1],tags=['WarT1CosmeticShallowWater'],
                     mesh=mesh.get_path_name(),materials=[material.get_path_name()],collision='NoCollision')
                 water_surfaces.append(pocket['id'])
+        states,distant_scenery=add_distant_scenery(assets,source,read(ROOT/original['sourceDirectory']/(identity+'_terrain.json')),states,original.get('distantSceneryFile'))
         destination=assets.folder+'/'+identity
         if not levels.new_level(destination+'/Review'): raise RuntimeError('Cannot create fresh scene review')
         anchor=actors.spawn_actor_from_class(unreal.WarZoneAnchor,unreal.Vector(*original['arrivalCm']))
@@ -165,6 +167,7 @@ try:
         population_ids={r['id'] for r in original['population']}; clone(actors,{k:v for k,v in states.items() if k not in population_ids},{})
         unreal.WarImportLibrary.prepare_world_preview_frame(unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world())
         rock_clusters['nativeSurfaces']=verify_rock_surfaces(actors,rock_clusters,surface.height_cm)
+        distant_scenery['nativeComponents']=verify_distant_scenery(actors,source,distant_scenery)
         cover_rows=clustered_cover(source,surface.height_cm,original['landscapePockets'],cover_layout(source,surface.height_cm,original['landscapePockets']))
         ground_cover(actors,assets,identity,cover_sources[identity],cover_rows)
         understorey=spawn_understorey(actors,identity,source,surface.height_cm,original['landscapePockets'],cover_rows,states,canopies)
@@ -214,7 +217,7 @@ try:
         if not levels.save_current_level(): raise RuntimeError('Cannot save scene review')
         saved.extend(destination+'/'+n for n in ('Review','Generated','Authored'))
         zones.append({**original,'map':destination+'/Review','parentMap':original['map'],'actorInventory':states,'materials':materials,
-                      'sceneCells':cells,'rockShelters':[shelter],'pocketDressing':dressing,'beddedOutcrops':bedding,'landscapeWalks':counters,'groundCover':native_cover,'understorey':understorey,'focalPlanting':focal,'rockClusters':rock_clusters,'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'sceneScaleAxesVerified':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
+                      'sceneCells':cells,'distantScenery':distant_scenery,'rockShelters':[shelter],'pocketDressing':dressing,'beddedOutcrops':bedding,'landscapeWalks':counters,'groundCover':native_cover,'understorey':understorey,'focalPlanting':focal,'rockClusters':rock_clusters,'waterSurfaces':water_surfaces,'terrainMeshPreserved':True,'sceneScaleAxesVerified':True,'geometryPreserved':False,'appearanceApproved':False,'gameplayAccepted':False})
         unreal.log('WAR_T1_BATTLEFIELD_SCENES_BUILT_ZONE='+identity)
 finally: verify_sources(); verify_protected(ROOT,protected)
 result=dict(signature=signature,kind='atmosphere',study='battlefield-landscape',inputs=inputs,zones=zones,

@@ -1,3 +1,4 @@
+import {terrainSamplingBounds} from '../../shared/worldSpatial';
 /** Qualify absolute landforms while retaining complete military and route grounding. */
 import type {ZoneDefinition} from '../../shared/world/ZoneDefinition';
 import {terrainFieldHeight} from '../../shared/terrainField';
@@ -19,7 +20,7 @@ export function protectSurfaceGrounding(original:ZoneDefinition,surface:TerrainS
  const b=surface.bounds,s=original.spatial,t=original.orvrLayout.terrain,f=t.naturalField!;
  if(f.surface)throw new Error('Preserve existing absolute terrain surface');
  const buffer=2*Math.max((b.maxX-b.minX)/surface.segmentsX,(b.maxZ-b.minZ)/surface.segmentsZ,
-  (s.bounds.maxX-s.bounds.minX)/s.terrainGrid.segmentsX,(s.bounds.maxZ-s.bounds.minZ)/s.terrainGrid.segmentsZ);
+  (terrainSamplingBounds(s).maxX-terrainSamplingBounds(s).minX)/s.terrainGrid.segmentsX,(terrainSamplingBounds(s).maxZ-terrainSamplingBounds(s).minZ)/s.terrainGrid.segmentsZ);
  const routes=[...original.paths,...original.orvrLayout.caravanRoutes,...support].map(p=>({points:p.points,radius:p.width/2}));
  routes.push(...t.clearCorridors.map(c=>({points:c.points,radius:c.radius})));
  const segments=routes.flatMap(r=>r.points.slice(1).map((p,i)=>({a:r.points[i],b:p,radius:r.radius})));

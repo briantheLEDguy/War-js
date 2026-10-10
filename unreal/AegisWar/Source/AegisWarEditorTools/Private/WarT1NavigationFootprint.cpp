@@ -37,6 +37,24 @@ bool UWarT1NavigationAuthoringLibrary::IsPrivateCandidate(const FString& Package
     return true;
 }
 
+bool UWarT1NavigationAuthoringLibrary::NavigationBounds(const FBox2D& Content,const TArray<FVector2D>& Outline,
+    FBox2D& Result,FString& Error)
+{
+    Result=FBox2D(ForceInit);Error.Reset();
+    if (!Content.bIsValid || Content.Min.ContainsNaN() || Content.Max.ContainsNaN()
+        || Content.GetSize().GetMin()<=0 || Outline.Num()<3 || Outline.Num()>128)
+    { Error=TEXT("Invalid navigation ownership or outline");return false; }
+    for (const auto Point:Outline)
+    {
+        if (Point.ContainsNaN() || !Content.IsInsideOrOn(Point))
+        { Result=FBox2D(ForceInit);Error=TEXT("Playable navigation outline escapes content ownership");return false; }
+        Result+=Point;
+    }
+    TArray<TArray<FVector2D>> Cells;
+    if (!ExteriorCells(Result,Outline,Cells,Error)) { Result=FBox2D(ForceInit);return false; }
+    return true;
+}
+
 bool UWarT1NavigationAuthoringLibrary::ExteriorCells(const FBox2D& Bounds,const TArray<FVector2D>& Outline,
     TArray<TArray<FVector2D>>& Cells,FString& Error)
 {

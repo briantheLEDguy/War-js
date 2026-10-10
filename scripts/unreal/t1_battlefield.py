@@ -5,11 +5,27 @@ import math
 ZONES = ('sunmeadow_march', 'cinderfen_outskirts')
 
 
+def terrain_sampling_bounds(spatial):
+    """Keep triangle sampling local when nonplayable scenery expands ownership."""
+    content = spatial['bounds']; bounds = spatial.get('terrainBounds', content)
+    for value in (content, bounds):
+        if not isinstance(value, dict) or any(isinstance(value.get(k), bool) or not isinstance(value.get(k), (int, float))
+                or not math.isfinite(value[k]) for k in ('minX', 'maxX', 'minZ', 'maxZ')):
+            raise ValueError('Invalid terrain sampling bounds')
+        if value['minX'] >= value['maxX'] or value['minZ'] >= value['maxZ']:
+            raise ValueError('Empty terrain sampling bounds')
+    if bounds['minX'] < content['minX'] or bounds['maxX'] > content['maxX'] or bounds['minZ'] < content['minZ'] or bounds['maxZ'] > content['maxZ']:
+        raise ValueError('Terrain sampling escapes content ownership')
+    if any(not bounds['minX'] <= p['x'] <= bounds['maxX'] or not bounds['minZ'] <= p['z'] <= bounds['maxZ'] for p in spatial.get('playableOutline', [])):
+        raise ValueError('Playable outline escapes terrain sampling')
+    return bounds
+
+
 class Surface:
     def __init__(self, source, mesh):
         if source['id'] not in ZONES or mesh['zoneId'] != source['id']:
             raise ValueError('Surface must use its admitted regional identity')
-        self.bounds = source['spatial']['bounds']; self.grid = source['spatial']['terrainGrid']
+        self.bounds = terrain_sampling_bounds(source['spatial']); self.grid = source['spatial']['terrainGrid']
         self.nx, self.nz = self.grid['segmentsX'], self.grid['segmentsZ']
         self.heights = [None] * ((self.nx+1)*(self.nz+1))
         b = self.bounds
@@ -28,7 +44,7 @@ class Surface:
     def height_cm(self, x, z):
         b = self.bounds
         if not all(math.isfinite(v) for v in (x, z)) or not b['minX'] <= x <= b['maxX'] or not b['minZ'] <= z <= b['maxZ']:
-            raise ValueError('Ground sample escapes its content envelope')
+            raise ValueError('Ground sample escapes its terrain sampling extent')
         fx = (x-b['minX'])/(b['maxX']-b['minX'])*self.nx; fz = (z-b['minZ'])/(b['maxZ']-b['minZ'])*self.nz
         ix, iz = min(self.nx-1, math.floor(fx)), min(self.nz-1, math.floor(fz)); tx, tz = fx-ix, fz-iz
         at = lambda dx,dz:self.heights[(iz+dz)*(self.nx+1)+ix+dx]

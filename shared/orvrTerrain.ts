@@ -1,4 +1,4 @@
-import { resolveZoneSpatial, type ZoneSpatial } from './worldSpatial';
+import { resolveZoneSpatial, terrainSamplingBounds, type ZoneSpatial } from './worldSpatial';
 import { terrainFieldHeight, validateTerrainField, type TerrainField } from './terrainField';
 export interface TerrainPoint { x: number; z: number; y?: number }
 
@@ -101,7 +101,7 @@ export function createOrvrGridHeightSampler(terrain: OrvrTerrainControls, size: 
   if (terrain.naturalField) validateTerrainField(terrain.naturalField);
   if (!spatial && (!Number.isFinite(size) || size <= 0 || !Number.isInteger(segments) || segments < 1)) return () => 0;
   const grid = resolveZoneSpatial({ size, segments, spatial });
-  const { bounds: b, terrainGrid: g } = grid;
+  const b = terrainSamplingBounds(grid), g = grid.terrainGrid;
   const vertices = new Map<number, number>();
   const at = (gx: number, gz: number): number => {
     const index = gz * (g.segmentsX + 1) + gx;
@@ -117,7 +117,7 @@ export function createOrvrGridHeightSampler(terrain: OrvrTerrainControls, size: 
 
 function gridHeightAt(spatial: ZoneSpatial, x: number, z: number, at: (gx: number, gz: number) => number, triangles: boolean): number {
   if (!Number.isFinite(x) || !Number.isFinite(z)) return 0;
-  const b = spatial.bounds, g = spatial.terrainGrid;
+  const b = terrainSamplingBounds(spatial), g = spatial.terrainGrid;
   const u = (x - b.minX) / (b.maxX - b.minX);
   const v = (z - b.minZ) / (b.maxZ - b.minZ);
   if (u < 0 || u > 1 || v < 0 || v > 1) return 0;
