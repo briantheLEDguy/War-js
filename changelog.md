@@ -2439,3 +2439,5 @@ remain unbuilt. Shared sampler parity is not a live Node playtest.
 - Verify a private six-view native grass comparison with 7246 instances. Prototype scarps retain explicit gentle walking counters and pass source/native ground checks; isolated conical peaks were rejected. These studies remain unintegrated; current saved scenes and all outstanding acceptance gates remain retained.
 
 - Added an opt-in native meadow adapter with exact staged mesh/LOD/material verification, occupied-identity protection, native species limits, nonblocking collision/culling checks and rollback tests. Its unsaved six-view native proof retains saved maps and 13 owner documents; performance, persistence and appearance remain unapproved.
+
+- Added opt-in immutable terrain-anchor revisions with rigid keep/prop translations, retained grid/seam/foundation guards and terrain-supported reciprocal landings. Focused tests and an isolated 32-map source alignment pass; saved candidates and active sources remain retained, with native/gameplay/appearance acceptance open.

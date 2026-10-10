@@ -2091,3 +2091,33 @@ outstanding native/platform/Steam gates. No C++ changed; no fresh native module
 build or C++ automation result is claimed for this pass.
 
 The meadow adapter also rejects unrelated loaded worlds before reading assets or spawning actors, even when a caller supplies a fresh output folder. The guarded native rerun verifies the isolated Sunmeadow map binding; 174 Python tests in 44 files pass.
+
+
+## Explicit landform anchor revisions (10 October 2026)
+
+`t1-terrain-anchor-revision.ts` provides a separate, opt-in revision operation for
+already authored absolute first-pair terrain. It clones the original source,
+retains sampling bounds/grid and verifies all boundary vertices against the
+retained distant seam. Foundations and existing ground-corridor identities must
+remain present. Keeps and their fitted absolute props move rigidly; qualified
+native frames can retain exact prop datums. Staging camps, objective aliases,
+spawn/trigger/arrival heights, absolute scenery and absolute population follow
+the revised ground, while relative offsets and gameplay rules remain retained.
+Ground-relative population/services still require fresh native alignment proof.
+The reciprocal-arrival helper refreshes incoming landings from a unique connected,
+terrain-supported reciprocal without changing the campaign graph.
+
+All 1197 repository tests in 191 files and 566 Unreal tooling tests in 108 files
+pass, including four focused anchor-revision tests. All three typechecks, migration
+audit, world and model validation pass. The unchanged Python modules retain their
+174-test/44-file verified checkpoint. Strict release still fails for outstanding
+native/platform/Steam gates. No C++ changed in this pass.
+
+An isolated private connected-spur source study
+aligns 90 qualified keep-prop frames and all 32 maps/70 directed portals, updating
+three incoming Sunmeadow landing records. It preserves exported terrain triangles
+byte for byte, retains zero boundary error and passes full-width source grades
+at 0.17895. Cinderfen source remains unchanged. No global source receipt or saved
+candidate is replaced; native population/complete-assembly, walking/driving,
+18v18, appearance, persistence/network, first-batch lairs, performance/platform,
+Steam and release acceptance remain outstanding.
