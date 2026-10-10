@@ -3,11 +3,25 @@ import math
 from pathlib import Path
 import sys
 import unittest
+import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts/unreal'))
-from t1_review import arrival_point, review_map, launch_arguments
+from t1_review import arrival_point, review_map, review_receipt_path, launch_arguments
 
 
 class ReviewTests(unittest.TestCase):
+    def test_independent_region_selection(self):
+        with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as temporary:
+            directory = Path(temporary)
+            baseline = directory/'review-latest.json'
+            baseline.write_text('retained first pair')
+            selected = directory/'review-sunmeadow_march-latest.json'
+            self.assertEqual(review_receipt_path(directory,'sunmeadow_march'),baseline)
+            selected.write_text('qualified new Sunmeadow')
+            self.assertEqual(review_receipt_path(directory,'sunmeadow_march'),selected)
+            self.assertEqual(review_receipt_path(directory,'cinderfen_outskirts'),baseline)
+            self.assertEqual(baseline.read_text(),'retained first pair')
+            with self.assertRaises(ValueError): review_receipt_path(directory,'../outside')
+
     def receipt(self):
         signature = 'abcdef123456'+'0'*52
         package = review_map(signature,'sunmeadow_march')

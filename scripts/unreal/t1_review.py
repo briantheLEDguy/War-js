@@ -12,6 +12,14 @@ def review_map(signature, zone):
     return '/Game/WorldRebuild/T1HumanReview_'+signature[:12]+'/'+zone+'/Walkthrough'
 
 
+def review_receipt_path(directory, zone):
+    """Select a region's qualified revision without replacing the other region."""
+    if zone not in ZONES:
+        raise ValueError('Review selection requires an admitted first-pair zone')
+    selected = directory/('review-'+zone+'-latest.json')
+    return selected if selected.is_file() else directory/'review-latest.json'
+
+
 def arrival_point(source):
     if source.get('id') not in ZONES:
         raise ValueError('Arrival must use the admitted first pair')

@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import subprocess
 import uuid
-from t1_review import launch_arguments, ZONES
+from t1_review import launch_arguments, review_receipt_path, ZONES
 
 ROOT = Path(__file__).resolve().parents[2]
 PROJECT = ROOT/'unreal/AegisWar'
@@ -19,7 +19,7 @@ def main():
     parser.add_argument('--zone',choices=ZONES,default='sunmeadow_march')
     parser.add_argument('--proof',action='store_true')
     args = parser.parse_args()
-    receipt = json.loads((DIRECTORY/'review-latest.json').read_text(encoding='utf-8-sig'))
+    receipt = json.loads(review_receipt_path(DIRECTORY,args.zone).read_text(encoding='utf-8-sig'))
     baseline = {PROJECT/'Content'/(p.removeprefix('/Game/')+'.umap'):h
                 for p,h in {**receipt['sourcePackageHashes'],**receipt['packageHashes']}.items()}
     baseline.update({ROOT/p:h for p,h in receipt['sourceFileHashes'].items()})

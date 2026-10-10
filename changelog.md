@@ -1,3 +1,24 @@
+## 2026-10-10 - Main-checkout Sunmeadow terrain and house repair
+
+- Integrate the T1 source branch with the preserved character checkpoint in the
+  main checkout on a dedicated integration branch.
+- Add tested continuous valley terrain, smooth regional boundaries, independent
+  foundation levels, mesh normals and complete rotated assembly placement.
+- Build private native winding streets with measured terrain grades below 12%,
+  relocate twenty complete building assemblies and retain their original uses.
+- Close modular eave joints with intact licensed stone courses, preserving the
+  original material sections and UV channels. Replace five incomplete imported
+  shells with intact modular housing and reposition their lamps and room bounds.
+  Preserve complete source UV channels and add floor-aligned sills and stone steps.
+- Select qualified review receipts per zone while preserving the earlier
+  other-region walkthrough and accepted capital startup settings.
+- Blend road edges under the same opaque ground lighting and add a height-aware
+  stochastic grass transition at mountain feet. Preserve accepted capitals,
+  existing private scenes, character drafts and runtime binaries.
+- Retain unaccepted appearance, full-zone content, driving, 18v18, online authority,
+  persistence, platform, Steam and release gates; native screenshots are review
+  evidence rather than visual approval.
+
 ## 2026-10-10 - Class character anatomy and rig authoring
 
 - Add a local 24-class, male/female body workflow using retained MPFB sources,

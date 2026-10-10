@@ -1553,3 +1553,17 @@ roof and window atlases retain source coordinates. Saved native copies pass
 strict town collision checks after reload. Appearance, ordinary launch/GM,
 authority, driving and the existing release gates remain open; see
 `docs/t1-redesign.md` for exact candidate and walking evidence.
+
+
+Sunmeadow terrain-led authoring uses `scripts/unreal/t1_town_ground.py` for a
+continuous valley/court field, smoothly bounded regional blending, independently
+fitted lot pads, upward mesh normals and complete native assembly transforms.
+The main checkout integrates the T1 and character source checkpoints on
+`codex/t1-native-town-integration`. Native packages and licensed kit derivatives
+remain private. Qualified private receipts live under
+`artifacts/unreal/t1-redesign/terrain-led-native-latest.json` and
+`terrain-led-review-latest.json`. The hash-checked review launcher selects
+`review-<zone>-latest.json` when present and otherwise retains the earlier
+first-pair receipt, so selecting Sunmeadow preserves the Cinderfen walkthrough.
+Use the launcher after the selected revision passes its entry/recovery proof. This is a local Windows inspection build; online authority,
+full-zone acceptance and release readiness remain separate gates.

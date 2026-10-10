@@ -1530,3 +1530,28 @@ accepts that run only: initial wrapper `3300c329d04d` failed the grounded-entry
 check, and the difference remains unexplained. Cold-entry reproducibility is
 still open. The qualified walkthrough is launched for owner inspection, while
 all household walking, appearance and full-zone gates above remain unchanged.
+
+
+For the owner-authorized main-checkout Sunmeadow pass, use the private
+terrain-led-native-latest.json and terrain-led-review-latest.json receipt chain.
+t1_town_ground.py supplies pure landforms, independent foundations, mesh normals
+and complete rigid assembly transforms. Tests cover court/regional continuity,
+independent pad levels and preserved local offsets/bindings. Preserve original
+material-slot order and all UV channels when repairing modular joints; intact
+licensed cap actors avoid collapsing duplicate sections. Inspect the clean
+saved-material reload and ordinary character-entry/GM recovery proof before
+launching the main-checkout review. Capitals and character drafts remain intact.
+This local inspection selection does not certify online campaign authority or
+any outstanding full-zone and release gates.
+
+The subsequent v5 floor-aligned sill attempt still stalled under real walking.
+Close-up captures also exposed UV-channel loss on five merged replacement roofs.
+Native v6 supersedes those merged shells with intact licensed modular wall,
+roof, cap and floor actors; the original UV channels and material sections remain
+on the source meshes. Source stone steps provide shallow, supported thresholds.
+All five new door routes pass normal walking in and out. The earlier failed
+receipts and source packages remain intact; no failed route is silently skipped.
+The main launcher selects qualified review-<zone>-latest.json when available,
+falling back to the retained first-pair receipt for the other zone. A focused
+regression verifies new Sunmeadow selection retains the earlier Cinderfen receipt and
+rejects path escapes. It changes no capital or Shipping/network GM settings.

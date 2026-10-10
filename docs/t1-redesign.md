@@ -2776,3 +2776,73 @@ migration audit and world/model validation. Strict release correctly exits 1
 with readiness false. All 9281 original private packages, thirteen owner
 documents and both frozen candidate packages remain byte-identical. No native
 asset rebuild, C++ build, new Foundation run or appearance acceptance is claimed.
+
+
+### Main-checkout Sunmeadow native integration, 2026-10-10
+
+The owner authorized native integration, house-gap repair, natural blending and
+an inspection launch. Character checkpoint 10be67c9 and T1 checkpoint 45c73ef5
+are merged as fc8d888f on codex/t1-native-town-integration. Character drafts
+remain inactive and intact; all native and licensed packages remain private.
+
+The private terrain-led recipe retains the regional rectangular terrain grid.
+A shallow valley, asymmetric knolls and hollows replace the shared flat village
+platform. Twenty complete building assemblies move to independent lot levels
+spanning about 10.94m. Foundation feathers preserve the entire road corridor;
+the five streets measure 7.7-10.5 percent maximum surface grades, including
+both edges, on native-bound triangles. The regional outer boundary remains
+unchanged. Generated foliage is fitted to the new ground, with explicit removals
+for new road and lot clearance inside the cloned candidate.
+
+Intact licensed stone courses close modular eaves, retaining original material
+sections and UV channels. Five unqualified imported shells are replaced with
+fitted 9m modular housing around existing furnishings, with fitted lamps and
+interior bounds. A rejected composite attempt collapsed duplicate material
+slots; its diagnostic captures remain recorded. Original mesh actors supersede
+that attempt. Zero-area inherited road corners are reconciled before import.
+
+Road overlays share the opaque ground graph at zero alpha, with soft edges and
+source-derived stochastic soil detail. A sampled contact-height field blends
+mountain feet from shared regional grass into licensed geology over roughly
+sixteen vertical metres. The accepted native v4 reload has zero shader errors
+or warnings, complete saved binding checks and fourteen actual player-height
+day/night captures. This verifies an inspection candidate, not visual approval.
+
+Private receipts: terrain-led-native-latest.json and
+terrain-led-review-latest.json under artifacts/unreal/t1-redesign. Ordinary
+character entry, authorized GM flight and recovery from below the terrain pass
+on the exact safe walkthrough. Configured physical walking has its own receipt;
+source and capsule checks alone do not establish walking or driving acceptance.
+Capitals, earlier private packages, thirteen owner documents and runtime binaries
+remain hash protected. Full-zone appearance/content, services/quests/resources,
+full lairs, driving, 18v18, network authority, persistence, audio, platform,
+Steam and release gates remain open.
+
+The subsequent v5 floor-aligned sill attempt still stalled under real walking.
+Close-up captures also exposed UV-channel loss on five merged replacement roofs.
+Native v6 supersedes those merged shells with intact licensed modular wall,
+roof, cap and floor actors; the original UV channels and material sections remain
+on the source meshes. Source stone steps provide shallow, supported thresholds.
+All five new door routes pass normal walking in and out. The earlier failed
+receipts and source packages remain intact; no failed route is silently skipped.
+The main launcher selects qualified review-<zone>-latest.json when available,
+falling back to the retained first-pair receipt for the other zone. A focused
+regression verifies new Sunmeadow selection retains the earlier Cinderfen receipt and
+rejects path escapes. It changes no capital or Shipping/network GM settings.
+
+Final v6 normal-walking receipt verifies all 14 configured routes, approximately
+802.23m, on native signature 1b319a66bd41986f6f575a749e6b8723ecd0f3ceb3ec50c0565c5e7a5a1c9a12.
+It uses the normal visible character, 42x96cm capsule, 45cm step height and
+600cm/s speed, with no jumps or in-route teleports. The merged checkpoint passed
+1228 repository tests and 597 Unreal tests. After the per-zone launcher change,
+the focused two-test Vitest suite (nine Python checks) and all three typechecks
+passed again. Migration audit and world/model validation pass. Strict release
+remains correctly blocked; this pass does not establish final terrain/art,
+complete exploration, vehicles, 18v18, online authority or platform acceptance.
+
+Final safe wrapper e25dacc8429c passes ordinary entry and GM recovery in run
+0fa3305090624136ba5a8586e276ddcd. The per-zone Sunmeadow selection points to
+that exact revision. The retained earlier Cinderfen receipt is not requalified
+by this work: its old DLL and landscape-walk helper hashes already differ from
+the merged checkpoint, so its hash guard correctly refuses a stale launch.
+No Cinderfen scene or source receipt was overwritten.
